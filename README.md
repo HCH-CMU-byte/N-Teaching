@@ -1,2 +1,2 @@
-# NCS-Teaching
-神經科 NCS 神經傳導判讀教學
+# Neurology Self-learning and recording
+神經科 AI 輔助複習與整理
