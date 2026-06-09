@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCS 神經傳導判讀教學｜住院醫師版</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#1c2128;
+  --border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.14);
+  --text:#e6edf3;--text2:#8b949e;--text3:#6e7681;
+  --blue:#58a6ff;--blue-bg:rgba(88,166,255,.1);--blue-bd:rgba(88,166,255,.3);
+  --teal:#39d353;--teal-bg:rgba(57,211,83,.08);--teal-bd:rgba(57,211,83,.25);
+  --amber:#e3b341;--amber-bg:rgba(227,179,65,.1);--amber-bd:rgba(227,179,65,.3);
+  --red:#f85149;--red-bg:rgba(248,81,73,.08);--red-bd:rgba(248,81,73,.25);
+  --purple:#bc8cff;--purple-bg:rgba(188,140,255,.08);
+  --serif:'Noto Serif TC',serif;--sans:'Noto Sans TC',sans-serif;--mono:'JetBrains Mono',monospace;
+  --r:10px;--rs:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7;min-height:100vh}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--serif);font-size:16px;color:var(--blue);font-weight:700;text-decoration:none}
+.nav-logo span{color:var(--text2);font-weight:400}
+.nav-links{display:flex;gap:2px}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:13px;padding:5px 10px;border-radius:var(--rs);transition:.15s}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.nav-links a.active{color:var(--blue);background:var(--blue-bg)}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:8px}
+.hamburger span{width:22px;height:1.5px;background:var(--text2);display:block;transition:.2s}
+
+/* HERO */
+.hero{padding:76px 2rem 56px;max-width:1140px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--blue-bg);border:1px solid var(--blue-bd);color:var(--blue);font-size:12px;padding:4px 14px;border-radius:20px;margin-bottom:22px;font-weight:500}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--blue);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero-title{font-family:var(--serif);font-size:clamp(28px,5vw,46px);font-weight:700;line-height:1.22;margin-bottom:16px}
+.hero-title em{font-style:normal;color:var(--blue)}
+.hero-sub{font-size:15px;color:var(--text2);max-width:540px;line-height:1.75;margin-bottom:34px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:var(--r);font-size:14px;font-weight:500;cursor:pointer;transition:.15s;text-decoration:none;border:none;font-family:var(--sans);line-height:1}
+.btn-primary{background:var(--blue);color:#0d1117}
+.btn-primary:hover{background:#79b8ff}
+.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border2)}
+.btn-ghost:hover{color:var(--text);border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04)}
+.btn-sm{padding:7px 14px;font-size:13px}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:44px;padding-top:32px;border-top:1px solid var(--border)}
+.stat-num{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--text);line-height:1}
+.stat-label{font-size:12px;color:var(--text3);margin-top:4px}
+
+/* LAYOUT */
+.section{padding:60px 2rem;max-width:1140px;margin:0 auto}
+.section-header{margin-bottom:36px}
+.eyebrow{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.section-title{font-family:var(--serif);font-size:clamp(22px,3.5vw,30px);font-weight:700;line-height:1.28}
+.section-title span{color:var(--blue)}
+.section-desc{font-size:14px;color:var(--text2);margin-top:10px;max-width:580px;line-height:1.7}
+hr.div{border:none;border-top:1px solid var(--border)}
+
+/* CALLOUTS */
+.callout{border-radius:var(--rs);padding:12px 14px;font-size:13px;line-height:1.65;border-left:3px solid;margin-top:12px}
+.c-warn{background:var(--amber-bg);border-color:var(--amber);color:#d9a520}
+.c-info{background:var(--blue-bg);border-color:var(--blue);color:#79b8ff}
+.c-ok{background:var(--teal-bg);border-color:var(--teal);color:#56d364}
+.c-red{background:var(--red-bg);border-color:var(--red);color:#f47068}
+
+/* TAGS */
+.tag{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;font-weight:600;border:1px solid}
+.t-red{background:var(--red-bg);color:var(--red);border-color:var(--red-bd)}
+.t-blue{background:var(--blue-bg);color:var(--blue);border-color:var(--blue-bd)}
+.t-teal{background:var(--teal-bg);color:var(--teal);border-color:var(--teal-bd)}
+.t-amber{background:var(--amber-bg);color:var(--amber);border-color:var(--amber-bd)}
+.t-purple{background:var(--purple-bg);color:var(--purple);border-color:rgba(188,140,255,.3)}
+
+/* ── SECTION 1: FOUR STEPS ── */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.step-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:22px;cursor:pointer;transition:border-color .2s,background .2s;position:relative;overflow:hidden}
+.step-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--acc,var(--blue));transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.step-card:hover::after,.step-card.open::after{transform:scaleX(1)}
+.step-card:hover,.step-card.open{border-color:var(--acc,var(--blue));background:var(--bg3)}
+.step-num{font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:10px;letter-spacing:.06em;font-weight:600}
+.step-icon{font-size:26px;margin-bottom:10px}
+.step-card h3{font-size:16px;font-weight:700;font-family:var(--serif);margin-bottom:6px}
+.step-card>p{font-size:13px;color:var(--text2);line-height:1.6}
+.step-body{max-height:0;overflow:hidden;transition:max-height .38s ease}
+.step-body.open{max-height:700px}
+.step-body-inner{margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.kv{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;gap:12px}
+.kv:last-of-type{border:none}
+.kv-k{color:var(--text2);flex-shrink:0}
+.kv-v{font-family:var(--mono);font-size:12px;font-weight:600;text-align:right}
+.step-card .chevron{position:absolute;top:20px;right:18px;font-size:12px;color:var(--text3);transition:transform .25s}
+.step-card.open .chevron{transform:rotate(180deg)}
+
+/* ── SECTION 2: COMPARE ── */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ccard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.ccard-head{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.ccard-head h3{font-size:15px;font-weight:700;font-family:var(--serif)}
+.cdot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.crow{display:flex;justify-content:space-between;align-items:center;padding:9px 20px;border-bottom:1px solid var(--border);font-size:13px;gap:10px}
+.crow:last-child{border:none}
+.crow-k{color:var(--text2);flex-shrink:0}
+
+/* ── SECTION 3: NORMAL VALUES ── */
+.nv-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.nv-tab{padding:5px 16px;border-radius:20px;font-size:13px;border:1px solid var(--border);cursor:pointer;background:transparent;color:var(--text2);font-family:var(--sans);transition:.15s}
+.nv-tab.on{background:var(--blue-bg);border-color:var(--blue-bd);color:var(--blue);font-weight:500}
+.nv-panel{display:none}.nv-panel.on{display:block}
+.nv-table-wrap{overflow-x:auto}
+table.nv{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
+table.nv th{background:var(--bg3);color:var(--text3);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border2);white-space:nowrap}
+table.nv td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:middle}
+table.nv tr:last-child td{border:none}
+table.nv tr:hover td{background:rgba(255,255,255,.02)}
+.mono{font-family:var(--mono);font-size:12px;font-weight:600}
+.note-cell{font-size:12px;color:var(--text2)}
+
+/* ── SECTION 4: SIMULATOR ── */
+.sim-top{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.sim-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.sim-card h4{font-size:11px;font-weight:700;color:var(--text3);margin-bottom:14px;text-transform:uppercase;letter-spacing:.06em}
+.presets{display:flex;gap:6px;flex-wrap:wrap}
+.pbtn{padding:5px 12px;border-radius:20px;font-size:12px;border:1px solid var(--border2);cursor:pointer;background:transparent;color:var(--text2);font-family:var(--sans);transition:.15s}
+.pbtn.on{background:var(--blue-bg);border-color:var(--blue-bd);color:var(--blue);font-weight:500}
+.sl-row{display:flex;align-items:center;gap:10px;margin-top:10px}
+.sl-row label{font-size:12px;color:var(--text2);min-width:86px;flex-shrink:0}
+.sl-row input[type=range]{flex:1;accent-color:var(--blue)}
+.sl-val{font-family:var(--mono);font-size:12px;font-weight:600;min-width:52px;text-align:right;color:var(--text)}
+.wave-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.wave-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px}
+.wave-box h4{font-size:12px;color:var(--text3);margin-bottom:10px;font-weight:500}
+canvas.wv{width:100%;display:block;border-radius:4px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.met{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px}
+.met .ml{font-size:11px;color:var(--text3);margin-bottom:3px}
+.met .mv{font-family:var(--mono);font-size:19px;font-weight:600;line-height:1}
+.mv-ok{color:var(--teal)}.mv-warn{color:var(--amber)}.mv-bad{color:var(--red)}
+.interp{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:16px;font-size:14px;line-height:1.75;min-height:58px}
+
+/* ── SECTION 5: PATTERNS ── */
+.pat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.pat-card{background:var(--bg2);border:1px solid var(--border);border-top:3px solid var(--acc,var(--border));border-radius:var(--r);padding:22px}
+.pat-card h3{font-family:var(--serif);font-size:15px;font-weight:700;margin-bottom:12px;line-height:1.4}
+.pat-card ul{font-size:13px;color:var(--text2);line-height:1.85;padding-left:1.2rem}
+.pat-card ul li{margin-bottom:2px}
+.hl{color:var(--text);font-weight:600}
+
+/* ── SECTION 6: QUIZ ── */
+.qprog-bg{height:3px;background:var(--bg3);border-radius:2px;margin-bottom:28px}
+.qprog-fill{height:3px;background:var(--blue);border-radius:2px;transition:width .4s ease}
+.quiz-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:28px}
+.quiz-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.quiz-label-txt{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.04em}
+.quiz-counter{font-family:var(--mono);font-size:12px;color:var(--text3)}
+.vignette{background:var(--bg3);border-radius:var(--rs);padding:14px 16px;font-size:13px;line-height:1.8;margin-bottom:16px;border-left:3px solid var(--border2);color:var(--text)}
+.ncs-tbl-wrap{overflow-x:auto;margin-bottom:18px}
+table.qtbl{width:100%;border-collapse:collapse;font-size:12px;min-width:400px}
+table.qtbl th{background:var(--bg3);color:var(--text3);padding:8px 10px;text-align:left;font-size:11px;letter-spacing:.05em;font-weight:700;border-bottom:1px solid var(--border2)}
+table.qtbl td{padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+table.qtbl tr:last-child td{border:none}
+.abn{color:var(--red);font-weight:700;font-family:var(--mono);font-size:11px}
+.q-txt{font-size:15px;font-weight:700;font-family:var(--serif);margin-bottom:14px;line-height:1.5;color:var(--text)}
+.opts-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.opt{padding:12px 16px;border-radius:var(--rs);border:1px solid var(--border2);cursor:pointer;font-size:13px;text-align:left;color:var(--text2);transition:.15s;background:var(--bg3);font-family:var(--sans);line-height:1.5}
+.opt:hover:not([disabled]){border-color:var(--blue);color:var(--text);background:var(--blue-bg)}
+.opt.sel{border-color:var(--blue);color:var(--blue);background:var(--blue-bg)}
+.opt.correct{border-color:var(--teal);color:var(--teal);background:var(--teal-bg)}
+.opt.wrong{border-color:var(--red);color:var(--red);background:var(--red-bg)}
+.fb{border-radius:var(--rs);padding:12px 16px;font-size:13px;line-height:1.65;margin-bottom:12px;border:1px solid;display:none}
+.fb.show{display:block}
+.fb-ok{background:var(--teal-bg);border-color:var(--teal-bd);color:#56d364}
+.fb-ng{background:var(--red-bg);border-color:var(--red-bd);color:#f47068}
+.explain{background:var(--bg3);border-radius:var(--rs);padding:14px 16px;font-size:13px;line-height:1.8;display:none;color:var(--text2)}
+.explain.show{display:block}
+.q-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.score-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:40px 28px;text-align:center}
+.score-big{font-family:var(--mono);font-size:56px;font-weight:600;line-height:1;margin-bottom:4px}
+.score-rate{font-size:14px;color:var(--text2);margin-bottom:8px}
+.score-verdict{font-size:16px;font-weight:600;margin-bottom:26px}
+.score-list{text-align:left;border:1px solid var(--border);border-radius:var(--rs);overflow:hidden;margin-bottom:26px}
+.score-row{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid var(--border);font-size:13px;color:var(--text)}
+.score-row:last-child{border:none}
+.score-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* ── SECTION 7: HOW-TO ── */
+.guide{display:flex;flex-direction:column;gap:0}
+.g-step{display:grid;grid-template-columns:44px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid var(--border)}
+.g-step:last-child{border:none}
+.g-num{width:34px;height:34px;border-radius:50%;background:var(--blue-bg);border:1px solid var(--blue-bd);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--blue);flex-shrink:0;margin-top:4px}
+.g-body h3{font-size:15px;font-weight:700;font-family:var(--serif);margin-bottom:8px}
+.g-body p{font-size:13px;color:var(--text2);line-height:1.75;margin-bottom:10px}
+.g-body p:last-child{margin-bottom:0}
+.code-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);margin-top:10px;overflow:hidden}
+.code-head{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;border-bottom:1px solid var(--border);background:var(--bg2)}
+.code-lang{font-size:11px;color:var(--text3);font-family:var(--mono)}
+.code-copy{background:transparent;border:1px solid var(--border2);color:var(--text2);font-size:11px;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:var(--sans);transition:.15s}
+.code-copy:hover{color:var(--text);border-color:rgba(255,255,255,.3)}
+pre.code{padding:14px 16px;font-family:var(--mono);font-size:12px;color:var(--amber);line-height:1.7;overflow-x:auto;margin:0}
+pre.code .cm{color:var(--text3)}
+pre.code .ck{color:var(--blue)}
+pre.code .cs{color:var(--teal)}
+.file-tree{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);padding:14px 16px;font-family:var(--mono);font-size:12px;line-height:2;margin-top:10px;color:var(--text2)}
+.ft-dir{color:var(--blue)}.ft-file{color:var(--amber)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.chip{display:flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--rs);padding:6px 12px;font-size:12px;color:var(--text2)}
+.cdot{width:8px;height:8px;border-radius:50%}
+kbd{background:var(--bg3);border:1px solid var(--border2);padding:2px 7px;border-radius:4px;font-family:var(--mono);font-size:12px}
+
+/* SCROLL TOP */
+#st{position:fixed;bottom:24px;right:24px;width:40px;height:40px;background:var(--bg2);border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:.25s;font-size:16px;z-index:50;color:var(--text2)}
+#st.show{opacity:1}
+#st:hover{border-color:var(--blue);color:var(--blue)}
+
+/* FOOTER */
+footer{padding:40px 2rem;border-top:1px solid var(--border);text-align:center;color:var(--text3);font-size:12px;line-height:2;max-width:1140px;margin:0 auto}
+footer a{color:var(--blue);text-decoration:none}
+.footer-refs{margin-bottom:12px}
+.footer-refs p{margin-bottom:4px}
+
+/* RESPONSIVE */
+@media(max-width:720px){
+  .nav-links{display:none;flex-direction:column;position:absolute;top:56px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:6px 0;z-index:99}
+  .nav-links.open{display:flex}
+  .nav-links a{border-radius:0;padding:12px 24px}
+  .hamburger{display:flex}
+  .compare-grid,.sim-top,.wave-row,.opts-grid,.metrics{grid-template-columns:1fr}
+  .metrics{grid-template-columns:1fr 1fr}
+  .hero-stats{gap:20px}
+  .steps-grid{grid-template-columns:1fr}
+  .pat-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .opts-grid{grid-template-columns:1fr}
+  .metrics{grid-template-columns:1fr 1fr}
+  .hero{padding:52px 1.25rem 40px}
+  .section{padding:44px 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="tnav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero">NCS <span>判讀教學</span></a>
+    <div class="nav-links" id="nav-links">
+      <a href="#steps" onclick="nc()">四步驟</a>
+      <a href="#compare" onclick="nc()">軸突 vs 髓鞘</a>
+      <a href="#normals" onclick="nc()">正常值</a>
+      <a href="#simulator" onclick="nc()">波形模擬</a>
+      <a href="#patterns" onclick="nc()">疾病型態</a>
+      <a href="#quiz" onclick="nc()">練習題</a>
+      <a href="#howto" onclick="nc()">網站製作</a>
+    </div>
+    <div class="hamburger" id="hbg" onclick="th()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-badge">住院醫師電生理教學資源</div>
+  <h1 class="hero-title">神經傳導檢查<br><em>系統性判讀</em>完整指引</h1>
+  <p class="hero-sub">從肢溫確認到疾病診斷，以四步驟架構建立完整的 NCS 判讀邏輯。依據 AANEM 2024、Neurology Education 2025 及華盛頓大學周邊神經學資源編製。</p>
+  <div class="hero-actions">
+    <a href="#steps" class="btn btn-primary">開始學習 →</a>
+    <a href="#quiz" class="btn btn-ghost">直接做練習題</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">系統步驟</div></div>
+    <div class="stat"><div class="stat-num">9</div><div class="stat-label">臨床情境題</div></div>
+    <div class="stat"><div class="stat-num">10</div><div class="stat-label">疾病型態</div></div>
+    <div class="stat"><div class="stat-num">2024</div><div class="stat-label">最新 AANEM 標準</div></div>
+  </div>
+</section>
+<hr class="div">
+
+<!-- SECTION 1: FOUR STEPS -->
+<section id="steps" class="section">
+  <div class="section-header">
+    <div class="eyebrow">Framework</div>
+    <h2 class="section-title">四步驟<span>系統性判讀架構</span></h2>
+    <p class="section-desc">依序執行這四步驟，確保不遺漏任何關鍵異常。點選每張卡片展開詳細說明與數值標準。</p>
+  </div>
+  <div class="steps-grid">
+
+    <div class="step-card" style="--acc:var(--amber)" id="sc0" onclick="ts(0)">
+      <span class="chevron">▾</span>
+      <div class="step-num">STEP 01</div>
+      <div class="step-icon">🌡️</div>
+      <h3>確認肢溫</h3>
+      <p>排除最常見假陽性來源，是品管的第一道門關</p>
+      <div class="step-body" id="sb0">
+        <div class="step-body-inner">
+          <div class="kv"><span class="kv-k">上肢標準（手背）</span><span class="kv-v"><span class="tag t-amber">≥ 32°C</span></span></div>
+          <div class="kv"><span class="kv-k">下肢標準（足背）</span><span class="kv-v"><span class="tag t-amber">≥ 31°C</span></span></div>
+          <div class="kv"><span class="kv-k">每降 1°C 影響</span><span class="kv-v">NCV 假慢 ~2 m/s</span></div>
+          <div class="kv"><span class="kv-k">SNAP 振幅低溫時</span><span class="kv-v">假性偏高（誤判）</span></div>
+          <div class="callout c-warn" style="margin-top:10px">⚠️ 低溫可讓 NCV 假性下降至脫髓鞘數值，所有異常結果先問肢溫！</div>
+          <div class="callout c-info" style="margin-top:8px">💡 熱毛巾或暖袋加熱 10–15 分鐘後重測</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card" style="--acc:var(--red)" id="sc1" onclick="ts(1)">
+      <span class="chevron">▾</span>
+      <div class="step-num">STEP 02</div>
+      <div class="step-icon">📉</div>
+      <h3>評估振幅</h3>
+      <p>CMAP 與 SNAP 振幅反映可導電的有效軸突數目</p>
+      <div class="step-body" id="sb1">
+        <div class="step-body-inner">
+          <div class="kv"><span class="kv-k">CMAP（運動）意義</span><span class="kv-v">運動軸突存活數</span></div>
+          <div class="kv"><span class="kv-k">SNAP（感覺）意義</span><span class="kv-v">感覺軸突存活數</span></div>
+          <div class="kv"><span class="kv-k">振幅 ↓↓</span><span class="kv-v"><span class="tag t-red">軸突喪失</span></span></div>
+          <div class="kv"><span class="kv-k">近端 &lt; 遠端 20%</span><span class="kv-v"><span class="tag t-blue">傳導阻斷</span></span></div>
+          <div class="kv"><span class="kv-k">CMAP 時程增寬 &gt;15%</span><span class="kv-v"><span class="tag t-blue">Temporal dispersion</span></span></div>
+          <div class="callout c-warn" style="margin-top:10px">⚠️ 傳導阻斷定義：近端 CMAP 振幅或面積比遠端低 &gt;20%，且波形時程延長 &gt;15% → 脫髓鞘特徵</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card" style="--acc:var(--blue)" id="sc2" onclick="ts(2)">
+      <span class="chevron">▾</span>
+      <div class="step-num">STEP 03</div>
+      <div class="step-icon">🏃</div>
+      <h3>評估 NCV</h3>
+      <p>神經傳導速度：反映最快傳導纖維髓鞘完整性的核心指標</p>
+      <div class="step-body" id="sb2">
+        <div class="step-body-inner">
+          <div class="kv"><span class="kv-k">脫髓鞘閾值</span><span class="kv-v"><span class="tag t-red">&lt; 正常下限 75%</span></span></div>
+          <div class="kv"><span class="kv-k">正中神經（下限 49 m/s）</span><span class="kv-v">脫髓鞘 &lt; 37 m/s</span></div>
+          <div class="kv"><span class="kv-k">腓深神經（下限 40 m/s）</span><span class="kv-v">脫髓鞘 &lt; 30 m/s</span></div>
+          <div class="kv"><span class="kv-k">軸突喪失時 NCV</span><span class="kv-v">輕降，仍 ≥ 75% 下限</span></div>
+          <div class="callout c-ok" style="margin-top:10px">✅ 口訣：NCV &lt; 75% 下限 → 脫髓鞘｜NCV 輕降 + 振幅↓ → 軸突喪失</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card" style="--acc:var(--purple)" id="sc3" onclick="ts(3)">
+      <span class="chevron">▾</span>
+      <div class="step-num">STEP 04</div>
+      <div class="step-icon">⏱️</div>
+      <h3>評估 DL &amp; F 波</h3>
+      <p>遠端潛時評估局部節段；F 波評估近端至神經根</p>
+      <div class="step-body" id="sb3">
+        <div class="step-body-inner">
+          <div class="kv"><span class="kv-k">脫髓鞘閾值（DL）</span><span class="kv-v"><span class="tag t-red">&gt; 正常上限 130%</span></span></div>
+          <div class="kv"><span class="kv-k">正中神經（上限 4.4 ms）</span><span class="kv-v">脫髓鞘 &gt; 5.7 ms</span></div>
+          <div class="kv"><span class="kv-k">F 波消失 / 明顯延長</span><span class="kv-v">近端脫髓鞘（GBS 早期）</span></div>
+          <div class="kv"><span class="kv-k">H-reflex 延長或消失</span><span class="kv-v">S1 神經根或多發神經病</span></div>
+          <div class="callout c-warn" style="margin-top:10px">⚠️ 軸突喪失時 DL 僅輕延長，不達 &gt;130% 上限的脫髓鞘閾值</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="callout c-info" style="margin-top:16px">💡 <strong>整合判斷：</strong>完成四步驟後，最終電生理診斷應包含三個面向——<strong>病變性質</strong>（軸突 / 脫髓鞘 / 混合）+ <strong>分布範圍</strong>（對稱多發 / 長度依賴 / 局部單一神經）+ <strong>嚴重度</strong>（振幅比正常下限的百分比）</div>
+</section>
+<hr class="div">
+
+<!-- SECTION 2: COMPARE -->
+<section id="compare" class="section">
+  <div class="section-header">
+    <div class="eyebrow">Core Distinction</div>
+    <h2 class="section-title">軸突型 <span>vs</span> 脫髓鞘型</h2>
+    <p class="section-desc">NCS 判讀最核心的一步：區分病變性質後，才能縮小鑑別診斷範圍。</p>
+  </div>
+  <div class="compare-grid">
+    <div class="ccard" style="border-top:3px solid var(--red)">
+      <div class="ccard-head"><div class="cdot" style="background:var(--red)"></div><h3>軸突喪失型（Axonal Loss）</h3></div>
+      <div class="crow"><span class="crow-k">CMAP / SNAP 振幅</span><span class="tag t-red">明顯下降 ↓↓</span></div>
+      <div class="crow"><span class="crow-k">NCV</span><span style="font-size:13px;color:var(--text2)">輕降或正常（≥ 75% 下限）</span></div>
+      <div class="crow"><span class="crow-k">遠端潛時 DL</span><span style="font-size:13px;color:var(--text2)">輕延長（&lt; 130% 上限）</span></div>
+      <div class="crow"><span class="crow-k">傳導阻斷</span><span class="tag t-teal">無</span></div>
+      <div class="crow"><span class="crow-k">Temporal dispersion</span><span class="tag t-teal">無</span></div>
+      <div class="crow"><span class="crow-k">EMG 纖維顫動</span><span class="tag t-red">有（去神經支配）</span></div>
+      <div class="crow"><span class="crow-k">F 波</span><span style="font-size:12px;color:var(--text2)">輕延長或正常</span></div>
+      <div class="crow" style="align-items:flex-start"><span class="crow-k">代表疾病</span><span style="font-size:12px;color:var(--text2);text-align:right;line-height:1.6">糖尿病・化療毒性<br>尿毒症・酒精性・CMT2</span></div>
+    </div>
+    <div class="ccard" style="border-top:3px solid var(--blue)">
+      <div class="ccard-head"><div class="cdot" style="background:var(--blue)"></div><h3>脫髓鞘型（Demyelinating）</h3></div>
+      <div class="crow"><span class="crow-k">CMAP / SNAP 振幅</span><span style="font-size:13px;color:var(--text2)">正常或輕降（純脫髓鞘）</span></div>
+      <div class="crow"><span class="crow-k">NCV</span><span class="tag t-red">明顯下降（&lt; 75%）</span></div>
+      <div class="crow"><span class="crow-k">遠端潛時 DL</span><span class="tag t-red">明顯延長（&gt; 130%）</span></div>
+      <div class="crow"><span class="crow-k">傳導阻斷</span><span class="tag t-red">可能有</span></div>
+      <div class="crow"><span class="crow-k">Temporal dispersion</span><span class="tag t-red">可能有</span></div>
+      <div class="crow"><span class="crow-k">EMG 纖維顫動</span><span class="tag t-teal">純脫髓鞘時無</span></div>
+      <div class="crow"><span class="crow-k">F 波</span><span class="tag t-red">消失或明顯延長</span></div>
+      <div class="crow" style="align-items:flex-start"><span class="crow-k">代表疾病</span><span style="font-size:12px;color:var(--text2);text-align:right;line-height:1.6">GBS・CIDP・腕隧道症候群<br>尺神經肘管・CMT1</span></div>
+    </div>
+  </div>
+  <div class="callout c-warn" style="margin-top:16px">⚠️ <strong>混合型（Mixed）很常見！</strong>嚴重軸突喪失丟失快纖維，也會讓 NCV 輕度下降；判斷時以哪個異常更顯著為主，再整合 EMG 及病史。</div>
+</section>
+<hr class="div">
+
+<!-- SECTION 3: NORMAL VALUES -->
+<section id="normals" class="section">
+  <div class="section-header">
+    <div class="eyebrow">Reference Values</div>
+    <h2 class="section-title">正常值<span>速查表</span></h2>
+    <p class="section-desc">依據 AANEM NDTF，適用成人，肢溫達標前提下。各機構自建正常值優先使用。</p>
+  </div>
+  <div class="nv-tabs">
+    <button class="nv-tab on" onclick="snv('mo',this)">運動 Motor</button>
+    <button class="nv-tab" onclick="snv('se',this)">感覺 Sensory</button>
+    <button class="nv-tab" onclick="snv('la',this)">晚期反應 Late</button>
+  </div>
+
+  <div class="nv-panel on" id="nv-mo">
+    <div class="nv-table-wrap">
+    <table class="nv">
+      <thead><tr><th>神經</th><th>記錄肌肉</th><th>CMAP 振幅下限</th><th>NCV 下限</th><th>遠端潛時 DL 上限</th></tr></thead>
+      <tbody>
+        <tr><td>正中神經</td><td>拇短展肌（APB）</td><td class="mono">≥ 5 mV</td><td class="mono">≥ 49 m/s</td><td class="mono">≤ 4.4 ms</td></tr>
+        <tr><td>尺神經</td><td>小指展肌（ADM）</td><td class="mono">≥ 6 mV</td><td class="mono">≥ 49 m/s</td><td class="mono">≤ 3.3 ms</td></tr>
+        <tr><td>腓深神經</td><td>趾短伸肌（EDB）</td><td class="mono">≥ 2 mV</td><td class="mono">≥ 40 m/s</td><td class="mono">≤ 6.5 ms</td></tr>
+        <tr><td>脛後神經</td><td>拇短展肌（AHB）</td><td class="mono">≥ 4 mV</td><td class="mono">≥ 41 m/s</td><td class="mono">≤ 6.0 ms</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout c-info" style="margin-top:12px">💡 脫髓鞘計算範例：正中神經運動 NCV 下限 49 m/s × 75% = 37 m/s；DL 上限 4.4 ms × 130% = 5.7 ms</div>
+  </div>
+
+  <div class="nv-panel" id="nv-se">
+    <div class="nv-table-wrap">
+    <table class="nv">
+      <thead><tr><th>神經</th><th>SNAP 振幅下限</th><th>感覺 NCV 下限</th><th>潛時上限</th><th>臨床備注</th></tr></thead>
+      <tbody>
+        <tr><td>正中神經（中指）</td><td class="mono">≥ 20 µV</td><td class="mono">≥ 50 m/s</td><td class="mono">≤ 3.5 ms</td><td class="note-cell">腕隧道診斷重點</td></tr>
+        <tr><td>尺神經（小指）</td><td class="mono">≥ 17 µV</td><td class="mono">≥ 50 m/s</td><td class="mono">≤ 3.1 ms</td><td class="note-cell">肘管卡壓對照</td></tr>
+        <tr><td>橈淺神經</td><td class="mono">≥ 15 µV</td><td class="mono">≥ 50 m/s</td><td class="mono">≤ 2.9 ms</td><td class="note-cell">橈神經淺支卡壓</td></tr>
+        <tr><td>腓腸神經</td><td class="mono">≥ 6 µV</td><td class="mono">≥ 40 m/s</td><td class="mono">≤ 4.4 ms</td><td class="note-cell">糖尿病最早消失</td></tr>
+        <tr><td>腓淺感覺神經</td><td class="mono">≥ 6 µV</td><td class="mono">≥ 40 m/s</td><td class="mono">≤ 4.2 ms</td><td class="note-cell">腓骨頭以下卡壓</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout c-info" style="margin-top:12px">💡 腕隧道敏感指標：正中神經與尺神經感覺潛時差 &gt; 0.4 ms，即使 DL 未超過絕對上限</div>
+  </div>
+
+  <div class="nv-panel" id="nv-la">
+    <div class="nv-table-wrap">
+    <table class="nv">
+      <thead><tr><th>反應</th><th>評估區段</th><th>正常上限</th><th>臨床意義</th></tr></thead>
+      <tbody>
+        <tr><td>F-wave（正中神經）</td><td>近端運動神經</td><td class="mono">≤ 31 ms</td><td class="note-cell">GBS 早期、CIDP 近端脫髓鞘的敏感指標</td></tr>
+        <tr><td>F-wave（脛後神經）</td><td>下肢近端</td><td class="mono">≤ 56 ms</td><td class="note-cell">下肢 GBS / CIDP</td></tr>
+        <tr><td>H-reflex（腓腸肌）</td><td>S1 反射弧</td><td class="mono">≤ 34 ms</td><td class="note-cell">S1 神經根病、多發神經病早期</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout c-warn" style="margin-top:12px">⚠️ GBS 發病初期 1–2 週，NCS 常僅見 F 波消失或延長，其餘參數可接近正常，需 1–2 週後複查。</div>
+  </div>
+
+  <div class="callout c-info" style="margin-top:16px">💡 <strong>年齡與身高校正：</strong>老年人每 10 年 NCV 減慢約 1–2 m/s，振幅略下降。身高 &gt;175 cm 者下肢 NCV 可略低。女性正中神經 DL 可比男性略短。</div>
+</section>
+<hr class="div">
+
+<!-- SECTION 4: WAVEFORM SIMULATOR -->
+<section id="simulator" class="section">
+  <div class="section-header">
+    <div class="eyebrow">Interactive Tool</div>
+    <h2 class="section-title">CMAP 波形<span>互動模擬器</span></h2>
+    <p class="section-desc">選擇預設情境，或手動調整振幅、NCV、遠端潛時、近遠端比，即時觀察波形變化與自動判讀結果。</p>
+  </div>
+  <div class="sim-top">
+    <div class="sim-card">
+      <h4>預設臨床情境</h4>
+      <div class="presets">
+        <button class="pbtn on" id="pb-normal" onclick="sm('normal')">正常</button>
+        <button class="pbtn" id="pb-axonal" onclick="sm('axonal')">軸突喪失</button>
+        <button class="pbtn" id="pb-demyel" onclick="sm('demyel')">脫髓鞘</button>
+        <button class="pbtn" id="pb-block" onclick="sm('block')">傳導阻斷</button>
+        <button class="pbtn" id="pb-mixed" onclick="sm('mixed')">混合型</button>
+      </div>
+    </div>
+    <div class="sim-card">
+      <h4>手動調整參數</h4>
+      <div class="sl-row"><label>CMAP 振幅</label><input type="range" id="sa" min="5" max="100" value="100" oninput="su()"><span class="sl-val" id="la">10.0 mV</span></div>
+      <div class="sl-row"><label>NCV</label><input type="range" id="sn" min="20" max="65" value="56" oninput="su()"><span class="sl-val" id="ln">56 m/s</span></div>
+      <div class="sl-row"><label>遠端潛時</label><input type="range" id="sd" min="28" max="130" value="40" oninput="su()"><span class="sl-val" id="ld">4.0 ms</span></div>
+      <div class="sl-row"><label>近/遠振幅比</label><input type="range" id="sp" min="35" max="100" value="90" oninput="su()"><span class="sl-val" id="lp">90%</span></div>
+    </div>
+  </div>
+  <div class="wave-row">
+    <div class="wave-box"><h4>遠端刺激 CMAP</h4><canvas class="wv" id="wd" height="100"></canvas></div>
+    <div class="wave-box"><h4>近端刺激 CMAP（比較用）</h4><canvas class="wv" id="wp" height="100"></canvas></div>
+  </div>
+  <div class="metrics">
+    <div class="met"><div class="ml">CMAP 振幅</div><div class="mv" id="ma">10.0 mV</div></div>
+    <div class="met"><div class="ml">NCV</div><div class="mv" id="mn">56 m/s</div></div>
+    <div class="met"><div class="ml">遠端潛時</div><div class="mv" id="md">4.0 ms</div></div>
+    <div class="met"><div class="ml">近/遠振幅比</div><div class="mv" id="mp">90%</div></div>
+  </div>
+  <div class="interp" id="si"></div>
+</section>
+<hr class="div">
+
+<!-- SECTION 5: DISEASE PATTERNS -->
+<section id="patterns" class="section">
+  <div class="section-header">
+    <div class="eyebrow">Clinical Patterns</div>
+    <h2 class="section-title">十大<span>疾病 NCS 型態</span></h2>
+    <p class="section-desc">認識十種常見型態（含進階疾病），每種疾病都有其特徵性的 NCS 指紋，幫助快速對應診斷。</p>
+  </div>
+  <div class="pat-grid">
+
+    <div class="pat-card" style="--acc:var(--red)">
+      <h3><span class="tag t-red" style="margin-right:8px">軸突型</span>長度依賴型多發神經病</h3>
+      <ul>
+        <li>下肢比上肢先且重；遠端比近端先</li>
+        <li><span class="hl">腓腸神經 SNAP 消失</span>——最早出現的異常</li>
+        <li>CMAP / SNAP 振幅 ↓ 為主，NCV 輕降（未達脫髓鞘閾值 75%）</li>
+        <li>常見：<span class="hl">糖尿病（最常見）、化療毒性（紫杉醇、順鉑）、尿毒症、酒精性、維生素 B12 缺乏</span></li>
+      </ul>
+    </div>
+
+    <div class="pat-card" style="--acc:var(--blue)">
+      <h3><span class="tag t-blue" style="margin-right:8px">脫髓鞘型</span>GBS（AIDP）</h3>
+      <ul>
+        <li>急性發病（&lt;4 週）、對稱性上升性無力、反射消失</li>
+        <li>早期關鍵：<span class="hl">F 波消失或延長</span>（近端脫髓鞘），H-reflex 消失</li>
+        <li>多條神經 NCV ↓↓、DL ↑↑、可見傳導阻斷與 temporal dispersion</li>
+        <li>⚠️ 發病 1–2 週 NCS 可近乎正常，F 波異常是唯一早期線索！</li>
+        <li>CSF：蛋白↑、細胞數正常（蛋白細胞分離）</li>
+      </ul>
+    </div>
+
+    <div class="pat-card" style="--acc:var(--amber)">
+      <h3><span class="tag t-amber" style="margin-right:8px">局部卡壓</span>腕隧道症候群（CTS）</h3>
+      <ul>
+        <li>正中神經感覺 DL &gt;3.5 ms、運動 DL &gt;4.4 ms；尺神經完全正常</li>
+        <li><span class="hl">正中－尺神經感覺潛時差 &gt;0.4 ms</span>——早期敏感指標</li>
+        <li>嚴重時 APB 的 CMAP 振幅 ↓（繼發軸突喪失）</li>
+        <li>C6 鑑別：神經根病 → SNAP 應正常（節後纖維）、DL 應正常</li>
+      </ul>
+    </div>
+
+    <div class="pat-card" style="--acc:var(--amber)">
+      <h3><span class="tag t-amber" style="margin-right:8px">局部卡壓</span>尺神經肘管症候群</h3>
+      <ul>
+        <li>過肘段 NCV &lt;50 m/s，或比前臂段慢 &gt;10 m/s</li>
+        <li><span class="hl">肘上→肘下振幅下降 &gt;20%</span>（傳導阻斷）</li>
+        <li>尺神經感覺（小指）SNAP ↓ 或消失</li>
+        <li>Guyon 管鑑別：腕部 DL 延長，前臂段 NCV 正常</li>
+      </ul>
+    </div>
+
+    <div class="pat-card" style="--acc:var(--purple)">
+      <h3><span class="tag t-purple" style="margin-right:8px">脫髓鞘型</span>CIDP</h3>
+      <ul>
+        <li>病程 &gt;8 週（區別 GBS）；對 IVIG / 類固醇有反應</li>
+        <li>多條神經 NCV ↓↓、DL ↑↑、F 波明顯延長；常見傳導阻斷</li>
+        <li>CMT1 鑑別：遺傳性、對稱均勻、<span class="hl">無傳導阻斷</span></li>
+        <li>EAN/PNS 2023 診斷標準：需至少 1 條神經符合脫髓鞘電生理標準</li>
+      </ul>
+    </div>
+
+    <div class="pat-card" style="--acc:var(--teal)">
+      <h3><span class="tag t-teal" style="margin-right:8px">NCS 正常</span>別漏掉這些！</h3>
+      <ul>
+        <li><span class="hl">肌肉病變（Myopathy）</span>：NCS 正常，EMG → 短小多相 MUAPs</li>
+        <li><span class="hl">重症肌無力（MG）</span>：RNS 低頻 ↓ &gt;10%；SFEMG jitter 增加</li>
+        <li><span class="hl">LEMS</span>：低頻 RNS ↓、<span class="hl">高頻 RNS 或運動後振幅 ↑↑</span>（post-tetanic facilitation）；常伴肺癌</li>
+        <li><span class="hl">感覺神經節病（Ganglionopathy）</span>：SNAP 廣泛消失，但 EMG 無去神經</li>
+      </ul>
+    </div>
+
+
+    <div class="pat-card" style="--acc:var(--purple)">
+      <h3><span class="tag t-purple" style="margin-right:8px">混合 / 軸突型</span>澱粉樣變性神經病（Amyloid PN）</h3>
+      <ul>
+        <li><span class="hl">小纖維先受損</span>：痛覺、溫覺喪失，自律神經症狀（直立性低血壓、腹瀉）</li>
+        <li>早期 NCS 可接近正常（小纖維 NCS 無法偵測），需皮膚活切或 QST 確認</li>
+        <li>後期：遠端 SNAP 消失 → 運動 CMAP 振幅 ↓，NCV 輕降（軸突型）</li>
+        <li>遺傳型（hATTR）：<span class="hl">腕隧道症候群常是最初表現</span>，正中神經 DL 延長可為早期線索</li>
+        <li>鑑別：腕隧道 + 自律神經病變 + 玻璃體混濁 → 強烈懷疑 hATTR</li>
+        <li>⚠️ 單純 NCS 正常不能排除；確診需組織學澱粉樣蛋白染色（Congo red）</li>
+      </ul>
+    </div>
+
+    <div class="pat-card" style="--acc:var(--red)">
+      <h3><span class="tag t-red" style="margin-right:8px">近端卡壓</span>胸廓出口症候群（TOS）</h3>
+      <ul>
+        <li>分型：神經型（nTOS，最常見 &gt;95%）、靜脈型、動脈型</li>
+        <li><span class="hl">尺神經支配區（C8/T1）症狀</span>：手內在肌萎縮、小指麻木、無名指尺側麻木</li>
+        <li>NCS 典型異常：
+          <ul style="margin-top:4px;margin-left:1rem">
+            <li><span class="hl">尺神經 SNAP（小指）振幅 ↓ 或消失</span>（感覺纖維，節後）</li>
+            <li>尺神經及正中神經 CMAP 振幅可下降（運動纖維受累）</li>
+            <li>NCV 通常正常或輕降（非脫髓鞘）</li>
+            <li>F 波可輕度延長（近端傳導受阻）</li>
+          </ul>
+        </li>
+        <li>與 C8 神經根病鑑別：<span class="hl">TOS → 尺神經 SNAP 消失</span>；C8 神經根病 → SNAP 正常（節前）</li>
+        <li>Medial antebrachial cutaneous nerve（MABC）SNAP 消失：支持 TOS 的高特異性指標</li>
+        <li>⚠️ 輕度 nTOS 常 NCS 完全正常，需加做 EMG（第一背側骨間肌 FDI 去神經）</li>
+      </ul>
+    </div>
+
+    <div class="pat-card" style="--acc:var(--amber)">
+      <h3><span class="tag t-amber" style="margin-right:8px">雙重卡壓</span>Double Crush Syndrome（上肢）</h3>
+      <ul>
+        <li>概念：同一條神經在兩個或以上部位同時受壓，每個部位的損傷程度可因此加重（軸漿流阻斷的累加效應）</li>
+        <li><span class="hl">最典型組合</span>：C6/C7 神經根病 + 腕隧道症候群（正中神經）</li>
+        <li>NCS 典型組合異常：
+          <ul style="margin-top:4px;margin-left:1rem">
+            <li>正中神經：DL 延長（腕部卡壓）+ SNAP / CMAP 振幅偏低（節段性軸突喪失）</li>
+            <li>F 波延長或消失（近端神經根病）</li>
+            <li>EMG：受根神經支配肌群去神經化（確認近端病灶）</li>
+          </ul>
+        </li>
+        <li>判讀陷阱：<span class="hl">腕部 DL 延長比預期更嚴重</span>（兩個病灶加成），但近端 NCV 正常時不能排除近端卡壓</li>
+        <li>臨床線索：頸椎病變 + 腕部症狀；單純治療腕隧道後症狀改善不完全</li>
+        <li>也見於：腕隧道 + 尺神經肘管（尺神經 double crush）</li>
+      </ul>
+    </div>
+
+    <div class="pat-card" style="--acc:var(--amber)">
+      <h3><span class="tag t-amber" style="margin-right:8px">局部卡壓</span>跗骨隧道症候群（Tarsal Tunnel）</h3>
+      <ul>
+        <li>解剖：脛後神經在內踝後方跗骨隧道受壓，類比腕隧道症候群在下肢的對應</li>
+        <li>症狀：足底麻木、灼熱、夜間加重，可輻射至足趾（內側 &gt; 外側）；Tinel sign 陽性（叩擊內踝後方）</li>
+        <li>NCS 關鍵異常：
+          <ul style="margin-top:4px;margin-left:1rem">
+            <li><span class="hl">脛後神經運動 DL 延長（至 AHB）&gt;6.0 ms</span>（正常上限）</li>
+            <li>足底內側 / 外側感覺 SNAP ↓ 或消失（技術要求高，常假陰性）</li>
+            <li>足底神經感覺 NCV 不對稱（患側較健側慢 &gt;1.5 m/s 有意義）</li>
+          </ul>
+        </li>
+        <li>EMG 補強：拇短展肌（AHB）、小趾展肌（ADM）去神經化支持診斷</li>
+        <li>鑑別：<span class="hl">S1 神經根病</span>（H-reflex 延長，SNAP 正常）；<span class="hl">多發性神經病</span>（雙側對稱，不局限於足底）；足底筋膜炎（NCS 正常）</li>
+        <li>⚠️ NCS 假陰性率高（可達 50%）；臨床症狀 + 超音波 / MRI 常需配合診斷</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<hr class="div">
+
+<!-- SECTION 6: QUIZ -->
+<section id="quiz" class="section">
+  <div class="section-header">
+    <div class="eyebrow">Self Assessment</div>
+    <h2 class="section-title">臨床情境<span>判讀練習</span></h2>
+    <p class="section-desc">九道真實情境案例（含進階疾病），測驗你的 NCS 判讀能力，作答後顯示詳細解析。</p>
+  </div>
+  <div class="qprog-bg"><div class="qprog-fill" id="qpf" style="width:0%"></div></div>
+  <div id="qa"></div>
+  <div id="qs" style="display:none"></div>
+</section>
+<hr class="div">
+
+<!-- SECTION 7: HOW-TO -->
+<section id="howto" class="section">
+  <div class="section-header">
+    <div class="eyebrow">Web Development Guide</div>
+    <h2 class="section-title">教學網站<span>製作指南</span></h2>
+    <p class="section-desc">完全不需要程式背景，按照以下 8 個步驟，即可將這個網站部署到網路上，讓所有人都能免費存取。</p>
+  </div>
+
+  <div class="callout c-info" style="margin-bottom:28px">
+    💡 <strong>你需要準備什麼？</strong>一台電腦、一個 GitHub 帳號（免費）、約 15 分鐘。完成後網站將 24 小時在線，網址格式：<code style="font-family:var(--mono);font-size:12px">yourname.github.io/ncs-teaching</code>
+  </div>
+
+  <div class="guide">
+
+    <div class="g-step">
+      <div class="g-num">01</div>
+      <div class="g-body">
+        <h3>下載這個 HTML 檔案</h3>
+        <p>在瀏覽器按 <kbd>Ctrl + S</kbd>（Mac 用 <kbd>Cmd + S</kbd>），將頁面另存為 <code style="font-family:var(--mono);font-size:12px;color:var(--amber)">index.html</code>，儲存類型選「<strong>網頁，僅 HTML</strong>」。</p>
+        <div class="callout c-warn">⚠️ 檔名必須完全是 <code style="font-family:var(--mono);font-size:12px">index.html</code>（全小寫），這是網站首頁的標準入口檔名。</div>
+      </div>
+    </div>
+
+    <div class="g-step">
+      <div class="g-num">02</div>
+      <div class="g-body">
+        <h3>建立免費 GitHub 帳號</h3>
+        <p>前往 <a href="https://github.com" target="_blank">github.com</a> 點「Sign up」免費註冊。GitHub 是全球最大程式碼平台，提供免費靜態網站托管（GitHub Pages）。</p>
+        <div class="chips">
+          <div class="chip"><div class="cdot" style="background:var(--teal)"></div>完全免費，無需信用卡</div>
+          <div class="chip"><div class="cdot" style="background:var(--teal)"></div>已有帳號可跳至 Step 03</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="g-step">
+      <div class="g-num">03</div>
+      <div class="g-body">
+        <h3>建立新的 Repository（儲存庫）</h3>
+        <p>登入後，點右上角「+」→「New repository」，依照以下設定填寫：</p>
+        <div class="code-wrap">
+          <div class="code-head"><span class="code-lang">設定值</span><button class="code-copy" onclick="cc(this)">複製</button></div>
+          <pre class="code">Repository name:  ncs-teaching
+Description:      NCS 神經傳導判讀教學網站
+Visibility:       ● Public  ← 必須選 Public，Pages 才能免費啟用
+Initialize:       ✅ Add a README file  ← 記得勾選</pre>
+        </div>
+        <p style="margin-top:12px">填好後按「<strong>Create repository</strong>」（綠色按鈕）建立。</p>
+      </div>
+    </div>
+
+    <div class="g-step">
+      <div class="g-num">04</div>
+      <div class="g-body">
+        <h3>上傳 index.html</h3>
+        <p>進入剛建立的 repository，點「<strong>Add file</strong>」→「<strong>Upload files</strong>」，把 <code style="font-family:var(--mono);font-size:12px;color:var(--amber)">index.html</code> 拖曳進去，然後點「<strong>Commit changes</strong>」。</p>
+        <div class="file-tree">📁 ncs-teaching/
+├── <span class="ft-file">README.md</span>    ← GitHub 自動建立
+└── <span class="ft-file">index.html</span>   ← 你剛上傳的教學網站</div>
+      </div>
+    </div>
+
+    <div class="g-step">
+      <div class="g-num">05</div>
+      <div class="g-body">
+        <h3>開啟 GitHub Pages</h3>
+        <p>在 repository 頁面點上方「<strong>Settings</strong>」→ 左側選單「<strong>Pages</strong>」→ Source 選「<strong>Deploy from a branch</strong>」→ Branch 選「<strong>main</strong>」→ 資料夾選「<strong>/ (root)</strong>」→ 點「<strong>Save</strong>」。</p>
+        <div class="code-wrap">
+          <div class="code-head"><span class="code-lang">路徑</span></div>
+          <pre class="code">Settings → Pages → Source
+  Branch: main  /  (root)
+  [Save]
+
+等待 1–2 分鐘，頁面頂部出現：
+<span class="cs">✅ Your site is live at https://yourname.github.io/ncs-teaching/</span></pre>
+        </div>
+        <div class="callout c-ok" style="margin-top:10px">✅ 複製那個網址，就可以分享給所有同事了！</div>
+      </div>
+    </div>
+
+    <div class="g-step">
+      <div class="g-num">06</div>
+      <div class="g-body">
+        <h3>日後更新內容</h3>
+        <p>回到 repository → 點 <code style="font-family:var(--mono);font-size:12px;color:var(--amber)">index.html</code> → 右上角鉛筆圖示（Edit this file）→ 修改後 Commit changes。GitHub Pages 會在 2–3 分鐘內自動更新。</p>
+        <div class="chips">
+          <div class="chip"><div class="cdot" style="background:var(--teal)"></div>不需安裝任何軟體</div>
+          <div class="chip"><div class="cdot" style="background:var(--teal)"></div>HTTPS 加密自動啟用</div>
+          <div class="chip"><div class="cdot" style="background:var(--teal)"></div>更新後 2–3 分鐘生效</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="g-step">
+      <div class="g-num">07</div>
+      <div class="g-body">
+        <h3>如何修改網站內容</h3>
+        <p>整個網站是單一 HTML 檔。用 <a href="https://code.visualstudio.com" target="_blank">VS Code</a>（免費）開啟，幾個常見修改場景：</p>
+        <div class="code-wrap">
+          <div class="code-head"><span class="code-lang">HTML 修改範例</span><button class="code-copy" onclick="cc(this)">複製</button></div>
+          <pre class="code"><span class="cm">// 修改機構名稱或標題（搜尋這段）</span>
+&lt;div class="hero-badge"&gt;住院醫師電生理教學資源&lt;/div&gt;
+
+<span class="cm">// 修改正常值表格（找到 nv-mo 區塊）</span>
+&lt;td class="mono"&gt;≥ 5 mV&lt;/td&gt;  <span class="cm">← 改成你機構的數值</span>
+
+<span class="cm">// 新增疾病型態卡片（複製一個 pat-card）</span>
+&lt;div class="pat-card" style="--acc:var(--teal)"&gt;
+  &lt;h3&gt;&lt;span class="tag t-teal"&gt;你的分類&lt;/span&gt; 疾病名稱&lt;/h3&gt;
+  &lt;ul&gt;&lt;li&gt;特徵描述&lt;/li&gt;&lt;/ul&gt;
+&lt;/div&gt;</pre>
+        </div>
+        <div class="callout c-info" style="margin-top:10px">💡 不懂 HTML 也沒關係，把想修改的段落貼給 Claude，說明你要改什麼，Claude 會直接幫你改好再貼回去。</div>
+      </div>
+    </div>
+
+    <div class="g-step">
+      <div class="g-num">08</div>
+      <div class="g-body">
+        <h3>進階：自訂網域 &amp; 替代平台</h3>
+        <p>如果機構有網域（如 <code style="font-family:var(--mono);font-size:12px;color:var(--amber)">hospital.edu.tw</code>），可在 GitHub Pages「Custom domain」欄填入子網域，請 IT 部門設定 DNS CNAME 指向 <code style="font-family:var(--mono);font-size:12px">yourname.github.io</code>。</p>
+        <div class="chips">
+          <div class="chip"><div class="cdot" style="background:var(--blue)"></div><a href="https://www.netlify.com" target="_blank" style="color:var(--blue);text-decoration:none">Netlify</a> — 拖曳資料夾即部署</div>
+          <div class="chip"><div class="cdot" style="background:var(--blue)"></div><a href="https://vercel.com" target="_blank" style="color:var(--blue);text-decoration:none">Vercel</a> — 操作更直覺，適合新手</div>
+          <div class="chip"><div class="cdot" style="background:var(--amber)"></div>以上皆免費、有 HTTPS</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="div">
+<footer>
+  <div class="footer-refs">
+    <p>AANEM Normative Data Task Force (NDTF) 2016/2024</p>
+    <p>Zelikovich et al. <em>Neurology Education</em> 2025 (PMC12618188)</p>
+    <p>Bromberg MB. UW Neurology EMG Resources / Peripheral Neuropathies</p>
+    <p>EAN/PNS CIDP Diagnostic Guidelines 2023</p>
+    <p>Preston DC, Shapiro BE. <em>Electromyography and Neuromuscular Disorders</em>. 4th Ed. 2021</p>
+  </div>
+  <p style="color:var(--text3)">本資料僅供教學參考，臨床判斷以各機構正常值及主治醫師意見為準</p>
+</footer>
+
+<div id="st" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<script>
+/* NAV */
+function th(){document.getElementById('nav-links').classList.toggle('open')}
+function nc(){document.getElementById('nav-links').classList.remove('open')}
+window.addEventListener('scroll',()=>{
+  const s=document.getElementById('st');
+  window.scrollY>400?s.classList.add('show'):s.classList.remove('show');
+  document.querySelectorAll('#nav-links a').forEach(a=>{
+    const id=a.getAttribute('href').slice(1);
+    const el=document.getElementById(id);
+    if(!el)return;
+    const r=el.getBoundingClientRect();
+    a.classList.toggle('active',r.top<=70&&r.bottom>70);
+  });
+});
+
+/* FOUR STEPS */
+function ts(i){
+  const b=document.getElementById('sb'+i);
+  const c=document.getElementById('sc'+i);
+  const open=b.classList.contains('open');
+  b.classList.toggle('open',!open);
+  c.classList.toggle('open',!open);
+}
+
+/* NORMAL VALUE TABS */
+function snv(t,btn){
+  document.querySelectorAll('.nv-tab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  ['mo','se','la'].forEach(k=>document.getElementById('nv-'+k).classList.toggle('on',k===t));
+}
+
+/* SIMULATOR */
+const MODES={
+  normal:{a:100,n:56,d:40,p:90},
+  axonal:{a:28,n:52,d:44,p:88},
+  demyel:{a:82,n:31,d:82,p:76},
+  block:{a:82,n:52,d:42,p:38},
+  mixed:{a:32,n:37,d:67,p:65}
+};
+function sm(m){
+  document.querySelectorAll('.pbtn').forEach(b=>b.classList.remove('on'));
+  document.getElementById('pb-'+m).classList.add('on');
+  const v=MODES[m];
+  document.getElementById('sa').value=v.a;
+  document.getElementById('sn').value=v.n;
+  document.getElementById('sd').value=v.d;
+  document.getElementById('sp').value=v.p;
+  su();
+}
+function su(){
+  const a=+document.getElementById('sa').value;
+  const n=+document.getElementById('sn').value;
+  const d=+document.getElementById('sd').value;
+  const p=+document.getElementById('sp').value;
+  const aMv=(a/10).toFixed(1),dMs=(d/10).toFixed(1);
+  document.getElementById('la').textContent=aMv+' mV';
+  document.getElementById('ln').textContent=n+' m/s';
+  document.getElementById('ld').textContent=dMs+' ms';
+  document.getElementById('lp').textContent=p+'%';
+  document.getElementById('ma').textContent=aMv+' mV';
+  document.getElementById('mn').textContent=n+' m/s';
+  document.getElementById('md').textContent=dMs+' ms';
+  document.getElementById('mp').textContent=p+'%';
+  const AMP_MIN=5,NCV_MIN=49,DL_MAX=4.4;
+  const ncv75=NCV_MIN*0.75,dl130=DL_MAX*1.3;
+  const ampOk=a/10>=AMP_MIN,ncvOk=n>=NCV_MIN,dlOk=+dMs<=DL_MAX;
+  const isDm=n<ncv75||+dMs>dl130;
+  const isAx=a/10<AMP_MIN&&n>=ncv75&&+dMs<=dl130;
+  const isBk=p<80&&!isDm;
+  const isMx=a/10<AMP_MIN&&isDm;
+  document.getElementById('ma').className='mv '+(a/10>=AMP_MIN?'mv-ok':'mv-bad');
+  document.getElementById('mn').className='mv '+(n>=NCV_MIN?'mv-ok':n>=ncv75?'mv-warn':'mv-bad');
+  document.getElementById('md').className='mv '+(dlOk?'mv-ok':+dMs>dl130?'mv-bad':'mv-warn');
+  document.getElementById('mp').className='mv '+(p>=80?'mv-ok':p<60?'mv-bad':'mv-warn');
+  let badge='',txt='';
+  const T=(t,c)=>`<span class="tag ${c}" style="margin-right:8px">${t}</span>`;
+  if(ampOk&&ncvOk&&dlOk&&p>=80){
+    badge=T('正常','t-teal');
+    txt='所有參數均在正常範圍。NCS 無異常發現。';
+  } else if(isMx){
+    badge=T('混合型','t-amber');
+    txt='<strong>混合型（軸突 + 脫髓鞘）：</strong>振幅明顯下降（軸突喪失），同時 NCV 或 DL 達脫髓鞘閾值。常見於嚴重 CIDP 合併繼發軸突喪失，或長病程多發神經病。';
+  } else if(isBk){
+    badge=T('傳導阻斷','t-blue');
+    txt='<strong>傳導阻斷（Conduction Block）：</strong>近端 / 遠端振幅比 &lt;80%，但 NCV 無明顯下降。提示阻斷位置以上傳導中斷，是後天性脫髓鞘（如 GBS、CIDP、多灶性運動神經病 MMN）的重要特徵。';
+  } else if(isDm){
+    badge=T('脫髓鞘型','t-blue');
+    txt=`<strong>脫髓鞘型（Demyelinating）：</strong>NCV &lt;${ncv75.toFixed(0)} m/s（正常下限 75%）或 DL &gt;${dl130.toFixed(1)} ms（正常上限 130%）。振幅相對保留（純脫髓鞘尚未繼發軸突喪失）。常見：GBS、CIDP、腕隧道症候群、CMT1。`;
+  } else if(isAx){
+    badge=T('軸突喪失型','t-red');
+    txt='<strong>軸突喪失型（Axonal Loss）：</strong>CMAP 振幅明顯下降，NCV 僅輕微降低（丟失最快纖維），DL 輕延長但未達脫髓鞘閾值。EMG 應可見纖維顫動（去神經支配）。常見：糖尿病、化療毒性、尿毒症神經病變。';
+  } else {
+    badge=T('輕微異常','t-amber');
+    txt='部分參數輕微超出正常範圍，需結合臨床症狀、詳細 EMG 及病史綜合判讀。';
+  }
+  document.getElementById('si').innerHTML=badge+txt;
+  dw('wd',a,d,isDm,1);
+  dw('wp',a*p/100,d+8,isDm,p/100);
+}
+function dw(id,amp,dl,disp,r){
+  const cv=document.getElementById(id);
+  const W=cv.offsetWidth||500;
+  cv.width=W*2;cv.height=200;
+  const ctx=cv.getContext('2d');
+  ctx.scale(2,2);
+  const w=W,h=100;
+  ctx.clearRect(0,0,w,h);
+  const by=h*0.72;
+  ctx.strokeStyle='rgba(255,255,255,.07)';ctx.lineWidth=0.5;ctx.setLineDash([3,3]);
+  ctx.beginPath();ctx.moveTo(0,by);ctx.lineTo(w,by);ctx.stroke();
+  ctx.setLineDash([]);
+  const sx=16,px=sx+dl*3.2;
+  const pa=Math.min((amp/100)*80,74);
+  const pw=disp?pa*0.6+26:pa*0.35+14;
+  const ex=px+pw*1.8;
+  ctx.strokeStyle='#58a6ff';ctx.lineWidth=1.8;ctx.beginPath();
+  ctx.moveTo(sx,by);ctx.lineTo(px-pw*0.25,by);
+  ctx.quadraticCurveTo(px-pw*0.06,by,px,by-pa);
+  if(disp){
+    ctx.quadraticCurveTo(px+pw*0.45,by-pa*0.15,px+pw,by+pa*0.17);
+    ctx.quadraticCurveTo(px+pw*1.35,by+pa*0.25,ex,by);
+  } else {
+    ctx.quadraticCurveTo(px+pw*0.38,by+pa*0.2,px+pw,by+pa*0.09);
+    ctx.quadraticCurveTo(ex-6,by,ex,by);
+  }
+  ctx.lineTo(w-6,by);ctx.stroke();
+  ctx.fillStyle='rgba(139,148,158,.85)';ctx.font='11px monospace';
+  const dispAmp=(amp/10*r);
+  ctx.fillText(dispAmp.toFixed(1)+' mV',px+2,by-pa-6);
+  if(disp){
+    ctx.fillStyle='rgba(227,179,65,.7)';
+    ctx.fillText('temporal dispersion',px+pw+4,by-6);
+  }
+  ctx.strokeStyle='rgba(255,255,255,.18)';ctx.lineWidth=0.5;ctx.setLineDash([2,2]);
+  ctx.beginPath();ctx.moveTo(sx,by+10);ctx.lineTo(px,by+10);ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='rgba(139,148,158,.7)';
+  ctx.fillText('DL '+(dl/10).toFixed(1)+'ms',(sx+px)/2-14,by+20);
+}
+window.addEventListener('resize',su);
+
+/* QUIZ */
+const QS=[
+  {label:'案例一｜65 歲糖尿病患者',
+   vignette:'65 歲男性，糖尿病 15 年，主訴雙腳麻木灼熱感 2 年，由遠端往近端進展。腳踝反射消失，振動覺下肢明顯減退，上肢症狀輕微。',
+   rows:[
+     {n:'腓腸神經（感覺）',a:'2 µV ↓',v:'36 m/s ↓',d:'—',x:true},
+     {n:'腓淺感覺神經',a:'無法誘發',v:'—',d:'—',x:true},
+     {n:'腓深神經（運動）',a:'3.1 mV ↓',v:'39 m/s',d:'6.8 ms ↑',x:true},
+     {n:'正中神經（感覺）',a:'14 µV',v:'48 m/s',d:'3.3 ms',x:false},
+     {n:'正中神經（運動）',a:'8.2 mV',v:'51 m/s',d:'4.1 ms',x:false}
+   ],
+   q:'此 NCS 最符合哪種電生理型態？',
+   opts:['脫髓鞘型多發神經病','長度依賴型軸突多發神經病','局部卡壓（腕隧道症候群）','傳導阻斷型多發神經根病'],
+   ans:1,tag:'軸突型',tc:'t-red',
+   exp:'下肢感覺振幅明顯下降或消失（腓腸、腓淺），運動振幅輕度下降，NCV 僅輕度降低（未低於正常下限 75%），上肢相對正常。這是「長度依賴型軸突多發神經病」的典型型態：由最遠端（足部）往近端進展，感覺先於運動受影響。此為糖尿病周邊神經病變最典型的 NCS 表現。'},
+
+  {label:'案例二｜急性四肢無力',
+   vignette:'28 歲女性，上呼吸道感染後 10 天出現快速進展四肢無力，3 天內無法行走。反射消失，感覺主觀麻木，CSF 蛋白 120 mg/dL，細胞數正常（蛋白細胞分離）。',
+   rows:[
+     {n:'正中神經（運動）',a:'5.2 mV',v:'38 m/s ↓',d:'6.1 ms ↑',x:true},
+     {n:'尺神經（運動）',a:'4.8 mV',v:'35 m/s ↓',d:'5.9 ms ↑',x:true},
+     {n:'F 波（正中神經）',a:'—',v:'—',d:'消失 ↑',x:true},
+     {n:'腓深神經（運動）',a:'3.0 mV',v:'31 m/s ↓',d:'8.2 ms ↑',x:true},
+     {n:'腓腸神經（感覺）',a:'8 µV',v:'38 m/s',d:'—',x:false}
+   ],
+   q:'最可能的診斷為何？',
+   opts:['CIDP（慢性發炎性脫髓鞘）','GBS 脫髓鞘型（AIDP）','糖尿病多發神經病變','軸突型 GBS（AMAN）'],
+   ans:1,tag:'脫髓鞘型',tc:'t-blue',
+   exp:'多條神經 NCV 明顯下降（&lt;正常下限 75%）、DL 延長、F 波消失——多處近遠端脫髓鞘。急性發病（&lt;4 週）＋ CSF 蛋白細胞分離——典型 GBS 脫髓鞘型（AIDP）。CIDP 病程需 &gt;8 週；AMAN（軸突型 GBS）以振幅下降為主，NCV 相對保留；糖尿病多發神經病為慢性長度依賴型。'},
+
+  {label:'案例三｜右手夜間麻木',
+   vignette:'45 歲女性，辦公室文書工作，右手拇指至無名指麻木 6 個月，夜間加重、甩手後改善。Tinel sign 陽性，Phalen test 陽性。',
+   rows:[
+     {n:'正中神經感覺（中指）',a:'18 µV',v:'43 m/s ↓',d:'4.8 ms ↑',x:true},
+     {n:'尺神經感覺（小指）',a:'22 µV',v:'52 m/s',d:'2.9 ms',x:false},
+     {n:'正中神經運動（APB）',a:'9.1 mV',v:'52 m/s',d:'5.2 ms ↑',x:true},
+     {n:'尺神經運動（ADM）',a:'11.2 mV',v:'54 m/s',d:'3.1 ms',x:false},
+     {n:'正中－尺感覺潛時差',a:'—',v:'—',d:'1.9 ms ↑',x:true}
+   ],
+   q:'最符合的診斷及 NCS 特徵是？',
+   opts:['C6 神經根病（DL 應正常）','腕隧道症候群（正中神經遠端卡壓）','尺神經肘管症候群','多發性脫髓鞘神經病'],
+   ans:1,tag:'局部卡壓',tc:'t-amber',
+   exp:'正中神經遠端潛時延長（DL &gt;4.4 ms）、感覺 NCV 下降，但尺神經完全正常——局部正中神經遠端卡壓（腕隧道）。正中－尺感覺潛時差 &gt;0.4 ms 是腕隧道症候群的高敏感指標。C6 神經根病鑑別：感覺 SNAP 應正常（病灶在節前），DL 應正常（病灶在近端），且不會單獨正中神經異常。'},
+
+  {label:'案例四｜尺側麻木骨間肌萎縮',
+   vignette:'38 歲男性，右手小指及無名指尺側麻木 3 個月，慣性彎肘工作。骨間肌輕度萎縮，夾紙試驗（Froment sign）陽性。',
+   rows:[
+     {n:'尺神經感覺（小指）',a:'9 µV ↓',v:'44 m/s ↓',d:'3.0 ms',x:true},
+     {n:'尺神經運動（前臂段）',a:'7.8 mV',v:'56 m/s',d:'3.2 ms',x:false},
+     {n:'尺神經運動（肘上→肘下）',a:'5.1 mV / 7.6 mV ↑',v:'38 m/s ↓',d:'—',x:true},
+     {n:'尺神經運動（肘下→腕）',a:'7.6 mV',v:'57 m/s',d:'—',x:false},
+     {n:'正中神經（感覺 & 運動）',a:'正常',v:'正常',d:'正常',x:false}
+   ],
+   q:'此 NCS 最符合哪個局部卡壓定位？',
+   opts:['腕部 Guyon 管症候群','肘部尺神經卡壓（Cubital tunnel）','C8 神經根病','胸廓出口症候群（TOS）'],
+   ans:1,tag:'局部卡壓',tc:'t-amber',
+   exp:'過肘段（肘上→肘下）NCV 下降至 38 m/s，比前臂段（57 m/s）慢超過 10 m/s，是肘部卡壓的特徵。近端刺激（5.1 mV）相較遠端（7.6 mV）振幅下降 &gt;20%，提示傳導阻斷在肘部。腕部 Guyon 管卡壓：遠端運動潛時延長，前臂段 NCV 正常。C8 神經根病：感覺 SNAP 應正常（節後纖維），且正中神經常也受影響。'},
+
+  {label:'案例五｜慢性反覆四肢無力',
+   vignette:'52 歲男性，四肢無力反覆加重已 14 個月，靜脈注射免疫球蛋白暫時改善後又復發。近端遠端均受影響，反射消失，血糖正常，無糖尿病史。',
+   rows:[
+     {n:'正中神經（運動）',a:'4.1 mV ↓',v:'28 m/s ↓',d:'7.8 ms ↑',x:true},
+     {n:'尺神經（過肘段）',a:'2.8 / 5.2 mV ↑',v:'29 m/s ↓',d:'—',x:true},
+     {n:'腓深神經（運動）',a:'1.9 mV ↓',v:'25 m/s ↓',d:'9.1 ms ↑',x:true},
+     {n:'腓腸神經（感覺）',a:'4 µV ↓',v:'33 m/s ↓',d:'—',x:true},
+     {n:'F 波（正中神經）',a:'—',v:'—',d:'52 ms ↑',x:true}
+   ],
+   q:'最符合診斷，且哪項 NCS 發現最具支持力？',
+   opts:['GBS：急性發病、F 波消失','CIDP：病程 &gt;8 週 + 多處脫髓鞘 + 傳導阻斷','CMT1：遺傳性均勻脫髓鞘，無傳導阻斷','糖尿病多發神經病：長度依賴型軸突喪失'],
+   ans:1,tag:'脫髓鞘型',tc:'t-blue',
+   exp:'病程 &gt;8 週且反覆復發，對 IVIG 有反應——CIDP 而非 GBS。NCS 顯示多條神經 NCV 明顯下降（&lt;75% 正常下限）、DL 明顯延長（&gt;130%）、F 波延長（52 ms，上限 31 ms），尺神經過肘段有傳導阻斷（近端 2.8 mV vs 遠端 5.2 mV，下降 46%）。CMT1 為均勻對稱脫髓鞘，無傳導阻斷，且家族史陽性。'}
+
+  ,{label:'案例六｜hATTR 澱粉樣神經病',
+   vignette:'62 歲男性，葡萄牙裔，雙手感覺異常 3 年，起初為雙側腕隧道症候群並接受手術，但術後症狀未完全改善。近年出現直立性低血壓、腹瀉交替便秘。家族中父親及叔父均有類似症狀，父親 72 歲時死於心臟病。',
+   rows:[
+     {n:'正中神經感覺（右）',a:'8 µV ↓',v:'44 m/s ↓',d:'5.1 ms ↑',x:true},
+     {n:'正中神經運動（右）',a:'6.2 mV',v:'48 m/s',d:'5.3 ms ↑',x:true},
+     {n:'尺神經感覺（右）',a:'11 µV ↓',v:'46 m/s',d:'3.2 ms',x:true},
+     {n:'腓腸神經（感覺）',a:'3 µV ↓',v:'37 m/s ↓',d:'—',x:true},
+     {n:'腓深神經（運動）',a:'3.8 mV ↓',v:'41 m/s',d:'6.2 ms ↑',x:true}
+   ],
+   q:'綜合病史與 NCS，下列哪個診斷最可能，且哪項特徵最具提示性？',
+   opts:['特發性 CIDP：多發脫髓鞘，排除遺傳','hATTR 澱粉樣神經病：雙側腕隧道 + 自律神經 + 家族史','糖尿病多發神經病：長度依賴型軸突','多發性單神經炎（Mononeuritis multiplex）'],
+   ans:1,tag:'澱粉樣變性',tc:'t-purple',
+   exp:'hATTR（遺傳性轉甲狀腺素蛋白澱粉樣變性）的典型「三聯徵」均出現：① 雙側腕隧道症候群（正中神經 DL 延長）為最常見初始表現，② 自律神經病變（直立性低血壓、腸道功能異常），③ 顯性遺傳家族史。NCS 呈混合型——遠端感覺振幅下降（軸突喪失）+ 正中神經 DL 延長（局部脫髓鞘）。關鍵判斷點：腕隧道術後改善不完全應高度懷疑潛在系統性疾病。確診需皮下脂肪或神經活切 Congo red 染色，或基因檢測（TTR 基因突變）。'},
+
+  {label:'案例七｜胸廓出口症候群（nTOS）',
+   vignette:'34 歲女性，頸部細長，雙手高舉工作（美容師），右手小指及無名指尺側麻木 8 個月，右手握力下降，大魚際與骨間肌輕度萎縮。上肢舉高時症狀加重（Elevated Arm Stress Test 陽性）。頸椎 MRI 無神經根壓迫。',
+   rows:[
+     {n:'尺神經感覺（小指）右',a:'5 µV ↓',v:'48 m/s',d:'3.0 ms',x:true},
+     {n:'尺神經感覺（小指）左',a:'19 µV',v:'52 m/s',d:'2.8 ms',x:false},
+     {n:'正中神經感覺（中指）右',a:'17 µV',v:'49 m/s',d:'3.3 ms',x:false},
+     {n:'MABC 神經感覺（右）',a:'無法誘發',v:'—',d:'—',x:true},
+     {n:'尺神經運動（ADM）右',a:'5.1 mV ↓',v:'54 m/s',d:'3.2 ms',x:true}
+   ],
+   q:'此 NCS 型態最符合哪個診斷？關鍵鑑別點為何？',
+   opts:['尺神經肘管症候群：過肘段 NCV ↓↓','神經型 TOS：尺神經 SNAP↓ + MABC 消失 + 近端病灶','C8 神經根病：節前病灶，SNAP 應正常','多發性單神經炎：兩條以上單神經炎'],
+   ans:1,tag:'TOS',tc:'t-red',
+   exp:'神經型 TOS（nTOS）的 NCS 特徵：① 尺神經 SNAP 下降（節後感覺纖維受損，與 C8 神經根病鑑別的關鍵——根病的節前病灶 SNAP 應正常）；② MABC（前臂內側皮神經）SNAP 消失，是 TOS 的高特異性指標，反映 T1 神經根纖維受累；③ 尺神經 CMAP 振幅輕降，但 NCV 正常（非脫髓鞘）；④ F 波可輕延長（近端卡壓）。肘管症候群鑑別：應有過肘段 NCV 明顯下降，本例過肘段速度正常（54 m/s），排除。'},
+
+  {label:'案例八｜Double Crush Syndrome',
+   vignette:'52 歲男性，長期頸椎退化，C6/7 椎間盤突出症狀反覆發作。近 1 年右手拇指至中指麻木加重，夜間尤甚，甩手後輕微改善。Phalen 陽性，頸椎後仰右臂外展時症狀加劇（Spurling test 陽性）。',
+   rows:[
+     {n:'正中神經感覺（中指）右',a:'9 µV ↓',v:'42 m/s ↓',d:'5.8 ms ↑',x:true},
+     {n:'正中神經運動（APB）右',a:'5.2 mV ↓',v:'50 m/s',d:'5.5 ms ↑',x:true},
+     {n:'F 波（正中神經右）',a:'—',v:'—',d:'38 ms ↑',x:true},
+     {n:'尺神經感覺（小指）右',a:'16 µV',v:'52 m/s',d:'3.0 ms',x:false},
+     {n:'橈淺神經（右）',a:'13 µV',v:'51 m/s',d:'2.8 ms',x:false}
+   ],
+   q:'此案例 NCS 最符合哪種病灶組合？',
+   opts:['單純腕隧道症候群（DL 延長已可解釋一切）','C6 神經根病（SNAP 應正常，此處異常）','Double Crush：腕隧道（遠端 DL↑）+ C6/7 神經根病（F 波↑ + 振幅↓ + Spurling 陽性）','CIDP：多條神經脫髓鞘'],
+   ans:2,tag:'Double Crush',tc:'t-amber',
+   exp:'Double Crush 的電生理徵象同時出現兩個層面的異常：【遠端】腕隧道——正中神經 DL 延長（5.8 ms &gt;&gt; 4.4 ms 上限）；【近端】C6/7 神經根病——F 波延長（38 ms，上限 31 ms）＋ CMAP 振幅下降（5.2 mV）。SNAP 下降（9 µV）表示節後感覺纖維也受累，在純神經根病（節前病灶）SNAP 應正常，此處下降提示腕部節後纖維確實受損（腕隧道成分）。臨床線索：Spurling 陽性（根病）+ Phalen 陽性（腕隧道），兩者共存應懷疑 Double Crush。單純腕隧道無法解釋 F 波延長及 CMAP 振幅下降。'},
+
+  {label:'案例九｜跗骨隧道症候群',
+   vignette:'47 歲女性，右足底麻木灼熱 6 個月，以足跟及前足底為主，夜間加重，站立時症狀加劇。叩擊右內踝後方引發足底放電感（Tinel sign 陽性）。無糖尿病，無腰椎症狀，無對側症狀。足部 X 光顯示右足跟骨突出。',
+   rows:[
+     {n:'脛後神經運動（AHB，右）',a:'6.1 mV',v:'—',d:'7.2 ms ↑',x:true},
+     {n:'脛後神經運動（AHB，左）',a:'7.8 mV',v:'—',d:'5.6 ms',x:false},
+     {n:'足底內側感覺（右）',a:'2 µV ↓',v:'25 m/s ↓',d:'—',x:true},
+     {n:'足底內側感覺（左）',a:'8 µV',v:'38 m/s',d:'—',x:false},
+     {n:'腓腸神經（感覺，右）',a:'9 µV',v:'42 m/s',d:'4.1 ms',x:false}
+   ],
+   q:'此單側局部 NCS 異常最符合哪個診斷，且最重要的鑑別要點為何？',
+   opts:['S1 神經根病：H-reflex 應延長，SNAP 應正常','跗骨隧道症候群：脛後神經 DL↑ + 足底感覺↓ + 單側局限 + 腓腸正常','糖尿病多發神經病：應雙側對稱，腓腸神經也應異常','腓腸神經病變：腓腸 SNAP 應消失'],
+   ans:1,tag:'跗骨隧道',tc:'t-amber',
+   exp:'跗骨隧道症候群的 NCS 診斷要點同時滿足：① 脛後神經運動遠端潛時（至 AHB）延長（7.2 ms，正常 ≤6.0 ms）；② 足底內側感覺 SNAP 振幅下降、NCV 減慢（反映局部髓鞘損傷）；③ 與對側比較明顯不對稱（最重要的判斷依據，DL 差異 &gt;1.5 ms 有臨床意義）；④ 腓腸神經完全正常（排除多發性神經病）。S1 神經根病鑑別：H-reflex 應延長，但足底感覺 SNAP 節前病灶應正常。糖尿病多發神經病：應雙側對稱且腓腸神經最先受累（本例腓腸正常）。臨床提示：跗骨隧道 NCS 假陰性率可達 50%，當臨床高度懷疑時應加做 EMG（拇短展肌去神經化）及超音波評估隧道內佔位。'}
+
+];
+
+let qcur=0,qsc=0,qans=false;
+function qr(){
+  if(qcur>=QS.length){qend();return;}
+  const q=QS[qcur];qans=false;
+  document.getElementById('qpf').style.width=(qcur/QS.length*100)+'%';
+  const rows=q.rows.map(r=>`<tr>
+    <td>${r.n}</td>
+    <td class="${r.x?'abn':''}">${r.a}</td>
+    <td class="${r.x?'abn':''}">${r.v}</td>
+    <td class="${r.x?'abn':''}">${r.d}</td>
+  </tr>`).join('');
+  const opts=q.opts.map((o,i)=>`<button class="opt" id="qo${i}" onclick="qpk(${i})">${o}</button>`).join('');
+  document.getElementById('qa').innerHTML=`
+    <div class="quiz-card">
+      <div class="quiz-meta">
+        <span class="quiz-label-txt">${q.label}</span>
+        <span class="quiz-counter">${qcur+1} / ${QS.length}</span>
+      </div>
+      <div class="vignette">${q.vignette}</div>
+      <div class="ncs-tbl-wrap">
+        <table class="qtbl">
+          <thead><tr><th>神經</th><th>振幅</th><th>NCV</th><th>遠端潛時 / F 波</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+      <div class="q-txt">${q.q}</div>
+      <div class="opts-grid">${opts}</div>
+      <div class="fb" id="qfb"></div>
+      <div class="explain" id="qex"></div>
+      <div class="q-actions">
+        <button class="btn btn-ghost btn-sm" id="qsub" onclick="qsb()" disabled>確認答案</button>
+        <button class="btn btn-ghost btn-sm" id="qnxt" onclick="qnx()" style="display:none">${qcur<QS.length-1?'下一題 →':'查看成績 →'}</button>
+      </div>
+    </div>`;
+}
+function qpk(i){
+  if(qans)return;
+  document.querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));
+  document.getElementById('qo'+i).classList.add('sel');
+  const b=document.getElementById('qsub');b.disabled=false;b.dataset.c=i;
+}
+function qsb(){
+  if(qans)return;qans=true;
+  const c=+document.getElementById('qsub').dataset.c,q=QS[qcur],ok=c===q.ans;
+  if(ok)qsc++;
+  document.querySelectorAll('.opt').forEach((b,i)=>{
+    b.disabled=true;
+    if(i===q.ans)b.classList.add('correct');
+    else if(i===c&&!ok)b.classList.add('wrong');
+  });
+  const fb=document.getElementById('qfb');
+  fb.textContent=ok?'✓ 正確！判斷符合電生理型態。':'✗ 答錯了。正確答案已標示，請看解析。';
+  fb.className='fb '+(ok?'fb-ok':'fb-ng')+' show';
+  document.getElementById('qex').innerHTML=`<span class="tag ${q.tc}" style="margin-right:8px">${q.tag}</span>${q.exp}`;
+  document.getElementById('qex').className='explain show';
+  document.getElementById('qsub').style.display='none';
+  document.getElementById('qnxt').style.display='';
+}
+function qnx(){qcur++;qr();}
+function qend(){
+  document.getElementById('qpf').style.width='100%';
+  document.getElementById('qa').style.display='none';
+  const pct=Math.round(qsc/QS.length*100);
+  let vt='',vc='';
+  if(pct>=80){vt='🎉 優秀！電生理判讀基礎相當扎實。';vc='mv-ok'}
+  else if(pct>=60){vt='👍 良好，建議複習答錯的案例及其解析。';vc='mv-warn'}
+  else{vt='📖 需要加強，建議重讀四步驟架構與疾病型態。';vc='mv-bad'}
+  const list=QS.map(q=>`<div class="score-row"><span>${q.label}</span><span class="tag ${q.tc}">${q.tag}</span></div>`).join('');
+  document.getElementById('qs').style.display='';
+  document.getElementById('qs').innerHTML=`
+    <div class="score-box">
+      <div class="score-big ${vc}">${qsc}/${QS.length}</div>
+      <div class="score-rate">正確率 ${pct}%</div>
+      <div class="score-verdict">${vt}</div>
+      <div class="score-list">${list}</div>
+      <div class="score-actions">
+        <button class="btn btn-ghost btn-sm" onclick="qrst()">重新練習</button>
+        <a class="btn btn-ghost btn-sm" href="#steps">複習四步驟</a>
+        <a class="btn btn-ghost btn-sm" href="#patterns">複習疾病型態</a>
+        <a class="btn btn-ghost btn-sm" href="#simulator">波形模擬器</a>
+      </div>
+    </div>`;
+}
+function qrst(){
+  qcur=0;qsc=0;qans=false;
+  document.getElementById('qs').style.display='none';
+  document.getElementById('qa').style.display='';
+  document.getElementById('qpf').style.width='0%';
+  qr();
+}
+
+/* CODE COPY */
+function cc(btn){
+  const pre=btn.closest('.code-wrap').querySelector('pre');
+  navigator.clipboard.writeText(pre.innerText.trim()).then(()=>{
+    btn.textContent='已複製！';
+    setTimeout(()=>btn.textContent='複製',2000);
+  });
+}
+
+/* INIT */
+su();
+qr();
+</script>
+</body>
+</html>
