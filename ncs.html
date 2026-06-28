@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NCS 神經傳導判讀教學｜AI創作自研版</title>
+<title>NCS 神經傳導判讀教學｜住院醫師版</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -246,17 +246,7 @@ footer a{color:var(--blue);text-decoration:none}
 </style>
 </head>
 <body>
-  
-<nav style="position:sticky;top:0;z-index:100;background:rgba(13,17,23,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);padding:0 24px;display:flex;align-items:center;height:52px;gap:0;">
-  <a href="index.html" style="font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;color:#58a6ff;margin-right:32px;text-decoration:none;white-space:nowrap;">⬡ HCH-CMU Neurology</a>
-  <div style="display:flex;gap:2px;flex-wrap:wrap;">
-    <a href="index.html" style="color:#8b949e;text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;">首頁</a>
-    <a href="ncs.html" style="color:#58a6ff;background:rgba(88,166,255,.08);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;">神經傳導</a>
-    <a href="neuro-ultrasound.html" style="color:#8b949e;text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;">神經超音波</a>
-    <a href="headache.html" style="color:#8b949e;text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;">頭痛</a>
-    <a href="dementia.html" style="color:#8b949e;text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;">失智症</a>
-  </div>
-</nav>
+
 <!-- NAV -->
 <nav id="tnav">
   <div class="nav-inner">
@@ -267,8 +257,9 @@ footer a{color:var(--blue);text-decoration:none}
       <a href="#normals" onclick="nc()">正常值</a>
       <a href="#simulator" onclick="nc()">波形模擬</a>
       <a href="#patterns" onclick="nc()">疾病型態</a>
+      <a href="#nmj" onclick="nc()">神經肌肉接點</a>
       <a href="#quiz" onclick="nc()">練習題</a>
-      <a href="#howto" onclick="nc()">建構中</a>
+      <a href="#howto" onclick="nc()">網站製作</a>
     </div>
     <div class="hamburger" id="hbg" onclick="th()">
       <span></span><span></span><span></span>
@@ -278,7 +269,7 @@ footer a{color:var(--blue);text-decoration:none}
 
 <!-- HERO -->
 <section id="hero" class="hero">
-  <div class="hero-badge">AI 輔助複習神經科系列 </div>
+  <div class="hero-badge">住院醫師電生理教學資源</div>
   <h1 class="hero-title">神經傳導檢查<br><em>系統性判讀</em>完整指引</h1>
   <p class="hero-sub">從肢溫確認到疾病診斷，以四步驟架構建立完整的 NCS 判讀邏輯。依據 AANEM 2024、Neurology Education 2025 及華盛頓大學周邊神經學資源編製。</p>
   <div class="hero-actions">
@@ -287,8 +278,8 @@ footer a{color:var(--blue);text-decoration:none}
   </div>
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">4</div><div class="stat-label">系統步驟</div></div>
-    <div class="stat"><div class="stat-num">9</div><div class="stat-label">臨床情境題</div></div>
-    <div class="stat"><div class="stat-num">10</div><div class="stat-label">疾病型態</div></div>
+    <div class="stat"><div class="stat-num">14</div><div class="stat-label">臨床情境題</div></div>
+    <div class="stat"><div class="stat-num">18</div><div class="stat-label">疾病型態</div></div>
     <div class="stat"><div class="stat-num">2024</div><div class="stat-label">最新 AANEM 標準</div></div>
   </div>
 </section>
@@ -519,8 +510,8 @@ footer a{color:var(--blue);text-decoration:none}
 <section id="patterns" class="section">
   <div class="section-header">
     <div class="eyebrow">Clinical Patterns</div>
-    <h2 class="section-title">十大<span>疾病 NCS 型態</span></h2>
-    <p class="section-desc">認識十種常見型態（含進階疾病），每種疾病都有其特徵性的 NCS 指紋，幫助快速對應診斷。</p>
+    <h2 class="section-title">十大<span>NCS 疾病型態</span></h2>
+    <p class="section-desc">認識十種常見型態（含進階疾病及合併症），每種疾病都有其特徵性的 NCS 指紋，幫助快速對應診斷。另有 4 種神經肌肉接點疾病請見下一節。</p>
   </div>
   <div class="pat-grid">
 
@@ -652,7 +643,144 @@ footer a{color:var(--blue);text-decoration:none}
         <li>⚠️ NCS 假陰性率高（可達 50%）；臨床症狀 + 超音波 / MRI 常需配合診斷</li>
       </ul>
     </div>
+
+    <div class="pat-card" style="--acc:var(--red)">
+      <h3><span class="tag t-red" style="margin-right:8px">運動神經元疾病</span>ALS：早期 vs 晚期 NCS</h3>
+      <ul>
+        <li><span class="hl">早期</span>：感覺 NCS 完全正常（ALS 不影響感覺神經元）；運動 CMAP 振幅可正常或輕降；NCV 正常或輕降（純運動軸突喪失）</li>
+        <li><span class="hl">晚期</span>：CMAP 振幅顯著下降（多條神經、多肢體），NCV 因快纖維喪失可降至接近 70–75% 下限（注意：勿誤判為脫髓鞘）</li>
+        <li>F 波可消失（運動神經元大量喪失），但 <span class="hl">SNAP 永遠正常</span>——這是與周邊神經病最關鍵的鑑別點</li>
+        <li>EMG 為診斷主體：多節段（顱、頸、胸、腰）急性（纖維顫動、正銳波）+ 慢性去神經（大型多相、巨大電位）並存</li>
+        <li>El Escorial / Awaji 準則：需 ≥3 個身體區域（球部、頸、胸、腰）有上下運動神經元徵象</li>
+        <li>⚠️ 純粹依賴 NCS 易漏診；CMAP 振幅下降速度（每月追蹤）比單次數值更具預後意義</li>
+      </ul>
+    </div>
+
+    <div class="pat-card" style="--acc:var(--amber)">
+      <h3><span class="tag t-amber" style="margin-right:8px">合併症</span>糖尿病合併腕隧道症候群</h3>
+      <ul>
+        <li>糖尿病患者腕隧道症候群發生率較常人高 2–3 倍（神經對壓迫更敏感、結締組織糖化）</li>
+        <li>NCS 呈現<span class="hl">雙重型態重疊</span>：
+          <ul style="margin-top:4px;margin-left:1rem">
+            <li>背景：對稱性長度依賴軸突多發神經病（雙側腓腸 SNAP↓、雙下肢 NCV 輕降）</li>
+            <li>疊加：正中神經（單側或不對稱）DL 顯著延長，遠超過糖尿病本身造成的程度</li>
+          </ul>
+        </li>
+        <li>判讀關鍵：<span class="hl">正中－尺神經感覺潛時差 &gt;0.4 ms</span> 仍是區分「單純糖尿病多發神經病」vs「合併腕隧道」的最佳指標，即使整體 NCV 因糖尿病而普遍下降</li>
+        <li>陷阱：糖尿病本身可使所有遠端潛時普遍延長，容易誤判腕隧道為糖尿病背景的一部分而漏診</li>
+        <li>處置意義：腕隧道為可治療病灶（手術或副木），及早診斷可改善患者手部功能，不應歸因於「糖尿病神經病變」而忽略</li>
+      </ul>
+    </div>
+
+    <div class="pat-card" style="--acc:var(--teal)">
+      <h3><span class="tag t-teal" style="margin-right:8px">系統性疾病</span>慢性腎臟病（尿毒症）神經病變</h3>
+      <ul>
+        <li>透析前 / 透析中患者常見遠端對稱性軸突感覺運動多發神經病，與糖尿病型態相似（長度依賴型）</li>
+        <li>NCS 特徵：
+          <ul style="margin-top:4px;margin-left:1rem">
+            <li>腓腸神經 SNAP 振幅 ↓ 或消失（早期指標，雙側對稱）</li>
+            <li>下肢運動 CMAP 振幅 ↓，NCV 輕降（軸突型為主）</li>
+            <li>正中神經 NCV 普遍輕降（全身性尿毒素效應，非局部卡壓）</li>
+          </ul>
+        </li>
+        <li><span class="hl">易與透析瘻管相關正中神經病混淆</span>：洗腎瘻管（AV fistula）側上肢可因竊血現象（steal syndrome）造成局部缺血性單神經病，表現為該側正中或尺神經振幅不對稱下降</li>
+        <li>透析後即刻可見短暫 NCV 改善（電解質、尿素氮變化影響傳導），建議透析前或透析間期測量以求穩定數值</li>
+        <li>腕隧道症候群在長期透析患者中常見（β2-微球蛋白澱粉樣沉積），NCS 表現與一般 CTS 相同（正中神經 DL 延長）</li>
+      </ul>
+    </div>
   </div>
+</section>
+<hr class="div">
+
+<!-- SECTION NMJ: NEUROMUSCULAR JUNCTION & SPECIAL STUDIES -->
+<section id="nmj" class="section">
+  <div class="section-header">
+    <div class="eyebrow">Special Electrodiagnostic Studies</div>
+    <h2 class="section-title">神經肌肉接點<span>與特殊電生理檢查</span></h2>
+    <p class="section-desc">重複神經刺激（RNS）、單纖維肌電圖（SFEMG）等檢查無法用標準 NCS 振幅 / NCV / DL 表格呈現，但是判讀 NCS 正常但臨床高度懷疑神經肌肉疾病時的必要工具。</p>
+  </div>
+
+  <div class="pat-grid">
+
+    <div class="pat-card" style="--acc:var(--blue)">
+      <h3><span class="tag t-blue" style="margin-right:8px">突觸後</span>重症肌無力（MG）：RNS 與 SFEMG</h3>
+      <ul>
+        <li>常規 NCS（振幅、NCV、DL）<span class="hl">完全正常</span>——MG 不影響周邊神經傳導本身</li>
+        <li><span class="hl">低頻重複神經刺激（2–3 Hz RNS）</span>：
+          <ul style="margin-top:4px;margin-left:1rem">
+            <li>正常：第 1 與第 4–5 波振幅遞減 &lt;10%</li>
+            <li>MG 陽性：振幅遞減（decrement）<span class="hl">&gt;10%</span>，呈「U 形」遞減後部分回升</li>
+            <li>常選臉部（眼輪匝肌、鼻肌）或近端肌群（斜方肌），敏感度較手部肌群高</li>
+          </ul>
+        </li>
+        <li><span class="hl">單纖維肌電圖（SFEMG）</span>：
+          <ul style="margin-top:4px;margin-left:1rem">
+            <li>測量同一運動單位內兩條肌纖維動作電位的時間差異變異性（jitter）</li>
+            <li>MG：jitter 增加（&gt;正常上限，依肌肉而異）± 阻斷（blocking）</li>
+            <li>SFEMG 是 MG 最敏感的電生理檢查（敏感度 &gt;95%），但特異性較低</li>
+          </ul>
+        </li>
+        <li>臨床要點：運動後（exercise）症狀加重、晨輕暮重；眼瞼下垂與複視為常見初始症狀</li>
+      </ul>
+    </div>
+
+    <div class="pat-card" style="--acc:var(--purple)">
+      <h3><span class="tag t-purple" style="margin-right:8px">突觸前</span>Lambert-Eaton 肌無力症候群（LEMS）</h3>
+      <ul>
+        <li><span class="hl">基礎 CMAP 振幅顯著降低</span>（常 &lt;正常下限的 50%）——突觸前鈣離子通道抗體導致乙醯膽鹼釋放量不足</li>
+        <li><span class="hl">低頻 RNS（2–3 Hz）</span>：振幅遞減（與 MG 類似，可達 &gt;10%）</li>
+        <li><span class="hl">高頻 RNS（10–50 Hz）或最大自主收縮 10 秒後</span>：
+          <ul style="margin-top:4px;margin-left:1rem">
+            <li>振幅顯著增加（incremental response）<span class="hl">&gt;100%（常達 200–400%）</span></li>
+            <li>此現象稱為「post-tetanic facilitation」，是 LEMS 的關鍵診斷特徵</li>
+            <li>機轉：高頻刺激或運動後鈣離子大量蓄積於突觸前終端，暫時克服釋放缺陷</li>
+          </ul>
+        </li>
+        <li><span class="hl">與 MG 鑑別</span>：MG 基礎振幅正常、高頻刺激後無顯著增益；LEMS 基礎振幅低、高頻後大幅增益</li>
+        <li>⚠️ <span class="hl">副腫瘤症候群關聯</span>：約 50–60% 與小細胞肺癌相關（抗 P/Q 型電壓門控鈣離子通道抗體，VGCC）；新診斷 LEMS 應積極篩檢惡性腫瘤</li>
+        <li>臨床表現：近端肌無力（下肢為主）、自律神經症狀（口乾）、反射減弱但運動後可暫時恢復（post-exercise facilitation of reflexes）</li>
+      </ul>
+    </div>
+
+    <div class="pat-card" style="--acc:var(--teal)">
+      <h3><span class="tag t-teal" style="margin-right:8px">肌膜不穩定</span>肌強直（Myotonia）</h3>
+      <ul>
+        <li>常規 NCS：振幅、NCV、DL <span class="hl">通常正常</span>（病灶在肌肉細胞膜離子通道，非神經傳導路徑）</li>
+        <li><span class="hl">EMG 針極插入或叩擊時出現「肌強直放電」（myotonic discharge）</span>：
+          <ul style="margin-top:4px;margin-left:1rem">
+            <li>波幅與頻率逐漸遞減的高頻放電（waxing-waning）</li>
+            <li>典型聲音：經擴音器產生類似「轟炸機俯衝」或「機車加速後減速」聲</li>
+            <li>頻率範圍 20–150 Hz</li>
+          </ul>
+        </li>
+        <li>常見疾病：肌強直性肌營養不良（Myotonic Dystrophy type 1/2, DM1/DM2）、先天性肌強直（Myotonia Congenita）、副肌強直（Paramyotonia Congenita）</li>
+        <li>臨床測試：握拳後放鬆延遲（grip myotonia）、叩擊大魚際肌引發局部肌肉持續收縮（percussion myotonia）</li>
+        <li>低溫會加重肌強直症狀（尤其副肌強直），檢查時須注意肢溫紀錄</li>
+        <li>DM1 常合併心臟傳導阻滯及白內障，需心電圖追蹤</li>
+      </ul>
+    </div>
+
+    <div class="pat-card" style="--acc:var(--red)">
+      <h3><span class="tag t-red" style="margin-right:8px">周邊神經過度興奮</span>神經性肌強直（Neuromyotonia）</h3>
+      <ul>
+        <li>常規 NCS：振幅、NCV、DL 通常正常或輕微異常，<span class="hl">關鍵異常出現在單次刺激後的「後放電」（afterdischarge）</span></li>
+        <li>EMG 特徵：
+          <ul style="margin-top:4px;margin-left:1rem">
+            <li><span class="hl">高頻自發性運動單位放電（myokymic discharges）</span>：連續、規律或不規律的高頻放電（最高可達 150–300 Hz）</li>
+            <li>與肌強直放電的區別：神經性肌強直放電<span class="hl">不會逐漸遞減</span>（無 waxing-waning），且頻率更高</li>
+            <li>單次神經刺激後可誘發長串「後放電」（after-discharge），是其特徵性電生理表現</li>
+          </ul>
+        </li>
+        <li>機轉：周邊神經軸突興奮性異常增加，常見於電壓門控鉀離子通道（VGKC）相關抗體疾病</li>
+        <li>臨床表現：持續肌肉收縮、痙搐（fasciculation）、肌肉僵硬、多汗；睡眠中仍持續（與肌強直不同）</li>
+        <li>相關疾病：Isaacs 症候群（後天自體免疫性）、Morvan 症候群（合併腦病變、失眠、自律神經失調）、副腫瘤症候群（胸腺瘤相關）</li>
+        <li>與強直症（tetany）鑑別：強直症由低血鈣 / 低血鎂誘發，糾正電解質後消失；神經性肌強直為原發性神經興奮性異常</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="callout c-info" style="margin-top:16px">💡 <strong>判讀心法：</strong>當標準 NCS（振幅、NCV、DL、F 波）全部正常，但臨床高度懷疑神經肌肉疾病時，下一步應加做 <strong>RNS</strong>（突觸前後疾病：MG、LEMS）或 <strong>SFEMG</strong>（MG 敏感度最高）；若懷疑肌膜離子通道病變（肌強直、神經性肌強直），則依賴 <strong>EMG 針極檢查時的自發性放電型態</strong>，而非傳導參數本身。</div>
 </section>
 <hr class="div">
 
@@ -661,7 +789,7 @@ footer a{color:var(--blue);text-decoration:none}
   <div class="section-header">
     <div class="eyebrow">Self Assessment</div>
     <h2 class="section-title">臨床情境<span>判讀練習</span></h2>
-    <p class="section-desc">九道真實情境案例（含進階疾病），測驗你的 NCS 判讀能力，作答後顯示詳細解析。</p>
+    <p class="section-desc">十四道真實情境案例（含進階疾病、合併症及神經肌肉接點疾病），測驗你的 NCS 判讀能力，作答後顯示詳細解析。</p>
   </div>
   <div class="qprog-bg"><div class="qprog-fill" id="qpf" style="width:0%"></div></div>
   <div id="qa"></div>
@@ -674,7 +802,106 @@ footer a{color:var(--blue);text-decoration:none}
   <div class="section-header">
     <div class="eyebrow">Web Development Guide</div>
     <h2 class="section-title">教學網站<span>製作指南</span></h2>
+    <p class="section-desc">完全不需要程式背景，按照以下 8 個步驟，即可將這個網站部署到網路上，讓所有人都能免費存取。</p>
   </div>
+
+  <div class="callout c-info" style="margin-bottom:28px">
+    💡 <strong>你需要準備什麼？</strong>一台電腦、一個 GitHub 帳號（免費）、約 15 分鐘。完成後網站將 24 小時在線，網址格式：<code style="font-family:var(--mono);font-size:12px">yourname.github.io/ncs-teaching</code>
+  </div>
+
+  <div class="guide">
+
+    <div class="g-step">
+      <div class="g-num">01</div>
+      <div class="g-body">
+        <h3>下載這個 HTML 檔案</h3>
+        <p>在瀏覽器按 <kbd>Ctrl + S</kbd>（Mac 用 <kbd>Cmd + S</kbd>），將頁面另存為 <code style="font-family:var(--mono);font-size:12px;color:var(--amber)">index.html</code>，儲存類型選「<strong>網頁，僅 HTML</strong>」。</p>
+        <div class="callout c-warn">⚠️ 檔名必須完全是 <code style="font-family:var(--mono);font-size:12px">index.html</code>（全小寫），這是網站首頁的標準入口檔名。</div>
+      </div>
+    </div>
+
+    <div class="g-step">
+      <div class="g-num">02</div>
+      <div class="g-body">
+        <h3>建立免費 GitHub 帳號</h3>
+        <p>前往 <a href="https://github.com" target="_blank">github.com</a> 點「Sign up」免費註冊。GitHub 是全球最大程式碼平台，提供免費靜態網站托管（GitHub Pages）。</p>
+        <div class="chips">
+          <div class="chip"><div class="cdot" style="background:var(--teal)"></div>完全免費，無需信用卡</div>
+          <div class="chip"><div class="cdot" style="background:var(--teal)"></div>已有帳號可跳至 Step 03</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="g-step">
+      <div class="g-num">03</div>
+      <div class="g-body">
+        <h3>建立新的 Repository（儲存庫）</h3>
+        <p>登入後，點右上角「+」→「New repository」，依照以下設定填寫：</p>
+        <div class="code-wrap">
+          <div class="code-head"><span class="code-lang">設定值</span><button class="code-copy" onclick="cc(this)">複製</button></div>
+          <pre class="code">Repository name:  ncs-teaching
+Description:      NCS 神經傳導判讀教學網站
+Visibility:       ● Public  ← 必須選 Public，Pages 才能免費啟用
+Initialize:       ✅ Add a README file  ← 記得勾選</pre>
+        </div>
+        <p style="margin-top:12px">填好後按「<strong>Create repository</strong>」（綠色按鈕）建立。</p>
+      </div>
+    </div>
+
+    <div class="g-step">
+      <div class="g-num">04</div>
+      <div class="g-body">
+        <h3>上傳 index.html</h3>
+        <p>進入剛建立的 repository，點「<strong>Add file</strong>」→「<strong>Upload files</strong>」，把 <code style="font-family:var(--mono);font-size:12px;color:var(--amber)">index.html</code> 拖曳進去，然後點「<strong>Commit changes</strong>」。</p>
+        <div class="file-tree">📁 ncs-teaching/
+├── <span class="ft-file">README.md</span>    ← GitHub 自動建立
+└── <span class="ft-file">index.html</span>   ← 你剛上傳的教學網站</div>
+      </div>
+    </div>
+
+    <div class="g-step">
+      <div class="g-num">05</div>
+      <div class="g-body">
+        <h3>開啟 GitHub Pages</h3>
+        <p>在 repository 頁面點上方「<strong>Settings</strong>」→ 左側選單「<strong>Pages</strong>」→ Source 選「<strong>Deploy from a branch</strong>」→ Branch 選「<strong>main</strong>」→ 資料夾選「<strong>/ (root)</strong>」→ 點「<strong>Save</strong>」。</p>
+        <div class="code-wrap">
+          <div class="code-head"><span class="code-lang">路徑</span></div>
+          <pre class="code">Settings → Pages → Source
+  Branch: main  /  (root)
+  [Save]
+
+等待 1–2 分鐘，頁面頂部出現：
+<span class="cs">✅ Your site is live at https://yourname.github.io/ncs-teaching/</span></pre>
+        </div>
+        <div class="callout c-ok" style="margin-top:10px">✅ 複製那個網址，就可以分享給所有同事了！</div>
+      </div>
+    </div>
+
+    <div class="g-step">
+      <div class="g-num">06</div>
+      <div class="g-body">
+        <h3>日後更新內容</h3>
+        <p>回到 repository → 點 <code style="font-family:var(--mono);font-size:12px;color:var(--amber)">index.html</code> → 右上角鉛筆圖示（Edit this file）→ 修改後 Commit changes。GitHub Pages 會在 2–3 分鐘內自動更新。</p>
+        <div class="chips">
+          <div class="chip"><div class="cdot" style="background:var(--teal)"></div>不需安裝任何軟體</div>
+          <div class="chip"><div class="cdot" style="background:var(--teal)"></div>HTTPS 加密自動啟用</div>
+          <div class="chip"><div class="cdot" style="background:var(--teal)"></div>更新後 2–3 分鐘生效</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="g-step">
+      <div class="g-num">07</div>
+      <div class="g-body">
+        <h3>如何修改網站內容</h3>
+        <p>整個網站是單一 HTML 檔。用 <a href="https://code.visualstudio.com" target="_blank">VS Code</a>（免費）開啟，幾個常見修改場景：</p>
+        <div class="code-wrap">
+          <div class="code-head"><span class="code-lang">HTML 修改範例</span><button class="code-copy" onclick="cc(this)">複製</button></div>
+          <pre class="code"><span class="cm">// 修改機構名稱或標題（搜尋這段）</span>
+&lt;div class="hero-badge"&gt;住院醫師電生理教學資源&lt;/div&gt;
+
+<span class="cm">// 修改正常值表格（找到 nv-mo 區塊）</span>
+&lt;td class="mono"&gt;≥ 5 mV&lt;/td&gt;  <span class="cm">← 改成你機構的數值</span>
 
 <span class="cm">// 新增疾病型態卡片（複製一個 pat-card）</span>
 &lt;div class="pat-card" style="--acc:var(--teal)"&gt;
@@ -685,6 +912,20 @@ footer a{color:var(--blue);text-decoration:none}
         <div class="callout c-info" style="margin-top:10px">💡 不懂 HTML 也沒關係，把想修改的段落貼給 Claude，說明你要改什麼，Claude 會直接幫你改好再貼回去。</div>
       </div>
     </div>
+
+    <div class="g-step">
+      <div class="g-num">08</div>
+      <div class="g-body">
+        <h3>進階：自訂網域 &amp; 替代平台</h3>
+        <p>如果機構有網域（如 <code style="font-family:var(--mono);font-size:12px;color:var(--amber)">hospital.edu.tw</code>），可在 GitHub Pages「Custom domain」欄填入子網域，請 IT 部門設定 DNS CNAME 指向 <code style="font-family:var(--mono);font-size:12px">yourname.github.io</code>。</p>
+        <div class="chips">
+          <div class="chip"><div class="cdot" style="background:var(--blue)"></div><a href="https://www.netlify.com" target="_blank" style="color:var(--blue);text-decoration:none">Netlify</a> — 拖曳資料夾即部署</div>
+          <div class="chip"><div class="cdot" style="background:var(--blue)"></div><a href="https://vercel.com" target="_blank" style="color:var(--blue);text-decoration:none">Vercel</a> — 操作更直覺，適合新手</div>
+          <div class="chip"><div class="cdot" style="background:var(--amber)"></div>以上皆免費、有 HTTPS</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -971,6 +1212,77 @@ const QS=[
    opts:['S1 神經根病：H-reflex 應延長，SNAP 應正常','跗骨隧道症候群：脛後神經 DL↑ + 足底感覺↓ + 單側局限 + 腓腸正常','糖尿病多發神經病：應雙側對稱，腓腸神經也應異常','腓腸神經病變：腓腸 SNAP 應消失'],
    ans:1,tag:'跗骨隧道',tc:'t-amber',
    exp:'跗骨隧道症候群的 NCS 診斷要點同時滿足：① 脛後神經運動遠端潛時（至 AHB）延長（7.2 ms，正常 ≤6.0 ms）；② 足底內側感覺 SNAP 振幅下降、NCV 減慢（反映局部髓鞘損傷）；③ 與對側比較明顯不對稱（最重要的判斷依據，DL 差異 &gt;1.5 ms 有臨床意義）；④ 腓腸神經完全正常（排除多發性神經病）。S1 神經根病鑑別：H-reflex 應延長，但足底感覺 SNAP 節前病灶應正常。糖尿病多發神經病：應雙側對稱且腓腸神經最先受累（本例腓腸正常）。臨床提示：跗骨隧道 NCS 假陰性率可達 50%，當臨床高度懷疑時應加做 EMG（拇短展肌去神經化）及超音波評估隧道內佔位。'}
+
+
+  ,{label:'案例十｜早期 ALS（運動神經元疾病）',
+   vignette:'58 歲男性，右手無力 4 個月，逐漸出現右手大魚際萎縮及肌束顫動（fasciculation），左手亦開始輕微無力。無感覺異常主訴，振動覺及針刺覺正常。',
+   rows:[
+     {n:'正中神經（運動，右）',a:'7.8 mV',v:'52 m/s',d:'4.0 ms',x:false},
+     {n:'正中神經（感覺，右）',a:'22 µV',v:'54 m/s',d:'3.1 ms',x:false},
+     {n:'尺神經（運動，右）',a:'6.1 mV ↓',v:'48 m/s',d:'3.0 ms',x:true},
+     {n:'尺神經（感覺，右）',a:'19 µV',v:'53 m/s',d:'2.7 ms',x:false},
+     {n:'腓深神經（運動，右）',a:'2.1 mV ↓',v:'42 m/s',d:'5.8 ms',x:true}
+   ],
+   q:'此 NCS 結果搭配臨床表現，最符合哪個診斷方向？關鍵判讀依據為何？',
+   opts:['多發性神經病：感覺與運動同時受累','早期 ALS：運動 CMAP 振幅↓但 SNAP 正常，NCV/DL 接近正常','CIDP：應有 NCV 明顯下降及傳導阻斷','腕隧道症候群：應只有正中神經異常'],
+   ans:1,tag:'MND 早期',tc:'t-red',
+   exp:'早期 ALS 的 NCS 特徵：運動 CMAP 振幅因運動神經元喪失而下降（尺神經 6.1 mV、腓深 2.1 mV），但<span class="hl">感覺 SNAP 完全正常</span>（正中 22 µV、尺神經 19 µV）——這是與周邊神經病最關鍵的鑑別點，因為 ALS 不影響感覺神經元。NCV 與 DL 仍在正常範圍或僅輕微偏低（純運動軸突喪失尚未大量丟失快傳導纖維）。本例臨床已有肌束顫動及跨肢體無力（右手→左手），符合上運動神經元 + 下運動神經元徵象擴散的型態。確診需 EMG 證實多節段急性與慢性去神經共存，並排除可治療的鑑別診斷（如多灶性運動神經病 MMN，後者有傳導阻斷且 IVIG 有效）。'},
+
+  {label:'案例十一｜晚期 ALS（運動神經元疾病）',
+   vignette:'61 歲女性，ALS 病史 18 個月，目前四肢嚴重無力併呼吸肌受累（須使用 BiPAP），構音不清，吞嚥困難。家屬要求追蹤電生理變化以評估病程進展。',
+   rows:[
+     {n:'正中神經（運動）',a:'1.2 mV ↓↓',v:'44 m/s ↓',d:'4.3 ms',x:true},
+     {n:'正中神經（感覺）',a:'18 µV',v:'51 m/s',d:'3.2 ms',x:false},
+     {n:'尺神經（運動）',a:'0.8 mV ↓↓',v:'41 m/s ↓',d:'3.1 ms',x:true},
+     {n:'尺神經（感覺）',a:'17 µV',v:'50 m/s',d:'2.8 ms',x:false},
+     {n:'F 波（正中神經）',a:'—',v:'—',d:'消失',x:true}
+   ],
+   q:'與早期相比，晚期 ALS 的 NCS 變化趨勢及判讀注意事項為何？',
+   opts:['NCV 明顯下降至脫髓鞘範圍，應懷疑合併 CIDP','CMAP 振幅進一步降低、NCV 因快纖維大量喪失輕降至接近 75% 下限，但 SNAP 仍正常——勿誤判為脫髓鞘','SNAP 開始下降，表示病程已進展至周邊神經病','F 波消失代表合併神經根病變，需加做 MRI'],
+   ans:1,tag:'MND 晚期',tc:'t-red',
+   exp:'晚期 ALS 的 CMAP 振幅較早期更顯著下降（運動神經元持續流失），NCV 因僅剩較慢傳導的殘存運動軸突而可降至接近正常下限的 70–75%（本例正中 44 m/s、尺神經 41 m/s），<span class="hl">此時容易與脫髓鞘性多發神經病混淆</span>，但關鍵鑑別仍是 <span class="hl">SNAP 始終正常</span>（本例正中 18 µV、尺神經 17 µV 皆正常）。F 波消失反映運動神經元大量喪失導致逆向傳導通路中斷，並非神經根病變的證據。電生理追蹤的臨床意義：CMAP 振幅下降速率（如每月百分比變化）是評估病程進展速度及預後的客觀指標，比單次絕對數值更有意義。'},
+
+  {label:'案例十二｜糖尿病合併腕隧道症候群',
+   vignette:'58 歲女性，糖尿病 12 年（HbA1c 8.2%），雙腳麻木刺痛 3 年，近 8 個月右手拇指至中指麻木加重，夜間痛醒，需甩手緩解；左手僅輕微麻木。雙側腓腸神經 SNAP 先前已知異常。',
+   rows:[
+     {n:'腓腸神經（感覺，雙側）',a:'4 µV ↓',v:'38 m/s ↓',d:'—',x:true},
+     {n:'正中神經感覺（右，中指）',a:'7 µV ↓',v:'39 m/s ↓',d:'5.6 ms ↑',x:true},
+     {n:'正中神經感覺（左，中指）',a:'13 µV',v:'44 m/s ↓',d:'4.0 ms',x:true},
+     {n:'尺神經感覺（右，小指）',a:'12 µV',v:'45 m/s ↓',d:'3.0 ms',x:true},
+     {n:'正中－尺感覺潛時差（右）',a:'—',v:'—',d:'2.6 ms ↑↑',x:true}
+   ],
+   q:'此 NCS 結果應如何整合判讀？右手症狀加重的原因是？',
+   opts:['全部異常皆為糖尿病多發神經病的表現，無須進一步處置','糖尿病多發神經病（雙側對稱背景）+ 右側疊加腕隧道症候群（正中－尺潛時差顯著超標）','右手異常為尺神經肘管症候群，與腕隧道無關','正中神經 NCV 下降提示需懷疑 CIDP 重疊診斷'],
+   ans:1,tag:'DM+CTS',tc:'t-amber',
+   exp:'背景為糖尿病長度依賴型軸突多發神經病：雙側腓腸神經 SNAP 下降、整體感覺 NCV 普遍輕降（包含尺神經 45 m/s，反映全身周邊神經受糖尿病影響）。然而<span class="hl">右側正中神經明顯較左側更差</span>（DL 5.6 ms vs 4.0 ms；振幅 7 µV vs 13 µV），且<span class="hl">右側正中－尺神經感覺潛時差達 2.6 ms，遠超過 0.4 ms 的腕隧道閾值</span>，顯示在糖尿病背景之上疊加了右側腕隧道症候群。判讀陷阱：若僅因「糖尿病患者，NCS 異常理所當然」而不做雙側比較及潛時差計算，可能漏診這個可治療的局部病灶（副木固定或手術減壓可顯著改善右手症狀及功能）。'},
+
+  {label:'案例十三｜慢性腎臟病（尿毒症）神經病變',
+   vignette:'67 歲男性，慢性腎臟病第 5 期，已接受血液透析 3 年（每週三次），主訴雙腳麻木刺痛、夜間不寧腿症狀加重已 1 年。右前臂有人工血管瘻管（AVF）供透析使用，近 2 個月右手亦出現麻木無力，較左手明顯。',
+   rows:[
+     {n:'腓腸神經（感覺，雙側）',a:'3 µV ↓',v:'36 m/s ↓',d:'—',x:true},
+     {n:'腓深神經（運動，雙側）',a:'2.4 mV ↓',v:'38 m/s ↓',d:'6.4 ms ↑',x:true},
+     {n:'正中神經（感覺，左）',a:'11 µV',v:'43 m/s ↓',d:'3.6 ms',x:true},
+     {n:'正中神經（感覺，右，瘻管側）',a:'3 µV ↓↓',v:'31 m/s ↓↓',d:'4.2 ms ↑',x:true},
+     {n:'正中神經（運動，右，瘻管側）',a:'2.8 mV ↓↓',v:'34 m/s ↓↓',d:'5.9 ms ↑↑',x:true}
+   ],
+   q:'此案例的整體型態及右手新發症狀最可能的解釋為何？',
+   opts:['全部為尿毒症多發神經病的雙側對稱表現，右手只是進展較快','背景為尿毒症長度依賴型多發神經病；右手瘻管側明顯較對側更差，應懷疑透析瘻管相關缺血性單神經病（steal syndrome）','右手異常代表合併急性 GBS，需立即給予 IVIG','正中神經 DL 延長純粹是腕隧道症候群，與透析無關'],
+   ans:1,tag:'CKD/尿毒症',tc:'t-teal',
+   exp:'雙側腓腸神經 SNAP 下降及下肢運動振幅、NCV 輕降，符合尿毒症常見的長度依賴型軸突多發神經病背景（與糖尿病型態類似）。然而<span class="hl">右側（瘻管側）正中神經振幅、NCV 較左側顯著更差</span>（感覺振幅 3 µV vs 11 µV；運動 NCV 34 m/s vs 43 m/s），且新發症狀時間點與透析瘻管使用相關，應高度懷疑<span class="hl">透析相關竊血現象（dialysis access steal syndrome）造成的缺血性單神經病</span>——瘻管分流大量血液導致遠端肢體灌注不足，神經缺血受損。此為血管外科急症徵象之一，需評估瘻管血流並考慮血管重建手術，否則可能進展為不可逆神經損傷。長期透析患者腕隧道症候群（β2-微球蛋白澱粉樣沉積相關）亦常見，但本例瘻管側與非瘻管側的顯著不對稱及症狀時序，更支持竊血現象而非單純澱粉樣腕隧道。'},
+
+  {label:'案例十四｜Lambert-Eaton 肌無力症候群（LEMS）',
+   vignette:'66 歲男性，重度吸菸史，近端肢體無力（爬樓梯、起身困難）2 個月，伴隨口乾及姿勢性低血壓。神經學檢查反射減弱，但持續用力收縮後反射可暫時恢復。胸部 CT 發現右上肺葉腫塊。',
+   rows:[
+     {n:'尺神經 CMAP（基礎振幅）',a:'1.8 mV ↓↓',v:'52 m/s',d:'3.0 ms',x:true},
+     {n:'尺神經 2Hz RNS（遞減率）',a:'↓18%',v:'—',d:'—',x:true},
+     {n:'尺神經 10Hz RNS／運動後（遞增率）',a:'↑320%',v:'—',d:'—',x:true},
+     {n:'正中神經（感覺）',a:'21 µV',v:'53 m/s',d:'3.0 ms',x:false},
+     {n:'尺神經（感覺）',a:'18 µV',v:'51 m/s',d:'2.8 ms',x:false}
+   ],
+   q:'此電生理組合最符合哪個診斷？最具決定性的發現是什麼？',
+   opts:['重症肌無力（MG）：基礎振幅應正常，高頻刺激不會大幅增益','Lambert-Eaton 肌無力症候群：基礎 CMAP 振幅↓ + 高頻刺激後振幅大幅增益（post-tetanic facilitation）','周邊神經病：感覺 SNAP 應異常','肌強直性肌營養不良：應見肌強直放電而非 RNS 異常'],
+   ans:1,tag:'LEMS',tc:'t-purple',
+   exp:'本例的決定性發現是<span class="hl">基礎 CMAP 振幅顯著降低（1.8 mV，遠低於正常下限）合併高頻刺激（10 Hz）或最大自主收縮後振幅大幅增加 320%</span>（post-tetanic facilitation），此為 LEMS 的電生理標誌。低頻 2Hz RNS 也呈遞減（18%），單看此項與 MG 相似，但 MG 的基礎振幅應正常，且高頻刺激後不會出現如此大幅度的增益。感覺神經完全正常（正中 21 µV、尺神經 18 µV），排除周邊神經病為主要病因。臨床上近端肌無力、自律神經症狀（口乾、姿勢性低血壓）、運動後反射暫時恢復（post-exercise facilitation of reflexes），加上本例的肺部腫塊及重度吸菸史，<span class="hl">高度懷疑小細胞肺癌相關副腫瘤性 LEMS（抗 P/Q 型 VGCC 抗體）</span>，應立即安排腫瘤學評估與抗體檢測。'}
 
 ];
 
