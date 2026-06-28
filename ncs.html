@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NCS 神經傳導判讀教學｜住院醫師版</title>
+<title>NCS 神經傳導判讀教學｜AI輔助整理自用版</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -246,7 +246,17 @@ footer a{color:var(--blue);text-decoration:none}
 </style>
 </head>
 <body>
-
+  
+<nav style="position:sticky;top:0;z-index:100;background:rgba(13,17,23,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);padding:0 24px;display:flex;align-items:center;height:52px;gap:0;">
+  <a href="index.html" style="font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;color:#58a6ff;margin-right:32px;text-decoration:none;white-space:nowrap;">⬡ HCH-FYH Neurology</a>
+  <div style="display:flex;gap:2px;flex-wrap:wrap;">
+    <a href="index.html" style="color:#8b949e;text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;">首頁</a>
+    <a href="ncs.html" style="color:#58a6ff;background:rgba(88,166,255,.08);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;">神經傳導</a>
+    <a href="neuro-ultrasound.html" style="color:#8b949e;text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;">神經超音波</a>
+    <a href="headache.html" style="color:#8b949e;text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;">頭痛</a>
+    <a href="dementia.html" style="color:#8b949e;text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;">失智症</a>
+  </div>
+</nav>
 <!-- NAV -->
 <nav id="tnav">
   <div class="nav-inner">
@@ -259,7 +269,7 @@ footer a{color:var(--blue);text-decoration:none}
       <a href="#patterns" onclick="nc()">疾病型態</a>
       <a href="#nmj" onclick="nc()">神經肌肉接點</a>
       <a href="#quiz" onclick="nc()">練習題</a>
-      <a href="#howto" onclick="nc()">網站製作</a>
+      <a href="#howto" onclick="nc()">建構中</a>
     </div>
     <div class="hamburger" id="hbg" onclick="th()">
       <span></span><span></span><span></span>
@@ -269,7 +279,7 @@ footer a{color:var(--blue);text-decoration:none}
 
 <!-- HERO -->
 <section id="hero" class="hero">
-  <div class="hero-badge">住院醫師電生理教學資源</div>
+  <div class="hero-badge">AI輔助自用 電生理教學資源</div>
   <h1 class="hero-title">神經傳導檢查<br><em>系統性判讀</em>完整指引</h1>
   <p class="hero-sub">從肢溫確認到疾病診斷，以四步驟架構建立完整的 NCS 判讀邏輯。依據 AANEM 2024、Neurology Education 2025 及華盛頓大學周邊神經學資源編製。</p>
   <div class="hero-actions">
@@ -804,79 +814,6 @@ footer a{color:var(--blue);text-decoration:none}
     <h2 class="section-title">教學網站<span>製作指南</span></h2>
     <p class="section-desc">完全不需要程式背景，按照以下 8 個步驟，即可將這個網站部署到網路上，讓所有人都能免費存取。</p>
   </div>
-
-  <div class="callout c-info" style="margin-bottom:28px">
-    💡 <strong>你需要準備什麼？</strong>一台電腦、一個 GitHub 帳號（免費）、約 15 分鐘。完成後網站將 24 小時在線，網址格式：<code style="font-family:var(--mono);font-size:12px">yourname.github.io/ncs-teaching</code>
-  </div>
-
-  <div class="guide">
-
-    <div class="g-step">
-      <div class="g-num">01</div>
-      <div class="g-body">
-        <h3>下載這個 HTML 檔案</h3>
-        <p>在瀏覽器按 <kbd>Ctrl + S</kbd>（Mac 用 <kbd>Cmd + S</kbd>），將頁面另存為 <code style="font-family:var(--mono);font-size:12px;color:var(--amber)">index.html</code>，儲存類型選「<strong>網頁，僅 HTML</strong>」。</p>
-        <div class="callout c-warn">⚠️ 檔名必須完全是 <code style="font-family:var(--mono);font-size:12px">index.html</code>（全小寫），這是網站首頁的標準入口檔名。</div>
-      </div>
-    </div>
-
-    <div class="g-step">
-      <div class="g-num">02</div>
-      <div class="g-body">
-        <h3>建立免費 GitHub 帳號</h3>
-        <p>前往 <a href="https://github.com" target="_blank">github.com</a> 點「Sign up」免費註冊。GitHub 是全球最大程式碼平台，提供免費靜態網站托管（GitHub Pages）。</p>
-        <div class="chips">
-          <div class="chip"><div class="cdot" style="background:var(--teal)"></div>完全免費，無需信用卡</div>
-          <div class="chip"><div class="cdot" style="background:var(--teal)"></div>已有帳號可跳至 Step 03</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="g-step">
-      <div class="g-num">03</div>
-      <div class="g-body">
-        <h3>建立新的 Repository（儲存庫）</h3>
-        <p>登入後，點右上角「+」→「New repository」，依照以下設定填寫：</p>
-        <div class="code-wrap">
-          <div class="code-head"><span class="code-lang">設定值</span><button class="code-copy" onclick="cc(this)">複製</button></div>
-          <pre class="code">Repository name:  ncs-teaching
-Description:      NCS 神經傳導判讀教學網站
-Visibility:       ● Public  ← 必須選 Public，Pages 才能免費啟用
-Initialize:       ✅ Add a README file  ← 記得勾選</pre>
-        </div>
-        <p style="margin-top:12px">填好後按「<strong>Create repository</strong>」（綠色按鈕）建立。</p>
-      </div>
-    </div>
-
-    <div class="g-step">
-      <div class="g-num">04</div>
-      <div class="g-body">
-        <h3>上傳 index.html</h3>
-        <p>進入剛建立的 repository，點「<strong>Add file</strong>」→「<strong>Upload files</strong>」，把 <code style="font-family:var(--mono);font-size:12px;color:var(--amber)">index.html</code> 拖曳進去，然後點「<strong>Commit changes</strong>」。</p>
-        <div class="file-tree">📁 ncs-teaching/
-├── <span class="ft-file">README.md</span>    ← GitHub 自動建立
-└── <span class="ft-file">index.html</span>   ← 你剛上傳的教學網站</div>
-      </div>
-    </div>
-
-    <div class="g-step">
-      <div class="g-num">05</div>
-      <div class="g-body">
-        <h3>開啟 GitHub Pages</h3>
-        <p>在 repository 頁面點上方「<strong>Settings</strong>」→ 左側選單「<strong>Pages</strong>」→ Source 選「<strong>Deploy from a branch</strong>」→ Branch 選「<strong>main</strong>」→ 資料夾選「<strong>/ (root)</strong>」→ 點「<strong>Save</strong>」。</p>
-        <div class="code-wrap">
-          <div class="code-head"><span class="code-lang">路徑</span></div>
-          <pre class="code">Settings → Pages → Source
-  Branch: main  /  (root)
-  [Save]
-
-等待 1–2 分鐘，頁面頂部出現：
-<span class="cs">✅ Your site is live at https://yourname.github.io/ncs-teaching/</span></pre>
-        </div>
-        <div class="callout c-ok" style="margin-top:10px">✅ 複製那個網址，就可以分享給所有同事了！</div>
-      </div>
-    </div>
-
     <div class="g-step">
       <div class="g-num">06</div>
       <div class="g-body">
@@ -889,20 +826,6 @@ Initialize:       ✅ Add a README file  ← 記得勾選</pre>
         </div>
       </div>
     </div>
-
-    <div class="g-step">
-      <div class="g-num">07</div>
-      <div class="g-body">
-        <h3>如何修改網站內容</h3>
-        <p>整個網站是單一 HTML 檔。用 <a href="https://code.visualstudio.com" target="_blank">VS Code</a>（免費）開啟，幾個常見修改場景：</p>
-        <div class="code-wrap">
-          <div class="code-head"><span class="code-lang">HTML 修改範例</span><button class="code-copy" onclick="cc(this)">複製</button></div>
-          <pre class="code"><span class="cm">// 修改機構名稱或標題（搜尋這段）</span>
-&lt;div class="hero-badge"&gt;住院醫師電生理教學資源&lt;/div&gt;
-
-<span class="cm">// 修改正常值表格（找到 nv-mo 區塊）</span>
-&lt;td class="mono"&gt;≥ 5 mV&lt;/td&gt;  <span class="cm">← 改成你機構的數值</span>
-
 <span class="cm">// 新增疾病型態卡片（複製一個 pat-card）</span>
 &lt;div class="pat-card" style="--acc:var(--teal)"&gt;
   &lt;h3&gt;&lt;span class="tag t-teal"&gt;你的分類&lt;/span&gt; 疾病名稱&lt;/h3&gt;
@@ -912,20 +835,6 @@ Initialize:       ✅ Add a README file  ← 記得勾選</pre>
         <div class="callout c-info" style="margin-top:10px">💡 不懂 HTML 也沒關係，把想修改的段落貼給 Claude，說明你要改什麼，Claude 會直接幫你改好再貼回去。</div>
       </div>
     </div>
-
-    <div class="g-step">
-      <div class="g-num">08</div>
-      <div class="g-body">
-        <h3>進階：自訂網域 &amp; 替代平台</h3>
-        <p>如果機構有網域（如 <code style="font-family:var(--mono);font-size:12px;color:var(--amber)">hospital.edu.tw</code>），可在 GitHub Pages「Custom domain」欄填入子網域，請 IT 部門設定 DNS CNAME 指向 <code style="font-family:var(--mono);font-size:12px">yourname.github.io</code>。</p>
-        <div class="chips">
-          <div class="chip"><div class="cdot" style="background:var(--blue)"></div><a href="https://www.netlify.com" target="_blank" style="color:var(--blue);text-decoration:none">Netlify</a> — 拖曳資料夾即部署</div>
-          <div class="chip"><div class="cdot" style="background:var(--blue)"></div><a href="https://vercel.com" target="_blank" style="color:var(--blue);text-decoration:none">Vercel</a> — 操作更直覺，適合新手</div>
-          <div class="chip"><div class="cdot" style="background:var(--amber)"></div>以上皆免費、有 HTTPS</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
