@@ -353,6 +353,51 @@
     .card-grid { padding: 0 16px; gap: 12px; }
     .hero-stats { gap: 20px; }
   }
+/* 子主題連結列 */
+.subtopic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 12px 0 4px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+.subtopic-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--text2);
+  text-decoration: none;
+  padding: 5px 8px;
+  border-radius: 5px;
+  transition: background .15s, color .15s;
+  /* 阻止點子連結時觸發主卡片的 hover */
+  position: relative;
+  z-index: 2;
+}
+.subtopic-link::before {
+  content: '›';
+  margin-right: 6px;
+  color: var(--text3);
+  font-size: 14px;
+}
+.subtopic-link:hover {
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+.subtopic-link.coming {
+  color: var(--text3);
+  pointer-events: none;
+}
+.subtopic-link.coming span {
+  font-size: 10px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
 </style>
 </head>
 <body>
@@ -455,27 +500,28 @@
   <span>頭痛 · Headache Medicine</span>
 </div>
 
-<div class="card-grid">
-  <a class="topic-card card-purple" href="migraine_headache.html">
-    <span class="card-icon">🧠</span>
-    <div class="card-category">Headache · Migraine</div>
-    <div class="card-title">偏頭痛治療近五年進展</div>
-    <div class="card-desc">
-      依台灣頭痛學會 2022 準則及 AHS 2024 共識整理，
-      涵蓋 CGRP 療法、gepants、神經調節、運動與營養補充，
-      附實證等級標示（A/B/C）。
-    </div>
-    <div class="card-tags">
-      <span class="tag">CGRP 單株抗體</span>
-      <span class="tag">Gepants</span>
-      <span class="tag">神經調節</span>
-      <span class="tag">運動處方</span>
-    </div>
-    <div class="card-footer">
-      <span>已上線 ，持續更新中</span>
-      <span class="arrow">→</span>
-    </div>
-  </a>
+<!-- 頭痛主卡片 -->
+<a class="topic-card card-purple" href="headache.html">
+  <span class="card-icon">🧠</span>
+  <div class="card-category">Headache · Migraine</div>
+  <div class="card-title">頭痛相關</div>
+  <div class="card-desc">
+    偏頭痛、叢發性頭痛、藥物過度使用性頭痛的診斷與治療，
+    依台灣頭痛學會 2022 準則及 AHS 2024 共識整理。
+  </div>
+
+  <!-- ★ 新增：子主題快速連結 -->
+  <div class="subtopic-list">
+    <a href="migraine_headache.html"         class="subtopic-link">偏頭痛治療近五年進展</a>
+    <a href="cluster-headache.html" class="subtopic-link">叢發性頭痛 <span>即將上線</span></a>
+    <a href="moh.html"              class="subtopic-link coming">藥物過度使用性頭痛 <span>即將上線</span></a>
+  </div>
+
+  <div class="card-footer">
+    <span>3 個子主題</span>
+    <span class="arrow">→</span>
+  </div>
+</a>
 
   <div class="topic-card card-purple coming-soon">
     <span class="card-icon">📋</span>
@@ -495,27 +541,27 @@
   <span>失智症 · Dementia</span>
 </div>
 
-<div class="card-grid">
-  <a class="topic-card card-amber" href="dementia.html">
-    <span class="card-icon">🔬</span>
-    <div class="card-category">Dementia</div>
-    <div class="card-title">失智症診斷與新進展</div>
-    <div class="card-desc">
-      涵蓋阿茲海默症、DLB、血管型失智症等，
-      整合 McKeith 2017 標準、Kalia et al. Lancet Neurology 2025，
-      以及 2026 年 semaglutide 與咖啡因研究最新資訊。
-    </div>
-    <div class="card-tags">
-      <span class="tag">阿茲海默症</span>
-      <span class="tag">DLB</span>
-      <span class="tag">Lecanemab</span>
-      <span class="tag">生物標記</span>
-    </div>
-    <div class="card-footer">
-      <span>已上線</span>
-      <span class="arrow">→</span>
-    </div>
-  </a>
+<a class="topic-card card-amber" href="dementia.html">
+  <span class="card-icon">🔬</span>
+  <div class="card-category">Dementia</div>
+  <div class="card-title">失智症相關</div>
+  <div class="card-desc">
+    阿茲海默症、路易氏體失智症、血管型失智症等診斷與治療，
+    整合最新 2025–2026 指引與生物標記研究。
+  </div>
+
+  <!-- ★ 新增：子主題快速連結 -->
+  <div class="subtopic-list">
+    <a href="dementia.html"          class="subtopic-link">失智症總覽</a>
+    <a href="dlb_dementia.html"               class="subtopic-link">路易氏體失智症（DLB）</a>
+    <a href="treatable-dementia.html" class="subtopic-link coming">可治療的失智類疾病 <span>即將上線</span></a>
+  </div>
+
+  <div class="card-footer">
+    <span>3 個子主題</span>
+    <span class="arrow">→</span>
+  </div>
+</a>
 
   <div class="topic-card card-amber coming-soon">
     <span class="card-icon">🧩</span>
