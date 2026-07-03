@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>路易體失智症 DLB 臨床快查手冊 2025</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #222638;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --text: #e8e9f0;
+    --muted: #9095a8;
+    --purple-l: #c4bffc;
+    --purple-d: #3d3880;
+    --teal-l: #7de8cc;
+    --teal-d: #1a5c4a;
+    --amber-l: #fcd27a;
+    --amber-d: #6b4a0d;
+    --coral-l: #f9a88a;
+    --coral-d: #6b2c14;
+    --blue-l: #85c4f0;
+    --blue-d: #0c3460;
+    --green-l: #9fdc80;
+    --green-d: #234d10;
+    --red-l: #f29090;
+    --red-d: #5a1818;
+    --accent: #7c6ef7;
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 0 0 60px;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: linear-gradient(135deg, #1a1630 0%, #1e2240 100%);
+    border-bottom: 1px solid var(--border2);
+    padding: 28px 20px 22px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: clamp(18px, 4vw, 24px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+  }
+  .header p {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── Nav tabs ── */
+  .nav-wrap {
+    position: sticky;
+    top: 108px;
+    z-index: 99;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-wrap::-webkit-scrollbar { display: none; }
+  .nav {
+    display: flex;
+    gap: 0;
+    white-space: nowrap;
+    padding: 0 12px;
+  }
+  .nav a {
+    display: inline-block;
+    padding: 11px 14px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav a:hover, .nav a.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ── Section layout ── */
+  .section {
+    padding: 24px 16px 8px;
+    scroll-margin-top: 160px;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .section-title .icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .section-title h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .section-subtitle {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: -12px;
+    margin-bottom: 16px;
+    padding-left: 40px;
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── Chip/badge ── */
+  .chip {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  /* ── List styles ── */
+  .bullet-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .bullet-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text);
+  }
+  .bullet-list li::before {
+    content: "▸";
+    color: var(--accent);
+    font-size: 11px;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+  .bullet-list .sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── Criteria table ── */
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 480px) {
+    .criteria-grid { grid-template-columns: 1fr; }
+  }
+  .crit-card {
+    border-radius: 8px;
+    padding: 12px 13px;
+    border: 1px solid var(--border);
+  }
+  .crit-card .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .crit-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .crit-card li {
+    font-size: 13px;
+    line-height: 1.5;
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .crit-card li .num {
+    font-size: 11px;
+    font-weight: 700;
+    width: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    opacity: 0.7;
+  }
+
+  /* ── Diagnostic rule box ── */
+  .diag-rule {
+    border-radius: 8px;
+    padding: 13px 14px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .diag-rule .badge {
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .diag-rule .rule-text {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  /* ── Biomarker table ── */
+  .bio-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  .bio-table th {
+    background: var(--surface2);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border2);
+  }
+  .bio-table td {
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .bio-table tr:last-child td { border-bottom: none; }
+  .bio-table .tag {
+    display: inline-block;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  /* ── Treatment domain grid ── */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 440px) {
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+  .domain-card {
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .domain-card .d-title {
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .domain-card .d-icon {
+    font-size: 16px;
+  }
+  .domain-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .domain-card li {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.5;
+    padding-left: 12px;
+    position: relative;
+  }
+  .domain-card li::before {
+    content: "·";
+    position: absolute;
+    left: 2px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .domain-card .drug-highlight {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .domain-card .note {
+    font-size: 11px;
+    color: var(--muted);
+    font-style: italic;
+    border-top: 1px solid var(--border);
+    padding-top: 6px;
+    margin-top: 2px;
+  }
+
+  /* ── Warning box ── */
+  .warning-box {
+    border-left: 3px solid #e24b4a;
+    background: rgba(162,45,45,0.12);
+    border-radius: 0 8px 8px 0;
+    padding: 13px 14px;
+    margin-bottom: 12px;
+  }
+  .warning-box .w-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--red-l);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .warning-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .warning-box li {
+    font-size: 13px;
+    line-height: 1.5;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .warning-box li::before {
+    content: "✕";
+    color: #e24b4a;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── Info box ── */
+  .info-box {
+    border-left: 3px solid var(--accent);
+    background: rgba(124,110,247,0.08);
+    border-radius: 0 8px 8px 0;
+    padding: 13px 14px;
+    margin-bottom: 12px;
+  }
+  .info-box .i-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--purple-l);
+    margin-bottom: 7px;
+  }
+  .info-box p, .info-box li {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text);
+  }
+
+  /* ── SAA table ── */
+  .saa-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .saa-row:last-child { border-bottom: none; }
+  .saa-label {
+    padding: 9px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    background: var(--surface2);
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+  .saa-val {
+    padding: 9px 12px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* ── DMT pipeline ── */
+  .pipeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .pipeline-item:last-child { border-bottom: none; }
+  .pipeline-phase {
+    width: 68px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .pipeline-phase .phase-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .pipeline-content .drug-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .pipeline-content .drug-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── Reference footer ── */
+  .ref-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin: 16px;
+  }
+  .ref-box h3 {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .ref-box ol {
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .ref-box li {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .ref-box li span {
+    color: var(--accent);
+  }
+
+  /* ── Divider ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 6px 16px 0;
+  }
+
+  /* ── Scroll indicator ── */
+  .scroll-indicator {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--border);
+    z-index: 200;
+  }
+  .scroll-progress {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.1s;
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-indicator"><div class="scroll-progress" id="prog"></div></div>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-badge">🧠 Neurology · 2025</div>
+  <h1>路易體失智症（DLB）<br>臨床診斷與治療指引</h1>
+  <p>McKeith 2017 第四版共識 ✦ Kalia et al. Lancet Neurol 2025 ✦ SAA 新興生物標記</p>
+</div>
+
+<!-- Nav -->
+<div class="nav-wrap">
+  <nav class="nav">
+    <a href="#sec-diag" class="active">診斷標準</a>
+    <a href="#sec-bio">生物標記</a>
+    <a href="#sec-saa">α-Syn SAA</a>
+    <a href="#sec-prodromal">前驅期</a>
+    <a href="#sec-ddx">鑑別診斷</a>
+    <a href="#sec-tx">治療原則</a>
+    <a href="#sec-nondrug">非藥物</a>
+    <a href="#sec-dmt">疾病修飾</a>
+    <a href="#sec-refs">參考文獻</a>
+  </nav>
+</div>
+
+<!-- ═══════════════ SECTION 1: DIAGNOSIS ═══════════════ -->
+<div class="section" id="sec-diag">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(124,110,247,0.15);">🔍</div>
+    <h2>診斷標準</h2>
+  </div>
+  <p class="section-subtitle">McKeith et al. — DLB Consortium 第四版共識（Neurology 2017）</p>
+
+  <!-- Central feature -->
+  <div class="card" style="border-color:rgba(124,110,247,0.3); background:rgba(124,110,247,0.06);">
+    <div class="card-title">
+      <div class="dot" style="background:var(--accent);"></div>
+      核心先決條件
+    </div>
+    <ul class="bullet-list">
+      <li>認知功能下降，嚴重程度足以影響日常生活</li>
+      <li>早期突出表現為<strong>注意力、執行功能、視空間</strong>缺陷
+        <div class="sub">（非典型 AD 以記憶損傷為主的模式）</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 4 core features -->
+  <div class="criteria-grid">
+    <div class="crit-card" style="background:rgba(100,80,210,0.1); border-color:var(--purple-d);">
+      <div class="label" style="color:var(--purple-l);">①　波動性認知</div>
+      <ul>
+        <li><span class="num"></span>注意力與警覺性起伏，可自發緩解</li>
+        <li><span class="num"></span>白天過度嗜睡、凝視發呆為常見表現</li>
+      </ul>
+    </div>
+    <div class="crit-card" style="background:rgba(100,80,210,0.1); border-color:var(--purple-d);">
+      <div class="label" style="color:var(--purple-l);">②　反覆視幻覺</div>
+      <ul>
+        <li><span class="num"></span>鮮明、細緻的視覺性幻覺</li>
+        <li><span class="num"></span>通常為人物或動物，患者可自知</li>
+      </ul>
+    </div>
+    <div class="crit-card" style="background:rgba(100,80,210,0.1); border-color:var(--purple-d);">
+      <div class="label" style="color:var(--purple-l);">③　REM 睡眠行為障礙 ★</div>
+      <ul>
+        <li><span class="num"></span>2017 年升格為第四核心特徵</li>
+        <li><span class="num"></span>睡眠中出現動作、發聲（夢境演繹）</li>
+        <li><span class="num"></span>對 α-synuclein 病特異性達 98%</li>
+      </ul>
+    </div>
+    <div class="crit-card" style="background:rgba(100,80,210,0.1); border-color:var(--purple-d);">
+      <div class="label" style="color:var(--purple-l);">④　自發性帕金森症狀</div>
+      <ul>
+        <li><span class="num"></span>僵直（rigidity）</li>
+        <li><span class="num"></span>動作緩慢（bradykinesia）</li>
+        <li><span class="num"></span>靜止性震顫（resting tremor）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Diagnostic rules -->
+  <div style="margin-bottom:8px;">
+    <div style="font-size:12px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px; padding-left:4px;">診斷分類</div>
+    <div class="diag-rule" style="background:rgba(56,139,210,0.1);">
+      <div class="badge" style="background:var(--blue-d); color:var(--blue-l);">Probable DLB</div>
+      <div class="rule-text">≥2 項核心特徵<br><span style="color:var(--muted);font-size:13px;">或</span> 1 項核心特徵 ＋ 1 項指示性生物標記</div>
+    </div>
+    <div class="diag-rule" style="background:var(--surface);">
+      <div class="badge" style="background:var(--surface2); color:var(--muted);">Possible DLB</div>
+      <div class="rule-text">1 項核心特徵<br><span style="color:var(--muted);font-size:13px;">或</span> ≥1 項指示性生物標記（未達 probable 標準）</div>
+    </div>
+    <div class="diag-rule" style="background:rgba(255,255,255,0.03);">
+      <div class="badge" style="background:rgba(100,80,30,0.4); color:var(--amber-l);">Definite DLB</div>
+      <div class="rule-text">僅於<strong>死後病理</strong>確認（Lewy body 病理 + 臨床符合）</div>
+    </div>
+  </div>
+
+  <!-- Supportive clinical -->
+  <div class="card">
+    <div class="card-title">
+      <div class="dot" style="background:var(--muted);"></div>
+      支持性臨床特徵（Supportive features）
+    </div>
+    <ul class="bullet-list">
+      <li>抗精神病藥物嚴重過敏反應（neuroleptic sensitivity）</li>
+      <li>姿位性不穩定、反覆跌倒</li>
+      <li>昏厥或短暫無意識發作</li>
+      <li>嚴重自律神經功能失調（姿位性低血壓、便秘、尿失禁）</li>
+      <li>嗜睡過度（hypersomnia）、嗅覺喪失（hyposmia）</li>
+      <li>系統性妄想、其他感官幻覺、淡漠／焦慮／憂鬱</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ SECTION 2: BIOMARKERS ═══════════════ -->
+<div class="section" id="sec-bio">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(29,158,117,0.15);">🔬</div>
+    <h2>生物標記</h2>
+  </div>
+  <p class="section-subtitle">指示性（indicative）與支持性（supportive）生物標記</p>
+
+  <div class="card" style="padding:0; overflow:hidden;">
+    <table class="bio-table">
+      <thead>
+        <tr>
+          <th style="width:36%;">檢查項目</th>
+          <th style="width:24%;">類別</th>
+          <th>臨床意義與備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>DaT-SPECT/PET</strong></td>
+          <td><span class="tag" style="color:var(--teal-l);border-color:var(--teal-d);">指示性</span></td>
+          <td>基底核多巴胺轉運體攝取減少；帕金森症間接指標</td>
+        </tr>
+        <tr>
+          <td><strong>¹²³I-MIBG 心肌閃爍</strong></td>
+          <td><span class="tag" style="color:var(--teal-l);border-color:var(--teal-d);">指示性</span></td>
+          <td>高特異性；台灣可近性與費用受限，非常規第一線</td>
+        </tr>
+        <tr>
+          <td><strong>PSG（多頻道睡眠腦波）</strong></td>
+          <td><span class="tag" style="color:var(--teal-l);border-color:var(--teal-d);">指示性</span></td>
+          <td>REM 期肌張力未消失確認（需排除肌電圖假象）</td>
+        </tr>
+        <tr>
+          <td><strong>CT/MRI 顳葉結構</strong></td>
+          <td><span class="tag">支持性</span></td>
+          <td>內側顳葉相對保存（對比 AD 明顯萎縮）</td>
+        </tr>
+        <tr>
+          <td><strong>FDG-PET / SPECT</strong></td>
+          <td><span class="tag">支持性</span></td>
+          <td>枕葉低代謝；Cingulate island sign（FDG-PET）</td>
+        </tr>
+        <tr>
+          <td><strong>EEG</strong></td>
+          <td><span class="tag">支持性</span></td>
+          <td>後方慢波伴週期性波動（pre-alpha/theta 範圍）；價廉易得</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ SECTION 3: SAA ═══════════════ -->
+<div class="section" id="sec-saa">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(252,210,122,0.15);">⚗️</div>
+    <h2>新興生物標記：α-Syn SAA</h2>
+  </div>
+  <p class="section-subtitle">α-synuclein 種子擴增試驗（2024–2025）</p>
+
+  <div class="info-box">
+    <div class="i-title">Zarkali et al. Lancet Neurol 2025 — 臨床定位</div>
+    <ul class="bullet-list">
+      <li>可偵測 CSF 及皮膚組織中的錯誤摺疊 α-synuclein</li>
+      <li>鑑別 DLB vs AD：整體診斷準確性 <strong>&gt;80%</strong></li>
+      <li>SAA 陽性與核心症狀（RBD、帕金森症狀、認知波動、嗅覺喪失）強相關</li>
+      <li>可作為臨床試驗入組之生物標記</li>
+    </ul>
+  </div>
+
+  <div class="card" style="padding:0; overflow:hidden;">
+    <div style="background:var(--surface2); padding:8px 12px; font-size:11px; font-weight:700; color:var(--muted); letter-spacing:0.05em; text-transform:uppercase;">SAA 現況摘要</div>
+    <div class="saa-row">
+      <div class="saa-label">CSF 敏感性</div>
+      <div class="saa-val">各實驗室平均 <strong>78.8%</strong>（range 55–100%）</div>
+    </div>
+    <div class="saa-row">
+      <div class="saa-label">CSF 特異性</div>
+      <div class="saa-val">平均 <strong>77.5%</strong>（range 60–100%）；最優實驗室達 100%</div>
+    </div>
+    <div class="saa-row">
+      <div class="saa-label">檢體類型</div>
+      <div class="saa-val">CSF（主要）、皮膚切片、嗅黏膜；尿液仍為 proof-of-concept 階段</div>
+    </div>
+    <div class="saa-row">
+      <div class="saa-label">AD 共病影響</div>
+      <div class="saa-val">約 70% DLB 患者有 AD 共病病理；Aβ 陽性者 SAA 敏感性較低（70% vs 87.5%）</div>
+    </div>
+    <div class="saa-row">
+      <div class="saa-label">臨床落地</div>
+      <div class="saa-val">尚未常規化；實驗室間差異大，標準化為關鍵課題</div>
+    </div>
+  </div>
+
+  <div class="card" style="border-color:rgba(252,210,122,0.2); background:rgba(252,210,122,0.05);">
+    <div class="card-title">
+      <div class="dot" style="background:var(--amber-l);"></div>
+      新型分類框架（2024–2025）
+    </div>
+    <ul class="bullet-list">
+      <li><strong>NSD-ISS</strong>（神經元 α-Syn 疾病整合分期系統，Simuni et al. Lancet Neurol 2024）：以 SAA 及 DAT 影像為生物錨點定義疾病分期</li>
+      <li><strong>SynNeurGe 提案</strong>（Höglinger & Lang）：以生物標記為基礎重新定義 Lewy body 疾病分類，促進早期/前驅期診斷</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ SECTION: PRODROMAL ═══════════════ -->
+<div class="section" id="sec-prodromal">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(252,210,122,0.15);">🌱</div>
+    <h2>前驅期 DLB</h2>
+  </div>
+  <p class="section-subtitle">McKeith et al. Neurology 2020 — 研究診斷準則（非常規臨床用途）</p>
+
+  <div class="info-box">
+    <div class="i-title">核心概念：症狀可早於失智症多年出現</div>
+    <ul class="bullet-list">
+      <li><strong>RBD</strong> 是目前最強的前驅期生物標記 — 約 80–90% 確診 RBD 患者最終發展為突觸核蛋白病（PD/DLB/MSA）</li>
+      <li>認知症狀出現前平均 <strong>10–12 年</strong>即可出現 iRBD（孤立性 REM 睡眠行為障礙）</li>
+      <li>其他前驅期表現：嗅覺喪失、便秘、憂鬱、姿位性低血壓</li>
+      <li>前驅期 DLB 診斷目前限於<strong>研究場域</strong>，需結合生物標記（DaT、MIBG、SAA）支持</li>
+    </ul>
+  </div>
+
+  <div class="card" style="padding:0; overflow:hidden;">
+    <div style="background:var(--surface2); padding:8px 12px; font-size:11px; font-weight:700; color:var(--muted); letter-spacing:0.05em; text-transform:uppercase;">前驅期 DLB 分類（McKeith 2020）</div>
+    <div style="padding:14px 14px 4px;">
+      <div style="display:flex; flex-direction:column; gap:10px;">
+
+        <div style="display:flex; gap:12px; align-items:flex-start; padding-bottom:10px; border-bottom:1px solid var(--border);">
+          <div style="min-width:90px; flex-shrink:0;">
+            <span style="background:rgba(124,110,247,0.2); color:var(--purple-l); font-size:11px; font-weight:700; padding:3px 8px; border-radius:4px;">MCI-LB</span>
+          </div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color:var(--text); margin-bottom:3px;">輕度認知障礙型前驅期 DLB</div>
+            <div style="font-size:12px; color:var(--muted); line-height:1.5;">符合 MCI 準則 + ≥1 核心特徵或指示性生物標記陽性；最常見的前驅期表現形式</div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:12px; align-items:flex-start; padding-bottom:10px; border-bottom:1px solid var(--border);">
+          <div style="min-width:90px; flex-shrink:0;">
+            <span style="background:rgba(29,158,117,0.2); color:var(--teal-l); font-size:11px; font-weight:700; padding:3px 8px; border-radius:4px;">iRBD-LB</span>
+          </div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color:var(--text); margin-bottom:3px;">孤立性 RBD 型（認知功能正常）</div>
+            <div style="font-size:12px; color:var(--muted); line-height:1.5;">PSG 確認 iRBD + ≥1 其他核心特徵或生物標記；此類患者為 DMT 試驗入組之最佳候選族群</div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:12px; align-items:flex-start; padding-bottom:10px;">
+          <div style="min-width:90px; flex-shrink:0;">
+            <span style="background:rgba(56,139,210,0.2); color:var(--blue-l); font-size:11px; font-weight:700; padding:3px 8px; border-radius:4px;">Delirium-LB</span>
+          </div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color:var(--text); margin-bottom:3px;">以急性意識混亂發作為前驅表現</div>
+            <div style="font-size:12px; color:var(--muted); line-height:1.5;">部分 DLB 患者以反覆急性認知波動或意識改變就診，初始易被誤診為代謝腦病或感染誘發之譫妄</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="dot" style="background:var(--amber-l);"></div>臨床追蹤建議（iRBD 確診後）</div>
+    <ul class="bullet-list">
+      <li>每年神經心理測驗（重點：注意力、視空間、執行功能）</li>
+      <li>運動功能評估（UPDRS motor score）</li>
+      <li>自律神經症狀問卷（SCOPA-AUT 或 COMPASS-31）</li>
+      <li>嗅覺測試（UPSIT 或 Sniffin' Sticks）</li>
+      <li>考慮 DaT-SPECT 基線評估，以監測多巴胺系統退化進程</li>
+      <li>告知患者「phenoconversion」風險，並登記加入研究追蹤（如 PREDICT-PD、PPMI）</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ SECTION: DIFFERENTIAL DIAGNOSIS ═══════════════ -->
+<div class="section" id="sec-ddx">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(249,168,138,0.15);">⚖️</div>
+    <h2>鑑別診斷</h2>
+  </div>
+  <p class="section-subtitle">DLB vs PDD vs AD vs PSP vs VaD — 臨床關鍵區別</p>
+
+  <!-- DLB vs PDD -->
+  <div class="card" style="margin-bottom:10px;">
+    <div class="card-title"><div class="dot" style="background:var(--amber-l);"></div>DLB vs 帕金森氏症伴失智（PDD）— 一年法則</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:4px;">
+      <div style="background:rgba(124,110,247,0.08); border:1px solid rgba(124,110,247,0.2); border-radius:8px; padding:11px 12px;">
+        <div style="font-size:12px; font-weight:700; color:var(--purple-l); margin-bottom:6px;">DLB</div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:4px;">
+          <li style="font-size:12.5px; color:var(--muted);">認知症狀先於或<strong style="color:var(--text);">同時</strong>出現帕金森症狀</li>
+          <li style="font-size:12.5px; color:var(--muted);">帕金森診斷後 <strong style="color:var(--text;">&lt;12 個月</strong> 即失智</li>
+          <li style="font-size:12.5px; color:var(--muted);">視幻覺、認知波動更突出</li>
+          <li style="font-size:12.5px; color:var(--muted);">對 levodopa 反應較差</li>
+        </ul>
+      </div>
+      <div style="background:rgba(187,117,23,0.08); border:1px solid rgba(187,117,23,0.2); border-radius:8px; padding:11px 12px;">
+        <div style="font-size:12px; font-weight:700; color:var(--amber-l); margin-bottom:6px;">PDD</div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:4px;">
+          <li style="font-size:12.5px; color:var(--muted);">帕金森診斷後 <strong style="color:var(--text);">&gt;12 個月</strong> 才出現失智</li>
+          <li style="font-size:12.5px; color:var(--muted);">動作症狀更突出，對 levodopa 反應較好</li>
+          <li style="font-size:12.5px; color:var(--muted);">病理幾乎相同（Lewy body），分類為臨床便利</li>
+        </ul>
+      </div>
+    </div>
+    <div style="font-size:11px; color:var(--muted); margin-top:8px; font-style:italic; padding:0 2px;">★ 兩者病理幾乎相同，「一年法則」為臨床分類工具，非生物學上的根本差異</div>
+  </div>
+
+  <!-- Comparison table -->
+  <div class="card" style="padding:0; overflow:hidden;">
+    <div style="background:var(--surface2); padding:8px 12px; font-size:11px; font-weight:700; color:var(--muted); letter-spacing:0.05em; text-transform:uppercase;">主要失智症鑑別比較</div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:12.5px; min-width:480px;">
+        <thead>
+          <tr>
+            <th style="background:var(--surface2); color:var(--muted); font-size:11px; font-weight:600; padding:8px 10px; text-align:left; border-bottom:1px solid var(--border2); white-space:nowrap;">特徵</th>
+            <th style="background:var(--surface2); color:var(--purple-l); font-size:11px; font-weight:700; padding:8px 10px; text-align:left; border-bottom:1px solid var(--border2);">DLB</th>
+            <th style="background:var(--surface2); color:var(--blue-l); font-size:11px; font-weight:700; padding:8px 10px; text-align:left; border-bottom:1px solid var(--border2);">AD</th>
+            <th style="background:var(--surface2); color:var(--amber-l); font-size:11px; font-weight:700; padding:8px 10px; text-align:left; border-bottom:1px solid var(--border2);">PSP</th>
+            <th style="background:var(--surface2); color:var(--teal-l); font-size:11px; font-weight:700; padding:8px 10px; text-align:left; border-bottom:1px solid var(--border2);">VaD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border); color:var(--muted); font-weight:600; white-space:nowrap;">記憶障礙</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">相對保存（早期）</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">顯著，早期核心</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">執行功能為主</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">視病灶而異</td>
+          </tr>
+          <tr style="background:rgba(255,255,255,0.02);">
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border); color:var(--muted); font-weight:600; white-space:nowrap;">視幻覺</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">★ 鮮明、反覆</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">少見（晚期）</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">少見</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">少見</td>
+          </tr>
+          <tr>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border); color:var(--muted); font-weight:600; white-space:nowrap;">帕金森症狀</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">自發性，早期</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">晚期或無</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">對稱性，軸性為主</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">可伴隨步態問題</td>
+          </tr>
+          <tr style="background:rgba(255,255,255,0.02);">
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border); color:var(--muted); font-weight:600; white-space:nowrap;">RBD</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">★ 常見，高特異</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">罕見</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">罕見</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">罕見</td>
+          </tr>
+          <tr>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border); color:var(--muted); font-weight:600; white-space:nowrap;">認知波動</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">★ 核心特徵</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">漸進下降為主</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">少見</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">階梯式下降</td>
+          </tr>
+          <tr style="background:rgba(255,255,255,0.02);">
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border); color:var(--muted); font-weight:600; white-space:nowrap;">眼球運動</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">通常正常</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">通常正常</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">★ 垂直凝視麻痺</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">視病灶</td>
+          </tr>
+          <tr>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border); color:var(--muted); font-weight:600; white-space:nowrap;">MRI 特徵</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">內側顳葉相對保存</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">內側顳葉萎縮</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">中腦萎縮（蜂鳥徵）</td>
+            <td style="padding:9px 10px; border-bottom:1px solid var(--border);">白質病變、梗塞</td>
+          </tr>
+          <tr style="background:rgba(255,255,255,0.02);">
+            <td style="padding:9px 10px; color:var(--muted); font-weight:600; white-space:nowrap;">DaT-SPECT</td>
+            <td style="padding:9px 10px;">★ 異常（↓）</td>
+            <td style="padding:9px 10px;">正常</td>
+            <td style="padding:9px 10px;">可異常</td>
+            <td style="padding:9px 10px;">通常正常</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Mimics warning -->
+  <div class="warning-box">
+    <div class="w-title">⚠ 常見 DLB 誤診陷阱</div>
+    <ul>
+      <li style="color:var(--text);">抗精神病藥物引起之帕金森症（drug-induced parkinsonism）— 詳細用藥史至關重要</li>
+      <li style="color:var(--text);">正常壓力水腦症（NPH）— 步態、失禁、認知三聯症；MRI 水腦表現可區別</li>
+      <li style="color:var(--text);">克雅氏病（CJD）— 認知快速下降、肌躍症；CSF 14-3-3、RT-QuIC 可區別（注意：RT-QuIC 亦可偵測 α-Syn）</li>
+      <li style="color:var(--text);">甲狀腺功能低下所致認知改變 — 可逆性，應常規篩檢</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ SECTION 4: TREATMENT ═══════════════ -->
+<div class="section" id="sec-tx">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(133,196,240,0.15);">💊</div>
+    <h2>藥物治療原則</h2>
+  </div>
+  <p class="section-subtitle">Kalia et al. Lancet Neurol 2025 — 多面向症狀導向治療架構（DIAMOND Lewy toolkit）</p>
+
+  <div class="info-box" style="margin-bottom:14px;">
+    <div class="i-title">Lancet Neurology 2025 核心論點</div>
+    <ul class="bullet-list">
+      <li>症狀性治療仍有限，<strong>目前無核准的疾病修飾療法（DMT）</strong></li>
+      <li>新興證據支持整合藥物與非藥物介入的<strong>多面向治療策略</strong></li>
+      <li>DIAMOND Lewy toolkit 提供結構化管理框架（多症狀領域系統性評估）</li>
+      <li>研究進入轉捩點：DMT 試驗以 α-synuclein 聚集及神經炎症為主要靶點</li>
+    </ul>
+  </div>
+
+  <!-- Warning -->
+  <div class="warning-box">
+    <div class="w-title">⚠ 抗精神病藥物嚴重警示</div>
+    <ul>
+      <li><strong>risperidone</strong>、<strong>olanzapine</strong>、<strong>aripiprazole</strong> — 應一般避免使用</li>
+      <li>傳統（典型）抗精神病藥 — 絕對禁忌，可引發嚴重帕金森危象甚至致命</li>
+      <li>任何抗精神病藥物使用前均需家屬充分知情同意，監測 EPS、意識</li>
+    </ul>
+  </div>
+
+  <!-- 5 domains -->
+  <div class="domain-grid">
+    <!-- Cognitive -->
+    <div class="domain-card" style="border-color:rgba(56,139,210,0.3); background:rgba(56,139,210,0.06);">
+      <div class="d-title"><span class="d-icon">🧩</span><span style="color:var(--blue-l);">認知症狀</span></div>
+      <ul>
+        <li><span class="drug-highlight">Rivastigmine</span> — 一線，實證最充分（patch 可改善耐受性）</li>
+        <li><span class="drug-highlight">Donepezil</span> — 日本核准用於 DLB，NPI 幻覺、妄想子域均改善</li>
+        <li><span class="drug-highlight">Galantamine</span> — 較少 DLB 專屬試驗</li>
+        <li><span class="drug-highlight">Memantine</span> — 中重度可考慮，RCT 結果不一</li>
+      </ul>
+      <div class="note">最大耐受劑量為目標，副作用：噁心、心搏過緩</div>
+    </div>
+    <!-- Neuropsychiatric -->
+    <div class="domain-card" style="border-color:rgba(200,80,60,0.3); background:rgba(200,80,60,0.06);">
+      <div class="d-title"><span class="d-icon">👁️</span><span style="color:var(--coral-l);">神經精神症狀</span></div>
+      <ul>
+        <li>視幻覺 → <span class="drug-highlight">ChEI 一線</span>（rivastigmine/donepezil）</li>
+        <li>嚴重幻覺/激躁 → 低劑量 <span class="drug-highlight">quetiapine</span>（需監測）</li>
+        <li><span class="drug-highlight">Pimavanserin</span>（5-HT2A 反向促效劑）— 研究中，耐受性優於傳統抗精神病藥</li>
+        <li>激躁合倂治療：低劑量 <span class="drug-highlight">valproic acid</span> 可作為輔助</li>
+      </ul>
+      <div class="note">輕中度視幻覺若無痛苦感，可先觀察不急於用藥</div>
+    </div>
+    <!-- Motor -->
+    <div class="domain-card" style="border-color:rgba(187,117,23,0.3); background:rgba(187,117,23,0.06);">
+      <div class="d-title"><span class="d-icon">🦿</span><span style="color:var(--amber-l);">動作症狀</span></div>
+      <ul>
+        <li><span class="drug-highlight">Levodopa/carbidopa</span> — 謹慎低劑量起始</li>
+        <li>滴定時密切監測幻覺、混亂惡化</li>
+        <li>多巴胺促效劑（agonist）— 有誘發精神症狀風險，慎用</li>
+        <li>物理治療、步態訓練、防跌措施優先並行</li>
+      </ul>
+      <div class="note">DLB 帕金森症狀對 levodopa 反應常不如 PD 顯著</div>
+    </div>
+    <!-- Autonomic -->
+    <div class="domain-card" style="border-color:rgba(15,110,86,0.4); background:rgba(15,110,86,0.07);">
+      <div class="d-title"><span class="d-icon">⚡</span><span style="color:var(--teal-l);">自律神經症狀</span></div>
+      <ul>
+        <li>姿位性低血壓 → <strong>非藥物優先</strong>：增加液體/鹽攝取、穿彈性襪、緩慢起身</li>
+        <li>嚴重者：<span class="drug-highlight">midodrine</span>、<span class="drug-highlight">droxidopa</span></li>
+        <li>便秘：飲食調整、滲透性瀉劑</li>
+        <li>尿失禁：行為介入優先，抗膽鹼藥物可能加重認知</li>
+      </ul>
+      <div class="note">自律神經症狀常被低估，影響生活品質顯著</div>
+    </div>
+    <!-- Sleep -->
+    <div class="domain-card" style="border-color:rgba(80,50,180,0.3); background:rgba(80,50,180,0.06); grid-column:1/-1;">
+      <div class="d-title"><span class="d-icon">🌙</span><span style="color:var(--purple-l);">睡眠（RBD）</span></div>
+      <ul>
+        <li><span class="drug-highlight">Melatonin</span> 3–12 mg 睡前 — <strong>首選</strong>（副作用輪廓較佳）</li>
+        <li><span class="drug-highlight">Clonazepam</span> 低劑量 — 嚴重 RBD 時，可單用或與 melatonin 合用</li>
+        <li>Rivastigmine 貼片亦顯示對 RBD 有改善效果</li>
+        <li>安全環境準備（床邊護欄、移除危險物品）</li>
+      </ul>
+      <div class="note">Clonazepam 在老年人需注意跌倒風險及日間嗜睡</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ SECTION 5: NON-PHARM ═══════════════ -->
+<div class="section" id="sec-nondrug">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(80,160,60,0.15);">🤝</div>
+    <h2>非藥物治療</h2>
+  </div>
+  <p class="section-subtitle">Kalia et al. 2025 強調：多面向介入，照顧者支持不可缺</p>
+
+  <div class="criteria-grid">
+    <div class="crit-card" style="background:rgba(40,100,30,0.1); border-color:var(--green-d);">
+      <div class="label" style="color:var(--green-l);">運動 / 物理治療</div>
+      <ul>
+        <li><span class="num"></span>步態訓練、跌倒預防</li>
+        <li><span class="num"></span>有氧運動改善認知與情緒</li>
+        <li><span class="num"></span>帕金森症狀的 LSVT-BIG 等療法</li>
+      </ul>
+    </div>
+    <div class="crit-card" style="background:rgba(40,100,30,0.1); border-color:var(--green-d);">
+      <div class="label" style="color:var(--green-l);">職能 / 語言治療</div>
+      <ul>
+        <li><span class="num"></span>日常生活輔助策略</li>
+        <li><span class="num"></span>吞嚥訓練（晚期）</li>
+        <li><span class="num"></span>溝通輔具評估</li>
+      </ul>
+    </div>
+    <div class="crit-card" style="background:rgba(40,100,30,0.1); border-color:var(--green-d);">
+      <div class="label" style="color:var(--green-l);">環境調整</div>
+      <ul>
+        <li><span class="num"></span>減少視幻覺誘發因素（光線、鏡子、圖案）</li>
+        <li><span class="num"></span>強化家居安全</li>
+        <li><span class="num"></span>維持規律作息</li>
+      </ul>
+    </div>
+    <div class="crit-card" style="background:rgba(40,100,30,0.1); border-color:var(--green-d);">
+      <div class="label" style="color:var(--green-l);">照顧者支持</div>
+      <ul>
+        <li><span class="num"></span>DLB 照護負擔高於多數失智症</li>
+        <li><span class="num"></span>衛教：辨識症狀波動</li>
+        <li><span class="num"></span>支持團體、喘息服務</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="border-color:rgba(40,100,30,0.2);">
+    <div class="card-title"><div class="dot" style="background:var(--green-l);"></div>認知 / 感官刺激</div>
+    <ul class="bullet-list">
+      <li>認知訓練、現實定向療法</li>
+      <li>音樂療法（Cochrane 2025 更新：對失智症情緒行為有中等效益）</li>
+      <li>光照療法（Bright Light Therapy）— 針對睡眠週期與情緒</li>
+      <li>DIAMOND-Lewy study 顯示多症狀領域整合介入對病患及照顧者均有益</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ SECTION 6: DMT ═══════════════ -->
+<div class="section" id="sec-dmt">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(252,210,122,0.12);">🧪</div>
+    <h2>疾病修飾療法（研究方向）</h2>
+  </div>
+  <p class="section-subtitle">Kalia et al. Lancet Neurol 2025 — 研究進入轉捩點</p>
+
+  <div class="card" style="padding:0; overflow:hidden;">
+    <div style="background:var(--surface2); padding:8px 12px; font-size:11px; font-weight:700; color:var(--muted); letter-spacing:0.05em; text-transform:uppercase;">進行中研究方向</div>
+    <div class="pipeline-item" style="padding:12px 14px;">
+      <div class="pipeline-phase">
+        <div class="phase-badge" style="background:rgba(80,50,180,0.3); color:var(--purple-l);">Phase 2</div>
+      </div>
+      <div class="pipeline-content">
+        <div class="drug-name">Nilotinib（尼羅替尼）</div>
+        <div class="drug-desc">BCR-ABL 抑制劑；Phase 2 RCT（n=43）：安全耐受，安慰劑組不良事件更多（74 vs 37）；需更大樣本驗證認知效益</div>
+      </div>
+    </div>
+    <div class="pipeline-item" style="padding:12px 14px;">
+      <div class="pipeline-phase">
+        <div class="phase-badge" style="background:rgba(15,110,86,0.3); color:var(--teal-l);">標靶研究</div>
+      </div>
+      <div class="pipeline-content">
+        <div class="drug-name">α-Synuclein 聚集抑制劑</div>
+        <div class="drug-desc">SAA 可作為入組生物標記及療效追蹤工具；多項試驗籌備中</div>
+      </div>
+    </div>
+    <div class="pipeline-item" style="padding:12px 14px;">
+      <div class="pipeline-phase">
+        <div class="phase-badge" style="background:rgba(15,110,86,0.3); color:var(--teal-l);">標靶研究</div>
+      </div>
+      <div class="pipeline-content">
+        <div class="drug-name">神經炎症調節</div>
+        <div class="drug-desc">線粒體功能異常、溶酶體功能障礙、神經炎症均為潛在標靶（Scholz et al. Lancet Neurol 2025）</div>
+      </div>
+    </div>
+    <div class="pipeline-item" style="padding:12px 14px;">
+      <div class="pipeline-phase">
+        <div class="phase-badge" style="background:rgba(187,117,23,0.3); color:var(--amber-l);">待釐清</div>
+      </div>
+      <div class="pipeline-content">
+        <div class="drug-name">Amyloid β 靶向療法</div>
+        <div class="drug-desc">約 70% DLB 有 AD 共病病理；lecanemab / donanemab 在 DLB 族群之角色尚待臨床試驗釐清</div>
+      </div>
+    </div>
+    <div class="pipeline-item" style="padding:12px 14px; border-bottom:none;">
+      <div class="pipeline-phase">
+        <div class="phase-badge" style="background:rgba(56,139,210,0.3); color:var(--blue-l);">2025 計畫</div>
+      </div>
+      <div class="pipeline-content">
+        <div class="drug-name">NIH 大型試驗資助計畫</div>
+        <div class="drug-desc">2025 年 NIH 宣布 DLB 大型試驗資助招募；臨床試驗 2025 年已有多項 phase 2 初步結果報告</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="warning-box" style="border-color:var(--amber-l); background:rgba(187,117,23,0.08); margin-top:12px;">
+    <div class="w-title" style="color:var(--amber-l);">🔑 臨床實務要點</div>
+    <ul>
+      <li style="color:var(--text);">DLB 長期被低估與誤診 — 應積極識別 RBD 病史（可先於認知症狀多年出現）</li>
+      <li style="color:var(--text);">¹²³I-MIBG 雖特異性高但台灣可近性受限，EEG 廉價易得可作補充支持性依據</li>
+      <li style="color:var(--text);">AD 共病（～70%）影響部分生物標記有效性及 SAA 敏感性，判讀需整合臨床</li>
+      <li style="color:var(--text);">向患者/家屬充分解釋：目前無法治癒，治療目標為症狀控制與生活品質維持</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ REFERENCES ═══════════════ -->
+<div class="section" id="sec-refs" style="padding-bottom:4px;">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(144,149,168,0.15);">📚</div>
+    <h2>主要參考文獻</h2>
+  </div>
+</div>
+
+<div class="ref-box">
+  <h3>核心文獻</h3>
+  <ol>
+    <li><span>Kalia LV, Ikeda M, Sultana J, et al.</span> The evolving therapeutic landscape of dementia with Lewy bodies. <em>Lancet Neurol.</em> 2025;24(12):1038–1052. DOI: 10.1016/S1474-4422(25)00323-0</li>
+    <li><span>Zarkali A, Bartl M, Fox NC, et al.</span> Diagnostic and other biomarkers of dementia with Lewy bodies. <em>Lancet Neurol.</em> 2025;24(12):1053–1065.</li>
+    <li><span>Scholz SW, et al.</span> Advances in the genetics and pathology of Lewy body dementia. <em>Lancet Neurol.</em> 2025;24(12).</li>
+    <li><span>McKeith IG, Boeve BF, Dickson DW, et al.</span> Diagnosis and management of DLB: Fourth consensus report. <em>Neurology.</em> 2017;89:88–100.</li>
+    <li><span>McWilliam MJ, et al.</span> α-Synuclein seed amplification assay in Lewy body dementia versus Alzheimer's disease. <em>Alzheimer's Dement Diagn.</em> 2025. DOI: 10.1002/dad2.70203</li>
+    <li><span>Erskine D, Taylor JP.</span> Current strategies in the management of DLB and future directions. <em>Mol Neurodegener.</em> 2025;20:78.</li>
+    <li><span>Simuni T, et al.</span> A biological definition of neuronal alpha-synuclein disease: towards an integrated staging system. <em>Lancet Neurol.</em> 2024;23(2):178–190.</li>
+    <li><span>McKeith IG, et al.</span> Research criteria for the diagnosis of prodromal DLB. <em>Neurology.</em> 2020;94:743–755.</li>
+  </ol>
+</div>
+
+<div style="text-align:center; padding:24px 16px 8px; color:var(--muted); font-size:11px; line-height:1.8;">
+  <div style="margin-bottom:4px;">HCH-CMU Neurology · 教學資源 2025</div>
+  <div>本資料僅供醫學教育用途，臨床決策請參照最新學會指引及個別病患狀況</div>
+</div>
+
+<script>
+// Scroll progress
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('prog').style.width = pct + '%';
+});
+
+// Nav active state
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.nav a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
