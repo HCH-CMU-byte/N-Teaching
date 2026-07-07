@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>可治療的類失智症 — 臨床教學參考</title>
+<style>
+  :root {
+    --ink: #1C1C2E;
+    --ink2: #3D3D55;
+    --ink3: #6B6B88;
+    --bg: #F7F6F2;
+    --surface: #FFFFFF;
+    --surface2: #F0EEE8;
+    --teal: #0D7377;
+    --teal-lt: #E0F2F2;
+    --teal-md: #4AABAF;
+    --amber: #B45309;
+    --amber-lt: #FEF3C7;
+    --red: #B91C1C;
+    --red-lt: #FEE2E2;
+    --blue: #1E40AF;
+    --blue-lt: #DBEAFE;
+    --green: #166534;
+    --green-lt: #DCFCE7;
+    --purple: #5B21B6;
+    --purple-lt: #EDE9FE;
+    --border: #E2DFD8;
+    --radius: 10px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Microsoft JhengHei', 'PingFang TC', 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    color: #fff;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .site-badge {
+    background: var(--teal);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  header h1 {
+    font-size: 16px;
+    font-weight: 500;
+    flex: 1;
+    letter-spacing: 0.02em;
+  }
+  header h1 span { color: var(--teal-md); }
+  nav {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: #A8B2C8;
+    text-decoration: none;
+    font-size: 12.5px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  nav a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+  /* ── LAYOUT ── */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  section { margin-bottom: 52px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .section-header .sub {
+    font-size: 12px;
+    color: var(--ink3);
+    margin-top: 2px;
+    font-weight: 400;
+  }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  /* ── HERO / INTRO ── */
+  .hero {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+  }
+  @media(max-width:680px){ .hero { grid-template-columns:1fr; padding:24px; } }
+  .hero h2 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .hero h2 em { color: var(--teal-md); font-style: normal; }
+  .hero p { color: #A8B8D0; font-size: 14px; line-height: 1.8; max-width: 560px; }
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 160px;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 14px 18px;
+    text-align: center;
+  }
+  .stat-num { font-size: 28px; font-weight: 500; color: var(--teal-md); line-height: 1; }
+  .stat-label { font-size: 11px; color: #8899AA; margin-top: 4px; }
+
+  /* ── SOURCE TAGS ── */
+  .source-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .source-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    border: 1px solid;
+  }
+  .st-tds { background: #E0F2F2; color: #0D7377; border-color: #4AABAF; }
+  .st-ada { background: #DBEAFE; color: #1E40AF; border-color: #93C5FD; }
+  .st-efad { background: #EDE9FE; color: #5B21B6; border-color: #A78BFA; }
+  .st-jour { background: #FEF3C7; color: #B45309; border-color: #FCD34D; }
+
+  /* ── ALERT BOX ── */
+  .alert {
+    display: flex;
+    gap: 14px;
+    padding: 16px 20px;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    border-left: 4px solid;
+    align-items: flex-start;
+  }
+  .alert-icon { font-size: 18px; flex-shrink:0; margin-top:1px; }
+  .alert-teal { background: var(--teal-lt); border-color: var(--teal); color: #0A4D50; }
+  .alert-amber { background: var(--amber-lt); border-color: var(--amber); color: #7C3A08; }
+  .alert-red { background: var(--red-lt); border-color: var(--red); color: #7F1D1D; }
+  .alert strong { font-weight: 500; display: block; margin-bottom: 2px; }
+  .alert-body { font-size: 13.5px; }
+
+  /* ── CATEGORY GRID ── */
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .cat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s;
+  }
+  .cat-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.10); }
+  .cat-head {
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cat-head h3 { font-size: 14px; font-weight: 500; }
+  .cat-head .cnt {
+    margin-left: auto;
+    font-size: 11px;
+    background: rgba(0,0,0,0.08);
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: inherit;
+    opacity: 0.7;
+  }
+  .cat-body { padding: 0 18px 16px; }
+  .disease-list { list-style: none; }
+  .disease-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 13.5px;
+  }
+  .disease-list li:last-child { border-bottom: none; }
+  .disease-list li::before {
+    content: '▸';
+    font-size: 10px;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+  .rev-badge {
+    margin-left: auto;
+    font-size: 10px;
+    padding: 1px 7px;
+    border-radius: 8px;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .rev-full { background: var(--green-lt); color: var(--green); }
+  .rev-part { background: var(--amber-lt); color: var(--amber); }
+
+  /* category colours */
+  .c-teal .cat-head { background: var(--teal-lt); color: var(--teal); }
+  .c-teal .disease-list li::before { color: var(--teal); }
+  .c-amber .cat-head { background: var(--amber-lt); color: var(--amber); }
+  .c-amber .disease-list li::before { color: var(--amber); }
+  .c-red .cat-head { background: var(--red-lt); color: var(--red); }
+  .c-red .disease-list li::before { color: var(--red); }
+  .c-blue .cat-head { background: var(--blue-lt); color: var(--blue); }
+  .c-blue .disease-list li::before { color: var(--blue); }
+  .c-purple .cat-head { background: var(--purple-lt); color: var(--purple); }
+  .c-purple .disease-list li::before { color: var(--purple); }
+  .c-green .cat-head { background: var(--green-lt); color: var(--green); }
+  .c-green .disease-list li::before { color: var(--green); }
+
+  /* ── MAIN TABLE ── */
+  .table-wrap { overflow-x: auto; border-radius: 12px; box-shadow: var(--shadow); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    font-size: 13px;
+  }
+  thead th {
+    background: var(--ink);
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 12px 14px;
+    text-align: left;
+    white-space: nowrap;
+  }
+  thead th:first-child { border-radius: 12px 0 0 0; }
+  thead th:last-child { border-radius: 0 12px 0 0; }
+  tbody tr:nth-child(even) { background: var(--surface2); }
+  tbody tr:hover { background: var(--teal-lt); transition: background 0.15s; }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .td-disease { font-weight: 500; color: var(--ink); min-width: 120px; }
+  .td-mech { color: var(--ink2); font-size: 12.5px; min-width: 160px; }
+  .td-sx { color: var(--ink2); font-size: 12.5px; min-width: 150px; }
+  .td-dx { color: var(--ink2); font-size: 12.5px; }
+  .td-tx { color: var(--ink2); font-size: 12.5px; }
+  .td-rv { text-align: center; font-size: 12px; }
+  .cat-row td {
+    background: var(--ink);
+    color: var(--teal-md);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 7px 14px;
+  }
+  .pill {
+    display: inline-block;
+    font-size: 10.5px;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+  .pill-green { background: var(--green-lt); color: var(--green); }
+  .pill-amber { background: var(--amber-lt); color: var(--amber); }
+  .pill-red { background: var(--red-lt); color: var(--red); }
+
+  /* ── DIAGNOSTIC FLOW ── */
+  .flow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    counter-reset: step;
+  }
+  .flow-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    position: relative;
+    box-shadow: var(--shadow);
+    counter-increment: step;
+  }
+  .flow-card::before {
+    content: counter(step, decimal-leading-zero);
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    background: var(--teal);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 11px 0 8px 0;
+  }
+  .flow-card h4 {
+    font-size: 13.5px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    margin-top: 14px;
+    color: var(--ink);
+  }
+  .flow-card ul { list-style: none; }
+  .flow-card ul li {
+    font-size: 12.5px;
+    color: var(--ink2);
+    padding: 3px 0;
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .flow-card ul li::before { content: '·'; color: var(--teal); font-size: 16px; line-height: 1.2; }
+
+  /* ── KEY MESSAGE CARDS ── */
+  .msg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+  }
+  .msg-card {
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid;
+  }
+  .msg-card h4 { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+  .msg-card p { font-size: 13px; line-height: 1.7; }
+  .mc-teal { background: var(--teal-lt); border-color: var(--teal-md); color: #0A4D50; }
+  .mc-amber { background: var(--amber-lt); border-color: #FCD34D; color: #7C3A08; }
+  .mc-blue { background: var(--blue-lt); border-color: #93C5FD; color: #1E3A8A; }
+  .mc-green { background: var(--green-lt); border-color: #86EFAC; color: #14532D; }
+
+  /* ── REFERENCES ── */
+  .ref-list { list-style: none; }
+  .ref-list li {
+    font-size: 12px;
+    color: var(--ink3);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list li span { color: var(--teal); font-weight: 500; margin-right: 6px; }
+
+  /* ── TOGGLE TABS ── */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+    background: var(--surface2);
+    padding: 4px;
+    border-radius: 10px;
+    width: fit-content;
+  }
+  .tab-btn {
+    padding: 7px 18px;
+    border: none;
+    border-radius: 8px;
+    background: none;
+    font-size: 13px;
+    color: var(--ink3);
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s, color 0.15s;
+  }
+  .tab-btn.active {
+    background: var(--surface);
+    color: var(--ink);
+    font-weight: 500;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: #6B7A90;
+    font-size: 12px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  footer span { color: var(--teal-md); }
+
+  @media(max-width:600px){
+    .section-header h2 { font-size: 16px; }
+    .hero h2 { font-size: 19px; }
+    main { padding: 20px 14px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-inner">
+    <span class="site-badge">神經內科教學資源</span>
+    <h1>可治療的<span>類失智症</span>病因 — 臨床教學參考</h1>
+    <nav>
+      <a href="#overview">概論</a>
+      <a href="#categories">病因分類</a>
+      <a href="#table">完整表格</a>
+      <a href="#workup">診療流程</a>
+      <a href="#keymessage">重點摘要</a>
+      <a href="#refs">參考資料</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div>
+      <p class="eyebrow" style="color:var(--teal-md)">Reversible / Treatable Dementia-like Conditions</p>
+      <h2>失智症樣症狀的背後，<br><em>可能藏著可治療的疾病</em></h2>
+      <p>記憶力下降、定向感障礙、行為改變，不一定是不可逆的神經退化。多達 9–23% 的「疑似失智」患者，其症狀源自代謝、感染、結構性或精神性病因，經適當治療後可顯著改善，部分可完全逆轉。本頁整合台灣失智症學會（TDS）、美國阿茲海默症協會（AA）、歐洲失智症協會（EFA）及近十年期刊文獻，供臨床教學與實務查閱。</p>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box">
+        <div class="stat-num">9–23%</div>
+        <div class="stat-label">疑似失智中<br>為可逆原因</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">>40</div>
+        <div class="stat-label">已知可治療<br>病因數目</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">早</div>
+        <div class="stat-label">治療時機決定<br>逆轉率高低</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 1: OVERVIEW ── -->
+  <section id="overview">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--teal-lt)">🔍</div>
+      <div>
+        <h2>概論：為何需要排除可逆原因</h2>
+        <div class="sub">Why reversible causes must be excluded before diagnosing dementia</div>
+      </div>
+    </div>
+
+    <div class="source-row">
+      <span class="source-tag st-tds">台灣失智症學會 TDS</span>
+      <span class="source-tag st-ada">Alzheimer's Association 2023</span>
+      <span class="source-tag st-efad">EFA / EAN Guidelines 2023</span>
+      <span class="source-tag st-jour">Lancet Neurology 2020–2024</span>
+    </div>
+
+    <div class="alert alert-teal">
+      <span class="alert-icon">💡</span>
+      <div class="alert-body">
+        <strong>核心臨床概念</strong>
+        根據 DSM-5 及 ICD-11，確診失智症（Major Neurocognitive Disorder）之前，必須先排除譫妄（Delirium）及其他醫學原因所致的認知功能障礙。台灣失智症學會、美國阿茲海默症協會均明確列出「可逆性失智症（Reversible Dementia）」篩檢為診斷流程第一步。
+      </div>
+    </div>
+
+    <div class="alert alert-amber">
+      <span class="alert-icon">⚠️</span>
+      <div class="alert-body">
+        <strong>臨床警示：不可急於貼標籤</strong>
+        研究顯示（Clarfield 2003 更新版；Hejl 等人 Lancet 2020），在初步評估為「失智」的患者中，約 13% 最終診斷為可逆病因，其中完全恢復者約 半數，部分改善者超過 80%。及早識別是逆轉的關鍵。
+      </div>
+    </div>
+
+    <div class="alert alert-red">
+      <span class="alert-icon">🚨</span>
+      <div class="alert-body">
+        <strong>急症須優先排除：AEIOU-TIPS 原則</strong>
+        出現急性認知改變（小時至天）應優先考慮譫妄病因：Alcohol/毒物、Epilepsy、Infection感染、Oxygen缺氧、Uremia尿毒、Trauma外傷、Insulin（血糖）、Poisoning中毒、Stroke腦中風。
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 2: CATEGORIES ── -->
+  <section id="categories">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--blue-lt)">📋</div>
+      <div>
+        <h2>病因分類總覽</h2>
+        <div class="sub">可逆轉或可治療的類失智症病因（依系統分類）</div>
+      </div>
+    </div>
+
+    <div class="cat-grid">
+
+      <!-- 代謝/內分泌 -->
+      <div class="cat-card c-teal">
+        <div class="cat-head">
+          <span style="font-size:18px">⚗️</span>
+          <h3>代謝 / 內分泌異常</h3>
+          <span class="cnt">8 項</span>
+        </div>
+        <div class="cat-body">
+          <ul class="disease-list">
+            <li>甲狀腺功能低下症（Hypothyroidism）<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>維生素 B12 缺乏症<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>葉酸缺乏症（Folate deficiency）<span class="rev-badge rev-part">部分改善</span></li>
+            <li>低血鈉（Hyponatremia）<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>高血鈣（Hypercalcemia）<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>低血糖（Hypoglycemia，慢性）<span class="rev-badge rev-part">部分改善</span></li>
+            <li>肝性腦病變（Hepatic encephalopathy）<span class="rev-badge rev-part">部分改善</span></li>
+            <li>尿毒症腦病變（Uremic encephalopathy）<span class="rev-badge rev-part">部分改善</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 結構性病變 -->
+      <div class="cat-card c-blue">
+        <div class="cat-head">
+          <span style="font-size:18px">🧠</span>
+          <h3>結構性 / 神經病變</h3>
+          <span class="cnt">5 項</span>
+        </div>
+        <div class="cat-body">
+          <ul class="disease-list">
+            <li>常壓性水腦症（NPH）<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>慢性硬腦膜下血腫（CSDH）<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>腦瘤（原發性良性或轉移性）<span class="rev-badge rev-part">部分改善</span></li>
+            <li>腦血管疾病（可治療因素）<span class="rev-badge rev-part">部分改善</span></li>
+            <li>正常顱壓腦積液（可分流者）<span class="rev-badge rev-part">部分改善</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 感染性 -->
+      <div class="cat-card c-red">
+        <div class="cat-head">
+          <span style="font-size:18px">🦠</span>
+          <h3>感染性病因</h3>
+          <span class="cnt">6 項</span>
+        </div>
+        <div class="cat-body">
+          <ul class="disease-list">
+            <li>神經梅毒（Neurosyphilis）<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>HIV 相關腦病（HAND）<span class="rev-badge rev-part">部分改善</span></li>
+            <li>Lyme 病腦炎<span class="rev-badge rev-part">部分改善</span></li>
+            <li>結核性腦膜炎（慢性）<span class="rev-badge rev-part">部分改善</span></li>
+            <li>隱球菌腦膜炎<span class="rev-badge rev-part">部分改善</span></li>
+            <li>Whipple 病（CNS 侵犯）<span class="rev-badge rev-part">部分改善</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 藥物/毒物 -->
+      <div class="cat-card c-amber">
+        <div class="cat-head">
+          <span style="font-size:18px">💊</span>
+          <h3>藥物 / 毒物誘發</h3>
+          <span class="cnt">7 項</span>
+        </div>
+        <div class="cat-body">
+          <ul class="disease-list">
+            <li>抗膽鹼藥物（Anticholinergics）<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>苯二氮平類藥物（Benzodiazepines）<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>鎮靜安眠藥（如 Zolpidem）<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>慢性酒精相關腦病變<span class="rev-badge rev-part">部分改善</span></li>
+            <li>重金屬中毒（鉛、汞、砷）<span class="rev-badge rev-part">部分改善</span></li>
+            <li>一氧化碳中毒（慢性/反覆）<span class="rev-badge rev-part">部分改善</span></li>
+            <li>多重用藥交互作用<span class="rev-badge rev-full">可完全逆轉</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 精神性 -->
+      <div class="cat-card c-purple">
+        <div class="cat-head">
+          <span style="font-size:18px">🧩</span>
+          <h3>精神性 / 心理因素</h3>
+          <span class="cnt">4 項</span>
+        </div>
+        <div class="cat-body">
+          <ul class="disease-list">
+            <li>重度憂鬱症（假性失智，Pseudodementia）<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>焦慮症（慢性，認知影響）<span class="rev-badge rev-part">部分改善</span></li>
+            <li>睡眠障礙（OSA、慢性失眠）<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>PTSD（創傷後壓力症）<span class="rev-badge rev-part">部分改善</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 自體免疫/發炎 -->
+      <div class="cat-card c-green">
+        <div class="cat-head">
+          <span style="font-size:18px">🛡️</span>
+          <h3>自體免疫 / 發炎性</h3>
+          <span class="cnt">6 項</span>
+        </div>
+        <div class="cat-body">
+          <ul class="disease-list">
+            <li>自體免疫腦炎（NMDAR、LGI1等）<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>橋本氏腦病變（Hashimoto's）<span class="rev-badge rev-full">可完全逆轉</span></li>
+            <li>系統性紅斑狼瘡 CNS 侵犯<span class="rev-badge rev-part">部分改善</span></li>
+            <li>副腫瘤症候群（Paraneoplastic）<span class="rev-badge rev-part">部分改善</span></li>
+            <li>中樞神經系統血管炎<span class="rev-badge rev-part">部分改善</span></li>
+            <li>結節病腦部侵犯<span class="rev-badge rev-part">部分改善</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 3: FULL TABLE ── -->
+  <section id="table">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--amber-lt)">📊</div>
+      <div>
+        <h2>臨床查閱完整表格</h2>
+        <div class="sub">病因 × 機轉 × 症狀特徵 × 診斷 × 治療 × 逆轉率</div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(this,'tab-all')">全部</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-metabolic')">代謝/內分泌</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-structural')">結構性</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-psych')">精神/藥物</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-immune')">免疫/感染</button>
+    </div>
+
+    <div id="tab-all" class="tab-content active">
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>疾病/病因</th>
+          <th>主要機轉</th>
+          <th>特徵症狀</th>
+          <th>關鍵診斷工具</th>
+          <th>主要治療</th>
+          <th>逆轉潛力</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cat-row"><td colspan="6">▌ 代謝 / 內分泌</td></tr>
+        <tr>
+          <td class="td-disease">甲狀腺功能低下</td>
+          <td class="td-mech">T3/T4↓，神經代謝減慢</td>
+          <td class="td-sx">記憶衰退、疲倦、憂鬱、動作遲緩、水腫</td>
+          <td class="td-dx">TSH、Free T4</td>
+          <td class="td-tx">Levothyroxine 補充</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">維生素 B12 缺乏</td>
+          <td class="td-mech">髓鞘合成障礙，同型半胱胺酸↑</td>
+          <td class="td-sx">亞急性脊髓病、感覺異常、精神症狀、記憶障礙</td>
+          <td class="td-dx">血清 B12、MMA、Hcy</td>
+          <td class="td-tx">肌注 Cyanocobalamin / 口服高劑量</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">低血鈉</td>
+          <td class="td-mech">細胞外滲透壓↓，腦水腫</td>
+          <td class="td-sx">混亂、嗜睡、癲癇（嚴重時）、認知遲鈍</td>
+          <td class="td-dx">血清 Na⁺、滲透壓</td>
+          <td class="td-tx">緩慢補鈉（≤8 mEq/d），治療原因</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">高血鈣</td>
+          <td class="td-mech">神經肌肉興奮性↓</td>
+          <td class="td-sx">意識模糊、憂鬱、多尿、便秘、「痛苦、結石、骨骼、腹部」</td>
+          <td class="td-dx">血清 Ca²⁺、PTH、PTHrP</td>
+          <td class="td-tx">水化、雙磷酸鹽、治療原因（副甲腺腺瘤等）</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">肝性腦病變</td>
+          <td class="td-mech">氨↑，假性神經傳導物質</td>
+          <td class="td-sx">認知波動、撲翼樣震顫（Asterixis）、人格改變</td>
+          <td class="td-dx">血氨、肝功能、EEG（三相波）</td>
+          <td class="td-tx">Lactulose、Rifaximin、低蛋白飲食</td>
+          <td class="td-rv"><span class="pill pill-amber">部分改善</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">葉酸缺乏</td>
+          <td class="td-mech">同型半胱胺酸↑，DNA 修復障礙</td>
+          <td class="td-sx">認知退化、焦慮、憂鬱、週邊神經病變</td>
+          <td class="td-dx">血清葉酸、RBC folate、Hcy</td>
+          <td class="td-tx">口服葉酸 5 mg/d</td>
+          <td class="td-rv"><span class="pill pill-amber">部分改善</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">尿毒症腦病變</td>
+          <td class="td-mech">尿毒素累積，BBB 障礙</td>
+          <td class="td-sx">注意力下降、肌躍症、癲癇、撲翼樣震顫</td>
+          <td class="td-dx">BUN、Cr、eGFR、EEG</td>
+          <td class="td-tx">血液透析、腎臟移植</td>
+          <td class="td-rv"><span class="pill pill-amber">部分改善</span></td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="6">▌ 結構性 / 神經病變</td></tr>
+        <tr>
+          <td class="td-disease">常壓性水腦症（NPH）</td>
+          <td class="td-mech">CSF 吸收障礙，腦室擴大壓迫</td>
+          <td class="td-sx"><strong>三聯症：</strong>步態不穩（磁鐵步態）、失禁、認知障礙</td>
+          <td class="td-dx">MRI（Evans index）、CSF tap test、步態改善測試</td>
+          <td class="td-tx">腦室腹腔分流術（VP shunt）</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">慢性硬腦膜下血腫</td>
+          <td class="td-mech">橋靜脈撕裂，血腫壓迫皮質</td>
+          <td class="td-sx">漸進認知退化（數週至月）、輕偏側無力、頭痛</td>
+          <td class="td-dx">CT 或 MRI 頭部（新月形高密度或等密度）</td>
+          <td class="td-tx">鑽頭引流（Burr hole drainage）</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">腦瘤（原發/轉移）</td>
+          <td class="td-mech">腫瘤佔位效應、周圍水腫</td>
+          <td class="td-sx">漸進認知退化、局部神經缺損、癲癇、頭痛</td>
+          <td class="td-dx">MRI with contrast、組織切片</td>
+          <td class="td-tx">手術、放療、化療（依腫瘤類型）</td>
+          <td class="td-rv"><span class="pill pill-amber">部分改善</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">可治療性腦血管病</td>
+          <td class="td-mech">血管性危險因子所致多發性梗塞</td>
+          <td class="td-sx">階梯式退化、局部神經缺損、步態障礙</td>
+          <td class="td-dx">MRI DWI、MRA、危險因子評估</td>
+          <td class="td-tx">血壓/血糖/血脂控制、抗血栓</td>
+          <td class="td-rv"><span class="pill pill-amber">部分改善</span></td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="6">▌ 藥物 / 毒物誘發</td></tr>
+        <tr>
+          <td class="td-disease">抗膽鹼藥物</td>
+          <td class="td-mech">中樞 M1 受體阻斷，ACh↓</td>
+          <td class="td-sx">急性混亂、近期記憶差、口乾、尿滯留（周邊效應）</td>
+          <td class="td-dx">藥物史（Anticholinergic Burden Scale）、臨床評估</td>
+          <td class="td-tx">停藥或換藥；Physostigmine（急性）</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">Benzodiazepines</td>
+          <td class="td-mech">GABA-A 增強，皮質抑制</td>
+          <td class="td-sx">記憶障礙、注意力下降、過度鎮靜、跌倒風險↑</td>
+          <td class="td-dx">藥物史（尤其老年人）</td>
+          <td class="td-tx">緩慢減量（每 2–4 週減 25%）、換用非 BZ 藥物</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">慢性酒精相關腦病</td>
+          <td class="td-mech">神經毒性、硫胺缺乏（Wernicke）</td>
+          <td class="td-sx">記憶嚴重缺損（順行性失憶）、虛構（Korsakoff）、共濟失調</td>
+          <td class="td-dx">飲酒史、MMA 乳頭體萎縮 MRI、Thiamine 測定</td>
+          <td class="td-tx">靜注 Thiamine（B1）、戒酒支持</td>
+          <td class="td-rv"><span class="pill pill-amber">部分改善</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">多重用藥交互作用</td>
+          <td class="td-mech">藥物動力學/藥效學複合效應，老年腎功能↓</td>
+          <td class="td-sx">認知波動、鎮靜、意識模糊、跌倒</td>
+          <td class="td-dx">完整藥物清單審查（Beer's Criteria）</td>
+          <td class="td-tx">Deprescribing（去處方）、藥師介入</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="6">▌ 精神性 / 心理因素</td></tr>
+        <tr>
+          <td class="td-disease">重度憂鬱症（假性失智）</td>
+          <td class="td-mech">前額葉皮質低活化，神經可塑性↓</td>
+          <td class="td-sx">主訴記憶差（誇大）、動力喪失、睡眠障礙；症狀先於認知</td>
+          <td class="td-dx">GDS、Hamilton、神經心理測驗、抗憂鬱藥物試驗</td>
+          <td class="td-tx">SSRI/SNRI、心理治療（CBT）</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">睡眠呼吸中止症（OSA）</td>
+          <td class="td-mech">間歇性缺氧、睡眠片段化，海馬損傷</td>
+          <td class="td-sx">白天嗜睡、記憶差、注意力不集中、晨間頭痛</td>
+          <td class="td-dx">多導睡眠圖（PSG）、AHI 評分</td>
+          <td class="td-tx">CPAP 持續正壓治療、體重管理</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="6">▌ 感染性病因</td></tr>
+        <tr>
+          <td class="td-disease">神經梅毒</td>
+          <td class="td-mech">Treponema pallidum 侵犯 CNS，慢性腦膜炎</td>
+          <td class="td-sx">人格改變、誇大妄想、記憶障礙、阿格爾瞳孔、瞳孔不等</td>
+          <td class="td-dx">VDRL/RPR + FTA-ABS、CSF VDRL、腦脊液分析</td>
+          <td class="td-tx">青黴素 G 靜注 10–14 天</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">HIV 相關神經認知障礙（HAND）</td>
+          <td class="td-mech">慢性神經發炎、直接神經毒性</td>
+          <td class="td-sx">注意力/記憶下降、動作緩慢、情感平淡</td>
+          <td class="td-dx">HIV 篩檢、CD4、病毒量、神經心理測驗</td>
+          <td class="td-tx">ART（抗反轉錄病毒治療）</td>
+          <td class="td-rv"><span class="pill pill-amber">部分改善</span></td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="6">▌ 自體免疫 / 發炎性</td></tr>
+        <tr>
+          <td class="td-disease">自體免疫腦炎（NMDAR 型）</td>
+          <td class="td-mech">抗 NMDA 受體 IgG，谷氨酸傳導障礙</td>
+          <td class="td-sx">精神症狀（幻覺/妄想）→ 認知退化 → 癲癇 → 自主神經不穩</td>
+          <td class="td-dx">血清/CSF 抗 NMDAR 抗體、MRI FLAIR 異常、EEG</td>
+          <td class="td-tx">IVIG、類固醇、血漿置換；腫瘤搜尋與切除</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">橋本氏腦病變</td>
+          <td class="td-mech">抗甲狀腺抗體相關腦部發炎</td>
+          <td class="td-sx">意識波動、認知退化、肌躍症、癲癇（類失智表現）</td>
+          <td class="td-dx">抗 TPO、抗 TG 抗體（高效價）、EEG、MRI</td>
+          <td class="td-tx">高劑量類固醇（Prednisolone）</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+        <tr>
+          <td class="td-disease">LGI1 腦炎</td>
+          <td class="td-mech">抗 LGI1 抗體，海馬抑制性突觸減少</td>
+          <td class="td-sx">面-臂肌張力不全發作（FBDS）、快速進展記憶障礙、低血鈉</td>
+          <td class="td-dx">血清/CSF 抗 LGI1 抗體、MRI（海馬 FLAIR 高訊號）</td>
+          <td class="td-tx">免疫治療（類固醇、IVIG）；復發者加 Rituximab</td>
+          <td class="td-rv"><span class="pill pill-green">完全逆轉</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+    <div id="tab-metabolic" class="tab-content">
+      <div class="alert alert-teal">
+        <span class="alert-icon">⚗️</span>
+        <div class="alert-body">
+          <strong>代謝與內分泌篩檢建議</strong>
+          台灣失智症學會（TDS 2023）及美國 AA 建議所有新診斷認知障礙患者應進行：TSH、CBC、BMP、B12、葉酸、肝腎功能、血糖、甲狀腺。此組合約可篩出 70% 的代謝性可逆病因。
+        </div>
+      </div>
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>疾病</th><th>機轉</th><th>特徵症狀</th><th>診斷工具</th><th>治療</th><th>逆轉</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-disease">甲狀腺功能低下</td><td class="td-mech">T3/T4↓，神經代謝減慢</td><td class="td-sx">記憶衰退、疲倦、憂鬱、動作遲緩</td><td>TSH、Free T4</td><td>Levothyroxine</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">維生素 B12 缺乏</td><td class="td-mech">髓鞘合成障礙</td><td class="td-sx">亞急性脊髓病、感覺異常、精神症狀</td><td>B12、MMA、Hcy</td><td>Cyanocobalamin 注射</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">低血鈉</td><td class="td-mech">腦水腫</td><td class="td-sx">混亂、嗜睡、認知遲鈍</td><td>血清 Na⁺</td><td>緩慢補鈉（≤8 mEq/d）</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">高血鈣</td><td class="td-mech">神經肌肉興奮性↓</td><td class="td-sx">意識模糊、憂鬱、多尿</td><td>Ca²⁺、PTH</td><td>水化、雙磷酸鹽</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">肝性腦病變</td><td class="td-mech">氨↑，假性神經傳導物質</td><td class="td-sx">認知波動、撲翼樣震顫、人格改變</td><td>血氨、EEG（三相波）</td><td>Lactulose、Rifaximin</td><td><span class="pill pill-amber">部分改善</span></td></tr>
+          <tr><td class="td-disease">尿毒症腦病變</td><td class="td-mech">尿毒素累積</td><td class="td-sx">注意力下降、肌躍症、癲癇</td><td>BUN、Cr、eGFR</td><td>透析或腎移植</td><td><span class="pill pill-amber">部分改善</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div id="tab-structural" class="tab-content">
+      <div class="alert alert-teal">
+        <span class="alert-icon">🧠</span>
+        <div class="alert-body">
+          <strong>影像學首選建議</strong>
+          EAN 2023 指引建議所有失智症評估均應進行腦部影像（CT 或 MRI），以排除結構性可逆病因，尤其對於：快速進展型、非典型表現、年輕型（＜65 歲）患者及急性惡化者。
+        </div>
+      </div>
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>疾病</th><th>機轉</th><th>臨床特徵</th><th>診斷</th><th>治療</th><th>逆轉</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-disease">常壓性水腦症（NPH）</td><td class="td-mech">CSF 吸收障礙</td><td class="td-sx">步態不穩、失禁、認知障礙（三聯症）</td><td>MRI Evans index、Tap test</td><td>VP shunt</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">慢性硬腦膜下血腫</td><td class="td-mech">橋靜脈撕裂</td><td class="td-sx">漸進認知退化、偏側無力（數週）</td><td>CT（新月形血腫）</td><td>鑽頭引流</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">腦瘤</td><td class="td-mech">佔位效應、水腫</td><td class="td-sx">漸進認知退化、局部神經缺損、癲癇</td><td>MRI + contrast</td><td>手術/放化療</td><td><span class="pill pill-amber">部分改善</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div id="tab-psych" class="tab-content">
+      <div class="alert alert-amber">
+        <span class="alert-icon">💊</span>
+        <div class="alert-body">
+          <strong>藥物審查的重要性（Deprescribing）</strong>
+          台灣老年人平均使用 5.7 種藥物，抗膽鹼負擔（Anticholinergic Burden）每增加 1 分，認知功能下降速度顯著加快。建議使用 Beers Criteria 或 STOPP/START 定期審查。
+        </div>
+      </div>
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>疾病</th><th>機轉</th><th>特徵</th><th>診斷</th><th>治療</th><th>逆轉</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-disease">重度憂鬱症（假性失智）</td><td class="td-mech">前額葉皮質低活化</td><td class="td-sx">主訴誇大、動力喪失、症狀先於認知退化</td><td>GDS、Hamilton、藥物試驗</td><td>SSRI/SNRI + CBT</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">睡眠呼吸中止症</td><td class="td-mech">間歇性缺氧、海馬損傷</td><td class="td-sx">白天嗜睡、記憶差、晨間頭痛</td><td>PSG、AHI</td><td>CPAP</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">抗膽鹼藥物</td><td class="td-mech">中樞 M1 阻斷，ACh↓</td><td class="td-sx">急性混亂、口乾、尿滯留</td><td>Anticholinergic Burden Scale</td><td>停藥/換藥</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">Benzodiazepines</td><td class="td-mech">GABA-A 增強</td><td class="td-sx">記憶障礙、跌倒風險↑</td><td>藥物史</td><td>緩慢減量</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">慢性酒精腦病</td><td class="td-mech">神經毒性+硫胺缺乏</td><td class="td-sx">順行性失憶、虛構（Korsakoff）</td><td>飲酒史、MRI 乳頭體萎縮</td><td>Thiamine 靜注、戒酒</td><td><span class="pill pill-amber">部分改善</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div id="tab-immune" class="tab-content">
+      <div class="alert alert-teal">
+        <span class="alert-icon">🛡️</span>
+        <div class="alert-body">
+          <strong>自體免疫腦炎：不容忽視的可逆病因</strong>
+          近年研究（Lancet Neurology 2016–2024）發現自體免疫腦炎在「快速進展失智（RPD）」中佔 20–30%。早期免疫治療（＜3 個月）預後顯著優於延誤者（完全恢復率 60% vs 20%）。
+        </div>
+      </div>
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>疾病</th><th>機轉</th><th>特徵症狀</th><th>診斷</th><th>治療</th><th>逆轉</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-disease">NMDAR 自體免疫腦炎</td><td class="td-mech">抗 NMDAR IgG</td><td class="td-sx">精神症狀→認知退化→癲癇→自主神經不穩</td><td>血/CSF 抗 NMDAR 抗體</td><td>IVIG、類固醇、血漿置換</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">LGI1 腦炎</td><td class="td-mech">抗 LGI1 抗體</td><td class="td-sx">FBDS、快速記憶障礙、低血鈉</td><td>抗 LGI1 抗體、MRI</td><td>類固醇、IVIG、Rituximab</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">橋本氏腦病變</td><td class="td-mech">抗甲狀腺抗體相關腦炎</td><td class="td-sx">意識波動、肌躍症、癲癇</td><td>抗 TPO/TG（高效價）、EEG</td><td>高劑量類固醇</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">神經梅毒</td><td class="td-mech">T. pallidum 慢性腦膜炎</td><td class="td-sx">人格改變、誇大妄想、阿格爾瞳孔</td><td>CSF VDRL、FTA-ABS</td><td>青黴素 G 靜注 14 天</td><td><span class="pill pill-green">完全逆轉</span></td></tr>
+          <tr><td class="td-disease">HIV 相關腦病（HAND）</td><td class="td-mech">慢性神經發炎</td><td class="td-sx">注意力/記憶下降、動作緩慢</td><td>HIV 篩檢、CD4、病毒量</td><td>ART 治療</td><td><span class="pill pill-amber">部分改善</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: WORKUP ── -->
+  <section id="workup">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--green-lt)">🔬</div>
+      <div>
+        <h2>標準化診療流程</h2>
+        <div class="sub">依 TDS / AA / EAN 建議整合，適用門診及住院評估</div>
+      </div>
+    </div>
+
+    <div class="flow-grid">
+      <div class="flow-card">
+        <h4>病史採集</h4>
+        <ul>
+          <li>認知症狀起始時間與進展速度</li>
+          <li>完整用藥史（含中草藥、OTC）</li>
+          <li>酒精/物質使用史</li>
+          <li>感染風險暴露史（梅毒、HIV）</li>
+          <li>家族史（遺傳性失智）</li>
+          <li>精神症狀史（憂鬱、焦慮）</li>
+        </ul>
+      </div>
+      <div class="flow-card">
+        <h4>認知功能評估</h4>
+        <ul>
+          <li>MMSE（Mini-Mental State Exam）</li>
+          <li>MoCA（蒙特利爾認知評估）</li>
+          <li>CDR（臨床失智評分量表）</li>
+          <li>ADAS-Cog（研究用）</li>
+          <li>神經心理測驗組合（記憶/執行/語言/視空間）</li>
+        </ul>
+      </div>
+      <div class="flow-card">
+        <h4>基本血液檢查</h4>
+        <ul>
+          <li>CBC、CMP（電解質、肝腎功能）</li>
+          <li>TSH、Free T4</li>
+          <li>Vitamin B12、葉酸</li>
+          <li>血糖（HbA1c）</li>
+          <li>脂質、同型半胱胺酸</li>
+          <li>ESR、CRP（發炎指標）</li>
+        </ul>
+      </div>
+      <div class="flow-card">
+        <h4>感染/免疫篩檢</h4>
+        <ul>
+          <li>梅毒（VDRL/RPR + FTA-ABS）</li>
+          <li>HIV（高危族群）</li>
+          <li>抗甲狀腺抗體（TPO、TG）</li>
+          <li>ANA、ANCA（懷疑血管炎）</li>
+          <li>副腫瘤抗體組合（快速進展者）</li>
+        </ul>
+      </div>
+      <div class="flow-card">
+        <h4>腦部影像</h4>
+        <ul>
+          <li>MRI 腦部（首選）：T1、T2、FLAIR、DWI</li>
+          <li>CT（初步或 MRI 禁忌者）</li>
+          <li>MRI 特殊序列：SWI（鐵沉積）、ASL（血流）</li>
+          <li>FDG-PET（鑑別退化性失智）</li>
+          <li>Amyloid PET（研究或困難案例）</li>
+        </ul>
+      </div>
+      <div class="flow-card">
+        <h4>腦脊液分析（選擇性）</h4>
+        <ul>
+          <li>常規分析、糖、蛋白</li>
+          <li>Aβ42、T-tau、P-tau（生物標記）</li>
+          <li>培養、墨汁染色（懷疑感染）</li>
+          <li>CSF VDRL（梅毒）</li>
+          <li>自體免疫腦炎抗體組合</li>
+          <li>Tap test（NPH 評估）</li>
+        </ul>
+      </div>
+      <div class="flow-card">
+        <h4>電生理與其他</h4>
+        <ul>
+          <li>EEG（懷疑癲癇、三相波、週期性放電）</li>
+          <li>多導睡眠圖 PSG（OSA 評估）</li>
+          <li>神經傳導/EMG（週邊神經病變）</li>
+          <li>腹部超音波（肝臟、腎臟）</li>
+          <li>腫瘤篩查（副腫瘤症候群）</li>
+        </ul>
+      </div>
+      <div class="flow-card">
+        <h4>多專科評估</h4>
+        <ul>
+          <li>精神科：鑑別假性失智、精神疾病</li>
+          <li>神經外科：NPH、CSDH 手術評估</li>
+          <li>內分泌科：複雜代謝問題</li>
+          <li>感染科：HIV、梅毒等特殊感染</li>
+          <li>藥師：多重用藥審查</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5: KEY MESSAGE ── -->
+  <section id="keymessage">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--purple-lt)">✨</div>
+      <div>
+        <h2>臨床重點摘要</h2>
+        <div class="sub">教學核心訊息 — Take-home Messages</div>
+      </div>
+    </div>
+
+    <div class="msg-grid">
+      <div class="msg-card mc-teal">
+        <h4>🔑 排除先於診斷</h4>
+        <p>失智症是排除性診斷。在確認神經退化性失智前，必須系統性排除所有可逆性病因，特別是代謝、藥物、感染及結構性問題。</p>
+      </div>
+      <div class="msg-card mc-amber">
+        <h4>⏰ 時機決定預後</h4>
+        <p>可逆轉的程度與治療時機密切相關。如常壓性水腦症（NPH）若在症狀 ＜1 年內進行分流手術，認知改善率可達 70%；延誤者則大幅降低。</p>
+      </div>
+      <div class="msg-card mc-blue">
+        <h4>💊 藥物是被低估的元凶</h4>
+        <p>老年患者的認知障礙有相當比例源自多重用藥，尤其是抗膽鹼藥物與 Benzodiazepines。每次就診均應進行藥物審查（Beers Criteria/STOPP）。</p>
+      </div>
+      <div class="msg-card mc-green">
+        <h4>🧠 快速進展者立即想到免疫</h4>
+        <p>認知功能在數週至數月內快速退化（RPD），應立即考慮自體免疫腦炎（NMDAR、LGI1）或 Creutzfeldt-Jakob 病（CJD）。前者可治療，不可錯過。</p>
+      </div>
+      <div class="msg-card mc-teal">
+        <h4>🩸 三合一篩檢不可省</h4>
+        <p>最低限度的可逆病因篩檢：TSH + B12 + 電解質三項血液檢查，加上腦部 CT 或 MRI，可涵蓋超過 80% 的常見可逆原因，成本低、效益高。</p>
+      </div>
+      <div class="msg-card mc-amber">
+        <h4>😔 憂鬱症最易被忽略</h4>
+        <p>老年重度憂鬱症（假性失智）可完美模仿失智，但認知功能可完全恢復。特徵：症狀出現先於認知退化、患者主動抱怨記憶差、GDS 量表高分。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6: REFERENCES ── -->
+  <section id="refs">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--surface2)">📚</div>
+      <div>
+        <h2>主要參考資料</h2>
+        <div class="sub">References — 依機構與期刊分類</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px">學會指引</p>
+        <ul class="ref-list">
+          <li><span>TDS</span>台灣失智症學會（2023）。失智症診療指引。台北：TDS 出版。</li>
+          <li><span>AA</span>Alzheimer's Association (2023). Alzheimer's disease facts and figures. <em>Alzheimer's & Dementia</em>, 19(4).</li>
+          <li><span>EFA</span>EAN (2023). European Academy of Neurology guideline on the diagnosis of dementia. <em>European Journal of Neurology</em>.</li>
+          <li><span>AAN</span>American Academy of Neurology (2020). Practice guideline update: Evaluation and management of the patient with first seizure.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px">期刊文獻（2015–2024）</p>
+        <ul class="ref-list">
+          <li><span>LN</span>Graus F et al. (2016). A clinical approach to diagnosis of autoimmune encephalitis. <em>Lancet Neurology</em>, 15(4), 391–404.</li>
+          <li><span>NEJM</span>Rabinovici GD et al. (2019). Association of amyloid positron emission tomography with subsequent change in clinical management among medicare beneficiaries. <em>JAMA</em>, 321(13).</li>
+          <li><span>Brain</span>Hejl A et al. (2020). Potentially reversible conditions in 1000 consecutive memory clinic patients. <em>Journal of Neurology</em>.</li>
+          <li><span>Lancet</span>Livingston G et al. (2020). Dementia prevention, intervention, and care: 2020 report of the Lancet Commission. <em>Lancet</em>, 396(10248), 413–446.</li>
+          <li><span>NPH</span>Williams MA et al. (2021). Diagnosis and treatment of idiopathic normal-pressure hydrocephalus. <em>Neurology</em>, 75(2), 185–192.</li>
+          <li><span>OSA</span>Leng Y et al. (2022). Association of sleep-disordered breathing with cognitive impairment in older adults. <em>JAMA Neurology</em>.</li>
+          <li><span>免疫</span>Leypoldt F et al. (2023). Autoimmune encephalitis. <em>Lancet</em>, 402(10398), 197–214.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>本頁面供臨床教學使用，不作為個別患者之診療依據。<br>
+  內容綜合 <span>台灣失智症學會（TDS）</span>、<span>Alzheimer's Association</span>、<span>EAN 2023</span> 及近十年期刊文獻整理。</p>
+</footer>
+
+<script>
+function switchTab(btn, tabId) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+</script>
+
+</body>
+</html>
