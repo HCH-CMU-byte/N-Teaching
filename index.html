@@ -309,6 +309,12 @@ nav {
   color: var(--text3); padding: 1px 7px; border-radius: 4px;
   font-family: 'JetBrains Mono', monospace;
 }
+.subtopic-link.disabled {
+  color: #6b6b6b;          /* 顏色變暗 */
+  opacity: 0.5;
+  pointer-events: none;    /* 完全不可點擊 */
+  cursor: default;
+}
 
 /* ════════════════════════════════
    Footer
@@ -370,8 +376,9 @@ footer a  { color: var(--blue); text-decoration: none; font-size: 12px; }
       <div class="dropdown-menu">
         <a href="dementia.html">失智症總覽</a>
         <a href="DLB_clinical_guide.html">路易氏體失智症（DLB）</a>
+        <a href="dementia_reversible.html" class="disabled">可治療的失智類疾病 </a>
         <div class="dropdown-divider"></div>
-        <a href="treatable-dementia.html" class="disabled">可治療的失智類疾病（即將上線）</a>
+        <a href="dementia_autoimmune encephalitis.html" class="disabled">免疫腦炎 （整理中） </a>
       </div>
     </div>
 
@@ -478,7 +485,7 @@ footer a  { color: var(--blue); text-decoration: none; font-size: 12px; }
 
   <!-- 頭痛主卡片（含子主題列） -->
   <!-- ★ 新增次主題：在 subtopic-list 裡加一行 <a href="..."> 即可 -->
-  <a class="topic-card card-purple" href="migraine_headache.html">
+  <div class="topic-card card-purple">
     <span class="card-icon">🧠</span>
     <div class="card-category">Headache Medicine</div>
     <div class="card-title">頭痛相關</div>
@@ -495,7 +502,6 @@ footer a  { color: var(--blue); text-decoration: none; font-size: 12px; }
       <span>3 個子主題</span>
       <span class="arrow">→</span>
     </div>
-  </a>
 
 </div><!-- /card-grid 頭痛 -->
 
@@ -507,27 +513,27 @@ footer a  { color: var(--blue); text-decoration: none; font-size: 12px; }
 
 <div class="card-grid">
 
-  <!-- 失智症主卡片（含子主題列） -->
-  <!-- ★ 新增次主題：在 subtopic-list 裡加一行 <a href="..."> 即可 -->
-  <a class="topic-card card-amber" href="dementia.html">
-    <span class="card-icon">🔬</span>
-    <div class="card-category">Dementia</div>
-    <div class="card-title">失智症相關</div>
-    <div class="card-desc">
-      阿茲海默症、路易氏體失智症、血管型失智症等診斷與治療，
-      整合最新 2025–2026 指引與生物標記研究。
-    </div>
-    <div class="subtopic-list">
-      <a href="dementia.html"           class="subtopic-link">失智症總覽</a>
-      <a href="DLB_clinical_guide.html"        class="subtopic-link">路易氏體失智症（DLB）</a>
-      <a href="treatable-dementia.html"  class="subtopic-link coming">可治療的失智類疾病<span class="sub-badge">即將上線</span></a>
-    </div>
-    <div class="card-footer">
-      <span>3 個子主題</span>
-      <span class="arrow">→</span>
-    </div>
-  </a>
-
+<!-- 失智症主卡片（含子主題列） -->
+<!-- ★ 新增次主題：在 subtopic-list 裡加一行 <a href="..."> 即可 -->
+<div class="topic-card card-amber">
+  <span class="card-icon">🔬</span>
+  <div class="card-category">Dementia</div>
+  <div class="card-title">失智症相關</div>
+  <div class="card-desc">
+    阿茲海默症、路易氏體失智症、血管型失智症等診斷與治療，
+    整合最新 2025–2026 指引與生物標記研究。
+  </div>
+  <div class="subtopic-list">
+    <a href="dementia.html" class="subtopic-link">失智症總覽</a>
+    <a href="DLB_clinical_guide.html" class="subtopic-link">路易氏體失智症（DLB）</a>
+    <a href="dementia_reversible.html" class="subtopic-link">可治療的失智類疾病</a>
+    <span class="subtopic-link disabled"> 免疫腦炎<span class="sub-badge">即將上線</span>
+    </span>
+  </div>
+  <div class="card-footer">
+    <span>4 個子主題</span>
+    <span class="arrow">→</span>
+  </div>
 </div><!-- /card-grid 失智症 -->
 
 
