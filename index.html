@@ -368,8 +368,8 @@ footer a  { color: var(--blue); text-decoration: none; font-size: 12px; }
       <div class="dropdown-menu">
         <a href="migraine_headache.html">偏頭痛治療近五年進展</a>
         <div class="dropdown-divider"></div>
-        <a href="cluster-headache.html" class="disabled">叢發性頭痛（即將上線）</a>
-        <a href="moh.html" class="disabled">藥物過度使用性頭痛（即將上線）</a>
+        <a href="cluster-headache.html" class="disabled">叢發性頭痛（整理中）</a>
+        <a href="moh.html" class="disabled">藥物過度使用性頭痛（整理中）</a>
       </div>
     </div>
 
@@ -384,7 +384,19 @@ footer a  { color: var(--blue); text-decoration: none; font-size: 12px; }
         <a href="dementia_autoimmune encephalitis.html" class="disabled">免疫腦炎 （整理中） </a>
       </div>
     </div>
-
+   
+    <!-- 【癲癇下拉】 新增次主題：在 dropdown-menu 裡加 <a href="...">名稱</a> -->
+    <div class="nav-dropdown">
+      <a href="epilepsy_psychiatry.html">癲癇</a>
+      <div class="dropdown-menu">
+        <a href="epilepsy_psychiatry.html">失智症與精神症狀</a>
+        <div class="dropdown-divider"></div>
+        <a href="epilepsy_stroke.html" class="disabled">中風後的癲癇（整理中）</a>
+        <a href="status epilepticus.html" class="disabled">癲癇積重狀態 （整理中）</a>
+        <a href="epilepsy_mimics.html" class="disabled">像癲癇的抽搐（整理中） </a>
+      </div>
+    </div>
+     
   </div>
 </nav>
 
@@ -542,6 +554,27 @@ footer a  { color: var(--blue); text-decoration: none; font-size: 12px; }
 
 </div><!-- /card-grid 失智症 -->
 
+<!-- ★ 新增主題卡片：複製下方整個 <a class="topic-card ..."> ... </a> 區塊 -->
+  <a class="topic-card card-blue">
+    <span class="card-icon">⚡</span>
+    <div class="card-category">癲癇</div>
+    <div class="card-title">癲癇</div>
+    <div class="card-desc">
+      系統性學習 EEG 判讀與癲癇相關藥物使用，癲癇鑑別診斷與處理方式
+    </div>
+    <div class="card-tags">
+      <span class="tag">腦波EEG</span>
+      <span class="tag">癲癇藥物與副作用</span>
+      <span class="tag">癲癇積重狀態</span>
+      <span class="tag">channelopathy</span>
+    </div>
+    <div class="card-footer">
+      <span>已上線 · 持續更新中</span>
+      <span class="arrow">→</span>
+    </div>
+  </a>
+
+</div><!-- /card-grid 癲癇 -->
 
 <!-- ══════════════════════════════════════════════════
      即將推出
@@ -582,7 +615,7 @@ footer a  { color: var(--blue); text-decoration: none; font-size: 12px; }
 
 <!-- ── FOOTER ── -->
 <footer>
-  <p>© 2025 HCH-FYH Neurology Education Platform · 僅供醫療教育用途</p>
+  <p>© 2025 HCH-FYH Neurology Education Platform · 僅供醫療自學教育用途</p>
   <a href="https://github.com/HCH-CMU-byte/NCS-Teaching" target="_blank">GitHub →</a>
 </footer>
 
