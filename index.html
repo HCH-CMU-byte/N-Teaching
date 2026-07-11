@@ -562,33 +562,38 @@ footer a  { color: var(--blue); text-decoration: none; font-size: 12px; }
 <div class="card-grid">
 
 <!-- 癲癇症主卡片（含子主題列） -->
-<!-- ★ 新增主題卡片：複製下方整個 <a class="topic-card ..."> ... </a> 區塊 -->
+<!-- ★ 新增次主題：在 subtopic-list 裡加一行 <a href="..."> 即可 -->
 <div class="topic-card card-blue">
-    <span class="card-icon">⚡</span>
-    <div class="card-category">癲癇</div>
-    <div class="card-title">癲癇</div>
-    <div class="card-desc">
-      系統性學習 EEG 判讀與癲癇相關藥物使用，癲癇鑑別診斷與處理方式
-    </div>
-    <div class="subtopic-list">
+  <span class="card-icon">⚡</span>
+  <div class="card-category">癲癇</div>
+  <div class="card-title">癲癇</div>
+  <div class="card-desc">
+    系統性學習 EEG 判讀與癲癇相關藥物使用，癲癇鑑別診斷與處理方式。
+  </div>
+
+  <!-- 子主題列表 -->
+  <div class="subtopic-list">
     <a href="epilepsy_psychiatry.html" class="subtopic-link">癲癇與精神疾病</a>
     <a href="seizure_mimics.html" class="subtopic-link">像癲癇，不是癲癇</a>
-    <span class="subtopic-link disabled"> 癲癇積重狀態 <span class="sub-badge">即將上線</span>
-    </span>
-    <div class="card-tags">
-      <span class="tag">腦波EEG</span>
-      <span class="tag">癲癇藥物與副作用</span>
-      <span class="tag">癲癇積重狀態</span>
-      <span class="tag">癲癇與精神共病</span>
-    </div>
-    <div class="card-footer">
-      <span>已上線 · 持續更新中</span>
-      <span class="arrow">→</span>
-    </div>
-</div><!-- 關閉 topic-card -->   
-   
-</div><!-- /card-grid 癲癇 -->
+    <span class="subtopic-link coming">癲癇積重狀態<span class="sub-badge">即將上線</span></span>
+  </div><!-- ★ subtopic-list 在這裡關閉 -->
 
+  <!-- 標籤 -->
+  <div class="card-tags">
+    <span class="tag">腦波 EEG</span>
+    <span class="tag">癲癇藥物與副作用</span>
+    <span class="tag">癲癇積重狀態</span>
+    <span class="tag">癲癇與精神共病</span>
+  </div>
+
+  <!-- 頁尾 -->
+  <div class="card-footer">
+    <span>已上線 · 持續更新中</span>
+    <span class="arrow">→</span>
+  </div>
+
+</div><!-- 關閉 topic-card -->
+   
 <!-- ══════════════════════════════════════════════════
      即將推出
      新增規劃中主題：複製下方任一 <div class="topic-card coming-soon"> 區塊
