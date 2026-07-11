@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>延髓三徵候的鑑別診斷｜吞嚥困難・構音障礙・呼吸衰竭</title>
+<style>
+:root{
+  --bg: #0d1117;
+  --bg-panel: #151b23;
+  --bg-panel-2: #1b232d;
+  --line: #2a333f;
+  --ink: #e7ecf2;
+  --ink-dim: #9aa7b5;
+  --ink-faint: #6b7787;
+  --amber: #e0a458;
+  --amber-soft: rgba(224,164,88,0.14);
+  --teal: #4fb8a6;
+  --teal-soft: rgba(79,184,166,0.14);
+  --red: #d9736a;
+  --red-soft: rgba(217,115,106,0.14);
+  --violet: #9d8cd6;
+  --violet-soft: rgba(157,140,214,0.14);
+  --serif: "Noto Serif TC", "Songti TC", serif;
+  --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --mono: "IBM Plex Mono", "Courier New", monospace;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.7;
+  font-size:16px;
+  padding-bottom:80px;
+}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  padding:64px 24px 40px;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(ellipse 900px 420px at 15% -10%, rgba(224,164,88,0.10), transparent 60%),
+    radial-gradient(ellipse 700px 400px at 100% 0%, rgba(157,140,214,0.08), transparent 60%);
+  overflow:hidden;
+}
+.hero-inner{max-width:980px; margin:0 auto;}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:12.5px;
+  letter-spacing:0.14em;
+  color:var(--amber);
+  text-transform:uppercase;
+  display:flex; align-items:center; gap:10px; margin-bottom:22px;
+}
+.eyebrow::before{content:""; width:26px; height:1px; background:var(--amber);}
+h1.hero-title{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:clamp(28px, 4.4vw, 46px);
+  line-height:1.35;
+  letter-spacing:0.01em;
+  margin-bottom:20px;
+}
+h1.hero-title .sub{
+  display:block;
+  font-size:0.46em;
+  color:var(--ink-dim);
+  font-weight:400;
+  margin-top:10px;
+  letter-spacing:0.03em;
+}
+.triad-row{
+  display:flex; flex-wrap:wrap; gap:12px;
+  margin:28px 0 22px;
+}
+.triad-chip{
+  font-family:var(--mono);
+  font-size:13.5px;
+  padding:9px 16px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  color:var(--ink);
+  background:var(--bg-panel);
+  display:flex; align-items:center; gap:8px;
+}
+.triad-chip .dot{width:7px; height:7px; border-radius:50%;}
+.hero-lede{
+  color:var(--ink-dim);
+  font-size:15.5px;
+  max-width:680px;
+}
+
+/* ===== VERIFY BANNER ===== */
+.verify-box{
+  max-width:980px; margin:26px auto 0;
+  padding:18px 22px;
+  background:var(--teal-soft);
+  border:1px solid rgba(79,184,166,0.35);
+  border-radius:10px;
+  font-size:14px;
+  color:var(--ink);
+}
+.verify-box b{color:var(--teal);}
+.verify-box .fix{
+  margin-top:10px; padding-top:10px;
+  border-top:1px dashed rgba(79,184,166,0.3);
+  color:var(--ink-dim);
+}
+.verify-box .fix b{color:var(--amber);}
+
+/* ===== NAV ===== */
+.tabnav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(13,17,23,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  padding:0 24px;
+}
+.tabnav-inner{
+  max-width:980px; margin:0 auto;
+  display:flex; gap:4px; overflow-x:auto;
+  scrollbar-width:none;
+  padding:4px 0;
+}
+.tabnav-inner::-webkit-scrollbar{display:none;}
+.tab-btn{
+  font-family:var(--sans);
+  font-size:13.5px;
+  white-space:nowrap;
+  padding:12px 14px;
+  background:none; border:none;
+  color:var(--ink-faint);
+  cursor:pointer;
+  border-bottom:2px solid transparent;
+  transition:.15s;
+}
+.tab-btn:hover{color:var(--ink);}
+.tab-btn.active{color:var(--amber); border-bottom-color:var(--amber);}
+
+/* ===== MAIN ===== */
+main{max-width:980px; margin:0 auto; padding:36px 24px;}
+.panel{display:none; animation:fade .25s ease;}
+.panel.active{display:block;}
+@keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);}}
+
+.section-head{margin-bottom:24px;}
+.section-head h2{
+  font-family:var(--serif);
+  font-size:26px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+.section-head p{color:var(--ink-dim); font-size:14.5px;}
+
+/* badges */
+.badge{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:var(--mono); font-size:11.5px;
+  padding:4px 10px; border-radius:999px;
+  letter-spacing:0.03em;
+}
+.badge.treatable{background:var(--teal-soft); color:var(--teal); border:1px solid rgba(79,184,166,.4);}
+.badge.emergency{background:var(--red-soft); color:var(--red); border:1px solid rgba(217,115,106,.4);}
+.badge.progressive{background:var(--violet-soft); color:var(--violet); border:1px solid rgba(157,140,214,.4);}
+.badge.common{background:var(--amber-soft); color:var(--amber); border:1px solid rgba(224,164,88,.4);}
+
+/* disease card */
+.dcard{
+  background:var(--bg-panel);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:26px 26px 22px;
+  margin-bottom:22px;
+}
+.dcard-top{
+  display:flex; justify-content:space-between; align-items:flex-start;
+  flex-wrap:wrap; gap:10px; margin-bottom:14px;
+}
+.dcard-top h3{
+  font-family:var(--serif); font-size:20px; font-weight:700;
+}
+.dcard-top .en{color:var(--ink-faint); font-size:13px; font-family:var(--mono); display:block; margin-top:3px;}
+.badges{display:flex; gap:6px; flex-wrap:wrap;}
+
+.feature-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:18px;
+  margin-top:16px;
+}
+@media(max-width:640px){.feature-grid{grid-template-columns:1fr;}}
+.feature-block h4{
+  font-size:13px; color:var(--amber); font-family:var(--mono);
+  text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px;
+}
+.feature-block ul{padding-left:18px; font-size:14.5px; color:var(--ink);}
+.feature-block li{margin-bottom:6px;}
+.feature-block li::marker{color:var(--ink-faint);}
+
+.redflag{
+  margin-top:16px; padding:12px 16px;
+  background:var(--red-soft); border-left:3px solid var(--red);
+  border-radius:6px; font-size:13.5px; color:var(--ink);
+}
+.redflag b{color:var(--red);}
+.keypoint{
+  margin-top:16px; padding:12px 16px;
+  background:var(--teal-soft); border-left:3px solid var(--teal);
+  border-radius:6px; font-size:13.5px; color:var(--ink);
+}
+.keypoint b{color:var(--teal);}
+.cite{font-size:12px; color:var(--ink-faint); margin-top:14px; font-family:var(--mono);}
+
+/* overview grid */
+.overview-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:10px;}
+@media(max-width:640px){.overview-grid{grid-template-columns:1fr;}}
+.ov-card{
+  background:var(--bg-panel); border:1px solid var(--line);
+  border-radius:10px; padding:18px 20px; cursor:pointer;
+  transition:.15s;
+}
+.ov-card:hover{border-color:var(--amber); transform:translateY(-2px);}
+.ov-card .ov-title{font-family:var(--serif); font-weight:700; font-size:16.5px; margin-bottom:6px;}
+.ov-card .ov-desc{font-size:13px; color:var(--ink-dim);}
+.ov-card .ov-badges{margin-top:10px; display:flex; gap:6px; flex-wrap:wrap;}
+
+/* algorithm */
+.algo-step{
+  background:var(--bg-panel); border:1px solid var(--line);
+  border-radius:12px; padding:22px 24px; margin-bottom:16px;
+  position:relative; padding-left:56px;
+}
+.algo-step::before{
+  content:attr(data-step);
+  position:absolute; left:18px; top:22px;
+  font-family:var(--mono); font-size:15px; font-weight:700;
+  color:var(--amber);
+  width:28px; height:28px; border:1px solid var(--amber);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+}
+.algo-step h4{font-family:var(--serif); font-size:17px; margin-bottom:10px;}
+.algo-step ul{padding-left:18px; font-size:14.5px;}
+.algo-step li{margin-bottom:8px;}
+.algo-step li b{color:var(--amber);}
+
+.pearl-list{margin-top:8px;}
+.pearl{
+  display:flex; gap:12px; padding:12px 0;
+  border-bottom:1px dashed var(--line); font-size:14.5px;
+}
+.pearl:last-child{border-bottom:none;}
+.pearl .arrow{color:var(--teal); font-family:var(--mono); flex-shrink:0;}
+
+/* table */
+.table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px;}
+table{width:100%; border-collapse:collapse; font-size:13.5px; min-width:760px;}
+th{
+  background:var(--bg-panel-2); color:var(--amber);
+  font-family:var(--mono); font-weight:500; font-size:12px;
+  text-transform:uppercase; letter-spacing:.03em;
+  text-align:left; padding:12px 14px; border-bottom:1px solid var(--line);
+  white-space:nowrap;
+}
+td{padding:12px 14px; border-bottom:1px solid var(--line); color:var(--ink-dim); vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+td.rowhead{color:var(--ink); font-weight:600; font-family:var(--serif);}
+tr:hover td{background:rgba(255,255,255,0.02);}
+
+/* references */
+.ref-item{
+  padding:14px 0; border-bottom:1px solid var(--line);
+  font-size:13.5px; color:var(--ink-dim);
+  display:grid; grid-template-columns:32px 1fr; gap:10px;
+}
+.ref-item:last-child{border-bottom:none;}
+.ref-num{color:var(--amber); font-family:var(--mono); font-size:13px;}
+.ref-item b{color:var(--ink);}
+.ref-doi{font-family:var(--mono); font-size:12px; color:var(--ink-faint);}
+
+footer{
+  max-width:980px; margin:0 auto; padding:30px 24px 0;
+  color:var(--ink-faint); font-size:12.5px; text-align:center;
+  border-top:1px solid var(--line); margin-top:20px; padding-top:24px;
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">神經肌肉疾病鑑別診斷教學</div>
+    <h1 class="hero-title">
+      吞嚥困難・構音障礙・呼吸衰竭
+      <span class="sub">Progressive Dysphagia, Dysarthria &amp; Respiratory Failure — 延髓與呼吸肌受損三徵候的系統化鑑別</span>
+    </h1>
+    <div class="triad-row">
+      <div class="triad-chip"><span class="dot" style="background:var(--amber)"></span>吞嚥困難 Dysphagia</div>
+      <div class="triad-chip"><span class="dot" style="background:var(--violet)"></span>構音障礙 Dysarthria</div>
+      <div class="triad-chip"><span class="dot" style="background:var(--red)"></span>呼吸衰竭 Respiratory Failure</div>
+    </div>
+    <p class="hero-lede">此三徵候組合提示延髓（bulbar）與呼吸肌功能嚴重受損，鑑別範圍橫跨運動神經元、神經肌肉接合處、肌肉病變及部分神經退化性疾病。本頁依疾病分類整理關鍵鑑別特徵、診斷工具與臨床思路，並標註可治療（treatable）與需緊急處置的病因。</p>
+  </div>
+</div>
+
+<div class="verify-box">
+  <b>📋 資料查核說明</b>：本頁內容已根據 PubMed／期刊原文交叉核對。Gold Coast criteria（2020）內容、Kennedy disease 的 SNAP 異常特徵，以及 Pompe disease 舌肌無力等描述皆與原始文獻相符。
+  <div class="fix">
+    <b>已修正一處數據</b>：原始資料稱重症肌無力（MG）以延髓症狀為表現者約佔 6%；查核多篇文獻（含 Cureus、PMC 案例系列）後，此比例應為 <b style="color:var(--teal)">約 15%</b>，其中僅少數為「單純延髓症狀」表現，好發於高齡男性之遲發型 MG。本頁已採用經查核後的數據。
+  </div>
+</div>
+
+<div class="tabnav">
+  <div class="tabnav-inner" id="tabnav"></div>
+</div>
+
+<main>
+
+<!-- OVERVIEW -->
+<section class="panel active" id="panel-overview">
+  <div class="section-head">
+    <h2>總覽：八大鑑別方向</h2>
+    <p>點選卡片跳轉至詳細內容。顏色標籤標示疾病特性——是否可治療、是否需緊急處置、病程特徵。</p>
+  </div>
+  <div class="overview-grid" id="overviewGrid"></div>
+
+  <div class="dcard" style="margin-top:28px;">
+    <div class="dcard-top">
+      <div><h3>核心臨床思路</h3></div>
+    </div>
+    <div class="pearl-list">
+      <div class="pearl"><span class="arrow">→</span><span>波動性、易疲勞的無力（愈用愈重、休息後緩解）<b>優先考慮 MG</b>，因其高度可治療。</span></div>
+      <div class="pearl"><span class="arrow">→</span><span>舌肌無力但無上運動神經元徵象、CK 明顯上升 <b>考慮 Pompe disease</b>（可用酵素替代療法）。</span></div>
+      <div class="pearl"><span class="arrow">→</span><span>高齡病人出現不對稱手指屈肌與股四頭肌無力 <b>懷疑 IBM</b>（免疫治療通常無效）。</span></div>
+      <div class="pearl"><span class="arrow">→</span><span>無上運動神經元徵象、純下運動神經元病變、男性合併女乳症 <b>考慮 Kennedy disease</b>。</span></div>
+      <div class="pearl"><span class="arrow">→</span><span>急性發作、下行性癱瘓、靜脈藥癮病史 <b>懷疑創傷性肉毒桿菌中毒</b>（醫療急症）。</span></div>
+      <div class="pearl"><span class="arrow">→</span><span>ALS 為此三徵候最常見病因，但務必主動排除上述可治療病因，避免誤診造成嚴重後果。</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ALS -->
+<section class="panel" id="panel-als">
+  <div class="section-head"><h2>1. 肌萎縮性側索硬化症（ALS）— 延髓與呼吸起始型</h2></div>
+  <div class="dcard">
+    <div class="dcard-top">
+      <div><h3>ALS<span class="en">Amyotrophic Lateral Sclerosis</span></h3></div>
+      <div class="badges"><span class="badge common">最常見病因</span><span class="badge progressive">緩慢進行</span></div>
+    </div>
+    <p style="color:var(--ink-dim); font-size:14.5px;">約三分之一 ALS 病人以延髓症狀（構音障礙、吞嚥困難）為初始表現，約 1% 以呼吸衰竭為主要表現。疾病特徵為上運動神經元（UMN）與下運動神經元（LMN）合併退化。</p>
+    <div class="feature-grid">
+      <div class="feature-block">
+        <h4>關鍵表現</h4>
+        <ul>
+          <li>構音障礙（混合性痙攣—無力型）幾乎是延髓起始型 ALS 的共同初始徵象，吞嚥困難通常隨後出現</li>
+          <li>UMN 徵象：反射亢進、痙攣、Hoffman sign、下頷反射、假延髓情緒（病態哭笑）</li>
+          <li>LMN 徵象：舌肌纖維顫動與萎縮、肢體肌肉萎縮與顫動</li>
+          <li>呼吸起始型少見但存在：漸進性呼吸困難合併高碳酸血症呼吸衰竭，常伴體重減輕與頸屈肌無力</li>
+        </ul>
+      </div>
+      <div class="feature-block">
+        <h4>診斷工具</h4>
+        <ul>
+          <li>肌電圖（EMG）：至少兩個身體區域出現廣泛去神經化（纖維顫動、正銳波、束顫）與再神經化（大型運動單位電位）</li>
+          <li><b style="color:var(--amber)">Gold Coast criteria（2020）</b>：至少一個身體區域同時具備 UMN＋LMN 徵象，或至少兩個區域具 LMN 徵象，並排除其他病因即可診斷</li>
+          <li>此標準較舊版 El Escorial／Awaji criteria 敏感度更高（多項統合分析顯示敏感度可達 90% 以上），但特異度相對較低，仍須嚴謹排除其他鑑別診斷</li>
+        </ul>
+      </div>
+    </div>
+    <div class="redflag"><b>不支持 ALS 的紅旗徵象：</b>急性／亞急性起病（數小時至數天）、緩解復發病程、感覺缺損、自律神經功能障礙、複視、括約肌障礙。</div>
+    <div class="cite">參考：Noh et al. 2010；Srivali et al. 2016；Int Rev Neurobiol 2024；Vucic et al. Muscle Nerve 2021；Ferullo et al. Brain Sci 2024（查核確認 Gold Coast criteria 內容與敏感度數據）</div>
+  </div>
+</section>
+
+<!-- MG -->
+<section class="panel" id="panel-mg">
+  <div class="section-head"><h2>2. 重症肌無力（MG）— 延髓型表現</h2></div>
+  <div class="dcard">
+    <div class="dcard-top">
+      <div><h3>重症肌無力<span class="en">Myasthenia Gravis</span></h3></div>
+      <div class="badges"><span class="badge treatable">高度可治療</span><span class="badge emergency">可致肌無力危象</span></div>
+    </div>
+    <p style="color:var(--ink-dim); font-size:14.5px;">神經肌肉接合處自體免疫疾病，可以孤立延髓症狀表現，好發於高齡男性之遲發型 MG，常被誤診為 ALS。</p>
+    <div class="feature-grid">
+      <div class="feature-block">
+        <h4>關鍵鑑別特徵</h4>
+        <ul>
+          <li>波動性、易疲勞無力——延續說話後構音障礙加重（鼻音化）、進食過程中吞嚥困難惡化，休息後改善</li>
+          <li>舌肌無力可造成「舌頭腫脹感」</li>
+          <li>孤立延髓症狀（無肢體或眼肌無力）可作為唯一表現</li>
+          <li>肌無力危象時可出現呼吸衰竭，常由感染誘發</li>
+          <li>無 UMN 徵象（無反射亢進、無 Babinski sign）、無束顫、無舌肌萎縮</li>
+        </ul>
+      </div>
+      <div class="feature-block">
+        <h4>診斷與治療</h4>
+        <ul>
+          <li>Anti-AChR 抗體、anti-MuSK 抗體、重複神經電刺激（漸減反應）、單纖維肌電圖</li>
+          <li>對乙醯膽鹼酯酶抑制劑（pyridostigmine）與免疫抑制治療反應顯著</li>
+          <li>經查核後之流行病學數據：<b style="color:var(--teal)">約 15%</b> MG 病人以延髓症狀表現，其中僅部分為單純延髓型；此表現型在遲發型高齡男性中風險增加，肌無力危象風險亦較高</li>
+        </ul>
+      </div>
+    </div>
+    <div class="keypoint"><b>臨床要點：</b>高齡病人出現孤立性延髓症狀（尤其合併波動性），應主動將 MG 納入鑑別，因其誤診為中風或 ALS 的案例在文獻中屢見不鮮，且延誤治療可能導致肌無力危象。</div>
+    <div class="cite">參考：Marshal et al. Oxford Med Case Reports 2018；PMC6346934（Delayed Diagnosis of Atypical MG）；PMC11592046 系列病例；查核修正延髓表現比例至約 15%</div>
+  </div>
+</section>
+
+<!-- Kennedy -->
+<section class="panel" id="panel-kennedy">
+  <div class="section-head"><h2>3. Kennedy 氏病（脊髓延髓肌萎縮症）</h2></div>
+  <div class="dcard">
+    <div class="dcard-top">
+      <div><h3>Kennedy Disease<span class="en">Spinobulbar Muscular Atrophy, SBMA</span></h3></div>
+      <div class="badges"><span class="badge progressive">緩慢進行（數十年）</span></div>
+    </div>
+    <p style="color:var(--ink-dim); font-size:14.5px;">X 性聯隱性遺傳，雄性素受體基因 CAG 重複序列擴增所致，純下運動神經元病變，可高度類似 ALS。</p>
+    <div class="feature-grid">
+      <div class="feature-block">
+        <h4>關鍵鑑別特徵</h4>
+        <ul>
+          <li>好發年齡 30–50 歲男性；病程緩慢進展數十年</li>
+          <li>純 LMN 徵象——舌肌萎縮與顫動、近端優於遠端之肢體無力；<b>無 UMN 徵象</b></li>
+          <li>全身性合併症狀：女乳症、睪丸萎縮、勃起功能障礙、葡萄糖耐受不良、CK 常明顯上升（常＞500 U/L）</li>
+          <li>吞嚥困難與構音障礙較晚出現，呼吸衰竭少見且屬晚期併發症</li>
+        </ul>
+      </div>
+      <div class="feature-block">
+        <h4>診斷工具</h4>
+        <ul>
+          <li><b style="color:var(--amber)">感覺神經傳導檢查（SNAP）：多篇文獻確認此為關鍵鑑別點</b>——SBMA 之 SNAP 振幅常降低或消失（源於背根神經節病變合併前角細胞病變），此為 ALS／PMA 所不具備的特徵</li>
+          <li>肌電圖示廣泛慢性去神經化合併再神經化，運動單位電位大而穩定（慢性過程）</li>
+          <li>基因檢測雄性素受體基因 CAG 重複數確診</li>
+        </ul>
+      </div>
+    </div>
+    <div class="keypoint"><b>臨床要點：</b>對疑似 ALS 但表現為純 LMN 病變、合併內分泌症狀之男性病人，SNAP 異常是重要的鑑別線索，應盡早安排基因檢測。</div>
+    <div class="cite">參考：Chen et al. Medicine 2017；PMC5995545（Brazilian Amazon 案例）；PMC4284073（Pathogenesis and Clinical Management）；PMC4628725</div>
+  </div>
+</section>
+
+<!-- Pompe -->
+<section class="panel" id="panel-pompe">
+  <div class="section-head"><h2>4. 遲發型龐貝氏症（Late-Onset Pompe Disease）</h2></div>
+  <div class="dcard">
+    <div class="dcard-top">
+      <div><h3>龐貝氏症<span class="en">Glycogen Storage Disease Type II</span></h3></div>
+      <div class="badges"><span class="badge treatable">可治療（酵素替代療法）</span></div>
+    </div>
+    <p style="color:var(--ink-dim); font-size:14.5px;">體染色體隱性遺傳溶酶體儲積症，酸性 α-葡萄糖苷酶（GAA）缺乏，成人可表現為漸進性近端肌病變合併呼吸衰竭。</p>
+    <div class="feature-grid">
+      <div class="feature-block">
+        <h4>關鍵鑑別特徵</h4>
+        <ul>
+          <li>舌肌無力極為常見且出現早，部分研究中幾乎所有病人皆有，甚至無症狀個案亦可測得</li>
+          <li>近端肢體帶狀無力（下肢＞上肢），常合併軸向肌肉（脊旁肌）受累</li>
+          <li>呼吸衰竭可為初始表現——有時為急性高碳酸血症呼吸衰竭需插管；呼吸肌無力常先於行走能力喪失出現</li>
+          <li>吞嚥困難約三分之一病人出現；構音障礙亦常見</li>
+        </ul>
+      </div>
+      <div class="feature-block">
+        <h4>診斷與治療</h4>
+        <ul>
+          <li>CK 上升（約 200–1500 U/L）</li>
+          <li>EMG 可見肌病性變化合併自發性活動（纖維顫動、複合重複放電，有時肌強直放電）——可能造成誤判</li>
+          <li>乾血片 GAA 酵素活性檢測；GAA 基因定序確診</li>
+          <li><b style="color:var(--teal)">酵素替代療法（alglucosidase alfa）可穩定或改善肌肉與呼吸功能</b>——為此鑑別診斷中最重要的「不可錯過」病因之一</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cite">參考：Müller-Felber et al. Neuromuscul Disord 2007；Dubrovsky et al. Muscle Nerve 2011；Menzella et al. Multidiscip Respir Med 2018</div>
+  </div>
+</section>
+
+<!-- IBM -->
+<section class="panel" id="panel-ibm">
+  <div class="section-head"><h2>5. 包涵體肌炎（Inclusion Body Myositis, IBM）</h2></div>
+  <div class="dcard">
+    <div class="dcard-top">
+      <div><h3>包涵體肌炎<span class="en">Inclusion Body Myositis</span></h3></div>
+      <div class="badges"><span class="badge progressive">＞50 歲、男性多見</span></div>
+    </div>
+    <p style="color:var(--ink-dim); font-size:14.5px;">50 歲以上最常見的後天性肌病，吞嚥困難可為初始或主要表現。</p>
+    <div class="feature-grid">
+      <div class="feature-block">
+        <h4>關鍵鑑別特徵</h4>
+        <ul>
+          <li>特徵性無力分布：不對稱手指屈肌（長屈肌）與股四頭肌無力</li>
+          <li>吞嚥困難常見（整體 40–80%），可為初始表現（達 14%），屬口咽期（transfer type）</li>
+          <li>構音障礙較 ALS 少見但可出現</li>
+          <li>呼吸衰竭少見，但已有文獻記載——橫膈與肋間肌受累可致高碳酸血症呼吸衰竭</li>
+        </ul>
+      </div>
+      <div class="feature-block">
+        <h4>診斷與治療反應</h4>
+        <ul>
+          <li>CK 輕至中度上升</li>
+          <li>EMG 呈混合性肌病與神經性變化合併自發性活動</li>
+          <li>肌肉切片確診：肌內膜發炎、rimmed vacuoles、congophilic inclusions、非壞死肌纖維 MHC Class I 上調</li>
+          <li><b style="color:var(--red)">對免疫抑制治療通常無效</b>——類固醇與免疫調節治療反應不佳，此為與其他發炎性肌病的重要鑑別點</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cite">參考：Esteban et al. J Investig Med High Impact Case Rep 2021；Voermans et al. Neurology 2004</div>
+  </div>
+</section>
+
+<!-- PSP -->
+<section class="panel" id="panel-psp">
+  <div class="section-head"><h2>6. 進行性上眼神經核麻痺（PSP）</h2></div>
+  <div class="dcard">
+    <div class="dcard-top">
+      <div><h3>PSP<span class="en">Progressive Supranuclear Palsy</span></h3></div>
+      <div class="badges"><span class="badge progressive">神經退化性 tau 病變</span></div>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-block">
+        <h4>關鍵鑑別特徵</h4>
+        <ul>
+          <li>核心特徵：垂直凝視麻痺（尤其向下凝視）、早期姿勢不穩合併跌倒、軸向僵直、對 levodopa 無反應之巴金森氏症候群</li>
+          <li>假延髓性麻痺造成的構音障礙（痙攣型或混合型）與吞嚥困難為早期且顯著症狀</li>
+          <li>晚期可出現呼吸衰竭：末期已有高碳酸血症呼吸衰竭病例報告，可能與中樞性換氣不足有關</li>
+          <li>無 LMN 徵象（無束顫、無肌肉萎縮），感覺功能保留</li>
+        </ul>
+      </div>
+      <div class="feature-block">
+        <h4>影像特徵</h4>
+        <ul>
+          <li>MRI 可見「蜂鳥徵」（hummingbird sign）或「牽牛花徵」（morning glory sign）——中腦萎縮</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cite">參考：J Neurol Sci 2017；Komai et al. J Neurol Sci 2013</div>
+  </div>
+</section>
+
+<!-- Others -->
+<section class="panel" id="panel-others">
+  <div class="section-head"><h2>7. 其他需納入鑑別的疾病</h2></div>
+
+  <div class="dcard">
+    <div class="dcard-top">
+      <div><h3>肌強直性肌失養症第一型<span class="en">Myotonic Dystrophy Type 1, DM1</span></h3></div>
+      <div class="badges"><span class="badge progressive">體染色體顯性</span></div>
+    </div>
+    <p style="font-size:14.5px; color:var(--ink-dim);">遠端＞近端無力、肌強直、前額禿頭、白內障、心臟傳導障礙。吞嚥困難見於 25–80% 病人（咽食道肌之肌病與肌強直合併影響）。呼吸衰竭可因呼吸肌無力、中樞性睡眠呼吸中止或吸入性肺炎而發生。EMG 可見肌強直放電。</p>
+  </div>
+
+  <div class="dcard">
+    <div class="dcard-top">
+      <div><h3>眼咽型肌失養症<span class="en">Oculopharyngeal Muscular Dystrophy, OPMD</span></h3></div>
+      <div class="badges"><span class="badge progressive">體染色體顯性</span></div>
+    </div>
+    <p style="font-size:14.5px; color:var(--ink-dim);">眼瞼下垂、吞嚥困難、近端肢體無力。吞嚥困難為核心特徵，好發於 50–60 歲，＞80% 病人出現。呼吸衰竭為晚期併發症。<b style="color:var(--amber)">特徵性表現：雙側眼瞼下垂通常先於吞嚥困難出現。</b></p>
+  </div>
+
+  <div class="dcard">
+    <div class="dcard-top">
+      <div><h3>格林巴利症候群及其變異型<span class="en">Guillain-Barré Syndrome, GBS</span></h3></div>
+      <div class="badges"><span class="badge emergency">急性／亞急性</span></div>
+    </div>
+    <p style="font-size:14.5px; color:var(--ink-dim);">急性或亞急性上升性癱瘓合併反射消失。Miller-Fisher 變異型表現眼外肌麻痺、共濟失調、反射消失。延髓變異型可致吞嚥困難、構音障礙與呼吸衰竭。<b>關鍵鑑別：</b>急性起病（數天）、前驅感染史、感覺症狀、腦脊髓液蛋白細胞分離。</p>
+  </div>
+
+  <div class="dcard">
+    <div class="dcard-top">
+      <div><h3>創傷性肉毒桿菌中毒<span class="en">Wound Botulism</span></h3></div>
+      <div class="badges"><span class="badge emergency">醫療急症</span></div>
+    </div>
+    <p style="font-size:14.5px; color:var(--ink-dim);">靜脈藥癮者中日益增加，表現為下行性軟癱，始於腦神經麻痺（吞嚥困難、構音障礙、複視、眼瞼下垂）後續呼吸衰竭。<b>關鍵線索：</b>急性起病（數小時）、靜脈注射藥物使用史、皮膚膿瘍、下行性癱瘓型態、無發燒或感覺缺損。抗毒素治療可挽救生命。</p>
+  </div>
+  <div class="cite">參考：Argov &amp; de Visser. Neuromuscul Disord 2021；Preuss et al. Laryngoscope 2006</div>
+</section>
+
+<!-- Algorithm -->
+<section class="panel" id="panel-algo">
+  <div class="section-head">
+    <h2>鑑別診斷流程</h2>
+    <p>依病史型態、關鍵檢查與特殊考量，系統化縮小鑑別範圍。</p>
+  </div>
+
+  <div class="algo-step" data-step="1">
+    <h4>病史與型態辨識</h4>
+    <ul>
+      <li><b>病程時間軸：</b>ALS、IBM、Pompe、Kennedy disease 為慢性進行（數月至數年）；急性／亞急性起病（數小時至數天）提示 GBS、肉毒桿菌中毒或肌無力危象</li>
+      <li><b>波動性：</b>易疲勞性無力指向 MG</li>
+      <li><b>UMN 徵象：</b>ALS 同時具備 UMN 與 LMN 徵象；純 LMN 提示 Kennedy disease、SMA 或 ALS 之 PMA 變異型</li>
+      <li><b>全身性特徵：</b>女乳症＋內分泌病變 → Kennedy disease；heliotrope rash＋Gottron's papules → 皮肌炎；前額禿頭＋白內障 → DM1</li>
+      <li><b>家族史：</b>Kennedy disease（X 性聯）、OPMD（體顯性）、DM1（體顯性）、Pompe（體隱性）</li>
+    </ul>
+  </div>
+
+  <div class="algo-step" data-step="2">
+    <h4>關鍵診斷檢查</h4>
+    <div class="table-wrap" style="margin-top:10px;">
+      <table>
+        <tr><th>檢查</th><th>臨床意義</th></tr>
+        <tr><td class="rowhead">EMG／NCS</td><td>ALS：廣泛去神經化／再神經化；MG：重複神經刺激漸減反應；肌病：小型運動單位電位合併自發性活動；Kennedy disease：SNAP 降低</td></tr>
+        <tr><td class="rowhead">血清 CK</td><td>Pompe 與 Kennedy disease 明顯上升；IBM 與 MG 輕度上升；ALS 通常正常或輕微上升</td></tr>
+        <tr><td class="rowhead">抗體檢測</td><td>AChR／MuSK 抗體（MG）；anti-cN1A（IBM）；肌炎特異性抗體</td></tr>
+        <tr><td class="rowhead">基因檢測</td><td>雄性素受體 CAG 重複（Kennedy）；GAA 基因（Pompe）；SMN1（SMA）；DMPK（DM1）；PABPN1（OPMD）</td></tr>
+        <tr><td class="rowhead">腦／脊椎 MRI</td><td>排除結構性病灶（腫瘤、中風、頸髓病變、延髓空洞症）之必要檢查</td></tr>
+        <tr><td class="rowhead">肌肉切片</td><td>IBM（rimmed vacuoles、發炎）；Pompe（空泡性肌病合併肝醣沉積）；肌炎（發炎浸潤）</td></tr>
+        <tr><td class="rowhead">酵素檢測</td><td>GAA 活性（Pompe）—乾血片或肌肉切片</td></tr>
+        <tr><td class="rowhead">肺功能檢查</td><td>FVC、MIP、MEP — 評估呼吸肌無力程度</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="algo-step" data-step="3">
+    <h4>特殊考量</h4>
+    <ul>
+      <li>延髓症狀呈波動性、易疲勞 → <b>優先排除 MG</b>，因其高度可治療</li>
+      <li>舌肌無力、無 UMN 徵象、CK 明顯上升 → <b>考慮 Pompe disease</b>（可治療）</li>
+      <li>高齡病人不對稱手指屈肌與股四頭肌無力 → <b>懷疑 IBM</b></li>
+      <li>無 UMN 徵象、純 LMN 型態，男性合併女乳症 → <b>考慮 Kennedy disease</b></li>
+      <li>急性起病合併下行性癱瘓、靜脈藥癮病史 → <b>創傷性肉毒桿菌中毒</b>（醫療急症）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Comparison Table -->
+<section class="panel" id="panel-compare">
+  <div class="section-head">
+    <h2>疾病比較總表</h2>
+    <p>橫向比較各主要鑑別診斷之病程、UMN/LMN 型態、CK、關鍵檢查與可治療性。</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>疾病</th><th>好發族群</th><th>病程</th><th>UMN／LMN</th><th>CK</th><th>關鍵檢查</th><th>可治療性</th></tr>
+      <tr><td class="rowhead">ALS</td><td>成人，男＞女</td><td>慢性進行</td><td>UMN＋LMN</td><td>正常／輕度↑</td><td>EMG 廣泛去神經化；Gold Coast criteria</td><td>疾病調節藥物（riluzole、edaravone、tofersen 等）</td></tr>
+      <tr><td class="rowhead">MG</td><td>高齡男性（遲發型）</td><td>波動性，可急性惡化</td><td>皆無</td><td>正常</td><td>AChR／MuSK 抗體、RNS 漸減反應</td><td style="color:var(--teal)">高度可治療</td></tr>
+      <tr><td class="rowhead">Kennedy disease</td><td>男性，30–50 歲起病</td><td>慢性進行（數十年）</td><td>純 LMN</td><td>明顯↑（＞500）</td><td>SNAP 降低／消失；CAG 重複基因檢測</td><td>支持性治療為主</td></tr>
+      <tr><td class="rowhead">Pompe disease</td><td>成人，不分性別</td><td>慢性進行</td><td>肌病性（無 UMN/LMN）</td><td>↑（200–1500）</td><td>GAA 酵素活性；基因檢測</td><td style="color:var(--teal)">酵素替代療法</td></tr>
+      <tr><td class="rowhead">IBM</td><td>＞50 歲，男性多見</td><td>慢性進行</td><td>肌病性</td><td>輕至中度↑</td><td>肌肉切片（rimmed vacuoles）</td><td style="color:var(--red)">免疫治療通常無效</td></tr>
+      <tr><td class="rowhead">PSP</td><td>高齡</td><td>慢性進行</td><td>假延髓性（無 LMN）</td><td>正常</td><td>MRI 蜂鳥徵；垂直凝視麻痺</td><td>支持性治療為主</td></tr>
+      <tr><td class="rowhead">GBS</td><td>各年齡層</td><td>急性／亞急性</td><td>周邊神經（LMN 型態）</td><td>正常</td><td>CSF 蛋白細胞分離</td><td style="color:var(--teal)">IVIG／血漿置換</td></tr>
+      <tr><td class="rowhead">創傷性肉毒桿菌中毒</td><td>靜脈藥癮者</td><td>急性（數小時）</td><td>NMJ（下行性）</td><td>正常</td><td>臨床型態＋病史</td><td style="color:var(--teal)">抗毒素（急症）</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- References -->
+<section class="panel" id="panel-refs">
+  <div class="section-head">
+    <h2>參考文獻</h2>
+    <p>已交叉查核 PubMed／期刊原文；如發現原始數據有誤已於前述段落標註修正。</p>
+  </div>
+  <div id="refList"></div>
+</section>
+
+</main>
+
+<footer>
+  神經肌肉疾病教學整理｜資料查核日期：2026 年 7 月｜僅供臨床教學使用，非診斷依據
+</footer>
+
+<script>
+const tabs = [
+  {id:'overview', label:'總覽'},
+  {id:'als', label:'ALS'},
+  {id:'mg', label:'重症肌無力'},
+  {id:'kennedy', label:'Kennedy disease'},
+  {id:'pompe', label:'龐貝氏症'},
+  {id:'ibm', label:'IBM'},
+  {id:'psp', label:'PSP'},
+  {id:'others', label:'其他鑑別'},
+  {id:'algo', label:'鑑別流程'},
+  {id:'compare', label:'比較總表'},
+  {id:'refs', label:'參考文獻'},
+];
+
+const nav = document.getElementById('tabnav');
+tabs.forEach((t,i)=>{
+  const btn = document.createElement('button');
+  btn.className = 'tab-btn' + (i===0?' active':'');
+  btn.textContent = t.label;
+  btn.onclick = ()=> switchTab(t.id);
+  btn.dataset.target = t.id;
+  nav.appendChild(btn);
+});
+
+function switchTab(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b.dataset.target===id));
+  window.scrollTo({top: document.querySelector('.tabnav').offsetTop - 8, behavior:'smooth'});
+}
+
+// overview cards
+const overview = [
+  {id:'als', title:'ALS 肌萎縮性側索硬化症', desc:'最常見病因，UMN+LMN 合併退化，Gold Coast criteria 診斷', badges:[['common','最常見']]},
+  {id:'mg', title:'重症肌無力', desc:'波動易疲勞無力，高齡男性延髓型好發，高度可治療', badges:[['treatable','可治療'],['emergency','肌無力危象']]},
+  {id:'kennedy', title:'Kennedy 氏病', desc:'純 LMN，SNAP 降低為關鍵線索，合併女乳症', badges:[['progressive','緩慢進行']]},
+  {id:'pompe', title:'龐貝氏症', desc:'舌肌無力早發，CK 上升，酵素替代療法可治療', badges:[['treatable','可治療']]},
+  {id:'ibm', title:'包涵體肌炎', desc:'指屈肌＋股四頭肌不對稱無力，免疫治療通常無效', badges:[['progressive','＞50歲']]},
+  {id:'psp', title:'進行性上眼神經核麻痺', desc:'垂直凝視麻痺，假延髓性構音吞嚥障礙', badges:[['progressive','神經退化']]},
+  {id:'others', title:'其他鑑別', desc:'DM1、OPMD、GBS、創傷性肉毒桿菌中毒', badges:[['emergency','部分為急症']]},
+  {id:'algo', title:'鑑別診斷流程', desc:'病史型態→關鍵檢查→特殊考量三步驟', badges:[]},
+];
+const badgeLabel = {treatable:'✓ 可治療', emergency:'⚡ 急症', progressive:'◷ 進行性', common:'★ 常見'};
+const grid = document.getElementById('overviewGrid');
+overview.forEach(o=>{
+  const div = document.createElement('div');
+  div.className = 'ov-card';
+  div.onclick = ()=> switchTab(o.id);
+  div.innerHTML = `<div class="ov-title">${o.title}</div><div class="ov-desc">${o.desc}</div>
+    <div class="ov-badges">${o.badges.map(b=>`<span class="badge ${b[0]}">${badgeLabel[b[0]]}</span>`).join('')}</div>`;
+  grid.appendChild(div);
+});
+
+// references
+const refs = [
+  ['Noh EJ, et al.','A Case of ALS Presented as Oropharyngeal Dysphagia.','J Neurogastroenterol Motil. 2010;16(3):319–322','10.5056/jnm.2010.16.3.319'],
+  ['Srivali N, Ryu JH, Rabatin JT.','Respiratory failure as the presenting manifestation of ALS.','J Clin Neurosci. 2016;29:201–202','10.1016/j.jocn.2015.12.018'],
+  ['—','ALS: clinical features, differential diagnosis and pathology.','Int Rev Neurobiol. 2024:1–47','10.1016/bs.irn.2024.04.011'],
+  ['Marshal M, et al.','Misdiagnosis of myasthenia gravis presenting with tongue and palatal weakness.','Oxf Med Case Reports. 2018;2018(8)','10.1093/omcr/omy052'],
+  ['Argov Z, de Visser M.','Dysphagia in adult myopathies.','Neuromuscul Disord. 2021;31(1):5–20','10.1016/j.nmd.2020.11.001'],
+  ['Chen Y, et al.','Kennedy disease with difficulty in differential diagnosis.','Medicine. 2017;96(19):e6792','10.1097/md.0000000000006792'],
+  ['Müller-Felber W, et al.','Late onset Pompe disease: 38 patients incl. long-term follow-up.','Neuromuscul Disord. 2007;17(9–10):698–706','10.1016/j.nmd.2007.06.002'],
+  ['Dubrovsky A, et al.','Expanding the phenotype of late-onset Pompe disease: tongue weakness.','Muscle Nerve. 2011;44(6):897–901','10.1002/mus.22202'],
+  ['Menzella F, et al.','Acute respiratory failure as presentation of late-onset Pompe disease.','Multidiscip Respir Med. 2018;13(1)','10.1186/s40248-018-0145-4'],
+  ['Esteban MJ, et al.','Dysphagia as the Presenting Symptom for IBM.','J Investig Med High Impact Case Rep. 2021;9','10.1177/23247096211050211'],
+  ['Voermans NC, et al.','Primary respiratory failure in inclusion body myositis.','Neurology. 2004;63(11):2191–2192','10.1212/01.wnl.0000145834.17020.86'],
+  ['—','PSP accompanied by spasmodic dysphonia.','J Neurol Sci. 2017','10.1016/j.jns.2017.08.1642'],
+  ['Komai K, et al.','Hypercapnic respiratory failure in patients with PSP.','J Neurol Sci. 2013;333:e95','10.1016/j.jns.2013.07.602'],
+  ['Preuss SF, et al.','A Rare Differential Diagnosis in Dysphagia: Wound Botulism.','Laryngoscope. 2006;116(5):831–832','10.1097/01.mlg.0000214868.76123.a4'],
+  ['Vucic S, et al.','Gold Coast diagnostic criteria: implications for ALS diagnosis.','Muscle Nerve. 2021;64(5):532–537','10.1002/mus.27392（查核用）'],
+  ['Ferullo L, et al.','Gold Coast Criteria in ALS Diagnosis: A Real-World Experience.','Brain Sci. 2024','10.3390/brainsci14111055（查核用）'],
+];
+const refList = document.getElementById('refList');
+refs.forEach((r,i)=>{
+  const div = document.createElement('div');
+  div.className = 'ref-item';
+  div.innerHTML = `<div class="ref-num">[${i+1}]</div><div><b>${r[0]}</b> ${r[1]}<br>${r[2]} · <span class="ref-doi">DOI: ${r[3]}</span></div>`;
+  refList.appendChild(div);
+});
+</script>
+
+</body>
+</html>
