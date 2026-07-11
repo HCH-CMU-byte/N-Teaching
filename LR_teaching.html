@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臨床概似比推理教材｜JAMA Rational Clinical Examination</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F2EA;
+    --panel:#FFFFFF;
+    --line:#E2DDCF;
+    --ink:#1D2233;
+    --ink-soft:#5B5F6E;
+    --ink-faint:#8B8E9B;
+    --stroke:#AB3B32;
+    --stroke-soft:#F3E1DE;
+    --dementia:#6C4C8E;
+    --dementia-soft:#EAE1F2;
+    --pd:#B07A24;
+    --pd-soft:#F3E8D3;
+    --radic:#276E5F;
+    --radic-soft:#DDEAE5;
+    --gold:#B07A24;
+    --shadow: 0 1px 2px rgba(29,34,51,.04), 0 8px 24px rgba(29,34,51,.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 500px at 10% -10%, #FBF9F3 0%, transparent 60%),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC', sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+  .serif{ font-family:'Noto Serif TC', serif; }
+
+  /* ---------- header ---------- */
+  .masthead{
+    max-width:1120px; margin:0 auto; padding:52px 28px 28px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-faint); margin-bottom:14px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);}
+  h1.title{
+    font-family:'Noto Serif TC', serif; font-weight:900;
+    font-size:clamp(28px,4vw,42px); margin:0 0 12px; letter-spacing:.01em;
+    color:var(--ink);
+  }
+  .subtitle{ font-size:16px; color:var(--ink-soft); max-width:760px; margin:0 0 22px;}
+  .masthead-grid{
+    display:grid; grid-template-columns: 1.3fr 1fr; gap:28px; margin-top:20px;
+  }
+  @media (max-width:800px){ .masthead-grid{grid-template-columns:1fr;} }
+  .formula-box{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:20px 22px; box-shadow:var(--shadow);
+  }
+  .formula-box .label{ font-size:12px; color:var(--ink-faint); letter-spacing:.06em; margin-bottom:10px;}
+  .formula-line{
+    font-family:'JetBrains Mono', monospace; font-size:16px; color:var(--ink);
+    display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:6px;
+  }
+  .formula-line .op{color:var(--ink-faint);}
+  .formula-line .term{ background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:2px 8px;}
+  .note-mini{ font-size:13px; color:var(--ink-soft); }
+
+  /* ---------- nav tabs ---------- */
+  .tabbar{
+    max-width:1120px; margin:0 auto; padding:22px 28px 0;
+    display:flex; gap:10px; flex-wrap:wrap;
+  }
+  .tab-btn{
+    font-family:'Noto Sans TC', sans-serif; font-weight:700; font-size:14.5px;
+    border:1px solid var(--line); background:var(--panel); color:var(--ink-soft);
+    padding:12px 18px; border-radius:10px 10px 0 0; cursor:pointer;
+    display:flex; align-items:center; gap:9px; transition:all .15s ease;
+    border-bottom:none; position:relative; top:1px;
+  }
+  .tab-btn .sw{width:9px;height:9px;border-radius:50%; flex:none;}
+  .tab-btn[data-mod="stroke"] .sw{background:var(--stroke);}
+  .tab-btn[data-mod="dementia"] .sw{background:var(--dementia);}
+  .tab-btn[data-mod="pd"] .sw{background:var(--pd);}
+  .tab-btn[data-mod="radic"] .sw{background:var(--radic);}
+  .tab-btn.active{ color:var(--ink); background:var(--bg); border-color:var(--line); border-bottom:1px solid var(--bg); }
+  .tab-btn:not(.active):hover{ color:var(--ink); }
+
+  main{ max-width:1120px; margin:0 auto; padding:0 28px 80px; }
+  .panel-wrap{
+    border:1px solid var(--line); border-radius:0 12px 12px 12px; background:var(--panel);
+    box-shadow:var(--shadow); overflow:hidden;
+  }
+  .module{ display:none; }
+  .module.active{ display:block; }
+
+  .mod-head{ padding:28px 30px 20px; border-bottom:1px solid var(--line); }
+  .mod-head .tag{
+    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:11.5px;
+    letter-spacing:.08em; padding:4px 10px; border-radius:20px; margin-bottom:12px; font-weight:700;
+  }
+  #panel-stroke .mod-head .tag{ background:var(--stroke-soft); color:var(--stroke);}
+  #panel-dementia .mod-head .tag{ background:var(--dementia-soft); color:var(--dementia);}
+  #panel-pd .mod-head .tag{ background:var(--pd-soft); color:var(--pd);}
+  #panel-radic .mod-head .tag{ background:var(--radic-soft); color:var(--radic);}
+  .mod-head h2{ font-family:'Noto Serif TC',serif; font-size:24px; margin:0 0 10px; }
+  .vignette{ font-size:14.5px; color:var(--ink-soft); max-width:820px; }
+  .vignette b{ color:var(--ink); }
+
+  .mod-body{ display:grid; grid-template-columns: 1.05fr .95fr; gap:0; }
+  @media (max-width:880px){ .mod-body{ grid-template-columns:1fr; } }
+  .col-left{ padding:24px 30px; border-right:1px solid var(--line); }
+  .col-right{ padding:24px 30px; background:#FAF8F2; }
+  @media (max-width:880px){ .col-left{border-right:none; border-bottom:1px solid var(--line);} }
+
+  .field-label{ font-size:13px; font-weight:700; color:var(--ink); margin:0 0 8px; display:flex; align-items:center; gap:8px;}
+  .field-label .n{
+    width:20px;height:20px;border-radius:50%; color:#fff; font-size:11px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; flex:none;
+  }
+  #panel-stroke .n{background:var(--stroke);}
+  #panel-dementia .n{background:var(--dementia);}
+  #panel-pd .n{background:var(--pd);}
+  #panel-radic .n{background:var(--radic);}
+
+  .pretest-row{ display:flex; align-items:center; gap:14px; margin-bottom:22px;}
+  input[type=range]{ flex:1; accent-color:var(--ink); }
+  .pretest-val{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:15px; min-width:54px; text-align:right;}
+
+  .findings-list{ display:flex; flex-direction:column; gap:8px; margin-bottom:6px;}
+  .finding{
+    border:1px solid var(--line); border-radius:10px; padding:10px 12px;
+    display:grid; grid-template-columns: 1fr auto; align-items:center; gap:10px; background:#fff;
+  }
+  .finding .fname{ font-size:13.5px; color:var(--ink); line-height:1.5; }
+  .finding .flr{ font-size:11.5px; color:var(--ink-faint); font-family:'JetBrains Mono',monospace; margin-top:2px;}
+  .seg{ display:flex; border:1px solid var(--line); border-radius:8px; overflow:hidden; flex:none;}
+  .seg button{
+    border:none; background:#fff; color:var(--ink-faint); font-size:12px; font-weight:700;
+    padding:7px 10px; cursor:pointer; font-family:'Noto Sans TC',sans-serif; border-right:1px solid var(--line);
+  }
+  .seg button:last-child{border-right:none;}
+  .seg button.on-pos{ background:#2E7D32; color:#fff; }
+  .seg button.on-neg{ background:#B33A3A; color:#fff; }
+
+  .independence-note{
+    margin-top:10px; font-size:12.5px; color:var(--ink-soft); background:var(--bg);
+    border:1px dashed var(--line); border-radius:8px; padding:10px 12px; display:none;
+  }
+  .independence-note.show{ display:block; }
+
+  /* result / ruler */
+  .result-card{
+    background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px 20px 20px; margin-bottom:16px;
+  }
+  .result-grid{ display:flex; justify-content:space-between; gap:14px; margin-bottom:6px;}
+  .result-metric .k{ font-size:11.5px; color:var(--ink-faint); letter-spacing:.04em;}
+  .result-metric .v{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:22px; color:var(--ink);}
+  .result-metric .v small{font-size:13px; color:var(--ink-faint); font-weight:500;}
+  .arrow-mid{ align-self:center; color:var(--ink-faint); font-size:20px; }
+
+  svg.ruler{ width:100%; height:auto; display:block; margin-top:14px; }
+  .ruler-axis line{ stroke:var(--line); stroke-width:1.5; }
+  .ruler-tick text{ font-family:'JetBrains Mono',monospace; font-size:9.5px; fill:var(--ink-faint); }
+  .ruler-tick line{ stroke:var(--line); stroke-width:1; }
+
+  .interp{ font-size:13.5px; padding:12px 14px; border-radius:10px; background:var(--bg); border:1px solid var(--line); color:var(--ink-soft); }
+  .interp b{ color:var(--ink); }
+
+  details.caveat{
+    margin-top:18px; border:1px solid var(--line); border-radius:10px; background:#fff; overflow:hidden;
+  }
+  details.caveat summary{
+    cursor:pointer; padding:12px 14px; font-size:13.5px; font-weight:700; color:var(--ink);
+    display:flex; align-items:center; gap:8px; list-style:none;
+  }
+  details.caveat summary::-webkit-details-marker{ display:none; }
+  details.caveat summary:before{ content:"▸"; color:var(--ink-faint); transition:transform .15s;}
+  details.caveat[open] summary:before{ transform:rotate(90deg); }
+  .caveat-body{ padding:0 16px 16px; font-size:13px; color:var(--ink-soft); }
+  .caveat-body ul{ margin:8px 0 0; padding-left:18px; }
+  .caveat-body li{ margin-bottom:6px; }
+  .cite{ font-size:11.5px; color:var(--ink-faint); margin-top:10px; font-family:'JetBrains Mono',monospace; }
+
+  /* framework intro strip */
+  .intro-strip{ padding:22px 30px 26px; border-bottom:1px solid var(--line); background:#FAF8F2; }
+  .intro-strip h3{ font-family:'Noto Serif TC',serif; font-size:17px; margin:0 0 10px;}
+  .steps{ display:grid; grid-template-columns: repeat(4,1fr); gap:14px; }
+  @media (max-width:760px){ .steps{grid-template-columns:1fr 1fr;} }
+  .step{ background:#fff; border:1px solid var(--line); border-radius:10px; padding:12px 14px;}
+  .step .k{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--gold); font-weight:700;}
+  .step .t{ font-size:13px; margin-top:4px; color:var(--ink); }
+
+  footer{ max-width:1120px; margin:0 auto; padding:30px 28px 60px; color:var(--ink-faint); font-size:12px; }
+
+  /* ---------- topbar : theme switch + dropdown nav ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,242,234,.88); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:1120px; margin:0 auto; padding:12px 28px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; cursor:pointer; user-select:none; }
+  .brand .mark{
+    width:26px; height:26px; border-radius:7px;
+    background:linear-gradient(135deg,var(--stroke),var(--pd) 33%,var(--dementia) 66%,var(--radic));
+    flex:none;
+  }
+  .brand .name{ font-family:'Noto Serif TC',serif; font-weight:700; font-size:15px; color:var(--ink); }
+  .topbar-controls{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .nav-select{
+    font-family:'Noto Sans TC',sans-serif; font-size:13.5px; font-weight:600; color:var(--ink);
+    background:#fff; border:1px solid var(--line); border-radius:8px; padding:8px 12px;
+    cursor:pointer; min-width:210px;
+  }
+  .theme-switch{ display:flex; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff;}
+  .theme-switch button{
+    border:none; background:transparent; color:var(--ink-faint); font-size:12px; font-weight:700;
+    padding:8px 12px; cursor:pointer; font-family:'Noto Sans TC',sans-serif; border-right:1px solid var(--line);
+    display:flex; align-items:center; gap:6px;
+  }
+  .theme-switch button:last-child{ border-right:none; }
+  .theme-switch button.active{ background:var(--ink); color:#fff; }
+  .theme-swatch{ width:10px;height:10px;border-radius:50%; flex:none; border:1px solid rgba(0,0,0,.15);}
+
+  /* ---------- theme variants ---------- */
+  html[data-theme="dark"] body{
+    --bg:#171A24; --panel:#1F2330; --line:#2C3040; --ink:#EDEEF3; --ink-soft:#B7BAC8; --ink-faint:#7C7F91;
+    --stroke-soft:#3A2323; --dementia-soft:#2A2338; --pd-soft:#332A18; --radic-soft:#1B2E28;
+    background: radial-gradient(1200px 500px at 10% -10%, #1B1F2B 0%, transparent 60%), var(--bg);
+  }
+  html[data-theme="dark"] .col-right{ background:#191C27; }
+  html[data-theme="dark"] .intro-strip{ background:#191C27; }
+  html[data-theme="dark"] .topbar{ background:rgba(23,26,36,.88); }
+  html[data-theme="dark"] .nav-select, html[data-theme="dark"] .theme-switch{ background:#1F2330; color:#EDEEF3; }
+  html[data-theme="dark"] .finding{ background:#1B1E29; }
+  html[data-theme="dark"] .result-card{ background:#1B1E29; }
+  html[data-theme="dark"] details.caveat{ background:#1B1E29; }
+  html[data-theme="dark"] .interp{ background:#232838; }
+  html[data-theme="dark"] .independence-note{ background:#232838; }
+
+  html[data-theme="sepia"] body{
+    --bg:#F1E7D3; --panel:#FBF4E6; --line:#E3D3B0; --ink:#3A2E1E; --ink-soft:#6B5A3F; --ink-faint:#93815E;
+    background: radial-gradient(1200px 500px at 10% -10%, #F8EFDC 0%, transparent 60%), var(--bg);
+  }
+  html[data-theme="sepia"] .col-right{ background:#F5ECD9; }
+  html[data-theme="sepia"] .intro-strip{ background:#F5ECD9; }
+  html[data-theme="sepia"] .topbar{ background:rgba(241,231,211,.88); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand" onclick="document.getElementById('cover').scrollIntoView({behavior:'smooth'})">
+      <div class="mark"></div>
+      <div class="name">臨床概似比推理教材</div>
+    </div>
+    <div class="topbar-controls">
+      <select class="nav-select" id="navSelect">
+        <option value="cover">📖 總覽首頁</option>
+        <option value="stroke">🧠 是否為出血性腦中風？</option>
+        <option value="dementia">🧩 是否為失智症？</option>
+        <option value="pd">🌀 是否為帕金森氏症？</option>
+        <option value="radic">🦵 是否為腰薦神經根病變？</option>
+      </select>
+      <div class="theme-switch" id="themeSwitch">
+        <button data-theme="light" class="active"><span class="theme-swatch" style="background:#F5F2EA;"></span>亮色</button>
+        <button data-theme="sepia"><span class="theme-swatch" style="background:#F1E7D3;"></span>護眼</button>
+        <button data-theme="dark"><span class="theme-swatch" style="background:#171A24;"></span>深色</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="masthead" id="cover">
+  <div class="eyebrow"><span class="dot"></span> HCH-CMU / HCH-FYH 神經科教學研究部 · 實證醫學工作坊</div>
+  <h1 class="title">臨床概似比推理：四個「這位病人是否有……」的案例</h1>
+  <p class="subtitle">依據 JAMA《The Rational Clinical Examination》系列文獻，練習用貝氏定理把「驗前機率」透過臨床發現的概似比（LR）更新為「驗後機率」。每個模組皆附原始文獻數據與 LR 適用範圍的教學提醒。</p>
+
+  <div class="masthead-grid">
+    <div class="formula-box">
+      <div class="label">核心公式 · CORE FORMULA</div>
+      <div class="formula-line"><span class="term">驗前勝算</span><span class="op">=</span><span class="term">p / (1−p)</span></div>
+      <div class="formula-line"><span class="term">驗後勝算</span><span class="op">=</span><span class="term">驗前勝算 × LR</span></div>
+      <div class="formula-line"><span class="term">驗後機率</span><span class="op">=</span><span class="term">驗後勝算 / (1+驗後勝算)</span></div>
+    </div>
+    <div class="formula-box">
+      <div class="label">如何閱讀本教材 · HOW TO USE</div>
+      <p class="note-mini" style="margin:0 0 8px;">1. 選擇下方分頁（腦中風／失智症／帕金森氏症／Radiculopathy）。<br>
+      2. 用滑桿設定病人的驗前機率。<br>
+      3. 勾選臨床發現的陽性(+)或陰性(−)，即時看到機率如何被更新。<br>
+      4. 展開「適用範圍與注意事項」，這是教學重點所在。</p>
+    </div>
+  </div>
+</div>
+
+<div class="tabbar" id="tabbar">
+  <button class="tab-btn active" data-mod="stroke"><span class="sw"></span>是否為出血性腦中風？</button>
+  <button class="tab-btn" data-mod="dementia"><span class="sw"></span>是否為失智症？</button>
+  <button class="tab-btn" data-mod="pd"><span class="sw"></span>是否為帕金森氏症？</button>
+  <button class="tab-btn" data-mod="radic"><span class="sw"></span>是否為腰薦神經根病變？</button>
+</div>
+
+<main>
+  <div class="panel-wrap">
+    <div id="modules"></div>
+  </div>
+</main>
+
+<footer>
+  教學用途｜所有 LR 數值引用自下列文獻之系統性回顧結果，實際應用於個別病人時仍須考量族群相似度與臨床整體判斷。本教材不取代影像學與神經科專科評估。
+</footer>
+
+<script>
+/* =========================================================
+   DATA — 每個模組的個案、findings（含真實文獻 LR）、注意事項
+   ========================================================= */
+const MODULES = {
+
+stroke: {
+  key:"stroke", title:"是否為出血性腦中風？", accent:"stroke",
+  tag: "STROKE · Runchey & McGee, JAMA 2010",
+  h2: "鑑別出血性 vs. 缺血性腦中風",
+  vignette: "<b>情境：</b>72 歲男性，突發右側偏癱與言語不清 40 分鐘送急診。到院時 GCS 13 分。此類「已確定是腦中風」的病人，臨床上常需在影像尚未完成前，先估計出血性腦中風的可能性以安排優先順序。",
+  defaultPretest: 15,
+  pretestNote: "急診腦中風族群中出血性腦中風的盛行率約 10–20%（各研究族群不同）",
+  findings: [
+    { name:"意識程度：昏迷 (coma)", lrPos:6.2, lrNeg:null, note:"LR+ 6.2（僅陽性方向有報告）" },
+    { name:"癲癇發作合併神經缺損", lrPos:4.7, lrNeg:0.93, note:"LR+ 4.7 / LR− 0.93" },
+    { name:"頸部僵硬 (neck stiffness)", lrPos:5.0, lrNeg:0.83, note:"LR+ 5.0 / LR− 0.83" },
+    { name:"嘔吐", lrPos:3.0, lrNeg:0.73, note:"LR+ 3.0 / LR− 0.73" },
+    { name:"頭痛", lrPos:2.9, lrNeg:0.66, note:"LR+ 2.9 / LR− 0.66" },
+    { name:"舒張壓 > 110 mmHg", lrPos:4.3, lrNeg:0.59, note:"LR+ 4.3 / LR− 0.59" },
+    { name:"臨床醫師整體印象（gestalt）", lrPos:6.2, lrNeg:0.28, note:"LR+ 6.2 / LR− 0.28（優於任何單一徵象）" },
+  ],
+  caveats: [
+    "這組 LR 來自<b>已經確定罹患腦中風</b>的急診族群，用來區分「出血 vs. 缺血」——不能拿來回答「這是不是中風」，母群體不同會造成 spectrum bias。",
+    "昏迷、頸部僵硬、頭痛、嘔吐這幾項發現，生理機轉都與顱內壓上升高度相關，<b>彼此並非獨立事件</b>。若把 4 個 LR 直接相乘，會嚴重高估驗後機率——這正是「LR 相乘需假設條件獨立」這條規則最常被違反的臨床情境。",
+    "任何理學發現的準確度都比不上<b>神經影像</b>；LR 分析是床邊分流的輔助工具，不是取代 CT / MRI 的診斷依據。",
+    "「臨床醫師整體印象」的 LR+ 6.2 / LR− 0.28 看似與多數單一徵象相當，但這數字本身也高度仰賴評分者的經驗與訓練，跨院所可重複性未必一致。"
+  ],
+  cite: "Runchey S, McGee S. Does This Patient Have a Hemorrhagic Stroke? JAMA. 2010;303(22):2280-2286."
+},
+
+dementia: {
+  key:"dementia", title:"是否為失智症？", accent:"dementia",
+  tag: "DEMENTIA · Holsinger et al, JAMA RCE",
+  h2: "認知功能篩檢的貝氏推理",
+  vignette: "<b>情境：</b>78 歲女性由家人陪同至門診，主訴「最近比較健忘」。病人本身覺得自己記憶力和同齡人差不多。這是初診間最常見、卻最容易被低估複雜度的臨床情境。",
+  defaultPretest: 20,
+  pretestNote: "轉診至記憶門診之高齡病人失智症盛行率約 15–30%（一般社區篩檢族群應更低，需另計）",
+  findings: [
+    { name:"家屬／照顧者主動反映記憶或功能減退", lrPos:6.5, lrNeg:null, note:"LR+ 6.5（未報告 LR−，缺席不能排除）" },
+    { name:"病人自訴記憶力減退", lrPos:1.8, lrNeg:null, note:"LR+ 1.8（弱陽性預測，易與憂鬱混淆）" },
+    { name:"MMSE 低分（≤20分）", lrPos:8.2, lrNeg:null, note:"LR ≥ 8.2，明顯增加驗後機率" },
+    { name:"MMSE 中間值（21–25分）", lrPos:1.8, lrNeg:null, note:"LR 1.3–2.4，幾乎不改變驗後機率（灰色地帶）" },
+    { name:"MMSE 高分（≥26分）", lrPos:null, lrNeg:0.08, note:"LR 0.06–0.1，明顯降低驗後機率" },
+  ],
+  findingsNote: "MMSE 為三分類檢查（低／中／高），此模組以「選一項」呈現，藉此示範連續型檢查不宜硬套二分法 LR。",
+  singleSelectGroup: ["MMSE 低分（≤20分）","MMSE 中間值（21–25分）","MMSE 高分（≥26分）"],
+  caveats: [
+    "MMSE 的三個分數區間各自對應差異極大的 LR（8.2 / ~1.8 / 0.08），這正是教學重點：<b>把連續或次序型檢查結果硬性二分為「正常／異常」，會丟失大量診斷資訊</b>。用區間概似比 (interval LR) 才能忠實反映檢查的資訊量。",
+    "病人「自訴」記憶減退的 LR+ 僅 1.8，遠不如「家屬觀察到」的 LR+ 6.5——這提醒我們同一個症狀主軸，資訊來源不同、準確度可以差非常多，問診時應主動詢問照顧者觀察。",
+    "美國預防服務工作小組（USPSTF）認為證據不足以支持對無症狀高齡族群進行常規篩檢；本頁 LR 數據多半來自<b>已因認知主訴就診</b>的族群，套用到社區篩檢會有 spectrum bias。",
+    "MMSE 也受教育程度、語言、文化背景影響，跨族群使用同一組切點與 LR 需謹慎。"
+  ],
+  cite: "Holsinger T, et al. Screening for Dementia in Primary Care. JAMA RCE series."
+},
+
+pd: {
+  key:"pd", title:"是否為帕金森氏症？", accent:"pd",
+  tag: "PARKINSON DISEASE · Rao et al, JAMA 2003",
+  h2: "病史 vs. 理學檢查：誰的鑑別力比較強？",
+  vignette: "<b>情境：</b>68 歲男性，半年來家人發現走路步伐變小、右手偶有抖動，本人主要抱怨「最近字越寫越小」。這個案例常被拿來教一個違反直覺的重點：<b>病史的鑑別力有時比理學檢查上的震顫更強</b>。",
+  defaultPretest: 20,
+  pretestNote: "動作障礙門診轉診族群中帕金森氏症盛行率約 15–30%",
+  findings: [
+    { name:"病史：僵硬合併動作遲緩同時出現", lrPos:4.5, lrNeg:0.12, note:"LR+ 4.5 / LR− 0.12（本組資料中鑑別力最強）" },
+    { name:"病史：步態拖曳／搖曳", lrPos:6.0, lrNeg:0.40, note:"LR+ 3.3–15（取中間值） / LR− 0.32–0.50" },
+    { name:"病史：寫字過小症 (micrographia)", lrPos:4.0, lrNeg:0.37, note:"LR+ 2.8–5.9 / LR− 0.30–0.44" },
+    { name:"病史：平衡感變差、易跌倒", lrPos:3.5, lrNeg:0.32, note:"LR+ 1.6–6.6 / LR− 0.29–0.35" },
+    { name:"病史：主訴有震顫", lrPos:3.0, lrNeg:0.40, note:"LR+ 1.3–17（區間極寬） / LR− 0.24–0.60" },
+    { name:"理學檢查：觀察到震顫徵象", lrPos:1.4, lrNeg:0.50, note:"LR+ 1.3–1.5 / LR− 0.47–0.61（比病史弱得多）" },
+  ],
+  caveats: [
+    "教學重點：<b>「病史詢問到僵硬＋動作遲緩合併出現」（LR+4.5, LR−0.12）鑑別力遠優於「診間觀察到震顫」（LR+1.4）</b>——但震顫卻是臨床上最容易被過度重視的『典型』徵象。這提醒學員不要被教科書上的經典症狀綁架問診方向。",
+    "震顫的病史 LR+ 區間高達 1.3 到 17，代表跨研究間<b>異質性 (heterogeneity) 非常大</b>；引用單一數字時務必說明這是一個寬廣區間的近似值，不是精確常數。",
+    "這些 LR 多半來自<b>動作障礙專科</b>轉診族群、並以專科醫師臨床追蹤診斷作為參考標準，套用到基層或一般神經科門診的初診病人時，準確度可能不同（spectrum bias）。",
+    "帕金森氏症的診斷仍以病程追蹤與治療反應為金標準之一，單次理學檢查的 LR 只能作為當下機率的估計，不是最終診斷。"
+  ],
+  cite: "Rao G, et al. Does This Patient Have Parkinson Disease? JAMA. 2003;289(3):347-353."
+},
+
+radic: {
+  key:"radic", title:"是否為腰薦神經根病變？", accent:"radic",
+  tag: "RADICULOPATHY · SLR literature synthesis",
+  h2: "SnNout 與 SpPin 的經典教材：直膝抬高測試",
+  vignette: "<b>情境：</b>45 歲男性，急性下背痛合併右下肢放射痛已兩週。理學檢查是否能在轉診影像前，先幫忙判斷是否為神經根性病變？這個案例是教「敏感度 vs. 特異度如何轉譯為臨床決策」最經典的題材。",
+  defaultPretest: 35,
+  pretestNote: "有坐骨神經痛症狀的下背痛病人中，神經根性病變（多因椎間盤突出）盛行率約 30–40%",
+  findings: [
+    { name:"同側直膝抬高測試 (ipsilateral SLR) 陽性", lrPos:2.0, lrNeg:0.35, note:"敏感度 80–98%／特異度 40–60%；LR+ ≈2.0／LR− 0.2–0.5" },
+    { name:"對側（健側）直膝抬高測試 (crossed SLR) 陽性", lrPos:4.0, lrNeg:0.72, note:"敏感度僅 35–43%／特異度 90–98%；LR+ 3.5–4.3／LR− 0.72" },
+  ],
+  caveats: [
+    "這是 <b>SnNout / SpPin</b> 的最佳教學示範：同側 SLR 敏感度高（80–98%），<b>陰性結果較能排除診斷（SnNout）</b>；對側 SLR 特異度高（90–98%）但敏感度低，<b>陽性結果較能確診（SpPin）</b>。兩者互補而非互相取代。",
+    "多數 SLR 準確度研究來自<b>外科手術病人族群</b>（disc herniation 盛行率本來就高達 58–98%），這是典型的 spectrum bias：同一測試放到基層初診的下背痛病人身上，準確度會明顯下降。",
+    "文獻本身品質參差不齊（多為小型、非以主要照護族群為對象的研究），LR 數值呈現寬廣區間；教學時應強調這組數據的證據等級低於前三個模組。",
+    "SLR 陽性只代表神經根張力測試誘發疼痛，仍需理學檢查（肌力、感覺、深腱反射）與影像學（MRI）確認節位與病理型態。"
+  ],
+  cite: "Deyo RA, Rainville J, Kent DL. What Can the History and Physical Examination Tell Us About Low Back Pain? JAMA (RCE series); SLR diagnostic accuracy synthesis (StatPearls, Physiopedia)."
+}
+};
+
+/* =========================================================
+   STATE
+   ========================================================= */
+const state = {};
+Object.keys(MODULES).forEach(k=>{
+  state[k] = { pretest: MODULES[k].defaultPretest, sel: {} };
+});
+
+/* =========================================================
+   RENDER MODULES
+   ========================================================= */
+const modulesRoot = document.getElementById('modules');
+
+function buildModule(mod){
+  const wrap = document.createElement('div');
+  wrap.className = 'module';
+  wrap.id = 'panel-'+mod.key;
+
+  const findingsHTML = mod.findings.map((f,i)=>{
+    return `<div class="finding" data-idx="${i}">
+      <div>
+        <div class="fname">${f.name}</div>
+        <div class="flr mono">${f.note}</div>
+      </div>
+      <div class="seg">
+        <button data-state="none" class="on">未評估</button>
+        ${f.lrPos ? `<button data-state="pos">陽性 +</button>`:``}
+        ${f.lrNeg ? `<button data-state="neg">陰性 −</button>`:``}
+      </div>
+    </div>`;
+  }).join('');
+
+  const caveatsHTML = mod.caveats.map(c=>`<li>${c}</li>`).join('');
+
+  wrap.innerHTML = `
+    <div class="mod-head">
+      <span class="tag mono">${mod.tag}</span>
+      <h2>${mod.h2}</h2>
+      <p class="vignette">${mod.vignette}</p>
+    </div>
+    <div class="mod-body">
+      <div class="col-left">
+        <div class="field-label"><span class="n">1</span>設定病人的驗前機率 (pretest probability)</div>
+        <div class="pretest-row">
+          <input type="range" min="1" max="90" value="${mod.defaultPretest}" class="pretest-slider" data-mod="${mod.key}">
+          <div class="pretest-val mono"><span class="pretest-num">${mod.defaultPretest}</span>%</div>
+        </div>
+        <p class="note-mini" style="margin-top:-14px;margin-bottom:22px;">${mod.pretestNote}</p>
+
+        <div class="field-label"><span class="n">2</span>勾選臨床發現（陽性 / 陰性）</div>
+        ${mod.findingsNote ? `<p class="note-mini" style="margin-top:-4px;">${mod.findingsNote}</p>` : ``}
+        <div class="findings-list" data-mod="${mod.key}">
+          ${findingsHTML}
+        </div>
+        <div class="independence-note" id="indep-${mod.key}">⚠️ 已選取多項發現：LR 相乘的前提是各發現彼此「條件獨立」。上方注意事項已說明本主題中哪些發現彼此相關，實際臨床解讀請謹慎打折扣，勿盲目連乘。</div>
+      </div>
+
+      <div class="col-right">
+        <div class="field-label"><span class="n">3</span>驗後機率結果</div>
+        <div class="result-card">
+          <div class="result-grid">
+            <div class="result-metric">
+              <div class="k mono">PRETEST</div>
+              <div class="v pretest-display">${mod.defaultPretest}<small>%</small></div>
+            </div>
+            <div class="arrow-mid">→ <span class="cum-lr mono" style="font-size:13px;">LR ×1.0</span> →</div>
+            <div class="result-metric">
+              <div class="k mono">POSTTEST</div>
+              <div class="v posttest-display">${mod.defaultPretest}<small>%</small></div>
+            </div>
+          </div>
+          <svg class="ruler" viewBox="0 0 640 92"></svg>
+        </div>
+        <div class="interp"><b>解讀：</b><span class="interp-text">尚未選取任何臨床發現，驗後機率等於驗前機率。</span></div>
+
+        <details class="caveat">
+          <summary>適用範圍與注意事項（教學重點）</summary>
+          <div class="caveat-body">
+            <ul>${caveatsHTML}</ul>
+            <div class="cite">文獻來源：${mod.cite}</div>
+          </div>
+        </details>
+      </div>
+    </div>
+  `;
+  modulesRoot.appendChild(wrap);
+}
+
+Object.values(MODULES).forEach(buildModule);
+
+/* =========================================================
+   PROBABILITY RULER (log-odds scaled probability line)
+   ========================================================= */
+const TICKS = [1,2,5,10,20,30,50,70,80,90,95,99];
+function logit(p){ return Math.log(p/(100-p)); }
+const L_MIN = logit(0.5), L_MAX = logit(99.5);
+function xPos(p){
+  const l = logit(p);
+  return 20 + (l - L_MIN) / (L_MAX - L_MIN) * 600;
+}
+function drawRuler(svg, pretest, posttest){
+  svg.innerHTML = '';
+  const y = 46;
+  const ns = 'http://www.w3.org/2000/svg';
+  const axis = document.createElementNS(ns,'line');
+  axis.setAttribute('x1',20); axis.setAttribute('x2',620);
+  axis.setAttribute('y1',y); axis.setAttribute('y2',y);
+  axis.setAttribute('class','ruler-axis'); axis.setAttribute('stroke','var(--line)'); axis.setAttribute('stroke-width','1.5');
+  svg.appendChild(axis);
+
+  TICKS.forEach(t=>{
+    const x = xPos(t);
+    const tick = document.createElementNS(ns,'line');
+    tick.setAttribute('x1',x); tick.setAttribute('x2',x);
+    tick.setAttribute('y1',y-4); tick.setAttribute('y2',y+4);
+    tick.setAttribute('stroke','#C9C4B4'); tick.setAttribute('stroke-width','1');
+    svg.appendChild(tick);
+    const label = document.createElementNS(ns,'text');
+    label.setAttribute('x',x); label.setAttribute('y',y+18);
+    label.setAttribute('text-anchor','middle'); label.setAttribute('font-size','9.5');
+    label.setAttribute('font-family','JetBrains Mono, monospace'); label.setAttribute('fill','#8B8E9B');
+    label.textContent = t+'%';
+    svg.appendChild(label);
+  });
+
+  // connecting arrow
+  const x1 = xPos(pretest), x2 = xPos(posttest);
+  const curveY = y - 26;
+  const path = document.createElementNS(ns,'path');
+  path.setAttribute('d', `M ${x1} ${y-8} Q ${(x1+x2)/2} ${curveY} ${x2} ${y-8}`);
+  path.setAttribute('fill','none'); path.setAttribute('stroke','#B07A24');
+  path.setAttribute('stroke-width','2'); path.setAttribute('stroke-dasharray','4 3');
+  path.setAttribute('marker-end','url(#arrowhead)');
+  svg.appendChild(path);
+
+  const defs = document.createElementNS(ns,'defs');
+  defs.innerHTML = `<marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#B07A24"/></marker>`;
+  svg.appendChild(defs);
+
+  // pretest marker
+  const c1 = document.createElementNS(ns,'circle');
+  c1.setAttribute('cx',x1); c1.setAttribute('cy',y); c1.setAttribute('r',6);
+  c1.setAttribute('fill','#8B8E9B'); c1.setAttribute('stroke','#fff'); c1.setAttribute('stroke-width','2');
+  svg.appendChild(c1);
+
+  // posttest marker
+  const c2 = document.createElementNS(ns,'circle');
+  c2.setAttribute('cx',x2); c2.setAttribute('cy',y); c2.setAttribute('r',7);
+  c2.setAttribute('fill','#B07A24'); c2.setAttribute('stroke','#fff'); c2.setAttribute('stroke-width','2');
+  svg.appendChild(c2);
+}
+
+/* =========================================================
+   CALCULATION + UI WIRING
+   ========================================================= */
+function calc(modKey){
+  const mod = MODULES[modKey];
+  const st = state[modKey];
+  let odds = st.pretest / (100 - st.pretest);
+  let cumLR = 1;
+  Object.keys(st.sel).forEach(idx=>{
+    const f = mod.findings[idx];
+    const s = st.sel[idx];
+    if(s === 'pos' && f.lrPos){ odds *= f.lrPos; cumLR *= f.lrPos; }
+    if(s === 'neg' && f.lrNeg){ odds *= f.lrNeg; cumLR *= f.lrNeg; }
+  });
+  const posttest = (odds/(1+odds))*100;
+  return { posttest: Math.min(99.5, Math.max(0.5, posttest)), cumLR };
+}
+
+function interpretText(mod, pretest, posttest, cumLR, nSelected){
+  const delta = posttest - pretest;
+  const dir = delta >= 0 ? '上升' : '下降';
+  let base = `驗前機率 <b>${pretest.toFixed(0)}%</b> 在合併 LR ≈ <b>${cumLR.toFixed(2)}</b> 後，${nSelected===0?'':`${dir}至`} <b>${posttest.toFixed(1)}%</b>。`;
+  if(nSelected === 0) base = `尚未選取任何臨床發現，驗後機率等於驗前機率 <b>${pretest.toFixed(0)}%</b>。`;
+  return base;
+}
+
+function renderModule(modKey){
+  const mod = MODULES[modKey];
+  const st = state[modKey];
+  const panel = document.getElementById('panel-'+modKey);
+  const { posttest, cumLR } = calc(modKey);
+  const nSelected = Object.values(st.sel).filter(v=>v && v!=='none').length;
+
+  panel.querySelector('.pretest-num').textContent = st.pretest;
+  panel.querySelector('.pretest-display').innerHTML = st.pretest + '<small>%</small>';
+  panel.querySelector('.posttest-display').innerHTML = posttest.toFixed(1) + '<small>%</small>';
+  panel.querySelector('.cum-lr').textContent = 'LR ×' + cumLR.toFixed(2);
+  panel.querySelector('.interp-text').innerHTML = interpretText(mod, st.pretest, posttest, cumLR, nSelected);
+  drawRuler(panel.querySelector('svg.ruler'), st.pretest, posttest);
+
+  const indep = document.getElementById('indep-'+modKey);
+  indep.classList.toggle('show', nSelected >= 2);
+}
+
+/* wire pretest sliders */
+document.querySelectorAll('.pretest-slider').forEach(sl=>{
+  sl.addEventListener('input', e=>{
+    const modKey = e.target.dataset.mod;
+    state[modKey].pretest = parseInt(e.target.value,10);
+    renderModule(modKey);
+  });
+});
+
+/* wire finding segmented buttons */
+document.querySelectorAll('.findings-list').forEach(list=>{
+  const modKey = list.dataset.mod;
+  const mod = MODULES[modKey];
+  list.querySelectorAll('.finding').forEach(fEl=>{
+    const idx = fEl.dataset.idx;
+    const fname = mod.findings[idx].name;
+    fEl.querySelectorAll('.seg button').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const s = btn.dataset.state;
+        // single-select group handling (e.g. MMSE tri-level)
+        if(mod.singleSelectGroup && mod.singleSelectGroup.includes(fname) && s !== 'none'){
+          mod.singleSelectGroup.forEach(otherName=>{
+            const otherIdx = mod.findings.findIndex(f=>f.name===otherName);
+            if(String(otherIdx) !== idx){
+              state[modKey].sel[otherIdx] = 'none';
+              const otherEl = list.querySelector(`.finding[data-idx="${otherIdx}"]`);
+              otherEl.querySelectorAll('.seg button').forEach(b=>b.classList.remove('on-pos','on-neg'));
+            }
+          });
+        }
+        state[modKey].sel[idx] = s;
+        fEl.querySelectorAll('.seg button').forEach(b=>b.classList.remove('on-pos','on-neg'));
+        if(s==='pos') btn.classList.add('on-pos');
+        if(s==='neg') btn.classList.add('on-neg');
+        renderModule(modKey);
+      });
+    });
+  });
+  renderModule(modKey);
+});
+
+/* =========================================================
+   NAVIGATION: tabs + dropdown + cover
+   ========================================================= */
+function showModule(key){
+  document.querySelectorAll('.module').forEach(m=>m.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  if(key === 'cover'){
+    document.getElementById('cover').scrollIntoView({behavior:'smooth'});
+    document.getElementById('navSelect').value = 'cover';
+    return;
+  }
+  document.getElementById('panel-'+key).classList.add('active');
+  document.querySelector(`.tab-btn[data-mod="${key}"]`).classList.add('active');
+  document.getElementById('navSelect').value = key;
+  document.querySelector('.tabbar').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=> showModule(btn.dataset.mod));
+});
+document.getElementById('navSelect').addEventListener('change', e=> showModule(e.target.value));
+
+/* activate first module by default */
+document.getElementById('panel-stroke').classList.add('active');
+
+/* =========================================================
+   THEME SWITCH
+   ========================================================= */
+document.querySelectorAll('#themeSwitch button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#themeSwitch button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const theme = btn.dataset.theme;
+    if(theme === 'light'){ document.documentElement.removeAttribute('data-theme'); }
+    else{ document.documentElement.setAttribute('data-theme', theme); }
+  });
+});
+</script>
+</body>
+</html>
