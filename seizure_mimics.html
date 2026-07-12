@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>癲癇發作與類癲癇發作的鑑別診斷｜Seizure vs Seizure Mimics</title>
+<style>
+:root{
+  --bg:#0d1117; --bg-panel:#151b23; --bg-panel-2:#1b232d; --line:#2a333f;
+  --ink:#e7ecf2; --ink-dim:#9aa7b5; --ink-faint:#6b7787;
+  --amber:#e0a458; --amber-soft:rgba(224,164,88,.14);
+  --teal:#4fb8a6; --teal-soft:rgba(79,184,166,.14);
+  --red:#d9736a; --red-soft:rgba(217,115,106,.14);
+  --violet:#9d8cd6; --violet-soft:rgba(157,140,214,.14);
+  --blue:#6ba3d6; --blue-soft:rgba(107,163,214,.14);
+  --serif:"Noto Serif TC","Songti TC",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --mono:"IBM Plex Mono","Courier New",monospace;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg); color:var(--ink); font-family:var(--sans); line-height:1.7; font-size:16px; padding-bottom:80px;}
+
+.hero{
+  position:relative; padding:64px 24px 40px; border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(ellipse 900px 420px at 15% -10%, rgba(224,164,88,.10), transparent 60%),
+    radial-gradient(ellipse 700px 400px at 100% 0%, rgba(107,163,214,.10), transparent 60%);
+  overflow:hidden;
+}
+.hero-inner{max-width:980px; margin:0 auto;}
+.eyebrow{font-family:var(--mono); font-size:12.5px; letter-spacing:.14em; color:var(--amber); text-transform:uppercase; display:flex; align-items:center; gap:10px; margin-bottom:22px;}
+.eyebrow::before{content:""; width:26px; height:1px; background:var(--amber);}
+h1.hero-title{font-family:var(--serif); font-weight:700; font-size:clamp(28px,4.4vw,44px); line-height:1.35; letter-spacing:.01em; margin-bottom:20px;}
+h1.hero-title .sub{display:block; font-size:.46em; color:var(--ink-dim); font-weight:400; margin-top:10px; letter-spacing:.03em;}
+.hero-lede{color:var(--ink-dim); font-size:15.5px; max-width:700px;}
+.stat-row{display:flex; flex-wrap:wrap; gap:12px; margin:28px 0 6px;}
+.stat-chip{font-family:var(--mono); font-size:13px; padding:9px 16px; border:1px solid var(--line); border-radius:999px; background:var(--bg-panel); color:var(--ink);}
+.stat-chip b{color:var(--amber);}
+
+.verify-box{max-width:980px; margin:26px auto 0; padding:18px 22px; background:var(--teal-soft); border:1px solid rgba(79,184,166,.35); border-radius:10px; font-size:14px;}
+.verify-box b{color:var(--teal);}
+
+.tabnav{position:sticky; top:0; z-index:50; background:rgba(13,17,23,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); padding:0 24px;}
+.tabnav-inner{max-width:980px; margin:0 auto; display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; padding:4px 0;}
+.tabnav-inner::-webkit-scrollbar{display:none;}
+.tab-btn{font-family:var(--sans); font-size:13.5px; white-space:nowrap; padding:12px 14px; background:none; border:none; color:var(--ink-faint); cursor:pointer; border-bottom:2px solid transparent; transition:.15s;}
+.tab-btn:hover{color:var(--ink);}
+.tab-btn.active{color:var(--amber); border-bottom-color:var(--amber);}
+
+main{max-width:980px; margin:0 auto; padding:36px 24px;}
+.panel{display:none; animation:fade .25s ease;}
+.panel.active{display:block;}
+@keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);}}
+
+.section-head{margin-bottom:24px;}
+.section-head h2{font-family:var(--serif); font-size:26px; font-weight:700; margin-bottom:8px;}
+.section-head p{color:var(--ink-dim); font-size:14.5px;}
+
+.badge{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:11.5px; padding:4px 10px; border-radius:999px; letter-spacing:.03em;}
+.badge.common{background:var(--amber-soft); color:var(--amber); border:1px solid rgba(224,164,88,.4);}
+.badge.emergency{background:var(--red-soft); color:var(--red); border:1px solid rgba(217,115,106,.4);}
+.badge.tool{background:var(--blue-soft); color:var(--blue); border:1px solid rgba(107,163,214,.4);}
+.badge.treatable{background:var(--teal-soft); color:var(--teal); border:1px solid rgba(79,184,166,.4);}
+
+/* two-column vs comparison card */
+.vs-card{background:var(--bg-panel); border:1px solid var(--line); border-radius:12px; padding:26px; margin-bottom:22px;}
+.vs-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px; margin-bottom:16px;}
+.vs-top h3{font-family:var(--serif); font-size:20px; font-weight:700;}
+.vs-top .en{color:var(--ink-faint); font-size:13px; font-family:var(--mono); display:block; margin-top:3px;}
+.badges{display:flex; gap:6px; flex-wrap:wrap;}
+
+.vs-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:18px; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+@media(max-width:640px){.vs-grid{grid-template-columns:1fr;}}
+.vs-col{padding:18px 20px;}
+.vs-col.es{background:rgba(107,163,214,.06); border-right:1px solid var(--line);}
+.vs-col.mimic{background:rgba(217,115,106,.06);}
+@media(max-width:640px){.vs-col.es{border-right:none; border-bottom:1px solid var(--line);}}
+.vs-col h4{font-family:var(--mono); font-size:12.5px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:10px;}
+.vs-col.es h4{color:var(--blue);}
+.vs-col.mimic h4{color:var(--red);}
+.vs-col ul{padding-left:18px; font-size:14px;}
+.vs-col li{margin-bottom:7px;}
+.vs-col li::marker{color:var(--ink-faint);}
+.vs-col li .num{color:var(--amber); font-family:var(--mono); font-size:12.5px;}
+
+.keypoint{margin-top:16px; padding:12px 16px; background:var(--teal-soft); border-left:3px solid var(--teal); border-radius:6px; font-size:13.5px;}
+.keypoint b{color:var(--teal);}
+.cite{font-size:12px; color:var(--ink-faint); margin-top:14px; font-family:var(--mono);}
+
+/* overview grid */
+.overview-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:10px;}
+@media(max-width:640px){.overview-grid{grid-template-columns:1fr;}}
+.ov-card{background:var(--bg-panel); border:1px solid var(--line); border-radius:10px; padding:18px 20px; cursor:pointer; transition:.15s;}
+.ov-card:hover{border-color:var(--amber); transform:translateY(-2px);}
+.ov-card .ov-title{font-family:var(--serif); font-weight:700; font-size:16.5px; margin-bottom:6px;}
+.ov-card .ov-desc{font-size:13px; color:var(--ink-dim);}
+.ov-card .ov-badges{margin-top:10px; display:flex; gap:6px; flex-wrap:wrap;}
+
+.pearl-list{margin-top:8px;}
+.pearl{display:flex; gap:12px; padding:12px 0; border-bottom:1px dashed var(--line); font-size:14.5px;}
+.pearl:last-child{border-bottom:none;}
+.pearl .arrow{color:var(--teal); font-family:var(--mono); flex-shrink:0;}
+
+/* algorithm */
+.algo-step{background:var(--bg-panel); border:1px solid var(--line); border-radius:12px; padding:22px 24px; margin-bottom:16px; position:relative; padding-left:56px;}
+.algo-step::before{content:attr(data-step); position:absolute; left:18px; top:22px; font-family:var(--mono); font-size:15px; font-weight:700; color:var(--amber); width:28px; height:28px; border:1px solid var(--amber); border-radius:50%; display:flex; align-items:center; justify-content:center;}
+.algo-step h4{font-family:var(--serif); font-size:17px; margin-bottom:10px;}
+.algo-step ul{padding-left:18px; font-size:14.5px;}
+.algo-step li{margin-bottom:8px;}
+.algo-step li b{color:var(--amber);}
+
+/* score box */
+.score-box{background:var(--bg-panel-2); border:1px solid var(--line); border-radius:10px; padding:18px 20px; margin-top:14px; font-size:14px;}
+.score-box .row{display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--line);}
+.score-box .row:last-child{border-bottom:none;}
+.score-box .row .pts{font-family:var(--mono); color:var(--amber); font-weight:700;}
+.score-box .row .pts.neg{color:var(--red);}
+
+.table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px;}
+table{width:100%; border-collapse:collapse; font-size:13.5px; min-width:760px;}
+th{background:var(--bg-panel-2); color:var(--amber); font-family:var(--mono); font-weight:500; font-size:12px; text-transform:uppercase; letter-spacing:.03em; text-align:left; padding:12px 14px; border-bottom:1px solid var(--line); white-space:nowrap;}
+td{padding:12px 14px; border-bottom:1px solid var(--line); color:var(--ink-dim); vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+td.rowhead{color:var(--ink); font-weight:600; font-family:var(--serif);}
+tr:hover td{background:rgba(255,255,255,.02);}
+
+.ref-item{padding:14px 0; border-bottom:1px solid var(--line); font-size:13.5px; color:var(--ink-dim); display:grid; grid-template-columns:32px 1fr; gap:10px;}
+.ref-item:last-child{border-bottom:none;}
+.ref-num{color:var(--amber); font-family:var(--mono); font-size:13px;}
+.ref-item b{color:var(--ink);}
+.ref-doi{font-family:var(--mono); font-size:12px; color:var(--ink-faint);}
+
+footer{max-width:980px; margin:0 auto; padding:30px 24px 0; color:var(--ink-faint); font-size:12.5px; text-align:center; border-top:1px solid var(--line); margin-top:20px; padding-top:24px;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">神經內科教學・急性抽搐鑑別診斷</div>
+    <h1 class="hero-title">
+      癲癇發作 vs. 類癲癇發作
+      <span class="sub">Epileptic Seizures (ES) vs. Seizure Mimics — 系統化鑑別診斷與臨床決策路徑</span>
+    </h1>
+    <p class="hero-lede">急性肢體抽搐的病因廣泛，包括真正的癲癇發作、心因性非癲癇性發作（PNES）、痙攣性昏厥、肢體抖動性TIA、睡眠障礙、陣發性運動障礙及代謝性疾病等。誤診率可高達約20%，準確鑑別對治療決策與避免不必要的抗癲癇藥物暴露至關重要。</p>
+    <div class="stat-row">
+      <div class="stat-chip">誤診率 <b>~20%</b></div>
+      <div class="stat-chip">PNES 於難治性癲癇中心佔 <b>10–40%</b></div>
+      <div class="stat-chip">Sheldon 評分敏感度／特異度 <b>94% / 94%</b></div>
+    </div>
+  </div>
+</div>
+
+<div class="verify-box">
+  <b>📋 資料查核說明</b>：本頁重點數據已與 PubMed 原始文獻交叉核對，包括：發作期眼閉（ictal eye closure）之敏感度／特異度範圍（各研究間 50–96% 不等，與原稿描述範圍一致）、Sheldon 等人之 Syncope-Seizure 評分（94% 敏感度與特異度，671 例前瞻性世代研究）、FLEP 量表切點（原始 Derry 2006 研究）。數據呈現方式與原始文獻相符，未發現需修正之重大錯誤；惟提醒各項敏感度／特異度數字因研究族群與方法不同而有相當變異，臨床應用時應綜合判斷而非單獨依賴單一數字。
+</div>
+
+<div class="tabnav"><div class="tabnav-inner" id="tabnav"></div></div>
+
+<main>
+
+<!-- OVERVIEW -->
+<section class="panel active" id="panel-overview">
+  <div class="section-head">
+    <h2>總覽：六大鑑別方向</h2>
+    <p>點選卡片跳轉至詳細內容。</p>
+  </div>
+  <div class="overview-grid" id="overviewGrid"></div>
+
+  <div class="vs-card" style="margin-top:28px;">
+    <div class="vs-top"><div><h3>核心臨床思路</h3></div></div>
+    <div class="pearl-list">
+      <div class="pearl"><span class="arrow">→</span><span>發作時長 <b>&gt;2 分鐘</b>、發作期眼閉合、不同步肢體抖動、假性睡眠現象 <b>高度提示 PNES</b>。</span></div>
+      <div class="pearl"><span class="arrow">→</span><span>站立／久坐誘發、發作前大汗與視物模糊、無長時間發作後意識模糊 <b>提示昏厥</b>。</span></div>
+      <div class="pearl"><span class="arrow">→</span><span>頸動脈重度狹窄病史、體位性誘發、約 3Hz 抖動且意識清楚 <b>考慮肢體抖動性TIA</b>。</span></div>
+      <div class="pearl"><span class="arrow">→</span><span>入睡後短時間內、一夜多次成簇發作、非對稱強直姿勢 <b>考慮夜間額葉癲癇</b>，須與NREM異態睡眠鑑別。</span></div>
+      <div class="pearl"><span class="arrow">→</span><span>突然運動誘發、意識清楚、EEG無痫樣放電 <b>考慮陣發性運動誘發運動障礙（PKD）</b>。</span></div>
+      <div class="pearl"><span class="arrow">→</span><span>所有疑似首次發作病人應完成基礎代謝篩檢、心電圖與神經影像，以排除可逆性代謝或結構性病因。</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PNES -->
+<section class="panel" id="panel-pnes">
+  <div class="section-head"><h2>1. 心因性非癲癫性發作（PNES）</h2></div>
+  <div class="vs-card">
+    <div class="vs-top">
+      <div><h3>PNES<span class="en">Psychogenic Non-Epileptic Seizures</span></h3></div>
+      <div class="badges"><span class="badge common">最常見類癲癇發作</span><span class="badge treatable">CBT 為核心治療</span></div>
+    </div>
+    <p style="color:var(--ink-dim); font-size:14.5px;">在難治性癲癇專科中心中占轉診病人的 10–40%。與真正癲癇發作（ES）在多項半學（semiology）特徵上有顯著差異。</p>
+    <div class="vs-grid">
+      <div class="vs-col es">
+        <h4>ES 癲癇發作特徵</h4>
+        <ul>
+          <li>平均發作時長 <span class="num">47.7秒</span>，通常較短</li>
+          <li><span class="num">92–100%</span> 睜眼發作</li>
+          <li>GTCS：運動幅度逐漸增大、頻率逐漸降低，規律性強直—陣攣</li>
+          <li>發作期發聲（ictal cry）為喉源性，發作早期出現</li>
+          <li>複雜部分性發作僅 <span class="num">4%</span> 能回憶發作內容（特異度96%）</li>
+          <li>發作後意識模糊 <span class="num">67–100%</span>，常有鼾式呼吸（<span class="num">61–91%</span>）</li>
+        </ul>
+      </div>
+      <div class="vs-col mimic">
+        <h4>PNES 特徵</h4>
+        <ul>
+          <li>平均發作時長 <span class="num">148.7秒</span>，超過2分鐘高度提示，超過10分鐘強烈提示</li>
+          <li>發作期眼閉合，且用力抵抗被動睜眼——文獻報告敏感度/特異度差異大（約50–96% vs 80–97%，因研究方法不同）</li>
+          <li>肢體非同步抖動（<span class="num">96%</span>）、骨盆前衝式挺動、左右搖頭</li>
+          <li>運動幅度呈波動性（waxing-waning），頻率不變幅度變化；「間歇性／忽停忽續」病程對PNES具高特異度</li>
+          <li>63%可回憶發作期間記憶內容</li>
+          <li>「假性睡眠」——EEG呈清醒α節律但貌似入睡，特異度100%</li>
+          <li>發作後意識模糊僅 <span class="num">13–16%</span>，無鼾式呼吸</li>
+        </ul>
+      </div>
+    </div>
+    <div class="keypoint"><b>查核附註：</b>發作期眼閉合此一徵象在不同研究間敏感度差異頗大（部分研究50–65%，部分研究達96%），系統性回顧之統合分析為敏感度約58%、特異度約80%；臨床上應視為支持性而非單獨確診依據，需搭配其他半學特徵綜合判斷。</div>
+    <div class="cite">參考：Xiang et al. Acta Epileptologica 2019；Widyadharma et al. Egypt J Neurol Psychiatry Neurosurg 2021；查核：Brigo et al. Epilepsy Research 2013（IEC統合分析）；Chung et al. Neurology 2006</div>
+  </div>
+</section>
+
+<!-- Syncope -->
+<section class="panel" id="panel-syncope">
+  <div class="section-head"><h2>2. 痙攣性昏厥（Convulsive Syncope）</h2></div>
+  <div class="vs-card">
+    <div class="vs-top">
+      <div><h3>痙攣性昏厥<span class="en">Convulsive Syncope</span></h3></div>
+      <div class="badges"><span class="badge common">常見誤診原因</span><span class="badge tool">Sheldon 評分</span></div>
+    </div>
+    <p style="color:var(--ink-dim); font-size:14.5px;">全腦低灌注所致之一過性意識喪失，常伴隨抽搐樣動作，是誤診為癲癇的常見原因。</p>
+    <div class="vs-grid">
+      <div class="vs-col es">
+        <h4>支持癲癇發作</h4>
+        <ul>
+          <li>發作前情緒應激</li>
+          <li>似曾相識感／似不相識感（déjà vu / jamais vu）</li>
+          <li>發作中頭眼偏轉或異常姿勢</li>
+          <li>醒後意識模糊</li>
+          <li>側舌咬傷、大便失禁高度提示</li>
+          <li>強直性跌倒（非肌肉鬆弛性倒地）</li>
+        </ul>
+      </div>
+      <div class="vs-col mimic">
+        <h4>支持昏厥</h4>
+        <ul>
+          <li>獨立的昏厥前兆（presyncope）——頭暈、視物模糊、大汗、噁心、耳鳴</li>
+          <li>發作前大汗</li>
+          <li>長時間站立或坐位誘發；熱環境、情緒激動、排尿、抽血亦可誘發</li>
+          <li>抽搐通常持續短（&lt;15–30秒），以多灶性肌陣攣最常見（90%）</li>
+          <li>發作後無長時間意識模糊</li>
+          <li>肌肉鬆弛性倒地</li>
+        </ul>
+      </div>
+    </div>
+    <div class="score-box">
+      <div style="font-family:var(--mono); color:var(--amber); font-size:12.5px; text-transform:uppercase; margin-bottom:10px;">Sheldon Syncope-Seizure 評分（總分≥1提示癲癇，≤-2提示昏厥）</div>
+      <div class="row"><span>情緒應激</span><span class="pts">+1</span></div>
+      <div class="row"><span>Déjà vu / jamais vu</span><span class="pts">+1</span></div>
+      <div class="row"><span>頭眼偏轉</span><span class="pts">+1</span></div>
+      <div class="row"><span>異常姿勢</span><span class="pts">+1</span></div>
+      <div class="row"><span>醒後意識模糊</span><span class="pts">+1</span></div>
+      <div class="row"><span>舌咬傷</span><span class="pts">+2</span></div>
+      <div class="row"><span>獨立昏厥前兆</span><span class="pts neg">-1</span></div>
+      <div class="row"><span>發作前大汗</span><span class="pts neg">-1</span></div>
+      <div class="row"><span>長時間站立/坐位誘發</span><span class="pts neg">-2</span></div>
+    </div>
+    <div class="keypoint"><b>查核附註：</b>原始 Sheldon 2002 研究以671例病人資料建立評分系統，整體以症狀為基礎的評分可達94%敏感度與94%特異度；惟後續多項外部驗證研究（含兒童族群、急診場域）顯示實際敏感度／特異度常低於原始報告（如兒童族群約87%/63%），故臨床應用時應視為輔助工具而非絕對判準，必要時仍需直立傾斜試驗或長程心律監測確認。</div>
+    <div class="cite">參考：Ozkara et al. Epileptic Disord 2009；Sheldon R. Cardiac Electrophysiol Clin 2013；查核：Sheldon et al. JACC 2002（原始研究）</div>
+  </div>
+</section>
+
+<!-- TIA -->
+<section class="panel" id="panel-tia">
+  <div class="section-head"><h2>3. 肢體抖動性TIA（Limb-Shaking TIA）</h2></div>
+  <div class="vs-card">
+    <div class="vs-top">
+      <div><h3>肢體抖動性TIA<span class="en">Limb-Shaking Transient Ischemic Attack</span></h3></div>
+      <div class="badges"><span class="badge emergency">提示重度頸動脈病變</span></div>
+    </div>
+    <p style="color:var(--ink-dim); font-size:14.5px;">一種特殊類型的短暫性腦缺血發作，極易被誤診為局灶性運動性癲癇。</p>
+    <div class="vs-grid">
+      <div class="vs-col mimic">
+        <h4>肢體抖動性TIA特徵</h4>
+        <ul>
+          <li>幾乎均伴有嚴重頸動脈閉塞性疾病（重度狹窄或閉塞）</li>
+          <li>常由站立或體位改變誘發，坐下或平臥可緩解</li>
+          <li>抖動頻率約3Hz，無Jacksonian擴展（不向面部蔓延）</li>
+          <li>意識始終清楚，無發作後狀態</li>
+          <li>抗癲癇藥物無效</li>
+          <li>EEG無痫樣放電</li>
+        </ul>
+      </div>
+      <div class="vs-col es">
+        <h4>局灶性運動性癲癇特徵</h4>
+        <ul>
+          <li>從身體某部位起始、可沿皮質運動區擴展（Jacksonian march）</li>
+          <li>可伴有意識改變</li>
+          <li>不一定與體位相關</li>
+          <li>EEG可見痫樣放電</li>
+        </ul>
+      </div>
+    </div>
+    <div class="keypoint"><b>臨床意義：</b>此為神經血管超音波（頸動脈超音波、TCD）之重要適應症，確診後需評估頸動脈內膜剝脫術（CEA）或血管重建手術，攸關腦中風之二級預防。</div>
+    <div class="cite">參考：Schulz &amp; Rothwell. Postgrad Med J 2002</div>
+  </div>
+</section>
+
+<!-- Sleep -->
+<section class="panel" id="panel-sleep">
+  <div class="section-head"><h2>4. 夜間額葉癲癇 vs. NREM異態睡眠</h2></div>
+  <div class="vs-card">
+    <div class="vs-top">
+      <div><h3>夜間額葉癲癇<span class="en">Nocturnal Frontal Lobe Epilepsy, NFLE</span></h3></div>
+      <div class="badges"><span class="badge tool">FLEP 量表</span></div>
+    </div>
+    <p style="color:var(--ink-dim); font-size:14.5px;">NFLE 與 NREM 異態睡眠（夢遊、夜驚）之鑑別尤為困難，兩者半學特徵可高度重疊。</p>
+    <div class="vs-grid">
+      <div class="vs-col es">
+        <h4>NFLE 特徵</h4>
+        <ul>
+          <li>常在入睡後30分鐘內（N2期）或清晨覺醒前發作</li>
+          <li>一夜可發作3–8次，可成簇出現</li>
+          <li>通常&lt;2分鐘</li>
+          <li>常保留部分意識，可回憶發作時之軀體感覺（如窒息感、緊繃感）</li>
+          <li>非對稱性強直姿勢（dystonic posturing）、蹬踏樣或騎車樣自動症</li>
+        </ul>
+      </div>
+      <div class="vs-col mimic">
+        <h4>NREM異態睡眠特徵</h4>
+        <ul>
+          <li>常在入睡後1–2小時（深睡眠期）發生</li>
+          <li>通常一夜僅1–2次</li>
+          <li>可持續數分鐘至半小時以上</li>
+          <li>通常無回憶或僅有模糊回憶</li>
+          <li>目的性行為（如走路、穿衣、開門），與環境互動程度高</li>
+        </ul>
+      </div>
+    </div>
+    <div class="score-box">
+      <div style="font-family:var(--mono); color:var(--amber); font-size:12.5px; text-transform:uppercase; margin-bottom:10px;">FLEP 量表（Derry 2006）評分方向</div>
+      <div class="row"><span>評分 ≥3</span><span class="pts">支持 NFLE</span></div>
+      <div class="row"><span>評分 &lt;0</span><span class="pts neg">支持異態睡眠</span></div>
+      <div class="row"><span>評分 0–3</span><span class="pts" style="color:var(--ink-dim)">不確定，需長程視頻腦電圖確認</span></div>
+    </div>
+    <p style="font-size:13.5px; color:var(--ink-dim); margin-top:14px;"><b style="color:var(--violet)">REM睡眠行為障礙（RBD）</b>多見於50歲以上男性，表現為夢境演繹行為，與帕金森病等α-突觸核蛋白病相關，發作時有生動的夢境回憶，鑑別相對容易；惟原始 FLEP 驗證研究亦提醒，「回憶」與「成簇」此二項目在RBD病人中可能造成誤判，臨床仍需結合病史整體判斷。</p>
+    <div class="cite">參考：Derry CP. Pract Neurol 2014；查核：Derry et al. Arch Neurol 2006（FLEP量表原始研究）；Manni et al. Epilepsia 2008</div>
+  </div>
+</section>
+
+<!-- Movement -->
+<section class="panel" id="panel-movement">
+  <div class="section-head"><h2>5. 運動障礙性疾病與免疫介導病因</h2></div>
+
+  <div class="vs-card">
+    <div class="vs-top">
+      <div><h3>陣發性運動誘發運動障礙<span class="en">Paroxysmal Kinesigenic Dyskinesia, PKD</span></h3></div>
+      <div class="badges"><span class="badge treatable">卡馬西平反應佳</span></div>
+    </div>
+    <p style="font-size:14.5px; color:var(--ink-dim);">由突然運動（如站立、行走）誘發，持續數秒至1分鐘，無意識喪失，EEG無痫樣放電，對卡馬西平或苯妥英鈉反應良好。PKD與良性家族性嬰兒癲癇（BFIS）共享 <b style="color:var(--amber)">PRRT2</b> 基因突變，屬於「嬰兒驚厥與舞蹈手足徐動症症候群（ICCA）」。</p>
+  </div>
+
+  <div class="vs-card">
+    <div class="vs-top">
+      <div><h3>葡萄糖轉運體1缺乏症候群<span class="en">GLUT1 Deficiency Syndrome, GLUT1DS</span></h3></div>
+      <div class="badges"><span class="badge treatable">生酮飲食治療</span></div>
+    </div>
+    <p style="font-size:14.5px; color:var(--ink-dim);"><b style="color:var(--amber)">SLC2A1</b> 基因突變所致，表現為早發性難治性癲癇、運動誘發性運動障礙（PED）與智力障礙。生酮飲食可補充能量底物繞過葡萄糖轉運障礙。</p>
+  </div>
+
+  <div class="vs-card">
+    <div class="vs-top">
+      <div><h3>面臂肌張力性發作<span class="en">Faciobrachial Dystonic Seizures, FBDS</span></h3></div>
+      <div class="badges"><span class="badge emergency">LGI1抗體腦炎</span><span class="badge treatable">免疫治療</span></div>
+    </div>
+    <p style="font-size:14.5px; color:var(--ink-dim);">表現為非常短暫而頻繁的肢體異常姿勢，常先於邊緣葉腦炎出現，屬 LGI1 抗體相關腦炎的特徵性表現，需及早以免疫治療（類固醇、靜脈丙種球蛋白、血漿置換、利妥昔單抗）。</p>
+  </div>
+  <div class="cite">參考：Freitas et al. J Neurol Neurosurg Psychiatry 2019</div>
+</section>
+
+<!-- Metabolic -->
+<section class="panel" id="panel-metabolic">
+  <div class="section-head"><h2>6. 代謝性與中毒性病因</h2></div>
+  <div class="vs-card">
+    <div class="vs-top"><div><h3>常見可逆性誘因</h3></div></div>
+    <div class="feature-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+      <div>
+        <h4 style="font-size:13px; color:var(--amber); font-family:var(--mono); text-transform:uppercase; margin-bottom:8px;">低／高血糖</h4>
+        <p style="font-size:14px; color:var(--ink-dim);">低血糖可引起局灶性或全身性抽搐，常伴自律神經症狀（心悸、大汗、饑餓感）；非酮症高血糖可致局灶性持續性癲癇（epilepsia partialis continua, EPC）。</p>
+      </div>
+      <div>
+        <h4 style="font-size:13px; color:var(--amber); font-family:var(--mono); text-transform:uppercase; margin-bottom:8px;">電解質紊亂</h4>
+        <p style="font-size:14px; color:var(--ink-dim);">低鈉血症是最常見的致癇性電解質紊亂之一；低鈣血症、低鎂血症亦可誘發抽搐。</p>
+      </div>
+      <div>
+        <h4 style="font-size:13px; color:var(--amber); font-family:var(--mono); text-transform:uppercase; margin-bottom:8px;">酒精戒斷</h4>
+        <p style="font-size:14px; color:var(--ink-dim);">常見誘發因素，戒酒後7–48小時內發生，常伴震顫、心搏過速、大汗等其他戒斷症狀。</p>
+      </div>
+      <div>
+        <h4 style="font-size:13px; color:var(--amber); font-family:var(--mono); text-transform:uppercase; margin-bottom:8px;">妊娠相關</h4>
+        <p style="font-size:14px; color:var(--ink-dim);">女性疑似首次發作須行妊娠試驗排除子癲前症（eclampsia）。</p>
+      </div>
+    </div>
+    <div class="cite">參考：Webb et al. J Emerg Med 2017</div>
+  </div>
+</section>
+
+<!-- Labs -->
+<section class="panel" id="panel-labs">
+  <div class="section-head">
+    <h2>實驗室生物標記</h2>
+    <p>血清標記可輔助鑑別 GTCS 與 PNES／昏厥，但均不能單獨作為確診依據。</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>標記</th><th>採檢時機</th><th>敏感度</th><th>特異度</th><th>臨床限制</th></tr>
+      <tr><td class="rowhead">血清催乳素 PRL</td><td>發作後10–20分鐘內</td><td>67–100%</td><td>73–99%</td><td>無法區分單純部分性發作/失神發作與PNES；昏厥也可致PRL升高</td></tr>
+      <tr><td class="rowhead">血清CK</td><td>發作後3小時</td><td>15–88%</td><td>85–100%</td><td>敏感度變異大，單獨使用價值有限</td></tr>
+      <tr><td class="rowhead">血清乳酸</td><td>發作後儘早</td><td>88%</td><td>87%</td><td>閾值通常&gt;2.5 mmol/L；有助區分GTCS與PNES及昏厥</td></tr>
+    </table>
+  </div>
+  <div class="keypoint" style="margin-top:16px;"><b>合併使用提升效能：</b>一項研究發現GTCS病人於1小時內100%出現PRL升高、91.66%出現CK升高，而PNES病人無一例出現任一標記升高；聯合PRL與CK檢測可提升鑑別診斷效能。</div>
+  <div class="cite">參考：Javali et al. J Neurosci Rural Pract 2017</div>
+</section>
+
+<!-- Algorithm -->
+<section class="panel" id="panel-algo">
+  <div class="section-head">
+    <h2>臨床診斷流程</h2>
+    <p>五步驟系統化評估急性抽搐病人。</p>
+  </div>
+
+  <div class="algo-step" data-step="1">
+    <h4>緊急評估與穩定</h4>
+    <ul>
+      <li>首先進行 ABC（氣道、呼吸、循環）評估</li>
+      <li>若持續發作 <b>&gt;5分鐘</b>，按癲癇重積狀態處理：靜脈注射苯二氮䓬類藥物（勞拉西泮0.1mg/kg 或地西泮），必要時重複</li>
+      <li>後續加用二線藥物（左乙拉西坦、丙戊酸、磷苯妥英）；難治性者考慮氣管插管及丙泊酚／氯胺酮鎮靜</li>
+    </ul>
+  </div>
+
+  <div class="algo-step" data-step="2">
+    <h4>病史採集與臨床評估</h4>
+    <ul>
+      <li><b>詳細病史</b>（病人及目擊者）：發作前狀況、誘因、先兆、發作過程（運動特徵、持續時間、意識狀態、眼徵、發聲）、發作後狀態</li>
+      <li><b>既往史</b>：癲癇史、頭部外傷、中風、腦部手術、腫瘤、感染、代謝性疾病、物質濫用、精神疾病史</li>
+      <li><b>家族史</b>：癲癇、昏厥、猝死、遺傳性疾病</li>
+    </ul>
+  </div>
+
+  <div class="algo-step" data-step="3">
+    <h4>輔助檢查</h4>
+    <ul>
+      <li>急查：血糖、電解質（Na⁺/Ca²⁺/Mg²⁺）、腎功能、乳酸、妊娠試驗、抗癲癇藥物濃度、心電圖</li>
+      <li>發作後10–20分鐘內採血查催乳素（若仍在發作後早期）</li>
+      <li>頭顱CT（急診）或MRI（擇期）——約6–10%首次發作病人即使無局灶性神經徵象，CT仍有陽性發現</li>
+      <li>腦電圖（EEG）：常規清醒EEG、睡眠剝奪EEG，有條件時行長程視頻EEG監測（vEEG）</li>
+    </ul>
+  </div>
+
+  <div class="algo-step" data-step="4">
+    <h4>特徵性鑑別路徑</h4>
+    <ul>
+      <li><b>懷疑PNES</b> → 女性、起病年齡&gt;10歲、發作時長&gt;2分鐘、發作期眼閉、非同步抖動、骨盆前衝挺動、情感性發聲、假性睡眠、發作後無意識模糊、多種抗癲癇藥無效 → 高度懷疑者行vEEG確認</li>
+      <li><b>懷疑昏厥</b> → 使用Syncope-Seizure評分系統，總分≥1提示癲癇，≤-2提示昏厥 → 必要時行直立傾斜試驗或植入式循環記錄儀</li>
+      <li><b>懷疑夜間額葉癲癇</b> → 使用FLEP量表評估發作時間、夜間發作次數、發作時長、發作後記憶保留、強直性姿勢/蹬踏樣運動 → 評分≥3支持NFLE，&lt;0支持異態睡眠，0–3需vEEG</li>
+      <li><b>懷疑運動障礙性疾病</b> → 注意發作是否由突然運動誘發、是否有意識喪失、EEG有無痫樣放電 → 必要時基因檢測（PRRT2、SLC2A1等）</li>
+      <li><b>懷疑肢體抖動性TIA</b> → 注意是否與體位改變相關、有無頸動脈狹窄等高危因素、抗癲癇藥無效 → 頸動脈超音波／TCD確認血流動力學異常</li>
+    </ul>
+  </div>
+
+  <div class="algo-step" data-step="5">
+    <h4>長期管理</h4>
+    <ul>
+      <li><b>確診PNES</b>：停用不必要的抗癲癇藥，進行認知行為治療（CBT）及精神心理介入</li>
+      <li><b>確診昏厥</b>：依病因（血管迷走性、心源性、體位性低血壓）給予相應治療</li>
+      <li><b>確診癲癇</b>：依發作類型及癲癇症候群選擇合適的抗癲癇藥物</li>
+      <li><b>診斷仍不明確</b>：轉診至癲癇專科／昏厥專科或神經內科＋心臟內科＋精神科多學科聯合門診</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Treatment -->
+<section class="panel" id="panel-tx">
+  <div class="section-head"><h2>治療原則總覽</h2></div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>病因</th><th>核心治療</th><th>注意事項</th></tr>
+      <tr><td class="rowhead">癲癇發作</td><td>依發作類型選藥（左乙拉西坦、丙戊酸、拉莫三嗪、卡馬西平等）；重積狀態依BZD→二線→麻醉藥階梯處理</td><td>卡馬西平、苯妥英、加巴噴丁、拉莫三嗪可能加重肌陣攣；丙戊酸可致震顫與藥源性巴金森氏症候群</td></tr>
+      <tr><td class="rowhead">PNES</td><td>認知行為治療（CBT）為核心，含個體/家庭治療</td><td>約10–15%的PNES病人同時合併真正癲癇；停用不必要抗癲癇藥（若無共病癲癇）</td></tr>
+      <tr><td class="rowhead">血管迷走性昏厥</td><td>衛教與生活型態調整（增加水鹽攝取、避免誘因、物理反壓動作）</td><td>必要時藥物治療或心臟節律器</td></tr>
+      <tr><td class="rowhead">心源性昏厥</td><td>依心律不整類型行電生理檢查、節律器/ICD植入、射頻消融</td><td>需心臟科共同照護</td></tr>
+      <tr><td class="rowhead">肢體抖動性TIA</td><td>改善腦血流灌注，謹慎控制血壓；考慮頸動脈內膜剝脫術（CEA）或顱內外搭橋手術</td><td>避免過度降壓以免加重症狀</td></tr>
+      <tr><td class="rowhead">PKD</td><td>卡馬西平或苯妥英（低劑量有效率極高）</td><td>PNKD則反應不確定，氯硝西泮可能有效</td></tr>
+      <tr><td class="rowhead">GLUT1DS</td><td>生酮飲食治療</td><td>補充能量底物繞過葡萄糖轉運障礙</td></tr>
+      <tr><td class="rowhead">LGI1抗體腦炎（FBDS）</td><td>免疫治療（類固醇、IVIG、血漿置換、利妥昔單抗）</td><td>及早治療可改善邊緣葉腦炎預後</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- References -->
+<section class="panel" id="panel-refs">
+  <div class="section-head">
+    <h2>參考文獻</h2>
+    <p>已交叉查核 PubMed／期刊原文；補充查核來源標註於各段落附註中。</p>
+  </div>
+  <div id="refList"></div>
+</section>
+
+</main>
+
+<footer>癲癇與類癲癇發作鑑別診斷教學整理｜資料查核日期：2026年7月｜僅供臨床教學使用，非診斷依據</footer>
+
+<script>
+const tabs = [
+  {id:'overview', label:'總覽'},
+  {id:'pnes', label:'PNES'},
+  {id:'syncope', label:'痙攣性昏厥'},
+  {id:'tia', label:'肢體抖動性TIA'},
+  {id:'sleep', label:'夜間額葉癲癇'},
+  {id:'movement', label:'運動障礙/免疫'},
+  {id:'metabolic', label:'代謝性病因'},
+  {id:'labs', label:'實驗室標記'},
+  {id:'algo', label:'診斷流程'},
+  {id:'tx', label:'治療總覽'},
+  {id:'refs', label:'參考文獻'},
+];
+const nav = document.getElementById('tabnav');
+tabs.forEach((t,i)=>{
+  const btn = document.createElement('button');
+  btn.className = 'tab-btn' + (i===0?' active':'');
+  btn.textContent = t.label;
+  btn.onclick = ()=> switchTab(t.id);
+  btn.dataset.target = t.id;
+  nav.appendChild(btn);
+});
+function switchTab(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b.dataset.target===id));
+  window.scrollTo({top: document.querySelector('.tabnav').offsetTop - 8, behavior:'smooth'});
+}
+
+const overview = [
+  {id:'pnes', title:'心因性非癲癇性發作 PNES', desc:'最常見類癲癇發作，發作時長長、眼閉合、假性睡眠', badges:[['common','最常見']]},
+  {id:'syncope', title:'痙攣性昏厥', desc:'Sheldon評分輔助鑑別，站立誘發、短暫抽搐', badges:[['tool','評分工具']]},
+  {id:'tia', title:'肢體抖動性TIA', desc:'頸動脈重度狹窄，體位誘發，3Hz抖動', badges:[['emergency','血管急症']]},
+  {id:'sleep', title:'夜間額葉癲癇 vs 異態睡眠', desc:'FLEP量表輔助鑑別NFLE與NREM異態睡眠', badges:[['tool','FLEP量表']]},
+  {id:'movement', title:'運動障礙性疾病/免疫病因', desc:'PKD、GLUT1DS、LGI1抗體面臂肌張力性發作', badges:[['treatable','多可治療']]},
+  {id:'metabolic', title:'代謝性與中毒性病因', desc:'低血糖、電解質紊亂、酒精戒斷', badges:[['treatable','可逆病因']]},
+  {id:'labs', title:'實驗室生物標記', desc:'催乳素、CK、乳酸輔助鑑別GTCS', badges:[]},
+  {id:'algo', title:'臨床診斷流程', desc:'五步驟：穩定→病史→檢查→鑑別路徑→管理', badges:[]},
+];
+const badgeLabel = {treatable:'✓ 可治療', emergency:'⚡ 急症', common:'★ 常見', tool:'📐 評分工具'};
+const grid = document.getElementById('overviewGrid');
+overview.forEach(o=>{
+  const div = document.createElement('div');
+  div.className = 'ov-card';
+  div.onclick = ()=> switchTab(o.id);
+  div.innerHTML = `<div class="ov-title">${o.title}</div><div class="ov-desc">${o.desc}</div>
+    <div class="ov-badges">${o.badges.map(b=>`<span class="badge ${b[0]}">${badgeLabel[b[0]]}</span>`).join('')}</div>`;
+  grid.appendChild(div);
+});
+
+const refs = [
+  ['Xiang X, Fang J, Guo Y.','Differential diagnosis between epileptic seizures and psychogenic nonepileptic seizures based on semiology.','Acta Epileptologica. 2019;1(1)','10.1186/s42494-019-0008-4'],
+  ['Widyadharma IPE, et al.','Clinical differentiation of psychogenic non-epileptic seizure: a practical diagnostic approach.','Egypt J Neurol Psychiatry Neurosurg. 2021;57(1)','10.1186/s41983-021-00272-w'],
+  ['Ozkara C, Metin B, Kucukoglu S.','Convulsive syncope: a condition to be differentiated from epilepsy.','Epileptic Disord. 2009;11(4):315-319','10.1684/epd.2009.0281'],
+  ['Sheldon R.','How to Differentiate Syncope from Seizure.','Cardiac Electrophysiol Clin. 2013;5(4):423-431','10.1016/j.ccep.2013.08.004'],
+  ['Webb J, Long B, Koyfman A.','An Emergency Medicine–Focused Review of Seizure Mimics.','J Emerg Med. 2017;52(5):645-653','10.1016/j.jemermed.2016.11.002'],
+  ['Freitas ME, et al.','Seizures and movement disorders: phenomenology, diagnostic challenges and therapeutic approaches.','J Neurol Neurosurg Psychiatry. 2019;90(8):920-928','10.1136/jnnp-2018-320039'],
+  ['Schulz UGR, Rothwell PM.','Transient ischaemic attacks mimicking focal motor seizures.','Postgrad Med J. 2002;78(918):246-247','10.1136/pmj.78.918.246'],
+  ['Derry CP.','Sleeping in fits and starts: distinguishing nocturnal epilepsy from sleep disorders.','Pract Neurol. 2014;14(6):391-398','10.1136/practneurol-2014-000890'],
+  ['Javali M, et al.','Role of Biomarkers in Differentiating New-onset Seizures from PNES.','J Neurosci Rural Pract. 2017;08(04):581-584','10.4103/jnrp.jnrp_139_17'],
+  ['Sheldon R, et al.','Historical criteria that distinguish syncope from seizures.','J Am Coll Cardiol. 2002（查核用原始研究）','10.1016/S0735-1097(02)01940-X'],
+  ['Derry CP, et al.','Distinguishing sleep disorders from seizures: diagnosing bumps in the night.','Arch Neurol. 2006;63(5):705-709（查核用，FLEP量表原始研究）','10.1001/archneur.63.5.705'],
+  ['Brigo F, et al.','Clinical utility of ictal eyes closure in the differential diagnosis between epileptic seizures and psychogenic events.','Epilepsy Res. 2013;104(1-2):1-10（查核用，統合分析）','10.1016/j.eplepsyres.2012.11.005'],
+];
+const refList = document.getElementById('refList');
+refs.forEach((r,i)=>{
+  const div = document.createElement('div');
+  div.className = 'ref-item';
+  div.innerHTML = `<div class="ref-num">[${i+1}]</div><div><b>${r[0]}</b> ${r[1]}<br>${r[2]} · <span class="ref-doi">DOI: ${r[3]}</span></div>`;
+  refList.appendChild(div);
+});
+</script>
+
+</body>
+</html>
