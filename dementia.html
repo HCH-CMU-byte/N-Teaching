@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>失智症診斷與種類鑑別｜HCH-FYH Neurology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #1c2128;
+  --border: rgba(255,255,255,.08);
+  --border2: rgba(255,255,255,.16);
+  --text: #e6edf3;
+  --text2: #8b949e;
+  --text3: #6e7681;
+  --muted: #8b949e;
+  --blue: #58a6ff;
+  --blue-bg: rgba(88,166,255,.10);
+  --blue-l: #85c4f0;
+  --blue-d: #0c3460;
+  --teal: #39d353;
+  --teal-l: #7de8cc;
+  --amber: #e3b341;
+  --amber-l: #fcd27a;
+  --amber-d: #6b4a0d;
+  --amber-bd: rgba(227,179,65,.35);
+  --purple: #bc8cff;
+  --purple-l: #c4bffc;
+  --pink: #ff7bb5;
+  --coral-l: #f9a88a;
+  --coral-d: #6b2c14;
+  --red-l: #f29090;
+  --red-d: #5a1818;
+  --accent: var(--amber);
+  --surface: var(--bg2);
+  --surface2: var(--bg3);
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* ════════════ 站台導覽列 ════════════ */
+nav.site-nav {
+  position: sticky; top: 0; z-index: 300;
+  background: rgba(13,17,23,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 28px;
+  display: flex; align-items: center;
+  height: 54px; gap: 4px;
+}
+.nav-logo {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px; font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+  white-space: nowrap;
+  margin-right: 24px;
+  flex-shrink: 0;
+}
+.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; flex: 1; }
+.nav-links > a {
+  color: var(--text2); text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  padding: 6px 13px; border-radius: 6px;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+.nav-links > a:hover  { color: var(--text); background: var(--bg3); }
+.nav-links > a.active { color: var(--blue); background: var(--blue-bg); }
+.nav-dropdown { position: relative; }
+.nav-dropdown > a {
+  color: var(--text2); text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  padding: 6px 13px; border-radius: 6px;
+  display: flex; align-items: center; gap: 5px;
+  transition: color .15s, background .15s;
+  cursor: pointer; white-space: nowrap;
+}
+.nav-dropdown > a::after { content: '▾'; font-size: 10px; opacity: 0.55; }
+.nav-dropdown > a:hover  { color: var(--text); background: var(--bg3); }
+.nav-dropdown > a.active { color: var(--amber); background: rgba(227,179,65,.10); }
+.dropdown-menu {
+  display: none;
+  position: absolute; top: calc(100% + 6px); left: 0;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 8px; padding: 6px;
+  min-width: 220px; z-index: 999;
+  box-shadow: 0 8px 28px rgba(0,0,0,.5);
+}
+.nav-dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu a {
+  display: block; padding: 9px 14px;
+  font-size: 14.5px; color: var(--text2);
+  text-decoration: none; border-radius: 6px;
+  transition: background .12s, color .12s;
+  white-space: nowrap;
+}
+.dropdown-menu a:hover { background: var(--bg3); color: var(--text); }
+.dropdown-menu a.active { color: var(--amber); }
+.dropdown-menu a.disabled { color: var(--text3); pointer-events: none; font-style: italic; }
+.dropdown-divider { height: 1px; background: var(--border); margin: 5px 0; }
+
+/* ════════════ 頁面容器 ════════════ */
+.page { max-width: 820px; margin: 0 auto; }
+
+/* ── Header ── */
+.header {
+  background: linear-gradient(135deg, #211a08 0%, #1e2240 100%);
+  border-bottom: 1px solid var(--border2);
+  padding: 32px 20px 24px;
+}
+.header-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--amber); color: #241a02;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.05em;
+  padding: 4px 11px; border-radius: 20px;
+  margin-bottom: 12px; text-transform: uppercase;
+}
+.header h1 { font-size: clamp(22px, 5vw, 29px); font-weight: 700; color: #fff; line-height: 1.4; font-family: 'Noto Serif TC', serif; }
+.header p { margin-top: 10px; font-size: 13.5px; color: var(--muted); line-height: 1.8; }
+
+/* ── 頁內分頁導覽 ── */
+.nav-wrap {
+  position: sticky; top: 54px; z-index: 200;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto; scrollbar-width: none;
+}
+.nav-wrap::-webkit-scrollbar { display: none; }
+.tabnav { display: flex; gap: 0; white-space: nowrap; padding: 0 12px; }
+.tabnav a {
+  display: inline-block; padding: 12px 15px;
+  color: var(--muted); font-size: 14px; font-weight: 500;
+  text-decoration: none; border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.tabnav a:hover, .tabnav a.active { color: var(--amber); border-bottom-color: var(--amber); }
+
+/* ── Section layout ── */
+.section { padding: 30px 18px 8px; scroll-margin-top: 106px; }
+.section-title { display: flex; align-items: center; gap: 11px; margin-bottom: 16px; }
+.section-title .icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.section-title h2 { font-size: 19px; font-weight: 700; color: #fff; font-family: 'Noto Serif TC', serif; line-height: 1.4; }
+.section-subtitle { font-size: 13.5px; color: var(--muted); margin-top: -12px; margin-bottom: 18px; padding-left: 43px; line-height: 1.7; }
+.divider { height: 1px; background: var(--border); margin: 10px 18px; }
+
+/* ── Cards ── */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; }
+.card-title { font-size: 14.5px; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.bullet-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.bullet-list li { display: flex; flex-direction: column; gap: 2px; font-size: 15px; line-height: 1.65; color: var(--text); padding-left: 18px; position: relative; }
+.bullet-list li::before { content: "▸"; color: var(--accent); font-size: 12px; position: absolute; left: 0; top: 3px; }
+.bullet-list .sub { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ── 分類方格 ── */
+.criteria-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+@media (max-width: 560px) { .criteria-grid { grid-template-columns: 1fr; } }
+.crit-card { border-radius: 8px; padding: 14px 15px; border: 1px solid var(--border); }
+.crit-card .label { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px; }
+.crit-card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.crit-card li { font-size: 14px; line-height: 1.6; display: flex; gap: 7px; align-items: flex-start; color: var(--text); }
+.crit-card li::before { content: "·"; color: var(--accent); font-weight: 700; }
+
+/* ── 步驟流程 ── */
+.step-list { display: flex; flex-direction: column; gap: 11px; }
+.step-item { display: flex; gap: 13px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.step-num {
+  width: 28px; height: 28px; border-radius: 50%; background: rgba(227,179,65,.15); color: var(--amber-l);
+  font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-text { font-size: 14.5px; line-height: 1.65; color: var(--text); }
+.step-text b { color: #fff; }
+
+/* ── 比較表 ── */
+.bio-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 4px; }
+.bio-table th {
+  background: var(--surface2); color: var(--muted); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border2);
+}
+.bio-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+.bio-table tr:last-child td { border-bottom: none; }
+.bio-table .tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border2); border-radius: 4px; padding: 2px 8px; font-size: 12px; font-weight: 600; color: var(--muted); }
+.table-scroll { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 14px; -webkit-overflow-scrolling: touch; }
+.table-scroll .bio-table { min-width: 660px; }
+.table-scroll .bio-table th, .table-scroll .bio-table td { border-color: var(--border); }
+.scroll-hint { font-size: 11.5px; color: var(--text3); margin: -8px 0 12px; text-align: right; }
+
+/* ── 領域卡片 ── */
+.domain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 560px) { .domain-grid { grid-template-columns: 1fr; } }
+.domain-card { border-radius: 10px; padding: 16px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
+.domain-card .d-title { font-size: 14.5px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.domain-card .d-icon { font-size: 17px; }
+.domain-card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.domain-card li { font-size: 13.5px; color: var(--muted); line-height: 1.6; padding-left: 13px; position: relative; }
+.domain-card li::before { content: "·"; position: absolute; left: 2px; color: var(--accent); font-weight: 700; }
+.domain-card .hl { color: var(--text); font-weight: 600; }
+.domain-card .note { font-size: 12px; color: var(--muted); font-style: italic; border-top: 1px solid var(--border); padding-top: 8px; margin-top: 2px; }
+
+/* ── 警示 / 資訊框 ── */
+.warning-box { border-left: 3px solid #e24b4a; background: rgba(162,45,45,0.12); border-radius: 0 8px 8px 0; padding: 15px 16px; margin-bottom: 14px; }
+.warning-box .w-title { font-size: 14px; font-weight: 700; color: var(--red-l); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.warning-box ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.warning-box li { font-size: 14px; line-height: 1.6; display: flex; gap: 9px; align-items: flex-start; color: var(--text); }
+.warning-box li::before { content: "!"; color: #e24b4a; font-size: 12px; font-weight: 700; margin-top: 2px; flex-shrink: 0; }
+
+.info-box { border-left: 3px solid var(--accent); background: rgba(227,179,65,0.08); border-radius: 0 8px 8px 0; padding: 15px 16px; margin-bottom: 14px; }
+.info-box .i-title { font-size: 14px; font-weight: 700; color: var(--amber-l); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.info-box p, .info-box li { font-size: 14.5px; line-height: 1.65; color: var(--text); }
+.info-box ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.info-box li { padding-left: 16px; position: relative; }
+.info-box li::before { content: "◆"; color: var(--accent); font-size: 9px; position: absolute; left: 0; top: 6px; }
+
+/* ── 引用標記 ── */
+.cite { font-size: 11.5px; color: var(--text3); font-family: 'JetBrains Mono', monospace; vertical-align: super; margin-left: 1px; }
+
+/* ── 延伸閱讀卡 ── */
+.link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 560px) { .link-grid { grid-template-columns: 1fr; } }
+.link-card {
+  display: block; text-decoration: none; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px; transition: border-color .18s, transform .16s;
+}
+.link-card:hover { border-color: var(--amber-bd); transform: translateY(-2px); }
+.link-card .lc-cat { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--amber); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
+.link-card .lc-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; font-family: 'Noto Serif TC', serif; line-height: 1.4; }
+.link-card .lc-desc { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+.link-card .lc-arrow { margin-top: 12px; font-size: 13px; color: var(--text3); }
+
+/* ── 參考文獻 ── */
+.ref-box { padding: 18px; margin: 0 18px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ref-box h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 14px; }
+.ref-box ol { padding-left: 20px; display: flex; flex-direction: column; gap: 11px; }
+.ref-box li { font-size: 13.5px; line-height: 1.65; color: var(--text2); }
+.ref-box li span { color: var(--text); }
+.ref-box li em { color: var(--text2); }
+
+/* ── 進度條 ── */
+.scroll-indicator { position: fixed; top: 54px; left: 0; right: 0; height: 2px; background: transparent; z-index: 250; }
+.scroll-progress { height: 100%; width: 0%; background: linear-gradient(90deg, var(--amber), var(--teal)); transition: width .1s; }
+
+footer { text-align: center; padding: 32px 18px 8px; color: var(--muted); font-size: 12.5px; line-height: 1.9; }
+
+@media (max-width: 620px) {
+  nav.site-nav { padding: 0 14px; height: 50px; }
+  .nav-logo { font-size: 13px; margin-right: 14px; }
+  .nav-links > a, .nav-dropdown > a { font-size: 13.5px; padding: 6px 10px; }
+  .nav-wrap { top: 50px; }
+  .scroll-indicator { top: 50px; }
+  .section { padding: 26px 15px 8px; scroll-margin-top: 100px; }
+  .section-subtitle { padding-left: 0; margin-top: 0; }
+  .header { padding: 26px 16px 20px; }
+  body { font-size: 15.5px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     站台導覽列
+     新增主題：在 .nav-links 裡複製一個 <div class="nav-dropdown"> 區塊
+     ══════════════════════════════════════════════════ -->
+<nav class="site-nav">
+  <a class="nav-logo" href="index.html">⬡ HCH-FYH Neurology</a>
+  <div class="nav-links">
+    <a href="index.html">首頁</a>
+    <a href="ncs.html">神經傳導</a>
+    <a href="neuro-ultrasound.html">神經超音波</a>
+
+    <div class="nav-dropdown">
+      <a href="migraine_headache.html">頭痛</a>
+      <div class="dropdown-menu">
+        <a href="migraine_headache.html">偏頭痛治療近五年進展</a>
+        <div class="dropdown-divider"></div>
+        <a href="cluster-headache.html" class="disabled">叢發性頭痛（整理中）</a>
+        <a href="moh.html" class="disabled">藥物過度使用性頭痛（整理中）</a>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <a href="dementia.html" class="active">失智症</a>
+      <div class="dropdown-menu">
+        <a href="dementia.html" class="active">失智症總覽</a>
+        <a href="DLB_clinical_guide.html">路易氏體失智症（DLB）</a>
+        <a href="dementia_reversible.html">可治療的失智類疾病</a>
+        <div class="dropdown-divider"></div>
+        <a href="dementia_autoimmune.html" class="disabled">免疫腦炎（整理中）</a>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <a href="epilepsy_psychiatry.html">癲癇</a>
+      <div class="dropdown-menu">
+        <a href="epilepsy_psychiatry.html">癲癇與精神疾病</a>
+        <a href="seizure_mimics.html">像癲癇，不是癲癇</a>
+        <div class="dropdown-divider"></div>
+        <a href="status_epilepticus.html" class="disabled">癲癇積重狀態（整理中）</a>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <a href="#movement">動作障礙</a>
+      <div class="dropdown-menu">
+        <a href="parkinsons_disease.html" class="disabled">巴金森氏症診斷與治療（整理中）</a>
+        <a href="movement_differential.html" class="disabled">動作障礙鑑別診斷（整理中）</a>
+        <a href="movement_medication.html" class="disabled">動作障礙藥物治療（整理中）</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="scroll-indicator"><div class="scroll-progress" id="prog"></div></div>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-badge">🔬 Dementia · 2026 更新</div>
+    <h1>失智症診斷架構與<br>常見類型鑑別</h1>
+    <p>AA 2024 修訂診斷準則 ✦ McKeith DLB 2017 共識 ✦ AT(N) 生物標記框架 ✦ 快速惡化型失智症評估</p>
+  </div>
+
+  <!-- 頁內分頁導覽：新增小節請複製一個 <a href="#id"> -->
+  <div class="nav-wrap">
+    <nav class="tabnav">
+      <a href="#sec-stage" class="active">分期與病史</a>
+      <a href="#sec-types">四型鑑別</a>
+      <a href="#sec-exam">理學檢查</a>
+      <a href="#sec-cog">認知測試</a>
+      <a href="#sec-mri">神經影像</a>
+      <a href="#sec-bio">生物標記</a>
+      <a href="#sec-algo">整合流程</a>
+      <a href="#sec-rpd">快速惡化型</a>
+      <a href="#sec-links">延伸閱讀</a>
+      <a href="#sec-refs">參考文獻</a>
+    </nav>
+  </div>
+
+  <!-- ═══════════════ SECTION 1：分期與病史 ═══════════════ -->
+  <div class="section" id="sec-stage">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(227,179,65,0.15);">📋</div>
+      <h2>Step 1 · 臨床分期與病史問診</h2>
+    </div>
+    <p class="section-subtitle">認知退化的評估需系統性整合病史、理學檢查、神經心理測驗、影像與生物標記</p>
+
+    <div class="card" style="border-color:rgba(227,179,65,0.3); background:rgba(227,179,65,0.06);">
+      <div class="card-title"><div class="dot" style="background:var(--amber);"></div>連續性分期（並非二分法）</div>
+      <ul class="bullet-list">
+        <li><b>主觀認知變化 Subjective Concerns</b><span class="sub">患者自覺變化，但客觀測試結果正常</span></li>
+        <li><b>輕度認知障礙 MCI</b><span class="sub">一項以上認知領域出現客觀缺損，但日常生活活動（ADL）仍保留</span></li>
+        <li><b>失智症 Dementia</b><span class="sub">客觀認知缺損合併工具性 ADL 喪失，如理財、烹飪、交通能力受影響</span></li>
+      </ul>
+      <div class="note" style="margin-top:10px; font-size:12.5px; color:var(--muted); font-style:italic;">患者常缺乏病識感，應盡量取得知情者（家屬／照顧者）佐證病史 <span class="cite">[1]</span></div>
+    </div>
+
+    <div class="criteria-grid">
+      <div class="crit-card" style="background:rgba(88,166,255,.08); border-color:var(--blue-d);">
+        <div class="label" style="color:var(--blue-l);">重點問診方向</div>
+        <ul>
+          <li>是否重複發問、重複講述同樣的事？</li>
+          <li>學習新科技、新工具是否出現困難？</li>
+          <li>理財、記住約診是否開始出問題？</li>
+          <li>判斷力是否改變？對嗜好是否失去興趣？</li>
+        </ul>
+      </div>
+      <div class="crit-card" style="background:rgba(227,179,65,.08); border-color:var(--amber-d);">
+        <div class="label" style="color:var(--amber-l);">病程型態的意義</div>
+        <ul>
+          <li>漸進、隱匿起病 → 提示神經退化性疾病</li>
+          <li>急性或階梯式惡化 → 提示血管性病因</li>
+          <li>數日至數月內快速惡化 → 需啟動 RPD 評估流程</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="i-title">📌 起病年齡的提示</div>
+      <p>早發型阿茲海默症（&lt;65 歲）約占所有 AD 的 5–6%；額顳葉型失智症（FTD）好發於 50–60 歲區間，年齡分布可作為鑑別診斷的輔助線索 <span class="cite">[1]</span>。</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 2：四型鑑別 ═══════════════ -->
+  <div class="section" id="sec-types">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(255,123,181,0.15);">🧠</div>
+      <h2>Step 2 · 四大失智症候群的臨床鑑別</h2>
+    </div>
+    <p class="section-subtitle">依核心症狀模式初步定向，再以檢查逐步收斂診斷</p>
+
+    <div class="domain-grid">
+      <div class="domain-card" style="border-color:rgba(88,166,255,0.3); background:rgba(88,166,255,0.06);">
+        <div class="d-title"><span class="d-icon">🔵</span><span style="color:var(--blue-l);">阿茲海默症 AD（典型）</span></div>
+        <ul>
+          <li>以<span class="hl">記憶力減退</span>為主的失憶症候群：新學習資訊快速遺忘，提示（cueing）後回憶改善有限</li>
+          <li>病程中至少再有一項其他認知領域受影響（語言／視空間／執行功能）</li>
+          <li>社交禮儀多保留至疾病後期</li>
+          <li>非典型變異型：logopenic PPA、後皮質萎縮 PCA、額葉／執行功能主導型 AD</li>
+        </ul>
+        <div class="note">非典型變異型可能酷似 bvFTD，需生物標記輔助鑑別</div>
+      </div>
+
+      <div class="domain-card" style="border-color:rgba(255,123,181,0.3); background:rgba(255,123,181,0.06);">
+        <div class="d-title"><span class="d-icon">🎭</span><span style="color:var(--pink);">行為變異型額顳葉失智症 bvFTD</span></div>
+        <ul>
+          <li>早期且顯著的<span class="hl">人格與行為改變</span>，記憶與視空間功能相對保留</li>
+          <li>診斷需符合下列至少 3 項：早期去抑制、失同理心、淡漠、強迫行為、飲食改變（嗜甜／暴食）、執行功能障礙</li>
+          <li>病識感嚴重喪失，社會認知（心智理論、情緒辨識）明顯受損</li>
+          <li>理學檢查可見額葉釋放反射（吸吮、掌頦、眉心反射）</li>
+        </ul>
+        <div class="note">AD 呈體重下降傾向，bvFTD 常見暴食與嗜甜（對比鑑別點）</div>
+      </div>
+
+      <div class="domain-card" style="border-color:rgba(188,140,255,0.3); background:rgba(188,140,255,0.06);">
+        <div class="d-title"><span class="d-icon">👁️</span><span style="color:var(--purple-l);">路易氏體失智症 DLB</span></div>
+        <ul>
+          <li>核心三主徵：<span class="hl">鮮明視幻覺</span>、<span class="hl">巴金森症</span>、<span class="hl">波動性認知</span>（注意力與警醒度起伏）</li>
+          <li>支持特徵：REM 睡眠行為障礙（常先於認知症狀數年出現）、嚴重抗精神病藥敏感性、自律神經障礙</li>
+          <li>認知測試上視空間、執行功能損傷較 AD 更嚴重，但延遲回憶相對保留</li>
+          <li>完整診斷準則與生物標記，請見下方延伸閱讀之 DLB 專頁</li>
+        </ul>
+        <div class="note">完整版涵蓋 McKeith 2017 第四版共識、α-synuclein SAA 新興標記</div>
+      </div>
+
+      <div class="domain-card" style="border-color:rgba(57,211,83,0.3); background:rgba(57,211,83,0.06);">
+        <div class="d-title"><span class="d-icon">🩸</span><span style="color:var(--teal-l);">血管型失智症 VaD</span></div>
+        <ul>
+          <li>具腦血管危險因子病史，<span class="hl">執行功能障礙</span>（處理速度、注意力、轉換能力）為早期突出表現</li>
+          <li>病程可呈急性起病，或與中風事件時序相關的階梯式惡化</li>
+          <li>影像可見顯著小血管缺血性變化、白質高信號、腔隙性或皮質梗塞</li>
+        </ul>
+        <div class="note">MRI 血管負荷程度是分離 VaD 的關鍵依據</div>
+      </div>
+    </div>
+
+    <div class="table-scroll">
+      <table class="bio-table">
+        <thead>
+          <tr><th>認知領域</th><th>AD</th><th>bvFTD</th><th>DLB</th><th>VaD</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>記憶</td><td>嚴重受損，提示無明顯助益</td><td>早期可相對保留</td><td>延遲回憶優於 AD</td><td>提取障礙為主，編碼相對保留</td></tr>
+          <tr><td>執行功能</td><td>病程後期受損</td><td>早期顯著受損</td><td>顯著受損</td><td>早期顯著受損</td></tr>
+          <tr><td>視空間</td><td>受損（PCA 變異型尤著）</td><td>相對保留</td><td>嚴重受損</td><td>不一定</td></tr>
+          <tr><td>語言</td><td>找字困難、空洞言語</td><td>流暢度下降，可合併 PPA</td><td>相對保留</td><td>不一定</td></tr>
+          <tr><td>社會認知</td><td>輕度受損（續發於整體缺損）</td><td>嚴重受損，獨立於整體認知</td><td>不一定</td><td>不一定</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="scroll-hint">表格可左右滑動 →</div>
+    <div style="font-size:12px; color:var(--text3); padding:0 4px 6px;">改編自 Baratono &amp; Press <span class="cite">[1]</span> 與 Musa 等人 <span class="cite">[2]</span></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 3：理學檢查 ═══════════════ -->
+  <div class="section" id="sec-exam">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(57,211,83,0.15);">🩺</div>
+      <h2>Step 3 · 身體與神經學檢查重點</h2>
+    </div>
+    <p class="section-subtitle">理學徵象往往能將診斷方向大幅收斂 <span class="cite">[1]</span></p>
+
+    <div class="card">
+      <div class="card-title"><div class="dot" style="background:var(--teal);"></div>徵象與對應鑑別方向</div>
+      <ul class="bullet-list">
+        <li>巴金森症（僵直、動作遲緩、靜止顫抖、拖步）<span class="sub">→ 提示 DLB 或巴金森氏症失智症</span></li>
+        <li>額葉釋放反射（掌頦、眉心、吸吮反射）<span class="sub">→ 支持 FTD</span></li>
+        <li>皮質徵象（失用症、異手症、皮質感覺喪失）<span class="sub">→ 可能提示皮質基底核症候群</span></li>
+        <li>肌陣攣（尤其刺激敏感型）<span class="sub">→ 需高度警覺 CJD</span></li>
+        <li>垂直核上性凝視麻痺<span class="sub">→ 提示進行性核上性麻痺 PSP</span></li>
+        <li>姿位性低血壓<span class="sub">→ 支持 DLB 或自律神經衰竭</span></li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <div class="i-title">🧪 常規排除可逆性病因抽血</div>
+      <p>全血球計數、肝腎功能與電解質、維生素 B12、甲狀腺刺激素（TSH）、梅毒血清學、HIV 檢測 <span class="cite">[1,7]</span>。若懷疑可逆性病因，可進一步參考站內「可治療的失智類疾病」專頁。</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 4：認知測試 ═══════════════ -->
+  <div class="section" id="sec-cog">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(88,166,255,0.15);">📝</div>
+      <h2>Step 4 · 認知功能測試</h2>
+    </div>
+    <p class="section-subtitle">正式測驗可記錄缺損的型態與嚴重度</p>
+
+    <div class="card">
+      <ul class="bullet-list">
+        <li><b>MoCA</b>（Montreal Cognitive Assessment）<span class="sub">對非 AD 型失智症的敏感度優於 MMSE <span class="cite">[1,2]</span></span></li>
+        <li><b>ACE-R</b>（Addenbrooke's Cognitive Examination Revised）<span class="sub">可計算 VLOM 係數，輔助鑑別 AD 與 FTD <span class="cite">[2]</span></span></li>
+        <li><b>社會認知測驗</b>（如 Ekman 60 Faces 情緒辨識測驗）<span class="sub">為 bvFTD 與 AD 間最具鑑別力的認知測驗之一，即使兩者皆呈失憶表現時仍具區辨力 <span class="cite">[2]</span></span></li>
+        <li><b>診斷仍不明確時</b><span class="sub">建議轉介完整神經心理測驗</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 5：神經影像 ═══════════════ -->
+  <div class="section" id="sec-mri">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(188,140,255,0.15);">🧲</div>
+      <h2>Step 5 · 神經影像檢查</h2>
+    </div>
+    <p class="section-subtitle">所有認知退化患者建議接受腦部 MRI（優於 CT），以評估萎縮型態、血管病變、發炎、腫瘤與出血 <span class="cite">[1]</span></p>
+
+    <div class="criteria-grid">
+      <div class="crit-card" style="background:rgba(88,166,255,.08); border-color:var(--blue-d);">
+        <div class="label" style="color:var(--blue-l);">結構性 MRI 萎縮型態</div>
+        <ul>
+          <li>AD：海馬迴／內側顳葉不成比例萎縮，合併頂葉萎縮</li>
+          <li>FTD：額葉及／或前顳葉萎縮；前後指數（額顳／頂枕體積比）顯著下降</li>
+          <li>DLB：內側顳葉相對保留，整體萎縮但無明顯海馬迴優先受損</li>
+          <li>VaD：中重度白質高信號、腔隙性或皮質梗塞</li>
+          <li>CJD：DWI/FLAIR 皮質緞帶徵象（cortical ribboning），紋狀體／視丘高訊號</li>
+        </ul>
+      </div>
+      <div class="crit-card" style="background:rgba(227,179,65,.08); border-color:var(--amber-d);">
+        <div class="label" style="color:var(--amber-l);">進階功能性影像</div>
+        <ul>
+          <li>FDG-PET：FTD 呈額葉／前顳葉代謝低下；AD 呈顳頂葉代謝低下</li>
+          <li>DLB 在 FDG-PET 呈枕葉代謝低下，並有「扣帶迴島徵象」（後扣帶迴相對保留）</li>
+          <li>類澱粉 PET（florbetapir/flutemetamol/florbetaben）：陰性結果強烈不支持 AD 為主要病理</li>
+          <li>Tau PET（flortaucipir）：偵測神經纖維纏結</li>
+          <li>DaTscan（多巴胺轉運體 SPECT）：基底核攝取降低，有助 DLB 與 AD 鑑別</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 6：生物標記 ═══════════════ -->
+  <div class="section" id="sec-bio">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(57,211,83,0.15);">🧬</div>
+      <h2>Step 6 · 體液生物標記</h2>
+    </div>
+    <p class="section-subtitle">2024 年 AA 修訂版準則將 AD 定義建立在生物學異常之上，而非僅憑臨床症候群 <span class="cite">[9]</span></p>
+
+    <div class="table-scroll">
+      <table class="bio-table">
+        <thead><tr><th>CSF 標記</th><th>AD 型態變化</th><th>臨床意義</th></tr></thead>
+        <tbody>
+          <tr><td>Aβ42</td><td><span class="tag">↓ 下降</span></td><td>反映腦內類澱粉斑塊沉積</td></tr>
+          <tr><td>Aβ42 / Aβ40 比值</td><td><span class="tag">↓ 下降</span></td><td>準確度優於單獨 Aβ42</td></tr>
+          <tr><td>總 tau（t-tau）</td><td><span class="tag">↑ 上升</span></td><td>神經軸突退化的標記</td></tr>
+          <tr><td>磷酸化 tau（p-tau）</td><td><span class="tag">↑ 上升</span></td><td>與神經纖維纏結病理相關</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="scroll-hint">表格可左右滑動 →</div>
+
+    <div class="info-box">
+      <div class="i-title">🔑 AT(N) 框架與 2024 修訂重點</div>
+      <ul>
+        <li>AD 定義為異常類澱粉（A+）合併異常病理性 tau（T+），與神經退化（N）狀態無關 <span class="cite">[6,9]</span></li>
+        <li>2024 修訂版將 T 進一步細分：<b>T1</b>（早期變化的磷酸化 tau 片段 p-tau217/181/231）與 <b>T2</b>（較晚期變化的體液及 tau PET 標記），並將神經絲輕鏈 NfL 併入 N 類別</li>
+        <li>單一 Core 1 生物標記異常（類澱粉 PET 或 CSF/血漿 Aβ、tau 片段）即足以在有症狀個案中診斷 AD；目前準則不建議對無症狀者常規進行診斷性檢測</li>
+        <li>p-tau/Aβ42 比值在鑑別 AD 與 FTD 的準確度表現最佳 <span class="cite">[6]</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><div class="dot" style="background:var(--purple-l);"></div>不同失智症的 CSF AD-profile 陽性比例</div>
+      <ul class="bullet-list">
+        <li>早發型 AD 約 75%、晚發型 AD 約 73% 被歸類至「AD 群集」<span class="sub"><span class="cite">[6]</span></span></li>
+        <li>FTD 約 94%、VaD 約 91%、DLB 約 87% 被歸類至「非 AD 群集」<span class="sub"><span class="cite">[6]</span></span></li>
+        <li>DLB 約 25% 呈陽性 AD CSF 型態（Aβ42 異常合併 t-tau/p-tau 異常）<span class="sub">提示混合病理 <span class="cite">[6]</span></span></li>
+      </ul>
+    </div>
+
+    <div class="criteria-grid">
+      <div class="crit-card" style="background:rgba(255,123,181,.08); border-color:var(--coral-d);">
+        <div class="label" style="color:var(--coral-l);">血漿生物標記</div>
+        <ul>
+          <li>血漿 p-tau181、p-tau217 對偵測 AD 病理極具潛力</li>
+          <li>PrecivityAD（血漿 Aβ42:40 比值 + ApoE）與 Elecsys Amyloid Plasma Panel（p-tau181 + APOE4）已獲 FDA 突破性裝置認證</li>
+        </ul>
+      </div>
+      <div class="crit-card" style="background:rgba(88,166,255,.08); border-color:var(--blue-d);">
+        <div class="label" style="color:var(--blue-l);">神經絲輕鏈 NfL</div>
+        <ul>
+          <li>神經軸突退化的一般性標記，多種神經退化疾病皆可能上升，並非 AD 專一</li>
+          <li>FTD 與 CJD 常見特別顯著的高 NfL 濃度</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 7：整合流程 ═══════════════ -->
+  <div class="section" id="sec-algo">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(227,179,65,0.15);">🧭</div>
+      <h2>Step 7 · 診斷工具的整合與臨床流程</h2>
+    </div>
+    <p class="section-subtitle">不同檢查各有擅長分離的失智症配對，組合使用可大幅提升準確度 <span class="cite">[5]</span></p>
+
+    <div class="card">
+      <ul class="bullet-list">
+        <li><b>認知測驗</b><span class="sub">最適合區分任何失智症與正常認知</span></li>
+        <li><b>CSF 生物標記</b><span class="sub">最有助於鑑別 AD 與其他失智症</span></li>
+        <li><b>MRI 進階特徵</b>（VBM、TBM、前後指數）<span class="sub">有助於分離 VaD、DLB 與 FTD</span></li>
+        <li><b>組合檢查</b><span class="sub">成對比較之平衡準確度可達 78%–97%；例如 AD vs. FTD 最適合以 CSF 生物標記區分，FTD vs. VaD 則需仰賴 MRI 特徵 <span class="cite">[5]</span></span></li>
+      </ul>
+    </div>
+
+    <div class="section-title" style="margin-top:26px;">
+      <div class="icon" style="background:rgba(57,211,83,0.15);">✅</div>
+      <h2 style="font-size:17px;">臨床實務整合流程</h2>
+    </div>
+    <div class="step-list">
+      <div class="step-item"><div class="step-num">1</div><div class="step-text"><b>病史 + 知情者訪談</b>：確認起病型態、病程與主要症狀領域（記憶／行為／語言／視空間／動作）</div></div>
+      <div class="step-item"><div class="step-num">2</div><div class="step-text"><b>理學檢查</b>：評估巴金森症、額葉釋放反射、肌陣攣、凝視麻痺、自律神經障礙</div></div>
+      <div class="step-item"><div class="step-num">3</div><div class="step-text"><b>認知測試</b>：MoCA 或 ACE-R，並留意領域特異性型態；必要時轉介完整神經心理測驗</div></div>
+      <div class="step-item"><div class="step-num">4</div><div class="step-text"><b>抽血檢查</b>：排除可逆性病因（B12、TSH、CBC、肝腎功能、梅毒、HIV）</div></div>
+      <div class="step-item"><div class="step-num">5</div><div class="step-text"><b>腦部 MRI</b>：評估萎縮型態、血管負荷，並排除結構性病灶</div></div>
+      <div class="step-item"><div class="step-num">6</div><div class="step-text"><b>進階檢查</b>（診斷仍不明確時）：類澱粉 PET 或 CSF 生物標記確認／排除 AD；FDG-PET 鑑別 FTD 與 AD；懷疑 DLB 時安排 DaTscan；病程快速或表現不典型時加做自體免疫／副腫瘤抗體檢測</div></div>
+      <div class="step-item"><div class="step-num">7</div><div class="step-text">早發型、不典型表現、診斷困難或快速惡化個案，應考慮轉介次專科</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 8：快速惡化型 ═══════════════ -->
+  <div class="section" id="sec-rpd">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(226,75,74,0.15);">🚨</div>
+      <h2>特別注意 · 快速惡化型失智症 RPD</h2>
+    </div>
+    <p class="section-subtitle">病程於數日至數月內演變時具診斷急迫性，因不少病因是可逆的 <span class="cite">[7]</span></p>
+
+    <div class="criteria-grid">
+      <div class="crit-card" style="background:rgba(226,75,74,.08); border-color:var(--red-d);">
+        <div class="label" style="color:var(--red-l);">RPD 鑑別診斷</div>
+        <ul>
+          <li>朊蛋白病（CJD）— 病例系列中最常見病因（約 58%）</li>
+          <li>神經退化性疾病（不典型 AD、DLB、FTD，約 23%）</li>
+          <li>自體免疫腦炎（anti-NMDAR、anti-VGKC/LGI1、anti-Hu）</li>
+          <li>血管性病因（血管炎、關鍵部位梗塞、腦類澱粉血管病變）</li>
+          <li>感染性病因（神經性梅毒、HIV、HSV 腦炎、Whipple's disease）</li>
+          <li>毒性代謝性病因（B12 缺乏、Wernicke 腦病、甲狀腺功能異常）</li>
+          <li>腫瘤／副腫瘤病因</li>
+        </ul>
+      </div>
+      <div class="crit-card" style="background:rgba(88,166,255,.08); border-color:var(--blue-d);">
+        <div class="label" style="color:var(--blue-l);">分層檢查策略</div>
+        <ul>
+          <li><b>核心檢查</b>：MRI（含顯影劑）、常規 CSF 分析、EEG、血清篩檢（CBC、代謝套組、B12、TSH、HIV、梅毒）</li>
+          <li><b>擴大檢查</b>：CSF 14-3-3、tau、NSE、自體免疫／副腫瘤抗體</li>
+          <li><b>延伸檢查</b>：RT-QuIC（朊蛋白種子放大檢測）、腦部切片</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <div class="w-title">⚠️ 臨床要點</div>
+      <ul>
+        <li>認知表現的顯著波動常見於自體免疫腦炎（尤其類固醇反應性腦病）與 DLB，但在其他神經退化疾病中相對罕見 — 此為辨識潛在可治療病因的重要線索 <span class="cite">[7]</span></li>
+        <li>CSF RT-QuIC 對 CJD 的特異性可達約 99–100%，靈敏度約 89–96%（依世代及族群而異），為目前特異性最高的生前診斷工具，惟仍存在偽陰性可能，陰性結果不能完全排除診斷</li>
+        <li>快速惡化型失智症應優先啟動「可逆病因」篩檢流程，把握治療時機</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 9：延伸閱讀 ═══════════════ -->
+  <div class="section" id="sec-links">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(188,140,255,0.15);">📚</div>
+      <h2>延伸閱讀</h2>
+    </div>
+    <p class="section-subtitle">本頁為失智症診斷總覽，以下專頁提供更深入的次主題整理</p>
+
+    <div class="link-grid">
+      <a class="link-card" href="DLB_clinical_guide.html">
+        <div class="lc-cat">DLB · Deep Dive</div>
+        <div class="lc-title">路易氏體失智症臨床指引</div>
+        <div class="lc-desc">McKeith 2017 第四版共識、α-synuclein SAA 生物標記、前驅期亞型與治療原則完整整理。</div>
+        <div class="lc-arrow">前往專頁 →</div>
+      </a>
+      <a class="link-card" href="dementia_reversible.html">
+        <div class="lc-cat">Reversible Causes</div>
+        <div class="lc-title">可治療的失智類疾病</div>
+        <div class="lc-desc">甲狀腺功能低下、常壓性水腦、維生素缺乏等可逆性病因的篩檢與治療整理。</div>
+        <div class="lc-arrow">前往專頁 →</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ 參考文獻 ═══════════════ -->
+  <div class="section" id="sec-refs" style="padding-bottom:4px;">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(144,149,168,0.15);">📖</div>
+      <h2>主要參考文獻</h2>
+    </div>
+  </div>
+
+  <div class="ref-box">
+    <h3>核心文獻</h3>
+    <ol>
+      <li><span>Baratono S, Press D.</span> What Are the Key Diagnostic Cognitive Impairment and Dementia Subtypes and How to Integrate all of the Diagnostic Data to Establish a Diagnosis? <em>Clin Geriatr Med.</em> 2023;39(1):77–90. DOI: 10.1016/j.cger.2022.08.002</li>
+      <li><span>Musa G, Slachevsky A, Muñoz-Neira C, et al.</span> Alzheimer's Disease or Behavioral Variant Frontotemporal Dementia? Review of Key Points Toward an Accurate Clinical and Neuropsychological Diagnosis. <em>J Alzheimers Dis.</em> 2019;73(3):833–848. DOI: 10.3233/jad-190924</li>
+      <li><span>Morra LF, Donovick PJ.</span> Clinical presentation and differential diagnosis of dementia with Lewy bodies: a review. <em>Int J Geriatr Psychiatry.</em> 2013;29(6):569–576. DOI: 10.1002/gps.4039</li>
+      <li><span>Gorelick PB.</span> Blood and Cerebrospinal Fluid Biomarkers in Vascular Dementia and Alzheimer's Disease. <em>Clin Geriatr Med.</em> 2023;39(1):67–76. DOI: 10.1016/j.cger.2022.08.001</li>
+      <li><span>Bruun M, Rhodius-Meester HFM, Koikkalainen J, et al.</span> Evaluating combinations of diagnostic tests to discriminate different dementia types. <em>Alzheimers Dement (Amst).</em> 2018;10(1):509–518. DOI: 10.1016/j.dadm.2018.07.003</li>
+      <li><span>Farotti L, Sepe FN, Toja A, Rinaldi R, Parnetti L.</span> Differential diagnosis between Alzheimer's disease and other dementias: Role of cerebrospinal fluid biomarkers. <em>Clin Biochem.</em> 2019;72:24–29. DOI: 10.1016/j.clinbiochem.2019.04.011</li>
+      <li><span>Day GS, Tang-Wai DF.</span> When Dementia Progresses Quickly: A Practical Approach to the Diagnosis and Management of Rapidly Progressive Dementia. <em>Neurodegener Dis Manag.</em> 2014;4(1):41–56. DOI: 10.2217/nmt.13.75</li>
+      <li><span>Geschwind M, Ljubenkov P.</span> Dementia. <em>Semin Neurol.</em> 2016;36(04):397–404. DOI: 10.1055/s-0036-1585096</li>
+      <li><span>Jack CR Jr, et al. (Alzheimer's Association Workgroup).</span> Revised criteria for diagnosis and staging of Alzheimer's disease. <em>Alzheimers Dement.</em> 2024;20(8):5143–5169. DOI: 10.1002/alz.13859；亦見 The Lancet Neurology 評論。2024;23(9):845. DOI: 10.1016/s1474-4422(24)00329-6</li>
+    </ol>
+  </div>
+
+  <footer>
+    <div style="margin-bottom:6px;">HCH-FYH Neurology · AI 輔助整理資源</div>
+    <div>本資料僅供醫療自學教育用途，臨床決策請參照最新學會指引及個別病患狀況</div>
+  </footer>
+
+</div><!-- /page -->
+
+<script>
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('prog').style.width = pct + '%';
+});
+
+const sections = document.querySelectorAll('.section[id]');
+const tabLinks = document.querySelectorAll('.tabnav a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      tabLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
