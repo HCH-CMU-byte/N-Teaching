@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>惡化型腦中風 Stroke-in-Evolution／早期神經惡化（END）實證回顧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --border: #e2ddd6;
+    --text-primary: #1a1814;
+    --text-secondary: #5a5550;
+    --accent: #a4293d;
+    --accent-light: #fbebee;
+    --accent2: #1f5f5b;
+    --accent2-light: #e9f4f3;
+    --green: #2a6b4a;
+    --green-light: #eaf3ee;
+    --orange: #b05a1a;
+    --orange-light: #fdf0e6;
+    --red: #8e2d2d;
+    --red-light: #fdf0f0;
+    --gold: #8a6d1a;
+    --gold-light: #fdf8e6;
+    --font-sans: 'Noto Sans TC', 'Helvetica Neue', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--accent) 0%, #7a1f30 100%);
+    color: #fff;
+    padding: 48px 40px 40px;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .hero h1 .en {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.85;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+  }
+  .hero-sub {
+    font-size: 13.5px;
+    opacity: 0.88;
+    line-height: 1.7;
+    max-width: 780px;
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .badge {
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* Layout */
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 36px 24px 60px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 26px;
+    font-size: 13px;
+  }
+  .toc-title { font-weight: 700; margin-bottom: 8px; color: var(--text-primary); }
+  .toc a {
+    display: inline-block;
+    color: var(--accent2);
+    text-decoration: none;
+    margin: 2px 12px 2px 0;
+    border-bottom: 1px dashed transparent;
+  }
+  .toc a:hover { border-bottom-color: var(--accent2); }
+
+  /* Evidence legend */
+  .legend {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+  }
+  .legend h3 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+  }
+  .legend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .ev-badge {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .ev-1 { background: var(--accent); color: #fff; }
+  .ev-2 { background: var(--accent2); color: #fff; }
+  .ev-3 { background: var(--gold); color: #fff; }
+  .ev-4 { background: #9a9490; color: #fff; }
+  .ev-check { background: var(--green); color: #fff; }
+  .ev-fix   { background: var(--orange); color: #fff; }
+
+  /* Section */
+  .section { margin-bottom: 42px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .section-title { font-size: 19px; font-weight: 700; color: var(--text-primary); }
+  .section-sub { font-size: 12px; color: var(--text-secondary); margin-top: 1px; font-family: var(--font-mono); }
+
+  .subsection { margin-bottom: 22px; }
+  .subsection-title {
+    font-size: 14px; font-weight: 700; color: var(--accent);
+    letter-spacing: 0.02em; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .subsection-title::after { content: ''; flex: 1; height: 1px; background: var(--accent-light); margin-left: 4px; }
+  .subsection-title .en { font-family: var(--font-mono); font-weight: 500; color: var(--text-secondary); font-size: 12px; }
+
+  p.p { margin-bottom: 10px; font-size: 14px; color: var(--text-secondary); }
+  p.p strong { color: var(--text-primary); }
+  .en-term { font-family: var(--font-mono); font-size: 12.5px; color: var(--accent2); }
+
+  /* Card */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .card-head {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 12px; margin-bottom: 6px; flex-wrap: wrap;
+  }
+  .card-title { font-size: 15px; font-weight: 700; color: var(--text-primary); line-height: 1.4; }
+  .card-title .en { display:block; font-family: var(--font-mono); font-weight:500; font-size:12px; color:var(--text-secondary); margin-top:2px;}
+  .card-ev-row { display: flex; align-items: center; gap: 5px; flex-shrink: 0; flex-wrap: wrap; }
+  .card-body { font-size: 13.5px; color: var(--text-secondary); line-height: 1.7; }
+  .card-body ul { padding-left: 18px; margin-top: 6px; }
+  .card-body li { margin-bottom: 4px; }
+  .card-body strong { color: var(--text-primary); }
+  .stat { font-family: var(--font-mono); background: var(--accent-light); color: var(--accent); padding: 1px 5px; border-radius: 3px; font-size: 12.5px; }
+  .ref { font-size: 11.5px; color: #8a8480; font-style: italic; margin-top: 8px; display: block; border-top: 1px dashed var(--border); padding-top: 6px; }
+
+  .card.accent  { border-left: 4px solid var(--accent); }
+  .card.accent2 { border-left: 4px solid var(--accent2); }
+  .card.green   { border-left: 4px solid var(--green); }
+  .card.orange  { border-left: 4px solid var(--orange); }
+  .card.gold    { border-left: 4px solid var(--gold); }
+  .card.red     { border-left: 4px solid var(--red); }
+
+  .new-tag {
+    display: inline-block; background: #e8f9f0; color: #1a6b3a;
+    border: 1px solid #b0dfc0; border-radius: 3px; font-size: 10px; font-weight: 700;
+    padding: 1px 6px; letter-spacing: 0.05em; text-transform: uppercase; margin-left: 4px;
+  }
+  .tw-tag {
+    display: inline-block; background: var(--orange-light); color: #9a4a10;
+    border: 1px solid #f0c890; border-radius: 3px; font-size: 10px; font-weight: 700;
+    padding: 1px 6px; letter-spacing: 0.05em; margin-left: 4px;
+  }
+  .fix-tag {
+    display: inline-block; background: #fff4e0; color: #8a4a00;
+    border: 1px solid #f0c890; border-radius: 3px; font-size: 10px; font-weight: 700;
+    padding: 1px 6px; margin-left: 4px;
+  }
+
+  /* Summary table */
+  .summary-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+  .summary-table th {
+    background: var(--accent); color: #fff; padding: 8px 10px; text-align: left;
+    font-weight: 600; font-size: 12px;
+  }
+  .summary-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; }
+  .summary-table tr:nth-child(even) td { background: #faf9f7; }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .table-scroll { overflow-x: auto; }
+
+  /* Alert box */
+  .alert { border-radius: 6px; padding: 12px 16px; font-size: 13.5px; margin-bottom: 14px; }
+  .alert.info  { background: var(--accent2-light); border-left: 4px solid var(--accent2); }
+  .alert.tw    { background: var(--orange-light); border-left: 4px solid var(--orange); }
+  .alert.warn  { background: var(--red-light); border-left: 4px solid var(--red); }
+  .alert.check { background: var(--green-light); border-left: 4px solid var(--green); }
+  .alert strong { color: var(--text-primary); }
+
+  /* Algorithm steps */
+  .algo { display: flex; flex-direction: column; gap: 10px; }
+  .algo-step {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 16px;
+  }
+  .algo-num {
+    flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--accent); color: #fff; font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .algo-body { font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; }
+  .algo-body strong { color: var(--text-primary); }
+  .algo-arrow { text-align: center; color: var(--text-secondary); font-size: 13px; }
+
+  /* Footer */
+  .doc-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+    padding-top: 20px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+  .doc-footer a { color: var(--accent2); }
+
+  @media (max-width: 640px) {
+    .hero { padding: 32px 20px; }
+    .hero h1 { font-size: 21px; }
+    .container { padding: 24px 16px 48px; }
+    .legend-grid { grid-template-columns: 1fr; }
+    .summary-table { font-size: 11.5px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ 共用導覽列 ══ -->
+<nav style="position:sticky;top:0;z-index:999;
+  background:rgba(13,17,23,0.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:0 20px;display:flex;align-items:center;
+  height:52px;font-family:'Noto Sans TC',sans-serif;gap:0;overflow-x:auto;">
+  <a href="index.html" style="font-size:14px;font-weight:700;
+    color:#58a6ff;margin-right:28px;text-decoration:none;white-space:nowrap;">
+    ⬡ HCH-FYH Neurology
+  </a>
+  <div style="display:flex;flex-wrap:nowrap;gap:2px;">
+    <a href="index.html"            style="color:#8b949e;text-decoration:none;font-size:13px;padding:5px 11px;border-radius:6px;white-space:nowrap;">首頁</a>
+    <a href="ncs.html"              style="color:#8b949e;text-decoration:none;font-size:13px;padding:5px 11px;border-radius:6px;white-space:nowrap;">神經傳導</a>
+    <a href="neuro-ultrasound.html" style="color:#8b949e;text-decoration:none;font-size:13px;padding:5px 11px;border-radius:6px;white-space:nowrap;">神經超音波</a>
+    <a href="migraine_headache.html" style="color:#8b949e;text-decoration:none;font-size:13px;padding:5px 11px;border-radius:6px;white-space:nowrap;">頭痛</a>
+    <a href="dementia.html"         style="color:#8b949e;text-decoration:none;font-size:13px;padding:5px 11px;border-radius:6px;white-space:nowrap;">失智症</a>
+    <a href="epilepsy_psychiatry.html" style="color:#8b949e;text-decoration:none;font-size:13px;padding:5px 11px;border-radius:6px;white-space:nowrap;">癲癇</a>
+    <a href="stroke_progression.html" style="color:#f0b3bd;text-decoration:none;font-size:13px;padding:5px 11px;border-radius:6px;white-space:nowrap;font-weight:700;">腦中風惡化</a>
+  </div>
+</nav>
+<!-- ══ 導覽列結束 ══ -->
+
+<div class="hero">
+  <div class="hero-eyebrow">Clinical Education · Neurology · Cerebrovascular Disease</div>
+  <h1>惡化型腦中風的機轉、危險因子與實證治療
+    <span class="en">Stroke-in-Evolution &amp; Early Neurological Deterioration (END) — Evidence Review 2019–2025</span>
+  </h1>
+  <div class="hero-sub">
+    本頁為對原始教學講義的<strong>實證查核與重新編排</strong>版本：已逐項核對文中引用之近五年（2019–2025）歐美、中國、日本重要臨床試驗與期刊數據，
+    標註查核結果，並更正一處試驗數值誤植（詳見文末〈審閱與查核說明〉）。內容供住院醫師、專科護理師教學參考，非正式治療準則。
+  </div>
+  <div class="hero-badges">
+    <span class="badge">END 定義與流行病學</span>
+    <span class="badge">惡化機轉</span>
+    <span class="badge">危險因子</span>
+    <span class="badge">ARAMIS／DAPT vs. Alteplase</span>
+    <span class="badge">大核心取栓 EVT</span>
+    <span class="badge">血壓管理</span>
+    <span class="badge">PCSK9 抑制劑</span>
+    <span class="badge">實證查核</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <div class="toc-title">本頁目錄</div>
+    <a href="#intro">〇、定義與流行病學</a>
+    <a href="#mech">一、惡化機轉</a>
+    <a href="#risk">二、危險因子</a>
+    <a href="#trials">三、近五年關鍵試驗</a>
+    <a href="#tx">四、實證治療建議</a>
+    <a href="#algo">五、處置流程</a>
+    <a href="#review">六、審閱與查核說明</a>
+    <a href="#refs">七、參考資料</a>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <h3>本頁標示說明</h3>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="ev-badge ev-1">Lv1</span><span>多中心 RCT／已於權威期刊發表且具明確效應量</span></div>
+      <div class="legend-item"><span class="ev-badge ev-2">Lv2</span><span>單一 RCT 或高品質前瞻性世代研究</span></div>
+      <div class="legend-item"><span class="ev-badge ev-3">Lv3</span><span>回溯性研究／小型試驗／初步證據，待更大型研究驗證</span></div>
+      <div class="legend-item"><span class="ev-badge ev-4">Lv4</span><span>機轉研究、病理生理推論或專家意見</span></div>
+      <div class="legend-item"><span class="ev-badge ev-check">✔ 已查核</span><span>已對照原始文獻／權威二次來源核實數據一致</span></div>
+      <div class="legend-item"><span class="ev-badge ev-fix">⚠ 已更正</span><span>原始講義數據與文獻不符，本頁已修正並註明</span></div>
+      <div class="legend-item"><span class="tw-tag" style="margin-left:0">TW</span><span>台灣臨床情境／健保給付相關備註</span></div>
+      <div class="legend-item"><span class="new-tag" style="margin-left:0">NEW</span><span>2023 年以後發表之最新證據</span></div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 0: INTRO ===== -->
+  <div class="section" id="intro">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--accent-light);">🧠</div>
+      <div>
+        <div class="section-title">〇、定義與流行病學</div>
+        <div class="section-sub">Definitions &amp; Epidemiology</div>
+      </div>
+    </div>
+    <p class="p">「惡化型中風」（stroke-in-evolution／progressive stroke）泛指急性缺血性腦中風後數小時至數日內神經學症狀持續惡化，
+      現多以「早期神經功能惡化」<span class="en-term">early neurological deterioration, END</span> 稱之。文獻報告發生率介於
+      <strong>5–40%</strong>，差異主要來自各研究採用的定義不同<span class="ev-badge ev-2" style="margin-left:4px">Lv2</span>。</p>
+    <p class="p">最常見的操作型定義為：發病 <strong>48–72 小時內 NIHSS 上升 ≥2 分</strong>，或單一肢體肌力下降 ≥1 分
+      <span class="en-term">（NIHSS increase ≥2 points, or ≥1-point motor decline within 48–72h）</span>。
+      一項前瞻性研究顯示，發生 END 的病人 3 個月時預後不良（mRS &gt;2）比率高達 <span class="stat">94.1%</span>，
+      相較非 END 病人的 <span class="stat">58.8%</span>，顯示 END 是強烈影響預後與死亡率的臨床事件。</p>
+    <div class="alert warn"><strong>臨床意義：</strong>END 並非單一疾病，而是多重病理機轉（血流動力學、血栓進展、興奮毒性、發炎、水腫、代謝異常）交互作用下的<strong>共同臨床表現</strong>，
+      因此治療策略須依據可能主導的機轉、影像特徵與病人共病狀況個別化擬定，而非套用單一處方。</div>
+  </div>
+
+  <!-- ===== SECTION 1: MECHANISM ===== -->
+  <div class="section" id="mech">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--accent2-light);">⚙️</div>
+      <div>
+        <div class="section-title">一、可能的惡化機轉</div>
+        <div class="section-sub">Possible Mechanisms of Progression</div>
+      </div>
+    </div>
+
+    <div class="card accent2">
+      <div class="card-head">
+        <div class="card-title">1.1 血流動力學失代償與側枝循環不足
+          <span class="en">Hemodynamic Failure &amp; Collateral Insufficiency</span></div>
+        <div class="card-ev-row"><span class="ev-badge ev-2">Lv2</span></div>
+      </div>
+      <div class="card-body">
+        大血管阻塞後，缺血半影區（penumbra）的存活高度仰賴軟腦膜側枝循環。發病 24 小時內腦血管反應性
+        <span class="en-term">cerebrovascular reactivity, CVR</span> 受損者，其後續發生 END 的風險約增加 8 倍。
+        側枝循環不佳者在一項研究中占 END 病人的 <span class="stat">79.4%</span>；Toni 等人的經典血管攝影研究亦顯示側枝循環缺乏是惡化的獨立預測因子，
+        而側枝循環良好則預測早期改善。
+      </div>
+    </div>
+
+    <div class="card accent2">
+      <div class="card-head">
+        <div class="card-title">1.2 血栓延展與分支動脈粥狀硬化病（BAD）
+          <span class="en">Thrombus Propagation &amp; Branch Atheromatous Disease</span></div>
+        <div class="card-ev-row"><span class="ev-badge ev-3">Lv3</span></div>
+      </div>
+      <div class="card-body">
+        腔隙性中風的惡化常與 <strong>分支動脈粥狀硬化病</strong>（<span class="en-term">BAD</span>）有關：穿通動脈開口處的微粥狀斑塊
+        與母動脈斑塊相連，導致血栓向近端或遠端延展，逐漸阻塞側支穿通動脈。BAD 型梗塞病人的進行性運動功能缺損與不良預後比率，
+        顯著高於單純脂肪玻璃樣變性（lipohyalinosis）病人。
+      </div>
+    </div>
+
+    <div class="card accent2">
+      <div class="card-head">
+        <div class="card-title">1.3 興奮性毒性 <span class="en">Excitotoxicity</span></div>
+        <div class="card-ev-row"><span class="ev-badge ev-3">Lv3</span></div>
+      </div>
+      <div class="card-body">
+        神經元去極化釋放大量細胞外麩胺酸（glutamate），過度活化 NMDA 受體，導致鈣離子大量內流、活化分解代謝酶並造成延遲性神經元死亡。
+        發病 24 小時內血漿麩胺酸 <span class="stat">&gt;200 μmol/L</span> 對後續 END 有高達 97% 的陽性預測值；
+        麩胺酸與神經保護性 GABA 之間的失衡是關鍵指標——惡化病人麩胺酸偏高、GABA 偏低。
+      </div>
+    </div>
+
+    <div class="card accent2">
+      <div class="card-head">
+        <div class="card-title">1.4 發炎反應 <span class="en">Inflammation</span></div>
+        <div class="card-ev-row"><span class="ev-badge ev-3">Lv3</span></div>
+      </div>
+      <div class="card-body">
+        促發炎細胞激素（IL-1、IL-6、TNF-α）、黏附分子（ICAM-1）及基質金屬蛋白酶-9（MMP-9）在進展型中風病人中皆升高，
+        促進白血球黏附遷移、微血管阻塞、血腦屏障破壞與水腫。入院時白血球數、纖維蛋白原及體溫較高者，亦與惡化相關。
+      </div>
+    </div>
+
+    <div class="card accent2">
+      <div class="card-head">
+        <div class="card-title">1.5 腦水腫 <span class="en">Brain Edema</span></div>
+        <div class="card-ev-row"><span class="ev-badge ev-3">Lv3</span></div>
+      </div>
+      <div class="card-body">
+        內皮損傷與血腦屏障失能造成血漿滲出；周邊水腫可能壓迫鄰近小穿通動脈而擴大缺血範圍。惟文獻指出水腫僅可解釋<strong>少數</strong> END 事件，
+        並非最主要機轉。
+      </div>
+    </div>
+
+    <div class="card accent2">
+      <div class="card-head">
+        <div class="card-title">1.6 高血糖與代謝失衡 <span class="en">Hyperglycemia &amp; Metabolic Derangement</span></div>
+        <div class="card-ev-row"><span class="ev-badge ev-2">Lv2</span></div>
+      </div>
+      <div class="card-body">
+        高血糖經由厭氧糖解造成組織酸中毒、自由基生成與血腦屏障破壞而加重缺血性損傷。一項世代研究顯示入院高血糖與 END 獨立相關
+        （<span class="stat">OR 1.015／每 mg/dL；95% CI 1.005–1.024</span>）；另一研究亦指出空腹血糖與靜脈溶栓後 END 獨立相關。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 2: RISK FACTORS ===== -->
+  <div class="section" id="risk">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--gold-light);">📊</div>
+      <div>
+        <div class="section-title">二、危險因子分析</div>
+        <div class="section-sub">Risk Factor Analysis for Neurological Deterioration</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">臨床預測因子 <span class="en">Clinical Predictors</span></div>
+      <div class="table-scroll">
+      <table class="summary-table">
+        <thead><tr><th style="width:26%">因子</th><th>重點數據</th></tr></thead>
+        <tbody>
+          <tr><td><strong>入院時中風嚴重度</strong></td><td>END 病人平均 NIHSS 16 分，非 END 病人 9.4 分——入院 NIHSS 越高，惡化風險越高</td></tr>
+          <tr><td><strong>糖尿病</strong></td><td>與惡化持續相關，橋腦梗塞與 BAD 型梗塞尤其明顯</td></tr>
+          <tr><td><strong>入院高血糖</strong></td><td>校正後仍為 END 獨立預測因子</td></tr>
+          <tr><td><strong>低血清白蛋白</strong></td><td>獨立預測因子（<span class="stat">OR 0.208；95% CI 0.077–0.562</span>），可能反映營養不良與發炎調節受損</td></tr>
+          <tr><td><strong>高三酸甘油酯血症</strong></td><td>部分系列研究中為獨立預測因子</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">影像預測因子 <span class="en">Imaging Predictors</span></div>
+      <div class="table-scroll">
+      <table class="summary-table">
+        <thead><tr><th style="width:26%">因子</th><th>重點數據</th></tr></thead>
+        <tbody>
+          <tr><td><strong>大血管阻塞（LVO）</strong></td><td>END 病人中占 <span class="stat">55.8%</span>，非 END 病人僅 <span class="stat">35.8%</span></td></tr>
+          <tr><td><strong>低 ASPECTS 分數</strong></td><td>END 病人平均 5.6 分，非 END 病人 7.4 分</td></tr>
+          <tr><td><strong>側枝循環不良</strong></td><td>END 病人中占 <span class="stat">79.4%</span></td></tr>
+          <tr><td><strong>病灶位置</strong></td><td>孤立性橋腦梗塞中，腹側橋腦位置與 DWI 軸切病灶較寬者惡化風險較高；幕上腔隙性中風則以放射冠、內囊後肢病灶風險較高</td></tr>
+          <tr><td><strong>出血性轉化與腫塊效應增加</strong></td><td>追蹤影像上出現者提示惡化風險升高</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">生化與生物標記 <span class="en">Biochemical / Biomarker Predictors</span></div>
+      <div class="card gold">
+        <div class="card-head">
+          <div class="card-title">紅血球分布寬度／血小板比值（RPR）<span class="en">RDW-to-Platelet Ratio</span></div>
+          <div class="card-ev-row"><span class="ev-badge ev-2">Lv2</span><span class="ev-badge ev-check">✔ 已查核</span></div>
+        </div>
+        <div class="card-body">
+          一項新型發炎指標，與靜脈溶栓後 END 獨立相關（<span class="stat">OR 2.031；95% CI 1.436–2.873</span>）。
+          最佳切點 <span class="stat">RPR &gt; 7.66</span> 預測 END 的敏感度 <span class="stat">61.3%</span>、特異度 <span class="stat">81.9%</span>
+          （AUC 0.772）。
+          <span class="ref">Jiang M, et al. J Stroke Cerebrovasc Dis. 2023;32(7):107146. doi:10.1016/j.jstrokecerebrovasdis.2023.107146 —
+          數值已對照 PubMed 摘要核實，與原始講義一致。</span>
+        </div>
+      </div>
+      <p class="p">此外，較高的 C 反應蛋白（CRP）與 D-dimer 亦見於 END 病人；入院時較快心跳與較低血色素在單變項分析中亦與 END 相關，惟證據強度較弱（Lv3–4）。</p>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: TRIALS ===== -->
+  <div class="section" id="trials">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--accent-light);">🔬</div>
+      <div>
+        <div class="section-title">三、近五年關鍵臨床試驗（2019–2025）</div>
+        <div class="section-sub">Recent Clinical Trials — Fact-Checked</div>
+      </div>
+    </div>
+
+    <div class="alert check"><strong>查核總結：</strong>以下五項試驗／證據已逐一比對 PubMed、原始期刊摘要或權威二次評論（如 REBEL EM、tctmd、The Lancet）。
+      除 <strong>ANGEL-ASPECT</strong> 的效應量數字經核實後需要更正外，其餘試驗之關鍵數據與原始講義描述一致。</div>
+
+    <!-- ARAMIS -->
+    <div class="card accent">
+      <div class="card-head">
+        <div class="card-title">ARAMIS 試驗（2023）— 雙抗血小板治療 vs. 靜脈 Alteplase，輕度非失能型中風
+          <span class="en">Chen HS, et al. JAMA. 2023;329(24):2135–2144.</span></div>
+        <div class="card-ev-row"><span class="ev-badge ev-1">Lv1</span><span class="ev-badge ev-check">✔ 已查核</span></div>
+      </div>
+      <div class="card-body">
+        中國 38 家醫院、多中心、開放標籤、非劣性試驗，納入 NIHSS ≤5 分之非失能型急性缺血性中風病人（<span class="stat">n=760</span>），
+        4.5 小時內隨機分派至 <strong>DAPT</strong>（clopidogrel 300mg 負荷＋aspirin 100mg，續行約 12 天）或 <strong>IV alteplase</strong>（0.9 mg/kg）。
+        <ul>
+          <li>主要終點：90 天優良功能預後（mRS 0–1）— DAPT <span class="stat">93.8%</span> vs. Alteplase <span class="stat">91.4%</span>（風險差 2.3%，95% CI −1.5% 至 6.2%，符合非劣性）</li>
+          <li>24 小時內早期神經惡化：DAPT 組顯著較低（<span class="stat">4.6%</span> vs. <span class="stat">9.1%</span>；風險差 −4.5%，95% CI −8.2% 至 −0.8%）</li>
+          <li>症狀性顱內出血：DAPT <span class="stat">0.3%</span> vs. Alteplase <span class="stat">0.9%</span></li>
+        </ul>
+        <strong>解讀：</strong>對於輕度非失能型中風（NIHSS ≤5），DAPT 可作為避免溶栓出血風險、療效不遜於 alteplase 的替代選項，並可能減少早期惡化事件。
+        惟研究族群以中國漢族為主、交叉治療率達 20.4%，外推至其他族群與醫療體系時應保守。
+        <span class="ref">Chen HS, Cui Y, Zhou ZH, et al. JAMA. 2023;329(24):2135–2144. doi:10.1001/jama.2023.7827 — 數值已核對 REBEL EM 臨床評讀與 JAMA 原文摘要。</span>
+      </div>
+    </div>
+
+    <!-- Evolocumab -->
+    <div class="card accent">
+      <div class="card-head">
+        <div class="card-title">PCSK9 抑制劑（Evolocumab）預防 END<span class="new-tag">NEW</span>
+          <span class="en">Tian W, et al. CNS Drugs. 2025;39(2):197–208.</span></div>
+        <div class="card-ev-row"><span class="ev-badge ev-1">Lv1</span><span class="ev-badge ev-check">✔ 已查核</span></div>
+      </div>
+      <div class="card-body">
+        多中心、前瞻性、開放標籤 RCT，納入非心因性急性缺血性中風病人（<span class="stat">n=272</span>），發病 24 小時內隨機分派至
+        <strong>evolocumab 140mg 皮下注射＋atorvastatin 40mg</strong>（PI 組）或 <strong>atorvastatin 單一治療</strong>（AT 組）。
+        <ul>
+          <li>7 天內 END 發生率：PI 組 <span class="stat">13.2%</span> vs. AT 組 <span class="stat">24.3%</span>（RR −0.90，95% CI −1.59 至 −0.22，p=0.010）</li>
+          <li>90 天良好功能預後（mRS ≤2）：PI 組 <span class="stat">83.1%</span> vs. AT 組 <span class="stat">65.4%</span>（p=0.001）</li>
+          <li>合併治療組 LDL-C 達標率（第 7 天）74.3% vs. 14.7%，並顯著抑制 IL-6 上升</li>
+        </ul>
+        <strong>解讀：</strong>急性期強化降脂合併抗發炎介入，可能是降低 END 的新策略，但樣本仍屬中型單一族群研究，尚待歐美、多族群大型試驗驗證後才能列入常規建議。
+        <span class="ref">Tian W, Cao H, Li X, et al. CNS Drugs. 2025;39(2):197–208. doi:10.1007/s40263-024-01145-5 — 數值已核對原文摘要，與原始講義一致。</span>
+      </div>
+    </div>
+
+    <!-- Large core EVT -->
+    <div class="card accent">
+      <div class="card-head">
+        <div class="card-title">大核心梗塞取栓試驗群 <span class="fix-tag">⚠ 數值已更正</span>
+          <span class="en">RESCUE-Japan LIMIT (2022) · ANGEL-ASPECT (2023) · SELECT2 (2023)</span></div>
+        <div class="card-ev-row"><span class="ev-badge ev-1">Lv1</span><span class="ev-badge ev-fix">⚠ 已更正</span></div>
+      </div>
+      <div class="card-body">
+        三項試驗共同將機械取栓（EVT）適應症擴大至大核心梗塞（ASPECTS 3–5）病人，發病 24 小時內仍可考慮取栓：
+        <ul>
+          <li><strong>RESCUE-Japan LIMIT</strong>（日本，NEJM 2022）：率先證實大核心病人 EVT 效益，後續兩試驗於 2023 年驗證一致方向</li>
+          <li><strong>ANGEL-ASPECT</strong>（中國，n=456，NEJM 2023）：90 天 mRS 移位分析，EVT 優於藥物治療，<strong>廣義勝算比 1.37（95% CI 1.11–1.69，p=0.004）</strong></li>
+          <li><strong>SELECT2</strong>（美加歐澳紐，NEJM 2023）：同樣顯示效益，廣義勝算比 1.51（95% CI 1.20–1.89，p&lt;0.001），亦涵蓋核心體積 ≥50–150 mL 之極大核心病人</li>
+        </ul>
+        <div class="alert warn" style="margin-top:8px;margin-bottom:0;">
+          <strong>查核更正：</strong>原始講義將 ANGEL-ASPECT 效應量誤植為「OR 1.55（95% CI 1.17–2.0）」。
+          經比對 NEJM 原文與多篇獨立評論（Medscape、Clinical Neuroradiology、tctmd）確認，正確數值為
+          <strong>廣義勝算比 1.37（95% CI 1.11–1.69，p=0.004）</strong>，已於上方更正；症狀性顱內出血與早期神經惡化在 EVT 組數值上略高，
+          臨床上仍需在具神經重症照護能力的中心密切監測。
+        </div>
+        <span class="ref">Jha RM, Sheth KN. Stroke. 2023;54(10):2671–2675（原始講義引用）；ANGEL-ASPECT 原文：NEJM 2023；查核來源：Medscape (2023-02-16)、Clin Neuroradiol 2023;33:597–599、tctmd.com。</span>
+      </div>
+    </div>
+
+    <!-- ENCHANTED2/MT -->
+    <div class="card accent">
+      <div class="card-head">
+        <div class="card-title">ENCHANTED2/MT — 取栓後血壓管理
+          <span class="en">Yang P, et al. Lancet. 2022;400:1585–1596.</span></div>
+        <div class="card-ev-row"><span class="ev-badge ev-1">Lv1</span><span class="ev-badge ev-check">✔ 已查核</span></div>
+      </div>
+      <div class="card-body">
+        中國 44 家醫院、多中心 RCT（<span class="stat">n=821</span>），成功取栓後血壓仍偏高之病人隨機分派至
+        <strong>強效降壓（SBP &lt;120 mmHg）</strong> vs. <strong>寬鬆降壓（SBP 140–180 mmHg）</strong>。
+        <ul>
+          <li>90 天 mRS 移位分析：強效降壓組預後<strong>較差</strong>（勝算比 <span class="stat">1.37；95% CI 1.07–1.76</span>）</li>
+          <li>提示成功再灌流後過度積極降壓，可能因側枝血流灌注不足而損害神經功能恢復</li>
+        </ul>
+        <strong>臨床意涵：</strong>取栓成功後應避免過度積極降血壓，建議維持收縮壓於 140–180 mmHg 範圍，而非追求更低目標。
+        <span class="ref">Yang P, Song L, Zhang Y, et al. Lancet. 2022;400:1585–1596. doi:10.1016/S0140-6736(22)01882-7 — 數值已核對原文與 tctmd、MDedge 報導，與原始講義一致。</span>
+      </div>
+    </div>
+
+    <!-- Tirofiban -->
+    <div class="card accent">
+      <div class="card-head">
+        <div class="card-title">Tirofiban 於進展型中風之初步證據
+          <span class="en">Lin L, et al. J Neurol Sci. 2017;383:175–179.</span></div>
+        <div class="card-ev-row"><span class="ev-badge ev-3">Lv3</span></div>
+      </div>
+      <div class="card-body">
+        並非近五年大型 RCT，而是一篇 2017 年安全性／有效性觀察研究：對無明顯血管阻塞、發病 &gt;4.5 小時之急性缺血性中風病人給予 IV tirofiban，
+        <span class="stat">84%</span> 於 90 天達良好預後（mRS 0–1），對照組僅 <span class="stat">52%</span>（校正後 OR 10.57，95% CI 1.54–72.33），且無顱內出血事件。
+        早期研究亦提示 tirofiban 對小血管／腔隙性進展型中風可能特別有幫助。
+        <div class="alert warn" style="margin-top:8px;margin-bottom:0;">
+          <strong>查核提醒：</strong>此為單中心小型觀察性研究，非隨機對照試驗，信賴區間極寬（1.54–72.33），證據等級應歸類為 <strong>Lv3（初步證據）</strong>，
+          臨床應用仍需等待大型 RCT（如目前進行中之相關試驗）證實後方可視為標準治療。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: TREATMENT ===== -->
+  <div class="section" id="tx">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--green-light);">💊</div>
+      <div>
+        <div class="section-title">四、實證治療建議</div>
+        <div class="section-sub">Evidence-Based Treatment Suggestions</div>
+      </div>
+    </div>
+
+    <div class="alert info"><strong>使用提醒：</strong>目前國際上（AHA/ASA、ESO）並無專門針對「END／惡化型中風」的獨立治療準則，
+      多數建議源自急性缺血性中風整體照護準則（如 AHA/ASA 2019 及後續 focused update）搭配上述個別試驗證據推論而成。
+      下列建議屬於<strong>證據整合後之教學參考</strong>，非官方準則逐字翻譯，實際處置仍應依當地機構規範與最新版準則為準。</div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.1 急性再灌流治療 <span class="en">Acute Reperfusion</span></div>
+      <div class="card-body" style="margin-bottom:10px">
+        <ul>
+          <li><strong>靜脈溶栓（Alteplase）</strong>：4.5 小時內符合適應症者仍為標準治療；惟輕度非失能型中風（NIHSS ≤5）可依 ARAMIS 證據考慮 DAPT 作為替代<span class="ev-badge ev-1" style="margin-left:4px">Lv1</span></li>
+          <li><strong>機械取栓（EVT）</strong>：大血管阻塞病人可於 24 小時內考慮，含中至大核心梗塞（依 ANGEL-ASPECT／SELECT2／RESCUE-Japan LIMIT 選取條件）<span class="ev-badge ev-1" style="margin-left:4px">Lv1</span></li>
+          <li>取栓後<strong>避免過度積極降壓</strong>，建議收縮壓維持 140–180 mmHg（依 ENCHANTED2/MT）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.2 抗血小板治療 <span class="en">Antiplatelet Therapy</span></div>
+      <div class="card-body" style="margin-bottom:10px">
+        <ul>
+          <li><strong>Aspirin</strong>：48 小時內給予 300mg（溶栓病人延後至 24 小時後）</li>
+          <li><strong>雙抗血小板治療（DAPT）</strong>：輕度非失能型中風（NIHSS ≤5）可考慮 clopidogrel 300mg 負荷後 75mg/day＋aspirin 100mg/day，約 12–21 天，證據來自 ARAMIS 與較早的 CHANCE/POINT 試驗</li>
+          <li><strong>Tirofiban（GP IIb/IIIa 抑制劑）</strong>：可於腔隙性／小血管進展型中風、且不適合溶栓時段之病人考慮使用，惟證據等級僅 Lv3，須審慎評估出血風險。劑量參考：IV bolus 0.4 μg/kg/min × 30 分，續以 0.1 μg/kg/min 輸注 24 小時</li>
+          <li><strong>Cilostazol</strong>：於腔隙性中風二級預防可能有角色，尚無足夠證據證實可阻止惡化</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.3 血壓管理 <span class="en">Blood Pressure Management</span></div>
+      <div class="card-body" style="margin-bottom:10px">
+        <ul>
+          <li><strong>未溶栓病人</strong>：可容許性高血壓，收縮壓最高可容忍至 220/120 mmHg，以維持半影區灌流</li>
+          <li><strong>溶栓前</strong>：血壓必須 &lt;185/110 mmHg 方可給藥</li>
+          <li><strong>取栓後再灌流成功者</strong>：避免積極降壓，目標收縮壓 140–180 mmHg（ENCHANTED2/MT）</li>
+          <li><strong>慢性期</strong>：發病 24–48 小時後可啟動／恢復降壓藥物（ACE inhibitor 類證據較充分）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.4 代謝與支持性照護 <span class="en">Metabolic &amp; Supportive Care</span></div>
+      <div class="card-body" style="margin-bottom:10px">
+        <ul>
+          <li><strong>血糖控制</strong>：維持 140–180 mg/dL，避免高血糖與低血糖</li>
+          <li><strong>體溫管理</strong>：積極處理發燒（&gt;38°C）</li>
+          <li><strong>氧合</strong>：維持 SpO₂ &gt;94%</li>
+          <li><strong>營養評估</strong>：低白蛋白為 END 獨立預測因子，應及早介入營養支持</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.5 降脂與抗發炎策略 <span class="en">Lipid-Lowering &amp; Anti-Inflammatory</span></div>
+      <div class="card-body" style="margin-bottom:10px">
+        <ul>
+          <li><strong>高強度 Statin</strong>（atorvastatin 40–80mg）：儘早介入，穩定斑塊並降低發炎</li>
+          <li><strong>PCSK9 抑制劑（Evolocumab）</strong><span class="new-tag">NEW</span>：24 小時內合併 statin 使用，於非心因性中風可能降低 END 發生率與改善 90 天預後（Tian et al. 2025），惟仍屬新興證據</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.6 神經保護策略 <span class="en">Neuroprotective Strategies</span></div>
+      <div class="card-body" style="margin-bottom:10px">
+        <ul>
+          <li><strong>硫酸鎂</strong>：IMAGES 試驗顯示 12 小時內給藥於腔隙性／非皮質中風亞群可能有效，機轉上或可對抗興奮毒性</li>
+          <li><strong>Edaravone</strong>：自由基清除劑，部分亞洲國家使用，與 cilostazol 併用於較大腔隙性梗塞顯示安全性</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.7 外科介入 <span class="en">Surgical Interventions</span></div>
+      <div class="card-body" style="margin-bottom:10px">
+        <ul>
+          <li><strong>減壓性半顱切除術</strong>：用於惡性大腦中動脈症候群（大範圍半球梗塞併進行性水腫）。60 歲以下病人 48 小時內施行可使死亡率降低約 50%；年長病人效益較不確定，需個別化決策</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.8 監測與照護組織 <span class="en">Monitoring &amp; Care Organization</span></div>
+      <div class="card-body">
+        <ul>
+          <li><strong>中風單位照護</strong>：多專科團隊監測與早期復健，已證實可改善預後</li>
+          <li><strong>頻繁神經學評估</strong>：發病前 72 小時內每 4–6 小時以 NIHSS 評估，及早偵測惡化</li>
+          <li><strong>重複影像</strong>：懷疑 END 時應立即安排 CT/MRI，排除出血性轉化、水腫惡化或新發梗塞</li>
+          <li><strong>神經重症監測</strong>：約 5–20% 急性缺血性中風病人需要 ICU 等級的生理監測與管理</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 5: ALGORITHM ===== -->
+  <div class="section" id="algo">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--red-light);">🧭</div>
+      <div>
+        <div class="section-title">五、惡化型中風／END 處置流程摘要</div>
+        <div class="section-sub">Summary Algorithm</div>
+      </div>
+    </div>
+
+    <div class="algo">
+      <div class="algo-step">
+        <div class="algo-num">1</div>
+        <div class="algo-body"><strong>辨識高風險病人：</strong>入院 NIHSS 高、糖尿病／高血糖、大血管阻塞、側枝循環不良、影像上 BAD 型梗塞、發炎指標（RPR、CRP）升高。</div>
+      </div>
+      <div class="algo-arrow">↓</div>
+      <div class="algo-step">
+        <div class="algo-num">2</div>
+        <div class="algo-body"><strong>第一線急性治療：</strong>4.5 小時內考慮靜脈溶栓（無禁忌症者）±機械取栓（大血管阻塞）；輕度非失能型中風可考慮 DAPT 替代溶栓（ARAMIS）。</div>
+      </div>
+      <div class="algo-arrow">↓</div>
+      <div class="algo-step">
+        <div class="algo-num">3</div>
+        <div class="algo-body"><strong>若出現惡化徵象：</strong>
+          <ul style="margin-top:6px;padding-left:18px">
+            <li>立即安排 CT/MRI 排除出血</li>
+            <li>未溶栓者維持可容許性高血壓（收縮壓可達 220/120）</li>
+            <li>腔隙性／小血管型進展可考慮 tirofiban（審慎評估出血風險）</li>
+            <li>嚴格血糖控制、積極退燒</li>
+          </ul>
+        </div>
+      </div>
+      <div class="algo-arrow">↓</div>
+      <div class="algo-step">
+        <div class="algo-num">4</div>
+        <div class="algo-body"><strong>預防二次惡化：</strong>及早給予高強度 statin ± PCSK9 抑制劑；輕度中風給予 DAPT；轉入中風單位密切監測。</div>
+      </div>
+      <div class="algo-arrow">↓</div>
+      <div class="algo-step">
+        <div class="algo-num">5</div>
+        <div class="algo-body"><strong>惡性水腫時：</strong>及早神經外科會診，評估 48 小時內減壓性半顱切除術（尤其 60 歲以下病人）。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 6: REVIEW NOTES ===== -->
+  <div class="section" id="review">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--orange-light);">🔍</div>
+      <div>
+        <div class="section-title">六、審閱與查核說明</div>
+        <div class="section-sub">Fact-Check Summary &amp; Methodology</div>
+      </div>
+    </div>
+
+    <div class="card green">
+      <div class="card-head"><div class="card-title">查核方式</div></div>
+      <div class="card-body">
+        逐項以 PubMed、原始期刊全文摘要、以及具公信力之二次臨床評論（REBEL EM、tctmd.com、Medscape、The Lancet、AHA Journals blog、Clinical Neuroradiology 等）
+        對照原始講義所引用之近五年（2019–2025）試驗數據，包含樣本數、主要與次要結果之效應量、信賴區間與 p 值。
+      </div>
+    </div>
+
+    <div class="card check" style="border-left:4px solid var(--green)">
+      <div class="card-head"><div class="card-title">✔ 已核實一致的內容</div></div>
+      <div class="card-body">
+        <ul>
+          <li>ARAMIS 試驗（DAPT vs. alteplase）之主要結果、早期神經惡化率與症狀性顱內出血數據</li>
+          <li>Evolocumab／PCSK9 抑制劑試驗之樣本數（n=272）、END 發生率與 90 天 mRS 結果</li>
+          <li>ENCHANTED2/MT 試驗之樣本數（n=821）與勝算比（1.37，95% CI 1.07–1.76）</li>
+          <li>RPR（紅血球分布寬度／血小板比值）之勝算比、切點、敏感度與特異度</li>
+          <li>各項病理機轉描述（血流動力學、興奮毒性、發炎、水腫、高血糖）之方向性與定性描述，均與現有文獻一致</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--orange)">
+      <div class="card-head"><div class="card-title">⚠ 已更正的內容</div></div>
+      <div class="card-body">
+        原始講義中 <strong>ANGEL-ASPECT 試驗</strong>的效應量誤植為「勝算比 1.55（95% CI 1.17–2.0）」。
+        經查核 NEJM 原始論文與多篇獨立報導，正確數值應為<strong>廣義勝算比 1.37（95% CI 1.11–1.69，p=0.004）</strong>，已於本頁三之「大核心梗塞取栓試驗群」段落更正並註明來源。
+      </div>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--gold)">
+      <div class="card-head"><div class="card-title">⚑ 解讀時應留意的限制</div></div>
+      <div class="card-body">
+        <ul>
+          <li><strong>族群代表性：</strong>ARAMIS、Evolocumab、RPR、ANGEL-ASPECT 等關鍵試驗皆於中國進行，病人族群、共病結構與醫療體系與台灣、歐美不盡相同，外推時應保守解讀效應量。</li>
+          <li><strong>END 定義不一致：</strong>不同研究對 END 的操作型定義略有差異（如 ARAMIS 之次分析採 NIHSS ≥4 分惡化，而流行病學數據多採 ≥2 分），比較跨研究數據時應留意定義差異對發生率之影響。</li>
+          <li><strong>準則層級證據不足：</strong>目前 AHA/ASA、ESO 等國際準則尚未針對「END 專屬治療」發布獨立建議章節，本頁第四節之整合建議屬於教學用途之證據綜整，並非直接翻譯自任一官方準則條文，臨床應用仍應以當地最新版準則與專科醫師判斷為準。</li>
+          <li><strong>Tirofiban 證據薄弱：</strong>現有支持證據多為小型觀察性研究，信賴區間寬，尚無大型 RCT 佐證，臨床使用需個別評估出血風險。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer" id="refs">
+    <strong>參考資料（已於查核過程逐項核對）</strong><br>
+    1. Del Bene A, et al. Progressive Lacunar Stroke: Review of Mechanisms, Prognostic Features, and Putative Treatments. <em>Int J Stroke</em>. 2012;7(4):321–329. doi:10.1111/j.1747-4949.2012.00789.x<br>
+    2. Serena J, et al. Deterioration in Acute Ischemic Stroke as the Target for Neuroprotection. <em>Cerebrovasc Dis</em>. 2006;21(Suppl 2):80–88. doi:10.1159/000091707<br>
+    3. Lopez-Yunez AM. The Management of Stroke Patients by Neurologists. <em>Semin Neurol</em>. 2002;22(1):53–62. doi:10.1055/s-2002-33048<br>
+    4. Sharma A, et al. Early neurological deterioration in acute ischemic stroke. <em>Ir J Med Sci</em>. 2023;193(2):949–955. doi:10.1007/s11845-023-03485-5<br>
+    5. Yang H, et al. Neuroimaging markers of END in acute isolated pontine infarction. <em>Neurol Sci</em>. 2023;44(10):3607–3614. doi:10.1007/s10072-023-06837-2<br>
+    6. Tian W, Cao H, Li X, et al. Adjunctive PCSK9 Inhibitor Evolocumab in the Prevention of END in Non-cardiogenic AIS. <em>CNS Drugs</em>. 2025;39(2):197–208. doi:10.1007/s40263-024-01145-5 ✔ 已查核<br>
+    7. Chen HS, Cui Y, Zhou ZH, et al. Dual Antiplatelet Therapy vs Alteplase for Minor Nondisabling AIS: ARAMIS. <em>JAMA</em>. 2023;329(24):2135–2144. doi:10.1001/jama.2023.7827 ✔ 已查核<br>
+    8. Jha RM, Sheth KN. 2023 Neurocritical Care Updates in Cerebrovascular Disease. <em>Stroke</em>. 2023;54(10):2671–2675. doi:10.1161/strokeaha.123.043018；ANGEL-ASPECT 原文（NEJM 2023）與 SELECT2（NEJM 2023）、RESCUE-Japan LIMIT（NEJM 2022）⚠ 效應量已更正；ENCHANTED2/MT: Yang P, et al. <em>Lancet</em>. 2022;400:1585–1596 ✔ 已查核<br>
+    9. Ganesh RV, Luoma V, Reddy U. Acute management of ischaemic stroke. <em>Anaesth Intensive Care Med</em>. 2022;23(12):747–753. doi:10.1016/j.mpaic.2022.10.004<br>
+    10. Jiang M, Shen J, Muhammad B, Geng D. RDW-to-platelet ratio predicts END after IV thrombolysis. <em>J Stroke Cerebrovasc Dis</em>. 2023;32(7):107146. doi:10.1016/j.jstrokecerebrovasdis.2023.107146 ✔ 已查核<br>
+    11. Lin L, et al. Safety and preliminary efficacy of IV tirofiban in AIS without arterial occlusion. <em>J Neurol Sci</em>. 2017;383:175–179. doi:10.1016/j.jns.2017.10.041<br><br>
+    <em>本文件基於公開發表之學術文獻彙整並經 AI 協助查核，僅供醫療教育用途，不能取代正式臨床準則或個別病人之專業醫療判斷。
+    查核日期：2026 年 8 月；資料若有更新，請以最新發表文獻與所屬醫療機構規範為準。</em>
+  </div>
+
+</div>
+</body>
+</html>
