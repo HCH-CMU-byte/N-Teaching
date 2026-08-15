@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCS / EMG AI Interpreter — HCH Neurology</title>
+
+<!-- ════════════════════════════════════════════════════
+     🔧 步驟1：把您的 Firebase 設定貼在這裡
+     在 Firebase Console → 專案設定 → 您的應用程式 → 複製 firebaseConfig
+     ════════════════════════════════════════════════════ -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getFirestore, collection, addDoc, getDocs, query, where, orderBy, limit, serverTimestamp }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  import { getStorage, ref, uploadString, getDownloadURL }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
+
+  /* ▼▼▼ 請將下方物件替換為您的 Firebase 設定 ▼▼▼ */
+  const firebaseConfig = {
+    apiKey:            "貼上您的 apiKey",
+    authDomain:        "貼上您的 authDomain",
+    projectId:         "貼上您的 projectId",
+    storageBucket:     "貼上您的 storageBucket",
+    messagingSenderId: "貼上您的 messagingSenderId",
+    appId:             "貼上您的 appId"
+  };
+  /* ▲▲▲ 替換到這裡為止 ▲▲▲ */
+
+  const app  = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db   = getFirestore(app);
+  const stor = getStorage(app);
+  const provider = new GoogleAuthProvider();
+
+  /* ── 掛載到 window 讓後面的 script 使用 ── */
+  window._fb = { auth, db, stor, provider,
+    signInWithPopup, signOut, onAuthStateChanged,
+    collection, addDoc, getDocs, query, where, orderBy, limit, serverTimestamp,
+    ref, uploadString, getDownloadURL };
+</script>
+
+<!-- ════════════════════════════════════════════════════
+     🔧 步驟2：把您的 Anthropic API 金鑰貼在這裡
+     (或讓使用者自己在頁面上輸入，更安全)
+     ════════════════════════════════════════════════════ -->
+<!-- 選項A：硬寫金鑰（僅限內部教學，不可公開） -->
+<!-- <script>window.FIXED_API_KEY = "sk-ant-api03-...";</script> -->
+
+<style>
+:root{
+  --bg:#0f1117;--bg2:#181c27;--bg3:#1e2435;
+  --border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.14);
+  --text:#e8eaf0;--text2:#9ba3b8;--text3:#636b82;
+  --accent:#5b8dee;--accent2:#3d6dd4;
+  --green:#34c97e;--red:#f2504a;--amber:#f5a623;--teal:#2dd4bf;
+  --radius:10px;--radius2:16px;
+  --mono:'JetBrains Mono','Fira Code',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;line-height:1.65;min-height:100vh}
+
+header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 20px;height:54px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100}
+.logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--teal));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:#fff;flex-shrink:0}
+.logo-text{font-weight:600;font-size:14px}
+.logo-sub{font-size:11px;color:var(--text3);margin-right:auto}
+.user-area{display:flex;align-items:center;gap:8px;margin-left:auto}
+.avatar{width:28px;height:28px;border-radius:50%;object-fit:cover;border:1.5px solid var(--border2)}
+.user-name{font-size:12px;color:var(--text2)}
+.btn-sm{background:transparent;border:1px solid var(--border2);color:var(--text2);font-size:12px;padding:5px 10px;border-radius:7px;cursor:pointer;transition:border-color .15s,color .15s}
+.btn-sm:hover{border-color:var(--accent);color:var(--accent)}
+
+.workspace{display:grid;grid-template-columns:360px 1fr;min-height:calc(100vh - 54px)}
+.left{background:var(--bg2);border-right:1px solid var(--border);padding:18px;display:flex;flex-direction:column;gap:16px;overflow-y:auto;max-height:calc(100vh - 54px)}
+.right{padding:22px;overflow-y:auto;max-height:calc(100vh - 54px);display:flex;flex-direction:column;gap:18px}
+
+.sec{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
+
+.upload-zone{border:1.5px dashed var(--border2);border-radius:var(--radius2);padding:18px 14px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;background:var(--bg3);position:relative}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--accent);background:rgba(91,141,238,.06)}
+.upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.upload-zone p{font-size:12px;color:var(--text2)}
+.thumb-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.thumb{width:64px;height:64px;border-radius:8px;object-fit:cover;border:1px solid var(--border2);cursor:pointer}
+.thumb:hover{border-color:var(--accent)}
+
+textarea,select,input[type=text],input[type=password]{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-size:13px;font-family:inherit;padding:9px 12px;transition:border-color .2s}
+textarea{line-height:1.6;resize:vertical}
+textarea:focus,select:focus,input:focus{outline:none;border-color:var(--accent)}
+textarea::placeholder,input::placeholder{color:var(--text3)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 18px;border-radius:var(--radius);font-size:14px;font-weight:500;cursor:pointer;border:none;transition:background .15s,transform .1s,opacity .2s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff;width:100%}
+.btn-primary:hover{background:var(--accent2)}
+.btn-primary:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--text2);font-size:12px;padding:5px 12px}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+.empty-state{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--text3);text-align:center;padding:50px 20px}
+.empty-state h3{font-size:15px;color:var(--text2);font-weight:500}
+.empty-state p{font-size:12px;max-width:300px}
+
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden}
+.card-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.card-body{padding:16px}
+.badge{font-size:11px;font-weight:600;padding:2px 7px;border-radius:5px;font-family:var(--mono)}
+.ba{background:rgba(52,201,126,.15);color:var(--green)}
+.bp{background:rgba(245,166,35,.15);color:var(--amber)}
+.bd{background:rgba(242,80,74,.15);color:var(--red)}
+
+.opinions{display:flex;flex-direction:column;gap:7px}
+.orow{display:flex;align-items:flex-start;gap:8px;font-size:12px;line-height:1.5}
+.orow .ic{flex-shrink:0;margin-top:2px}
+.oa .ic{color:var(--green)}
+.od .ic{color:var(--red)}
+.on .ic{color:var(--amber)}
+.ot .ic{color:var(--teal)}
+
+.report-block{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:14px 16px;font-family:var(--mono);font-size:12px;line-height:1.8;color:#c8d0e8;white-space:pre-wrap}
+.sec-h4{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.sec-h4::after{content:'';flex:1;height:1px;background:var(--border)}
+
+.loading-bar{height:3px;background:var(--bg3);border-radius:2px;overflow:hidden;margin-bottom:14px}
+.loading-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--teal));animation:prog 2.5s ease-in-out infinite;width:60%}
+@keyframes prog{0%{transform:translateX(-100%)}100%{transform:translateX(250%)}}
+
+.hist-item{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:9px 12px;cursor:pointer;transition:border-color .15s}
+.hist-item:hover{border-color:var(--accent)}
+.hi-date{font-size:10px;color:var(--text3);font-family:var(--mono)}
+.hi-sum{font-size:12px;color:var(--text2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.toast{position:fixed;bottom:20px;right:20px;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:10px 16px;font-size:12px;color:var(--text);z-index:999;transform:translateY(60px);opacity:0;transition:transform .25s,opacity .25s}
+.toast.show{transform:translateY(0);opacity:1}
+
+.login-wall{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:60px 20px;text-align:center}
+.login-wall h2{font-size:18px;font-weight:500}
+.login-wall p{font-size:13px;color:var(--text2);max-width:320px}
+.btn-google{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;background:#fff;color:#333;border:none;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;transition:box-shadow .2s}
+.btn-google:hover{box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.btn-google svg{width:20px;height:20px;flex-shrink:0}
+
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:12px}
+.tab{padding:6px 12px;font-size:12px;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+
+@media(max-width:860px){.workspace{grid-template-columns:1fr}.left{max-height:none;border-right:none;border-bottom:1px solid var(--border)}.right{max-height:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">N</div>
+  <div>
+    <div class="logo-text">NCS · EMG Interpreter</div>
+    <div class="logo-sub">HCH Neurology — AANEM Guidelines</div>
+  </div>
+  <div class="user-area" id="userArea">
+    <button class="btn-sm" onclick="doLogin()">Google 登入</button>
+  </div>
+</header>
+
+<div class="workspace">
+  <!-- LEFT -->
+  <div class="left" id="leftPanel">
+    <div class="login-wall" id="loginWall">
+      <div style="font-size:40px">🔬</div>
+      <h2>請先登入</h2>
+      <p>使用醫院 Google 帳號登入，判讀結果將自動雲端留存</p>
+      <button class="btn-google" onclick="doLogin()">
+        <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20H24v8h11.3C33.6 33.4 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c2.9 0 5.5 1 7.6 2.7l5.7-5.7C33.7 6.1 29.1 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20c11 0 19.7-7.9 19.7-20 0-1.3-.1-2.7-.1-4z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 16 19 12 24 12c2.9 0 5.5 1 7.6 2.7l5.7-5.7C33.7 6.1 29.1 4 24 4c-7.6 0-14.2 4.4-17.7 10.7z"/><path fill="#4CAF50" d="M24 44c5 0 9.6-1.9 13-5l-6-5.2C29.2 35.3 26.7 36 24 36c-5.2 0-9.6-3.5-11.3-8.3l-6.6 5.1C9.7 39.6 16.4 44 24 44z"/><path fill="#1976D2" d="M43.6 20H24v8h11.3c-.8 2.3-2.4 4.2-4.3 5.5l6 5.2C40.8 35.6 44 30.2 44 24c0-1.3-.1-2.7-.4-4z"/></svg>
+        使用 Google 帳號登入
+      </button>
+    </div>
+
+    <div id="mainForm" style="display:none;flex-direction:column;gap:14px">
+
+      <!-- Anthropic key -->
+      <div>
+        <div class="sec">🔑 Anthropic API 金鑰</div>
+        <input type="password" id="apiKey" placeholder="sk-ant-api03-…" autocomplete="off">
+        <div style="font-size:10px;color:var(--text3);margin-top:4px">金鑰僅存本機瀏覽器，不上傳伺服器</div>
+      </div>
+
+      <!-- Upload -->
+      <div>
+        <div class="sec">📋 上傳報告影像</div>
+        <div class="upload-zone" id="dropZone">
+          <input type="file" accept="image/*" multiple id="fileInput" onchange="handleFiles(this.files)">
+          <div style="font-size:26px;margin-bottom:6px">🔬</div>
+          <p>拖曳或點擊上傳 NCS / EMG 報告照片</p>
+          <span style="font-size:11px;color:var(--text3)">支援 JPG、PNG，可多張</span>
+        </div>
+        <div class="thumb-row" id="thumbRow"></div>
+      </div>
+
+      <!-- Clinical context -->
+      <div>
+        <div class="sec">👤 臨床背景（選填）</div>
+        <textarea id="ctx" rows="2" placeholder="例：38歲男性，主訴左手乏力2個月，無外傷史"></textarea>
+      </div>
+
+      <!-- Resident interpretation -->
+      <div>
+        <div class="sec">📝 住院醫師判讀意見</div>
+        <textarea id="interp" rows="5" placeholder="請填入您的初步判讀，例如：
+• 左腋神經嚴重單神經病變
+• Deltoid去神經，徵召明顯減少
+• 考慮Parsonage-Turner syndrome"></textarea>
+      </div>
+
+      <!-- Focus -->
+      <div>
+        <div class="sec">🎯 評核重點</div>
+        <select id="focus">
+          <option value="comprehensive">全面判讀</option>
+          <option value="localization">病灶定位</option>
+          <option value="pathophysiology">軸索 vs 脫髓鞘</option>
+          <option value="ddx">鑑別診斷</option>
+          <option value="report">報告格式</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary" id="submitBtn" onclick="runAnalysis()" disabled>
+        🧠 送出 AI 判讀
+      </button>
+
+      <!-- History -->
+      <div id="histSec" style="display:none">
+        <div class="sec" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <span>📚 雲端判讀紀錄</span>
+          <button class="btn-ghost" onclick="loadHistory()" style="font-size:10px;padding:3px 8px">重新整理</button>
+        </div>
+        <div id="histList" style="display:flex;flex-direction:column;gap:5px"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right" id="rightPanel">
+    <div class="empty-state" id="emptyState">
+      <div style="font-size:44px">🧬</div>
+      <h3>等待判讀資料輸入</h3>
+      <p>上傳 NCS / EMG 報告影像，填入判讀意見後，AI 將根據 AANEM 準則評分</p>
+    </div>
+    <div id="resultArea" style="display:none;flex-direction:column;gap:16px"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const S = { images:[], user:null, apiKey:'' };
+
+/* ── AUTH ── */
+window.addEventListener('load', () => {
+  const saved = localStorage.getItem('ncs_key');
+  if(saved){ S.apiKey=saved; document.getElementById('apiKey').value=saved; }
+  if(window.FIXED_API_KEY){ S.apiKey=window.FIXED_API_KEY; }
+
+  const fb = window._fb;
+  if(!fb){ toast('Firebase 設定未完成，請填入 firebaseConfig'); return; }
+
+  fb.onAuthStateChanged(fb.auth, user => {
+    S.user = user;
+    updateAuthUI(user);
+    if(user) loadHistory();
+  });
+
+  document.getElementById('apiKey').addEventListener('input', e => {
+    S.apiKey = e.target.value.trim();
+    localStorage.setItem('ncs_key', S.apiKey);
+    checkReady();
+  });
+  document.getElementById('interp').addEventListener('input', checkReady);
+  setupDrop();
+});
+
+function updateAuthUI(user){
+  const ua = document.getElementById('userArea');
+  const lw = document.getElementById('loginWall');
+  const mf = document.getElementById('mainForm');
+  const hs = document.getElementById('histSec');
+
+  if(user){
+    ua.innerHTML = `
+      <img class="avatar" src="${user.photoURL||''}" alt="">
+      <span class="user-name">${user.displayName||user.email}</span>
+      <button class="btn-sm" onclick="doLogout()">登出</button>`;
+    lw.style.display='none';
+    mf.style.display='flex';
+    hs.style.display='block';
+  } else {
+    ua.innerHTML=`<button class="btn-sm" onclick="doLogin()">Google 登入</button>`;
+    lw.style.display='flex';
+    mf.style.display='none';
+  }
+}
+
+async function doLogin(){
+  try{ await window._fb.signInWithPopup(window._fb.auth, window._fb.provider); }
+  catch(e){ toast('登入失敗：'+e.message); }
+}
+async function doLogout(){
+  await window._fb.signOut(window._fb.auth);
+  S.images=[];
+  document.getElementById('thumbRow').innerHTML='';
+  document.getElementById('emptyState').style.display='flex';
+  document.getElementById('resultArea').style.display='none';
+}
+
+/* ── UPLOAD ── */
+function setupDrop(){
+  const z = document.getElementById('dropZone');
+  z.addEventListener('dragover', e=>{ e.preventDefault(); z.classList.add('drag'); });
+  z.addEventListener('dragleave', ()=>z.classList.remove('drag'));
+  z.addEventListener('drop', e=>{ e.preventDefault(); z.classList.remove('drag'); handleFiles(e.dataTransfer.files); });
+}
+function handleFiles(files){
+  Array.from(files).forEach(f=>{
+    if(!f.type.startsWith('image/')) return;
+    const r = new FileReader();
+    r.onload = e=>{
+      const b64 = e.target.result.split(',')[1];
+      S.images.push({ b64, mime:f.type, name:f.name, preview:e.target.result });
+      renderThumbs(); checkReady();
+    };
+    r.readAsDataURL(f);
+  });
+}
+function renderThumbs(){
+  document.getElementById('thumbRow').innerHTML = S.images.map((img,i)=>
+    `<img class="thumb" src="${img.preview}" title="${img.name}" onclick="removeImg(${i})" title="點擊移除">`).join('');
+}
+function removeImg(i){ S.images.splice(i,1); renderThumbs(); checkReady(); }
+
+function checkReady(){
+  const ok = S.images.length>0 && !!S.apiKey && document.getElementById('interp').value.trim().length>10;
+  document.getElementById('submitBtn').disabled = !ok;
+}
+
+/* ── ANALYSIS ── */
+async function runAnalysis(){
+  if(!S.user){ toast('請先登入'); return; }
+  const btn = document.getElementById('submitBtn');
+  btn.disabled=true; btn.textContent='⏳ 分析中…';
+
+  document.getElementById('emptyState').style.display='none';
+  const ra = document.getElementById('resultArea');
+  ra.style.display='flex';
+  ra.innerHTML=`<div class="loading-bar"><div class="loading-bar-fill"></div></div>
+    <div style="font-size:12px;color:var(--text3);text-align:center">正在比對 AANEM 準則，請稍候（約15–30秒）…</div>`;
+
+  const interp = document.getElementById('interp').value.trim();
+  const ctx    = document.getElementById('ctx').value.trim();
+  const focus  = document.getElementById('focus').value;
+  const focusMap = {
+    comprehensive:'全面評核判讀正確性、病灶定位、鑑別診斷與報告格式',
+    localization:'重點評核神經病灶定位的準確性',
+    pathophysiology:'重點評核軸索損傷 vs 脫髓鞘的病理生理判斷',
+    ddx:'重點評核鑑別診斷的合理性與完整性',
+    report:'重點評核報告格式是否符合 AANEM 標準'
+  };
+
+  const sys = `You are a senior peripheral neurologist and electrodiagnostician following AANEM guidelines through 2024.
+Evaluate a neurology resident's NCS/EMG interpretation. Respond ONLY with this exact JSON, no markdown:
+{"agreement_level":"AGREE|PARTIAL|DISAGREE","agreement_score":<0-100>,"key_findings":[<str>],"agree_points":[<str>],"disagree_points":[<str>],"missed_findings":[<str>],"teaching_notes":[<str>],"impression_report":"<3 lines ≤100 words AANEM-style English separated by \\n>","recommended_next_steps":[<str>]}
+Rules: cite actual values from images; reference AANEM normal values explicitly; impression_report must be exactly 3 lines in AANEM academic format; educational tone.`;
+
+  const userMsg = `${ctx?`Clinical context: ${ctx}\n\n`:''}Focus: ${focusMap[focus]}\nResident's interpretation:\n${interp}`;
+  const imgContent = S.images.map(img=>({ type:'image', source:{ type:'base64', media_type:img.mime, data:img.b64 } }));
+
+  let result;
+  try{
+    const res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{ 'Content-Type':'application/json', 'x-api-key': S.apiKey, 'anthropic-version':'2023-06-01' },
+      body: JSON.stringify({ model:'claude-sonnet-4-6', max_tokens:1500, system:sys,
+        messages:[{ role:'user', content:[...imgContent,{ type:'text', text:userMsg }] }] })
+    });
+    if(!res.ok){ const e=await res.json().catch(()=>({})); throw new Error(e.error?.message||`HTTP ${res.status}`); }
+    const data = await res.json();
+    const raw = data.content.find(b=>b.type==='text')?.text||'{}';
+    result = JSON.parse(raw.replace(/```json|```/g,'').trim());
+
+    await saveToFirebase(result, interp, ctx);
+    renderResult(result);
+    loadHistory();
+
+  } catch(e){
+    ra.innerHTML=`<div style="background:rgba(242,80,74,.1);border:1px solid rgba(242,80,74,.3);border-radius:var(--radius);padding:14px;color:var(--red);font-size:13px"><strong>分析失敗：</strong>${e.message}</div>`;
+  } finally {
+    btn.disabled=false; btn.textContent='🧠 送出 AI 判讀'; checkReady();
+  }
+}
+
+/* ── FIREBASE SAVE ── */
+async function saveToFirebase(result, interp, ctx){
+  const fb = window._fb;
+  if(!fb||!S.user) return;
+  try{
+    // 儲存圖片到 Storage
+    const imageURLs = [];
+    for(let i=0; i<S.images.length; i++){
+      const img = S.images[i];
+      const path = `reports/${S.user.uid}/${Date.now()}_${i}.jpg`;
+      const imgRef = fb.ref(fb.stor, path);
+      await fb.uploadString(imgRef, img.b64, 'base64', { contentType: img.mime });
+      const url = await fb.getDownloadURL(imgRef);
+      imageURLs.push(url);
+    }
+    // 儲存判讀記錄到 Firestore
+    await fb.addDoc(fb.collection(fb.db,'interpretations'),{
+      uid: S.user.uid,
+      userName: S.user.displayName||S.user.email,
+      createdAt: fb.serverTimestamp(),
+      clinicalContext: ctx,
+      residentInterpretation: interp,
+      aiResult: result,
+      imageURLs,
+      imageCount: S.images.length
+    });
+    toast('已自動儲存至雲端 ✓');
+  } catch(e){ toast('雲端儲存失敗：'+e.message); }
+}
+
+/* ── LOAD HISTORY ── */
+async function loadHistory(){
+  const fb = window._fb;
+  if(!fb||!S.user) return;
+  try{
+    const q = fb.query(
+      fb.collection(fb.db,'interpretations'),
+      fb.where('uid','==',S.user.uid),
+      fb.orderBy('createdAt','desc'),
+      fb.limit(15)
+    );
+    const snap = await fb.getDocs(q);
+    const items = [];
+    snap.forEach(doc => items.push({ id:doc.id, ...doc.data() }));
+    renderHistory(items);
+  } catch(e){ console.warn('載入歷史失敗',e); }
+}
+
+function renderHistory(items){
+  const hl = document.getElementById('histList');
+  if(!items.length){ hl.innerHTML=`<div style="font-size:12px;color:var(--text3)">尚無判讀紀錄</div>`; return; }
+  const cm = { AGREE:'var(--green)', PARTIAL:'var(--amber)', DISAGREE:'var(--red)' };
+  hl.innerHTML = items.map(h=>{
+    const date = h.createdAt?.seconds ? new Date(h.createdAt.seconds*1000).toLocaleString('zh-TW') : '–';
+    const score = h.aiResult?.agreement_score??'?';
+    const level = h.aiResult?.agreement_level||'';
+    const summary = (h.residentInterpretation||'').slice(0,55);
+    return `<div class="hist-item" onclick="showHistItem(${JSON.stringify(h).replace(/"/g,'&quot;')})">
+      <div class="hi-date">${date} · <span style="color:${cm[level]||'var(--text3)'}">${score}/100</span> · ${h.imageCount||0}張</div>
+      <div class="hi-sum">${summary}…</div>
+    </div>`;
+  }).join('');
+}
+
+function showHistItem(h){
+  document.getElementById('emptyState').style.display='none';
+  const ra = document.getElementById('resultArea');
+  ra.style.display='flex';
+  const r = h.aiResult||{};
+  ra.innerHTML=`
+    <div style="background:rgba(91,141,238,.08);border:1px solid rgba(91,141,238,.2);border-radius:var(--radius);padding:10px 14px;font-size:11px;color:var(--text3)">
+      歷史記錄 · ${h.createdAt?.seconds?new Date(h.createdAt.seconds*1000).toLocaleString('zh-TW'):'–'}
+    </div>
+    <div class="card">
+      <div class="card-header"><span style="font-weight:500;font-size:13px">AANEM 結論報告</span>
+        <button class="btn-ghost" onclick="navigator.clipboard.writeText(document.getElementById('histReport').textContent)">複製</button>
+      </div>
+      <div class="card-body"><div class="report-block" id="histReport">${r.impression_report||'–'}</div></div>
+    </div>
+    ${h.imageURLs?.length?`<div style="display:flex;gap:8px;flex-wrap:wrap">${h.imageURLs.map(u=>`<img src="${u}" style="height:80px;border-radius:8px;border:1px solid var(--border2)">`).join('')}</div>`:''}
+    <button class="btn-ghost" onclick="document.getElementById('emptyState').style.display='flex';document.getElementById('resultArea').style.display='none'">← 返回</button>`;
+}
+
+/* ── RENDER RESULT ── */
+function renderResult(r){
+  const lm = { AGREE:['ba','✓ 判讀正確'], PARTIAL:['bp','◑ 部分正確'], DISAGREE:['bd','✗ 需要修正'] };
+  const [bc,bt] = lm[r.agreement_level]||['bp','–'];
+  const sc = r.agreement_score>=75?'var(--green)':r.agreement_score>=50?'var(--amber)':'var(--red)';
+
+  const oHTML = (arr,cls,ic) => (arr||[]).map(p=>`<div class="orow ${cls}"><span class="ic">${ic}</span><span>${p}</span></div>`).join('');
+
+  document.getElementById('resultArea').innerHTML=`
+    <div class="card">
+      <div class="card-header">
+        <span style="font-weight:500;font-size:13px">AI 評核結果</span>
+        <span class="badge ${bc}">${bt}</span>
+        <span style="margin-left:auto;font-size:20px;font-weight:700;color:${sc}">${r.agreement_score}<span style="font-size:11px;color:var(--text3)">/100</span></span>
+      </div>
+      <div class="card-body" style="display:flex;flex-direction:column;gap:14px">
+        ${r.key_findings?.length?`<div><div class="sec-h4">📊 關鍵數值</div><div class="opinions">${oHTML(r.key_findings,'ot','•')}</div></div>`:''}
+        <div><div class="sec-h4">✓ 同意</div><div class="opinions">${oHTML(r.agree_points,'oa','✓')||'<span style="font-size:12px;color:var(--text3)">無</span>'}</div></div>
+        ${r.disagree_points?.length?`<div><div class="sec-h4">✗ 不同意</div><div class="opinions">${oHTML(r.disagree_points,'od','✗')}</div></div>`:''}
+        ${r.missed_findings?.length?`<div><div class="sec-h4">⚠ 遺漏</div><div class="opinions">${oHTML(r.missed_findings,'on','⚠')}</div></div>`:''}
+        ${r.teaching_notes?.length?`<div><div class="sec-h4">📖 教學要點</div><div class="opinions">${oHTML(r.teaching_notes,'ot','→')}</div></div>`:''}
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span style="font-weight:500;font-size:13px">🏛 AANEM 格式結論報告</span>
+        <button class="btn-ghost" onclick="navigator.clipboard.writeText(document.getElementById('repBlock').textContent).then(()=>toast('已複製 ✓'))">複製</button>
+      </div>
+      <div class="card-body"><div class="report-block" id="repBlock">${r.impression_report||''}</div></div>
+    </div>
+
+    ${r.recommended_next_steps?.length?`<div class="card">
+      <div class="card-header"><span style="font-weight:500;font-size:13px">🔬 建議後續處置</span></div>
+      <div class="card-body">${r.recommended_next_steps.map(s=>`<div style="font-size:12px;color:var(--text2);padding:4px 0;border-bottom:1px solid var(--border)">• ${s}</div>`).join('')}</div>
+    </div>`:''}
+
+    <button class="btn-ghost" onclick="resetView()">← 重新判讀</button>`;
+}
+
+function resetView(){
+  S.images=[];
+  document.getElementById('thumbRow').innerHTML='';
+  document.getElementById('interp').value='';
+  document.getElementById('ctx').value='';
+  document.getElementById('emptyState').style.display='flex';
+  document.getElementById('resultArea').style.display='none';
+  checkReady();
+}
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+</script>
+</body>
+</html>
