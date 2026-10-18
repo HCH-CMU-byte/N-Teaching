@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="nt:category" content="dementia">
+<meta name="nt:label" content="Imaging">
+<meta name="nt:icon" content="🩻">
+<meta name="nt:summary" content="FDG／類澱粉／tau PET、DAT SPECT、MIBG 的證據回顧與依臨床情境選檢查，並依 2024–2026 準則修正原稿。">
+<meta name="nt:tags" content="影像, PET, SPECT, DLB">
+<meta name="nt:order" content="4">
+<meta name="nt:updated" content="2026-10-18">
+<title>輔助失智症診斷的影像研究：實證回顧與檢查選擇 | N-Teaching</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 閱片室配色：深色背景 + PET 色階；各類檢查固定一個顏色（全頁一致） */
+  --room:#0C1317;
+  --room-2:#141E25;
+  --room-line:#26343E;
+  --paper:#F4F6F5;
+  --paper-dim:#E9EDEC;
+  --card:#FFFFFF;
+  --ink:#16202A;
+  --ink-soft:#56626D;
+  --ink-faint:#8795A0;
+  --line:#DCE2E0;
+
+  --fdg:#E0562B;      /* FDG PET：代謝 */
+  --amy:#9B2F8C;      /* 類澱粉 PET */
+  --tau:#3D3FA8;      /* Tau PET */
+  --dat:#12857F;      /* DAT SPECT */
+  --mibg:#2F6FB5;     /* 心肌 MIBG */
+  --spect:#B7860B;    /* 腦血流 SPECT */
+  --fluid:#5F6B76;    /* 血漿／腦脊髓液 */
+
+  --good:#1F8F5F;
+  --mid:#C99A1E;
+  --low:#B5473A;
+
+  --radius:14px;
+  --serif:'Noto Serif TC', serif;
+  --sans:'Noto Sans TC', sans-serif;
+  --mono:'IBM Plex Mono', monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0; font-family:var(--sans); background:var(--paper); color:var(--ink); line-height:1.75; -webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+
+/* ---------- NAV（N-Teaching 慣用：固定導覽列，logo 連回 index.html） ---------- */
+.site-nav{position:sticky; top:0; z-index:100; background:rgba(12,19,23,.96); backdrop-filter:blur(6px); border-bottom:1px solid var(--room-line);}
+.site-nav-inner{max-width:1180px; margin:0 auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between; height:60px;}
+.site-logo{font-family:var(--serif); font-weight:900; font-size:1.05rem; color:#EEF3F1; text-decoration:none; display:flex; align-items:center; gap:8px;}
+.site-logo .mark{width:26px; height:26px; border-radius:7px; background:linear-gradient(135deg,#3D3FA8,#9B2F8C 45%,#E0562B 75%,#F4C542); display:inline-block;}
+.site-links{display:flex; gap:4px; align-items:center;}
+.site-links a{font-size:.86rem; color:#B8C6CE; text-decoration:none; padding:8px 14px; border-radius:8px; transition:.15s; white-space:nowrap;}
+.site-links a:hover{background:rgba(224,86,43,.16); color:#EEF3F1;}
+.site-links a.current{background:rgba(224,86,43,.22); color:#FFB596;}
+.nav-toggle{display:none;}
+@media (max-width:820px){
+  .site-links{position:fixed; top:60px; left:0; right:0; background:var(--room); flex-direction:column; align-items:stretch; padding:8px; gap:2px; border-bottom:1px solid var(--room-line); display:none;}
+  .site-links.open{display:flex;}
+  .site-links a{padding:12px 16px;}
+  .nav-toggle{display:block; background:none; border:1px solid var(--room-line); color:#EEF3F1; border-radius:8px; padding:6px 10px; font-size:1rem;}
+}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--room); color:#EEF3F1; padding:76px 24px 56px;}
+.hero-inner{max-width:920px; margin:0 auto;}
+.eyebrow{font-family:var(--mono); font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:#FF9A72; display:flex; align-items:center; gap:10px; margin-bottom:18px;}
+.eyebrow::before{content:""; width:26px; height:1px; background:#FF9A72;}
+.hero h1{font-family:var(--serif); font-weight:900; font-size:clamp(1.65rem,4vw,2.5rem); line-height:1.38; margin:0 0 18px; color:#FFFFFF;}
+.hero p.lede{font-size:1.04rem; color:#B8C6CE; max-width:70ch; margin:0 0 30px;}
+.hero-meta{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:34px;}
+.hero-meta span{font-size:.8rem; font-family:var(--mono); border:1px solid var(--room-line); color:#B8C6CE; padding:6px 12px; border-radius:999px; background:rgba(255,255,255,.03);}
+.pet-scale{height:12px; border-radius:7px; background:linear-gradient(90deg,#14124D,#3D3FA8 22%,#9B2F8C 46%,#E0562B 73%,#F4C542 100%);}
+.pet-scale-cap{display:flex; justify-content:space-between; font-family:var(--mono); font-size:.72rem; color:#7F909B; margin-top:8px; gap:12px;}
+
+/* ---------- LAYOUT ---------- */
+.wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+.wrap-wide{max-width:1180px; margin:0 auto; padding:0 24px;}
+section.block{padding:58px 0;}
+section.block.alt{background:var(--paper-dim);}
+.section-label{font-family:var(--mono); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:#B24A24; display:flex; align-items:center; gap:10px; margin-bottom:12px;}
+.section-label .num{font-weight:600; background:var(--room); color:#FF9A72; border-radius:6px; padding:2px 8px;}
+h2.title{font-family:var(--serif); font-weight:800; font-size:clamp(1.35rem,2.6vw,1.85rem); margin:0 0 10px;}
+p.section-intro{color:var(--ink-soft); max-width:72ch; margin:0 0 30px;}
+h3.sub{font-family:var(--serif); font-size:1.2rem; margin:38px 0 10px;}
+
+/* ---------- 查核紀錄（diff） ---------- */
+.diff-panel{background:var(--room-line); border-radius:18px; padding:2px; box-shadow:0 18px 50px -22px rgba(12,19,23,.6);}
+.diff-panel-inner{background:#0A1014; border-radius:16px; padding:28px 28px 6px;}
+.diff-head{display:flex; align-items:center; gap:12px; margin-bottom:10px; flex-wrap:wrap;}
+.diff-head h3{font-family:var(--serif); color:#EEF3F1; font-size:1.15rem; margin:0;}
+.diff-tag{font-family:var(--mono); font-size:.72rem; color:#0A1014; background:#FF9A72; padding:3px 10px; border-radius:999px; font-weight:600;}
+.diff-sub{color:#7F909B; font-size:.88rem; margin:0 0 16px; max-width:70ch;}
+.diff-row{font-family:var(--mono); font-size:.84rem; line-height:1.85; border-top:1px solid rgba(255,255,255,.08); padding:16px 0;}
+.diff-old,.diff-new{display:flex; gap:10px; align-items:flex-start; padding:3px 0;}
+.diff-old .mark{color:#E5614A;} .diff-new .mark{color:#4CC38A;}
+.diff-old .txt{color:#7F909B; text-decoration:line-through; text-decoration-color:rgba(229,97,74,.6);}
+.diff-new .txt{color:#DCEBE4;}
+.diff-cite{color:#566873; font-size:.75rem; margin-top:4px; padding-left:24px;}
+.diff-row.flag .diff-new .txt{color:#F4D58A;}
+.diff-row.flag .diff-new .mark{color:#F4C542;}
+
+/* ---------- CARDS ---------- */
+.card-grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(270px,1fr));}
+.card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px; display:flex; flex-direction:column; gap:10px; transition:.18s ease; border-top:3px solid var(--room);}
+.card:hover{transform:translateY(-2px); box-shadow:0 14px 30px -18px rgba(12,19,23,.4);}
+.card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:8px;}
+.card-icon{width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:600; font-size:.78rem; color:#fff; flex-shrink:0;}
+.card-cat{font-family:var(--mono); font-size:.7rem; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-faint);}
+.card h4{margin:0; font-family:var(--serif); font-size:1.05rem; line-height:1.5;}
+.card p{margin:0; color:var(--ink-soft); font-size:.91rem;}
+.card ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:.88rem;}
+.card ul li{margin-bottom:3px;}
+.card-foot{margin-top:auto; padding-top:10px; border-top:1px dashed var(--line); font-family:var(--mono); font-size:.72rem; color:var(--ink-faint); display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;}
+.m-fdg{--m:var(--fdg);} .m-amy{--m:var(--amy);} .m-tau{--m:var(--tau);} .m-dat{--m:var(--dat);} .m-mibg{--m:var(--mibg);} .m-spect{--m:var(--spect);} .m-fluid{--m:var(--fluid);} .m-room{--m:var(--room);}
+.card[class*="m-"]{border-top-color:var(--m);}
+.card[class*="m-"] .card-icon{background:var(--m);}
+
+/* 證據等級徽章（中英雙語） */
+.badge{display:inline-block; font-family:var(--mono); font-size:.68rem; font-weight:600; padding:2px 9px; border-radius:999px; white-space:nowrap;}
+.badge.g-a{background:#DDF1E7; color:#17704A;}
+.badge.g-b{background:#FBF0D3; color:#8A6806;}
+.badge.g-c{background:#F8E1DC; color:#8E3226;}
+.badge.new{background:var(--room); color:#FF9A72;}
+
+/* 篩選 chips */
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 20px;}
+.chip{font-family:var(--sans); font-size:.85rem; border:1px solid var(--line); background:var(--card); color:var(--ink-soft); padding:7px 15px; border-radius:999px; cursor:pointer; transition:.15s;}
+.chip:hover{border-color:var(--room);}
+.chip[aria-pressed="true"]{background:var(--room); color:#FF9A72; border-color:var(--room);}
+
+/* ---------- CALLOUT ---------- */
+.callout{border-radius:12px; padding:18px 20px; margin:18px 0; font-size:.92rem; border:1px solid transparent;}
+.callout h5{margin:0 0 8px; font-weight:700; font-size:.92rem;}
+.callout p{margin:0 0 8px;} .callout p:last-child{margin-bottom:0;}
+.callout ul{margin:6px 0 0; padding-left:20px;}
+.callout.amber{background:#FBF2DB; border-color:#EBD59A; color:#59430F;}
+.callout.rust{background:#FAE7E2; border-color:#EBBBB0; color:#6B2A1C;}
+.callout.sage{background:#E3F2EA; border-color:#B7DCC7; color:#1F4D37;}
+.callout.dark{background:var(--room); border-color:var(--room-line); color:#CFDAE0;}
+.callout.dark h5{color:#FFB596;}
+
+/* ---------- STAT TILES ---------- */
+.tiles{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); margin:20px 0;}
+.tile{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px;}
+.tile .big{font-family:var(--mono); font-weight:600; font-size:1.55rem; color:var(--ink); line-height:1.2;}
+.tile .lbl{font-size:.82rem; color:var(--ink-soft); margin-top:4px;}
+.tile .src{font-family:var(--mono); font-size:.68rem; color:var(--ink-faint); margin-top:6px;}
+
+/* ---------- 表格 ---------- */
+.table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px; background:var(--card);}
+table.data{width:100%; border-collapse:collapse; font-size:.88rem; min-width:620px;}
+table.data th,table.data td{padding:11px 14px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top;}
+table.data th{font-family:var(--mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-weight:600; background:#F7F9F8;}
+table.data tr:last-child td{border-bottom:none;}
+.score{display:inline-block; min-width:30px; text-align:center; font-family:var(--mono); font-weight:600; font-size:.82rem; padding:2px 8px; border-radius:7px; color:#fff;}
+.score.s-good{background:var(--good);} .score.s-mid{background:var(--mid);} .score.s-low{background:var(--low);}
+.legend{display:flex; flex-wrap:wrap; gap:14px; font-size:.8rem; color:var(--ink-soft); margin:0 0 12px;}
+.legend span{display:inline-flex; align-items:center; gap:6px;}
+.legend i{width:12px; height:12px; border-radius:4px; display:inline-block;}
+
+/* ---------- 證據等級量表 ---------- */
+.pips{display:inline-flex; gap:3px; vertical-align:middle;}
+.pips b{width:14px; height:8px; border-radius:2px; background:var(--line);}
+.pips.l4 b:nth-child(-n+4),.pips.l3 b:nth-child(-n+3),.pips.l2 b:nth-child(-n+2),.pips.l1 b:nth-child(-n+1){background:var(--fdg);}
+
+/* ---------- 腦圖 explorer ---------- */
+.explorer{display:grid; grid-template-columns:1.2fr 1fr; gap:24px; align-items:start; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px;}
+@media (max-width:860px){.explorer{grid-template-columns:1fr;}}
+.brains{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+.brains figure{margin:0; background:var(--room); border-radius:12px; padding:10px 6px 6px;}
+.brains figcaption{font-family:var(--mono); font-size:.7rem; color:#7F909B; text-align:center; margin-top:2px;}
+.brains svg{width:100%; height:auto; display:block;}
+.brain-outline{fill:#1C2A33; stroke:#4A6372; stroke-width:2;}
+.brain-line{fill:none; stroke:#3A4F5C; stroke-width:1.5;}
+.cereb{fill:#16222A; stroke:#3A4F5C; stroke-width:1.5;}
+.reg{fill:transparent; stroke:none; transition:fill .25s, stroke .25s;}
+.reg.hypo{fill:rgba(224,86,43,.72);}
+.reg.mild{fill:rgba(244,197,66,.62);}
+.reg.spared{fill:none; stroke:#2FD1C5; stroke-width:2.2; stroke-dasharray:5 4;}
+.reg-label{font-family:var(--mono); font-size:10px; fill:#8FA3AF; pointer-events:none;}
+.pat-list{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;}
+.pat-btn{font-family:var(--sans); font-size:.84rem; border:1px solid var(--line); background:#fff; padding:7px 13px; border-radius:9px; cursor:pointer; color:var(--ink-soft);}
+.pat-btn[aria-pressed="true"]{background:var(--fdg); border-color:var(--fdg); color:#fff;}
+.pat-desc h4{font-family:var(--serif); margin:0 0 6px; font-size:1.05rem;}
+.pat-desc p{margin:0 0 8px; font-size:.9rem; color:var(--ink-soft);}
+.key-legend{display:flex; gap:14px; flex-wrap:wrap; font-size:.78rem; color:var(--ink-soft); margin-top:10px;}
+.key-legend i{display:inline-block; width:12px; height:12px; border-radius:3px; margin-right:5px; vertical-align:-1px;}
+
+/* ---------- 選檢查 selector ---------- */
+.selector{background:var(--room); color:#DCE6EB; border-radius:18px; padding:26px;}
+.selector label{font-family:var(--mono); font-size:.76rem; color:#FF9A72; letter-spacing:.06em; text-transform:uppercase; display:block; margin-bottom:8px;}
+.selector select{width:100%; font-family:var(--sans); font-size:1rem; padding:12px 14px; border-radius:10px; border:1px solid var(--room-line); background:var(--room-2); color:#EEF3F1;}
+.sel-out{margin-top:22px; display:grid; gap:16px;}
+.sel-ask{font-size:.92rem; color:#B8C6CE; border-left:3px solid #FF9A72; padding-left:12px;}
+.tier{background:var(--room-2); border:1px solid var(--room-line); border-radius:12px; padding:14px 16px;}
+.tier h6{margin:0 0 8px; font-family:var(--mono); font-size:.74rem; letter-spacing:.06em; color:#7F909B; text-transform:uppercase;}
+.tier ul{list-style:none; margin:0; padding:0; display:grid; gap:8px;}
+.tier li{display:flex; gap:10px; align-items:flex-start; font-size:.9rem;}
+.tag{font-family:var(--mono); font-size:.7rem; font-weight:600; padding:2px 9px; border-radius:999px; color:#fff; white-space:nowrap; background:var(--m,#5F6B76); margin-top:2px;}
+.tier.warn{border-color:#5A3A33;}
+.tier.warn h6{color:#E5917F;}
+.sel-foot{display:flex; flex-wrap:wrap; gap:10px; align-items:center; font-family:var(--mono); font-size:.74rem; color:#7F909B;}
+
+/* ---------- 流程 ---------- */
+.flow{display:grid; gap:10px; margin:20px 0;}
+.flow-step{display:grid; grid-template-columns:44px 1fr; gap:14px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; align-items:start;}
+.flow-step .n{width:36px; height:36px; border-radius:50%; background:var(--room); color:#FF9A72; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:600;}
+.flow-step h5{margin:0 0 3px; font-family:var(--serif); font-size:1rem;}
+.flow-step p{margin:0; font-size:.88rem; color:var(--ink-soft);}
+
+/* ---------- 手風琴 ---------- */
+.acc-item{border:1px solid var(--line); border-radius:12px; margin-bottom:10px; background:var(--card); overflow:hidden;}
+.acc-q{width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:15px 18px; font-family:var(--sans); font-size:.95rem; font-weight:500; color:var(--ink); display:flex; justify-content:space-between; align-items:center; gap:12px;}
+.acc-q .dot{width:10px; height:10px; border-radius:50%; background:var(--m,#5F6B76); margin-right:10px; display:inline-block; flex-shrink:0;}
+.acc-q .arrow{transition:.2s; color:var(--ink-faint);}
+.acc-item.open .arrow{transform:rotate(180deg);}
+.acc-a{max-height:0; overflow:hidden; transition:max-height .25s ease; background:#F7F9F8;}
+.acc-item.open .acc-a{border-top:1px solid var(--line);}
+.acc-a-inner{padding:14px 18px 16px; font-size:.9rem; color:var(--ink-soft);}
+.acc-a-inner ul{margin:6px 0 0; padding-left:20px;}
+
+/* ---------- 測驗 ---------- */
+.q-card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; margin-bottom:16px;}
+.q-card h5{margin:0 0 12px; font-size:.98rem; font-weight:500; line-height:1.65;}
+.q-card h5 span{font-family:var(--mono); color:#B24A24; margin-right:8px;}
+.opts{display:grid; gap:8px;}
+.opt{text-align:left; font-family:var(--sans); font-size:.9rem; background:#F7F9F8; border:1px solid var(--line); border-radius:10px; padding:10px 14px; cursor:pointer; color:var(--ink);}
+.opt:hover{border-color:var(--room);}
+.opt.correct{background:#DDF1E7; border-color:var(--good); color:#17504A;}
+.opt.wrong{background:#F8E1DC; border-color:var(--low); color:#7A2A20;}
+.q-exp{display:none; margin-top:12px; font-size:.88rem; color:var(--ink-soft); background:#F7F9F8; border-left:3px solid var(--good); padding:10px 14px; border-radius:0 8px 8px 0;}
+.q-card.done .q-exp{display:block;}
+.score-board{font-family:var(--mono); font-size:.85rem; color:var(--ink-soft);}
+
+/* ---------- REFERENCES ---------- */
+.ref-list{font-size:.85rem; color:var(--ink-soft); padding-left:0; list-style:none; counter-reset:refs;}
+.ref-list li{counter-increment:refs; padding:10px 0 10px 36px; position:relative; border-bottom:1px dashed var(--line);}
+.ref-list li::before{content:"["counter(refs)"]"; position:absolute; left:0; top:10px; font-family:var(--mono); color:#B24A24; font-size:.78rem;}
+.ref-list li.updated{color:var(--ink);}
+.ref-list li.updated::after{content:"新增／更新"; font-family:var(--mono); font-size:.64rem; margin-left:8px; background:#DDF1E7; color:#17704A; padding:1px 7px; border-radius:999px;}
+.ref-list a{color:#B24A24; text-decoration:none;} .ref-list a:hover{text-decoration:underline;}
+
+footer.site-footer{background:var(--room); color:#7F909B; padding:36px 24px; font-size:.85rem;}
+footer.site-footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;}
+footer.site-footer a{color:#FF9A72;}
+.skip-link{position:absolute; left:-999px; top:0; background:#FF9A72; color:#0C1317; padding:10px; z-index:200;}
+.skip-link:focus{left:10px; top:10px;}
+:focus-visible{outline:3px solid #FF9A72; outline-offset:2px;}
+@media (prefers-reduced-motion: reduce){*{transition:none !important; scroll-behavior:auto !important;}}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-logo" href="index.html"><span class="mark"></span>N-Teaching 神經科教學研究部</a>
+    <button class="nav-toggle" aria-label="開啟選單" onclick="document.querySelector('.site-links').classList.toggle('open')">☰</button>
+    <div class="site-links">
+      <a href="index.html">首頁</a>
+      <a href="index.html#dementia">失智症系列</a>
+      <a href="index.html#imaging">影像與診斷</a>
+      <a class="current" href="#">失智症影像診斷</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">教學單元 · 失智症診斷 · 分子影像與核子醫學</div>
+    <h1>影像如何幫忙診斷失智症？核子醫學檢查的實證回顧與選擇指南</h1>
+    <p class="lede">
+      本單元以「先查核、再整合」的方式，把原始講義對照近十年（2016–2026）的準則與研究逐項修正。
+      目標是讓專科護理師、NP 與住院醫師看完後能回答三件事：<strong style="color:#fff;">每種檢查在測什麼、證據有多強、遇到哪一型失智症時該選哪一個。</strong>
+    </p>
+    <div class="hero-meta">
+      <span>證據區間：2016 – 2026</span>
+      <span>核心準則：2024 AA 修訂準則 · 2025 AUC · 2025 血液 CPG</span>
+      <span>台灣 TFDA／NHI 脈絡</span>
+      <span>最後查核：2026-10-18</span>
+    </div>
+    <div class="pet-scale" role="img" aria-label="PET 色階示意"></div>
+    <div class="pet-scale-cap"><span>低攝取</span><span>本頁以固定顏色標示各類檢查：FDG 橘 · 類澱粉 紫紅 · Tau 靛 · DAT 青綠 · MIBG 藍 · 灌流 SPECT 金</span><span>高攝取</span></div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ 查核紀錄 ============ -->
+<section class="block">
+  <div class="wrap">
+    <div class="diff-panel">
+      <div class="diff-panel-inner">
+        <div class="diff-head"><h3>實證查核紀錄</h3><span class="diff-tag">fact-check log</span></div>
+        <p class="diff-sub">灰色刪除線＝原稿需修正或已過時；綠色＝查核後的內容；黃色＝我無法獨立核實，教學時請保守引用。</p>
+
+        <div class="diff-row">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">典型晚發型 probable AD「通常不需核醫檢查」「診斷已高度確定者不應做類澱粉 PET」（依 2013 年準則的觀念）</span></div>
+          <div class="diff-new"><span class="mark">+</span><span class="txt">2024 年更新的 AUC：≥65 歲典型失憶型 MCI／失智，類澱粉 PET 評為「適當」（8 分）。原因是 15–20% 臨床診斷的晚發型 probable AD 其實 amyloid 陰性；用於抗類澱粉治療資格評估更是 9 分</span></div>
+          <div class="diff-cite">Rabinovici et al. J Nucl Med 2025 [12]</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">類澱粉 PET 對屍解剖的敏感度 91–98%、特異度 89–100%</span></div>
+          <div class="diff-new"><span class="mark">+</span><span class="txt">AUC 引述三種獲核准 F-18 示蹤劑的目視判讀：對 CERAD 中—高頻度神經炎斑塊，敏感度 88–98%、特異度 80–95%；陰性不等於「完全沒有類澱粉」，只是低於偵測門檻</span></div>
+          <div class="diff-cite">[12]</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">「目前只有 flortaucipir 獲 FDA 核准」；「約 10% 類澱粉陽性的輕度 AD 病人 tau PET 仍為陰性」</span></div>
+          <div class="diff-new"><span class="mark">+</span><span class="txt">2026-08-14 FDA 核准第二個 tau 示蹤劑 Tauklarify（florquinitau F-18，即 MK-6240）。Flortaucipir 對 Braak ≥V 期的敏感度 92%、特異度 80%，但 Braak III–IV 期只有約 20% 被目視判為陽性——這才是 MCI 階段敏感度不足的量化依據；「10%」一句找不到出處，已刪除</span></div>
+          <div class="diff-cite">Lantheus 2026-08-14 [19]；[12]</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">血液標記僅提到「符合 90% 診斷準確度的血漿檢驗」，未說明臨床上怎麼用</span></div>
+          <div class="diff-new"><span class="mark">+</span><span class="txt">2025 年 AA 臨床實務準則：敏感度 ≥90% 且特異度 ≥75% 可作「分流」；兩者皆 ≥90% 才可取代 PET／CSF。FDA 已於 2025-05 核可 Lumipulse 血漿 pTau217/Aβ42 比值，並陸續核可 Roche pTau181（2025-10）與 pTau217（2026-08）</span></div>
+          <div class="diff-cite">[13]；FDA 2025-05-16 [14]</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">MIBG 特異度（100%）顯著高於 FP-CIT（76%）</span></div>
+          <div class="diff-new"><span class="mark">+</span><span class="txt">數字無誤（Tiraboschi 2016：MIBG 93%／100%；FP-CIT 90%／76%），但這是以「臨床診斷」為參考標準的單一研究。Newcastle 臨床代表性世代則得到 MIBG 敏感度 71%、特異度 81%，並未優於 FP-CIT；調低 H/M 比值切點後特異度升至 100%、敏感度仍 71%。兩者證據並不一致，不宜說「MIBG 較佳」</span></div>
+          <div class="diff-cite">[11]；[17]</div>
+        </div>
+
+        <div class="diff-row flag">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">MIBG「三年期前瞻研究敏感度 77%、特異度 97%；屍解剖 70–80% 與 85–96%；前驅期 59%／88%」；DAT SPECT 前驅期敏感度 54–66%</span></div>
+          <div class="diff-new"><span class="mark">?</span><span class="txt">這些數字我找不到原始出處可逐一核對，標示為「未獨立核實」，網頁正文不採用。DAT SPECT 對屍解剖的 80%／92%（Thomas 2017）已確認</span></div>
+          <div class="diff-cite">[10,12]</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">FDG PET 可「支持假性失智」（引 EANM-EAN 共識）</span></div>
+          <div class="diff-new"><span class="mark">+</span><span class="txt">EANM-EAN 的研究證據等級：DLB vs AD「good」、AD vs FTLD「fair」、非典型 AD「poor」，DLB vs FTLD、AD vs 血管性失智、假性失智皆「lacking」。專家仍支持使用，依據是陰性預測值與典型代謝型態——所以「假性失智」屬專家意見，不是研究證據</span></div>
+          <div class="diff-cite">Nestor et al. EJNMMI 2018 [3]（原稿漏列作者與期刊，已補）</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">60 歲以上認知正常者約 20–40% 類澱粉陽性</span></div>
+          <div class="diff-new"><span class="mark">+</span><span class="txt">AUC 的分齡數字：認知正常者約 10%（50 歲）上升到約 45%（90 歲）；帶 APOE ε4 者各年齡層為非帶因者的 2–3 倍</span></div>
+          <div class="diff-cite">[12]</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">原稿未涵蓋 DLB 的新診斷架構與台灣現況</span></div>
+          <div class="diff-new"><span class="mark">+</span><span class="txt">補上：2017 DLB 共識的三項 indicative biomarker（含 PSG 確認的 REM 無張力）、α-突觸核蛋白 SAA（CSF）與 2024 兩套生物學架構；台灣 2025 年核准 lecanemab／donanemab（自費），類澱粉 PET 為抗體治療前的關鍵檢查</span></div>
+          <div class="diff-cite">[15,16,22]；[20]</div>
+        </div>
+
+        <div class="diff-row flag">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">其他二手引用數字：FDG／PiB 預測 MCI 轉 AD（78.7%／74.0% 對 93.5%／56.2%）、CCCDTD5 的 Grade、SPECT 解析度 8–12 mm、ABIDE 25% 診斷改變、輻射劑量 4–7 mSv、日本給付現況、cingulate island sign「特異度 100%」</span></div>
+          <div class="diff-new"><span class="mark">?</span><span class="txt">來自綜述的轉述，我沒有找到可獨立比對的原始資料；日本給付資料為 2017 年版本，之後可能已變動。正文改以已核實的資料呈現，這幾項只在「查核透明度」中保留</span></div>
+          <div class="diff-cite">[2,5,6,7]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 範式轉移 ============ -->
+<section class="block alt" id="paradigm">
+  <div class="wrap-wide">
+    <div class="section-label"><span class="num">01</span>先搞懂背景</div>
+    <h2 class="title">診斷從「看症狀」走向「看生物標記」</h2>
+    <p class="section-intro">2024 年 AA 修訂準則把阿茲海默症定義為可由生物標記偵測的生物學過程；治療端的壓力來自抗類澱粉單株抗體——要用藥，就必須先證明腦中有類澱粉病理。影像因此從「排除別的病」變成「決定能不能走疾病修飾治療」的關鍵一環。</p>
+
+    <div class="card-grid">
+      <div class="card m-room">
+        <div class="card-top"><div class="card-icon">AA</div><span class="badge g-a">A · 準則 Guideline</span></div>
+        <h4>2024 AA 修訂診斷與分期準則</h4>
+        <ul>
+          <li><b>Core 1</b>（單獨異常即可確立 AD）：類澱粉 PET、CSF Aβ42/40 或 p-tau181/Aβ42、達標的血漿檢驗</li>
+          <li><b>Core 2</b>：tau PET 等，主要用於分期與預後</li>
+          <li>生物學診斷「輔助而非取代」臨床評估；不建議對無症狀者做生物標記檢測</li>
+        </ul>
+        <div class="card-foot"><span>Jack et al., Nat Med 2024</span><span>[1]</span></div>
+      </div>
+
+      <div class="card m-fluid">
+        <div class="card-top"><div class="card-icon">BBM</div><span class="badge new">2025 新增</span></div>
+        <h4>血液標記：分流與取代的門檻</h4>
+        <ul>
+          <li>敏感度 ≥90% 且特異度 ≥75% → <b>分流</b>：陰性可高度排除 AD 病理</li>
+          <li>敏感度與特異度皆 ≥90% → 可<b>取代</b> amyloid PET 或 CSF</li>
+          <li>適用：專科記憶門診中、已有客觀認知障礙者</li>
+        </ul>
+        <div class="card-foot"><span>AA CPG, Alzheimers Dement 2025</span><span>[13]</span></div>
+      </div>
+
+      <div class="card m-fluid">
+        <div class="card-top"><div class="card-icon">FDA</div><span class="badge new">2025–26</span></div>
+        <h4>血液檢驗的核可進度</h4>
+        <ul>
+          <li>2025-05：Lumipulse pTau217/Aβ42 比值（499 人研究：陽性者 91.7% 經 PET／CSF 證實；陰性者 97.3% 證實陰性；不確定結果 &lt;20%）</li>
+          <li>2025-10：Roche Elecsys pTau181（基層排除用）</li>
+          <li>2026-08：Roche Elecsys pTau217</li>
+        </ul>
+        <div class="card-foot"><span>FDA／廠商公告</span><span>[14]</span></div>
+      </div>
+
+      <div class="card m-amy">
+        <div class="card-top"><div class="card-icon">Tx</div><span class="badge g-a">A · 核准 Approved</span></div>
+        <h4>抗類澱粉抗體與影像的關係</h4>
+        <p>Lecanemab 於 2023-07、donanemab 於 2024-07 取得 FDA 完整核准；兩者的臨床試驗與仿單都要求先證實有類澱粉病理，PET 因此被評為「評估治療資格」的最適當用途（9 分）。</p>
+        <div class="card-foot"><span>AUC 2025</span><span>[12]</span></div>
+      </div>
+    </div>
+
+    <div class="callout dark">
+      <h5>教學歸納：血液與影像各回答不同問題</h5>
+      <p>血液／CSF 主要回答「有沒有 AD 病理」；影像則多半回答「病變在哪裡、有多嚴重、是不是別種病」。AD 病理問題可能逐步由血液取代 PET，但非 AD 的鑑別（DLB、FTLD）、拓樸與分期，影像仍不可或缺。（這是整理後的歸納，非引自單一文獻。）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 工具總覽 ============ -->
+<section class="block" id="tools">
+  <div class="wrap-wide">
+    <div class="section-label"><span class="num">02</span>檢查工具總覽</div>
+    <h2 class="title">七個工具，各自在測什麼</h2>
+    <p class="section-intro">用上方按鈕依「你想回答的問題」篩選。卡片顏色在全頁固定：看到同一個顏色就是同一種檢查。</p>
+
+    <div class="chips" id="toolChips" role="group" aria-label="依臨床問題篩選">
+      <button class="chip" aria-pressed="true" data-f="all">全部</button>
+      <button class="chip" aria-pressed="false" data-f="ad">AD 病理</button>
+      <button class="chip" aria-pressed="false" data-f="dlb">DLB／路易氏體</button>
+      <button class="chip" aria-pressed="false" data-f="ftd">FTLD／非典型</button>
+      <button class="chip" aria-pressed="false" data-f="rx">治療資格</button>
+    </div>
+
+    <div class="card-grid" id="toolGrid">
+
+      <div class="card m-fdg" data-t="ad ftd dlb">
+        <div class="card-top"><div class="card-icon">FDG</div><span class="badge g-b">B · 專家共識 Consensus</span></div>
+        <div class="card-cat">18F-FDG PET · 突觸活性／葡萄糖代謝</div>
+        <h4>拓樸性標記：看「哪裡」低代謝</h4>
+        <p>不是病理特異，而是神經損傷的下游標記。EANM-EAN 證據：DLB vs AD「good」；AD vs FTLD「fair」；非典型 AD「poor」；其餘情境「lacking」，但專家仍支持使用。</p>
+        <ul><li>陷阱：糖尿病、高血脂、憂鬱、頭動、老化的前扣帶與前顳</li></ul>
+        <div class="card-foot"><span>Nestor 2018</span><span>[3]</span></div>
+      </div>
+
+      <div class="card m-spect" data-t="ad">
+        <div class="card-top"><div class="card-icon">CBF</div><span class="badge g-b">B · 替代 Alternative</span></div>
+        <div class="card-cat">99mTc-HMPAO／ECD · 區域腦血流</div>
+        <h4>FDG PET 不可得時的替代</h4>
+        <p>解析度不如 PET，細微或局灶變化的敏感度受限。CCCDTD5 建議：需要鑑別診斷時先做 FDG PET，確實無法接受才以 rCBF SPECT 替代。給付限制地區（如日本）仍以此為第一線。</p>
+        <div class="card-foot"><span>CCCDTD5 2020</span><span>[5,6]</span></div>
+      </div>
+
+      <div class="card m-amy" data-t="ad rx ftd">
+        <div class="card-top"><div class="card-icon">Aβ</div><span class="badge g-a">A · AUC</span></div>
+        <div class="card-cat">F-18 florbetapir／flutemetamol／florbetaben · 纖維性 Aβ 斑塊</div>
+        <h4>陰性可排除、陽性不等於 AD</h4>
+        <p>對屍解剖敏感度 88–98%、特異度 80–95%。判讀為二元（陽性／陰性）；分布不對應失智嚴重度。陽性亦見於認知正常老人、DLB、腦類澱粉血管病變。</p>
+        <ul><li>決定是否可用抗類澱粉治療的核心檢查</li></ul>
+        <div class="card-foot"><span>AUC 2025</span><span>[12]</span></div>
+      </div>
+
+      <div class="card m-tau" data-t="ad rx ftd">
+        <div class="card-top"><div class="card-icon">τ</div><span class="badge new">2026 更新</span></div>
+        <div class="card-cat">Flortaucipir（2020）· Florquinitau（2026-08）· 其他研究中</div>
+        <h4>對 AD 型 tau 特異，早期敏感度不足</h4>
+        <p>對 Braak ≥V 期敏感度 92%／特異度 80%；Braak III–IV 期僅約 20% 被判陽性。對 PSP、CBD 等非 AD tau 病變結合弱，不能用來「確立」這些診斷。離靶結合見於基底核、腦膜、脈絡叢、中腦。</p>
+        <div class="card-foot"><span>AUC 2025；FDA 2026</span><span>[12,19]</span></div>
+      </div>
+
+      <div class="card m-dat" data-t="dlb">
+        <div class="card-top"><div class="card-icon">DAT</div><span class="badge g-a">A · 屍解剖 Autopsy</span></div>
+        <div class="card-cat">123I-FP-CIT（ioflupane）· 突觸前多巴胺轉運體</div>
+        <h4>DLB 的 indicative biomarker</h4>
+        <p>屍解剖驗證：區分 DLB 與 AD 敏感度 80%、特異度 92%，優於臨床診斷。PSP、CBD、部分 FTLD 也可能異常；帕金森症狀是唯一核心特徵時有循環論證問題。</p>
+        <div class="card-foot"><span>Thomas 2017</span><span>[10]</span></div>
+      </div>
+
+      <div class="card m-mibg" data-t="dlb">
+        <div class="card-top"><div class="card-icon">MIBG</div><span class="badge g-b">B · 證據不一致 Mixed</span></div>
+        <div class="card-cat">123I-MIBG · 心臟交感神經支配</div>
+        <h4>與 DAT 互補，但優劣未定</h4>
+        <p>Tiraboschi 2016：敏感度 93%／特異度 100%（FP-CIT 90%／76%）。Newcastle 世代：71%／81%，未優於 FP-CIT。DLB 2017 共識把它列為 indicative biomarker。心臟共病與判讀切點是主要變因。</p>
+        <div class="card-foot"><span>Tiraboschi 2016 · 2019</span><span>[11,17]</span></div>
+      </div>
+
+      <div class="card m-fluid" data-t="dlb ad">
+        <div class="card-top"><div class="card-icon">SAA</div><span class="badge g-b">B · 新興 Emerging</span></div>
+        <div class="card-cat">非影像對照：CSF α-突觸核蛋白 SAA、血漿／CSF AD 標記</div>
+        <h4>決定「要不要做 PET」的上游檢查</h4>
+        <p>屍解剖世代中，SAA 對瀰漫型／過渡型路易氏體病敏感度 100%、整體特異度 96.3%；但杏仁核或腦幹為主者敏感度明顯較低。α-突觸核蛋白 PET、TSPO、膽鹼性 PET 仍屬研究用途。</p>
+        <div class="card-foot"><span>Samudra 2024</span><span>[16]</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 FDG ============ -->
+<section class="block alt" id="fdg">
+  <div class="wrap-wide">
+    <div class="section-label"><span class="num">03</span>FDG PET</div>
+    <h2 class="title">代謝拓樸：哪一型失智症，低代謝在哪裡</h2>
+    <p class="section-intro">先看研究證據有多強，再用下面的示意腦圖記型態。<b>FDG 反映的是突觸功能下降的位置，不是病理蛋白本身。</b></p>
+
+    <h3 class="sub" style="margin-top:0;">EANM-EAN 的證據等級（以各鑑別情境為單位）</h3>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>鑑別情境</th><th>研究證據</th><th>專家是否支持使用</th></tr></thead>
+        <tbody>
+          <tr><td>DLB vs AD</td><td><span class="pips l4"><b></b><b></b><b></b><b></b></span> good</td><td>支持</td></tr>
+          <tr><td>AD vs FTLD</td><td><span class="pips l3"><b></b><b></b><b></b><b></b></span> fair</td><td>支持</td></tr>
+          <tr><td>非典型 AD</td><td><span class="pips l2"><b></b><b></b><b></b><b></b></span> poor</td><td>支持</td></tr>
+          <tr><td>DLB vs FTLD</td><td><span class="pips l1"><b></b><b></b><b></b><b></b></span> lacking</td><td>支持（依陰性預測值與典型型態）</td></tr>
+          <tr><td>AD vs 血管性失智</td><td><span class="pips l1"><b></b><b></b><b></b><b></b></span> lacking</td><td>支持</td></tr>
+          <tr><td>假性失智（非退化性）</td><td><span class="pips l1"><b></b><b></b><b></b><b></b></span> lacking</td><td>支持</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.85rem; color:var(--ink-soft); margin-top:10px;">另一份 EANM-EAN 針對 MCI 的報告：FDG PET 偵測「MCI due to AD」的證據等級為 fair；MCI due to FTLD／DLB 有潛力但仍需更多研究 [18]。</p>
+
+    <h3 class="sub">示意腦圖：選一型看低代謝分布</h3>
+    <div class="explorer">
+      <div>
+        <div class="brains">
+          <figure>
+            <svg viewBox="0 0 420 300" role="img" aria-label="外側面示意腦圖">
+              <defs><clipPath id="clipL"><path id="outL" d="M70,160 C60,100 110,48 185,38 C265,28 345,62 365,125 C378,165 362,205 330,215 C320,240 292,254 262,248 C248,264 218,268 198,256 C172,264 140,254 128,234 C98,234 74,204 70,160 Z"/></clipPath></defs>
+              <ellipse class="cereb" cx="335" cy="244" rx="34" ry="19"/>
+              <path class="brain-outline" d="M70,160 C60,100 110,48 185,38 C265,28 345,62 365,125 C378,165 362,205 330,215 C320,240 292,254 262,248 C248,264 218,268 198,256 C172,264 140,254 128,234 C98,234 74,204 70,160 Z"/>
+              <g clip-path="url(#clipL)">
+                <ellipse class="reg" data-r="front" cx="125" cy="120" rx="60" ry="62"/>
+                <ellipse class="reg" data-r="sm" cx="205" cy="78" rx="38" ry="30"/>
+                <ellipse class="reg" data-r="par" cx="272" cy="95" rx="46" ry="38"/>
+                <ellipse class="reg" data-r="tp" cx="275" cy="152" rx="48" ry="32"/>
+                <ellipse class="reg" data-r="occ" cx="348" cy="150" rx="32" ry="56"/>
+                <ellipse class="reg" data-r="at" cx="140" cy="207" rx="46" ry="28"/>
+              </g>
+              <path class="brain-line" d="M150,172 C200,166 240,152 292,142"/>
+              <text class="reg-label" x="92" y="128">額葉</text>
+              <text class="reg-label" x="188" y="64">中央區</text>
+              <text class="reg-label" x="252" y="92">頂葉</text>
+              <text class="reg-label" x="244" y="156">顳頂</text>
+              <text class="reg-label" x="330" y="154">枕葉</text>
+              <text class="reg-label" x="112" y="212">前顳</text>
+            </svg>
+            <figcaption>外側面 Lateral（左側為前）</figcaption>
+          </figure>
+          <figure>
+            <svg viewBox="0 0 420 300" role="img" aria-label="內側面示意腦圖">
+              <defs><clipPath id="clipM"><path d="M70,160 C60,100 110,48 185,38 C265,28 345,62 365,125 C378,165 362,205 330,215 C320,240 292,254 262,248 C248,264 218,268 198,256 C172,264 140,254 128,234 C98,234 74,204 70,160 Z"/></clipPath></defs>
+              <ellipse class="cereb" cx="335" cy="244" rx="34" ry="19"/>
+              <path class="brain-outline" d="M70,160 C60,100 110,48 185,38 C265,28 345,62 365,125 C378,165 362,205 330,215 C320,240 292,254 262,248 C248,264 218,268 198,256 C172,264 140,254 128,234 C98,234 74,204 70,160 Z"/>
+              <g clip-path="url(#clipM)">
+                <ellipse class="reg" data-r="mf" cx="130" cy="105" rx="55" ry="48"/>
+                <ellipse class="reg" data-r="ac" cx="160" cy="140" rx="38" ry="14"/>
+                <ellipse class="reg" data-r="pcc" cx="282" cy="105" rx="48" ry="38"/>
+                <ellipse class="reg" data-r="mo" cx="348" cy="150" rx="30" ry="46"/>
+                <ellipse class="reg" data-r="mt" cx="190" cy="205" rx="42" ry="20"/>
+                <circle class="reg" data-r="deep" cx="218" cy="152" r="20"/>
+              </g>
+              <path class="brain-line" d="M128,150 C170,124 262,120 312,152"/>
+              <text class="reg-label" x="100" y="108">內側額</text>
+              <text class="reg-label" x="134" y="144">前扣帶</text>
+              <text class="reg-label" x="258" y="108">後扣帶／楔前葉</text>
+              <text class="reg-label" x="326" y="154">枕</text>
+              <text class="reg-label" x="164" y="209">內側顳</text>
+              <text class="reg-label" x="198" y="156">基底核</text>
+            </svg>
+            <figcaption>內側面 Medial</figcaption>
+          </figure>
+        </div>
+        <div class="key-legend">
+          <span><i style="background:rgba(224,86,43,.8)"></i>明顯低代謝</span>
+          <span><i style="background:rgba(244,197,66,.75)"></i>輕度低代謝</span>
+          <span><i style="border:2px dashed #2FD1C5"></i>相對保留</span>
+        </div>
+        <p style="font-size:.78rem; color:var(--ink-faint); margin:8px 0 0;">示意圖：區域為簡化的橢圓，並非真實影像或精確解剖；臨床判讀需用 SPM／3D-SSP 等統計對照常模。</p>
+      </div>
+      <div>
+        <div class="pat-list" id="patList" role="group" aria-label="選擇失智症型態"></div>
+        <div class="pat-desc" id="patDesc"></div>
+      </div>
+    </div>
+
+    <div class="callout amber">
+      <h5>標準化與判讀品質（常規做法）</h5>
+      <p>空腹至少 4 小時、注射後安靜暗室休息、固定時間收錄、以統計圖譜對照常模、由有經驗者判讀。偽陽性來源包括正常老化、憂鬱、血糖與血脂異常，以及動作假影。單靠「AD 樣」代謝型態，並不等於 AD 病理。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 類澱粉 PET ============ -->
+<section class="block" id="amyloid">
+  <div class="wrap-wide">
+    <div class="section-label"><span class="num">04</span>類澱粉 PET</div>
+    <h2 class="title">2024 年更新的適當使用準則：17 個情境的評分</h2>
+    <p class="section-intro">AA 與 SNMMI 工作小組用修正式 Delphi 為 17 個臨床情境評分（1–9 分）：1–3 分「很少適當」、4–6 分「不確定」、7–9 分「適當」。<b>注意第 6 列：這就是原稿需要修正的地方。</b></p>
+
+    <div class="legend">
+      <span><i style="background:var(--good)"></i>7–9 適當</span>
+      <span><i style="background:var(--mid)"></i>4–6 不確定</span>
+      <span><i style="background:var(--low)"></i>1–3 很少適當</span>
+      <span>† 2023 年因抗體核准而重新投票</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data" id="aucTable">
+        <thead><tr><th>#</th><th>臨床情境</th><th style="color:var(--amy)">類澱粉 PET</th><th style="color:var(--tau)">Tau PET</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="tiles">
+      <div class="tile"><div class="big">15–20%</div><div class="lbl">臨床診斷的晚發型 probable AD 其類澱粉 PET 為陰性（APOE4 陰性者約 35%）</div><div class="src">AUC 2025 [12]</div></div>
+      <div class="tile"><div class="big">60.2%</div><div class="lbl">IDEAS：65 歲以上 MCI（類澱粉陽性 55.3%）影像後的處置改變比例</div><div class="src">AUC 引述 IDEAS [12]</div></div>
+      <div class="tile"><div class="big">63.5%</div><div class="lbl">IDEAS：非典型失智症（類澱粉陽性 70.1%）影像後的處置改變比例</div><div class="src">AUC 引述 IDEAS [12]</div></div>
+      <div class="tile"><div class="big">HR 3–4</div><div class="lbl">MCI 類澱粉陽性轉為失智的風險比（範圍 2.1–11.4；追蹤 1–4.5 年）</div><div class="src">AUC 2025 [12]</div></div>
+    </div>
+
+    <div class="callout sage">
+      <h5>判讀心法：年齡決定「陽性」的意義</h5>
+      <p>認知正常者的類澱粉陽性率約 10%（50 歲）到 45%（90 歲）。所以陰性永遠有用（可排除 AD 作為病因）；陽性則要結合認知狀態、年齡與臨床脈絡——陽性也見於 DLB（超過半數）與腦類澱粉血管病變。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 Tau PET ============ -->
+<section class="block alt" id="tau">
+  <div class="wrap">
+    <div class="section-label"><span class="num">05</span>Tau PET</div>
+    <h2 class="title">特異度高，但看得到的是「已經很晚」的 tau</h2>
+    <p class="section-intro">Tau 示蹤劑主要結合 AD 型 tau，對大多數非 AD tau 病變結合弱。新近的重點是：第二個 FDA 核准的示蹤劑上市，以及它在抗體治療情境中的角色。</p>
+
+    <div class="tiles">
+      <div class="tile"><div class="big">92% / 80%</div><div class="lbl">Flortaucipir 對 Braak ≥V 期的敏感度／特異度（屍解剖對照）</div><div class="src">AUC 2025 [12]</div></div>
+      <div class="tile"><div class="big">~20%</div><div class="lbl">Braak III–IV 期病人被目視判為陽性的比例（MCI 階段的中位期別）</div><div class="src">AUC 2025 [12]</div></div>
+      <div class="tile"><div class="big">2020 · 2026</div><div class="lbl">FDA 核准：Tauvid（flortaucipir）· Tauklarify（florquinitau，2026-08-14）</div><div class="src">[12,19]</div></div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card m-tau">
+        <div class="card-top"><div class="card-icon">+</div></div>
+        <h4>陽性預測值高、陰性預測值不確定</h4>
+        <p>視覺判讀為陽性，幾乎可確認 AD 病理對認知障礙有顯著貢獻；陰性則不能排除臨床上有意義的 Braak III–IV 期病理，高齡者尤其如此。因此用於「診斷」時偏保守，用於「預後」時 AUC 評為適當（MCI 7 分、失智 7 分）。</p>
+      </div>
+      <div class="card m-tau">
+        <div class="card-top"><div class="card-icon">Rx</div></div>
+        <h4>與抗體治療的關係</h4>
+        <p>TRAILBLAZER-ALZ2 中，基線 tau 為低—中度者獲益較大；CLARITY-AD 的 tau 子研究方向相同。AUC 因此把「評估治療資格」評為 8 分，但<b>仿單與已發表的使用建議並未要求 tau PET</b>。</p>
+      </div>
+      <div class="card m-tau">
+        <div class="card-top"><div class="card-icon">!</div></div>
+        <h4>限制清單</h4>
+        <ul>
+          <li>非 AD tau 病變（PSP、CBD、PiD 等）：不能用來確立診斷</li>
+          <li>Tauklarify 的仿單限制：未確立對非 AD tau 病變的安全性與有效性</li>
+          <li>離靶結合：基底核、腦膜、脈絡叢、中腦黑質與紅核</li>
+          <li>追蹤用途（監測治療反應）：證據不足，5 分「不確定」</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 DLB ============ -->
+<section class="block" id="dlb">
+  <div class="wrap-wide">
+    <div class="section-label"><span class="num">06</span>路易氏體失智症</div>
+    <h2 class="title">DLB：從臨床準則到生物學定義</h2>
+    <p class="section-intro">2017 年 DLB 共識把「臨床特徵」與「診斷生物標記」清楚分開，並提高 REM 睡眠行為障礙與 MIBG 的權重。生物標記分兩層：</p>
+
+    <div class="two-col" style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+      <div class="callout dark" style="margin:0;">
+        <h5>Indicative biomarkers（指示性）</h5>
+        <ul>
+          <li><span class="tag" style="--m:var(--dat)">DAT</span> 基底核多巴胺轉運體攝取下降（SPECT 或 PET）</li>
+          <li><span class="tag" style="--m:var(--mibg)">MIBG</span> 心肌 MIBG 攝取下降</li>
+          <li><span class="tag" style="--m:var(--fluid)">PSG</span> 多頻睡眠檢查確認 REM 無張力（非影像）</li>
+        </ul>
+        <p style="margin-top:10px;">1 項核心臨床特徵 + ≥1 項指示性標記 → <b>probable DLB</b>；無核心特徵但有指示性標記 → possible DLB。</p>
+      </div>
+      <div class="callout amber" style="margin:0;">
+        <h5>Supportive biomarkers（支持性）</h5>
+        <ul>
+          <li><span class="tag" style="--m:var(--room)">CT/MRI</span> 內側顳葉結構相對保留</li>
+          <li><span class="tag" style="--m:var(--fdg)">FDG</span> 枕葉低代謝及／或 cingulate island sign</li>
+          <li><span class="tag" style="--m:var(--fluid)">EEG</span> 明顯的後部慢波與週期性波動</li>
+        </ul>
+        <p style="margin-top:10px;">支持性標記不能單獨滿足診斷門檻，只能提高信心。</p>
+      </div>
+    </div>
+
+    <h3 class="sub">三種路徑的數字，並排看</h3>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>檢查</th><th>研究</th><th>敏感度</th><th>特異度</th><th>解讀要點</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag" style="--m:var(--dat)">DAT SPECT</span></td><td>Thomas 2017（屍解剖，DLB vs AD）[10]</td><td>80%</td><td>92%</td><td>優於臨床診斷特異度（72%）；PSP／CBD／部分 FTLD 也會異常</td></tr>
+          <tr><td><span class="tag" style="--m:var(--dat)">DAT SPECT</span></td><td>Tiraboschi 2016（臨床診斷為參考）[11]</td><td>90%</td><td>76%</td><td>7 位非 DLB 者 FP-CIT 異常（3 位有帕金森症狀）</td></tr>
+          <tr><td><span class="tag" style="--m:var(--mibg)">MIBG</span></td><td>Tiraboschi 2016 [11]</td><td>93%</td><td>100%</td><td>帕金森症狀為唯一核心特徵時，特異度優勢最明顯</td></tr>
+          <tr><td><span class="tag" style="--m:var(--mibg)">MIBG</span></td><td>Newcastle 世代 2019（AD vs DLB）[17]</td><td>71%</td><td>81%</td><td>調低 H/M 切點：特異度 100%、敏感度仍 71%；服藥與心肌梗塞史影響不明顯</td></tr>
+          <tr><td><span class="tag" style="--m:var(--fluid)">CSF SAA</span></td><td>Samudra 2024（屍解剖世代）[16]</td><td>100%（瀰漫／過渡型）</td><td>96.3%（整體）</td><td>杏仁核為主 42.8%、腦幹為主 16.7%——低負荷者容易漏</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout rust">
+      <h5>常見錯誤：用類澱粉 PET 區分 DLB 與 AD</h5>
+      <p>DLB 超過半數類澱粉陽性（MCI-LB 約 35–40%），因為 AD 型共病病理很常見。AUC 把 DLB 情境評為「很少適當」（類澱粉 2 分、tau 4 分）。類澱粉 PET 陰性可排除 AD，陽性並不能排除 DLB。</p>
+    </div>
+    <div class="callout dark">
+      <h5>生物學架構的新動向（2024）</h5>
+      <p>神經元 α-突觸核蛋白疾病整合分期系統（NSD-ISS）與 SynNeurGe 兩套研究用架構，以 α-突觸核蛋白聚集為起點定義路易氏體疾病；AA 修訂準則也把突觸核蛋白病列為常見的非 AD 共病標記類別。目前屬研究與臨床試驗用途，臨床診斷仍以 2017 共識為主 [15,22]。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 選擇工具 ============ -->
+<section class="block alt" id="selector">
+  <div class="wrap">
+    <div class="section-label"><span class="num">07</span>臨床應用</div>
+    <h2 class="title">互動：依臨床情境選檢查</h2>
+    <p class="section-intro">選一個情境，看首選、次選與要小心的地方。內容已依上方查核結果修正原稿表格。<b>前提不變：</b>所有病人都先完成病史、神經心理測驗、實驗室檢查與結構性 MRI；核醫檢查是為了回答「會改變處置的診斷不確定點」，不是例行篩檢。</p>
+
+    <div class="selector">
+      <label for="scenarioSel">臨床情境</label>
+      <select id="scenarioSel"></select>
+      <div class="sel-out" id="selOut" aria-live="polite"></div>
+    </div>
+
+    <h3 class="sub">整體順序的建議（教學歸納）</h3>
+    <div class="flow">
+      <div class="flow-step"><div class="n">1</div><div><h5>臨床評估 + 結構性 MRI + 實驗室</h5><p>釐清症候群、排除可逆原因；MRI 同時評估血管病變與（若考慮抗體治療）出血風險。</p></div></div>
+      <div class="flow-step"><div class="n">2</div><div><h5>問題是「有沒有 AD 病理？」</h5><p>專科門診中可先用符合 CPG 門檻的血漿檢驗分流；需確認時用 CSF 或類澱粉 PET。已有結論性結果就不要重複做 PET。</p></div></div>
+      <div class="flow-step"><div class="n">3</div><div><h5>問題是「是哪一種病？拓樸在哪裡？」</h5><p>FDG PET 看代謝型態；疑 DLB 加做 DAT SPECT 或 MIBG；FTLD 疑似時用 FDG，再以類澱粉標記排除 AD。</p></div></div>
+      <div class="flow-step"><div class="n">4</div><div><h5>問題是「能不能用抗類澱粉治療？」</h5><p>先證實類澱粉病理（PET 或 CSF／達標血漿）；基線 MRI 與 APOE 基因型依仿單與院內流程。Tau PET 屬加分而非必要。</p></div></div>
+      <div class="flow-step"><div class="n">5</div><div><h5>仍不明：多專科團隊討論</h5><p>各國共識都強調由團隊決定是否掃描、共同判讀；tau PET 與重複 FDG 保留給專家中心。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 台灣 ============ -->
+<section class="block" id="taiwan">
+  <div class="wrap">
+    <div class="section-label"><span class="num">08</span>台灣脈絡</div>
+    <h2 class="title">台灣現況：抗體上市後，影像變成「治療的入口」</h2>
+    <div class="card-grid">
+      <div class="card m-room">
+        <div class="card-top"><div class="card-icon">TFDA</div><span class="badge new">2025</span></div>
+        <h4>兩款抗類澱粉抗體已在台核准</h4>
+        <p>樂意保（lecanemab）與欣智樂（donanemab）於 2025 年取得食藥署許可；2025-06-23 亞東醫院完成全台首例施打。適用早期 AD（MCI 與輕度失智）。</p>
+        <div class="card-foot"><span>新聞報導（整理）</span><span>[20]</span></div>
+      </div>
+      <div class="card m-amy">
+        <div class="card-top"><div class="card-icon">$</div></div>
+        <h4>檢查與藥費大多自費</h4>
+        <p>媒體報導的院內評估費用（2025 年）：類澱粉 PET 約 7 萬、MRI 約 1.2 萬、APOE 基因檢測約 2 千元；18 個月療程藥費約 100–150 萬。實際收費因院而異，請以院內公告為準。</p>
+        <div class="card-foot"><span>新聞報導（整理）</span><span>[20]</span></div>
+      </div>
+      <div class="card m-fluid">
+        <div class="card-top"><div class="card-icon">NHI</div></div>
+        <h4>健保給付：以最新公告為準</h4>
+        <p>2025-07 專家會議對欣智樂的結論是不建議納入健保；樂意保當時預計 2026 年第 1 季有結論。<b>我沒有查到之後的最終決定</b>，請直接查健保署公告再教學。</p>
+        <div class="card-foot"><span>健保署署長答詢 2025-07-31</span><span>[20]</span></div>
+      </div>
+    </div>
+    <div class="callout amber">
+      <h5>教學提醒</h5>
+      <p>各類核醫檢查（FDG、DAT、MIBG、類澱粉／tau PET）的健保給付規範與院內是否提供，會隨時間與院所不同。本頁不宣稱任何檢查「有給付」；病人衛教前請先核對健保署最新規定與該院實際作法。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 陷阱 ============ -->
+<section class="block alt" id="pitfalls">
+  <div class="wrap">
+    <div class="section-label"><span class="num">09</span>判讀陷阱</div>
+    <h2 class="title">各檢查最常見的坑</h2>
+    <div id="accList"></div>
+  </div>
+</section>
+
+<!-- ============ 10 測驗 ============ -->
+<section class="block" id="quiz">
+  <div class="wrap">
+    <div class="section-label"><span class="num">10</span>自我檢核</div>
+    <h2 class="title">六題觀念測驗</h2>
+    <p class="section-intro">點選答案立即看解析。可重新整理頁面重做。</p>
+    <div id="quizBox"></div>
+    <p class="score-board" id="quizScore"></p>
+  </div>
+</section>
+
+<!-- ============ 11 總結 ============ -->
+<section class="block alt" id="summary">
+  <div class="wrap">
+    <div class="section-label"><span class="num">11</span>總結</div>
+    <h2 class="title">帶走的五件事</h2>
+    <div class="callout dark" style="font-size:.98rem;">
+      <ul>
+        <li><b>問題決定檢查。</b>要確認 AD 病理 → 血液／CSF／類澱粉 PET；要看拓樸與鑑別 → FDG；要區分 DLB → DAT 或 MIBG（再加 SAA、PSG）。</li>
+        <li><b>典型 AD 並非一律不必做類澱粉 PET。</b>2024 AUC 對 ≥65 歲典型失憶型評為適當，且抗體治療資格評估為最高分。</li>
+        <li><b>陰性有力、陽性要看年齡。</b>類澱粉陽性在高齡認知正常者可高達 45%；DLB 超過半數也會陽性。</li>
+        <li><b>Tau PET 特異、但偏晚。</b>陽性可確認，陰性不能排除早期（Braak III–IV）病理；第二個示蹤劑已於 2026 年核准。</li>
+        <li><b>證據有等級。</b>FDG 的許多鑑別情境是專家共識而非研究證據；MIBG 與 DAT 孰優，目前證據不一致。</li>
+      </ul>
+    </div>
+
+    <h3 class="sub">查核透明度：以下我沒能獨立核實</h3>
+    <ul style="color:var(--ink-soft); font-size:.9rem;">
+      <li>FDG／PiB 預測 MCI 轉 AD 的敏感度與特異度；MIBG 三年期與前驅期數字；DAT SPECT 前驅期敏感度</li>
+      <li>CCCDTD5 各建議的 Grade 等級；SPECT 空間解析度；ABIDE 世代的診斷改變比例；輻射劑量區間</li>
+      <li>cingulate island sign 的「特異度 100%」；日本 FDG／類澱粉 PET 給付現況（2017 年資料）</li>
+      <li>樂意保的台灣健保最終決定（查到的最新資訊為 2025-07 的預期時程）</li>
+    </ul>
+    <p style="font-size:.88rem; color:var(--ink-soft);">這些內容原稿引自綜述，我沒有找到可逐項比對的原始資料。正式教學或發表前，建議回到原始論文確認。</p>
+  </div>
+</section>
+
+<!-- ============ 參考文獻 ============ -->
+<section class="block" id="references">
+  <div class="wrap">
+    <div class="section-label"><span class="num">12</span>參考文獻</div>
+    <h2 class="title">References</h2>
+    <ol class="ref-list">
+      <li>Jack CR Jr, Andrews SJ, Beach TG, et al. Revised criteria for the diagnosis and staging of Alzheimer's disease. <em>Nature Medicine</em>. 2024;30(8):2121-2124. DOI: 10.1038/s41591-024-02988-7</li>
+      <li>Kato T, Inui Y, Nakamura A, Ito K. Brain fluorodeoxyglucose (FDG) PET in dementia. <em>Ageing Research Reviews</em>. 2016;30:73-84. DOI: 10.1016/j.arr.2016.02.003</li>
+      <li>Nestor PJ, Altomare D, Festari C, et al; EANM-EAN Task Force. Clinical utility of FDG-PET for the differential diagnosis among the main forms of dementia. <em>European Journal of Nuclear Medicine and Molecular Imaging</em>. 2018;45(9):1509-1525. DOI: 10.1007/s00259-018-4035-y</li>
+      <li>Laforce R Jr, Soucy J, Sellami L, et al. Molecular imaging in dementia: Past, present, and future. <em>Alzheimer's &amp; Dementia</em>. 2018;14(11):1522-1552. DOI: 10.1016/j.jalz.2018.06.2855</li>
+      <li>Brisson M, Brodeur C, Létourneau-Guillon L, et al. CCCDTD5: Clinical role of neuroimaging and liquid biomarkers in patients with cognitive impairment. <em>Alzheimer's &amp; Dementia: TRCI</em>. 2020;6(1). DOI: 10.1002/trc2.12098</li>
+      <li>Ito K, Inui Y, Kizawa T, Kimura Y, Kato T. Current and future prospects of nuclear medicine in dementia. <em>Rinsho Shinkeigaku</em>. 2017;57(9):479-484. DOI: 10.5692/clinicalneurol.cn-001016</li>
+      <li>Kolanko MA, Win Z, Loreto F, et al. Amyloid PET imaging in clinical practice. <em>Practical Neurology</em>. 2020;20(6):451-462. DOI: 10.1136/practneurol-2019-002468</li>
+      <li>Ossenkoppele R, Hansson O. Towards clinical application of tau PET tracers for diagnosing dementia due to Alzheimer's disease. <em>Alzheimer's &amp; Dementia</em>. 2021;17(12):1998-2008. DOI: 10.1002/alz.12356</li>
+      <li>Rowley PA, Samsonov AA, Betthauser TJ, et al. Amyloid and Tau PET Imaging of Alzheimer Disease and Other Neurodegenerative Conditions. <em>Seminars in Ultrasound, CT and MRI</em>. 2020;41(6):572-583. DOI: 10.1053/j.sult.2020.08.011</li>
+      <li>Thomas AJ, Attems J, Colloby SJ, et al. Autopsy validation of 123I-FP-CIT dopaminergic neuroimaging for the diagnosis of DLB. <em>Neurology</em>. 2017;88(3):276-283. DOI: 10.1212/wnl.0000000000003512</li>
+      <li>Tiraboschi P, Corso A, Guerra UP, et al. 123I-FP-CIT SPECT and 123I-MIBG myocardial scintigraphy in differentiating DLB from other dementias: a comparative study. <em>Annals of Neurology</em>. 2016;80(3):368-378. DOI: 10.1002/ana.24717</li>
+      <li class="updated">Rabinovici GD, Knopman DS, Arbizu J, et al. Updated Appropriate Use Criteria for Amyloid and Tau PET: A Report from the Alzheimer's Association and SNMMI Workgroup. <em>Journal of Nuclear Medicine</em>. 2025;66(Suppl 2):5S-31S. DOI: 10.2967/jnumed.124.268756</li>
+      <li class="updated">Alzheimer's Association Clinical Practice Guideline on the use of blood-based biomarkers in the diagnostic workup of suspected Alzheimer's disease within specialized care settings. <em>Alzheimer's &amp; Dementia</em>. 2025;21(7):e70535. DOI: 10.1002/alz.70535</li>
+      <li class="updated">U.S. FDA. FDA Clears First Blood Test Used in Diagnosing Alzheimer's Disease (Lumipulse G pTau217/β-Amyloid 1-42 Plasma Ratio). Press announcement, 2025-05-16；Roche Elecsys pTau181（2025-10-13）與 Elecsys pTau217（2026-08）核可公告（NeurologyLive 報導）。</li>
+      <li class="updated">McKeith IG, Boeve BF, Dickson DW, et al. Diagnosis and management of dementia with Lewy bodies: Fourth consensus report of the DLB Consortium. <em>Neurology</em>. 2017;89(1):88-100.</li>
+      <li class="updated">Samudra N, Fischer DL, Lenio S, et al. Clinicopathological correlation of cerebrospinal fluid alpha-synuclein seed amplification assay in a behavioral neurology autopsy cohort. <em>Alzheimer's &amp; Dementia</em>. 2024. DOI: 10.1002/alz.13799</li>
+      <li class="updated">Newcastle University. 123I-MIBG scintigraphy utility and cut-off value in a clinically representative dementia cohort. 2019. (eprints.ncl.ac.uk/254989)</li>
+      <li class="updated">Nobili F, et al; EANM-EAN Task Force. Clinical utility of FDG-PET for the clinical diagnosis in MCI. <em>European Journal of Nuclear Medicine and Molecular Imaging</em>. 2018.</li>
+      <li class="updated">Lantheus Holdings. FDA approval of TAUKLARIFY (florquinitau F 18 injection). Press release, 2026-08-14.</li>
+      <li class="updated">台灣新聞報導整理：公視新聞網〈失智新藥欣智樂療效數據不足 專家不建議納健保〉（2025）；科技新報（2025-07-31）；早安健康（2025-09-10）；公視（2025-06-23 亞東首例施打）。僅供脈絡參考，費用與給付以官方公告為準。</li>
+      <li class="updated">Eur J Nucl Med Mol Imaging. Utility of the combination of DAT SPECT and MIBG myocardial scintigraphy in differentiating dementia with Lewy bodies from Alzheimer's disease. 2015. DOI: 10.1007/s00259-015-3146-y</li>
+      <li class="updated">Simuni T, et al. Neuronal α-synuclein disease integrated staging system (NSD-ISS). <em>Lancet Neurology</em>. 2024；Höglinger GU, et al. SynNeurGe research diagnostic criteria. <em>Lancet Neurology</em>. 2024.</li>
+    </ol>
+    <div class="callout amber" style="margin-top:22px;">
+      <h5>使用限制</h5>
+      <p>本頁為教學與自學用途，不能取代個別病人的臨床判斷。示蹤劑核准、健保給付與院內服務會隨時間改變，請於使用前確認最新資訊。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>N-Teaching 神經科教學研究部 · 教學用途，不做為個別病人之診療依據</span>
+    <span><a href="index.html">返回首頁</a></span>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   以下是頁面的「資料」區。要改內容，只需要改這裡的文字，不用動其他程式。
+   ============================================================ */
+
+/* ---- 1. 檢查類別：名稱與顏色（顏色變數定義在上方 CSS 的 :root） ---- */
+const MOD = {
+  fdg:{n:'FDG PET', c:'var(--fdg)'},
+  amy:{n:'類澱粉 PET', c:'var(--amy)'},
+  tau:{n:'Tau PET', c:'var(--tau)'},
+  dat:{n:'DAT SPECT', c:'var(--dat)'},
+  mibg:{n:'MIBG', c:'var(--mibg)'},
+  spect:{n:'灌流 SPECT', c:'var(--spect)'},
+  fluid:{n:'血漿／CSF', c:'var(--fluid)'},
+  mri:{n:'MRI', c:'var(--room)'},
+  other:{n:'其他', c:'var(--fluid)'}
+};
+
+/* ---- 2. 腦圖：每一型失智症的低代謝分布 ----
+   區域代號：外側 front額葉 sm中央區 par頂葉 tp顳頂 occ枕葉 at前顳
+            內側 mf內側額 ac前扣帶 pcc後扣帶/楔前葉 mo內側枕 mt內側顳 deep基底核
+   狀態：hypo 明顯低代謝 / mild 輕度 / spared 相對保留 */
+const PATTERNS = {
+  ad:{ name:'典型 AD', state:{tp:'hypo', par:'hypo', pcc:'hypo', mt:'mild', sm:'spared', occ:'spared', deep:'spared'},
+    text:['雙側頂顳聯合區、後扣帶迴與楔前葉代謝下降。','初級運動感覺皮質、初級視皮質、基底核與視丘相對保留。','早發型 AD 的頂葉與後扣帶低代謝通常比晚發型更明顯。'] },
+  dlb:{ name:'DLB', state:{occ:'hypo', mo:'hypo', tp:'mild', par:'mild', pcc:'spared'},
+    text:['枕葉（含內側枕葉）代謝下降是支持性標記。','後扣帶相對保留 → cingulate island sign；合併 AD 病理時常消失。','DLB 與 AD 的鑑別，是 FDG 研究證據最好（good）的情境。'] },
+  bvftd:{ name:'行為變異型 FTD', state:{front:'hypo', at:'hypo', mf:'hypo', ac:'hypo', pcc:'spared', occ:'spared'},
+    text:['額葉與前顳葉低代謝，內側額與前扣帶常一併受影響。','後部皮質相對保留。','AD vs FTLD 的研究證據等級為 fair；類澱粉標記可用來排除 AD。'] },
+  lvppa:{ name:'Logopenic 型 PPA', state:{tp:'hypo', par:'mild', pcc:'mild'},
+    text:['左側後顳頂為主的低代謝（示意圖未區分左右，請在臨床判讀時注意側別）。','多數為 AD 病理，類澱粉或 tau PET 可確認。'] },
+  pca:{ name:'後大腦皮質萎縮', state:{occ:'hypo', par:'hypo', mo:'hypo', pcc:'mild'},
+    text:['雙側枕頂葉為主的低代謝。','多數為 AD 病理；tau PET 可顯示與症候對應的區域攝取。'] },
+  cbs:{ name:'皮質基底核症候群', state:{sm:'hypo', par:'hypo', front:'mild', deep:'hypo'},
+    text:['不對稱的額頂與紋狀體低代謝（示意圖未區分左右）。','底層病理異質（AD、CBD 等），FDG 只提供拓樸，不能單獨決定病理。'] }
+};
+
+/* ---- 3. 類澱粉／tau PET 適當使用準則 17 情境（Rabinovici 2025） ----
+   [編號, 情境, 類澱粉分數, tau 分數, 備註]；分數 7–9 適當、4–6 不確定、1–3 很少適當 */
+const AUC = [
+  [1,'認知正常，非高風險',1,1,''],
+  [2,'認知正常，高風險（年齡、APOE4、家族史）',2,1,''],
+  [3,'主觀認知下降，非高風險',2,1,''],
+  [4,'主觀認知下降，高風險',6,2,''],
+  [5,'MCI／失智，<65 歲，疑 AD',9,8,''],
+  [6,'MCI／失智，≥65 歲，典型失憶型',8,6,'原稿需修正'],
+  [7,'MCI／失智，非典型或混合表現',8,7,''],
+  [8,'已有生物標記確認的 AD：追蹤嚴重度或進展',1,4,''],
+  [9,'前驅期 Lewy body 疾病／DLB',2,4,''],
+  [10,'已有結論性 CSF 結果',3,6,''],
+  [11,'CSF 結果不明確或邊緣',8,6,''],
+  [12,'預後：MCI（疑 AD）',8,7,''],
+  [13,'預後：失智（疑 AD）',4,7,''],
+  [14,'評估是否適合抗類澱粉治療',9,8,'†'],
+  [15,'監測抗類澱粉治療反應',8,5,'†'],
+  [16,'非醫療用途（法律、保險、就業）',1,1,''],
+  [17,'取代疑似顯性遺傳突變者的基因檢測',1,1,'']
+];
+
+/* ---- 4. 臨床情境選擇器 ----
+   first 首選／second 次選／caution 注意與不建議；每項是 [檢查代號, 說明] */
+const SCENARIOS = [
+ { id:'s1', label:'≥65 歲，典型失憶型 probable AD',
+   ask:'想回答：是否需要用生物標記確認 AD 病理（例如要考慮抗體治療，或懷疑混合病理）？',
+   first:[['fluid','專科門診中，符合 CPG 門檻的血漿檢驗可分流；陰性可高度排除 AD 病理，陽性是否還需 PET／CSF 確認，取決於該檢驗是否達 ≥90%／≥90%'],['amy','類澱粉 PET：2024 AUC 評為適當（8 分），因為 15–20% 臨床 probable AD 其實 amyloid 陰性']],
+   second:[['tau','Tau PET：不確定（6 分），可用於分期與預後，非常規']],
+   caution:['已有結論性 CSF 或血漿結果時，再做類澱粉 PET 評為很少適當（3 分）','陽性要對照年齡盛行率（認知正常者約 10%（50 歲）至 45%（90 歲））'],
+   grade:'A', refs:'[1,12,13]' },
+ { id:'s2', label:'持續或進展性、原因不明的 MCI',
+   ask:'想回答：是否為 MCI due to AD？預後如何？',
+   first:[['amy','類澱粉 PET：預後用途 8 分；陽性者轉為失智的風險比約 3–4'],['fdg','FDG PET：偵測 MCI due to AD 的證據等級為 fair，並呈現代謝拓樸']],
+   second:[['fdg','合併 amyloid 與神經退化標記（FDG 或 MRI）可提升預後判斷']],
+   caution:['Tau PET 用於 MCI「診斷」時敏感度有限：Braak III–IV 期僅約 20% 判陽性，陰性不能排除','Tau PET 用於 MCI「預後」，AUC 評為 7 分（適當）'],
+   grade:'A', refs:'[12,18]' },
+ { id:'s3', label:'早發型（<65 歲）MCI 或失智，疑 AD',
+   ask:'想回答：是否為 AD？非典型表現是否仍為 AD 病理？',
+   first:[['amy','類澱粉 PET：9 分（適當）'],['tau','Tau PET：8 分（適當），早發型 tau 負荷較高，陽性機率較大']],
+   second:[['fdg','FDG PET：呈現與臨床症候對應的拓樸']],
+   caution:['疑似顯性遺傳家族：PET 不能取代基因諮詢與基因檢測（1 分）'],
+   grade:'A', refs:'[12]' },
+ { id:'s4', label:'非典型 AD 表現（PCA、logopenic PPA、額葉／執行型、CBS）',
+   ask:'想回答：這個症候群的病理是不是 AD？',
+   first:[['fdg','FDG PET：呈現代謝拓樸（枕頂、左後顳頂、額頂、不對稱額頂與紋狀體）'],['amy','類澱粉 PET：8 分，陰性可排除 AD；logopenic PPA 與 PCA 事前為 AD 的機率高']],
+   second:[['tau','Tau PET：7 分，區域攝取與症候對應，增加信心']],
+   caution:['FDG 的非典型 AD 證據等級為 poor（專家仍支持）','「AD 樣」FDG 型態不等於 AD 病理（糖尿病、高血脂、憂鬱亦可見）'],
+   grade:'B', refs:'[3,12]' },
+ { id:'s5', label:'疑似 DLB／帕金森氏症失智',
+   ask:'想回答：是否有路易氏體病變？是否合併 AD？',
+   first:[['dat','DAT SPECT：指示性標記；屍解剖敏感度 80%／特異度 92%'],['mibg','心肌 MIBG：指示性標記；與 DAT 互補，證據不一致']],
+   second:[['fdg','FDG PET：枕葉低代謝與 cingulate island sign 屬支持性'],['fluid','CSF SAA；PSG 確認 REM 無張力（非影像的指示性標記）']],
+   caution:['PSP、CBD、部分 FTLD 也會讓 DAT 異常','類澱粉 PET 不能用來區分 DLB 與 AD（DLB 過半數陽性；AUC 2 分）','CSF SAA 對杏仁核或腦幹為主的低負荷病例敏感度低'],
+   grade:'A', refs:'[10,11,12,15,16,17]' },
+ { id:'s6', label:'疑似 bvFTD、語意型或非流暢型 PPA',
+   ask:'想回答：是不是 FTLD？是否可排除 AD？',
+   first:[['fdg','FDG PET：首選。額葉／前顳葉、左前額或左前顳代謝下降']],
+   second:[['amy','類澱粉 PET：排除 AD（尤其 bvFTD 類似表現與 logopenic PPA 的區分）'],['mri','結構性 MRI：萎縮型態']],
+   caution:['Tau PET 對 PSP、CBD、Pick 等非 AD tau 病變不能確立診斷；新核准的 Tauklarify 仿單亦限制於 AD','AD vs FTLD 的 FDG 研究證據為 fair，屬輔助而非決定性'],
+   grade:'B', refs:'[3,12,19]' },
+ { id:'s7', label:'血管性認知障礙或疑似混合型',
+   ask:'想回答：血管病變之外是否合併 AD 病理？',
+   first:[['mri','MRI 為核心；FDG 需與缺血病灶共定位判讀']],
+   second:[['amy','類澱粉 PET：辨識共存的 AD 病理（AUC 情境 7：混合表現，8 分）']],
+   caution:['AD vs 血管性失智的 FDG 研究證據「lacking」；單獨的 AD 樣型態可能誤導'],
+   grade:'B', refs:'[3,12]' },
+ { id:'s8', label:'評估是否適合抗類澱粉治療（lecanemab／donanemab）',
+   ask:'想回答：有沒有類澱粉病理？適不適合用藥？',
+   first:[['amy','類澱粉 PET：9 分（適當）；或 CSF／達標的血漿檢驗確認類澱粉']],
+   second:[['tau','Tau PET：8 分（適當）；基線 tau 低—中度者獲益較大，但不在仿單或已發表使用建議的必要條件'],['mri','基線 MRI 評估出血風險；APOE 基因型依仿單與院內流程']],
+   caution:['治療反應監測：類澱粉 PET 8 分，tau PET 5 分（不確定）','台灣目前評估檢查與藥費多為自費，健保以最新公告為準'],
+   grade:'A', refs:'[12,20]' },
+ { id:'s9', label:'高齡、多重共病、疑似混合病理',
+   ask:'想回答：類澱粉陽性是偶發，還是真正驅動症狀的病理？',
+   first:[['fluid','血漿／CSF 標記，必要時加類澱粉 PET，並由多專科團隊討論']],
+   second:[['tau','Tau PET：特異性高，可協助區分偶發性類澱粉與真正驅動症狀的 AD 病理（專家意見）']],
+   caution:['高齡類澱粉陽性率高，陽性預測值下降，須以治療意圖為前提','AUC 對 ≥65 歲典型失憶型的 tau PET 為不確定（6 分）'],
+   grade:'C', refs:'[8,12]' },
+ { id:'s10', label:'精神症狀為主、疑假性失智，或快速進展',
+   ask:'想回答：是不是神經退化性疾病？',
+   first:[['fdg','FDG PET：正常代謝對神經退化性失智有高陰性預測值，可支持非退化性原因（專家共識；研究證據為 lacking）']],
+   second:[['amy','類澱粉 PET 陰性：快速進展時提示非 AD 的退化性疾病、朊病毒病或自體免疫腦炎'],['other','快速進展：先走 MRI、CSF、EEG 等路徑']],
+   caution:['嚴重憂鬱本身可造成輕度額葉代謝下降','這個情境的 FDG 建議屬專家意見'],
+   grade:'C', refs:'[3,12]' },
+ { id:'s11', label:'認知正常或僅主觀認知下降（無客觀障礙）',
+   ask:'想回答：我會不會得 AD？',
+   first:[['other','通常不建議用類澱粉或 tau PET：認知正常 1–2 分；主觀認知下降且非高風險 2／1 分']],
+   second:[['amy','主觀認知下降 + 高風險（年齡、APOE4、家族史）：類澱粉 PET 不確定（6 分）']],
+   caution:['2024 AA 準則不建議對無症狀者做生物標記檢測','非醫療用途（法律、保險、就業）：很少適當（1 分）'],
+   grade:'A', refs:'[1,12]' },
+ { id:'s12', label:'已有生物標記確認的 AD，要追蹤嚴重度或進展',
+   ask:'想回答：病況進展到哪裡？',
+   first:[['other','以臨床與認知測驗追蹤；類澱粉在失智期已接近平台，重複掃描不反映嚴重度']],
+   second:[['tau','Tau PET：不確定（4 分），缺乏連續掃描的臨床效益資料']],
+   caution:['類澱粉 PET 追蹤進展：很少適當（1 分）'],
+   grade:'B', refs:'[12]' }
+];
+
+/* ---- 5. 判讀陷阱（手風琴） ---- */
+const PITFALLS = [
+ {m:'fdg', t:'FDG PET', items:['偽陽性來源：正常老化（前扣帶、前顳）、憂鬱、血糖與血脂異常、認知儲備、動作假影','單靠「AD 樣」型態不等於 AD 病理','需標準化：空腹、暗室休息、固定收錄時間、統計圖譜對照常模、有經驗的判讀者']},
+ {m:'amy', t:'類澱粉 PET', items:['陰性 ≠ 完全沒有類澱粉，是低於偵測門檻；陰性仍可有效排除 AD 作為主要病因','陽性見於認知正常老人、DLB（過半數）與腦類澱粉血管病變','白質非特異攝取；陽性率隨年齡與 APOE4 上升','不可拿來判斷失智嚴重度，也不適用於無症狀篩檢']},
+ {m:'tau', t:'Tau PET', items:['Flortaucipir 在 Braak III–IV 期敏感度低，陰性不排除早期病理','對非 AD tau 病變（PSP、CBD、Pick 等）不能確立診斷','離靶結合：基底核、腦膜、脈絡叢、中腦黑質與紅核，可能干擾內側顳葉與新皮質早期訊號']},
+ {m:'dat', t:'DAT SPECT', items:['PSP、CBD、部分 FTLD 也會異常，鑑別範圍超過 AD 時特異度下降','帕金森症狀是唯一核心特徵時，以 DAT 異常支持 DLB 有循環論證問題','藥物（如部分抗憂鬱劑、興奮劑）可能影響攝取，判讀前需核對用藥']},
+ {m:'mibg', t:'MIBG 心肌造影', items:['證據不一致：Tiraboschi 2016 特異度 100%，Newcastle 世代 81%（切點調整後 100%）','心臟衰竭等共病可能造成非典型結果；糖尿病與心臟疾病的干擾可能被高估，但仍需列入判讀','H/M 比值切點需與實驗室一致']},
+ {m:'fluid', t:'血漿／CSF 與 SAA', items:['血漿標記的準確度因檢驗而異（CPG 要求 ≥90% 敏感度 + ≥75% 特異度才可分流）','腎功能不全、BMI 等共病對血漿 AD 標記的影響仍在研究','SAA：低負荷的局灶性路易氏體病理（杏仁核、腦幹為主）容易漏檢']}
+];
+
+/* ---- 6. 測驗題 ---- */
+const QUIZ = [
+ {q:'65 歲以上、典型失憶型 probable AD，2024 年更新的 AUC 對類澱粉 PET 的評級是？',
+  o:['很少適當（舊觀念：診斷已確定就不必做）','適當（8 分）','不確定（5 分）','未評分'], a:1,
+  e:'AUC 指出 15–20% 臨床診斷的晚發型 probable AD 其實類澱粉陰性，加上抗體治療資格評估需要證實病理，所以評為適當。'},
+ {q:'關於 flortaucipir tau PET 在 MCI 階段的限制，下列何者最正確？',
+  o:['對所有 Braak 分期都同樣敏感','對 Braak ≥V 期敏感度 92%，但 Braak III–IV 期僅約 20% 被判陽性','特異度低於類澱粉 PET','對 PSP 與 CBD 診斷可靠'], a:1,
+  e:'視覺判讀偏向偵測晚期 tau。陽性可信，陰性不能排除 MCI 階段常見的 Braak III–IV 期病理；它對非 AD tau 病變也不可靠。'},
+ {q:'一位疑似 DLB 的病人類澱粉 PET 呈陽性。最合理的解讀是？',
+  o:['可排除 DLB，確診 AD','DLB 超過半數類澱粉陽性，陽性不能排除 DLB，也不能區分 AD 與 DLB','陽性代表 tau PET 必為陽性','代表 DAT SPECT 必為正常'], a:1,
+  e:'AUC 把 DLB 情境的類澱粉 PET 評為很少適當（2 分）：陰性可排除 AD，但陽性無法鑑別。'},
+ {q:'依 2025 年 AA 血液標記臨床實務準則，血液檢驗要「取代」類澱粉 PET 或 CSF，需要達到什麼標準？',
+  o:['敏感度 ≥90% 且特異度 ≥75%','敏感度 ≥90% 且特異度 ≥90%','敏感度 ≥75% 且特異度 ≥90%','只要通過 FDA 核可即可'], a:1,
+  e:'≥90%／≥75% 只能作分流（陰性排除 AD 病理）；兩者皆 ≥90% 才可取代確認性檢查。FDA 核可與準則門檻是兩回事。'},
+ {q:'EANM-EAN 評估 FDG-PET 的研究證據，哪一個鑑別情境被評為「good」？',
+  o:['AD vs 血管性失智','假性失智 vs 退化性失智','DLB vs AD','DLB vs FTLD'], a:2,
+  e:'DLB vs AD 為 good；AD vs FTLD 為 fair；非典型 AD 為 poor；其餘情境 lacking。專家仍支持全部情境的使用，依據是陰性預測值與典型型態。'},
+ {q:'CSF α-突觸核蛋白 SAA 在哪一類路易氏體病變最容易漏檢？',
+  o:['瀰漫型','過渡型','杏仁核或腦幹為主的低負荷型','所有型別同樣敏感'], a:2,
+  e:'屍解剖世代中，瀰漫與過渡型敏感度 100%，杏仁核為主 42.8%、腦幹為主 16.7%。陰性不能排除局灶性低負荷病變。'}
+];
+
+/* ============================================================
+   以下是程式（一般不需要修改）
+   ============================================================ */
+
+/* 篩選 chips */
+(function(){
+  const chips = document.querySelectorAll('#toolChips .chip');
+  const cards = document.querySelectorAll('#toolGrid .card');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+      chip.setAttribute('aria-pressed','true');
+      const f = chip.dataset.f;
+      cards.forEach(function(card){
+        const tags = (card.dataset.t || '').split(' ');
+        card.style.display = (f === 'all' || tags.indexOf(f) > -1) ? '' : 'none';
+      });
+    });
+  });
+})();
+
+/* 腦圖 explorer */
+(function(){
+  const list = document.getElementById('patList');
+  const desc = document.getElementById('patDesc');
+  const regs = document.querySelectorAll('.reg');
+  function show(key){
+    const p = PATTERNS[key];
+    regs.forEach(function(r){
+      r.classList.remove('hypo','mild','spared');
+      const s = p.state[r.dataset.r];
+      if(s){ r.classList.add(s); }
+    });
+    list.querySelectorAll('.pat-btn').forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.k === key ? 'true' : 'false');
+    });
+    desc.innerHTML = '<h4>' + p.name + '</h4>' + p.text.map(function(t){ return '<p>' + t + '</p>'; }).join('');
+  }
+  Object.keys(PATTERNS).forEach(function(k, i){
+    const b = document.createElement('button');
+    b.className = 'pat-btn'; b.textContent = PATTERNS[k].name; b.dataset.k = k;
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function(){ show(k); });
+    list.appendChild(b);
+  });
+  show('ad');
+})();
+
+/* AUC 表格 */
+(function(){
+  const tb = document.querySelector('#aucTable tbody');
+  function cls(n){ return n >= 7 ? 's-good' : (n >= 4 ? 's-mid' : 's-low'); }
+  AUC.forEach(function(r){
+    const tr = document.createElement('tr');
+    const note = r[4] ? ' <span class="badge ' + (r[4] === '†' ? 'g-b' : 'new') + '">' + r[4] + '</span>' : '';
+    const hl = r[0] === 6 ? ' style="background:#FFF6EE;"' : '';
+    tr.innerHTML = '<td' + hl + '>' + r[0] + '</td><td' + hl + '>' + r[1] + note + '</td>' +
+      '<td' + hl + '><span class="score ' + cls(r[2]) + '">' + r[2] + '</span></td>' +
+      '<td' + hl + '><span class="score ' + cls(r[3]) + '">' + r[3] + '</span></td>';
+    tb.appendChild(tr);
+  });
+})();
+
+/* 臨床情境選擇器 */
+(function(){
+  const sel = document.getElementById('scenarioSel');
+  const out = document.getElementById('selOut');
+  SCENARIOS.forEach(function(s, i){
+    const o = document.createElement('option'); o.value = i; o.textContent = (i + 1) + '. ' + s.label; sel.appendChild(o);
+  });
+  function tagHtml(m){ const x = MOD[m] || MOD.other; return '<span class="tag" style="--m:' + x.c + '">' + x.n + '</span>'; }
+  function tier(title, arr, warn){
+    if(!arr || !arr.length) return '';
+    const items = arr.map(function(it){
+      if(Array.isArray(it)){ return '<li>' + tagHtml(it[0]) + '<span>' + it[1] + '</span></li>'; }
+      return '<li><span>' + it + '</span></li>';
+    }).join('');
+    return '<div class="tier' + (warn ? ' warn' : '') + '"><h6>' + title + '</h6><ul>' + items + '</ul></div>';
+  }
+  function render(){
+    const s = SCENARIOS[sel.value];
+    out.innerHTML =
+      '<div class="sel-ask">' + s.ask + '</div>' +
+      tier('首選', s.first) + tier('次選／輔助', s.second) + tier('注意與不建議', s.caution, true) +
+      '<div class="sel-foot"><span class="badge g-' + s.grade.toLowerCase() + '">證據 ' + s.grade + '</span><span>參考：' + s.refs + '</span><span>分級：A 準則／系統性證據 · B 世代研究或專家共識 · C 專家意見</span></div>';
+  }
+  sel.addEventListener('change', render);
+  render();
+})();
+
+/* 判讀陷阱手風琴 */
+(function(){
+  const box = document.getElementById('accList');
+  PITFALLS.forEach(function(p){
+    const item = document.createElement('div');
+    item.className = 'acc-item';
+    item.style.setProperty('--m', MOD[p.m].c);
+    item.innerHTML = '<button class="acc-q" aria-expanded="false"><span><span class="dot"></span>' + p.t + '</span><span class="arrow">▾</span></button>' +
+      '<div class="acc-a"><div class="acc-a-inner"><ul>' + p.items.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul></div></div>';
+    box.appendChild(item);
+    const btn = item.querySelector('.acc-q');
+    const panel = item.querySelector('.acc-a');
+    btn.addEventListener('click', function(){
+      const open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.style.maxHeight = open ? panel.scrollHeight + 'px' : null;
+    });
+  });
+})();
+
+/* 測驗 */
+(function(){
+  const box = document.getElementById('quizBox');
+  const scoreEl = document.getElementById('quizScore');
+  let right = 0, done = 0;
+  QUIZ.forEach(function(q, qi){
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    card.innerHTML = '<h5><span>Q' + (qi + 1) + '</span>' + q.q + '</h5><div class="opts"></div><div class="q-exp"><b>解析：</b>' + q.e + '</div>';
+    const opts = card.querySelector('.opts');
+    q.o.forEach(function(text, oi){
+      const b = document.createElement('button');
+      b.className = 'opt'; b.textContent = text;
+      b.addEventListener('click', function(){
+        if(card.classList.contains('done')) return;
+        card.classList.add('done');
+        const all = opts.querySelectorAll('.opt');
+        all[q.a].classList.add('correct');
+        if(oi !== q.a){ b.classList.add('wrong'); } else { right++; }
+        done++;
+        scoreEl.textContent = '目前：答對 ' + right + ' / ' + done + '（共 ' + QUIZ.length + ' 題）';
+      });
+      opts.appendChild(b);
+    });
+    box.appendChild(card);
+  });
+})();
+</script>
+</body>
+</html>
