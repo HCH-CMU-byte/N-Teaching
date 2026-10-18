@@ -1,0 +1,58 @@
+[
+  {
+    "key": "electro",
+    "label": "電生理 · Electrodiagnostics",
+    "color": "blue",
+    "nav": "神經傳導",
+    "planned_only": false
+  },
+  {
+    "key": "ultrasound",
+    "label": "血管 · 神經超音波 · Ultrasound",
+    "color": "teal",
+    "nav": "神經超音波",
+    "planned_only": false
+  },
+  {
+    "key": "headache",
+    "label": "頭痛 · Headache Medicine",
+    "color": "purple",
+    "nav": "頭痛",
+    "planned_only": false
+  },
+  {
+    "key": "dementia",
+    "label": "失智症 · Dementia",
+    "color": "amber",
+    "nav": "失智症",
+    "planned_only": false
+  },
+  {
+    "key": "epilepsy",
+    "label": "癲癇症 · Epilepsy",
+    "color": "blue",
+    "nav": "癲癇",
+    "planned_only": false
+  },
+  {
+    "key": "cerebrovascular",
+    "label": "腦血管疾病 · Cerebrovascular Disease",
+    "color": "red",
+    "nav": "腦血管疾病",
+    "planned_only": false
+  },
+  {
+    "key": "movement",
+    "label": "動作障礙疾病 · Movement Disorders",
+    "color": "pink",
+    "nav": "動作障礙",
+    "planned_only": false
+  },
+  {
+    "key": "soon",
+    "label": "即將推出 · Coming Soon",
+    "color": "teal",
+    "nav": "",
+    "planned_only": true
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "id": "cluster-headache.html",
+    "category": "headache",
+    "icon": "🌀",
+    "label": "Headache",
+    "title": "叢發性頭痛",
+    "desc": "單側劇烈眼眶周圍疼痛、自主神經症狀與急性期／預防性治療整理。",
+    "badge": "即將上線",
+    "color": "purple",
+    "in_nav": true
+  },
+  {
+    "id": "moh.html",
+    "category": "headache",
+    "icon": "💉",
+    "label": "Headache",
+    "title": "藥物過度使用性頭痛",
+    "desc": "MOH 診斷標準、常見致病藥物與戒斷／橋接治療策略整理。",
+    "badge": "即將上線",
+    "color": "purple",
+    "in_nav": true
+  },
+  {
+    "id": "dementia_autoimmune.html",
+    "category": "dementia",
+    "icon": "🦠",
+    "label": "Autoimmune",
+    "title": "免疫腦炎",
+    "desc": "自體免疫性腦炎導致的認知功能急速惡化與鑑別診斷整理。",
+    "badge": "即將上線",
+    "color": "amber",
+    "in_nav": true
+  },
+  {
+    "id": "status_epilepticus.html",
+    "category": "epilepsy",
+    "icon": "🚨",
+    "label": "Epilepsy",
+    "title": "癲癇積重狀態",
+    "desc": "SE 定義分期、急性期藥物治療流程與難治性 癲癇積重狀態處理。",
+    "badge": "即將上線",
+    "color": "blue",
+    "in_nav": true
+  },
+  {
+    "id": "stroke-secondary",
+    "category": "cerebrovascular",
+    "icon": "🫀",
+    "label": "Cerebrovascular",
+    "title": "中風二級預防與抗凝血",
+    "desc": "AF 相關中風二級預防、抗凝血藥物選擇與 LAA closure 適應症整理。",
+    "badge": "規劃中",
+    "color": "red",
+    "in_nav": true
+  },
+  {
+    "id": "parkinsons_disease.html",
+    "category": "movement",
+    "icon": "⚙️",
+    "label": "Parkinson's Disease",
+    "title": "巴金森氏症診斷與治療",
+    "desc": "診斷標準、藥物治療時機、DBS 適應症， 含最新 PDMED 指引整理。",
+    "badge": "規劃中",
+    "color": "pink",
+    "in_nav": true
+  },
+  {
+    "id": "movement_differential.html",
+    "category": "movement",
+    "icon": "🔍",
+    "label": "Differential Diagnosis",
+    "title": "動作障礙鑑別診斷",
+    "desc": "非典型巴金森症候群（MSA、PSP、CBD）與 本態性顫抖等鑑別要點整理。",
+    "badge": "規劃中",
+    "color": "pink",
+    "in_nav": true
+  },
+  {
+    "id": "movement_medication.html",
+    "category": "movement",
+    "icon": "💊",
+    "label": "Pharmacotherapy",
+    "title": "動作障礙藥物治療",
+    "desc": "左旋多巴、多巴胺促效劑與相關藥物的 選擇時機與副作用管理整理。",
+    "badge": "規劃中",
+    "color": "pink",
+    "in_nav": true
+  },
+  {
+    "id": "soon-stroke-acute",
+    "category": "soon",
+    "icon": "💊",
+    "label": "Stroke",
+    "title": "腦中風急性處置與二級預防",
+    "desc": "靜脈血栓溶解、機械取栓、抗血栓藥物選擇，依 AHA/ASA 2023 指引。",
+    "badge": "規劃中",
+    "color": "teal",
+    "in_nav": false
+  },
+  {
+    "id": "soon-sleep",
+    "category": "soon",
+    "icon": "😴",
+    "label": "Sleep Neurology",
+    "title": "睡眠障礙與神經疾病",
+    "desc": "RBD、睡眠呼吸中止症與神經退化疾病的關聯及臨床評估。",
+    "badge": "規劃中",
+    "color": "teal",
+    "in_nav": false
+  }
+]

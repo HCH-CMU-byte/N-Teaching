@@ -1,1 +1,102 @@
-
+{
+  "_說明": "沒有在頁面裡填 nt: meta 的舊頁面，就用這裡的資料。頁面自己的 meta 優先於這裡。新頁面不需要改這個檔案。",
+  "ncs.html": {
+    "category": "electro",
+    "icon": "⚡",
+    "label": "NCS / EMG",
+    "title": "神經傳導檢查判讀",
+    "summary": "系統性學習 NCS / EMG 判讀，含互動波形模擬器、14 個臨床病例， 以及常見神經病變鑑別診斷。",
+    "order": 1,
+    "tags": [
+      "NCS",
+      "EMG",
+      "多發性神經病變",
+      "單神經病變"
+    ],
+    "status": "已上線 · 持續更新中"
+  },
+  "neuro-ultrasound.html": {
+    "category": "ultrasound",
+    "icon": "🔊",
+    "label": "Vascular Ultrasound",
+    "title": "神經超音波檢查",
+    "summary": "頸動脈與顱內血管超音波教學，含 Doppler 物理模擬器、 波形辨識與五個臨床病例。",
+    "order": 1,
+    "tags": [
+      "頸動脈",
+      "TCD",
+      "Doppler",
+      "狹窄評估"
+    ],
+    "status": "已上線 · 持續更新中"
+  },
+  "migraine_headache.html": {
+    "category": "headache",
+    "icon": "💊",
+    "label": "Migraine",
+    "title": "偏頭痛治療近五年進展",
+    "summary": "CGRP 單株抗體、gepants、ditans 及保健品證據， 依台灣頭痛學會與 AHS 2024 共識整理。",
+    "order": 1
+  },
+  "dementia.html": {
+    "category": "dementia",
+    "icon": "🔬",
+    "label": "Dementia",
+    "title": "失智症總覽",
+    "summary": "阿茲海默症、血管型失智症等常見類型的診斷架構與 整體臨床評估流程整理。",
+    "order": 1
+  },
+  "DLB_clinical_guide.html": {
+    "category": "dementia",
+    "icon": "🧬",
+    "label": "DLB",
+    "title": "路易氏體失智症（DLB）",
+    "summary": "McKeith 2017 診斷準則、α-synuclein SAA 生物標記與 前驅期亞型鑑別診斷整理。",
+    "order": 2
+  },
+  "dementia_reversible.html": {
+    "category": "dementia",
+    "icon": "🩺",
+    "label": "Reversible Dementia",
+    "title": "可治療的失智類疾病",
+    "summary": "甲狀腺功能低下、NPH、維生素缺乏等可逆性病因的 篩檢與治療整理。",
+    "order": 3
+  },
+  "epilepsy_psychiatry.html": {
+    "category": "epilepsy",
+    "icon": "🧠",
+    "label": "Epilepsy",
+    "title": "癲癇與精神疾病",
+    "summary": "非癲癇性發作（NES）鑑別、周發性精神症狀， 以及 15 種 ASM 精神科副作用整理。",
+    "order": 1,
+    "tags": [
+      "EEG",
+      "ASM 副作用"
+    ],
+    "status": "已上線 · 持續更新中"
+  },
+  "seizure_mimics.html": {
+    "category": "epilepsy",
+    "icon": "⚡",
+    "label": "Epilepsy",
+    "title": "像癲癇，不是癲癇",
+    "summary": "昏厥、偏頭痛、動作障礙等癲癇模擬疾病的 鑑別診斷整理。",
+    "order": 2
+  },
+  "stroke_progression.html": {
+    "category": "cerebrovascular",
+    "icon": "🩸",
+    "label": "Cerebrovascular",
+    "title": "惡化型腦中風／早期神經惡化（END）",
+    "summary": "惡化機轉、危險因子，以及近五年（2019–2025）ARAMIS、大核心取栓、 ENCHANTED2/MT、PCSK9 抑制劑等關鍵試驗實證回顧，附查核與更正說明。",
+    "order": 1,
+    "tags": [
+      "END",
+      "實證查核"
+    ]
+  },
+  "ncs_firebase_ready.html": {
+    "hide": true,
+    "_說明": "這是 NCS 判讀工具（非教學頁面），不放進首頁索引"
+  }
+}
