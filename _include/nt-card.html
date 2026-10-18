@@ -1,0 +1,18 @@
+{%- comment -%} 單張卡片：由 page-index.html 呼叫，不需要修改 {%- endcomment -%}
+{%- assign nt_now = site.time | date: "%s" | plus: 0 -%}
+{%- assign nt_then = include.p.updated | date: "%s" | plus: 0 -%}
+{%- assign nt_age = nt_now | minus: nt_then | divided_by: 86400 -%}
+<a class="nt-card" href="{{ include.p.file | relative_url }}" data-cat="{{ include.p.category }}"
+   data-text="{{ include.p.title | escape }} {{ include.p.summary | escape }} {{ include.p.tags | join: ' ' | escape }}" style="--c: {{ include.color }}">
+  <div class="nt-card-top">
+    <span class="nt-icon">{{ include.p.icon }}</span>
+    <span class="nt-cat">{{ include.catname }}</span>
+    {%- if nt_age <= 30 %}<span class="nt-new">NEW</span>{% endif %}
+  </div>
+  <h4>{{ include.p.title | escape }}</h4>
+  <p>{{ include.p.summary | escape }}</p>
+  <div class="nt-foot">
+    <span>{% for t in include.p.tags limit: 3 %}#{{ t }} {% endfor %}</span>
+    <span>{{ include.p.updated }}</span>
+  </div>
+</a>
