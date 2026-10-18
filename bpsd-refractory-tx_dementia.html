@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPSD治療高原期：藥物效果不佳或副作用限制劑量時的下一步 | N-Teaching</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#12232E;
+  --navy-soft:#1B3040;
+  --navy-line:#2B4356;
+  --paper:#FAF8F4;
+  --paper-dim:#F1ECE3;
+  --card:#FFFFFF;
+  --ink:#1E2730;
+  --ink-soft:#5B6570;
+  --ink-faint:#8A93A0;
+  --amber:#E2A33B;
+  --amber-deep:#B97F1F;
+  --amber-bg:#FBF1DE;
+  --sage:#5E9573;
+  --sage-deep:#3E6E4E;
+  --sage-bg:#E9F2EA;
+  --rust:#C1502E;
+  --rust-deep:#963B20;
+  --rust-bg:#FBEAE3;
+  --line:#E2DCCE;
+  --radius:14px;
+  --serif:'Noto Serif TC', serif;
+  --sans:'Noto Sans TC', sans-serif;
+  --mono:'IBM Plex Mono', monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;}
+img{max-width:100%;}
+
+/* ---------- NAV (house style: fixed/sticky, logo -> index.html) ---------- */
+.site-nav{
+  position:sticky; top:0; z-index:100;
+  background:rgba(18,35,46,0.96);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--navy-line);
+}
+.site-nav-inner{
+  max-width:1180px; margin:0 auto; padding:0 24px;
+  display:flex; align-items:center; justify-content:space-between;
+  height:60px;
+}
+.site-logo{
+  font-family:var(--serif); font-weight:900; font-size:1.05rem;
+  color:#F4EFE4; text-decoration:none; letter-spacing:.02em;
+  display:flex; align-items:center; gap:8px;
+}
+.site-logo .mark{
+  width:26px; height:26px; border-radius:7px;
+  background:linear-gradient(135deg, var(--amber), var(--rust));
+  display:inline-block;
+}
+.site-links{display:flex; gap:4px; align-items:center;}
+.site-links a{
+  font-size:.86rem; color:#C9D2D8; text-decoration:none;
+  padding:8px 14px; border-radius:8px; transition:.15s;
+  white-space:nowrap;
+}
+.site-links a:hover{background:rgba(226,163,59,.15); color:#F4EFE4;}
+.site-links a.current{background:rgba(226,163,59,.22); color:var(--amber);}
+.nav-toggle{display:none;}
+@media (max-width:820px){
+  .site-links{position:fixed; top:60px; left:0; right:0; background:var(--navy);
+    flex-direction:column; align-items:stretch; padding:8px; gap:2px;
+    border-bottom:1px solid var(--navy-line); display:none;}
+  .site-links.open{display:flex;}
+  .site-links a{padding:12px 16px;}
+  .nav-toggle{display:block; background:none; border:1px solid var(--navy-line);
+    color:#F4EFE4; border-radius:8px; padding:6px 10px; font-size:1rem;}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:
+    radial-gradient(1100px 420px at 15% -10%, rgba(226,163,59,.16), transparent 60%),
+    radial-gradient(900px 380px at 100% 0%, rgba(94,149,115,.14), transparent 55%),
+    var(--navy);
+  color:#F4EFE4;
+  padding:76px 24px 64px;
+}
+.hero-inner{max-width:920px; margin:0 auto;}
+.eyebrow{
+  font-family:var(--mono); font-size:.78rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--amber);
+  display:flex; align-items:center; gap:10px; margin-bottom:18px;
+}
+.eyebrow::before{content:""; width:26px; height:1px; background:var(--amber);}
+.hero h1{
+  font-family:var(--serif); font-weight:900; font-size:clamp(1.7rem, 4vw, 2.55rem);
+  line-height:1.35; margin:0 0 18px; color:#FFFDF8;
+}
+.hero p.lede{
+  font-size:1.05rem; color:#C9D2D8; max-width:70ch; margin:0 0 28px;
+}
+.hero-meta{display:flex; flex-wrap:wrap; gap:10px;}
+.hero-meta span{
+  font-size:.8rem; font-family:var(--mono);
+  border:1px solid var(--navy-line); color:#C9D2D8;
+  padding:6px 12px; border-radius:999px; background:rgba(255,255,255,.03);
+}
+
+/* ---------- LAYOUT ---------- */
+.wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+.wrap-wide{max-width:1180px; margin:0 auto; padding:0 24px;}
+section.block{padding:56px 0;}
+section.block.alt{background:var(--paper-dim);}
+section.block.alt .wrap, section.block.alt .wrap-wide{padding-top:0;}
+
+.section-label{
+  font-family:var(--mono); font-size:.78rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--amber-deep);
+  display:flex; align-items:center; gap:10px; margin-bottom:12px;
+}
+.section-label .num{
+  font-weight:600; background:var(--navy); color:var(--amber);
+  border-radius:6px; padding:2px 8px;
+}
+h2.title{
+  font-family:var(--serif); font-weight:800; font-size:clamp(1.35rem,2.6vw,1.85rem);
+  margin:0 0 10px; color:var(--ink);
+}
+p.section-intro{color:var(--ink-soft); max-width:72ch; margin:0 0 32px; font-size:1rem;}
+
+/* ---------- DIFF / FACT-CHECK PANEL (signature element) ---------- */
+.diff-panel{
+  background:var(--navy); border-radius:18px; padding:2px;
+  margin:40px 0 0;
+  box-shadow:0 18px 50px -20px rgba(18,35,46,.55);
+}
+.diff-panel-inner{
+  background:#0F1D26; border-radius:16px; padding:28px 28px 8px;
+}
+.diff-head{
+  display:flex; align-items:center; gap:12px; margin-bottom:18px;
+  flex-wrap:wrap;
+}
+.diff-head h3{
+  font-family:var(--serif); color:#F4EFE4; font-size:1.15rem; margin:0;
+}
+.diff-tag{
+  font-family:var(--mono); font-size:.72rem; color:#0F1D26;
+  background:var(--amber); padding:3px 10px; border-radius:999px; font-weight:600;
+}
+.diff-sub{color:#8FA0AC; font-size:.88rem; margin:0 0 18px; max-width:70ch;}
+.diff-row{
+  font-family:var(--mono); font-size:.86rem; line-height:1.9;
+  border-top:1px solid rgba(255,255,255,.08); padding:16px 0;
+}
+.diff-row:last-child{padding-bottom:20px;}
+.diff-old, .diff-new{display:flex; gap:10px; align-items:flex-start; padding:3px 0;}
+.diff-old span.mark{color:var(--rust); flex-shrink:0;}
+.diff-new span.mark{color:var(--sage); flex-shrink:0;}
+.diff-old .txt{color:#8FA0AC; text-decoration:line-through; text-decoration-color:rgba(193,80,46,.6);}
+.diff-new .txt{color:#E9F2EA;}
+.diff-cite{color:#5C7280; font-size:.76rem; margin-top:4px; padding-left:24px;}
+
+/* ---------- CARDS (house style: icon/category/title/description/footer) ---------- */
+.card-grid{
+  display:grid; gap:18px;
+  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+}
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:22px; display:flex; flex-direction:column; gap:10px;
+  transition:.18s ease;
+}
+.card:hover{transform:translateY(-2px); box-shadow:0 14px 30px -18px rgba(18,35,46,.35);}
+.card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:8px;}
+.card-icon{
+  width:38px; height:38px; border-radius:10px; display:flex; align-items:center;
+  justify-content:center; font-size:1.1rem; flex-shrink:0;
+}
+.card-cat{
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.05em; text-transform:uppercase;
+  color:var(--ink-faint);
+}
+.card h4{margin:0; font-family:var(--serif); font-size:1.04rem; color:var(--ink); line-height:1.5;}
+.card p{margin:0; color:var(--ink-soft); font-size:.92rem;}
+.card-foot{
+  margin-top:auto; padding-top:10px; border-top:1px dashed var(--line);
+  font-family:var(--mono); font-size:.74rem; color:var(--ink-faint);
+  display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;
+}
+.badge{
+  display:inline-block; font-family:var(--mono); font-size:.68rem; font-weight:600;
+  padding:2px 9px; border-radius:999px; letter-spacing:.03em;
+}
+.badge.grade-a{background:var(--sage-bg); color:var(--sage-deep);}
+.badge.grade-b{background:var(--amber-bg); color:var(--amber-deep);}
+.badge.grade-c{background:var(--rust-bg); color:var(--rust-deep);}
+
+/* evidence cards accent bar */
+.card.acc-sage{border-top:3px solid var(--sage);}
+.card.acc-amber{border-top:3px solid var(--amber);}
+.card.acc-rust{border-top:3px solid var(--rust);}
+.card.acc-navy{border-top:3px solid var(--navy);}
+.card-icon.i-sage{background:var(--sage-bg); color:var(--sage-deep);}
+.card-icon.i-amber{background:var(--amber-bg); color:var(--amber-deep);}
+.card-icon.i-rust{background:var(--rust-bg); color:var(--rust-deep);}
+.card-icon.i-navy{background:var(--navy-soft); color:var(--amber);}
+
+/* ---------- STEP FLOW (Gitlin six steps - genuine ordered sequence) ---------- */
+.flow-row{
+  display:grid; grid-template-columns:repeat(6,1fr); gap:0;
+  margin:8px 0 6px;
+}
+.flow-step{
+  position:relative; padding:18px 14px; text-align:center;
+  background:var(--card); border:1px solid var(--line);
+}
+.flow-step:first-child{border-radius:12px 0 0 12px;}
+.flow-step:last-child{border-radius:0 12px 12px 0;}
+.flow-step + .flow-step{border-left:none;}
+.flow-step .n{
+  font-family:var(--mono); font-size:.72rem; color:var(--amber-deep); font-weight:700;
+  margin-bottom:6px; display:block;
+}
+.flow-step .t{font-size:.86rem; color:var(--ink); font-weight:500; line-height:1.5;}
+.flow-step::after{
+  content:"›"; position:absolute; right:-9px; top:50%; transform:translateY(-50%);
+  color:var(--ink-faint); font-size:1.1rem; z-index:2; background:var(--paper);
+  width:16px; text-align:center;
+}
+.flow-step:last-child::after{content:"";}
+@media (max-width:820px){
+  .flow-row{grid-template-columns:1fr; gap:8px;}
+  .flow-step{border-radius:10px !important; border-left:1px solid var(--line) !important;}
+  .flow-step::after{content:"↓"; right:auto; left:50%; top:auto; bottom:-18px; transform:translateX(-50%); background:var(--paper-dim);}
+}
+
+/* ---------- TARGET SYMPTOM TABLE ---------- */
+.resp-table{width:100%; border-collapse:collapse; margin:18px 0; font-size:.92rem;}
+.resp-table th, .resp-table td{padding:12px 14px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top;}
+.resp-table th{font-family:var(--mono); font-size:.74rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-weight:600;}
+.resp-table td.yes{color:var(--sage-deep);}
+.resp-table td.no{color:var(--rust-deep);}
+
+/* ---------- STEPPER (5-step drug strategy — genuine clinical sequence) ---------- */
+.stepper{position:relative; margin-top:20px;}
+.stepper::before{
+  content:""; position:absolute; left:23px; top:10px; bottom:10px; width:2px;
+  background:linear-gradient(var(--amber), var(--sage));
+}
+.step{
+  position:relative; padding:0 0 40px 64px;
+}
+.step:last-child{padding-bottom:4px;}
+.step .dot{
+  position:absolute; left:0; top:0; width:48px; height:48px; border-radius:50%;
+  background:var(--navy); color:var(--amber); display:flex; align-items:center; justify-content:center;
+  font-family:var(--serif); font-weight:800; font-size:1.15rem; border:3px solid var(--paper);
+  box-shadow:0 0 0 2px var(--navy-line);
+}
+.step h3{font-family:var(--serif); font-size:1.18rem; margin:4px 0 10px; color:var(--ink);}
+.step .step-body{color:var(--ink-soft); font-size:.96rem;}
+.step .step-body p{margin:0 0 12px;}
+
+/* ---------- CALLOUT BOXES ---------- */
+.callout{
+  border-radius:12px; padding:18px 20px; margin:16px 0; font-size:.93rem;
+  border:1px solid transparent;
+}
+.callout h5{margin:0 0 8px; font-family:var(--sans); font-weight:700; font-size:.92rem; display:flex; align-items:center; gap:8px;}
+.callout.amber{background:var(--amber-bg); border-color:#EFD6A0; color:#5C4413;}
+.callout.rust{background:var(--rust-bg); border-color:#EABBAA; color:#6B2C17;}
+.callout.sage{background:var(--sage-bg); border-color:#BFDCC8; color:#2C4E38;}
+.callout.navy{background:var(--navy-soft); border-color:var(--navy-line); color:#DCE4E8;}
+.callout ul{margin:6px 0 0; padding-left:20px;}
+.callout p{margin:0 0 8px;}
+.callout p:last-child{margin-bottom:0;}
+
+/* ---------- DRUG COMPARISON CARDS ---------- */
+.drug-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin:18px 0;}
+.drug-card{
+  border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--card);
+}
+.drug-card .dc-head{
+  padding:14px 16px; display:flex; justify-content:space-between; align-items:center;
+  background:var(--paper-dim); border-bottom:1px solid var(--line);
+}
+.drug-card .dc-head strong{font-family:var(--serif); font-size:1rem;}
+.drug-card .dc-body{padding:14px 16px; font-size:.87rem; color:var(--ink-soft);}
+.drug-card .dc-body dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:4px 10px;}
+.drug-card .dc-body dt{font-family:var(--mono); font-size:.72rem; color:var(--ink-faint); align-self:start; padding-top:2px;}
+.drug-card .dc-body dd{margin:0;}
+.drug-card.featured{border-color:var(--amber); box-shadow:0 0 0 1px var(--amber);}
+.drug-card.featured .dc-head{background:var(--amber-bg);}
+.pill{font-family:var(--mono); font-size:.68rem; padding:2px 8px; border-radius:999px; background:var(--navy); color:var(--amber);}
+
+/* ---------- ALT DRUG GRID (adjunct/alternative agents) ---------- */
+.alt-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; margin:18px 0;}
+.alt-card{border-radius:12px; padding:16px; border:1px solid var(--line); background:var(--card);}
+.alt-card .stance{
+  font-family:var(--mono); font-size:.68rem; font-weight:700; letter-spacing:.04em;
+  padding:2px 9px; border-radius:999px; display:inline-block; margin-bottom:8px;
+}
+.stance.consider{background:var(--sage-bg); color:var(--sage-deep);}
+.stance.caution{background:var(--amber-bg); color:var(--amber-deep);}
+.stance.avoid{background:var(--rust-bg); color:var(--rust-deep);}
+.alt-card h5{margin:0 0 6px; font-family:var(--serif); font-size:1rem;}
+.alt-card p{margin:0; font-size:.85rem; color:var(--ink-soft);}
+
+/* ---------- DECISION FLOWCHART (SVG) ---------- */
+.flowchart-wrap{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px; margin-top:24px; overflow-x:auto;}
+.flowchart-wrap svg{display:block; margin:0 auto; min-width:640px;}
+
+/* ---------- ACCORDION QUIZ ---------- */
+.quiz-item{border:1px solid var(--line); border-radius:12px; margin-bottom:12px; overflow:hidden; background:var(--card);}
+.quiz-q{
+  width:100%; text-align:left; background:none; border:none; cursor:pointer;
+  padding:16px 18px; font-family:var(--sans); font-size:.95rem; font-weight:500; color:var(--ink);
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+}
+.quiz-q .qnum{font-family:var(--mono); color:var(--amber-deep); font-size:.8rem; margin-right:8px;}
+.quiz-q .arrow{transition:.2s; color:var(--ink-faint); flex-shrink:0;}
+.quiz-item.open .arrow{transform:rotate(180deg);}
+.quiz-a{
+  max-height:0; overflow:hidden; transition:max-height .25s ease;
+  background:var(--paper-dim); border-top:1px solid transparent;
+}
+.quiz-item.open .quiz-a{border-top:1px solid var(--line);}
+.quiz-a-inner{padding:16px 18px; font-size:.9rem; color:var(--ink-soft);}
+.quiz-a-inner .ans-tag{
+  font-family:var(--mono); font-size:.72rem; font-weight:700; color:var(--sage-deep);
+  background:var(--sage-bg); padding:2px 9px; border-radius:999px; margin-right:8px;
+}
+
+/* ---------- REFERENCES ---------- */
+.ref-list{font-size:.86rem; color:var(--ink-soft); padding-left:0; list-style:none; counter-reset:refs;}
+.ref-list li{
+  counter-increment:refs; padding:10px 0 10px 34px; position:relative;
+  border-bottom:1px dashed var(--line);
+}
+.ref-list li::before{
+  content:"["counter(refs)"]"; position:absolute; left:0; top:10px;
+  font-family:var(--mono); color:var(--amber-deep); font-size:.8rem;
+}
+.ref-list li.updated{color:var(--ink);}
+.ref-list li.updated::after{
+  content:"近五年更新"; font-family:var(--mono); font-size:.65rem; margin-left:8px;
+  background:var(--sage-bg); color:var(--sage-deep); padding:1px 7px; border-radius:999px;
+}
+.ref-list a{color:var(--amber-deep); text-decoration:none;}
+.ref-list a:hover{text-decoration:underline;}
+
+/* ---------- MISC ---------- */
+.two-col{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+@media (max-width:760px){.two-col{grid-template-columns:1fr;} .drug-grid{grid-template-columns:1fr;}}
+hr.rule{border:none; border-top:1px solid var(--line); margin:36px 0;}
+.tag-row{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0;}
+.tag{font-family:var(--mono); font-size:.72rem; background:var(--paper-dim); border:1px solid var(--line); border-radius:999px; padding:3px 11px; color:var(--ink-soft);}
+footer.site-footer{background:var(--navy); color:#8FA0AC; padding:36px 24px; font-size:.85rem;}
+footer.site-footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;}
+footer.site-footer a{color:var(--amber);}
+.skip-link{position:absolute; left:-999px; top:0; background:var(--amber); color:#12232E; padding:10px; z-index:200;}
+.skip-link:focus{left:10px; top:10px;}
+:focus-visible{outline:3px solid var(--amber); outline-offset:2px;}
+@media (prefers-reduced-motion: reduce){*{transition:none !important; scroll-behavior:auto !important;}}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-logo" href="index.html"><span class="mark"></span>N-Teaching 神經科教學研究部</a>
+    <button class="nav-toggle" aria-label="開啟選單" onclick="document.querySelector('.site-links').classList.toggle('open')">☰</button>
+    <div class="site-links">
+      <a href="index.html">首頁</a>
+      <a href="index.html#dementia">失智症系列</a>
+      <a href="index.html#pharmacology">藥物治療系列</a>
+      <a class="current" href="#">BPSD 進階藥物治療</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">教學單元 · 失智症精神行為症狀（BPSD）進階藥物治療</div>
+    <h1>當藥物效果不佳、加量又引發嚴重副作用──BPSD 治療高原期的下一步</h1>
+    <p class="lede">
+      本單元整理近五年（2021–2026）失智症精神藥理學的關鍵實證更新，並針對原始教學講義逐項查核、修正與補充，
+      提供專科護理師、進階執業護理師與神經科住院醫師可用於國考準備與臨床決策的完整路徑：重新評估 → 非藥物介入 → 藥物微調 →
+      減藥／停藥 → 難治個案轉介。
+    </p>
+    <div class="hero-meta">
+      <span>適用對象：專科護理師 / NP / R1–R3</span>
+      <span>實證區間：2021 – 2026</span>
+      <span>最後查核：2026 年 8 月</span>
+      <span>台灣 TFDA／NHI 脈絡</span>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ FACT-CHECK DIFF PANEL ============ -->
+<section class="block">
+  <div class="wrap">
+    <div class="diff-panel">
+      <div class="diff-panel-inner">
+        <div class="diff-head">
+          <h3>實證查核紀錄</h3>
+          <span class="diff-tag">fact-check log</span>
+        </div>
+        <p class="diff-sub">以下是本頁在彙整原始講義後，依近五年文獻進行的關鍵修正與補充。紅色刪除線為需要更新或需要謹慎解讀之處，綠色為新增的實證。</p>
+
+        <div class="diff-row">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">抗精神病藥物只有 risperidone／olanzapine／quetiapine／aripiprazole 可選，缺乏新一代選項</span></div>
+          <div class="diff-new"><span class="mark">+</span><span class="txt">Brexpiprazole（銳思定）已於 2023 年 5 月獲美國 FDA 核准、且已取得台灣 TFDA 適應症，成為第一個專門核准用於「阿茲海默症失智症相關激動症狀」的藥物，可作為換藥新選項</span></div>
+          <div class="diff-cite">FDA/Otsuka-Lundbeck 2023；Lee et al. JAMA Neurol 2023；台灣 REXULTI 仿單 衛部藥輸字第027365號</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">Mirtazapine 僅在 HTA-SADD 中被評為對「憂鬱」無效，未提及其對「躁動」的證據</span></div>
+          <div class="diff-new"><span class="mark">+</span><span class="txt">2021 年 SYMBAD 隨機對照試驗顯示 mirtazapine 對躁動同樣無效，且有死亡率上升的訊號，作者明確不建議使用於躁動治療</span></div>
+          <div class="diff-cite">Banerjee et al. (SYMBAD). Lancet 2021;398:1487-1497</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">未提及 pimavanserin 這個曾被寄予厚望的選項</span></div>
+          <div class="diff-new"><span class="mark">+</span><span class="txt">Pimavanserin 雖在 HARMONY 三期試驗顯示可延緩失智症相關精神病症狀復發，但 FDA 已於 2021、2022 年兩度核駁其失智症相關精神病適應症之申請，目前僅核准用於巴金森病精神病，失智症族群仍屬藥證外使用</span></div>
+          <div class="diff-cite">Tariot et al. NEJM 2021；Acadia CRL, Aug 2022</div>
+        </div>
+
+        <div class="diff-row">
+          <div class="diff-old"><span class="mark">−</span><span class="txt">抗精神病藥物療效的整體定位僅引用 2006 年 CATIE-AD 單一試驗</span></div>
+          <div class="diff-new"><span class="mark">+</span><span class="txt">補充 2021 年 Cochrane 系統性回顧（24 個試驗）：非典型抗精神病藥對躁動僅有「輕微」改善、對精神病症狀效果「幾乎可忽略」，且兩類藥物都會增加嗜睡等不良反應風險，強化「天花板效應」的立論基礎</span></div>
+          <div class="diff-cite">Mühlbauer et al. Cochrane Database Syst Rev 2021;12:CD013304</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 1: CEILING EFFECT ============ -->
+<section class="block alt" id="ceiling">
+  <div class="wrap">
+    <div class="section-label"><span class="num">01</span>先釐清問題本質</div>
+    <h2 class="title">BPSD 藥物治療的「天花板」原本就很低</h2>
+    <p class="section-intro">
+      在調整劑量或換藥之前，必須先建立正確的期待值：這不是單一個案的治療失敗，而是整個 BPSD 藥物治療領域反覆被大型隨機對照試驗證實的普遍現象。
+    </p>
+
+    <div class="card-grid">
+      <div class="card acc-navy">
+        <div class="card-top">
+          <div class="card-icon i-navy">①</div>
+          <span class="badge grade-a">RCT・421 人</span>
+        </div>
+        <h4>CATIE-AD（2006）</h4>
+        <p>Olanzapine、quetiapine、risperidone 與安慰劑相比，在「因任何原因停藥的時間」上並無顯著差異；藥物組因副作用停藥比例（16–24%）遠高於安慰劑組（5%），不良反應幾乎完全抵銷療效優勢。</p>
+        <div class="card-foot"><span>Schneider et al., NEJM 2006</span><span>[8]</span></div>
+      </div>
+
+      <div class="card acc-navy">
+        <div class="card-top">
+          <div class="card-icon i-navy">②</div>
+          <span class="badge grade-a">RCT・326 人</span>
+        </div>
+        <h4>HTA-SADD（2011）</h4>
+        <p>Sertraline 與 mirtazapine 治療失智症合併憂鬱，13 週與 39 週的憂鬱改善程度均不優於安慰劑，藥物組不良反應（41–43%）明顯多於安慰劑組（26%）。</p>
+        <div class="card-foot"><span>Banerjee et al., Lancet 2011</span><span>[9]</span></div>
+      </div>
+
+      <div class="card acc-rust">
+        <div class="card-top">
+          <div class="card-icon i-rust">③</div>
+          <span class="badge grade-b">RCT・204 人・新增</span>
+        </div>
+        <h4>SYMBAD（2021）</h4>
+        <p>Mirtazapine（滴定至 45mg/day）治療躁動，12 週 CMAI 分數與安慰劑無顯著差異；且觀察到 mirtazapine 組有較高死亡率的訊號（16 週內 7 例 vs 安慰劑組 1 例）。作者明確不建議用於躁動。</p>
+        <div class="card-foot"><span>Banerjee et al., Lancet 2021</span><span>[10]</span></div>
+      </div>
+
+      <div class="card acc-amber">
+        <div class="card-top">
+          <div class="card-icon i-amber">④</div>
+          <span class="badge grade-b">RCT・186 人</span>
+        </div>
+        <h4>CitAD（2014）</h4>
+        <p>Citalopram 30mg/day 有意義地改善躁動與照顧者負擔，但伴隨 MMSE 認知下降約 1 分與 QTc 延長 18ms，作者結論此劑量「不能普遍被推薦」。</p>
+        <div class="card-foot"><span>Porsteinsson et al., JAMA 2014</span><span>[7]</span></div>
+      </div>
+
+      <div class="card acc-navy">
+        <div class="card-top">
+          <div class="card-icon i-navy">⑤</div>
+          <span class="badge grade-a">NMA・24 個試驗・新增</span>
+        </div>
+        <h4>Cochrane 系統性回顧（2021）</h4>
+        <p>非典型抗精神病藥對躁動的效果「輕微」，對精神病症狀的效果「幾乎可忽略」；典型抗精神病藥效果仍不明確。兩類藥物皆會增加嗜睡等不良反應風險。</p>
+        <div class="card-foot"><span>Mühlbauer et al., Cochrane 2021</span><span>[11]</span></div>
+      </div>
+
+      <div class="card acc-sage">
+        <div class="card-top">
+          <div class="card-icon i-sage">⑥</div>
+          <span class="badge grade-b">RCT・392 人</span>
+        </div>
+        <h4>HARMONY／Pimavanserin（2021）</h4>
+        <p>對「已對藥物有反應」的患者，繼續使用 pimavanserin 可延緩精神病症狀復發（復發率 13% vs 28%），但 FDA 因跨失智症亞型證據不一致，兩度核駁其失智症精神病適應症申請。</p>
+        <div class="card-foot"><span>Tariot et al., NEJM 2021</span><span>[14]</span></div>
+      </div>
+    </div>
+
+    <div class="callout amber">
+      <h5>⚠ 教學重點</h5>
+      <p>文獻共識是：精神症狀與躁動僅在「造成傷害風險或嚴重痛苦」時才考慮藥物，且應以最低有效劑量、限時使用 [2,4]。理解這個「天花板」的存在，能幫助臨床工作者在藥物「效果有限」時，不會誤判為「個案特殊難治」而一味加量，而是回到治療計畫的整體重新評估。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2: REASSESSMENT ============ -->
+<section class="block" id="reassess">
+  <div class="wrap-wide">
+    <div class="section-label"><span class="num">02</span>第一步調整</div>
+    <h2 class="title">全面重新評估：排除可逆與情境因素</h2>
+    <p class="section-intro">在考慮「再加藥」或「換藥」之前，先回到評估。許多看似「難治」的行為其實源於可處理的因素。Gitlin 等人提出的六步驟流程，是重新評估的標準架構 [5]：</p>
+
+    <div class="flow-row">
+      <div class="flow-step"><span class="n">STEP 1</span><span class="t">篩檢行為症狀</span></div>
+      <div class="flow-step"><span class="n">STEP 2</span><span class="t">描述行為樣態</span></div>
+      <div class="flow-step"><span class="n">STEP 3</span><span class="t">找出潛在原因</span></div>
+      <div class="flow-step"><span class="n">STEP 4</span><span class="t">擬定治療計劃<br>（先處理最不安全的行為）</span></div>
+      <div class="flow-step"><span class="n">STEP 5</span><span class="t">評估效果</span></div>
+      <div class="flow-step"><span class="n">STEP 6</span><span class="t">持續監測</span></div>
+    </div>
+
+    <div class="two-col" style="margin-top:32px;">
+      <div class="callout sage">
+        <h5>🩺 排除醫療與生理原因</h5>
+        <p>譫妄（尤其急性發作）、泌尿道感染、疼痛、便秘、脫水、跌倒後遺症、藥源性因素（多重用藥、抗膽鹼藥物）都可能誘發或加重行為症狀 [4]。</p>
+        <ul>
+          <li>完整身體檢查</li>
+          <li>血球計數、電解質、腎功能</li>
+          <li>尿液檢查</li>
+          <li>藥物整合覆核（deprescribing review）</li>
+        </ul>
+      </div>
+      <div class="callout amber">
+        <h5>🏠 評估環境與照顧者因素</h5>
+        <p>過度刺激或刺激不足、噪音、照顧者溝通方式（責罵、高壓語氣會增加躁動）、照顧者疲憊與憂鬱，都會惡化 BPSD [5]。</p>
+        <ul>
+          <li>照顧者負荷與情緒狀態</li>
+          <li>環境刺激程度（光線、噪音、動線）</li>
+          <li>日常作息規律性</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--serif); margin-top:36px;">明確「目標症狀」──不是所有行為都對藥物有反應</h3>
+    <p style="color:var(--ink-soft);">精神症狀、躁動、攻擊與憂鬱相對較可能對藥物有反應；抗拒照護、徘徊、跟隨（shadowing）等行為即使使用精神科藥物也通常不會改善 [2]。若目前治療的目標是後者，繼續加藥本身就缺乏合理性。</p>
+
+    <table class="resp-table">
+      <thead><tr><th>症狀類型</th><th>對藥物治療的反應性</th><th>建議定位</th></tr></thead>
+      <tbody>
+        <tr><td>精神病症狀（妄想、幻覺）</td><td class="yes">相對可能有反應</td><td>可考慮藥物，但需限時、低劑量</td></tr>
+        <tr><td>躁動、攻擊（造成傷害風險）</td><td class="yes">相對可能有反應</td><td>藥物為第二線，非藥物為主體</td></tr>
+        <tr><td>憂鬱症狀</td><td class="yes">部分可能有反應</td><td>需權衡 HTA-SADD 之陰性結果</td></tr>
+        <tr><td>抗拒照護</td><td class="no">通常不會改善</td><td>優先採非藥物標靶策略</td></tr>
+        <tr><td>徘徊 / 跟隨（shadowing）</td><td class="no">通常不會改善</td><td>環境與活動安排為主</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ SECTION 3: NON-PHARM ============ -->
+<section class="block alt" id="nonpharm">
+  <div class="wrap">
+    <div class="section-label"><span class="num">03</span>第二步調整</div>
+    <h2 class="title">以非藥物介入作為治療計劃的主體</h2>
+    <p class="section-intro">
+      所有主要學會與指引（APA、AAGP、AGS、NICE 等）都將非藥物介入列為第一線；藥物僅在非藥物介入失敗且行為造成顯著痛苦或安全風險時，才作為第二線 [2,5]。當藥物因副作用無法加量時，正是應把治療資源轉向非藥物介入的時刻——此時藥物的邊際效益已被其風險抵銷 [2,8]。
+    </p>
+    <div class="card-grid">
+      <div class="card acc-sage">
+        <div class="card-top"><div class="card-icon i-sage">👥</div><span class="badge grade-a">效應量 0.34</span></div>
+        <h4>照顧者教育與問題解決訓練</h4>
+        <p>23 個隨機對照試驗的統合分析顯示，照顧者介入可顯著減少行為症狀，並降低照顧者的負面反應，是證據最強的非藥物策略之一 [5]。</p>
+      </div>
+      <div class="card acc-sage">
+        <div class="card-top"><div class="card-icon i-sage">🎵</div><span class="badge grade-b">系統性回顧</span></div>
+        <h4>感官與活動介入</h4>
+        <p>音樂治療、感官刺激、個別化活動安排、光照治療、成人日間照護，對減少躁動與行為問題皆有實證支持 [5,6]。</p>
+      </div>
+      <div class="card acc-sage">
+        <div class="card-top"><div class="card-icon i-sage">🎯</div><span class="badge grade-b">標靶策略</span></div>
+        <h4>針對單一行為的標靶介入</h4>
+        <p>例如針對睡眠問題建立睡前儀式、減少白天午睡與咖啡因、使用夜燈；針對聽幻覺調整助聽器──往往可完全避免藥物介入 [5]。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4: DRUG STRATEGY STEPPER ============ -->
+<section class="block" id="drug-strategy">
+  <div class="wrap-wide">
+    <div class="section-label"><span class="num">04</span>第三步調整</div>
+    <h2 class="title">藥物策略：限時、最低有效劑量、換藥而非加量</h2>
+    <p class="section-intro">當非藥物介入已優化、目標症狀確認屬於「可能對藥物有反應」的類型，仍需藥物協助時，遵循以下五個步驟調整策略。</p>
+
+    <div class="stepper">
+      <div class="step">
+        <div class="dot">1</div>
+        <h3>接受「部分緩解」為合理治療目標</h3>
+        <div class="step-body">
+          <p>Steinberg 與 Lyketsos 的臨床指引指出：許多患者對抗精神病藥物只有部分反應，當加量或換藥都引起不良反應時，繼續使用「耐受良好但僅中度有效」的劑量、接受部分緩解，是合理的臨床決策 [4]。不應為了追求完全緩解而強行加量。</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="dot">2</div>
+        <h3>遵循「2–4 週無效即調整」原則</h3>
+        <div class="step-body">
+          <p>APA 指引建議：若以足夠劑量治療 4 週仍無臨床顯著反應，應考慮減量停用並換藥；抗精神病藥物用於精神病症狀或躁動時，應在 4 個月內開始減量 [2]。CATIE-AD 也顯示醫師通常在 2–4 週內即對無效患者停藥或換藥 [8]。</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="dot">3</div>
+        <h3>換藥（switch）：選擇副作用輪廓最適合的藥物</h3>
+        <div class="step-body">
+          <p>不同抗精神病藥物的副作用輪廓差異大，換藥有時可解決「劑量受限」問題 [4]。<strong>2023 年起，brexpiprazole 成為第一個專門核准用於阿茲海默症相關激動症狀的藥物</strong>，為換藥策略增加了新選項 [12,13,15]。</p>
+
+          <div class="drug-grid">
+            <div class="drug-card">
+              <div class="dc-head"><strong>Risperidone</strong><span class="pill">EPS 風險最高</span></div>
+              <div class="dc-body"><dl>
+                <dt>劑量範圍</dt><dd>0.25–1 mg/day</dd>
+                <dt>適用情境</dt><dd>精神病症狀證據較多</dd>
+                <dt>注意</dt><dd>帕金森症狀者應避免</dd>
+              </dl></div>
+            </div>
+            <div class="drug-card">
+              <div class="dc-head"><strong>Olanzapine</strong><span class="pill">代謝副作用</span></div>
+              <div class="dc-body"><dl>
+                <dt>劑量範圍</dt><dd>2.5–7.5 mg/day</dd>
+                <dt>適用情境</dt><dd>躁動、精神病症狀</dd>
+                <dt>注意</dt><dd>肥胖、糖尿病者較不適合</dd>
+              </dl></div>
+            </div>
+            <div class="drug-card">
+              <div class="dc-head"><strong>Quetiapine</strong><span class="pill">EPS 風險最低</span></div>
+              <div class="dc-body"><dl>
+                <dt>劑量範圍</dt><dd>12.5–150 mg/day</dd>
+                <dt>適用情境</dt><dd>合併帕金森症狀者優先考慮</dd>
+                <dt>注意</dt><dd>鎮靜、姿勢性低血壓</dd>
+              </dl></div>
+            </div>
+            <div class="drug-card">
+              <div class="dc-head"><strong>Aripiprazole</strong><span class="pill">耐受性佳</span></div>
+              <div class="dc-body"><dl>
+                <dt>劑量範圍</dt><dd>5–10 mg/day</dd>
+                <dt>適用情境</dt><dd>代謝副作用相對較少</dd>
+                <dt>注意</dt><dd>靜坐不能（akathisia）</dd>
+              </dl></div>
+            </div>
+            <div class="drug-card featured">
+              <div class="dc-head"><strong>Brexpiprazole</strong><span class="pill">2023 新適應症</span></div>
+              <div class="dc-body"><dl>
+                <dt>台灣適應症</dt><dd>阿茲海默症之失智症相關激動症狀（TFDA 已核准）[15]</dd>
+                <dt>滴定方式</dt><dd>Day1–7：0.5mg qd → Day8–14：1mg qd → Day15起：2mg qd（目標劑量）；依反應與耐受性，最快可於第15天後調整，必要時上限3mg/day [12,13,15]</dd>
+                <dt>療效數據</dt><dd>12週CMAI總分較安慰劑多改善約31%；responder比例 56% vs 安慰劑37%（一項pivotal試驗）[12]</dd>
+                <dt>限制</dt><dd>不適合PRN（視需要）給藥方式 [15]</dd>
+              </dl></div>
+            </div>
+          </div>
+
+          <div class="callout rust">
+            <h5>🚨 黑框警語仍然適用</h5>
+            <p>即使 brexpiprazole 已取得阿茲海默症激動症狀的正式適應症，「抗精神病藥物會增加患有失智症相關精神疾病之老年病人死亡率」的黑框警語（class warning）仍然適用、並未因新適應症而移除 [15]。這提醒臨床工作者：核准適應症代表「效益風險比在特定族群、特定監測下可被接受」，不代表風險消失，仍必須與家屬充分溝通、限時使用並密切監測。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="dot">4</div>
+        <h3>考慮副作用較輕或已有實證支持的替代藥物</h3>
+        <div class="step-body">
+          <p>下表整理常被考慮的替代選項，依最新實證分為「可考慮」「謹慎使用」「不建議」三類：</p>
+
+          <div class="alt-grid">
+            <div class="alt-card">
+              <span class="stance consider">可考慮</span>
+              <h5>Trazodone（低劑量 25–50mg）</h5>
+              <p>可作為睡眠問題與部分躁動的選擇，相較抗精神病藥物認知影響較小 [2]。</p>
+            </div>
+            <div class="alt-card">
+              <span class="stance caution">謹慎使用</span>
+              <h5>Citalopram</h5>
+              <p>CitAD 證實對躁動有效，但老年患者建議劑量上限20mg/day（QTc延長風險），需心電圖監測、注意認知下降 [7]。</p>
+            </div>
+            <div class="alt-card">
+              <span class="stance caution">謹慎使用</span>
+              <h5>Carbamazepine</h5>
+              <p>對躁動/攻擊/敵意有效，但鎮靜、低血鈉、心臟毒性、藥物交互作用多，僅建議作為抗精神病藥與抗憂鬱藥無效後的替代選項 [2]。</p>
+            </div>
+            <div class="alt-card">
+              <span class="stance avoid">不建議</span>
+              <h5>Valproate</h5>
+              <p>系統回顧顯示對躁動無效，且增加跌倒、感染、鎮靜等不良反應 [1,2]。</p>
+            </div>
+            <div class="alt-card">
+              <span class="stance avoid">不建議（新增）</span>
+              <h5>Mirtazapine</h5>
+              <p>2021年SYMBAD試驗顯示對躁動無效，且有死亡率上升訊號，不建議作為躁動治療選項 [10]。</p>
+            </div>
+            <div class="alt-card">
+              <span class="stance consider">可考慮</span>
+              <h5>Memantine</h5>
+              <p>12–24週治療對躁動與妄想有少量改善，耐受性佳，尤其適合尚未使用者 [2]。</p>
+            </div>
+            <div class="alt-card">
+              <span class="stance caution">證據有限</span>
+              <h5>Methylphenidate</h5>
+              <p>對阿茲海默症的冷漠（apathy）可能有助益，但證據品質仍低 [2]。</p>
+            </div>
+            <div class="alt-card">
+              <span class="stance avoid">藥證外・證據不足</span>
+              <h5>Pimavanserin（新增）</h5>
+              <p>HARMONY試驗顯示可延緩已反應者的精神病復發，但FDA迄今未核准失智症精神病適應症；台灣亦僅有巴金森病精神病適應症，用於失智症屬藥證外使用，需謹慎評估 [14]。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="dot">5</div>
+        <h3>決策原則：只有「會造成傷害」才考慮較強藥物</h3>
+        <div class="step-body">
+          <div class="callout navy">
+            <h5>⛑ 需要緊急藥物介入的條件僅限以下三種情境 [2]</h5>
+            <ul>
+              <li>合併自殺意念的重度憂鬱</li>
+              <li>已造成或極可能造成傷害的精神症狀</li>
+              <li>對自己或他人有風險的攻擊行為</li>
+            </ul>
+          </div>
+          <p>若症狀未達此程度，即使「效果有限」，也不該冒著增加死亡率與腦血管事件的風險去加量 [2,4]。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5: DEPRESCRIBING ============ -->
+<section class="block alt" id="deprescribe">
+  <div class="wrap">
+    <div class="section-label"><span class="num">05</span>第四步調整</div>
+    <h2 class="title">若已長期用藥：啟動減藥／停藥計劃</h2>
+    <p class="section-intro">當「效果有限＋副作用明顯」時，減藥（deprescribing）往往是比換藥更優先的選項。</p>
+
+    <div class="callout sage">
+      <h5>📚 實證基礎</h5>
+      <p>2018 年更新的 Cochrane 系統性回顧（10 個隨機對照試驗、632 位 ≥65 歲患者）結論：大多數老年失智症患者可成功且安全地停用長期抗精神病藥物，停藥對整體 BPSD 影響很小；但基線 BPSD 較嚴重（NPI&gt;14）或有精神病症狀、攻擊、躁動的患者，停藥可能增加症狀復發風險，需要權衡 [3]。</p>
+    </div>
+
+    <div class="two-col">
+      <div class="callout amber">
+        <h5>⏱ 實務建議</h5>
+        <p>當患者的行為症狀已穩定或緩解 3–6 個月，應認真考慮進行停藥試驗 [4]。停藥應在症狀穩定後進行，並密切監測復發 [3,4]。</p>
+      </div>
+      <div class="callout rust">
+        <h5>🔁 「症狀持續」不等於「繼續用藥的理由」</h5>
+        <p>失智症行為症狀常有自發性波動與緩解：CATIE-AD 與 HTA-SADD 中，安慰劑組症狀也幾乎減半 [2,9]。定期（約每3個月）重新評估繼續用藥的必要性，是指引的核心要求 [3,4]。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6: REFRACTORY / ADVANCED ============ -->
+<section class="block" id="refractory">
+  <div class="wrap">
+    <div class="section-label"><span class="num">06</span>第五步調整</div>
+    <h2 class="title">重症／難治個案的進階選項</h2>
+    <p class="section-intro">若上述策略後行為症狀仍嚴重（如自殺企圖、嚴重拒食、抗精神病藥物難治的精神症狀／躁動、無法用藥物控制的危險行為），可考慮以下轉介與進階治療：</p>
+
+    <div class="card-grid">
+      <div class="card acc-navy">
+        <div class="card-top"><div class="card-icon i-navy">🏥</div></div>
+        <h4>轉介專科病房 / 特殊照護單元</h4>
+        <p>入住精神科老年病房、認知行為專科病房或特殊照護單元，約 40 天至 1 年可改善整體 NPS，且改善與是否使用精神科藥物無關 [2]。</p>
+      </div>
+      <div class="card acc-navy">
+        <div class="card-top"><div class="card-icon i-navy">⚡</div></div>
+        <h4>神經調控（ECT／rTMS／tDCS）</h4>
+        <p>對藥物難治的憂鬱或冷漠有潛在價值，證據仍有限；ECT 對嚴重難治躁動也有初步支持，但因安全性資料有限，多數指引建議謹慎、非常規使用，需在專科中心評估 [2]。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7: DECISION FLOWCHART ============ -->
+<section class="block alt" id="pathway">
+  <div class="wrap-wide">
+    <div class="section-label"><span class="num">07</span>整合路徑</div>
+    <h2 class="title">BPSD 治療高原期決策流程圖</h2>
+    <p class="section-intro">將前六個段落整合為單一決策流程，供臨床快速定位「現在該做什麼」。</p>
+
+    <div class="flowchart-wrap">
+      <svg viewBox="0 0 1100 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BPSD治療決策流程圖">
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#8A93A0"/>
+          </marker>
+        </defs>
+        <style>
+          .fc-box{fill:#FFFFFF; stroke:#E2DCCE; stroke-width:1.5;}
+          .fc-box.navy{fill:#12232E; stroke:#12232E;}
+          .fc-box.amber{fill:#FBF1DE; stroke:#E2A33B;}
+          .fc-box.sage{fill:#E9F2EA; stroke:#5E9573;}
+          .fc-box.rust{fill:#FBEAE3; stroke:#C1502E;}
+          .fc-t{font-family:'Noto Sans TC',sans-serif; font-size:15px; fill:#1E2730;}
+          .fc-t.white{fill:#F4EFE4;}
+          .fc-sub{font-family:'IBM Plex Mono',monospace; font-size:11px; fill:#5B6570;}
+          .fc-line{stroke:#B9C1C9; stroke-width:1.5; fill:none;}
+        </style>
+
+        <rect x="380" y="14" width="340" height="52" rx="10" class="fc-box navy"/>
+        <text x="550" y="35" text-anchor="middle" class="fc-t white">BPSD 加量後效果不佳／出現嚴重副作用</text>
+        <text x="550" y="54" text-anchor="middle" class="fc-sub" fill="#C9D2D8">Treatment plateau</text>
+
+        <line x1="550" y1="66" x2="550" y2="96" class="fc-line" marker-end="url(#arrow)"/>
+
+        <rect x="360" y="98" width="380" height="56" rx="10" class="fc-box amber"/>
+        <text x="550" y="122" text-anchor="middle" class="fc-t">① 重新評估：排除可逆病因／照顧者環境因素</text>
+        <text x="550" y="142" text-anchor="middle" class="fc-sub">明確目標症狀是否為藥物可反應類型</text>
+
+        <line x1="550" y1="154" x2="550" y2="184" class="fc-line" marker-end="url(#arrow)"/>
+
+        <rect x="360" y="186" width="380" height="46" rx="10" class="fc-box sage"/>
+        <text x="550" y="214" text-anchor="middle" class="fc-t">② 強化非藥物介入（第一線，也是加藥失敗後的退路）</text>
+
+        <line x1="550" y1="232" x2="550" y2="262" class="fc-line" marker-end="url(#arrow)"/>
+
+        <rect x="80" y="264" width="300" height="70" rx="10" class="fc-box"/>
+        <text x="230" y="288" text-anchor="middle" class="fc-t">症狀未達傷害風險</text>
+        <text x="230" y="308" text-anchor="middle" class="fc-sub">維持現有低劑量／</text>
+        <text x="230" y="324" text-anchor="middle" class="fc-sub">接受部分緩解，不加量</text>
+
+        <rect x="720" y="264" width="300" height="70" rx="10" class="fc-box rust"/>
+        <text x="870" y="288" text-anchor="middle" class="fc-t">造成傷害風險／嚴重痛苦</text>
+        <text x="870" y="308" text-anchor="middle" class="fc-sub">4週無效即考慮換藥</text>
+        <text x="870" y="324" text-anchor="middle" class="fc-sub">（非典型AP／brexpiprazole）</text>
+
+        <path d="M550,262 C 480,290 420,296 380,299" class="fc-line" marker-end="url(#arrow)"/>
+        <path d="M550,262 C 630,290 690,296 720,299" class="fc-line" marker-end="url(#arrow)"/>
+
+        <line x1="870" y1="334" x2="870" y2="364" class="fc-line" marker-end="url(#arrow)"/>
+        <rect x="720" y="366" width="300" height="56" rx="10" class="fc-box amber"/>
+        <text x="870" y="390" text-anchor="middle" class="fc-t">選擇副作用輪廓合適的替代藥物</text>
+        <text x="870" y="408" text-anchor="middle" class="fc-sub">trazodone／carbamazepine／memantine</text>
+
+        <line x1="230" y1="334" x2="230" y2="364" class="fc-line" marker-end="url(#arrow)"/>
+        <rect x="80" y="366" width="300" height="56" rx="10" class="fc-box sage"/>
+        <text x="230" y="390" text-anchor="middle" class="fc-t">症狀穩定 3–6 個月</text>
+        <text x="230" y="408" text-anchor="middle" class="fc-sub">啟動減藥／停藥試驗並監測復發</text>
+
+        <line x1="870" y1="422" x2="870" y2="452" class="fc-line" marker-end="url(#arrow)"/>
+        <rect x="720" y="454" width="300" height="70" rx="10" class="fc-box navy"/>
+        <text x="870" y="480" text-anchor="middle" class="fc-t white">仍難治／有立即危險</text>
+        <text x="870" y="500" text-anchor="middle" class="fc-sub" fill="#C9D2D8">轉介專科病房／特殊照護單元</text>
+        <text x="870" y="516" text-anchor="middle" class="fc-sub" fill="#C9D2D8">考慮神經調控（ECT/rTMS）</text>
+
+        <line x1="230" y1="422" x2="230" y2="452" class="fc-line" marker-end="url(#arrow)"/>
+        <rect x="80" y="454" width="300" height="56" rx="10" class="fc-box"/>
+        <text x="230" y="478" text-anchor="middle" class="fc-t">每 3 個月重新評估</text>
+        <text x="230" y="496" text-anchor="middle" class="fc-sub">是否仍需要藥物治療</text>
+
+        <line x1="380" y1="482" x2="720" y2="482" class="fc-line" stroke-dasharray="4 4"/>
+        <text x="550" y="475" text-anchor="middle" class="fc-sub">目標從「消除症狀」轉為「管理風險、維持生活品質」</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8: SELF-CHECK QUIZ ============ -->
+<section class="block" id="selfcheck">
+  <div class="wrap">
+    <div class="section-label"><span class="num">08</span>自我檢核</div>
+    <h2 class="title">觀念自我測驗</h2>
+    <p class="section-intro">點選展開答案與解析，適合國考準備前的快速複習。</p>
+
+    <div class="quiz-list">
+
+      <div class="quiz-item">
+        <button class="quiz-q"><span><span class="qnum">Q1</span>CATIE-AD 試驗中，抗精神病藥物組雖然「因療效不足而停藥」的時間優於安慰劑，但為何整體 12 週改善率與安慰劑無統計差異？</span><span class="arrow">▾</span></button>
+        <div class="quiz-a"><div class="quiz-a-inner"><span class="ans-tag">解析</span>因為藥物組因副作用或不耐受而停藥的比例（16–24%）遠高於安慰劑組（5%），不良反應抵銷了療效優勢，導致「因任何原因停藥的時間」在藥物組與安慰劑組之間沒有顯著差異。</div></div>
+      </div>
+
+      <div class="quiz-item">
+        <button class="quiz-q"><span><span class="qnum">Q2</span>Mirtazapine 是否可作為失智症躁動的治療選項？</span><span class="arrow">▾</span></button>
+        <div class="quiz-a"><div class="quiz-a-inner"><span class="ans-tag">解析</span>不建議。2021 年 SYMBAD 隨機對照試驗顯示 mirtazapine 治療躁動 12 週後 CMAI 分數與安慰劑無顯著差異，且有死亡率上升的訊號，作者明確不建議使用於躁動治療。</div></div>
+      </div>
+
+      <div class="quiz-item">
+        <button class="quiz-q"><span><span class="qnum">Q3</span>Brexpiprazole 在阿茲海默症相關激動症狀的核准適應症下，是否可以「視需要（PRN）」給藥？黑框警語是否仍然適用？</span><span class="arrow">▾</span></button>
+        <div class="quiz-a"><div class="quiz-a-inner"><span class="ans-tag">解析</span>不可以 PRN 給藥，仿單明確載明使用限制。抗精神病藥物增加失智症相關精神疾病老年病人死亡率的黑框警語仍然適用，並未因取得新適應症而移除。</div></div>
+      </div>
+
+      <div class="quiz-item">
+        <button class="quiz-q"><span><span class="qnum">Q4</span>Pimavanserin 目前是否已核准用於失智症相關精神病症狀？</span><span class="arrow">▾</span></button>
+        <div class="quiz-a"><div class="quiz-a-inner"><span class="ans-tag">解析</span>尚未核准。雖然 HARMONY 三期試驗顯示對已反應者可延緩精神病症狀復發，FDA 已於 2021 年與 2022 年兩度核駁其失智症相關精神病適應症申請，理由包含跨失智症亞型的統計證據不一致；目前僅核准用於巴金森病精神病。</div></div>
+      </div>
+
+      <div class="quiz-item">
+        <button class="quiz-q"><span><span class="qnum">Q5</span>失智症患者症狀持續存在，是否等於必須繼續用藥？</span><span class="arrow">▾</span></button>
+        <div class="quiz-a"><div class="quiz-a-inner"><span class="ans-tag">解析</span>不等於。失智症行為症狀常有自發性波動與緩解——CATIE-AD 與 HTA-SADD 中，安慰劑組症狀也幾乎減半。指引建議約每 3 個月重新評估繼續用藥的必要性，「症狀持續」本身不構成繼續用藥的正當理由。</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 9: SUMMARY ============ -->
+<section class="block alt" id="summary">
+  <div class="wrap">
+    <div class="section-label"><span class="num">09</span>總結</div>
+    <h2 class="title">核心訊息</h2>
+    <div class="callout navy" style="font-size:1rem;">
+      <p><strong>「效果有限、副作用強」不應以「繼續加量」回應</strong>，而應轉向「減少藥物暴露＋以非藥物與照護介入填補」的策略。</p>
+      <p>臨床上應把治療目標從「消除症狀」調整為「管理症狀、降低風險、減輕照護者負擔、維持生活品質」[2–4]。</p>
+      <p>2021–2026 年的新實證（SYMBAD 陰性結果、brexpiprazole 新適應症、pimavanserin 兩度核駁、Cochrane 2021 系統性回顧）並未改變這個核心邏輯，反而更清楚地劃出了「哪些藥物值得嘗試、哪些應該避免」的邊界。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFERENCES ============ -->
+<section class="block" id="references">
+  <div class="wrap">
+    <div class="section-label"><span class="num">10</span>參考文獻</div>
+    <h2 class="title">References</h2>
+    <ol class="ref-list">
+      <li>Wang LY, et al. Drug Therapy for Behavioral and Psychological Symptoms of Dementia. <em>Current Neuropharmacology</em>. 2016;14(4):354-362. DOI: 10.2174/1570159x14666151208114232</li>
+      <li>Nagata T, et al. Pharmacological management of behavioral disturbances in patients with Alzheimer's disease. <em>Expert Opinion on Pharmacotherapy</em>. 2020;21(9):1099-1112. DOI: 10.1080/14656566.2020.1745186</li>
+      <li>Van Leeuwen E, et al. Discontinuation of Long-Term Antipsychotic Drug Use for Behavioral and Psychological Symptoms in Older Adults Aged 65 Years and Older With Dementia. <em>JAMDA</em>. 2018;19(11):921-928. DOI: 10.1016/j.jamda.2018.06.023</li>
+      <li>Steinberg M, Lyketsos CG. Atypical Antipsychotic Use in Patients With Dementia: Managing Safety Concerns. <em>American Journal of Psychiatry</em>. 2012;169(9):900-906. DOI: 10.1176/appi.ajp.2012.12030342</li>
+      <li>Gitlin LN, Kales HC, Lyketsos CG. Nonpharmacologic Management of Behavioral Symptoms in Dementia. <em>JAMA</em>. 2012;308(19):2020-2029. DOI: 10.1001/jama.2012.36918</li>
+      <li>Ayalon L, Gum AM, Feliciano L, Areán PA. Effectiveness of Nonpharmacological Interventions for the Management of Neuropsychiatric Symptoms in Patients With Dementia. <em>Archives of Internal Medicine</em>. 2006;166(20):2182-2188. DOI: 10.1001/archinte.166.20.2182</li>
+      <li>Porsteinsson AP, et al. Effect of Citalopram on Agitation in Alzheimer Disease: The CitAD Randomized Clinical Trial. <em>JAMA</em>. 2014;311(7):682-691. DOI: 10.1001/jama.2014.93</li>
+      <li>Schneider LS, et al. Effectiveness of Atypical Antipsychotic Drugs in Patients with Alzheimer's Disease. <em>New England Journal of Medicine</em>. 2006;355(15):1525-1538. DOI: 10.1056/NEJMoa061240</li>
+      <li>Banerjee S, et al. Sertraline or mirtazapine for depression in dementia (HTA-SADD). <em>The Lancet</em>. 2011;378(9789):403-411. DOI: 10.1016/S0140-6736(11)60830-1</li>
+      <li class="updated">Banerjee S, High J, Stirling S, et al. Study of mirtazapine for agitated behaviours in dementia (SYMBAD): a randomised, double-blind, placebo-controlled trial. <em>The Lancet</em>. 2021;398(10310):1487-1497. DOI: 10.1016/S0140-6736(21)01210-1</li>
+      <li class="updated">Mühlbauer V, Möhler R, Dichter MN, et al. Antipsychotics for agitation and psychosis in people with Alzheimer's disease and vascular dementia. <em>Cochrane Database of Systematic Reviews</em>. 2021;12:CD013304. DOI: 10.1002/14651858.CD013304.pub2</li>
+      <li class="updated">Lee D, Slomkowski M, Hefting N, et al. Brexpiprazole for the Treatment of Agitation in Alzheimer Dementia: A Randomized Clinical Trial. <em>JAMA Neurology</em>. 2023;80(12):1307-1316. U.S. FDA approval announced May 11, 2023 (Otsuka/Lundbeck press release).</li>
+      <li class="updated">Grossberg GT, Kohegyi E, Mergel V, et al. Efficacy and Safety of Brexpiprazole for the Treatment of Agitation in Alzheimer's Dementia: Two 12-Week, Randomized, Double-Blind, Placebo-Controlled Trials. <em>American Journal of Geriatric Psychiatry</em>. 2020;28(4):383-400.</li>
+      <li class="updated">Tariot PN, et al. Trial of Pimavanserin in Dementia-Related Psychosis (HARMONY). <em>New England Journal of Medicine</em>. 2021;385:309-319. DOI: 10.1056/NEJMoa2034634；Acadia Pharmaceuticals Complete Response Letter, Aug 4, 2022.</li>
+      <li class="updated">REXULTI®（brexpiprazole）膜衣錠仿單，衛部藥輸字第027365號等，台灣衛生福利部食品藥物管理署（TFDA）核准，Otsuka Taiwan / 台灣大塚製藥。</li>
+      <li class="updated">Watt JA, Goodarzi Z, Veroniki AA, et al. Comparative efficacy of interventions for aggressive and agitated behaviors in dementia: a systematic review and network meta-analysis. <em>Annals of Internal Medicine</em>. 2019;171:633-642；Guideline Recommendations on BPSD: A Systematic Review, <em>JAMDA</em>. 2024.</li>
+    </ol>
+
+    <div class="callout amber" style="margin-top:24px;">
+      <h5>使用限制與台灣脈絡提醒</h5>
+      <p>Brexpiprazole 的健保給付條件、給付規範可能隨時間調整，請以衛生福利部中央健康保險署最新公告為準。本頁所有劑量與適應症資訊皆整理自公開仿單與文獻，僅供教學參考，實際處方請依當次仿單版本、病人個別狀況與院內用藥規範判斷，不能取代臨床判斷。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>N-Teaching 神經科教學研究部 · 教學用途，不做為個別病人之診療依據</span>
+    <span><a href="index.html">返回首頁</a></span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.quiz-q').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = btn.closest('.quiz-item');
+    var ans = item.querySelector('.quiz-a');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.quiz-item.open').forEach(function(openItem){
+      if(openItem !== item){
+        openItem.classList.remove('open');
+        openItem.querySelector('.quiz-a').style.maxHeight = null;
+      }
+    });
+    if(isOpen){
+      item.classList.remove('open');
+      ans.style.maxHeight = null;
+    } else {
+      item.classList.add('open');
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+</body>
+</html>

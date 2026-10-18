@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>腦靜脈竇血栓（CVT）實證更新｜臨床・診斷・治療</title>
+<style>
+  :root{
+    --navy:#12233F;
+    --navy-2:#1B3358;
+    --cream:#F6F3EC;
+    --paper:#FFFFFF;
+    --ink:#20242C;
+    --ink-soft:#4C5460;
+    --clot:#8A2E33;
+    --clot-soft:#F7E9E7;
+    --vein:#1F6E74;
+    --vein-soft:#E6F0EF;
+    --gold:#B8862E;
+    --gold-soft:#F6EEDC;
+    --line:#DFD9CB;
+    --radius:4px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;
+    color:var(--navy);
+    line-height:1.4;
+    margin:0 0 .5em;
+  }
+  a{color:var(--vein);}
+  p{margin:0 0 1em;}
+  .container{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  nav.topnav{
+    position:sticky;top:0;z-index:50;
+    background:var(--navy);
+    border-bottom:3px solid var(--gold);
+  }
+  .navwrap{
+    max-width:1080px;margin:0 auto;padding:0 20px;
+    display:flex;align-items:center;gap:6px;
+    overflow-x:auto;white-space:nowrap;
+    scrollbar-width:none;
+  }
+  .navwrap::-webkit-scrollbar{display:none;}
+  .brand{
+    color:#EDE6D3;font-family:"Noto Serif TC",serif;font-weight:700;
+    font-size:16px;padding:14px 16px 14px 0;flex-shrink:0;
+    border-right:1px solid rgba(255,255,255,.2);margin-right:6px;
+  }
+  .brand small{display:block;font-family:"Noto Sans TC",sans-serif;font-weight:400;font-size:11px;color:#B9C3D6;}
+  nav.topnav a.nlink{
+    color:#CBD5E4;text-decoration:none;font-size:14px;
+    padding:16px 12px;display:inline-block;flex-shrink:0;
+    border-bottom:3px solid transparent;margin-bottom:-3px;
+  }
+  nav.topnav a.nlink:hover{color:#fff;border-bottom-color:var(--gold);}
+
+  /* HERO */
+  header.hero{
+    background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 62%,#25446F 100%);
+    color:#EDE6D3;padding:56px 0 44px;
+  }
+  header.hero .eyebrow{color:#9FD4CE;font-size:14px;letter-spacing:.02em;margin-bottom:10px;}
+  header.hero h1{color:#fff;font-size:clamp(26px,4vw,38px);max-width:14ch;}
+  header.hero .lede{color:#D7DEE9;max-width:62ch;font-size:16.5px;}
+  .stat-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;}
+  .stat{
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);
+    border-radius:var(--radius);padding:14px 18px;min-width:150px;flex:1;
+  }
+  .stat .n{font-family:"Noto Serif TC",serif;font-size:26px;color:#F2D9A6;display:block;}
+  .stat .l{font-size:12.5px;color:#C6D0DE;}
+
+  /* SECTIONS */
+  section{padding:46px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-label{
+    font-size:13px;color:var(--vein);font-weight:700;
+    margin-bottom:6px;display:flex;align-items:center;gap:8px;
+  }
+  .section-label::before{content:"";width:22px;height:2px;background:var(--gold);display:inline-block;}
+  section h2{font-size:24px;margin-bottom:14px;}
+  section .intro{color:var(--ink-soft);max-width:70ch;}
+
+  /* CALLOUT: verification box */
+  .verify-box{
+    background:var(--gold-soft);border:1px solid #E3CE9C;border-left:5px solid var(--gold);
+    border-radius:var(--radius);padding:22px 24px;margin-top:18px;
+  }
+  .verify-box h3{font-size:16px;color:#7A5A18;margin-bottom:10px;}
+  .verify-box ul{margin:0;padding-left:20px;}
+  .verify-box li{margin-bottom:10px;font-size:14.5px;}
+  .verify-box li b{color:var(--navy);}
+  .tag{
+    display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;
+    border-radius:12px;margin-right:6px;vertical-align:1px;
+  }
+  .tag.fix{background:#E9CFC7;color:#7A2A20;}
+  .tag.add{background:var(--vein-soft);color:#134D51;}
+  .tag.ok{background:#DCE9DC;color:#2F5C34;}
+
+  /* CARD GRID */
+  .grid{display:grid;gap:16px;margin-top:20px;}
+  .grid.cols-2{grid-template-columns:1fr 1fr;}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr);}
+  @media(max-width:760px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 20px;
+  }
+  .card h4{font-size:15.5px;margin-bottom:8px;color:var(--navy);}
+  .card p{font-size:14px;color:var(--ink-soft);margin-bottom:6px;}
+  .card .meta{font-size:12px;color:#8A8370;}
+
+  /* evidence chip */
+  .evid{
+    display:inline-flex;align-items:center;gap:5px;
+    font-size:11px;font-weight:700;padding:3px 9px;border-radius:12px;
+    margin-bottom:10px;
+  }
+  .evid.rct{background:#DDE9F5;color:#1B4E7A;}
+  .evid.cohort{background:var(--vein-soft);color:#134D51;}
+  .evid.meta{background:#EDE2F2;color:#5B3572;}
+  .evid.guide{background:var(--gold-soft);color:#7A5A18;}
+
+  /* timeline */
+  .timeline{border-left:3px solid var(--vein);margin-left:8px;padding-left:22px;}
+  .tstep{position:relative;margin-bottom:26px;}
+  .tstep::before{
+    content:"";position:absolute;left:-29px;top:4px;width:12px;height:12px;
+    border-radius:50%;background:var(--vein);border:2px solid var(--cream);
+  }
+  .tstep h4{font-size:15.5px;margin-bottom:4px;}
+  .tstep p{font-size:14.5px;color:var(--ink-soft);}
+
+  /* table */
+  table{width:100%;border-collapse:collapse;margin-top:18px;font-size:13.5px;background:var(--paper);}
+  table.trial th{background:var(--navy);color:#F1EBDB;text-align:left;padding:10px 12px;font-weight:600;}
+  table.trial td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.trial tr:last-child td{border-bottom:none;}
+  .wrap-table{overflow-x:auto;}
+
+  /* bleeding severity cards */
+  .sev-card{border-radius:var(--radius);padding:18px 20px;border:1px solid var(--line);}
+  .sev-mild{border-left:6px solid #7FA86B;}
+  .sev-mod{border-left:6px solid var(--gold);}
+  .sev-severe{border-left:6px solid #C46A2E;}
+  .sev-life{border-left:6px solid var(--clot);background:var(--clot-soft);}
+  .sev-card h4{font-size:15px;margin-bottom:8px;}
+  .sev-card ul{margin:0;padding-left:18px;font-size:13.8px;color:var(--ink-soft);}
+  .sev-card li{margin-bottom:5px;}
+
+  /* reference list */
+  .reflist{font-size:13.5px;color:var(--ink-soft);}
+  .reflist li{margin-bottom:14px;padding-left:2px;}
+  .reflist b{color:var(--ink);}
+  .refstatus{font-size:11px;font-weight:700;padding:1px 7px;border-radius:10px;margin-left:6px;}
+  .refstatus.verified{background:#DCE9DC;color:#2F5C34;}
+  .refstatus.corrected{background:#E9CFC7;color:#7A2A20;}
+  .refstatus.newref{background:var(--vein-soft);color:#134D51;}
+
+  footer{background:var(--navy);color:#AEB9CB;padding:26px 0;font-size:12.5px;text-align:center;}
+  footer a{color:#CBD5E4;}
+
+  .backtop{position:fixed;right:18px;bottom:18px;background:var(--navy);color:#fff;
+    width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    text-decoration:none;font-size:18px;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.85;}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="navwrap">
+    <span class="brand">N‑Teaching<small>神經科教學研究部</small></span>
+    <a class="nlink" href="#summary">查證摘要</a>
+    <a class="nlink" href="#epi">流行病學</a>
+    <a class="nlink" href="#clinical">臨床表現</a>
+    <a class="nlink" href="#dx">診斷</a>
+    <a class="nlink" href="#tx">抗凝治療</a>
+    <a class="nlink" href="#surgery">手術減壓</a>
+    <a class="nlink" href="#bleed">出血併發症</a>
+    <a class="nlink" href="#evidence">實證等級</a>
+    <a class="nlink" href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">腦血管疾病教學專題 ｜ 實證更新　2024–2026</div>
+    <h1>腦靜脈竇血栓（CVT）實證更新</h1>
+    <p class="lede">從 RE‑SPECT CVT 到 DOAC‑CVT：整理近五年隨機對照試驗、前瞻性世代研究與國際學會聲明，重新檢視抗凝血劑選擇、手術減壓時機與出血併發症處置策略。</p>
+    <div class="stat-row">
+      <div class="stat"><span class="n">0.5–3%</span><span class="l">佔所有腦中風病例比例（AHA 2024 聲明）</span></div>
+      <div class="stat"><span class="n">10–15%</span><span class="l">積極治療下仍死亡或失能之比例</span></div>
+      <div class="stat"><span class="n">619 例</span><span class="l">DOAC‑CVT 前瞻性世代研究（23 國 65 中心）</span></div>
+      <div class="stat"><span class="n">2/3</span><span class="l">重症接受減壓性顱骨切除術後存活比例</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="summary">
+  <div class="container">
+    <div class="section-label">文獻查證與修正</div>
+    <h2>原始資料查證結果</h2>
+    <p class="intro">依 PubMed／期刊官網逐筆核對原文獻之作者、期刊、DOI 與內容摘要後，確認原始資料中十篇引用文獻皆為真實存在之論文，未發現虛構期刊或捏造數據；惟發現以下需修正之處，並補充近一至兩年內出現、原文獻未納入之關鍵實證。</p>
+    <div class="verify-box">
+      <h3>需修正之處</h3>
+      <ul>
+        <li><span class="tag fix">修正</span><b>作者誤植：</b>原文第 2.3 節提及「Nazir 等人（2021）的統合分析」，實際上該篇論文之第一作者為 <b>Nepal G.</b>（Nepal, Kharel, Bhagat et al., <i>Acta Neurol Scand</i> 2022;145:10–23），並無「Nazir」此作者，應更正為「Nepal 等人」。</li>
+        <li><span class="tag fix">修正</span><b>族群誤植：</b>原文第 2.5 節標題為「利伐沙班的中國人群觀察」，並引用 Esmaeili 等人（2021, <i>BMC Neurology</i>）。經查核，該研究團隊（Esmaeili, Abolmaali, Aarabi, Mirzaasgari 等）為伊朗（Iran）之研究機構，個案並非中國人群，此標題與族群描述有誤。近五年內真正針對中國族群、且為隨機對照試驗等級的證據應為 <b>CHOICE‑CVT</b>（Ma H et al., <i>Int J Stroke</i> 2024）。</li>
+        <li><span class="tag fix">修正</span><b>發表年份：</b>Rosa, Fragata, Aguiar de Sousa 之回顧文章網路搶先發表於 2024 年 10 月，正式紙本卷期為 <i>Curr Opin Neurol</i> 2025;38(1):18–28（非原文所載之單純「2024」），故引用年份宜標示為 2025（或 2024 年線上搶先發表 / 2025 正式出版）。</li>
+        <li><span class="tag fix">補充遺漏</span>原文內文詳述 DECOMPRESS‑2 研究結果，但參考文獻清單中未單獨列出該研究之正式出處，應補列：Aaron S et al. <i>Stroke</i>. 2024;55(5):1218–1226（已於本頁參考文獻中補上）。</li>
+      </ul>
+      <h3 style="margin-top:18px;">補充之近期關鍵實證（原文未納入）</h3>
+      <ul>
+        <li><span class="tag add">新增</span><b>AHA/ASA 2024 科學聲明</b>——美國心臟協會／美國中風協會於 2024 年 1 月發布之《腦靜脈竇血栓診斷與治療科學聲明》，是繼 2011 年版之後最重要的官方指引更新，相較舊版新增 7 項建議，涵蓋 DOAC 使用時機、影像判讀與手術減壓標準（Saposnik et al., <i>Stroke</i>. 2024;55:e77–e90）。</li>
+        <li><span class="tag add">新增</span><b>DOAC‑CVT 前瞻性世代研究</b>（van de Munckhof et al., <i>Lancet Neurology</i>. 2025;24:199–207）——迄今規模最大、唯一「前瞻性」設計之 DOAC vs. VKA 真實世界研究，橫跨 23 國 65 中心、619 例病人，證實兩者在復發性血栓與重大出血風險上無顯著差異，證據等級高於既有回溯性研究（如 ACTION‑CVT）。</li>
+        <li><span class="tag add">新增</span><b>CHOICE‑CVT 隨機對照試驗</b>（Ma H et al., <i>Int J Stroke</i>. 2024;19:635–644）——首個針對中國族群、達比加群 vs. 華法林之開放標籤隨機對照試驗（n=89），結果支持達比加群為可行選項，出血風險低於華法林組。</li>
+        <li><span class="tag add">新增</span><b>SECRET 可行性試驗</b>（Field et al., <i>Stroke</i>. 2023）——加拿大 12 中心、利伐沙班 vs. 標準治療之第二期可行性隨機對照試驗，為原文所提及「利伐沙班即刻用於 CVT」之研究提供正式出處。</li>
+        <li><span class="tag add">新增</span><b>加拿大中風實證最佳照護建議（第七版）</b>——Canadian Stroke Best Practice Recommendations: Cerebral Venous Thrombosis, 2024（<i>Can J Neurol Sci</i>. 2025;52:353–369），為另一份近期發布之學會層級指引。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="epi">
+  <div class="container">
+    <div class="section-label">流行病學與病因</div>
+    <h2>誰會得到 CVT？近年新增之風險因子</h2>
+    <p class="intro">CVT 好發於年輕族群與生育年齡女性，屬於相對「可逆」的中風亞型；然而臨床病程變異度大，即便接受完整治療，仍有一成至一成五病人死亡或遺留失能<span class="evid guide" style="margin-left:6px;">AHA 2024 聲明</span>。</p>
+    <div class="grid cols-3">
+      <div class="card">
+        <h4>傳統危險因子</h4>
+        <p>口服避孕藥、懷孕與產褥期、遺傳性或後天性血栓形成傾向、惡性腫瘤、感染（中耳炎、乳突炎）、頭部外傷、脫水。</p>
+      </div>
+      <div class="card">
+        <h4>COVID‑19 相關新風險</h4>
+        <p>SARS‑CoV‑2 感染本身及特定腺病毒載體疫苗均可誘發 CVT；疫苗誘發血栓性血小板低下症（VITT）約半數病例合併 CVT 表現，病理機轉與肝素誘發血小板低下症（HIT）類似。</p>
+      </div>
+      <div class="card">
+        <h4>VITT 之特別處置</h4>
+        <p>疑似或確診 VITT 者，建議優先使用非肝素類抗凝血劑（如阿加曲班、磺達肝癸鈉），避免輸注血小板，並儘早給予高劑量靜脈注射免疫球蛋白。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clinical">
+  <div class="container">
+    <div class="section-label">臨床表現</div>
+    <h2>高度異質性的臨床圖像</h2>
+    <p class="intro">CVT 之臨床表現多變，診斷仰賴高度警覺性——AHA 2024 聲明特別強調，符合下列任一情境時應積極安排靜脈影像檢查。</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h4>常見表現</h4>
+        <p>• 頭痛（最常見症狀，可達 80–90% 病人，性質多為漸進性、姿勢相關或類似偏頭痛）<br>
+        • 癲癇發作（局部或全身性）<br>
+        • 局部神經學缺損（依血栓部位而異）<br>
+        • 意識程度改變、腦病變表現<br>
+        • 視乳頭水腫（顱內壓升高徵象）</p>
+      </div>
+      <div class="card">
+        <h4>易被忽略的情境</h4>
+        <p>• 產後或口服避孕藥使用中之新發頭痛<br>
+        • 「非典型」偏頭痛合併局部神經學症狀<br>
+        • 疑似特發性顱內高壓（需排除 CVT 為次發原因）<br>
+        • 出血性梗塞不符合單一動脈供應區域<br>
+        • COVID‑19 疫苗接種後 4–28 天內新發頭痛合併血小板低下</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dx">
+  <div class="container">
+    <div class="section-label">診斷</div>
+    <h2>影像診斷的近年進展</h2>
+    <p class="intro">MRI／MRV 或 CT／CTV 仍為診斷主流，近年最大進展在於提升「皮質靜脈血栓（cortical vein thrombosis）」——傳統上最容易被漏診的次分型——之偵測靈敏度。</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h4>對比增強 MRI 與磁化率加權影像（SWI）</h4>
+        <p>近年研究顯示，對比增強 MRI 與 SWI 序列對於偵測皮質靜脈血栓之靈敏度顯著優於傳統 T2*／TOF‑MRV，尤其適用於臨床高度懷疑但常規靜脈血管攝影未見明確阻塞之病例。</p>
+        <p class="meta">來源：Rosa, Fragata, Aguiar de Sousa. <i>Curr Opin Neurol</i>. 2025;38:18–28.</p>
+      </div>
+      <div class="card">
+        <h4>再通化（recanalization）的時間軸</h4>
+        <p>單純接受抗凝血劑治療之病人，最早於治療開始後第 8 天即可觀察到部分靜脈再通，提醒臨床端不宜過早以「未完全再通」作為升級治療（如導管取栓）之唯一依據。</p>
+        <p class="meta">來源：同上；另見 Aguiar de Sousa D et al. <i>Stroke</i>. 2020;51:1174–1181.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tx">
+  <div class="container">
+    <div class="section-label">治療：抗凝血劑</div>
+    <h2>從腸道外抗凝到 DOAC——治療路徑與實證演進</h2>
+    <p class="intro">急性期治療基石仍是抗凝血劑，即便基礎影像已顯示腦實質出血，亦非抗凝血劑之絕對禁忌——預防血栓進展之效益仍大於再出血風險（AHA 2024 聲明；ESO/EAN 2017 指引）。</p>
+
+    <div class="timeline" style="margin-top:26px;">
+      <div class="tstep">
+        <h4>第一步：急性期腸道外抗凝</h4>
+        <p>優先選用低分子量肝素（LMWH）而非非分餾肝素（UFH），除非病人血液動力學不穩定、腎功能嚴重不良，或考慮緊急手術減壓時，才傾向使用非分餾肝素以利劑量調控與快速逆轉。</p>
+      </div>
+      <div class="tstep">
+        <h4>第二步：過渡至口服抗凝血劑（治療開始後 5–15 天）</h4>
+        <p>臨床穩定後轉換為口服抗凝血劑；SECRET 可行性試驗中，病人於隨機分派前平均已接受約 4 天腸道外抗凝前導治療，反映此一過渡窗期在近年試驗設計中已趨於一致。</p>
+      </div>
+      <div class="tstep">
+        <h4>第三步：口服抗凝血劑選擇——DOAC 或 VKA？</h4>
+        <p>近五年之隨機對照試驗與前瞻性世代研究，已將 DOAC 由「探索性選項」提升為與 VKA 同等級之合理選擇，尤其顱內出血風險更低（見下方試驗總表）。</p>
+      </div>
+      <div class="tstep">
+        <h4>特殊族群例外</h4>
+        <p>抗磷脂症候群（APS）病人仍建議使用 VKA 而非 DOAC，因後者可能增加此族群之血栓復發風險；懷孕期間 DOAC 與 VKA 皆屬禁忌，必須使用 LMWH；VITT 相關 CVT 建議採非肝素類抗凝血劑。</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:34px;">關鍵試驗與世代研究總表</h3>
+    <div class="wrap-table">
+    <table class="trial">
+      <tr><th>研究</th><th>設計 / 規模</th><th>主要結果</th></tr>
+      <tr>
+        <td><b>RE‑SPECT CVT</b><br>Ferro et al. 2019</td>
+        <td><span class="evid rct">RCT</span><br>探索性、開放標籤，n=120，達比加群 vs. 劑量調整華法林，療程 24 週</td>
+        <td>兩組均無復發性 VTE；達比加群組主要出血 1.7% vs. 華法林組 3.3%（含 2 例顱內出血）；再通率相近（60.0% vs. 67.3%）</td>
+      </tr>
+      <tr>
+        <td><b>ACTION‑CVT</b><br>Yaghi et al. 2022</td>
+        <td><span class="evid cohort">回溯性世代</span><br>27 中心，845 例（33% 僅用 DOAC，52% 僅用華法林）</td>
+        <td>DOAC 與華法林在復發性血栓、死亡率、再通率上相當；<b>主要出血風險降低約 65%</b>（aHR 0.35, 95% CI 0.15–0.82）</td>
+      </tr>
+      <tr>
+        <td><b>DOAC‑CVT</b><br>van de Munckhof et al. 2025<span class="tag add" style="margin-left:6px;">新增</span></td>
+        <td><span class="evid cohort">前瞻性世代</span><br>23 國 65 中心，619 例，真實世界前瞻性追蹤設計</td>
+        <td>DOAC 與 VKA 在復發性血栓及重大出血之複合終點上<b>無顯著差異</b>；為目前規模最大、唯一前瞻性設計之真實世界證據</td>
+      </tr>
+      <tr>
+        <td><b>CHOICE‑CVT</b><br>Ma et al. 2024<span class="tag add" style="margin-left:6px;">新增</span></td>
+        <td><span class="evid rct">RCT</span><br>單中心開放標籤，n=89（中國族群），達比加群 vs. 華法林</td>
+        <td>復發性 CVT/DVT 兩組無統計顯著差異（達比加群組數值上略高，检力不足）；達比加群組整體出血風險更低（2.3% vs. 20.0%）；兩組再通率均高（75–83%）</td>
+      </tr>
+      <tr>
+        <td><b>SECRET</b><br>Field et al. 2023<span class="tag add" style="margin-left:6px;">新增</span></td>
+        <td><span class="evid rct">第二期可行性 RCT</span><br>加拿大 12 中心，利伐沙班 vs. 標準治療（多為華法林）</td>
+        <td>驗證招募可行性與安全性，為後續大型第三期試驗鋪路；病人功能預後與安全性數據與標準治療相當</td>
+      </tr>
+      <tr>
+        <td><b>Nepal 等人統合分析</b><br><i>Acta Neurol Scand</i> 2022<span class="tag fix" style="margin-left:6px;">修正作者</span></td>
+        <td><span class="evid meta">統合分析</span><br>17 篇研究</td>
+        <td>DOAC 與 VKA 在復發性 VTE（RR 0.92）、死亡率（RR 1.42）與出血事件上無顯著差異，DOAC 組完全再通率有較高趨勢（RR 1.33）</td>
+      </tr>
+      <tr>
+        <td><b>Bose 等人系統性回顧</b><br><i>BMJ Open</i> 2021</td>
+        <td><span class="evid meta">系統性回顧</span><br>33 篇研究，279 例 DOAC 治療病人</td>
+        <td>94% 達良好功能預後（mRS 0–2）；新發顱內出血僅 0.7%；復發性 CVT 僅 1.5%</td>
+      </tr>
+      <tr>
+        <td><b>EINSTEIN‑Jr CVT 亞組</b><br>Connor et al. 2020</td>
+        <td><span class="evid rct">RCT 兒童亞組</span><br>114 例兒童 CVT</td>
+        <td>利伐沙班組無症狀性復發 VTE；標準治療組 2.4%。臨床相關出血率 6.8% vs. 2.4%（均無大出血或顱內出血）</td>
+      </tr>
+    </table>
+    </div>
+    <p class="meta" style="margin-top:10px;">補充：2025 年新發表之統合分析（Ranjan &amp; Ken‑Dror, <i>Neurol Int</i>. 2025;17:183）納入 12 篇研究、1174 例病人，進一步支持利伐沙班相較華法林之復發率略低、安全性相當之結論，可作為 DOAC‑CVT 世代研究之補充佐證。</p>
+  </div>
+</section>
+
+<section id="surgery">
+  <div class="container">
+    <div class="section-label">重症治療</div>
+    <h2>減壓性顱骨切除術：DECOMPRESS‑2 的實證支持</h2>
+    <div class="card" style="max-width:640px;">
+      <span class="evid cohort">國際前瞻性世代研究</span>
+      <h4>DECOMPRESS‑2（Aaron et al., <i>Stroke</i>. 2024;55:1218–1226）</h4>
+      <p>納入 15 國中心、118 例接受減壓手術（115 例顱骨切除術、37 例血腫清除術）之重症 CVT 病人，追蹤 12 個月：</p>
+      <p>• 兩成三存活比例達三分之二（33.9% 死亡，35.6% 達功能獨立 mRS 0–2）<br>
+      • 昏迷與雙側瞳孔固定放大為預後不良之獨立預測因子<br>
+      • 存活者中，78.9% 病人本人與 87.1% 照顧者認為手術「值得」（約五分之四）</p>
+      <p class="meta">此研究為 ESO‑EAN CVT 指引中「重症併瀕臨腦疝病人應施行減壓手術」建議，首次提供前瞻性世代等級之實證支持。</p>
+    </div>
+  </div>
+</section>
+
+<section id="bleed">
+  <div class="container">
+    <div class="section-label">出血併發症處置</div>
+    <h2>非顱內出血時，抗凝血劑計畫如何決定？</h2>
+    <p class="intro">依 Gimbel 等人（2018, <i>Neth Heart J</i>）與 Piran &amp; Schulman（2019, <i>Blood</i>）之實用架構，按出血嚴重度分層決策：</p>
+
+    <div class="grid cols-2" style="margin-top:20px;">
+      <div class="sev-card sev-mild">
+        <h4>輕度出血</h4>
+        <ul>
+          <li>口服抗凝血劑可繼續使用；VKA 延後至 INR&lt;2 再服用，DOAC 可跳過一劑</li>
+          <li>抗血小板藥物可繼續使用</li>
+          <li>重新評估是否需縮短療程或更換出血風險更低之藥物</li>
+        </ul>
+      </div>
+      <div class="sev-card sev-mod">
+        <h4>中度出血（Hb 下降 ≥2 mmol/L 或需住院，血液動力學穩定）</h4>
+        <ul>
+          <li>暫停口服抗凝血劑；VKA 可用維生素 K 靜脈注射逆轉（起效需 4–6 小時）</li>
+          <li>DOAC：時間為最佳解毒劑（半衰期約 12 小時）；末次服藥 2–4 小時內可考慮活性碳；達比加群可考慮透析</li>
+          <li>止血後 1 週內考慮重啟抗凝，採較低目標 INR 或最低有效 DOAC 劑量</li>
+        </ul>
+      </div>
+      <div class="sev-card sev-severe">
+        <h4>重度出血（Hb 下降 &gt;3 mmol/L，持續出血）</h4>
+        <ul>
+          <li>立即停用所有抗栓藥物</li>
+          <li>VKA 逆轉：四因子凝血酶原複合物濃縮劑（4F‑PCC 25–50 U/kg）併新鮮冷凍血漿</li>
+          <li>達比加群：依達魯西單抗（idarucizumab）5 mg 靜脈注射，5 分鐘內完全逆轉</li>
+          <li>Xa 因子抑制劑：Andexanet alfa 為特異性解毒劑（美國 FDA 已核准，台灣尚未上市）；無法取得時可用 4F‑PCC</li>
+          <li>出血控制後約 1 週內重啟，血栓風險極高者可提早</li>
+        </ul>
+      </div>
+      <div class="sev-card sev-life">
+        <h4>危及生命之出血</h4>
+        <ul>
+          <li>即刻停用並逆轉所有抗凝血劑</li>
+          <li>止血後約 1 個月再評估是否重啟（腦葉出血除外）</li>
+          <li>多專科（神經科、血液科、出血器官專科）共同決策</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top:30px;">針劑 vs. 口服：如何選擇重啟途徑</h3>
+    <div class="grid cols-2">
+      <div class="card">
+        <h4>優先選擇 LMWH／UFH 之情境</h4>
+        <p>近期消化道出血尚未完全排除病因、擬近期接受手術、需高度可逆性；懷孕期 CVT（DOAC／VKA 皆禁忌）；VITT 相關 CVT（改採非肝素類抗凝血劑）。</p>
+      </div>
+      <div class="card">
+        <h4>可直接過渡口服 DOAC 之情境</h4>
+        <p>出血已完全控制且病因已處理（如內視鏡止血成功之消化性潰瘍）、出血部位風險低（如已控制之鼻出血）、病人服藥順從性良好、肝腎功能正常。</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:30px;">重啟抗凝時機之核心原則（Scott et al., 2018, <i>Blood Rev</i>）</h3>
+    <p style="max-width:70ch;">現有證據多來自 VKA 之回溯性研究，整體傾向重啟抗凝之獲益大於風險；顱內出血後重啟時機爭議最大，文獻報告範圍自 72 小時至 30 週不等，實務上多建議 <b>4–8 週後</b>考慮重啟。非顱內之顱外出血則可較早重啟（1–7 天），端視出血部位可控性與血栓復發風險而定；高血栓風險者（如機械瓣膜、CHA₂DS₂‑VASc ≥4）可考慮先以 LMWH 橋接。</p>
+  </div>
+</section>
+
+<section id="evidence">
+  <div class="container">
+    <div class="section-label">總覽</div>
+    <h2>實證等級速覽</h2>
+    <div class="wrap-table">
+    <table class="trial">
+      <tr><th>臨床議題</th><th>目前立場</th><th>實證等級</th></tr>
+      <tr><td>急性期優先使用 LMWH 而非 UFH</td><td>建議常規採用，除非血液動力學不穩或擬緊急手術</td><td><span class="evid guide">學會指引共識</span></td></tr>
+      <tr><td>基礎腦出血不禁止抗凝血劑</td><td>持續抗凝，效益大於再出血風險</td><td><span class="evid guide">學會指引共識</span></td></tr>
+      <tr><td>DOAC 作為長期口服抗凝之合理選擇</td><td>與 VKA 療效相當、顱內出血風險更低（APS 除外）</td><td><span class="evid cohort">前瞻性世代＋RCT</span></td></tr>
+      <tr><td>重症瀕臨腦疝者施行減壓性顱骨切除術</td><td>建議施行，多數存活者認為值得</td><td><span class="evid cohort">前瞻性國際世代</span></td></tr>
+      <tr><td>APS 病人使用 VKA 而非 DOAC</td><td>建議避免 DOAC</td><td><span class="evid guide">學會指引共識</span></td></tr>
+      <tr><td>VITT 相關 CVT 避免肝素類藥物</td><td>建議採非肝素類抗凝血劑並儘早給予 IVIG</td><td><span class="evid guide">學會指引共識</span></td></tr>
+      <tr><td>非顱內出血後重啟抗凝時機</td><td>多數 7–15 天內，依部位與血栓風險調整</td><td><span class="evid cohort">回溯性研究為主</span></td></tr>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section id="refs">
+  <div class="container">
+    <div class="section-label">參考文獻</div>
+    <h2>經逐筆查核之參考文獻</h2>
+    <p class="intro" style="margin-bottom:22px;">下列文獻已於 PubMed／期刊官網逐一核對作者、期刊卷期與 DOI；標示「已修正」者代表原文獻引用資訊有誤並於此更正，標示「新增」者為原文獻未納入之近期關鍵實證。</p>
+    <ol class="reflist">
+      <li>Saposnik G, Bushnell C, Coutinho JM, et al. Diagnosis and management of cerebral venous thrombosis: a scientific statement from the American Heart Association. <i>Stroke</i>. 2024;55(3):e77–e90. doi:10.1161/STR.0000000000000456 <span class="refstatus newref">新增</span></li>
+      <li>Rosa S, Fragata I, Aguiar de Sousa D. Update on management of cerebral venous thrombosis. <i>Curr Opin Neurol</i>. 2025;38(1):18–28（線上搶先發表 2024 年 10 月）. doi:10.1097/WCO.0000000000001329 <span class="refstatus corrected">年份已修正</span></li>
+      <li>van de Munckhof A, Sánchez van Kammen M, Tatlisumak T, et al. Direct oral anticoagulants versus vitamin K antagonists for cerebral venous thrombosis (DOAC‑CVT): an international, prospective, observational cohort study. <i>Lancet Neurol</i>. 2025;24(3):199–207. doi:10.1016/S1474-4422(24)00519-2 <span class="refstatus newref">新增</span></li>
+      <li>Yaghi S, Shu L, Bakradze E, et al. Direct Oral Anticoagulants Versus Warfarin in the Treatment of Cerebral Venous Thrombosis (ACTION‑CVT): A Multicenter International Study. <i>Stroke</i>. 2022;53(3):728–738. doi:10.1161/STROKEAHA.121.037541 <span class="refstatus verified">已查核</span></li>
+      <li>Ma H, Gu Y, Bian T, Song H, Liu Z, Ji X, Duan J. Dabigatran etexilate versus warfarin in cerebral venous thrombosis in Chinese patients (CHOICE‑CVT): an open‑label, randomized controlled trial. <i>Int J Stroke</i>. 2024;19(6):635–644. doi:10.1177/17474930241234749 <span class="refstatus newref">新增</span></li>
+      <li>Field TS, et al. Study of Rivaroxaban for Cerebral Venous Thrombosis (SECRET): a randomized controlled feasibility trial. <i>Stroke</i>. 2023;54(10):2724–2734. doi:10.1161/STROKEAHA.123.044113 <span class="refstatus newref">新增</span></li>
+      <li>Nepal G, Kharel S, Bhagat R, et al. Safety and efficacy of Direct Oral Anticoagulants in cerebral venous thrombosis: A meta‑analysis. <i>Acta Neurol Scand</i>. 2022;145(1):10–23. doi:10.1111/ane.13506 <span class="refstatus corrected">作者已修正</span></li>
+      <li>Bose G, Graveline J, Yogendrakumar V, et al. Direct oral anticoagulants in treatment of cerebral venous thrombosis: a systematic review. <i>BMJ Open</i>. 2021;11(2):e040212. doi:10.1136/bmjopen-2020-040212 <span class="refstatus verified">已查核</span></li>
+      <li>Ferro JM, Coutinho JM, Dentali F, et al. Safety and Efficacy of Dabigatran Etexilate vs Dose‑Adjusted Warfarin in Patients With Cerebral Venous Thrombosis (RE‑SPECT CVT). <i>JAMA Neurol</i>. 2019;76(12):1457–1465. doi:10.1001/jamaneurol.2019.2764 <span class="refstatus verified">已查核</span></li>
+      <li>Aaron S, et al. Outcomes of Decompressive Surgery for Patients With Severe Cerebral Venous Thrombosis: DECOMPRESS2 Observational Study. <i>Stroke</i>. 2024;55(5):1218–1226. doi:10.1161/STROKEAHA.123.045051 <span class="refstatus newref">補列出處</span></li>
+      <li>Gimbel ME, Minderhoud SCS, ten Berg JM. A practical guide on how to handle patients with bleeding events while on oral antithrombotic treatment. <i>Neth Heart J</i>. 2018;26(6):341–351. doi:10.1007/s12471-018-1117-1 <span class="refstatus verified">已查核</span></li>
+      <li>Piran S, Schulman S. Treatment of bleeding complications in patients on anticoagulant therapy. <i>Blood</i>. 2019;133(5):425–435. doi:10.1182/blood-2018-06-820746 <span class="refstatus verified">已查核</span></li>
+      <li>Scott M, Low R, Swan D, Thachil J. Reintroduction of anticoagulant therapy after intracranial haemorrhage: If and when? <i>Blood Rev</i>. 2018;32(3):256–263. doi:10.1016/j.blre.2017.12.002 <span class="refstatus verified">已查核</span></li>
+      <li>Esmaeili S, Abolmaali M, Aarabi S, et al. Rivaroxaban for the treatment of cerebral venous thrombosis（伊朗族群世代研究）. <i>BMC Neurol</i>. 2021;21(1):73. doi:10.1186/s12883-021-02091-1 <span class="refstatus corrected">族群描述已修正</span></li>
+      <li>Connor P, Sánchez van Kammen M, Lensing AWA, et al. Safety and efficacy of rivaroxaban in pediatric cerebral venous thrombosis (EINSTEIN‑Jr CVT). <i>Blood Adv</i>. 2020;4(24):6250–6258. doi:10.1182/bloodadvances.2020003244 <span class="refstatus verified">已查核</span></li>
+      <li>Ranjan R, Ken‑Dror G. Safety and Efficacy of Rivaroxaban Versus Warfarin in Cerebral Venous Thrombosis: A Comprehensive Meta‑Analysis. <i>Neurol Int</i>. 2025;17(11):183. doi:10.3390/neurolint17110183 <span class="refstatus newref">新增</span></li>
+      <li>Field TS, et al. Canadian Stroke Best Practice Recommendations, 7th Edition: Cerebral Venous Thrombosis, 2024. <i>Can J Neurol Sci</i>. 2025;52(3):353–369. doi:10.1017/cjn.2024.269 <span class="refstatus newref">新增</span></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    神經科教學研究部 N‑Teaching ｜ 教學用途整理，實際臨床決策請以最新指引與病人個別狀況為準 ｜ 內容更新：2026 年 9 月
+  </div>
+</footer>
+
+<a href="#summary" class="backtop" aria-label="回到頂端">↑</a>
+
+</body>
+</html>

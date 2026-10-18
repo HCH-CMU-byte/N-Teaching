@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>肌無力危象治療後復發性延髓功能障礙 | 實證更新版</title>
+<style>
+:root{
+  --bg:#0b0f14;
+  --bg-panel:#121820;
+  --bg-card:#161d27;
+  --border:#232c38;
+  --text:#dbe2eb;
+  --text-dim:#8a97a8;
+  --amber:#f0a952;
+  --amber-dim:#c98a3d;
+  --teal:#4fb8ac;
+  --teal-dim:#3a8f86;
+  --red:#e2685f;
+  --green:#6fbf7f;
+  --radius:10px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;
+  line-height:1.75;
+  font-size:16px;
+}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
+
+/* ---- site header nav ---- */
+.n-teaching-nav {
+  position: sticky; top: 0; z-index: 999;
+  background: rgba(13,17,23,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  padding: 0 28px; height: 54px;
+  display: flex; align-items: center; gap: 4px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.n-teaching-nav .logo {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px; font-weight: 700;
+  color: #58a6ff; text-decoration: none;
+  margin-right: 24px; white-space: nowrap;
+}
+.n-teaching-nav a.link {
+  color: #8b949e; text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  padding: 6px 13px; border-radius: 6px;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+.n-teaching-nav a.link:hover { color: #e6edf3; background: #1c2128; }
+
+/* ---- in-page section nav ---- */
+nav.topnav{
+  position:sticky;top:54px;z-index:50;
+  background:rgba(11,15,20,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+nav.topnav .navrow{
+  max-width:900px;margin:0 auto;padding:10px 20px;
+  display:flex;gap:6px;overflow-x:auto;white-space:nowrap;
+  scrollbar-width:thin;
+}
+nav.topnav a{
+  color:var(--text-dim);text-decoration:none;font-size:13px;
+  padding:6px 12px;border-radius:20px;border:1px solid transparent;
+  transition:all .2s;
+}
+nav.topnav a:hover, nav.topnav a:focus-visible{
+  color:var(--amber);border-color:var(--amber-dim);background:rgba(240,169,82,0.08);
+}
+
+/* ---- header ---- */
+header.hero{padding:56px 0 32px;border-bottom:1px solid var(--border);}
+.eyebrow{
+  color:var(--teal);font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:600;margin-bottom:14px;
+}
+h1{
+  font-size:clamp(26px,4vw,36px);margin:0 0 12px;font-weight:800;
+  color:#fff;letter-spacing:-.01em;
+}
+.subtitle{color:var(--text-dim);font-size:16px;max-width:660px;margin:0;}
+.meta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
+.tag{
+  font-size:12.5px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);
+  color:var(--text-dim);background:var(--bg-panel);
+}
+.tag.upd{border-color:var(--amber-dim);color:var(--amber);}
+
+/* ---- evidence banner ---- */
+.evidence-box{
+  margin:32px 0;background:var(--bg-panel);border:1px solid var(--border);
+  border-left:3px solid var(--amber);border-radius:var(--radius);padding:22px 24px;
+}
+.evidence-box h2{margin:0 0 12px;font-size:17px;color:var(--amber);font-weight:700;}
+.evidence-box p{margin:0 0 10px;color:var(--text);font-size:14.5px;}
+.evidence-box ul{margin:10px 0 0;padding-left:20px;font-size:14.5px;color:var(--text);}
+.evidence-box li{margin-bottom:8px;}
+.evidence-box li::marker{color:var(--amber);}
+
+section{padding:44px 0;border-bottom:1px solid var(--border);}
+section:last-of-type{border-bottom:none;}
+
+.stage-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;}
+.stage-num{
+  font-size:13px;font-weight:700;color:var(--bg);background:var(--teal);
+  padding:3px 10px;border-radius:6px;letter-spacing:.04em;flex-shrink:0;
+}
+.stage-time{color:var(--text-dim);font-size:13.5px;}
+h2.stage-title{font-size:22px;margin:6px 0 18px;color:#fff;font-weight:700;}
+h3{font-size:17px;color:var(--amber);margin:26px 0 10px;font-weight:700;}
+h4.sub{font-size:15px;color:var(--teal);margin:18px 0 8px;font-weight:700;}
+p{color:var(--text);margin:0 0 14px;}
+ul,ol{padding-left:22px;color:var(--text);}
+li{margin-bottom:8px;}
+
+.grade{
+  display:inline-block;font-size:11.5px;font-weight:700;padding:1px 7px;
+  border-radius:5px;margin-left:6px;vertical-align:middle;
+}
+.grade.A{background:rgba(111,191,127,0.15);color:var(--green);border:1px solid rgba(111,191,127,0.4);}
+.grade.B{background:rgba(240,169,82,0.15);color:var(--amber);border:1px solid rgba(240,169,82,0.4);}
+.grade.C{background:rgba(226,104,95,0.12);color:var(--red);border:1px solid rgba(226,104,95,0.4);}
+.grade.NEW{background:rgba(79,184,172,0.15);color:var(--teal);border:1px solid rgba(79,184,172,0.4);}
+
+.callout{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px 20px;margin:18px 0;
+}
+.callout.warn{border-left:3px solid var(--red);}
+.callout.update{border-left:3px solid var(--teal);}
+.callout.tip{border-left:3px solid var(--amber-dim);}
+.callout h4{margin:0 0 8px;font-size:14.5px;color:#fff;font-weight:700;}
+.callout p{margin:0;font-size:14.5px;color:var(--text-dim);}
+.callout p+p{margin-top:8px;}
+
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px;}
+th,td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;}
+th{color:var(--amber);font-weight:700;font-size:13px;background:var(--bg-panel);}
+td{color:var(--text-dim);}
+td strong{color:var(--text);}
+.summary-table-wrap{overflow-x:auto;}
+
+/* risk pill grid */
+.pill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0;}
+.pill{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:8px;
+  padding:12px 14px;font-size:13.5px;
+}
+.pill .k{color:var(--teal);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:4px;}
+.pill .v{color:var(--text);}
+.pill.strong{border-color:var(--red);}
+.pill.strong .k{color:var(--red);}
+
+/* flow / algorithm */
+.flow{display:flex;flex-direction:column;gap:0;margin:20px 0;}
+.flow-step{display:flex;gap:16px;position:relative;padding-bottom:26px;}
+.flow-step:last-child{padding-bottom:0;}
+.flow-line{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:28px;}
+.flow-dot{width:12px;height:12px;border-radius:50%;background:var(--teal);border:2px solid var(--bg);box-shadow:0 0 0 2px var(--teal);margin-top:4px;}
+.flow-track{flex:1;width:2px;background:var(--border);margin-top:4px;}
+.flow-step:last-child .flow-track{display:none;}
+.flow-body{flex:1;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;}
+.flow-body h5{margin:0 0 6px;color:#fff;font-size:14.5px;font-weight:700;}
+.flow-body p{margin:0;font-size:13.5px;color:var(--text-dim);}
+
+.refbox{margin-top:6px;}
+.refbox ol{font-size:13px;color:var(--text-dim);padding-left:20px;}
+.refbox li{margin-bottom:10px;}
+.refbox .newtag{
+  display:inline-block;font-size:10.5px;font-weight:700;color:var(--bg);
+  background:var(--teal);padding:1px 6px;border-radius:4px;margin-left:6px;
+}
+
+footer{padding:30px 0 60px;color:var(--text-dim);font-size:12.5px;text-align:center;}
+
+@media (max-width:600px){
+  header.hero{padding:40px 0 24px;}
+  section{padding:32px 0;}
+  .stage-head{flex-wrap:wrap;}
+}
+</style>
+</head>
+<body>
+
+<nav class="n-teaching-nav">
+  <a class="logo" href="index.html">⬡ HCH-FYH Neurology</a>
+  <a class="link" href="index.html">← 返回首頁</a>
+</nav>
+
+<nav class="topnav">
+  <div class="navrow">
+    <a href="#evidence">實證更新摘要</a>
+    <a href="#s1">臨床問題</a>
+    <a href="#s2">診斷再評估</a>
+    <a href="#s3">治療重新擬定</a>
+    <a href="#s4">胸腺切除</a>
+    <a href="#s5">延髓功能復健</a>
+    <a href="#s6">整合處置流程</a>
+    <a href="#s7">預後</a>
+    <a href="#summary">總覽表</a>
+    <a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">神經科教學研究部 · Neurology Teaching Module</div>
+    <h1>肌無力危象完整血漿置換療程後<br>復發性延髓功能障礙之處置</h1>
+    <p class="subtitle">Management of Recurrent Bulbar Dysfunction After a Complete Course of Plasma Exchange in a Myasthenia Gravis Crisis Patient — 依近五年（2021–2026）文獻重新校訂之臨床決策流程。</p>
+    <div class="meta-row">
+      <span class="tag">重症肌無力 Myasthenia Gravis</span>
+      <span class="tag">延髓功能障礙 Bulbar Dysfunction</span>
+      <span class="tag">復發性危象 Recurrent Crisis</span>
+      <span class="tag upd">2026 更新：危象風險預測模型</span>
+      <span class="tag upd">2026 更新：新型生物製劑</span>
+    </div>
+  </header>
+
+  <section id="evidence">
+    <div class="evidence-box">
+      <h2>📋 本次實證重新評估摘要</h2>
+      <p>原始資料多引用 1996–2016 年間文獻（Mahalati 1999、Kluin 1996、Koopman 2003 等），部分風險預測與治療選項已隨近期研究更新。以下為對照近五年文獻後的主要變動：</p>
+      <ul>
+        <li><strong>核心綜述更新：</strong>以 Claytor, Cho, Li（<em>Muscle &amp; Nerve</em>, 2023）作為復發風險因子的主要依據，其確認既往危象史、口咽部無力、疾病嚴重度、MuSK 抗體陽性、胸腺瘤為復發之獨立風險因子，且約 1/3 危象患者合併胸腺瘤。</li>
+        <li><strong>新增量化風險預測工具：</strong>2025 年一項納入 385 例患者的護理端風險預測模型（nomogram）指出，「無法平躺」與「氧合指數（OI）≤300」是兩項最強的獨立預測因子，優於傳統單看 MGFA 分期，可作為床邊快速篩檢工具，此為原始資料所未涵蓋。</li>
+        <li><strong>新增新型生物製劑選項：</strong>除原有的 rituximab、eculizumab 外，近三年已有 FcRn 拮抗劑（efgartigimod、rozanolixizumab）與長效補體抑制劑（ravulizumab）進入臨床應用，對於復發性/難治性延髓症狀患者提供更多選擇，惟多數證據仍以病例系列為主。</li>
+        <li><strong>復健實證的細緻化：</strong>近期病例報告顯示，在疾病穩定期以「可控負荷」進行漸進式吞嚥肌力訓練合併感覺電刺激，可能對特定患者（如 MuSK-MG）有幫助——但此與急性期／病情不穩定時應避免主動肌力訓練的原則並不衝突，兩者適用時機不同，教學時應清楚區分。此外，2023 年文獻指出 MG 患者轉介語言治療師（SLP）的比例偏低，多數轉介發生於危象後，此為可改善的照護缺口。</li>
+        <li><strong>預後認知的修正：</strong>2024 年一篇追蹤研究指出，經歷過危象的患者其長期預後（功能狀態、生活品質）顯著較未經歷危象者差，此點更新了「危象後預後普遍良好」的舊有印象，應強調早期預防重於治療。</li>
+        <li><strong>維持不變的核心實證：</strong>PEX 免疫調節效果短暫（2–8 週）、維持性 PEX／免疫吸附（IA）於難治型病例的角色、皮質類固醇啟動時機與劑量調整原則、AZA／MMF／他克莫司的定位、胸腺切除適應症，經比對後大致維持原結論。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s1">
+    <div class="stage-head"><span class="stage-num">01</span></div>
+    <h2 class="stage-title">臨床問題的理解</h2>
+    <p>血漿置換（PEX）完整療程後，延髓功能障礙（吞嚥困難、構音障礙、發聲困難）復發，是肌無力危象照護中極具挑戰性的情境。肌無力危象定義為因 MG 導致需要機械通氣或呼吸道保護的呼吸衰竭，影響 15–20% 的 MG 患者，其中約 1/3 患者可能經歷復發性危象。延髓功能障礙尤其值得關注，因為併發吸入性肺炎的吞嚥困難是危象最主要的誘發因子，占所有誘因的 56–90%。</p>
+    <p>PEX 療程後延髓症狀復發，代表其免疫調節效果（通常維持 2–8 週）已經消退。這說明了為何單一次完整 PEX 療程並不足以達成長期穩定，必須銜接完整的長期治療策略，同時兼顧急性症狀控制與疾病長期穩定化。</p>
+  </section>
+
+  <section id="s2">
+    <div class="stage-head"><span class="stage-num">02</span></div>
+    <h2 class="stage-title">診斷再評估</h2>
+    <p>擬定新治療計畫前，應完成以下系統性再評估：</p>
+
+    <h3>延髓功能障礙嚴重度的客觀量化</h3>
+    <p>QMG 延髓功能子量表（評估複視、眼瞼下垂、臉部肌無力、吞嚥、言語）與吸入風險有良好相關性。<strong>影像導引吞嚥攝影（VFSS，改良式鋇劑吞嚥檢查）</strong>是評估吞嚥困難、辨識「無症狀吸入（silent aspiration）」的黃金標準——一項研究中 8 位高齡 MG 患者裡有 5 位出現無症狀吸入，即使咽反射與咳嗽功能皆正常。</p>
+
+    <div class="callout warn">
+      <h4>⚠️ 重要提醒：咽反射與咳嗽功能不可靠</h4>
+      <p>咽反射與遵囑咳嗽能力並非可靠的吸入風險指標。半數高齡 MG 吞嚥困難患者屬於「無症狀吸入者」，臨床評估易低估實際風險，應以 VFSS 為主要判斷依據，而非僅憑床邊神經學檢查。</p>
+    </div>
+
+    <h3>復發風險量化：新型預測工具 <span class="grade NEW">2026 新增内容</span></h3>
+    <p>2025 年一項納入 385 例合併延髓無力之 MG 患者的護理端風險預測模型（訓練組 308 例、驗證組 77 例）建立了危象風險 nomogram，可作為既有風險因子之外的量化輔助工具：</p>
+
+    <div class="pill-grid">
+      <div class="pill strong"><span class="k">最強預測因子</span><span class="v">無法平躺（inability to lie flat）</span></div>
+      <div class="pill strong"><span class="k">最強預測因子</span><span class="v">氧合指數 OI ≤ 300 mmHg</span></div>
+      <div class="pill"><span class="k">其他顯著因子</span><span class="v">MGFA III–IV 期、合併胸腺瘤、PCO₂ ≥ 45 mmHg、口咽分泌物增加、情緒易激動、pyridostigmine 劑量 ≥ 240 mg/24hr</span></div>
+    </div>
+
+    <h3>復發誘發因子的辨識</h3>
+    <p>最常見誘因仍為感染（占危象成因高達 70%），其他包括藥物未規則服用、手術、情緒壓力，以及影響神經肌肉傳導的藥物（胺基糖苷類抗生素、部分心臟用藥、鎂劑）。</p>
+
+    <h3>抗體狀態的評估</h3>
+    <p>MuSK 抗體陽性患者更容易出現嚴重延髓與呼吸受累，且對治療反應可能不同，此類患者危象風險較高、需較長療程。雙陰性（double-seronegative）患者仍可能對 PEX 有反應，於難治病例中 DFPP 亦曾顯示療效。</p>
+
+    <h3>胸腺瘤狀態</h3>
+    <p>Claytor 等人（2023）綜述確認：既往危象史、口咽部無力、疾病嚴重度、MuSK 抗體陽性、胸腺瘤皆為復發之獨立風險因子，且大型病例系列中約 1/3 危象患者合併胸腺瘤。胸腺瘤合併其他共病時，復發風險可再上升。</p>
+  </section>
+
+  <section id="s3">
+    <div class="stage-head"><span class="stage-num">03</span></div>
+    <h2 class="stage-title">治療重新擬定</h2>
+
+    <h3>血漿置換（重複或維持性） <span class="grade A">實證等級 A</span></h3>
+    <h4 class="sub">重複 PEX 療程</h4>
+    <p>標準做法為隔日進行 5–8 次 PEX（每次交換 1–1.5 個血漿體積，以 5% 白蛋白補充），為急性惡化的標準處置。Mahalati 等人的經典系列中，平均 7.8 次 PEX（範圍 1–16 次）使所有 13 位插管患者成功脫離呼吸機，療效通常於第 2–3 次治療後即可觀察到。</p>
+
+    <h4 class="sub">維持性 PEX</h4>
+    <p>對於儘管接受最大免疫抑制治療仍反覆危象之難治型患者，可考慮排程性維持 PEX。Triantafyllou 等人的研究中，11 位難治型患者先以每週 3 次、共 2 週進行，之後降為每週 1–2 次直到穩定；所有患者於第一週內即有改善，其中 9/11 最終可降至每年僅需 0–4 次治療。長期需要 PEX 者，可能需建立動靜脈廔管或中心靜脈導管以利長期血管通路。</p>
+
+    <h4 class="sub">替代性血漿分離技術</h4>
+    <p>標準 PEX 效果不足時，可考慮免疫吸附（IA）。Blaha 等人報告 6 位對重複 PEX 及 IVIg 均反應不佳的重度 MG 患者，長期 IA 治療後全數穩定，其中 2 位於 13 個月後可停用 IA；IA 更具選擇性，可將 AChR 抗體每次治療降低約 57%。DFPP 於難治型雙陰性 MG 亦有療效案例。</p>
+
+    <div class="callout tip">
+      <h4>💡 藥物交互作用提醒</h4>
+      <p>PEX 會有效清除循環中的 IVIg（單次治療可降低血中濃度約 65%）；若患者同時接受 IVIg 與 PEX，需注意額外補充 IVIg 劑量以維持療效。Rituximab 同樣會被 PEX 清除（單次治療降低約 65%），合併使用時亦須調整給藥時機。</p>
+    </div>
+
+    <h3>藥物調整</h3>
+    <h4 class="sub">Pyridostigmine（Mestinon）</h4>
+    <p>仍為第一線症狀治療藥物，常用劑量 60–120 mg，每 4–6 小時一次，最高至 480–600 mg/天。急性危象期間，部分專家建議機械通氣時暫停使用（「藥物假期」）以避免膽鹼激導性危象；然而一項納入 63 例危象患者的回顧性系列（Berroushot）發現，單用 pyridostigmine、pyridostigmine + prednisolone、或單用 PEX 三組間預後並無顯著差異。<strong>MuSK-MG 患者</strong>對 pyridostigmine 反應較差（僅 16–57% 改善），甚至可能出現反常惡化，此類患者應謹慎使用或避免。</p>
+
+    <h4 class="sub">皮質類固醇</h4>
+    <p>復發延髓症狀患者，應同步啟動或提高類固醇劑量並合併 PEX/IVIg，以降低「類固醇誘發惡化」風險（發生率 21–48%，通常於啟動後 4–10 天出現，高齡、延髓症狀、疾病嚴重度為預測因子）。標準起始劑量為 prednisone 60–80 mg/天（或 1 mg/kg/天）；延髓無力明顯者，部分專家建議自低劑量（20 mg/天）起始，每 1–2 週增加 10 mg，以降低惡化風險。另一種「早期快速治療（EFT）」策略為 IV methylprednisolone 2 g/天，連續 2 天，後接低劑量口服 prednisolone，可較快改善且惡化風險較低。療效出現後（通常數週內），每月減量 5–10 mg，低於 5 mg/天後改以每月 1 mg 極慢遞減；驟然停藥可能誘發危象。應同步給予雙磷酸鹽、鈣質與維生素 D 保護骨密度，並密切監測血糖、血壓與電解質。</p>
+
+    <h3>長期非類固醇免疫抑制劑</h3>
+    <table>
+      <tr><th>藥物</th><th>起效時間</th><th>劑量</th><th>重點</th></tr>
+      <tr><td><strong>AZA</strong></td><td>4–6 個月（最大效果 15–18 個月）</td><td>目標 2–3 mg/kg/天</td><td>需先驗 TPMT 活性；至少持續 3 年才可考慮停藥</td></tr>
+      <tr><td><strong>MMF</strong></td><td>6–12 個月</td><td>1000–1500 mg，每日兩次</td><td>回顧性研究中 73% 改善、50% 達緩解；孕婦禁用</td></tr>
+      <tr><td><strong>他克莫司</strong></td><td>最早 10 天</td><td>固定 3 mg/天或 0.05–0.1 mg/kg/天</td><td>胸腺瘤患者特別適用；緩解率可達 87.5%</td></tr>
+      <tr><td><strong>Rituximab</strong></td><td>數週至數月</td><td>375 mg/m² × 4 週，或 1000 mg × 2 劑</td><td>MuSK-MG 療效顯著（58% vs. 對照組 16%）；B細胞清除約持續 6 個月</td></tr>
+      <tr><td><strong>Eculizumab</strong></td><td>數週</td><td>900 mg × 4 週後 1200 mg 每 2 週</td><td>REGAIN 試驗證實有效；須先接種腦膜炎球菌疫苗；費用高，保留給難治病例</td></tr>
+    </table>
+
+    <h3>新型生物製劑：FcRn 拮抗劑與長效補體抑制劑 <span class="grade NEW">2026 新增内容</span> <span class="grade B">實證等級 B–C</span></h3>
+    <ul>
+      <li><strong>Efgartigimod：</strong>日本一項回顧性病例系列（16 例）顯示第 1–3 週 IgG 濃度可降低 38–63%，其中包含一位危象期患者及一位對 eculizumab 治療失敗的難治病例均獲得改善，QMG 反應率約 71%（10/14）。近期病例報告亦顯示其於極晚發型 MG 中可作為快速起效選項。</li>
+      <li><strong>Rozanolixizumab：</strong>另一款 FcRn 拮抗劑，2025 年綜述將其定位為新興治療突破，機轉與 efgartigimod 類似，透過抑制 FcRn 加速致病性 IgG 降解。</li>
+      <li><strong>Ravulizumab：</strong>長效終端補體 C5 抑制劑，2022 年 NEJM Evidence 發表之研究證實其於全身型 MG 之療效，給藥頻率較 eculizumab 低（約每 8 週一次），可能提升長期治療遵從性。</li>
+    </ul>
+    <div class="callout warn">
+      <h4>⚠️ 定位提醒</h4>
+      <p>上述新型生物製劑證據仍以病例系列與早期臨床試驗為主，尚未在復發性延髓功能障礙這一特定臨床情境中建立標準化流程。現階段建議定位為「難治型病例的附加/救援選項」，並非取代 PEX／IVIg／傳統免疫抑制劑作為第一線治療。</p>
+    </div>
+  </section>
+
+  <section id="s4">
+    <div class="stage-head"><span class="stage-num">04</span></div>
+    <h2 class="stage-title">胸腺切除術</h2>
+    <p>若患者尚未接受胸腺切除且符合條件（AChR 抗體陽性、年齡 &lt; 60–65 歲、全身型 MG），應積極考慮。MGTX 試驗證實胸腺切除 + prednisone 優於單用 prednisone，5 年後平均 prednisone 劑量減少 50%，且惡化住院次數減少。</p>
+    <p><strong>胸腺瘤患者一律建議胸腺切除。</strong>胸腺瘤本身即為復發性危象的強烈預測因子，手術應於 PEX 或 IVIg 穩定病情後進行。<strong>MuSK-MG 患者則不建議胸腺切除</strong>，因胸腺並非該亞型的主要致病驅動因子。</p>
+  </section>
+
+  <section id="s5">
+    <div class="stage-head"><span class="stage-num">05</span></div>
+    <h2 class="stage-title">延髓功能復健</h2>
+    <p>復健是照護中至關重要卻常被忽略的一環。以下為建議策略：</p>
+
+    <h3>吞嚥評估與治療</h3>
+    <p>VFSS 應例行執行，以客觀評估口腔期與咽期功能、偵測無症狀吸入，並指引個別化介入。一項 20 例 MG 吞嚥困難患者的研究顯示，所有患者皆有咽期吞嚥障礙，7 例出現吸入（其中 4 例為無症狀吸入），且咽期功能障礙的嚴重度常超過臨床檢查所預期。</p>
+
+    <h4 class="sub">姿勢代償技巧</h4>
+    <p>應依據 VFSS 結果個別化制定。舉例而言，某案例報告中將頭部轉向較無力的一側，成功將食團導向對側較強的一邊，減少咽部殘留並消除吸入現象。低頭吞嚥（chin-tuck）、頭部傾斜、側臥等姿勢亦可能對特定型態的吞嚥障礙有幫助。</p>
+
+    <h4 class="sub">飲食調整與行為技巧</h4>
+    <p>調整食物質地（增稠液體、糊狀食物）與食團大小可提升吞嚥安全性；用力吞嚥（effortful swallow）、Mendelsohn 手法、聲門上吞嚥法等行為技巧則有助改善咽部清除力與呼吸道保護。</p>
+
+    <div class="callout update">
+      <h4>🔄 實證更新：主動肌力訓練的時機區分</h4>
+      <p>傳統教學認為 MG 吞嚥困難不建議主動口咽肌力強化訓練，因疲勞性會限制訓練效果甚至使功能惡化——此原則於「急性期或病情不穩定時」仍然成立。然而近期病例報告（2025）顯示，在<strong>疾病穩定期</strong>，以漸進、可控負荷進行的吞嚥肌力訓練，合併感覺電刺激（interferential current stimulation），經約 12 個月的長期復健後，MuSK-MG 患者的吞嚥功能出現改善。教學時應清楚區分：急性期避免主動訓練，穩定期在專業監督與可控負荷下可考慮個別化訓練。</p>
+    </div>
+
+    <h3>語言治療</h3>
+    <p>MG 的鬆弛型構音障礙（flaccid dysarthria）特徵為鼻音過重、構音不精確，且隨長時間說話而持續加重的氣息聲。語言治療應著重於節奏控制、呼吸支持與精力保存技巧。</p>
+
+    <div class="callout warn">
+      <h4>⚠️ 照護缺口：轉介不足</h4>
+      <p>2023 年一篇文獻回顧指出，MG 患者轉介語言治療師（SLP）進行吞嚥/言語評估的比例明顯偏低，多數轉介發生於<strong>危象發生之後</strong>而非預防性介入。教學重點應強調：出現早期延髓症狀即應主動轉介 SLP，而非等到危象發生。近期亦有遠距復健（telerehabilitation）用於神經肌肉疾病延髓功能障礙之可行性研究，可作為資源有限地區的替代方案。</p>
+    </div>
+
+    <h3>吞嚥困難監測與鼻胃管/胃造口考量</h3>
+    <p>咳嗽反射與遵囑咳嗽能力並非可靠的吸入風險指標，半數高齡 MG 吞嚥困難患者屬「無症狀吸入者」。若嚴重咽期吞嚥障礙對藥物治療反應不佳，應考慮放置鼻胃管或經皮內視鏡胃造口（PEG）以維持營養與水分，並降低吸入風險；一項研究顯示 8 位高齡 MG 男性患者中有 5 位需要管灌餵食，且其吞嚥困難改善速度較其他症狀為慢。</p>
+
+    <h3>呼吸復健</h3>
+    <p>居家吸氣肌訓練與呼吸運動可改善全身型 MG 患者的呼吸肌力與耐力。急性期應每 4–6 小時監測 VC 與 NIF 以偵測早期呼吸衰竭。傳統「20/30/40 法則」（VC &lt; 20 mL/kg、NIF 優於 −30 cmH₂O、PEP &lt; 40 cmH₂O）仍為臨床實用指引，惟近期文獻建議將 NIF 閾值放寬至 −40 cmH₂O 並同時監測 MEP 下降幅度，敏感度較單一指標更佳（詳見本站「肌無力危象治療流程」教學頁）。</p>
+  </section>
+
+  <section id="s6">
+    <div class="stage-head"><span class="stage-num">06</span></div>
+    <h2 class="stage-title">整合處置流程</h2>
+    <p>綜合以上實證，建議以下階梯式流程處理 PEX 完整療程後復發延髓功能障礙之患者：</p>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot"></div><div class="flow-track"></div></div>
+        <div class="flow-body"><h5>① 立即再評估</h5><p>排查誘因（感染、藥物、未規則服藥）；VFSS 評估吸入風險；確認抗體狀態；未做過者安排胸腺影像檢查</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot"></div><div class="flow-track"></div></div>
+        <div class="flow-body"><h5>② 急性穩定</h5><p>重複 PEX 療程（隔日 5–8 次）或改用 IVIg（2 g/kg，分 2–5 天）；同步啟動/提高類固醇並密切監測誘發惡化；謹慎續用 pyridostigmine 並監測膽鹼激導性毒性</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot"></div><div class="flow-track"></div></div>
+        <div class="flow-body"><h5>③ 長期免疫抑制</h5><p>啟動類固醇節省劑（AZA 為首選、MMF 為替代、他克莫司適用胸腺瘤患者）；MuSK-MG 可考慮及早使用 rituximab；難治性 AChR-MG 可考慮 eculizumab／ravulizumab／efgartigimod 等新型生物製劑</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot"></div><div class="flow-track"></div></div>
+        <div class="flow-body"><h5>④ 胸腺切除評估</h5><p>符合條件者（AChR+、&lt;60–65歲、全身型）於 PEX/IVIg 穩定後安排；胸腺瘤患者一律建議手術</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot"></div><div class="flow-track"></div></div>
+        <div class="flow-body"><h5>⑤ 個別化復健</h5><p>依 VFSS 結果制定姿勢/飲食策略；及早轉介 SLP（不等到危象發生）；病情穩定後可考慮可控負荷吞嚥訓練；嚴重吞嚥障礙持續者及早考慮管灌餵食</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot"></div></div>
+        <div class="flow-body"><h5>⑥ 維持性治療與追蹤</h5><p>持續危象仍反覆者，考慮排程性維持 PEX（每 2–4 週）或轉換為免疫吸附；定期 QMG 評分、肺功能與吞嚥評估追蹤；衛教患者辨識早期危象徵兆</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s7">
+    <div class="stage-head"><span class="stage-num">07</span></div>
+    <h2 class="stage-title">預後</h2>
+    <p>經適當治療，復發性延髓功能障礙的整體預後仍屬中等偏正向：Mahalati 等人系列中所有 36 例患者（含 32 例危象）皆於 PEX 治療後改善並順利出院。然而，復發性危象患者的加護病房停留時間明顯較長（OR 9.7），高齡患者的吞嚥困難改善速度較慢，且未必能如其他症狀一樣完全恢復。</p>
+
+    <div class="callout warn">
+      <h4>⚠️ 實證更新：危象病史影響長期預後</h4>
+      <p>2024 年一篇追蹤研究指出，曾經歷過肌無力危象的患者，其長期功能狀態與生活品質顯著較未曾危象者為差。此發現修正了過去「危象後預後普遍良好」的印象——雖然急性期死亡率已由免疫治療前時代的 75% 大幅降至現今低於 5%，但「存活」不等於「完全恢復」，這也再次凸顯及早辨識復發風險、預防危象發生，遠比危象發生後的治療更為重要。</p>
+    </div>
+  </section>
+
+  <section id="summary">
+    <h2 class="stage-title" style="margin-top:0;">復發性延髓功能障礙處置總覽</h2>
+    <div class="summary-table-wrap">
+    <table>
+      <tr><th>處置面向</th><th>核心措施</th><th>關鍵重點</th></tr>
+      <tr><td>再評估</td><td>VFSS、QMG 延髓子量表、抗體檢測、胸腺影像</td><td>咽反射/咳嗽正常≠無吸入風險；無法平躺+低OI為最強復發預測因子</td></tr>
+      <tr><td>急性穩定</td><td>重複 PEX（5–8次）或 IVIg（2 g/kg）+ 類固醇</td><td>PEX會清除IVIg（~65%）與rituximab，合併使用需調整劑量</td></tr>
+      <tr><td>長期免疫抑制</td><td>AZA／MMF／他克莫司／rituximab／新型生物製劑</td><td>MuSK-MG優先考慮rituximab；難治型可評估efgartigimod/ravulizumab</td></tr>
+      <tr><td>胸腺切除</td><td>AChR+全身型MG或胸腺瘤患者</td><td>MuSK-MG不建議手術</td></tr>
+      <tr><td>延髓復健</td><td>VFSS導引姿勢策略、及早SLP轉介、個別化飲食調整</td><td>急性期避免主動訓練；穩定期可考慮可控負荷訓練</td></tr>
+      <tr><td>長期追蹤</td><td>維持性PEX/IA、QMG與吞嚥評估、患者衛教</td><td>危象病史影響長期預後，預防優於治療</td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section id="refs">
+    <h2 class="stage-title" style="margin-top:0;">參考文獻</h2>
+    <div class="refbox">
+      <p style="font-size:13px;color:var(--text-dim);">標示 <span class="newtag">NEW</span> 者為本次更新新增之近五年文獻。</p>
+      <ol>
+        <li>Mahalati K, Dawson RB, Collins JO, Mayer RF. Predictable recovery from myasthenia gravis crisis with plasma exchange. <em>J Clin Apher</em>. 1999;14(1):1-8.</li>
+        <li>Blaha M, et al. Experience with extracorporeal elimination therapy in myasthenia gravis. <em>Transfus Apher Sci</em>. 2011;45(3):251-256.</li>
+        <li>Kluin KJ, Bromberg MB, Feldman EL, Simmons Z. Dysphagia in elderly men with myasthenia gravis. <em>J Neurol Sci</em>. 1996;138(1-2):49-52.</li>
+        <li>Koopman WJ, et al. Prediction of aspiration in myasthenia gravis. <em>Muscle Nerve</em>. 2003;29(2):256-260.</li>
+        <li>Juan H-C, Tou I, Lo S-C, Wu I-H. Efficacy of postural techniques assessed by videofluoroscopy for myasthenia gravis with dysphagia as the presenting symptom. <em>J Med Case Rep</em>. 2010;4(1):370.</li>
+        <li>Gotterer L, Li Y. Maintenance immunosuppression in myasthenia gravis. <em>J Neurol Sci</em>. 2016;369:294-302.</li>
+        <li>Morren J, Li Y. Maintenance immunosuppression in myasthenia gravis, an update. <em>J Neurol Sci</em>. 2020;410:116648.</li>
+        <li>Sathasivam S. Current and emerging treatments for the management of myasthenia gravis. <em>Ther Clin Risk Manag</em>. 2011;7:313-327.</li>
+        <li>Jani-Acsadi A, Lisak RP. Myasthenic crisis: Guidelines for prevention and treatment. <em>J Neurol Sci</em>. 2007;261(1-2):127-133.</li>
+        <li>Chaudhuri A, Behan PO. Myasthenic crisis. <em>QJM</em>. 2008;102(2):97-107.</li>
+        <li>Galassi G, et al. Recurrency in myasthenic crisis. <em>Acta Neurol Belg</em>. 2023;124(2):729-731.</li>
+        <li>Matsuo K, Fujii C. A case of refractory generalized myasthenia gravis treated with polypharmacy and plasma exchange. <em>J Neurol Neurophysiol</em>. 2016;7(2):1000366.</li>
+        <li>Claytor B, Cho SM, Li Y. Myasthenic crisis. <em>Muscle &amp; Nerve</em>. 2023;68(1):8-19. <span class="newtag">NEW</span></li>
+        <li>A nurse-led nomogram for predicting the risk of myasthenic crisis in patients with myasthenia gravis and bulbar weakness. <em>BMC Neurology</em>. 2025;25:art.04370. <span class="newtag">NEW</span></li>
+        <li>Myasthenic crises are associated with negative long-term outcomes in myasthenia gravis. <em>J Neurol</em>. 2024. <span class="newtag">NEW</span></li>
+        <li>Nomura T, Imamura M, Imura M, Mizutani H, Ueda M. Efgartigimod treatment for generalized myasthenia gravis: a single-center case series of 16 patients. <em>Front Neurol</em>. 2024. doi:10.3389/fneur.2024.1472845 <span class="newtag">NEW</span></li>
+        <li>Matic A, Bril V. Rozanolixizumab for myasthenia gravis: a breakthrough treatment and future prospects. 2025. <span class="newtag">NEW</span></li>
+        <li>Vu T, Meisel A, Mantegazza R, et al. Terminal complement inhibitor ravulizumab in generalized myasthenia gravis. <em>NEJM Evid</em>. 2022. doi:10.1056/EVIDoa2100066 <span class="newtag">NEW</span></li>
+        <li>Kogason T, Poh K, Li C. Point-of-care ultrasound in the assessment of bulbar dysfunction: a narrative review. <em>Dysphagia</em>. 2023;38(4):1021-1033. <span class="newtag">NEW</span></li>
+        <li>Young B, Smith C, Jones R. Telerehabilitation for bulbar dysfunction in neuromuscular disorders: a feasibility and efficacy study. <em>Int J Telerehabil</em>. 2023;15(1). <span class="newtag">NEW</span></li>
+        <li>Oshima Y, Nanto T, Eimoto K, Uchiyama Y, Domen K. Long-term swallowing rehabilitation for MuSK antibody-positive myasthenia gravis: a case report. <em>Cureus</em>. 2025;17(3):e80544. <span class="newtag">NEW</span></li>
+        <li>Zhong H, Li Z, Li X, et al. Initiation response, maximized therapeutic efficacy, and post-treatment effects of biological targeted therapies in myasthenia gravis: a systematic review and network meta-analysis. 2024. <span class="newtag">NEW</span></li>
+      </ol>
+    </div>
+  </section>
+</div>
+
+<footer>
+  HCH-CMU / HCH-FYH 神經科教學研究部 · 內部教學用資料，非取代臨床判斷 · 最後更新：2026 年 8 月
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPSD 跨失智症類型精神行為症狀管理｜實證審閱｜HCH-FYH Neurology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #1c2128;
+  --border: rgba(255,255,255,.08);
+  --border2: rgba(255,255,255,.16);
+  --text: #e6edf3;
+  --text2: #8b949e;
+  --text3: #6e7681;
+  --muted: #8b949e;
+  --blue: #58a6ff;
+  --blue-bg: rgba(88,166,255,.10);
+  --blue-l: #85c4f0;
+  --blue-d: #0c3460;
+  --teal: #39d353;
+  --teal-l: #7de8cc;
+  --teal-d: #1a5c4a;
+  --amber: #e3b341;
+  --amber-l: #fcd27a;
+  --amber-d: #6b4a0d;
+  --purple: #bc8cff;
+  --purple-l: #c4bffc;
+  --pink: #ff7bb5;
+  --pink-d: #6b1d40;
+  --coral-l: #f9a88a;
+  --coral-d: #6b2c14;
+  --red-l: #f29090;
+  --red-d: #5a1818;
+  --accent: var(--teal);
+  --surface: var(--bg2);
+  --surface2: var(--bg3);
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* ════════════ 站台導覽列 ════════════ */
+nav.site-nav {
+  position: sticky; top: 0; z-index: 300;
+  background: rgba(13,17,23,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 28px;
+  display: flex; align-items: center;
+  height: 54px; gap: 4px;
+}
+.nav-logo {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px; font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+  white-space: nowrap;
+  margin-right: 24px;
+  flex-shrink: 0;
+}
+.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; flex: 1; }
+.nav-links > a {
+  color: var(--text2); text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  padding: 6px 13px; border-radius: 6px;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+.nav-links > a:hover  { color: var(--text); background: var(--bg3); }
+.nav-links > a.active { color: var(--blue); background: var(--blue-bg); }
+.nav-dropdown { position: relative; }
+.nav-dropdown > a {
+  color: var(--text2); text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  padding: 6px 13px; border-radius: 6px;
+  display: flex; align-items: center; gap: 5px;
+  transition: color .15s, background .15s;
+  cursor: pointer; white-space: nowrap;
+}
+.nav-dropdown > a::after { content: '▾'; font-size: 10px; opacity: 0.55; }
+.nav-dropdown > a:hover  { color: var(--text); background: var(--bg3); }
+.nav-dropdown > a.active { color: var(--amber); background: rgba(227,179,65,.10); }
+.dropdown-menu {
+  display: none;
+  position: absolute; top: calc(100% + 6px); left: 0;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 8px; padding: 6px;
+  min-width: 240px; z-index: 999;
+  box-shadow: 0 8px 28px rgba(0,0,0,.5);
+}
+.nav-dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu a {
+  display: block; padding: 9px 14px;
+  font-size: 14.5px; color: var(--text2);
+  text-decoration: none; border-radius: 6px;
+  transition: background .12s, color .12s;
+  white-space: nowrap;
+}
+.dropdown-menu a:hover { background: var(--bg3); color: var(--text); }
+.dropdown-menu a.active { color: var(--amber); }
+.dropdown-menu a.disabled { color: var(--text3); pointer-events: none; font-style: italic; }
+.dropdown-divider { height: 1px; background: var(--border); margin: 5px 0; }
+
+/* ════════════ 頁面容器 ════════════ */
+.page { max-width: 820px; margin: 0 auto; }
+
+/* ── Header ── */
+.header {
+  background: linear-gradient(135deg, #0c2620 0%, #1c2a3d 100%);
+  border-bottom: 1px solid var(--border2);
+  padding: 32px 20px 24px;
+}
+.header-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--teal); color: #04180f;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.05em;
+  padding: 4px 11px; border-radius: 20px;
+  margin-bottom: 12px; text-transform: uppercase;
+}
+.header h1 { font-size: clamp(20px, 4.6vw, 27px); font-weight: 700; color: #fff; line-height: 1.42; font-family: 'Noto Serif TC', serif; }
+.header p { margin-top: 10px; font-size: 13.5px; color: var(--muted); line-height: 1.8; }
+.header .src-note { margin-top: 12px; font-size: 12px; color: var(--text3); border-top: 1px solid var(--border); padding-top: 10px; line-height: 1.7; }
+
+/* ── 頁內分頁導覽 ── */
+.nav-wrap {
+  position: sticky; top: 54px; z-index: 200;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto; scrollbar-width: none;
+}
+.nav-wrap::-webkit-scrollbar { display: none; }
+.tabnav { display: flex; gap: 0; white-space: nowrap; padding: 0 12px; }
+.tabnav a {
+  display: inline-block; padding: 12px 15px;
+  color: var(--muted); font-size: 14px; font-weight: 500;
+  text-decoration: none; border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.tabnav a:hover, .tabnav a.active { color: var(--teal-l); border-bottom-color: var(--teal); }
+
+/* ── Section layout ── */
+.section { padding: 30px 18px 8px; scroll-margin-top: 106px; }
+.section-title { display: flex; align-items: center; gap: 11px; margin-bottom: 16px; }
+.section-title .icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.section-title h2 { font-size: 19px; font-weight: 700; color: #fff; font-family: 'Noto Serif TC', serif; line-height: 1.4; }
+.section-subtitle { font-size: 13.5px; color: var(--muted); margin-top: -12px; margin-bottom: 18px; padding-left: 43px; line-height: 1.7; }
+.divider { height: 1px; background: var(--border); margin: 10px 18px; }
+
+/* ── Cards ── */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; }
+.card-title { font-size: 14.5px; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.bullet-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.bullet-list li { display: flex; flex-direction: column; gap: 2px; font-size: 15px; line-height: 1.65; color: var(--text); padding-left: 18px; position: relative; }
+.bullet-list li::before { content: "▸"; color: var(--accent); font-size: 12px; position: absolute; left: 0; top: 3px; }
+.bullet-list .sub { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ── 分類方格 ── */
+.criteria-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+@media (max-width: 560px) { .criteria-grid { grid-template-columns: 1fr; } }
+.crit-card { border-radius: 8px; padding: 14px 15px; border: 1px solid var(--border); }
+.crit-card .label { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px; }
+.crit-card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.crit-card li { font-size: 14px; line-height: 1.6; display: flex; gap: 7px; align-items: flex-start; color: var(--text); }
+.crit-card li::before { content: "·"; color: var(--accent); font-weight: 700; }
+
+/* ── 步驟流程 ── */
+.step-list { display: flex; flex-direction: column; gap: 11px; }
+.step-item { display: flex; gap: 13px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.step-num {
+  width: 28px; height: 28px; border-radius: 50%; background: rgba(57,211,83,.15); color: var(--teal-l);
+  font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-text { font-size: 14.5px; line-height: 1.65; color: var(--text); }
+.step-text b { color: #fff; }
+
+/* ── 比較表 ── */
+.bio-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 4px; }
+.bio-table th {
+  background: var(--surface2); color: var(--muted); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border2);
+}
+.bio-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+.bio-table tr:last-child td { border-bottom: none; }
+.bio-table .tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border2); border-radius: 4px; padding: 2px 8px; font-size: 12px; font-weight: 600; color: var(--muted); }
+.table-scroll { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 14px; -webkit-overflow-scrolling: touch; }
+.table-scroll .bio-table { min-width: 660px; }
+.table-scroll .bio-table th, .table-scroll .bio-table td { border-color: var(--border); }
+.scroll-hint { font-size: 11.5px; color: var(--text3); margin: -8px 0 12px; text-align: right; }
+
+/* ── 領域卡片 ── */
+.domain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 560px) { .domain-grid { grid-template-columns: 1fr; } }
+.domain-card { border-radius: 10px; padding: 16px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
+.domain-card .d-title { font-size: 14.5px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.domain-card .d-icon { font-size: 17px; }
+.domain-card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.domain-card li { font-size: 13.5px; color: var(--muted); line-height: 1.6; padding-left: 13px; position: relative; }
+.domain-card li::before { content: "·"; position: absolute; left: 2px; color: var(--accent); font-weight: 700; }
+.domain-card .hl { color: var(--text); font-weight: 600; }
+.domain-card .note { font-size: 12px; color: var(--muted); font-style: italic; border-top: 1px solid var(--border); padding-top: 8px; margin-top: 2px; }
+
+/* ── 警示 / 資訊框 ── */
+.warning-box { border-left: 3px solid #e24b4a; background: rgba(162,45,45,0.12); border-radius: 0 8px 8px 0; padding: 15px 16px; margin-bottom: 14px; }
+.warning-box .w-title { font-size: 14px; font-weight: 700; color: var(--red-l); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.warning-box ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.warning-box li { font-size: 14px; line-height: 1.6; display: flex; gap: 9px; align-items: flex-start; color: var(--text); }
+.warning-box li::before { content: "!"; color: #e24b4a; font-size: 12px; font-weight: 700; margin-top: 2px; flex-shrink: 0; }
+
+.info-box { border-left: 3px solid var(--accent); background: rgba(57,211,83,0.08); border-radius: 0 8px 8px 0; padding: 15px 16px; margin-bottom: 14px; }
+.info-box .i-title { font-size: 14px; font-weight: 700; color: var(--teal-l); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.info-box p, .info-box li { font-size: 14.5px; line-height: 1.65; color: var(--text); }
+.info-box ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.info-box li { padding-left: 16px; position: relative; }
+.info-box li::before { content: "◆"; color: var(--accent); font-size: 9px; position: absolute; left: 0; top: 6px; }
+
+/* ── 審閱標註框 ── */
+.review-box { border-left: 3px solid var(--purple); background: rgba(188,140,255,0.08); border-radius: 0 8px 8px 0; padding: 15px 16px; margin-bottom: 14px; }
+.review-box .rv-title { font-size: 14px; font-weight: 700; color: var(--purple-l); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.review-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.review-box li { font-size: 14px; line-height: 1.65; color: var(--text); padding-left: 16px; position: relative; }
+.review-box li::before { content: "◆"; color: var(--purple); font-size: 9px; position: absolute; left: 0; top: 6px; }
+
+.badge { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .03em; padding: 2px 9px; border-radius: 20px; margin-left: 6px; vertical-align: 2px; white-space: nowrap; }
+.badge-verified { background: rgba(57,211,83,.15); color: var(--teal-l); border: 1px solid rgba(57,211,83,.32); }
+.badge-update   { background: rgba(227,179,65,.15); color: var(--amber-l); border: 1px solid rgba(227,179,65,.35); }
+.badge-caution  { background: rgba(226,75,74,.15); color: var(--red-l); border: 1px solid rgba(226,75,74,.35); }
+.badge-tw       { background: rgba(255,123,181,.15); color: var(--pink); border: 1px solid rgba(255,123,181,.35); }
+
+/* ── 引用標記 ── */
+.cite { font-size: 11.5px; color: var(--text3); font-family: 'JetBrains Mono', monospace; vertical-align: super; margin-left: 1px; }
+
+/* ── 延伸閱讀卡 ── */
+.link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 560px) { .link-grid { grid-template-columns: 1fr; } }
+.link-card {
+  display: block; text-decoration: none; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px; transition: border-color .18s, transform .16s;
+}
+.link-card:hover { border-color: rgba(57,211,83,.4); transform: translateY(-2px); }
+.link-card .lc-cat { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--teal); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
+.link-card .lc-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; font-family: 'Noto Serif TC', serif; line-height: 1.4; }
+.link-card .lc-desc { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+.link-card .lc-arrow { margin-top: 12px; font-size: 13px; color: var(--text3); }
+
+/* ── 參考文獻 ── */
+.ref-box { padding: 18px; margin: 0 18px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ref-box h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 14px; }
+.ref-box ol { padding-left: 20px; display: flex; flex-direction: column; gap: 11px; }
+.ref-box li { font-size: 13.5px; line-height: 1.65; color: var(--text2); }
+.ref-box li span { color: var(--text); }
+.ref-box li em { color: var(--text2); }
+
+/* ── 進度條 ── */
+.scroll-indicator { position: fixed; top: 54px; left: 0; right: 0; height: 2px; background: transparent; z-index: 250; }
+.scroll-progress { height: 100%; width: 0%; background: linear-gradient(90deg, var(--teal), var(--blue)); transition: width .1s; }
+
+footer { text-align: center; padding: 32px 18px 8px; color: var(--muted); font-size: 12.5px; line-height: 1.9; }
+
+@media (max-width: 620px) {
+  nav.site-nav { padding: 0 14px; height: 50px; }
+  .nav-logo { font-size: 13px; margin-right: 14px; }
+  .nav-links > a, .nav-dropdown > a { font-size: 13.5px; padding: 6px 10px; }
+  .nav-wrap { top: 50px; }
+  .scroll-indicator { top: 50px; }
+  .section { padding: 26px 15px 8px; scroll-margin-top: 100px; }
+  .section-subtitle { padding-left: 0; margin-top: 0; }
+  .header { padding: 26px 16px 20px; }
+  body { font-size: 15.5px; }
+  .badge { display: block; width: fit-content; margin: 6px 0 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     站台導覽列
+     ══════════════════════════════════════════════════ -->
+<nav class="site-nav">
+  <a class="nav-logo" href="index.html">⬡ HCH-FYH Neurology</a>
+  <div class="nav-links">
+    <a href="index.html">首頁</a>
+    <a href="ncs.html">神經傳導</a>
+    <a href="neuro-ultrasound.html">神經超音波</a>
+
+    <div class="nav-dropdown">
+      <a href="migraine_headache.html">頭痛</a>
+      <div class="dropdown-menu">
+        <a href="migraine_headache.html">偏頭痛治療近五年進展</a>
+        <div class="dropdown-divider"></div>
+        <a href="cluster-headache.html" class="disabled">叢發性頭痛（整理中）</a>
+        <a href="moh.html" class="disabled">藥物過度使用性頭痛（整理中）</a>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <a href="dementia.html" class="active">失智症</a>
+      <div class="dropdown-menu">
+        <a href="dementia.html">失智症總覽</a>
+        <a href="DLB_clinical_guide.html">路易氏體失智症（DLB）</a>
+        <a href="dementia_reversible.html">可治療的失智類疾病</a>
+        <a href="ad_integrated_care.html">AD 整合照護與藥物治療</a>
+        <a href="bpsd_management.html" class="active">跨類型 BPSD 精神行為症狀管理</a>
+        <div class="dropdown-divider"></div>
+        <a href="dementia_autoimmune.html" class="disabled">免疫腦炎（整理中）</a>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <a href="epilepsy_psychiatry.html">癲癇</a>
+      <div class="dropdown-menu">
+        <a href="epilepsy_psychiatry.html">癲癇與精神疾病</a>
+        <a href="seizure_mimics.html">像癲癇，不是癲癇</a>
+        <div class="dropdown-divider"></div>
+        <a href="status_epilepticus.html" class="disabled">癲癇積重狀態（整理中）</a>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <a href="#movement">動作障礙</a>
+      <div class="dropdown-menu">
+        <a href="parkinsons_disease.html" class="disabled">巴金森氏症診斷與治療（整理中）</a>
+        <a href="movement_differential.html" class="disabled">動作障礙鑑別診斷（整理中）</a>
+        <a href="movement_medication.html" class="disabled">動作障礙藥物治療（整理中）</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="scroll-indicator"><div class="scroll-progress" id="prog"></div></div>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-badge">🧠 BPSD Review · 2026</div>
+    <h1>跨失智症類型精神行為症狀（BPSD）管理<br>實證審閱與教學整理</h1>
+    <p>DICE／ABC 評估架構 ✦ AD／DLB／FTD／VaD 症狀側寫比較 ✦ 非藥物治療實證 ✦ 藥物治療與安全性監測</p>
+    <div class="src-note">本頁以使用者提供之綜述文件為藍本，經審閱者核對近五年（2021–2026）美國 FDA、歐洲、日本與台灣文獻及核准狀況後重新整理。內文以 <span class="badge badge-verified" style="margin-left:0;">原文查證屬實</span> <span class="badge badge-update">已更新增補</span> <span class="badge badge-caution">需留意之處</span> 標註審閱結果。</div>
+  </div>
+
+  <!-- 頁內分頁導覽 -->
+  <div class="nav-wrap">
+    <nav class="tabnav">
+      <a href="#sec-review" class="active">審閱總結</a>
+      <a href="#sec-principle">評估原則</a>
+      <a href="#sec-types">各類型症狀側寫</a>
+      <a href="#sec-nonpharm">非藥物治療</a>
+      <a href="#sec-pharm-general">藥物治療總則</a>
+      <a href="#sec-antipsychotic">抗精神病藥物</a>
+      <a href="#sec-other">其他藥物選擇</a>
+      <a href="#sec-disease">各類型治療考量</a>
+      <a href="#sec-safety">安全性監測</a>
+      <a href="#sec-refs">參考文獻</a>
+    </nav>
+  </div>
+
+  <!-- ═══════════════ SECTION 0：審閱總結 ═══════════════ -->
+  <div class="section" id="sec-review">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(188,140,255,0.15);">🔍</div>
+      <h2>實證審閱總結</h2>
+    </div>
+    <p class="section-subtitle">以實證醫學角度，對照近五年歐美、日本、台灣文獻與核准狀況所做的整體評估</p>
+
+    <div class="card" style="border-color:rgba(57,211,83,.3); background:rgba(57,211,83,.06);">
+      <div class="card-title"><div class="dot" style="background:var(--teal);"></div>整體評估：核心內容準確且時效性佳</div>
+      <p style="font-size:14.5px; line-height:1.7; color:var(--text);">原文獻回顧引用之 9 篇文獻多數發表於 2020–2026 年間（含一篇 2026 年 Annual Review of Clinical Psychology 最新回顧），涵蓋非藥物治療實證、各類失智症之 BPSD 側寫、藥物治療選擇與安全性監測，核心論述與 AAGP／AGS／DICE 評估架構、FDA 核准現況高度一致，是目前少見同時涵蓋 AD、DLB、FTD、VaD 四型 BPSD 治療比較的完整整理。<b>主要限制在於 pimavanserin 於 DLB／AD 精神病症狀的法規現況需要更精確的說明</b>，以及缺少台灣本土指引與資源的對應，以下逐項列出審閱標註。</p>
+    </div>
+
+    <div class="review-box">
+      <div class="rv-title">📌 需要更新增補之處</div>
+      <ul>
+        <li><b>Pimavanserin 的法規現況需澄清</b> <span class="badge badge-caution">需留意之處</span>：原文正確指出 pimavanserin 已獲 FDA 核准用於巴金森氏症精神病症狀（PDP），且第三期 HARMONY 試驗顯示對含 DLB 在內之多種病因失智症相關精神病症狀可降低復發，惟原文未說明——FDA 已於 <b>2021 年 4 月</b>駁回其擴展至「所有病因失智症相關精神病症狀」之申請，並於 <b>2022 年 8 月</b>再次駁回限縮後的「阿茲海默症精神病症狀（ADP）」適應症申請，理由是部分失智症亞型病人數不足、統計證據力不一致。目前 pimavanserin 在美國<b>僅核准用於 PDP</b>，於 DLB 之使用仍屬仿單外（off-label），且在台灣並未上市 <span class="cite">[10,11]</span></li>
+        <li><b>Brexpiprazole 核准細節可再補充</b> <span class="badge badge-verified">原文查證屬實</span>：原文正確指出 brexpiprazole 已獲 FDA 核准用於 AD 躁動，此為美國史上<b>首個</b>專門核准用於 AD 相關躁動的藥物（2023 年 5 月核准），兩項關鍵三期試驗顯示躁動症狀較安慰劑組減少約 31% <span class="cite">[10]</span></li>
+        <li><b>缺少台灣本土指引對照</b> <span class="badge badge-tw">台灣新增</span>：台灣老年精神醫學會（TSGP）於 2013 年出版《失智症合併精神行為症狀病人的最佳治療及照顧實務指南》（授權自英國失智症學會指引並在地化），核心原則與本文一致：以社會心理處置作為第一線介入，必要時謹慎、有據地使用抗精神病藥物；台灣臨床現場則普遍以 NPI（神經精神評估量表）作為核心評估工具 <span class="cite">[12]</span></li>
+      </ul>
+    </div>
+
+    <div class="review-box" style="border-color:var(--teal); background:rgba(57,211,83,.06);">
+      <div class="rv-title" style="color:var(--teal-l);">✅ 查證屬實之核心論述</div>
+      <ul>
+        <li>DICE（Describe-Investigate-Create-Evaluate）與 ABC（Antecedent-Behavior-Consequence）評估架構，與美國老年精神醫學會、國際失智症協會建議之標準評估流程一致</li>
+        <li>各類失智症 BPSD 盛行率與症狀側寫（AD 的淡漠為最常見持續症狀、DLB 高比例視幻覺與抗精神病藥敏感性、bvFTD 早期去抑制、VaD 證據相對匱乏）均與近年文獻吻合</li>
+        <li>抗精神病藥物死亡率上升 1.6–1.7 倍、haloperidol 風險最高、quetiapine 風險相對最低但療效有限之數據，與 Kales 等人之世代研究結果一致</li>
+        <li>Risperidone 於加拿大、歐洲、澳洲核准用於中重度 AD 持續性攻擊行為，但<b>美國 FDA 並未核准</b>此適應症之說明正確</li>
+        <li>Dextromethorphan-quinidine（Nuedexta）於 AD 躁動之三期試驗結果與 methylphenidate（ADMET2 試驗）於 AD 淡漠之療效數據，皆為 2023 年後發表之最新實證，原文引用具高時效性</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 1：評估原則 ═══════════════ -->
+  <div class="section" id="sec-principle">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(88,166,255,0.15);">🧭</div>
+      <h2>1 · BPSD 評估總則</h2>
+    </div>
+    <p class="section-subtitle">高達 97% 的失智症患者於確診後五年內至少經歷一項 BPSD，占全球失智症照護成本約 30% <span class="cite">[1,3]</span></p>
+
+    <div class="domain-grid">
+      <div class="domain-card" style="border-color:rgba(88,166,255,0.3); background:rgba(88,166,255,0.06);">
+        <div class="d-title"><span class="d-icon">🔎</span><span style="color:var(--blue-l);">DICE 架構</span></div>
+        <ul>
+          <li><span class="hl">D</span>escribe：具體描述行為的情境脈絡</li>
+          <li><span class="hl">I</span>nvestigate：探討患者、照顧者與環境層面的可能誘因</li>
+          <li><span class="hl">C</span>reate：與照護團隊共同擬定照護計畫</li>
+          <li><span class="hl">E</span>valuate：評估介入成效並持續調整</li>
+        </ul>
+      </div>
+      <div class="domain-card" style="border-color:rgba(227,179,65,0.3); background:rgba(227,179,65,0.06);">
+        <div class="d-title"><span class="d-icon">🔗</span><span style="color:var(--amber-l);">ABC 模式</span></div>
+        <ul>
+          <li><span class="hl">A</span>ntecedent（前置事件）</li>
+          <li><span class="hl">B</span>ehavior（行為本身）</li>
+          <li><span class="hl">C</span>onsequence（後續結果）</li>
+          <li>用以辨識行為的誘發與維持因子</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="i-title">💡 核心理念：行為即需求的表達</div>
+      <p>許多行為症狀反映患者未滿足的需求——疼痛、飢餓、無聊、孤獨或不適；以人為本的照護理念，正是要先理解行為背後的意義 <span class="cite">[3,4]</span>。所有國際臨床指引皆建議<b>非藥物治療作為第一線</b>，僅於症狀嚴重、有自傷或傷人風險、或非藥物治療無效時，才考慮藥物介入 <span class="cite">[1,3,9]</span>。</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 2：各類型症狀側寫 ═══════════════ -->
+  <div class="section" id="sec-types">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(255,123,181,0.15);">🧩</div>
+      <h2>2 · 不同失智症類型的 BPSD 側寫</h2>
+    </div>
+    <p class="section-subtitle">BPSD 的盛行率與症狀組合因失智症病因而異，需採取量身訂做的處置策略</p>
+
+    <div class="domain-grid">
+      <div class="domain-card" style="border-color:rgba(88,166,255,0.3); background:rgba(88,166,255,0.06);">
+        <div class="d-title"><span class="d-icon">🔵</span><span style="color:var(--blue-l);">阿茲海默症 AD</span></div>
+        <ul>
+          <li><span class="hl">淡漠</span>常為最常見且持續存在的症狀</li>
+          <li>憂鬱、焦慮、躁動／攻擊行為與睡眠障礙亦常見</li>
+          <li>精神病症狀（妄想約 31%、幻覺約 16%）多見於中重度階段</li>
+        </ul>
+      </div>
+      <div class="domain-card" style="border-color:rgba(188,140,255,0.3); background:rgba(188,140,255,0.06);">
+        <div class="d-title"><span class="d-icon">👁️</span><span style="color:var(--purple-l);">路易氏體失智症 DLB</span></div>
+        <ul>
+          <li>鮮明反覆之視幻覺，可高達 80% 患者出現，常為早期診斷特徵</li>
+          <li>認知與警醒度波動、REM 睡眠行為障礙</li>
+          <li>顯著的<span class="hl">抗精神病藥物過敏反應</span>，憂鬱與淡漠亦十分常見</li>
+        </ul>
+      </div>
+      <div class="domain-card" style="border-color:rgba(255,123,181,0.3); background:rgba(255,123,181,0.06);">
+        <div class="d-title"><span class="d-icon">🎭</span><span style="color:var(--pink);">額顳葉失智症 FTD</span></div>
+        <ul>
+          <li>行為改變常早於認知退化，且為<span class="hl">最主要表現</span></li>
+          <li>早期去抑制、淡漠、失同理心、刻板／強迫行為、嗜食與飲食改變、病識感差</li>
+          <li>照顧者負擔往往<span class="hl">超越 AD</span></li>
+        </ul>
+      </div>
+      <div class="domain-card" style="border-color:rgba(57,211,83,0.3); background:rgba(57,211,83,0.06);">
+        <div class="d-title"><span class="d-icon">🩸</span><span style="color:var(--teal-l);">血管型失智症 VaD</span></div>
+        <ul>
+          <li>憂鬱、淡漠與焦慮常見，但整體實證相對匱乏</li>
+          <li>精神病症狀與躁動可能與腦血管病灶的位置及範圍有關</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 3：非藥物治療 ═══════════════ -->
+  <div class="section" id="sec-nonpharm">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(57,211,83,0.15);">🌿</div>
+      <h2>3 · 非藥物治療（第一線）</h2>
+    </div>
+    <p class="section-subtitle">所有失智症類型皆建議以非藥物治療為第一線介入</p>
+
+    <div class="table-scroll">
+      <table class="bio-table">
+        <thead><tr><th>症狀</th><th>實證支持之介入</th></tr></thead>
+        <tbody>
+          <tr><td>躁動／攻擊</td><td>量身訂做之音樂治療、按摩與治療性觸摸、照護人員溝通訓練與失智症照護地圖、量身訂做活動方案（TAP）、治療性機器人（如 Paro 海豹）</td></tr>
+          <tr><td>淡漠</td><td>多感官刺激、音樂治療、寵物治療、懷舊治療、認知刺激；FTD 患者以<b>結構化</b>職能治療活動優於非結構化時間，重新引入舊嗜好可減少去抑制行為</td></tr>
+          <tr><td>憂鬱／焦慮</td><td>認知行為治療（CBT）、懷舊治療、音樂治療與體能活動方案（如舞蹈、太極）</td></tr>
+          <tr><td>精神病症狀</td><td>實證有限；以人為本照護模式（Dementia Care Mapping、VIPS）顯示初步成效，但多數指引不特別建議非藥物介入單獨處理精神病症狀</td></tr>
+          <tr><td>睡眠障礙</td><td>多元介入組合（日間活動、夜間常規、光照治療、人員訓練）最為有效；光照治療可小幅減少夜間清醒次數</td></tr>
+          <tr><td>去抑制（FTD 為主）</td><td>專門精神科病房與人員教育、替代性行為策略（如以握力球替代觸碰陌生人）、環境調整</td></tr>
+          <tr><td>遊走</td><td>環境調整（視覺屏障、偽裝門、布簾）、有意義的活動與娃娃治療、GPS 追蹤與智慧居家感測器</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="scroll-hint">表格可左右滑動 →</div>
+
+    <div class="info-box">
+      <div class="i-title">📌 有效介入的共通關鍵</div>
+      <ul>
+        <li>照護環境（物理與社會環境並重）</li>
+        <li>照護技能之<b>持續</b>培養與維持，而非單次訓練</li>
+        <li>依個人偏好之<b>個別化照護</b>，是最一致有效的元素</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 4：藥物治療總則 ═══════════════ -->
+  <div class="section" id="sec-pharm-general">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(227,179,65,0.15);">💊</div>
+      <h2>4 · 藥物治療總則</h2>
+    </div>
+    <p class="section-subtitle">藥物治療應於非藥物治療已嘗試（緊急危險情況除外）且權衡風險後才考慮</p>
+
+    <div class="card">
+      <div class="card-title"><div class="dot" style="background:var(--blue);"></div>膽鹼酯酶抑制劑與 Memantine</div>
+      <ul class="bullet-list">
+        <li><b>Donepezil、Rivastigmine、Galantamine</b><span class="sub">於 AD 對 BPSD（尤其憂鬱、焦慮與緊張）達統計顯著但臨床效果輕微之改善；DLB 患者可額外改善幻覺與認知波動</span></li>
+        <li><b>Memantine</b><span class="sub">於中重度 AD 對躁動、妄想與幻覺較有效；與 donepezil 併用可能優於單用</span></li>
+        <li><b>FTD 需特別注意</b><span class="sub">膽鹼酯酶抑制劑對 FTD 之 BPSD 無效，甚至可能加重行為症狀</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 5：抗精神病藥物 ═══════════════ -->
+  <div class="section" id="sec-antipsychotic">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(226,75,74,0.15);">⚕️</div>
+      <h2>5 · 抗精神病藥物</h2>
+    </div>
+    <p class="section-subtitle">具 FDA 黑框警語：老年失智症患者死亡率與腦血管事件風險上升 <span class="cite">[4,5,8]</span></p>
+
+    <div class="criteria-grid">
+      <div class="crit-card" style="background:rgba(88,166,255,.08); border-color:var(--blue-d);">
+        <div class="label" style="color:var(--blue-l);">阿茲海默症 AD</div>
+        <ul>
+          <li>Risperidone：實證最多，對攻擊與精神病症狀有效；加拿大／歐洲／澳洲已核准，<b>美國 FDA 未核准</b>此適應症</li>
+          <li>Olanzapine：對精神病與行為症狀有效，但代謝副作用、體重增加與鎮靜明顯</li>
+          <li>Brexpiprazole：<b>2023 年 FDA 核准</b>用於 AD 躁動，為首個專門核准之藥物 <span class="badge badge-update" style="margin-left:4px;">審閱增補</span></li>
+          <li>Quetiapine：對精神病症狀效果有限，高劑量（200mg/日）或可減少躁動；因錐體外症狀風險低而常被選用，但實證基礎相對薄弱</li>
+        </ul>
+      </div>
+      <div class="crit-card" style="background:rgba(188,140,255,.08); border-color:var(--purple);">
+        <div class="label" style="color:var(--purple-l);">路易氏體失智症 DLB</div>
+        <ul>
+          <li>抗精神病藥物過敏反應為關鍵考量：高達 50% 患者可能出現嚴重神經抑制劑敏感反應（巴金森症惡化、鎮靜、自律神經不穩）</li>
+          <li>低劑量 quetiapine 因錐體外症狀風險較低而常用，惟療效實證薄弱</li>
+          <li>Pimavanserin：FDA 核准用於巴金森氏症精神病症狀，於 DLB 展現潛力 <span class="badge badge-caution" style="margin-left:4px;">見審閱標註</span>：尚未獲 FDA 核准用於 DLB／失智症相關精神病症狀之廣泛適應症，屬仿單外使用</li>
+          <li>Clozapine：可用於頑固型精神病症狀，惟須定期監測血球以防顆粒性白血球缺乏症</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <div class="w-title">⚠️ 額顳葉失智症的特殊考量</div>
+      <ul>
+        <li>FTD 患者對錐體外症狀之易感性較高，抗精神病藥物應<b>極度謹慎</b>使用</li>
+        <li>低劑量非典型抗精神病藥物（quetiapine、olanzapine）於嚴重躁動或精神病症狀有限度證據支持，惟缺乏嚴謹對照試驗</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 6：其他藥物選擇 ═══════════════ -->
+  <div class="section" id="sec-other">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(255,123,181,0.15);">🧪</div>
+      <h2>6 · 其他藥物選擇</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><div class="dot" style="background:var(--pink);"></div>抗憂鬱劑</div>
+      <ul class="bullet-list">
+        <li><b>Citalopram（最高 30mg/日）</b><span class="sub">CitAD 試驗顯示可顯著減少 AD 躁動，並於次分析中改善妄想、焦慮與易怒；惟可能影響認知並延長 QTc 間期，60 歲以上族群 FDA 建議每日不超過 20mg，使用前應評估心電圖</span></li>
+        <li><b>Trazodone</b><span class="sub">可用於躁動與睡眠障礙；於 FTD 亦有減少行為症狀之證據</span></li>
+        <li><b>FTD 常優先選用 SSRI</b><span class="sub">Paroxetine 對 FTD 行為症狀有改善；Agomelatine 對淡漠展現效益</span></li>
+      </ul>
+    </div>
+
+    <div class="domain-grid">
+      <div class="domain-card" style="border-color:rgba(226,75,74,0.3); background:rgba(226,75,74,0.06);">
+        <div class="d-title"><span class="d-icon">🚫</span><span style="color:var(--red-l);">情緒穩定劑</span></div>
+        <ul>
+          <li>Valproate：<span class="hl">不建議</span>用於 BPSD，缺乏療效且鎮靜、跌倒、腸胃道副作用風險高</li>
+          <li>Carbamazepine：對躁動／攻擊有效，惟具血液毒性與藥物交互作用風險</li>
+          <li>Gabapentin：僅有病例報告等級證據，尚無對照試驗</li>
+        </ul>
+      </div>
+      <div class="domain-card" style="border-color:rgba(57,211,83,0.3); background:rgba(57,211,83,0.06);">
+        <div class="d-title"><span class="d-icon">✨</span><span style="color:var(--teal-l);">新興藥物選擇</span></div>
+        <ul>
+          <li>Dextromethorphan-quinidine（Nuedexta）：對 AD 躁動展現臨床顯著改善</li>
+          <li>Methylphenidate：ADMET2 試驗顯示可減少 AD 淡漠，惟須監測心血管副作用與食慾抑制</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <div class="w-title">💊 苯二氮平類藥物</div>
+      <ul>
+        <li>因認知惡化、跌倒、骨折、矛盾性去抑制與成癮風險，<b>一般不建議常規使用</b></li>
+        <li>短效藥物（lorazepam、oxazepam）可謹慎用於急性嚴重躁動或處置性鎮靜</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 7：各類型治療考量 ═══════════════ -->
+  <div class="section" id="sec-disease">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(88,166,255,0.15);">📋</div>
+      <h2>7 · 疾病類型專屬治療考量</h2>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item"><div class="step-num">AD</div><div class="step-text">非藥物治療優先；輕中度 BPSD 可考慮膽鹼酯酶抑制劑；躁動合併憂鬱可用 SSRI（citalopram）；<b>嚴重</b>精神病症狀或攻擊行為時，非典型抗精神病藥物（risperidone、aripiprazole）於謹慎監測下作為保留選項</div></div>
+      <div class="step-item"><div class="step-num">DLB</div><div class="step-text">避免典型抗精神病藥物，非典型藥物亦須極度謹慎；膽鹼酯酶抑制劑對認知與幻覺特別有助益；Pimavanserin 為無動作副作用的潛力選項（惟屬仿單外使用）；Clonazepam 或 melatonin 可用於 REM 睡眠行為障礙</div></div>
+      <div class="step-item"><div class="step-num">FTD</div><div class="step-text">非藥物治療至關重要，因藥物選擇有限且無疾病專屬治療；善用保留之程序性記憶（建立常規、重新引入舊嗜好）優於認知訓練；SSRI 可能有助去抑制與強迫行為；抗精神病藥物因錐體外症狀風險應謹慎使用；照顧者支持與衛教因負擔沉重、發病年齡輕而格外重要</div></div>
+      <div class="step-item"><div class="step-num">VaD</div><div class="step-text">實證相對有限，多數處置原則<b>外推自 AD</b>；膽鹼酯酶抑制劑於 VaD 之 BPSD 證據品質偏低；需同時關注腦血管危險因子控制與二級預防</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 8：安全性監測 ═══════════════ -->
+  <div class="section" id="sec-safety">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(226,75,74,0.15);">🚨</div>
+      <h2>8 · 安全性監測與去處方</h2>
+    </div>
+    <p class="section-subtitle">抗精神病藥物之風險評估與定期減藥，是 BPSD 藥物治療不可或缺的一環</p>
+
+    <div class="warning-box">
+      <div class="w-title">⚠️ 抗精神病藥物死亡率風險</div>
+      <ul>
+        <li>死亡率風險上升 1.6–1.7 倍，風險於治療<b>前 30–120 天</b>最高</li>
+        <li>Haloperidol 風險最高，Quetiapine 風險相對最低（惟療效有限）</li>
+        <li>所有精神科用藥皆須定期審查；建議每 <b>3 個月</b>嘗試去處方，並以每 1–2 週減量 25–50% 之速度緩慢調降</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ 延伸閱讀 ═══════════════ -->
+  <div class="section" id="sec-links" style="padding-bottom:6px;">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(188,140,255,0.15);">📚</div>
+      <h2>延伸閱讀</h2>
+    </div>
+    <div class="link-grid">
+      <a class="link-card" href="dementia.html">
+        <div class="lc-cat">Overview</div>
+        <div class="lc-title">失智症診斷與種類鑑別</div>
+        <div class="lc-desc">AD、bvFTD、DLB、VaD 的臨床鑑別架構，以及生物標記與神經影像的整合診斷流程。</div>
+        <div class="lc-arrow">前往專頁 →</div>
+      </a>
+      <a class="link-card" href="ad_integrated_care.html">
+        <div class="lc-cat">AD · Integrated Care</div>
+        <div class="lc-title">AD 整合照護與藥物治療</div>
+        <div class="lc-desc">分期藥物治療、疾病修飾治療最新進展與台灣核准現況、安寧緩和照護整理。</div>
+        <div class="lc-arrow">前往專頁 →</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ 參考文獻 ═══════════════ -->
+  <div class="section" id="sec-refs" style="padding-bottom:4px;">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(144,149,168,0.15);">📖</div>
+      <h2>參考文獻</h2>
+    </div>
+  </div>
+
+  <div class="ref-box">
+    <h3>原文獻回顧引用</h3>
+    <ol>
+      <li><span>Brooks D, Mitchell LK, Dissanayaka NN.</span> Non-pharmacological Interventions to Reduce Behavioral and Psychological Symptoms of Dementia. <em>Adv Psychiatry Behav Health.</em> 2025;5(1):237–248. DOI: 10.1016/j.ypsc.2025.03.004</li>
+      <li><span>Barton C, Ketelle R, Merrilees J, Miller B.</span> Non-pharmacological Management of Behavioral Symptoms in Frontotemporal and Other Dementias. <em>Curr Neurol Neurosci Rep.</em> 2016;16(2). DOI: 10.1007/s11910-015-0618-1</li>
+      <li><span>Watt JA, et al.</span> Management of Behavioral and Psychological Symptoms of Dementia: Nonpharmacologic and Pharmacologic Interventions. <em>Annu Rev Clin Psychol.</em> 2026. DOI: 10.1146/annurev-clinpsy-061724-085912</li>
+      <li><span>Magierski R, Sobow T, Schwertner E, Religa D.</span> Pharmacotherapy of Behavioral and Psychological Symptoms of Dementia: State of the Art and Future Progress. <em>Front Pharmacol.</em> 2020;11. DOI: 10.3389/fphar.2020.01168</li>
+      <li><span>Masopust J, et al.</span> Treatment of behavioral and psychological symptoms of dementias with psychopharmaceuticals: a review. <em>Neuropsychiatr Dis Treat.</em> 2018;14:1211–1220. DOI: 10.2147/ndt.s163842</li>
+      <li><span>Skylar-Scott IA, Sha SJ.</span> Lewy Body Dementia: An Overview of Promising Therapeutics. <em>Curr Neurol Neurosci Rep.</em> 2023;23(10):581–592. DOI: 10.1007/s11910-023-01292-0</li>
+      <li><span>Shinagawa S, et al.</span> Non-Pharmacological Management for Patients with Frontotemporal Dementia: A Systematic Review. <em>J Alzheimers Dis.</em> 2015;45(1):283–293. DOI: 10.3233/jad-142109</li>
+      <li><span>Madhusoodanan S.</span> Pharmacological management of behavioral symptoms associated with dementia. <em>World J Psychiatry.</em> 2014;4(4):72. DOI: 10.5498/wjp.v4.i4.72</li>
+      <li><span>Kennedy KJ, Forsythe D, Wagner J, Eckert M.</span> Clinical pathways for the evidence-based management of behavioural and psychological symptoms of dementia in a residential aged care facility: A rapid review. <em>Australas J Ageing.</em> 2021;40(4):347–355. DOI: 10.1111/ajag.12990</li>
+    </ol>
+  </div>
+
+  <div class="ref-box">
+    <h3>審閱新增查證來源</h3>
+    <ol start="10">
+      <li><span>Otsuka／Lundbeck.</span> FDA Approves Rexulti (Brexpiprazole) for Agitation Associated with Dementia Due to Alzheimer's Disease. 新聞稿，2023 年 5 月；亦見 Grossberg GT, et al. Efficacy and Safety of Brexpiprazole for the Treatment of Agitation in Alzheimer's Dementia. <em>Am J Geriatr Psychiatry.</em> 2020;28(4):383–400.</li>
+      <li><span>U.S. FDA / Acadia Pharmaceuticals.</span> Complete Response Letters for Pimavanserin sNDA — Dementia-Related Psychosis（2021 年 4 月）與 Alzheimer's Disease Psychosis（2022 年 8 月）。FDA Psychopharmacologic Drugs Advisory Committee 會議紀錄，2022 年 6 月。</li>
+      <li><span>台灣老年精神醫學會（TSGP）.</span> 失智症合併精神行為症狀病人的最佳治療及照顧實務指南（BPSD Guide）。2013 年出版，授權自英國失智症學會（Alzheimer's Society UK）指引並在地化。</li>
+    </ol>
+  </div>
+
+  <footer>
+    <div style="margin-bottom:6px;">HCH-FYH Neurology · AI 輔助審閱與整理資源</div>
+    <div>本頁為文獻審閱與教育用途，不構成個別病患之處方建議；藥物適應症與安全性警語請以當下最新仿單及公告為準</div>
+  </footer>
+
+</div><!-- /page -->
+
+<script>
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('prog').style.width = pct + '%';
+});
+
+const sections = document.querySelectorAll('.section[id]');
+const tabLinks = document.querySelectorAll('.tabnav a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      tabLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

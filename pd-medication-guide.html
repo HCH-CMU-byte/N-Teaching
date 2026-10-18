@@ -1,0 +1,962 @@
+---
+layout: default
+title: "帕金森病用藥實證指南"
+description: "整合 AAN 2021 治療指引、網絡統合分析與 LED 量化工具，涵蓋 YOPD、典型晚發型與非典型巴金森綜合症的分層用藥策略，附情境模擬與決策流程圖。"
+permalink: /movement-disorders/pd-medication-guide.html
+---
+
+<style>
+:root{
+  --paper:#EDEAF3;
+  --paper-2:#E2DDEE;
+  --card:#F7F5FA;
+  --ink:#211B2E;
+  --ink-soft:#544C68;
+  --ink-faint:#87809A;
+  --plum:#5B3E7D;
+  --plum-deep:#3A2856;
+  --gold:#B07A2E;
+  --gold-soft:#EFDFC0;
+  --sage:#4C6B4E;
+  --sage-soft:#DCE7DC;
+  --brick:#93453A;
+  --brick-soft:#F0DAD5;
+  --sky:#345E7C;
+  --sky-soft:#D9E5EC;
+  --line:#D3CCE2;
+  --radius:14px;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:"Noto Serif TC",serif;color:var(--ink);margin:0 0 .4em;}
+p{margin:0 0 1em;}
+a{color:inherit;}
+.mono{font-family:"IBM Plex Mono",monospace;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- hero ---------- */
+.hero{
+  max-width:var(--maxw);margin:0 auto;padding:3.6rem 1.5rem 2.4rem;
+  display:grid;grid-template-columns:1.3fr .9fr;gap:2.5rem;align-items:end;
+}
+@media(max-width:860px){.hero{grid-template-columns:1fr;}}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.14em;
+  color:var(--gold);text-transform:uppercase;margin-bottom:.9rem;display:block;
+}
+.hero h1{font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.28;letter-spacing:.01em;}
+.hero-sub{color:var(--ink-soft);font-size:1.02rem;max-width:52ch;}
+.hero-waveform{width:100%;height:auto;display:block;}
+.chip-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.3rem;}
+.chip{
+  font-size:.72rem;padding:.3rem .7rem;border-radius:7px;font-family:"IBM Plex Mono",monospace;
+  border:1px solid var(--line);color:var(--ink-soft);background:var(--card);
+}
+.chip.b{border-color:var(--gold);color:var(--gold);background:var(--gold-soft);}
+.chip.c{border-color:var(--sage);color:var(--sage);background:var(--sage-soft);}
+
+/* ---------- "within last year" badge ---------- */
+.badge-new{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.03em;
+  padding:.16rem .5rem;border-radius:6px;background:var(--brick);color:#fff;margin-left:.4rem;
+  vertical-align:middle;white-space:nowrap;
+}
+.alert-banner{
+  background:linear-gradient(135deg,var(--brick),#7A382F);color:#fff;border-radius:var(--radius);
+  padding:1.2rem 1.4rem;margin-bottom:1.8rem;
+}
+.alert-banner .eyebrow{color:var(--gold-soft);margin-bottom:.5rem;}
+.alert-banner h3{color:#fff;font-size:1.08rem;margin-bottom:.5rem;}
+.alert-banner p{color:#F2E5E2;font-size:.9rem;margin-bottom:.5rem;}
+.alert-banner .src{font-size:.72rem;color:#E3C6C0;font-family:"IBM Plex Mono",monospace;}
+
+.divider{max-width:var(--maxw);margin:0 auto;padding:0 1.5rem;}
+.divider svg{width:100%;height:22px;display:block;opacity:.55;}
+
+/* ---------- section shell ---------- */
+section.block{max-width:var(--maxw);margin:0 auto;padding:2.6rem 1.5rem;}
+.section-label{
+  display:flex;align-items:baseline;gap:.7rem;margin-bottom:1.6rem;
+}
+.section-num{font-family:"IBM Plex Mono",monospace;color:var(--gold);font-size:.85rem;}
+.section-label h2{font-size:1.5rem;margin:0;}
+.section-desc{color:var(--ink-soft);max-width:74ch;margin-bottom:1.8rem;font-size:.96rem;}
+
+/* ---------- stratification cards ---------- */
+.strat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+@media(max-width:780px){.strat-grid{grid-template-columns:1fr;}}
+.strat-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.2rem 1.3rem;
+}
+.strat-card h4{font-size:1rem;margin-bottom:.5rem;}
+.strat-card .tag{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--gold);display:block;margin-bottom:.4rem;}
+.strat-card p{font-size:.88rem;color:var(--ink-soft);margin:0;}
+
+/* ---------- card grid (house style: icon/category/title/description/footer) ---------- */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;}
+@media(max-width:920px){.card-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:620px){.card-grid{grid-template-columns:1fr;}}
+.tcard{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.3rem 1.3rem 1.1rem;display:flex;flex-direction:column;gap:.55rem;
+  transition:.18s ease;
+}
+.tcard:hover{transform:translateY(-3px);box-shadow:0 10px 26px -14px rgba(58,40,86,.35);border-color:var(--plum);}
+.tcard-icon{
+  width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+  background:var(--paper-2);color:var(--plum);font-size:1.15rem;
+}
+.tcard-cat{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.08em;color:var(--ink-faint);text-transform:uppercase;}
+.tcard h4{font-size:1.02rem;margin:.1rem 0 0;}
+.tcard p{font-size:.86rem;color:var(--ink-soft);margin:0;flex-grow:1;}
+.tcard-footer{
+  font-size:.74rem;color:var(--sage);border-top:1px dashed var(--line);padding-top:.55rem;margin-top:.3rem;
+  font-family:"IBM Plex Mono",monospace;
+}
+.tcard.new .tcard-footer{color:var(--gold);}
+.tcard.warn .tcard-footer{color:var(--brick);}
+
+/* ---------- flowchart ---------- */
+.flow-wrap{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.4rem;overflow-x:auto;
+}
+.flow-wrap svg{display:block;margin:0 auto;min-width:640px;}
+.flow-legend{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1rem;font-size:.78rem;color:var(--ink-soft);}
+.flow-legend span{display:inline-flex;align-items:center;gap:.4rem;}
+.dot{width:10px;height:10px;border-radius:3px;display:inline-block;}
+
+/* ---------- scenario simulator ---------- */
+.scenario-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem;}
+.scenario-tab{
+  padding:.5rem 1rem;border-radius:9px;border:1px solid var(--line);background:var(--card);
+  cursor:pointer;font-size:.84rem;color:var(--ink-soft);transition:.15s;
+}
+.scenario-tab.active{background:var(--plum);color:#fff;border-color:var(--plum);}
+.scenario-panel{display:none;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;}
+.scenario-panel.active{display:block;}
+.scenario-vignette{
+  background:var(--paper-2);border-radius:10px;padding:1rem 1.2rem;margin-bottom:1.2rem;font-size:.92rem;
+  border-left:4px solid var(--plum);
+}
+.scenario-vignette b{color:var(--plum-deep);}
+.step{
+  border-top:1px solid var(--line);padding:1rem 0;
+}
+.step:first-of-type{border-top:none;}
+.step-head{display:flex;align-items:center;gap:.7rem;cursor:pointer;user-select:none;}
+.step-num{
+  width:26px;height:26px;border-radius:50%;background:var(--plum);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:.78rem;font-family:"IBM Plex Mono",monospace;flex-shrink:0;
+}
+.step-title{font-weight:500;font-size:.95rem;flex-grow:1;}
+.step-toggle{font-family:"IBM Plex Mono",monospace;color:var(--gold);font-size:.85rem;}
+.step-body{display:none;padding:.7rem 0 0 2.35rem;font-size:.88rem;color:var(--ink-soft);}
+.step-body.open{display:block;}
+.step-body .ev{
+  display:inline-block;margin-top:.5rem;font-family:"IBM Plex Mono",monospace;font-size:.72rem;
+  background:var(--gold-soft);color:var(--gold);padding:.2rem .55rem;border-radius:6px;
+}
+.scenario-outcome{
+  margin-top:1.2rem;padding:1rem 1.2rem;background:var(--sage-soft);border-radius:10px;font-size:.88rem;color:var(--ink);
+  border-left:4px solid var(--sage);
+}
+
+/* ---------- table ---------- */
+.tbl-wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);}
+table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:640px;}
+th,td{padding:.7rem .9rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+th{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);background:var(--paper-2);}
+tr:last-child td{border-bottom:none;}
+
+/* ---------- LED calculator ---------- */
+.led-tool{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.3rem 1.4rem;
+}
+.led-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.8rem;margin-bottom:1rem;}
+.led-row{display:flex;flex-direction:column;gap:.3rem;}
+.led-row label{font-size:.78rem;color:var(--ink-soft);}
+.led-row input{
+  padding:.45rem .6rem;border-radius:7px;border:1px solid var(--line);background:var(--paper);
+  font-family:"IBM Plex Mono",monospace;font-size:.86rem;color:var(--ink);
+}
+.led-total{
+  margin-top:.6rem;padding:.9rem 1.1rem;background:var(--plum);color:#fff;border-radius:10px;
+  display:flex;justify-content:space-between;align-items:center;font-family:"IBM Plex Mono",monospace;
+}
+.led-total b{font-size:1.5rem;}
+.led-note{font-size:.74rem;color:var(--ink-faint);margin-top:.6rem;}
+
+/* ---------- callout ---------- */
+.callout{
+  border-radius:10px;padding:1rem 1.2rem;font-size:.88rem;margin:1rem 0;
+  border-left:4px solid var(--brick);background:var(--brick-soft);color:var(--ink);
+}
+.callout.info{border-left-color:var(--sky);background:var(--sky-soft);}
+.callout b{display:block;margin-bottom:.25rem;font-family:"Noto Serif TC",serif;}
+
+/* ---------- refs & footer ---------- */
+.refs{font-size:.78rem;color:var(--ink-soft);columns:2;column-gap:2.2rem;}
+@media(max-width:700px){.refs{columns:1;}}
+.refs li{margin-bottom:.6rem;break-inside:avoid;}
+footer{
+  border-top:1px solid var(--line);margin-top:1rem;padding:2.2rem 1.5rem 3rem;
+  background:var(--paper-2);
+}
+.footer-inner{max-width:var(--maxw);margin:0 auto;font-size:.8rem;color:var(--ink-faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-inner a{color:var(--plum);text-decoration:none;}
+
+
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important;}}
+
+/* ---------- mobile tightening ---------- */
+@media(max-width:600px){
+  
+  
+  
+  
+  
+  .hero{padding:2.2rem 1rem 1.6rem;gap:1.6rem;}
+  .hero h1{font-size:1.55rem;line-height:1.32;}
+  .hero-sub{font-size:.92rem;}
+  section.block{padding:1.8rem 1rem;}
+  .section-label h2{font-size:1.22rem;}
+  .section-desc{font-size:.88rem;}
+  .card-grid{gap:.8rem;}
+  .tcard{padding:1.05rem 1.05rem .95rem;}
+  .flow-wrap{padding:.9rem;}
+  .flow-wrap svg{min-width:560px;}
+  .led-total{flex-wrap:wrap;gap:.4rem;}
+  .led-total b{font-size:1.2rem;}
+  .scenario-tab{font-size:.78rem;padding:.42rem .8rem;}
+  .step-body{padding-left:1.6rem;}
+  .refs{columns:1;}
+  .footer-inner{flex-direction:column;align-items:flex-start;}
+  .alert-banner{padding:1rem 1.1rem;}
+  table{font-size:.8rem;}
+  th,td{padding:.55rem .65rem;}
+}
+@media(max-width:600px){
+  .flow-wrap, .tbl-wrap{position:relative;}
+  .flow-wrap::before, .tbl-wrap::before{
+    content:"← 左右滑動可查看完整內容 →";
+    display:block;font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--ink-faint);
+    text-align:center;padding:.5rem 0 .3rem;
+  }
+  .tbl-wrap::before{padding:.6rem .6rem 0;}
+}
+
+/* ---------- 本頁專用：頁內快速跳轉列（非全站導覽，僅此頁使用） ---------- */
+.page-quicknav{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  overflow-x:auto;background:var(--card);
+  -webkit-overflow-scrolling:touch;scrollbar-width:thin;
+  margin-bottom:1rem;
+}
+.page-quicknav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:.6rem 1.5rem;
+  display:flex;gap:.5rem;white-space:nowrap;
+}
+.page-pill{
+  font-size:.78rem;padding:.32rem .8rem;border-radius:999px;
+  background:var(--paper);border:1px solid var(--line);color:var(--ink-soft);
+  text-decoration:none;transition:.15s;flex-shrink:0;
+}
+.page-pill:hover{background:var(--plum);color:#fff;border-color:var(--plum);}
+@media(max-width:600px){.page-quicknav-inner{padding:.5rem 1rem;}}
+</style>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div>
+    <span class="eyebrow">動作障礙教學模組 · 用藥決策</span>
+    <h1>帕金森病用藥實證指南：<br>從量化證據到床邊決策</h1>
+    <p class="hero-sub">整合 AAN 2021 治療指引、多項網絡統合分析（NMA）與左旋多巴等效劑量（LED）等量化工具，涵蓋青年型（YOPD）、典型晚發型與非典型巴金森綜合症的分層用藥策略，並附情境模擬與決策流程圖，供住院醫師、專科護理師與進階執業護理師教學使用。</p>
+    <div class="chip-row">
+      <span class="chip b">AAN 2021 Practice Guideline</span>
+      <span class="chip">UPDRS III MCID = 3 分</span>
+      <span class="chip c">LED 換算系統</span>
+      <span class="chip">NMA · 110 RCT / 24,864 例</span>
+    </div>
+  </div>
+  <svg class="hero-waveform" viewBox="0 0 420 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect x="0" y="0" width="420" height="140" rx="16" fill="#3A2856"/>
+    <path d="M10 90 Q30 40 45 90 T80 90 Q95 20 110 90 T145 90 Q160 55 175 90 T210 90 Q225 15 240 90 T275 90 Q290 60 305 90 T340 90 Q355 30 370 90 T405 90" fill="none" stroke="#B07A2E" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M10 100 Q30 108 45 100 T80 100 Q95 116 110 100 T145 100 Q160 105 175 100 T210 100 Q225 118 240 100 T275 100 Q290 106 305 100 T340 100 Q355 112 370 100 T405 100" fill="none" stroke="#EFDFC0" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
+    <text x="20" y="126" fill="#EFDFC0" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1">ON / OFF FLUCTUATION TRACE</text>
+  </svg>
+</div>
+
+<nav class="page-quicknav" aria-label="本頁章節捷徑">
+  <div class="page-quicknav-inner">
+    <a class="page-pill" href="#principles">01 決策原則</a>
+    <a class="page-pill" href="#flowchart">02 決策流程圖</a>
+    <a class="page-pill" href="#drugclass">03 藥物分類地圖</a>
+    <a class="page-pill" href="#nondopa">04 非多巴胺路徑</a>
+    <a class="page-pill" href="#newdrugs">05 近五年新藥</a>
+    <a class="page-pill" href="#yopd">06 YOPD 階梯</a>
+    <a class="page-pill" href="#atypical">07 非典型巴金森</a>
+    <a class="page-pill" href="#scenario">08 情境模擬</a>
+    <a class="page-pill" href="#led">09 LED 換算工具</a>
+    <a class="page-pill" href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<div class="divider">
+  <svg viewBox="0 0 1180 22" preserveAspectRatio="none"><path d="M0 11 Q30 2 60 11 T120 11 T180 11 T240 11 T300 11 T360 11 T420 11 T480 11 T540 11 T600 11 T660 11 T720 11 T780 11 T840 11 T900 11 T960 11 T1020 11 T1080 11 T1140 11 T1180 11" fill="none" stroke="#5B3E7D" stroke-width="1.5"/></svg>
+</div>
+
+<!-- ================= 01 決策原則 ================= -->
+<section class="block" id="principles">
+  <div class="section-label"><span class="section-num">01</span><h2>總論：個體化、低劑量、早聯合</h2></div>
+  <p class="section-desc">帕金森病（PD）目前所有藥物均屬對症治療，尚無證實有效的疾病修飾療法；治療目標為控制運動與非運動症狀、維持日常功能、預防運動併發症，並將不良反應降至最低。近年治療理念的關鍵轉變，是及早以多種低劑量、機轉互補的藥物聯合（左旋多巴＋MAO-B 抑制劑＋多巴胺受體促效劑），取代單一藥物不斷加量。</p>
+
+  <div class="strat-grid">
+    <div class="strat-card">
+      <span class="tag">輕度</span>
+      <h4>UPDRS ≤ 20 ／ Hoehn-Yahr 1 期</h4>
+      <p>單側或輕微雙側症狀，日常生活功能大致保留。可考慮 MAO-B 抑制劑或低劑量左旋多巴起始，依年齡與職業需求決定是否延後多巴胺促效劑介入。</p>
+    </div>
+    <div class="strat-card">
+      <span class="tag">中度</span>
+      <h4>UPDRS 20–30 ／ HY 1–2 期</h4>
+      <p>雙側症狀伴姿勢反射輕度受損。多數患者此階段需左旋多巴以維持功能；<70 歲、異動風險高或需精細動作者可評估多巴胺促效劑併用。</p>
+    </div>
+    <div class="strat-card">
+      <span class="tag">重度</span>
+      <h4>UPDRS &gt; 30 ／ HY ≥ 2 期</h4>
+      <p>常合併運動波動（wearing-off）與異動症。需加入 COMT／MAO-B 抑制劑、調整給藥頻次，或評估連續多巴胺能給藥裝置（LCIG、皮下輸注幫浦）。</p>
+    </div>
+  </div>
+
+  <div class="callout info" style="margin-top:1.4rem;">
+    <b>不應處方多巴胺促效劑的族群（AAN 2021, B 級證據）</b>
+    年齡 &gt; 70 歲、有衝動控制障礙（ICD）病史、認知功能損害、日間過度嗜睡或幻覺者，應避免以多巴胺促效劑起始治療，改以低劑量左旋多巴為優先。
+  </div>
+</section>
+
+<!-- ================= 近一年安全性警訊 ================= -->
+<section class="block" style="padding-top:0;">
+  <div class="alert-banner">
+    <span class="eyebrow" style="color:#F2D9AE;">近一年內安全性更新 · 2026年3月</span>
+    <h3>FDA 要求所有含 Carbidopa/Levodopa 藥品新增「維生素 B6 缺乏及相關癲癇發作」警語</h3>
+    <p>美國 FDA 於 2026 年 3 月 20 日發布安全性通告，要求所有含左旋多巴／卡比多巴成分之藥品（含 Sinemet、Sinemet CR、Rytary、Dhivy、Duopa、Crexont、Stalevo，以及皮下輸注劑型 Vyalev）於仿單新增警語。安全性回顧共確認 14 例與維生素 B6 缺乏相關之癲癇發作，個案每日左旋多巴劑量均 &gt; 1,000mg，其中 2 例合併已知 B6 低下與癲癇控制不良而死亡；多數個案癲癇對傳統抗癲癇藥反應不佳，但補充維生素 B6 後緩解。</p>
+    <p><b>臨床建議：</b>啟用左旋多巴治療前應評估基礎血中維生素 B6 濃度，治療期間定期追蹤，並依需要補充；不建議病人自行補充 B6，因過高濃度亦具神經毒性風險，應於監測下調整。此提醒對於「進展期高劑量左旋多巴」情境（見情境模擬病例 D）尤其重要。</p>
+    <span class="src">來源：FDA Drug Safety Communication, 2026-03-20；APDA／MedShadow／Fierce Pharma 後續報導</span>
+  </div>
+</section>
+
+<!-- ================= 02 流程圖 ================= -->
+<section class="block" id="flowchart">
+  <div class="section-label"><span class="section-num">02</span><h2>典型晚發型 PD 起始治療決策流程圖</h2></div>
+  <p class="section-desc">依 AAN 2021 治療指引量化建議繪製。多數尋求運動症狀治療的早期患者應優先以左旋多巴起始（B 級）；左旋多巴對 UPDRS III 的改善優於多巴胺促效劑（2 年約多改善 5.0 分），但異動症風險亦較高（2 年風險差 18.7%）。</p>
+
+  <div class="flow-wrap">
+    <svg viewBox="0 0 1080 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="典型PD起始治療決策流程圖">
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5B3E7D"/></marker>
+      </defs>
+      <!-- start -->
+      <rect x="440" y="10" width="200" height="52" rx="12" fill="#3A2856"/>
+      <text x="540" y="42" text-anchor="middle" fill="#fff" font-size="14" font-family="Noto Sans TC">確診早期 PD，需症狀治療</text>
+
+      <line x1="540" y1="62" x2="540" y2="96" stroke="#5B3E7D" stroke-width="2" marker-end="url(#arrow)"/>
+
+      <!-- decision 1 -->
+      <polygon points="540,96 660,150 540,204 420,150" fill="#EFDFC0" stroke="#B07A2E" stroke-width="1.5"/>
+      <text x="540" y="144" text-anchor="middle" font-size="12.5" font-family="Noto Sans TC" fill="#211B2E">年齡 &lt; 60 歲、</text>
+      <text x="540" y="162" text-anchor="middle" font-size="12.5" font-family="Noto Sans TC" fill="#211B2E">異動風險高？</text>
+
+      <!-- left branch: yes -> DA -->
+      <line x1="420" y1="150" x2="220" y2="150" stroke="#5B3E7D" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="320" y="140" text-anchor="middle" font-size="11" fill="#4C6B4E" font-family="IBM Plex Mono">是</text>
+      <rect x="60" y="126" width="200" height="70" rx="12" fill="#DCE7DC" stroke="#4C6B4E"/>
+      <text x="160" y="150" text-anchor="middle" font-size="12.5" fill="#211B2E">可選用非麥角多巴胺</text>
+      <text x="160" y="168" text-anchor="middle" font-size="12.5" fill="#211B2E">促效劑起始（C 級）</text>
+      <text x="160" y="186" text-anchor="middle" font-size="10.5" fill="#4C6B4E" font-family="IBM Plex Mono">須先排除 ICD／嗜睡風險</text>
+
+      <!-- right branch: no -> check contraindication -->
+      <line x1="660" y1="150" x2="860" y2="150" stroke="#5B3E7D" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="760" y="140" text-anchor="middle" font-size="11" fill="#93453A" font-family="IBM Plex Mono">否</text>
+      <rect x="760" y="126" width="220" height="70" rx="12" fill="#F0DAD5" stroke="#93453A"/>
+      <text x="870" y="150" text-anchor="middle" font-size="12.5" fill="#211B2E">&gt;70歲／ICD史／認知障礙／</text>
+      <text x="870" y="168" text-anchor="middle" font-size="12.5" fill="#211B2E">嗜睡或幻覺 → 不宜用 DA</text>
+      <text x="870" y="186" text-anchor="middle" font-size="10.5" fill="#93453A" font-family="IBM Plex Mono">AAN 2021 · B 級</text>
+
+      <!-- both converge to levodopa -->
+      <line x1="160" y1="196" x2="160" y2="240" stroke="#5B3E7D" stroke-width="2"/>
+      <line x1="870" y1="196" x2="870" y2="240" stroke="#5B3E7D" stroke-width="2"/>
+      <line x1="160" y1="240" x2="870" y2="240" stroke="#5B3E7D" stroke-width="2"/>
+      <line x1="540" y1="240" x2="540" y2="270" stroke="#5B3E7D" stroke-width="2" marker-end="url(#arrow)"/>
+
+      <rect x="360" y="270" width="360" height="76" rx="12" fill="#5B3E7D"/>
+      <text x="540" y="298" text-anchor="middle" fill="#fff" font-size="13">即釋型左旋多巴起始（B 級）</text>
+      <text x="540" y="318" text-anchor="middle" fill="#EFDFC0" font-size="11" font-family="IBM Plex Mono">維持最低有效劑量，避免緩釋劑</text>
+      <text x="540" y="335" text-anchor="middle" fill="#EFDFC0" font-size="11" font-family="IBM Plex Mono">或三合一 LCE 起始</text>
+
+      <line x1="540" y1="346" x2="540" y2="380" stroke="#5B3E7D" stroke-width="2" marker-end="url(#arrow)"/>
+
+      <!-- decision 2 dose -->
+      <polygon points="540,380 690,432 540,484 390,432" fill="#EFDFC0" stroke="#B07A2E" stroke-width="1.5"/>
+      <text x="540" y="426" text-anchor="middle" font-size="12.5" fill="#211B2E">每日劑量</text>
+      <text x="540" y="444" text-anchor="middle" font-size="12.5" fill="#211B2E">&lt; 400mg？</text>
+
+      <line x1="390" y1="432" x2="150" y2="432" stroke="#5B3E7D" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="270" y="422" text-anchor="middle" font-size="11" fill="#4C6B4E" font-family="IBM Plex Mono">是</text>
+      <rect x="20" y="408" width="220" height="60" rx="12" fill="#DCE7DC" stroke="#4C6B4E"/>
+      <text x="130" y="432" text-anchor="middle" font-size="12" fill="#211B2E">維持追蹤，異動風險</text>
+      <text x="130" y="450" text-anchor="middle" font-size="12" fill="#211B2E">相對較低</text>
+
+      <line x1="690" y1="432" x2="940" y2="432" stroke="#5B3E7D" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="815" y="422" text-anchor="middle" font-size="11" fill="#93453A" font-family="IBM Plex Mono">否</text>
+      <rect x="830" y="408" width="220" height="60" rx="12" fill="#F0DAD5" stroke="#93453A"/>
+      <text x="940" y="428" text-anchor="middle" font-size="12" fill="#211B2E">考慮提前加入</text>
+      <text x="940" y="446" text-anchor="middle" font-size="12" fill="#211B2E">MAO-B／COMT 分工</text>
+
+      <line x1="130" y1="468" x2="130" y2="500" stroke="#5B3E7D" stroke-width="2"/>
+      <line x1="940" y1="468" x2="940" y2="500" stroke="#5B3E7D" stroke-width="2"/>
+      <line x1="130" y1="500" x2="940" y2="500" stroke="#5B3E7D" stroke-width="2"/>
+      <line x1="540" y1="500" x2="540" y2="520" stroke="#5B3E7D" stroke-width="2" marker-end="url(#arrow)"/>
+      <rect x="330" y="520" width="420" height="36" rx="10" fill="#345E7C"/>
+      <text x="540" y="543" text-anchor="middle" fill="#fff" font-size="12">出現剂末現象／異動 → 進入「藥物分類地圖」多重機轉聯合</text>
+    </svg>
+    <div class="flow-legend">
+      <span><i class="dot" style="background:#3A2856"></i>臨床起點</span>
+      <span><i class="dot" style="background:#EFDFC0;border:1px solid #B07A2E"></i>決策節點</span>
+      <span><i class="dot" style="background:#DCE7DC"></i>建議路徑</span>
+      <span><i class="dot" style="background:#F0DAD5"></i>警示 / 禁忌路徑</span>
+      <span><i class="dot" style="background:#5B3E7D"></i>治療動作</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 藥物分類地圖 ================= -->
+<section class="block" id="drugclass">
+  <div class="section-label"><span class="section-num">03</span><h2>多巴胺路徑藥物分類地圖</h2></div>
+  <p class="section-desc">每張卡片標註核心機轉、量化療效／風險數據與台灣臨床定位，供快速比對。</p>
+  <div class="card-grid">
+
+    <div class="tcard">
+      <div class="tcard-icon">L</div>
+      <div class="tcard-cat">Gold Standard</div>
+      <h4>左旋多巴／Carbidopa</h4>
+      <p>療效最強的多巴胺補充療法。UPDRS III 改善優於多巴胺促效劑約 5 分（2 年，中度把握），但 2 年異動症風險差達 18.7%，異動與每日劑量呈劑量依賴關係。</p>
+      <div class="tcard-footer">建議：最低有效劑量、每日 &lt; 400mg</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">DA</div>
+      <div class="tcard-cat">Dopamine Agonist</div>
+      <h4>多巴胺受體促效劑</h4>
+      <p>普拉克索、羅匹尼羅、羅替高汀貼片。延遲異動出現，但 ICD、日間嗜睡、姿位性低血壓風險較高；2 年 ICD 風險差 23.2%。&gt;70 歲或有認知障礙者禁用。</p>
+      <div class="tcard-footer">監測：QUIP 量表、Epworth 嗜睡量表</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">B</div>
+      <div class="tcard-cat">MAO-B Inhibitor</div>
+      <h4>雷沙吉蘭／司來吉蘭</h4>
+      <p>症狀性作用溫和，可推遲左旋多巴需求，副作用相對輕微。ANDANTE 研究顯示雷沙吉蘭 1mg／日加於 DA 之上可再顯著改善症狀。老年患者併用司來吉蘭需留意心血管風險。</p>
+      <div class="tcard-footer">適合作為 YOPD／輕度患者首選</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">C</div>
+      <div class="tcard-cat">COMT Inhibitor</div>
+      <h4>恩他卡朋／奧匹卡朋</h4>
+      <p>延長左旋多巴血中濃度、減少剂末現象。STRIDE-PD 顯示早期即併用三合一 LCE 反而增加異動風險，故建議於出現運動波動後再加入，而非起始即併用。</p>
+      <div class="tcard-footer">奧匹卡朋：一天一次，長效</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">N</div>
+      <div class="tcard-cat">NMDA Antagonist</div>
+      <h4>金剛烷胺（Amantadine）</h4>
+      <p>唯一具明確實證可改善左旋多巴誘發異動症的藥物；緩釋劑型（睡前給藥）可延長「開」期並減少異動，兼具改善步態凍結與吞咽的潛在效益。</p>
+      <div class="tcard-footer">腎功能不良者禁用（CrCl&lt;15）</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">Ach</div>
+      <div class="tcard-cat">Anticholinergic</div>
+      <h4>抗膽鹼藥物</h4>
+      <p>對靜止性顫抖效果較佳，但認知副作用明顯，高齡與認知障礙患者應避免；於 DLB／PSP 等神經退化性失智共病族群屬相對禁忌。</p>
+      <div class="tcard-footer">僅用於年輕、顫抖為主型患者</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 非多巴胺路徑 ================= -->
+<section class="block" id="nondopa">
+  <div class="section-label"><span class="section-num">04</span><h2>非多巴胺路徑：症狀導向的輔助用藥</h2></div>
+  <p class="section-desc">PD 並非單純多巴胺缺乏症，腺苷、麩胺酸、正腎上腺素、血清素與乙醯膽鹼系統皆參與致病機轉。以下為針對特定運動或非運動症狀、機轉獨立於多巴胺補充之外的藥物選項。</p>
+  <div class="card-grid">
+
+    <div class="tcard new">
+      <div class="tcard-icon">A2A</div>
+      <div class="tcard-cat">腺苷 A2A 受體拮抗劑</div>
+      <h4>Istradefylline（Nourianz）</h4>
+      <p>唯一上市的腺苷 A2A 受體拮抗劑，作用於紋狀體間接路徑，不刺激多巴胺受體，做為左旋多巴／卡比多巴的輔助治療以縮短「關閉」期。四項安慰劑對照試驗（共 1,143 例）證實可顯著縮短每日 OFF 時間。</p>
+      <div class="tcard-footer">日本 2013、美國 2019 核准；台灣供應狀況請洽藥劑部確認</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">↓BP</div>
+      <div class="tcard-cat">自主神經 · 姿位性低血壓</div>
+      <h4>Droxidopa／Midodrine／Fludrocortisone</h4>
+      <p>Droxidopa（正腎上腺素前驅物）、Midodrine（α1 促效劑）與 Fludrocortisone 用於治療神經性姿位性低血壓，此症狀在 MSA 與晚期 PD 中常見且會被多巴胺能藥物加重。</p>
+      <div class="tcard-footer">需同時衛教非藥物措施：漸進起身、彈性襪</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">Ψ</div>
+      <div class="tcard-cat">PD 精神病症狀</div>
+      <h4>Pimavanserin／Quetiapine／Clozapine</h4>
+      <p>PD 幻覺與妄想的一線藥物治療為 5-HT2A 反向促效劑 Pimavanserin，不具多巴胺阻斷作用，較不影響運動功能；次選為低劑量 Quetiapine 或 Clozapine（需監測嗜中性白血球）。應避免傳統典型抗精神病藥物。</p>
+      <div class="tcard-footer">DLB 患者尤須避免典型抗精神病藥</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">Cog</div>
+      <div class="tcard-cat">認知功能</div>
+      <h4>膽鹼酯酶抑制劑（Rivastigmine）</h4>
+      <p>Rivastigmine 為目前唯一具隨機對照試驗實證，可改善 PD 失智症（PDD）與路易體失智症（DLB）認知功能與精神行為症狀的藥物，機轉獨立於多巴胺路徑。</p>
+      <div class="tcard-footer">貼片劑型可減少腸胃道副作用</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">REM</div>
+      <div class="tcard-cat">睡眠與 REM 期行為障礙</div>
+      <h4>Melatonin／低劑量 Clonazepam</h4>
+      <p>Melatonin 為 REM 期睡眠行為障礙（RBD）的一線選擇，安全性較佳；Clonazepam 有效但須留意跌倒、認知與呼吸抑制風險，高齡或失智族群應審慎使用。</p>
+      <div class="tcard-footer">RBD 常早於運動症狀多年出現</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">Mood</div>
+      <div class="tcard-cat">憂鬱與情緒</div>
+      <h4>SSRI／SNRI／Pramipexole 抗憂鬱效果</h4>
+      <p>PD 憂鬱盛行率高，SSRI／SNRI 為主要藥物選擇；值得注意的是普拉克索本身具實證支持的抗憂鬱效果，對合併憂鬱之患者可作為「一藥兩用」的選項之一。</p>
+      <div class="tcard-footer">YOPD 憂鬱盛行率較典型 PD 更高</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">Sal</div>
+      <div class="tcard-cat">流涎與自主神經</div>
+      <h4>肉毒桿菌毒素（唾液腺注射）／Glycopyrrolate</h4>
+      <p>唾液腺肉毒桿菌毒素注射對頑固性流涎具良好實證；Glycopyrrolate 為不易穿透血腦屏障的抗膽鹼藥，可降低中樞認知副作用風險，適合認知功能較弱者。</p>
+      <div class="tcard-footer">流涎與吞咽功能需一併評估</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">GI</div>
+      <div class="tcard-cat">腸胃自主神經症狀</div>
+      <h4>Prucalopride／滲透性瀉劑</h4>
+      <p>便秘為 PD 極常見的非運動症狀，且可能是早期前驅症狀之一，會影響左旋多巴腸道吸收效率。5-HT4 促效劑 Prucalopride 及滲透性瀉劑為建議選項，應避免影響腸胃蠕動的抗膽鹼藥物。</p>
+      <div class="tcard-footer">便秘控制不良會加劇劑效不穩定</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 近五年新藥 ================= -->
+<section class="block" id="newdrugs">
+  <div class="section-label"><span class="section-num">05</span><h2>近五年（2021–2026）新藥與新複方組合</h2></div>
+  <p class="section-desc">整理近五年獲美國 FDA 核准上市或進入後期臨床試驗、具明確量化療效數據的新型製劑，並標註是否已於台灣供應。</p>
+  <div class="card-grid">
+
+    <div class="tcard new">
+      <div class="tcard-icon">SC</div>
+      <div class="tcard-cat">已核准 · 2024/10</div>
+      <h4>Foscarbidopa／Foslevodopa（Vyalev）</h4>
+      <p>首個可皮下注射的 24 小時連續輸注左旋多巴療法，無須外科手術置管。第三期試驗顯示 12 週後「開」期（無困擾性異動）較口服即釋劑多增加約 1.75 小時，「關」期減少約 1.79～2.75 小時。為晚期運動波動患者提供介於口服藥與腸道凝胶幫浦（LCIG）之間的新選項。</p>
+      <div class="tcard-footer">美國已核准；台灣尚未上市，需持續追蹤引進進度</div>
+    </div>
+
+    <div class="tcard new">
+      <div class="tcard-icon">D1</div>
+      <div class="tcard-cat">審查中 · NDA 2025/09<span class="badge-new">近一年內</span></div>
+      <h4>Tavapadon（D1/D5 部分促效劑）</h4>
+      <p>首個選擇性作用於 D1/D5 受體的口服部分促效劑，一天一次。三項第三期 TEMPO 試驗均達主要終點：早期單一療法顯著改善 MDS-UPDRS，作為左旋多巴輔助治療則顯著增加無困擾性異動之「開」期。因不作用於 D2/D3 受體，理論上 ICD、嗜睡與姿位性低血壓風險較傳統 DA 為低。2025年10月公布之 TEMPO-4 長期追蹤期中分析顯示，約9成以單一療法起始之患者於14–20個月追蹤期間未需啟用或增加左旋多巴；長期安全性方面衝動控制障礙發生率約1.4%。</p>
+      <div class="tcard-footer">截至2026年8月尚未獲FDA核准；決定時程原估2026上半年，最新消息顯示可能延至第三季</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">ER2</div>
+      <div class="tcard-cat">已核准 · 2024/08</div>
+      <h4>Carbidopa/Levodopa 緩釋膠囊（Crexont, IPX203）</h4>
+      <p>結合即釋顆粒與緩釋顆粒的新一代口服複方，一次給藥可提供較傳統即釋劑更長的「良好開期」。第三期 RISE-PD 試驗顯示，每日「良好開期」較即釋劑多出約 0.53 小時，且給藥頻次減少，適合劑末現象明顯但尚未達連續輸注適應症之患者。</p>
+      <div class="tcard-footer">與皮下輸注 Vyalev 同屬近兩年美國新核准口服/輸注劑型；台灣供應狀況待確認</div>
+    </div>
+
+    <div class="tcard new">
+      <div class="tcard-icon">Fx</div>
+      <div class="tcard-cat">第三期完成 · 尚待送件</div>
+      <h4>P2B001（低劑量緩釋 Pramipexole＋Rasagiline 複方）</h4>
+      <p>將低劑量緩釋普拉克索（0.6mg）與緩釋雷沙吉蘭（0.75mg）固定複方、一天一次；劑量低於單方常用劑量。第三期試驗顯示療效與滴定至最適劑量的緩釋普拉克索相當，但日間嗜睡（Epworth 量表）與多巴胺能相關不良反應顯著較少，體現「低劑量多藥優於單藥高劑量」的量化證據。</p>
+      <div class="tcard-footer">早期 PD 一線治療的潛力選項，尚未於台灣上市</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">C3</div>
+      <div class="tcard-cat">台灣健保已給付</div>
+      <h4>Opicapone（第三代 COMT 抑制劑）</h4>
+      <p>一天一次的長效 COMT 抑制劑，用於已出現藥效波動症狀之患者。台灣健保目前給付範圍限已出現劑末運動功能波動、或使用三合一 LCE／其他左旋多巴製劑併用其他 COMT 抑制劑無效之病人。</p>
+      <div class="tcard-footer">較 Entacapone 給藥頻次更少，服藥順從性佳</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">Na</div>
+      <div class="tcard-cat">台灣健保已給付（限制性）</div>
+      <h4>Safinamide（多重機轉 MAO-B 抑制劑）</h4>
+      <p>兼具 MAO-B 抑制與鈉、鈣離子通道阻斷作用的多重機轉藥物，可改善運動功能並延長「開」期，目前台灣健保僅給付已出現運動波動、藥效減退之病患。</p>
+      <div class="tcard-footer">多重機轉、非典型 MAO-B 抑制劑</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">ER</div>
+      <div class="tcard-cat">背景藥物 · 劑型優化</div>
+      <h4>緩釋型金剛烷胺（Amantadine ER, Gocovri）</h4>
+      <p>雖核准時間略早於五年窗口，仍是近年異動症治療的重要進展：睡前給藥、日間維持高血中濃度的緩釋劑型，為首個獲美國 FDA 專屬核准用於治療左旋多巴誘發異動症的藥物，並可延長「開」期、減少「關」期。</p>
+      <div class="tcard-footer">重度腎功能不全者禁用</div>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <b>解讀新藥證據的提醒</b>
+    多數新型連續給藥系統（皮下輸注 Vyalev、緩釋複方 Crexont）與新型口服複方的核心價值在於「降低血中左旋多巴濃度波動」，而非提升多巴胺補充的最大效力；因此其量化終點多聚焦於 OFF 時間縮短與無困擾性異動之 ON 時間延長，而非 UPDRS 總分的絕對改善幅度，解讀時應對應臨床問題（療效不足 vs. 波動控制不佳）選用合適的量化指標。
+  </div>
+  <div class="callout">
+    <b>提醒：高劑量左旋多巴族群的新增監測項目<span class="badge-new">近一年內</span></b>
+    依 2026 年 3 月 FDA 安全性通告，每日左旋多巴劑量 &gt;1,000mg 者（常見於使用 Crexont、Vyalev 或多次給藥之進展期患者）應將維生素 B6 濃度監測納入常規追蹤，詳見上方安全性更新區塊。
+  </div>
+</section>
+
+<!-- ================= 06 YOPD ================= -->
+<section class="block" id="yopd">
+  <div class="section-label"><span class="section-num">06</span><h2>青年型 PD（YOPD）的階梯式低劑量聯合</h2></div>
+  <p class="section-desc">YOPD 通常指 21–40 歲起病；病程進展較慢、但左旋多巴誘發異動與運動波動出現更早更頻繁（起病 &lt;40 歲者 5 年異動發生率可達 &gt;90%），痴呆較少、憂鬱與衝動控制障礙風險較高。</p>
+
+  <div class="flow-wrap">
+    <svg viewBox="0 0 1080 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="YOPD階梯式治療路徑">
+      <defs><marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5B3E7D"/></marker></defs>
+
+      <rect x="20" y="70" width="220" height="80" rx="12" fill="#DCE7DC" stroke="#4C6B4E"/>
+      <text x="130" y="100" text-anchor="middle" font-size="13" fill="#211B2E">① 症狀輕微</text>
+      <text x="130" y="120" text-anchor="middle" font-size="12" fill="#4C6B4E">MAO-B 抑制劑起始</text>
+      <text x="130" y="138" text-anchor="middle" font-size="10.5" fill="#4C6B4E" font-family="IBM Plex Mono">司來吉蘭 / 雷沙吉蘭</text>
+
+      <line x1="240" y1="110" x2="290" y2="110" stroke="#5B3E7D" stroke-width="2" marker-end="url(#arrow2)"/>
+
+      <rect x="290" y="70" width="230" height="80" rx="12" fill="#EFDFC0" stroke="#B07A2E"/>
+      <text x="405" y="100" text-anchor="middle" font-size="13" fill="#211B2E">② 療效不足</text>
+      <text x="405" y="120" text-anchor="middle" font-size="12" fill="#B07A2E">改用／加用非麥角 DA</text>
+      <text x="405" y="138" text-anchor="middle" font-size="10.5" fill="#B07A2E" font-family="IBM Plex Mono">5年運動併發症 22% vs 55%</text>
+
+      <line x1="520" y1="110" x2="570" y2="110" stroke="#5B3E7D" stroke-width="2" marker-end="url(#arrow2)"/>
+
+      <rect x="570" y="70" width="240" height="80" rx="12" fill="#F0DAD5" stroke="#93453A"/>
+      <text x="690" y="94" text-anchor="middle" font-size="13" fill="#211B2E">③ 個體化較高閾值</text>
+      <text x="690" y="114" text-anchor="middle" font-size="12" fill="#93453A">加入小劑量左旋多巴</text>
+      <text x="690" y="132" text-anchor="middle" font-size="10.5" fill="#93453A" font-family="IBM Plex Mono">如100mg tid，避免同時起始COMT</text>
+
+      <line x1="810" y1="110" x2="860" y2="110" stroke="#5B3E7D" stroke-width="2" marker-end="url(#arrow2)"/>
+
+      <rect x="860" y="70" width="200" height="80" rx="12" fill="#3A2856"/>
+      <text x="960" y="94" text-anchor="middle" font-size="13" fill="#fff">④ 出現異動</text>
+      <text x="960" y="114" text-anchor="middle" font-size="11.5" fill="#EFDFC0">先減停MAO-B/COMT</text>
+      <text x="960" y="132" text-anchor="middle" font-size="11.5" fill="#EFDFC0">必要時加金剛烷胺</text>
+
+      <text x="540" y="195" text-anchor="middle" font-size="11" fill="#87809A" font-family="IBM Plex Mono">全程須常規以 QUIP 量表篩查衝動控制障礙、Epworth 量表監測嗜睡；普拉克索兼具抗憂鬱實證，可覆蓋 YOPD 高憂鬱風險</text>
+    </svg>
+  </div>
+
+  <div class="callout" style="margin-top:1.2rem;">
+    <b>量化權衡的關鍵時間點</b>
+    多巴胺促效劑起始帶來的異動延遲優勢，在 6–10 年後逐漸消失（6 年隨訪兩組 UPDRS 總分已無差異），而早期左旋多巴組 UPDRS 平均多改善約 5 分（恰為臨床最小重要差異 MCID）。因此 YOPD 的「最佳組合」本質上是在短中期療效與長期異動風險之間的量化取捨，須與病人共同決策。
+  </div>
+</section>
+
+<!-- ================= 07 非典型巴金森 ================= -->
+<section class="block" id="atypical">
+  <div class="section-label"><span class="section-num">07</span><h2>非典型巴金森綜合症的左旋多巴試驗與對症管理</h2></div>
+  <p class="section-desc">MSA、PSP、CBS、DLB 對多巴胺能藥物反應普遍較差、進展較快，治療目標轉為「有限獲益＋對症管理＋多專業團隊支持」。建議以固定劑量與期程進行左旋多巴試驗性治療，並以疾病專用量表客觀追蹤。</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>診斷</th><th>左旋多巴試驗</th><th>反應率／注意事項</th><th>對症藥物</th><th>追蹤量表</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>PSP</b><br>進行性核上性麻痺</td>
+          <td>300mg，每日 3–4 次，持續數月</td>
+          <td>Richardson 型多無反應；PSP-P 亞型可能部分獲益</td>
+          <td>金剛烷胺（步態／吞咽）；肉毒桿菌毒素（眼瞼痙攣、疼痛性肌張力障礙）；右美沙芬/奎尼丁（假性球麻痹）</td>
+          <td>PSPRS／PSP-CDS（約4分鐘完成，年進展約3.4分）</td>
+        </tr>
+        <tr>
+          <td><b>MSA-P</b><br>多系統萎縮</td>
+          <td>200–300mg，每日 3–4 次（總量可達1000–1200mg/日），3個月評估</td>
+          <td>約 1/3 初期有反應，常隨病程減弱；需警惕加重姿位性低血壓與口面部異動</td>
+          <td>Fludrocortisone／Midodrine／Droxidopa（姿位性低血壓，並注意卧位高血壓）</td>
+          <td>UMSARS（病史/運動/自主神經/整體殘疾四部分）</td>
+        </tr>
+        <tr>
+          <td><b>CBS</b><br>皮質基底節症候群</td>
+          <td>250–300mg，每日 3–4 次</td>
+          <td>多巴胺能治療罕有獲益，仍建議試驗性給藥評估強直反應</td>
+          <td>巴氯芬／肉毒桿菌毒素（痛性肌張力障礙）；左乙拉西坦/氯硝西泮（皮質性肌陣攣）</td>
+          <td>UPDRS III（作為粗略追蹤）</td>
+        </tr>
+        <tr>
+          <td><b>DLB</b><br>路易體失智症</td>
+          <td>低劑量起始，滴定觀察</td>
+          <td>可能誘發或加重幻覺與精神症狀；避免 DA、金剛烷胺與抗膽鹼藥</td>
+          <td>Rivastigmine（認知波動）；Quetiapine/Pimavanserin（精神病性症狀，避免典型抗精神病藥）</td>
+          <td>認知波動評估量表、UPDRS III</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= 08 情境模擬 ================= -->
+<section class="block" id="scenario">
+  <div class="section-label"><span class="section-num">08</span><h2>臨床情境模擬</h2></div>
+  <p class="section-desc">點選右方病例分頁，逐步展開每一步的量化決策依據。設計用於教學情境中引導學員思考「為什麼」而非僅記憶「怎麼做」。</p>
+
+  <div class="scenario-tabs" id="scenarioTabs">
+    <div class="scenario-tab active" data-target="s1">病例 A · 典型晚發型 PD</div>
+    <div class="scenario-tab" data-target="s2">病例 B · YOPD</div>
+    <div class="scenario-tab" data-target="s3">病例 C · 高齡＋認知風險</div>
+    <div class="scenario-tab" data-target="s4">病例 D · 進展期運動波動</div>
+    <div class="scenario-tab" data-target="s5">病例 E · 疑似 MSA</div>
+  </div>
+
+  <!-- S1 -->
+  <div class="scenario-panel active" id="s1">
+    <div class="scenario-vignette"><b>病史：</b>68 歲男性，退休教師，右手靜止性顫抖與動作遲緩三個月，UPDRS III 約 15 分，HY 1 期，無認知障礙，無心血管疾病史。</div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">1</div><div class="step-title">是否符合多巴胺促效劑禁忌？</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>年齡 68 歲、無 ICD 病史、無認知障礙、無日間嗜睡或幻覺，未達 AAN 2021 建議禁用多巴胺促效劑之條件，故理論上兩種路徑皆可考慮。</p><span class="ev">AAN 2021 · B級禁忌條件</span></div>
+    </div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">2</div><div class="step-title">左旋多巴 vs 多巴胺促效劑，如何量化比較？</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>左旋多巴 2 年 UPDRS III 改善多約 5.0 分（優於 DA），但 2 年異動症風險差 18.7%。以此病人的年齡與職業需求（退休、無精細動作高需求）評估，異動風險的臨床衝擊相對較小，療效優先。</p><span class="ev">RMD −5.0 分 / RD 18.7%</span></div>
+    </div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">3</div><div class="step-title">決定治療方案</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>以即釋型左旋多巴起始，目標每日劑量 &lt;400mg，避免緩釋劑或三合一 LCE 起始（STRIDE-PD 顯示早期併用 COMT 反增加異動）。</p><span class="ev">B 級 · 最低有效劑量</span></div>
+    </div>
+    <div class="scenario-outcome"><b>教學結論：</b>此病人年齡與需求皆未觸發 DA 禁忌，但因左旋多巴的療效優勢明確、且異動風險的臨床衝擊對此病人相對可接受，故選擇即釋型左旋多巴低劑量起始，為多數早期典型 PD 患者的預設路徑。</div>
+  </div>
+
+  <!-- S2 -->
+  <div class="scenario-panel" id="s2">
+    <div class="scenario-vignette"><b>病史：</b>32 歲女性，工程師，左手輕微顫抖與書寫變小半年，UPDRS III 約 8 分，無認知障礙，主訴擔心長期服藥後出現不自主動作，同時有輕度情緒低落。</div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">1</div><div class="step-title">YOPD 的異動風險與典型 PD 有何不同？</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>YOPD 病程進展較慢，但左旋多巴誘發異動出現更早更頻繁，起病 &lt;40 歲者 5 年異動發生率可達 &gt;90%，因此對此族群應採「個體化較高閾值」才加左旋多巴，比一般患者更保守。</p><span class="ev">5年異動發生率 &gt;90%（起病&lt;40歲）</span></div>
+    </div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">2</div><div class="step-title">起始藥物選擇</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>症狀輕微，以 MAO-B 抑制劑起始（司來吉蘭或雷沙吉蘭），療效溫和但可推遲左旋多巴需求，且副作用相對輕微，適合年輕、無認知風險族群。</p><span class="ev">階梯式 Step①</span></div>
+    </div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">3</div><div class="step-title">如何一併處理情緒低落？</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>YOPD 憂鬱盛行率較高。若後續療效不足需升階至非麥角多巴胺促效劑（如普拉克索），其本身具實證支持的抗憂鬱效果，可視為「一藥兩用」的選項，同時需以 QUIP 量表監測衝動控制障礙。</p><span class="ev">普拉克索抗憂鬱實證</span></div>
+    </div>
+    <div class="scenario-outcome"><b>教學結論：</b>YOPD 採 MAO-B 抑制劑 → 非麥角 DA → 小劑量左旋多巴的階梯式路徑，並將情緒與 ICD 篩查貫穿全程，而非等到症狀出現才被動處理。</div>
+  </div>
+
+  <!-- S3 -->
+  <div class="scenario-panel" id="s3">
+    <div class="scenario-vignette"><b>病史：</b>76 歲男性，合併輕度認知功能障礙、近半年兩次跌倒、夜間睡眠品質差伴日間嗜睡，家屬主訴近期偶有視幻覺，新診斷 PD，UPDRS III 約 22 分。</div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">1</div><div class="step-title">此病人是否符合 DA 禁忌？</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>年齡 &gt;70 歲、有認知障礙、日間嗜睡與已出現幻覺，四項禁忌條件中已符合三項，依 AAN 2021 B 級建議不應處方多巴胺促效劑。</p><span class="ev">AAN 2021 · B級 · 4項禁忌中符合3項</span></div>
+    </div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">2</div><div class="step-title">幻覺是否需要立即處理？</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>需先釐清是否為 DLB 重疊表現（跌倒、認知波動、幻覺三症狀組合為 DLB 警訊）。若確為 PD 相關精神病性症狀，優先考慮減量多巴胺能藥物，必要時使用 Pimavanserin 或低劑量 Quetiapine，避免典型抗精神病藥物。</p><span class="ev">DLB鑑別診斷提示</span></div>
+    </div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">3</div><div class="step-title">起始治療與監測</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>以低劑量即釋型左旋多巴起始並緩慢滴定，避免金剛烷胺與抗膽鹼藥物（可能加重認知障礙與幻覺）；同時處理跌倒風險（步態評估、居家環境調整）。</p><span class="ev">避免抗膽鹼藥／金剛烷胺</span></div>
+    </div>
+    <div class="scenario-outcome"><b>教學結論：</b>高齡＋認知＋幻覺的組合是 DA 的明確禁忌情境，也是 DLB 重疊的警訊；治療應以最低劑量左旋多巴為主，優先處理跌倒與精神行為症狀的安全性，而非追求運動症狀的最大改善。</div>
+  </div>
+
+  <!-- S4 -->
+  <div class="scenario-panel" id="s4">
+    <div class="scenario-vignette"><b>病史：</b>62 歲女性，PD 病程 8 年，近半年出現明顯劑末現象（每次藥效約維持 2.5 小時）與「開」期異動，UPDRS III 惡化至 32 分，服用左旋多巴／卡比多巴每日 4 次。</div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">1</div><div class="step-title">如何量化目前的用藥強度？</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>先計算左旋多巴等效劑量（LED），作為與後續調整方案比較的共同基準；同時以 UPDRS II＋III 追蹤功能變化，MCID 為 3 分。若後續調整使每日左旋多巴總量超過 1,000mg，依 2026 年 3 月 FDA 最新安全性通告，須將維生素 B6 濃度監測納入常規追蹤，以預防 B6 缺乏相關癲癇發作。</p><span class="ev">見下方 LED 換算工具 · B6監測提醒（近一年內）</span></div>
+    </div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">2</div><div class="step-title">劑末現象的優先處理方向</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>加入長效 COMT 抑制劑（奧匹卡朋，一天一次）以延長血中左旋多巴濃度、減少劑末波動；亦可加入 MAO-B 抑制劑增加「開」期，兩者機轉互補，可低劑量合併而非單獨大幅提高左旋多巴劑量。</p><span class="ev">COMT／MAO-B 機轉互補</span></div>
+    </div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">3</div><div class="step-title">若合併「開」期異動如何處理？</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>加入緩釋型金剛烷胺（睡前給藥）為唯一具明確實證改善異動症的藥物；若 OFF 時間仍控制不佳，可評估皮下輸注 foscarbidopa/foslevodopa（Vyalev）或腸道凝胶（LCIG）等連續多巴胺能給藥方案。</p><span class="ev">Vyalev：ON time 增加約1.75–2.72小時</span></div>
+    </div>
+    <div class="scenario-outcome"><b>教學結論：</b>進展期運動波動的處理原則是「機轉互補、低劑量合併」，而非單純提高左旋多巴劑量；當口服多重合併仍無法控制時，連續多巴胺能給藥（皮下輸注／腸道凝胶）是量化證據支持的下一步選項。</div>
+  </div>
+
+  <!-- S5 -->
+  <div class="scenario-panel" id="s5">
+    <div class="scenario-vignette"><b>病史：</b>58 歲男性，病程 3 年、症狀快速進展，合併明顯姿位性低血壓（起身收縮壓下降 &gt;30mmHg）、小腦性步態不穩，對左旋多巴治療反應不佳，UPDRS III 約 38 分。</div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">1</div><div class="step-title">臨床警訊提示什麼診斷？</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>快速進展、早期明顯自主神經功能障礙（姿位性低血壓）合併小腦徵象，屬非典型巴金森綜合症的警訊組合，最可能診斷為 MSA-P（多系統萎縮，帕金森型）。</p><span class="ev">紅旗徵象：早期自主神經障礙+小腦徵象</span></div>
+    </div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">2</div><div class="step-title">如何進行左旋多巴試驗性治療？</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>給予左旋多巴 200–300mg，每日 3–4 次（總量可達 1000–1200mg/日），持續 3 個月後評估反應；約 1/3 患者初期有部分反應，但常隨病程減弱。</p><span class="ev">3個月試驗期 · UMSARS追蹤</span></div>
+    </div>
+    <div class="step">
+      <div class="step-head"><div class="step-num">3</div><div class="step-title">姿位性低血壓如何與治療目標平衡？</div><div class="step-toggle">展開 ▾</div></div>
+      <div class="step-body"><p>左旋多巴可能加重姿位性低血壓，需同時處理：Fludrocortisone、Midodrine 或 Droxidopa，並注意藥物可能引發的卧位高血壓；建議與 UMSARS 量表（含自主神經檢查部分）客觀追蹤病程。</p><span class="ev">UMSARS 內部一致性 α=0.84–0.90</span></div>
+    </div>
+    <div class="scenario-outcome"><b>教學結論：</b>快速進展合併早期自主神經障礙是轉介次專科與考慮非典型巴金森綜合症的關鍵時機；治療重心從「追求運動症狀最大改善」轉為「有限左旋多巴試驗＋對症支持＋量表化監測進展」。</div>
+  </div>
+</section>
+
+<!-- ================= 09 LED 工具 ================= -->
+<section class="block" id="led">
+  <div class="section-label"><span class="section-num">09</span><h2>左旋多巴等效劑量（LED）換算工具</h2></div>
+  <p class="section-desc">將不同機轉藥物的每日劑量，依 Tomlinson 等（2010）系統性回顧提出之群體層級換算係數，折算為單一左旋多巴等效劑量數值，用於比較不同聯合方案之劑量強度。此數值為試驗群體層級的共識近似值，不宜用於個體精確換算。</p>
+
+  <div class="led-tool">
+    <div class="led-grid">
+      <div class="led-row"><label>即釋型左旋多巴（mg/日）</label><input type="number" id="ld1" value="0" min="0"></div>
+      <div class="led-row"><label>緩釋型左旋多巴（mg/日，×0.75）</label><input type="number" id="ld2" value="0" min="0"></div>
+      <div class="led-row"><label>普拉克索（mg/日，×100/1）</label><input type="number" id="ld3" value="0" min="0" step="0.125"></div>
+      <div class="led-row"><label>羅匹尼羅（mg/日，×100/5）</label><input type="number" id="ld4" value="0" min="0"></div>
+      <div class="led-row"><label>羅替高汀貼片（mg/日，×100/3.3）</label><input type="number" id="ld5" value="0" min="0"></div>
+      <div class="led-row"><label>雷沙吉蘭／司來吉蘭（mg/日，×100/1或100/10）</label><input type="number" id="ld6" value="0" min="0"></div>
+      <div class="led-row"><label>金剛烷胺（mg/日，×100/100）</label><input type="number" id="ld7" value="0" min="0"></div>
+      <div class="led-row"><label>恩他卡朋（併用時：左旋多巴總量×0.33 加成）</label><input type="number" id="ld8" value="0" min="0"></div>
+    </div>
+    <div class="led-total">
+      <span>估算每日左旋多巴等效劑量（LED）</span>
+      <b><span id="ledResult">0</span> <span style="font-size:.9rem;">mg/day</span></b>
+    </div>
+    <p class="led-note">換算係數依 Tomlinson CL, et al. Movement Disorders. 2010;25(15):2649–2653（節錄常用藥物，MAO-B 抑制劑欄位請依所選藥物分別以雷沙吉蘭×100或司來吉蘭×10計算後輸入原始劑量）。此工具僅供教學情境示範，非臨床劑量調整依據。</p>
+  </div>
+</section>
+
+<div class="divider">
+  <svg viewBox="0 0 1180 22" preserveAspectRatio="none"><path d="M0 11 Q30 2 60 11 T120 11 T180 11 T240 11 T300 11 T360 11 T420 11 T480 11 T540 11 T600 11 T660 11 T720 11 T780 11 T840 11 T900 11 T960 11 T1020 11 T1080 11 T1140 11 T1180 11" fill="none" stroke="#5B3E7D" stroke-width="1.5"/></svg>
+</div>
+
+<!-- ================= 量化工具速查 ================= -->
+<section class="block" id="quant">
+  <div class="section-label"><span class="section-num">+</span><h2>決策量化工具速查表</h2></div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>工具</th><th>用途</th><th>關鍵數值</th></tr></thead>
+      <tbody>
+        <tr><td>UPDRS / MDS-UPDRS 最小臨床重要差異</td><td>判斷單次藥物調整是否具臨床意義</td><td>UPDRS III MCID = 3 分；異動風險 MCID = 15%；幻覺 MCID = 10%；ICD MCID = 2%</td></tr>
+        <tr><td>網絡統合分析（NMA）＋ SUCRA 排序</td><td>跨藥物療效與耐受性排名比較</td><td>110 RCT／24,864 例：左旋多巴、羅匹尼羅、羅替高汀於「療效＋耐受性」聚類最優</td></tr>
+        <tr><td>左旋多巴等效劑量（LED）</td><td>將複方方案壓縮為單一劑量強度數值</td><td>左旋多巴100mg = 普拉克索1mg = 羅匹尼羅5mg = 金剛烷胺100mg</td></tr>
+        <tr><td>UMSARS</td><td>MSA 治療試驗主要結局</td><td>內部一致性 α=0.84–0.90；與 UPDRS III 相關性 rs&gt;0.8</td></tr>
+        <tr><td>PSPRS／PSP-CDS</td><td>PSP 疾病進展客觀追蹤</td><td>完成約需4分鐘；年進展約3.4分；與PSPRS相關性R=0.88</td></tr>
+        <tr><td>QUIP／Epworth 嗜睡量表</td><td>多巴胺促效劑安全性監測</td><td>ESS&gt;10 提示日間嗜睡需介入</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= 參考文獻 ================= -->
+<section class="block" id="refs">
+  <div class="section-label"><span class="section-num">Ref</span><h2>參考文獻</h2></div>
+  <ol class="refs">
+    <li>Stocchi F, Vacca L, Radicati FG. How to optimize the treatment of early stage Parkinson's disease. <i>Transl Neurodegener.</i> 2015;4(1). doi:10.1186/2047-9158-4-4</li>
+    <li>Lees A, et al. Optimizing levodopa therapy, when and how? <i>Expert Rev Neurother.</i> 2023;23(1):15–24. doi:10.1080/14737175.2023.2176220</li>
+    <li>Pringsheim T, et al. Dopaminergic Therapy for Motor Symptoms in Early Parkinson Disease Practice Guideline Summary. <i>Neurology.</i> 2021;97(20):942–957. doi:10.1212/wnl.0000000000012868</li>
+    <li>Zhuo C, et al. Comparison for Efficacy and Tolerability among Ten Drugs for Treatment of Parkinson's Disease: A Network Meta-Analysis. <i>Sci Rep.</i> 2017;7(1). doi:10.1038/srep45865</li>
+    <li>Thorlund K, et al. Nonergot dopamine-receptor agonists for treating Parkinson's disease – a network meta-analysis. <i>Neuropsychiatr Dis Treat.</i> 2014:767. doi:10.2147/ndt.s60061</li>
+    <li>Kostić VS. Treatment of young-onset Parkinson's disease: role of dopamine receptor agonists. <i>Parkinsonism Relat Disord.</i> 2009;15:S71–S75. doi:10.1016/s1353-8020(09)70839-9</li>
+    <li>Mizuno Y. An Update on the Management of Juvenile and Young-Onset Parkinson's Disease. <i>Future Neurol.</i> 2012;7(5):581–593. doi:10.2217/fnl.12.59</li>
+    <li>Hess C, McFarland N. Recognizing Atypical Parkinsonisms: "Red Flags" and Therapeutic Approaches. <i>Semin Neurol.</i> 2017;37(02):215–227. doi:10.1055/s-0037-1602422</li>
+    <li>Greene P. Progressive Supranuclear Palsy, Corticobasal Degeneration, and Multiple System Atrophy. <i>Continuum.</i> 2019;25(4):919–935. doi:10.1212/con.0000000000000751</li>
+    <li>Tomlinson CL, et al. Systematic review of levodopa dose equivalency reporting in Parkinson's disease. <i>Mov Disord.</i> 2010;25(15):2649–2653. doi:10.1002/mds.23429</li>
+    <li>Cochrane Movement Disorders Group. Monoamine oxidase B inhibitors versus other dopaminergic agents in early Parkinson's disease. <i>Cochrane Database Syst Rev.</i> 2009. doi:10.1002/14651858.cd006661.pub2</li>
+    <li>Wenning GK, et al. Development and validation of the Unified Multiple System Atrophy Rating Scale (UMSARS). <i>Mov Disord.</i> 2004;19(12):1391–1402. doi:10.1002/mds.20255</li>
+    <li>Piot I, et al. The Progressive Supranuclear Palsy Clinical Deficits Scale. <i>Mov Disord.</i> 2020;35(4):650–661. doi:10.1002/mds.27964</li>
+    <li>AbbVie/FDA. VYALEV™ (foscarbidopa and foslevodopa) FDA approval announcement. Oct 17, 2024.</li>
+    <li>Soileau MJ, et al. Safety and efficacy of continuous subcutaneous foslevodopa-foscarbidopa in advanced Parkinson's disease: phase 3 trial. <i>Lancet Neurol.</i> 2022;21(12):1099–1109.</li>
+    <li>AbbVie. NDA submission for tavapadon (TEMPO-1/2/3 program). Sept 26, 2025.</li>
+    <li>Isaacson SH, et al. Emerging Clinical Role of Tavapadon in Parkinson's Disease. <i>Diseases.</i> 2025;13(9).</li>
+    <li>Pharma Two B. P2B001 Phase 3 trial (NCT03329508): pramipexole/rasagiline fixed low-dose combination.</li>
+    <li>Chen JJ, Swope DM, Dashtipour K. Istradefylline: a novel adenosine A2A receptor antagonist for Parkinson's disease. <i>Purinergic Signal.</i> 2020 review of FDA approval.</li>
+    <li>Elmer L. GOCOVRI (amantadine ER): NMDA receptor antagonist for levodopa-induced dyskinesia. FDA approval 2017; mechanism review 2022.</li>
+    <li>台大醫院健康教育中心。〈巴金森氏症治療新進展〉：Opicapone／Safinamide 台灣健保給付條件說明。</li>
+    <li>U.S. FDA. FDA Is Requiring Warning about Vitamin B6 Deficiency and Associated Seizures for Drug Products Containing Carbidopa/Levodopa. Drug Safety Communication. 2026-03-20.（近一年內）</li>
+    <li>Amneal Pharmaceuticals. FDA Approval for IPX203 (CREXONT®, carbidopa/levodopa extended-release capsules), based on Phase 3 RISE-PD trial. Aug 7, 2024.</li>
+  </ol>
+  <p style="font-size:.76rem;color:var(--ink-faint);margin-top:1.2rem;">標示「近一年內」之項目為 2025年8月至2026年8月間發布之資訊，其餘藥物核准時程與試驗數據之發布時間請對照各卡片與文獻列表；因藥品審查與健保給付狀態持續變動，臨床使用前請以當下最新仿單與健保用藥規定為準。</p>
+</section>
+
+<script>
+// scenario tabs
+document.querySelectorAll('.scenario-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.scenario-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.scenario-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.target).classList.add('active');
+  });
+});
+// step accordions
+document.querySelectorAll('.step-head').forEach(head=>{
+  head.addEventListener('click',()=>{
+    const body = head.nextElementSibling;
+    const toggle = head.querySelector('.step-toggle');
+    const open = body.classList.toggle('open');
+    toggle.textContent = open ? '收合 ▴' : '展開 ▾';
+  });
+});
+// LED calculator
+function calcLED(){
+  const v = id => parseFloat(document.getElementById(id).value)||0;
+  const total =
+    v('ld1') +
+    v('ld2')*0.75 +
+    v('ld3')*100 +
+    v('ld4')*20 +
+    v('ld5')*30.3 +
+    v('ld6')*100 +
+    v('ld7')*1 +
+    v('ld8')*0.33;
+  document.getElementById('ledResult').textContent = Math.round(total).toLocaleString('en-US');
+}
+document.querySelectorAll('.led-row input').forEach(inp=>inp.addEventListener('input',calcLED));
+calcLED();
+</script>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>肌無力危象治療流程 | 實證更新版</title>
+<style>
+:root{
+  --bg:#0b0f14;
+  --bg-panel:#121820;
+  --bg-card:#161d27;
+  --border:#232c38;
+  --text:#dbe2eb;
+  --text-dim:#8a97a8;
+  --amber:#f0a952;
+  --amber-dim:#c98a3d;
+  --teal:#4fb8ac;
+  --teal-dim:#3a8f86;
+  --red:#e2685f;
+  --green:#6fbf7f;
+  --radius:10px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;
+  line-height:1.75;
+  font-size:16px;
+}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
+
+/* ---- top nav ---- */
+nav.topnav{
+  position:sticky;top:54px;z-index:50;
+  background:rgba(11,15,20,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+nav.topnav .navrow{
+  max-width:900px;margin:0 auto;padding:10px 20px;
+  display:flex;gap:6px;overflow-x:auto;white-space:nowrap;
+  scrollbar-width:thin;
+}
+nav.topnav a{
+  color:var(--text-dim);text-decoration:none;font-size:13px;
+  padding:6px 12px;border-radius:20px;border:1px solid transparent;
+  transition:all .2s;
+}
+nav.topnav a:hover, nav.topnav a:focus-visible{
+  color:var(--amber);border-color:var(--amber-dim);background:rgba(240,169,82,0.08);
+}
+
+/* ---- header ---- */
+header.hero{padding:56px 0 32px;border-bottom:1px solid var(--border);}
+.eyebrow{
+  color:var(--teal);font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:600;margin-bottom:14px;
+}
+h1{
+  font-size:clamp(28px,4.2vw,38px);margin:0 0 12px;font-weight:800;
+  color:#fff;letter-spacing:-.01em;
+}
+.subtitle{color:var(--text-dim);font-size:16px;max-width:640px;margin:0;}
+.meta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
+.tag{
+  font-size:12.5px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);
+  color:var(--text-dim);background:var(--bg-panel);
+}
+.tag.upd{border-color:var(--amber-dim);color:var(--amber);}
+
+/* ---- evidence banner ---- */
+.evidence-box{
+  margin:32px 0;background:var(--bg-panel);border:1px solid var(--border);
+  border-left:3px solid var(--amber);border-radius:var(--radius);padding:22px 24px;
+}
+.evidence-box h2{margin:0 0 12px;font-size:17px;color:var(--amber);font-weight:700;}
+.evidence-box p{margin:0 0 10px;color:var(--text);font-size:14.5px;}
+.evidence-box ul{margin:10px 0 0;padding-left:20px;font-size:14.5px;color:var(--text);}
+.evidence-box li{margin-bottom:8px;}
+.evidence-box li::marker{color:var(--amber);}
+
+section{padding:44px 0;border-bottom:1px solid var(--border);}
+section:last-of-type{border-bottom:none;}
+
+.stage-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;}
+.stage-num{
+  font-size:13px;font-weight:700;color:var(--bg);background:var(--teal);
+  padding:3px 10px;border-radius:6px;letter-spacing:.04em;flex-shrink:0;
+}
+.stage-time{color:var(--text-dim);font-size:13.5px;}
+h2.stage-title{font-size:23px;margin:6px 0 18px;color:#fff;font-weight:700;}
+h3{font-size:17px;color:var(--amber);margin:26px 0 10px;font-weight:700;}
+p{color:var(--text);margin:0 0 14px;}
+ul,ol{padding-left:22px;color:var(--text);}
+li{margin-bottom:8px;}
+
+/* evidence grade chips inline */
+.grade{
+  display:inline-block;font-size:11.5px;font-weight:700;padding:1px 7px;
+  border-radius:5px;margin-left:6px;vertical-align:middle;
+}
+.grade.A{background:rgba(111,191,127,0.15);color:var(--green);border:1px solid rgba(111,191,127,0.4);}
+.grade.B{background:rgba(240,169,82,0.15);color:var(--amber);border:1px solid rgba(240,169,82,0.4);}
+.grade.C{background:rgba(226,104,95,0.12);color:var(--red);border:1px solid rgba(226,104,95,0.4);}
+.grade.NEW{background:rgba(79,184,172,0.15);color:var(--teal);border:1px solid rgba(79,184,172,0.4);}
+
+.callout{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px 20px;margin:18px 0;
+}
+.callout.warn{border-left:3px solid var(--red);}
+.callout.update{border-left:3px solid var(--teal);}
+.callout.tip{border-left:3px solid var(--amber-dim);}
+.callout h4{margin:0 0 8px;font-size:14.5px;color:#fff;font-weight:700;}
+.callout p{margin:0;font-size:14.5px;color:var(--text-dim);}
+
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px;}
+th,td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;}
+th{color:var(--amber);font-weight:700;font-size:13px;background:var(--bg-panel);}
+td{color:var(--text-dim);}
+td strong{color:var(--text);}
+
+.flow{display:flex;flex-direction:column;gap:0;margin:20px 0;}
+.flow-step{
+  display:flex;gap:16px;position:relative;padding-bottom:26px;
+}
+.flow-step:last-child{padding-bottom:0;}
+.flow-line{
+  display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:28px;
+}
+.flow-dot{
+  width:12px;height:12px;border-radius:50%;background:var(--teal);
+  border:2px solid var(--bg);box-shadow:0 0 0 2px var(--teal);margin-top:4px;
+}
+.flow-track{flex:1;width:2px;background:var(--border);margin-top:4px;}
+.flow-step:last-child .flow-track{display:none;}
+.flow-body{flex:1;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;}
+.flow-body h5{margin:0 0 6px;color:#fff;font-size:14.5px;font-weight:700;}
+.flow-body p{margin:0;font-size:13.5px;color:var(--text-dim);}
+
+.pill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:16px 0;}
+.pill{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:8px;
+  padding:12px 14px;font-size:13.5px;
+}
+.pill .k{color:var(--teal);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:4px;}
+.pill .v{color:var(--text);}
+
+.refbox{margin-top:6px;}
+.refbox ol{font-size:13px;color:var(--text-dim);padding-left:20px;}
+.refbox li{margin-bottom:10px;}
+.refbox a{color:var(--teal);text-decoration:none;}
+.refbox a:hover{text-decoration:underline;}
+.refbox .newtag{
+  display:inline-block;font-size:10.5px;font-weight:700;color:var(--bg);
+  background:var(--teal);padding:1px 6px;border-radius:4px;margin-left:6px;
+}
+
+.summary-table-wrap{overflow-x:auto;}
+
+footer{padding:30px 0 60px;color:var(--text-dim);font-size:12.5px;text-align:center;}
+
+@media (max-width:600px){
+  header.hero{padding:40px 0 24px;}
+  section{padding:32px 0;}
+  .stage-head{flex-wrap:wrap;}
+}
+.n-teaching-nav {
+  position: sticky; top: 0; z-index: 999;
+  background: rgba(13,17,23,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  padding: 0 28px; height: 54px;
+  display: flex; align-items: center; gap: 4px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.n-teaching-nav .logo {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px; font-weight: 700;
+  color: #58a6ff; text-decoration: none;
+  margin-right: 24px; white-space: nowrap;
+}
+.n-teaching-nav a.link {
+  color: #8b949e; text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  padding: 6px 13px; border-radius: 6px;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+.n-teaching-nav a.link:hover { color: #e6edf3; background: #1c2128; }
+</style>
+</head>
+<body>
+
+<nav class="n-teaching-nav">
+  <a class="logo" href="index.html">⬡ HCH-FYH Neurology</a>
+  <a class="link" href="index.html">← 返回首頁</a>
+</nav>
+
+<nav class="topnav">
+  <div class="navrow">
+    <a href="#evidence">實證更新摘要</a>
+    <a href="#s1">第一階段・急性期</a>
+    <a href="#s2">第二階段・免疫調整</a>
+    <a href="#s3">第三階段・類固醇</a>
+    <a href="#s4">第四階段・長期免疫抑制</a>
+    <a href="#s5">第五階段・復健</a>
+    <a href="#s6">第六階段・撤機拔管</a>
+    <a href="#summary">總覽表</a>
+    <a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">神經科教學研究部 · Neurology Teaching Module</div>
+    <h1>肌無力危象治療流程<br>按時間線的綜合管理（2026 實證更新版）</h1>
+    <p class="subtitle">依近五年（2021–2026）神經學與神經肌肉重症文獻重新校訂，並標示各項處置的實證等級與近期變動之處，方便住院醫師與護理團隊於臨床情境中快速查閱。</p>
+    <div class="meta-row">
+      <span class="tag">重症肌無力 Myasthenia Gravis</span>
+      <span class="tag">神經加護 Neuro-ICU</span>
+      <span class="tag upd">2026 更新：FcRn 拮抗劑 / 補體抑制劑</span>
+      <span class="tag upd">2026 更新：呼吸監測指標修訂</span>
+    </div>
+  </header>
+
+  <section id="evidence">
+    <div class="evidence-box">
+      <h2>📋 本次實證重新評估摘要</h2>
+      <p>原始資料多引用 1999–2011 年間文獻（Mahalati 1999、Chaudhuri 2008、Jani-Acsadi 2007 等），部分處置原則已隨後續研究修訂。以下為對照近五年文獻後的主要變動：</p>
+      <ul>
+        <li><strong>核心綜述更新：</strong>建議以 Claytor, Cho, Li 於 <em>Muscle &amp; Nerve</em>（2023）發表之當代綜述作為主要參考骨幹，取代較舊的 2007–2008 年綜述作為第一線依據，其餘舊文獻仍具歷史與方法學參考價值，予以保留並標註年代。</li>
+        <li><strong>呼吸監測指標修訂：</strong>「20/30/40 法則」中的 NIF 閾值在新版文獻中已放寬至 −40 cmH₂O（非原先的 −20 cmH₂O），且新增「MEP 下降 30% 為需要呼吸支持之高風險指標」之細節，較單看 VC 更敏感。詳見第一階段。</li>
+        <li><strong>膽鹼激導性危象鑑別已簡化：</strong>由於膽鹼激導性危象在當代病例系列中極為罕見，最新文獻已指出透過 edrophonium／neostigmine 測試進行鑑別「已非必要」，此點應更新於臨床教學中。</li>
+        <li><strong>新增救援治療選項（實證等級 C，尚待前瞻性驗證）：</strong>FcRn 拮抗劑（efgartigimod）與補體 C5 抑制劑（eculizumab、ravulizumab）於難治型/AChR 抗體陽性肌無力危象中作為附加治療（add-on）的病例報告與初步對照研究陸續發表，其中一項 2026 年單中心前瞻性隨機研究顯示 efgartigimod 於「即將發生之危象」（impending crisis）中達到與 IVIg 相當的緩解率，但起效時間顯著較快（中位數 8 天 vs. 12 天）。此類藥物目前尚未列入標準第一線流程，僅建議作為難治性病例之附加/救援選項，詳見第二階段末段說明。</li>
+        <li><strong>維持不變的核心實證：</strong>PE、DFPP、IA、IVIg 的相對療效比較、類固醇啟動時機與「類固醇誘發惡化」現象、長期免疫抑制劑（AZA、MMF、他克莫司、rituximab）選擇原則、胸腺切除術適應症，以及呼吸/肢體復健的實證基礎，經比對近期文獻後大致維持原結論，僅於用詞與部分數據上做校正。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s1">
+    <div class="stage-head">
+      <span class="stage-num">STAGE 1</span>
+      <span class="stage-time">第 0–48 小時</span>
+    </div>
+    <h2 class="stage-title">急性期：呼吸支持與危象識別</h2>
+
+    <h3>呼吸功能評估與氣道管理 <span class="grade B">實證等級 B</span></h3>
+    <p>患者應立即收入神經重症監護病房，並每 4–6 小時進行床邊肺功能監測。傳統教學使用的「20/30/40 法則」在近期綜述中已有微調，建議以下列組合作為判斷依據：</p>
+
+    <div class="pill-grid">
+      <div class="pill"><span class="k">VC 用力肺活量</span><span class="v">&lt; 20 mL/kg 為高風險；&gt; 20 mL/kg 為低風險</span></div>
+      <div class="pill"><span class="k">NIF 最大吸氣壓</span><span class="v">優於 −40 cmH₂O 為低風險（舊版教材常用 −20，新版文獻建議以 −40 為界較穩妥）</span></div>
+      <div class="pill"><span class="k">MEP 最大呼氣壓</span><span class="v">&gt; 40 cmH₂O 為低風險；<strong>下降達基礎值 30%</strong> 是需要呼吸支持的高敏感度警訊</span></div>
+    </div>
+
+    <div class="callout update">
+      <h4>🔄 實證更新：MEP 較 VC 更敏感</h4>
+      <p>2023 年 <em>Muscle &amp; Nerve</em> 綜述指出，NIF 與 MEP 可能比單看 VC 更能反映呼吸肌力的早期變化，尤其 MEP 下降 30% 對於是否需要非侵襲性或有創呼吸支持具有較高的預測敏感度。建議教學時將 MEP 趨勢變化納入常規床邊評估，而非僅依賴單次 VC 數值。</p>
+    </div>
+
+    <p>非侵襲性通氣（NIV）可作為部分患者的初始選擇，血清碳酸氫根 &lt; 30 mmol/L 及 APACHE II 評分 &lt; 6 為 NIV 成功之預測因子。但若患者存在嚴重球部症狀或意識障礙，仍應果斷進行氣管插管。應避免使用非去極化型神經肌肉阻斷劑，因其在 MG 患者中作用可能增強。</p>
+
+    <h3>誘發因素識別 <span class="grade A">實證等級 A</span></h3>
+    <p>約 70% 的肌無力危象由感染（尤其細菌性肺炎、上呼吸道感染）誘發，其他誘因包括手術、懷孕、特定藥物（胺基糖苷類、氟喹諾酮類、β 受體阻斷劑、鈣通道拮抗劑、鎂劑）、類固醇啟動初期的短暫惡化等。約 30–50% 患者找不到明確誘因。</p>
+
+    <h3>膽鹼酯酶抑制劑的調整與鑑別診斷簡化</h3>
+    <p>急性期通常建議減量或暫停吡啶斯的明（pyridostigmine），因其吸收於危象期不穩定、可能增加呼吸道分泌物，過量則可能導致膽鹼激導性危象。</p>
+
+    <div class="callout warn">
+      <h4>⚠️ 教學重點更新：不再需要 edrophonium／neostigmine 鑑別測試</h4>
+      <p>由於膽鹼激導性危象在當代病例系列中已屬罕見，最新文獻明確指出，透過藥物激發測試來鑑別肌無力危象與膽鹼激導性危象「已非必要」。臨床上應以病史（是否近期增加抗膽鹼酯酶藥物劑量）與伴隨症狀（瞳孔縮小、腸絞痛、大量分泌物等毒蕈鹼樣症狀）作為判斷依據即可，避免不必要的藥物激發測試風險。</p>
+    </div>
+  </section>
+
+  <section id="s2">
+    <div class="stage-head">
+      <span class="stage-num">STAGE 2</span>
+      <span class="stage-time">第 1–14 天</span>
+    </div>
+    <h2 class="stage-title">急性免疫調整治療：快速清除致病抗體</h2>
+    <p>此階段的核心目標是加速清除或中和循環中的致病性自身抗體（AChR、MuSK 等），治療選擇仍以血漿置換（PE）與靜脈注射免疫球蛋白（IVIg）為主軸，DFPP 與免疫吸附（IA）為地區性替代方案。</p>
+
+    <h3>血漿置換（PE） <span class="grade A">實證等級 A</span></h3>
+    <table>
+      <tr><th>項目</th><th>內容</th></tr>
+      <tr><td>療程</td><td>標準 5–6 次，隔日進行，每次處理 2–4 L 血漿（約 1 個血漿體積）</td></tr>
+      <tr><td>置換液</td><td>5% 人白蛋白加晶體液為主，極少情況使用新鮮冰凍血漿</td></tr>
+      <tr><td>起效時間</td><td>首次治療後約 2 天即可觀察到臨床改善</td></tr>
+      <tr><td>療效證據</td><td>Mahalati 等人回顧 36 例（32 例危象），13 例插管患者全數成功拔管，無急性期死亡</td></tr>
+    </table>
+
+    <h3>雙重過濾血漿分離（DFPP） <span class="grade B">實證等級 B</span></h3>
+    <p>利用兩層濾器選擇性去除大分子 IgG，不需外源置換液，過敏與感染風險較低。標準療程 3–5 次，隔日進行。台灣相關病例系列顯示約 60% 患者對 DFPP 反應良好；胸腺瘤病史、發病至首次危象間隔較短、較高基礎血清碳酸氫鹽為插管時間延長之獨立預測因子。</p>
+
+    <h3>免疫吸附（IA） <span class="grade A">實證等級 A（RCT）</span></h3>
+    <p>Köhler 等人的隨機對照試驗顯示，PE 與 IA 的臨床改善程度相當，但 IA 組不良事件顯著較少（11 vs. 23，p &lt; 0.05）。此為本領域少數頭對頭 RCT 證據，可信度較高，惟樣本數（n=19）仍偏小。</p>
+
+    <h3>靜脈注射免疫球蛋白（IVIg） <span class="grade A">實證等級 A</span></h3>
+    <p>標準劑量 0.4 g/kg/天，連續 5 天。起效時間約 4–5 天，較 PE 稍慢，但適用於血管通路困難或血流動力學不穩定患者。回顧性研究顯示 PE 於 2 週呼吸狀態與 1 個月功能預後方面可能優於 IVIg，惟 PE 併發症（感染、心血管不穩定）亦較多，實際選擇仍需依機構經驗與患者條件個別化。</p>
+
+    <div class="callout tip">
+      <h4>💡 臨床決策要點</h4>
+      <p>PE、DFPP、IA、IVIg 目前尚無明確證據支持何者絕對優於其他選項，選擇應綜合考量：血管通路可行性、血流動力學穩定度、機構設備與人力、患者共病（如感染風險、腎功能）。</p>
+    </div>
+
+    <h3>新興救援治療：FcRn 拮抗劑與補體抑制劑 <span class="grade NEW">2026 新增内容</span> <span class="grade C">實證等級 C</span></h3>
+    <p>近三年隨著 FcRn 拮抗劑（efgartigimod）與補體 C5 抑制劑（eculizumab、ravulizumab）於一般型 AChR 抗體陽性 MG 的核准上市，陸續有病例報告與小型對照研究探討其於肌無力危象中作為附加/救援治療的角色：</p>
+    <ul>
+      <li><strong>Efgartigimod：</strong>透過競爭性抑制 IgG 與 FcRn 結合，加速致病性 IgG 降解。多篇病例報告顯示於 PE／IVIg 治療反應不佳之難治型危象中，加入 efgartigimod 後 24–48 小時內出現顯著臨床改善。2026 年一項單中心前瞻性隨機開放性試驗（n=38）針對「即將發生之危象」（impending myasthenic crisis）患者，顯示 efgartigimod 與 IVIg 的緩解率相當（90.5% vs. 94.1%，未達統計差異），但 efgartigimod 組達到緩解的中位時間顯著較短（8 天 vs. 12 天，p=0.009）。</li>
+      <li><strong>補體 C5 抑制劑（eculizumab、ravulizumab）：</strong>主要見於難治型、呼吸機依賴之 AChR 抗體陽性病例報告，顯示快速反應，但目前僅限個案系列與小型回顧，尚無足夠 RCT 證據支持常規使用。</li>
+    </ul>
+    <div class="callout warn">
+      <h4>⚠️ 定位提醒</h4>
+      <p>上述藥物「尚未」在任何國際共識指引中被列為肌無力危象的第一線標準治療，現階段證據仍以病例報告與單一小型前瞻性研究為主，適用對象也侷限於 AChR 抗體陽性、對傳統 PE/IVIg 反應不佳的難治性病例。教學時應明確標示此為「新興、尚待驗證」之附加選項，避免學員誤認為已具備第一線地位。</p>
+    </div>
+  </section>
+
+  <section id="s3">
+    <div class="stage-head">
+      <span class="stage-num">STAGE 3</span>
+      <span class="stage-time">第 1–4 週</span>
+    </div>
+    <h2 class="stage-title">糖皮質激素治療：橋接至長期免疫抑制</h2>
+
+    <h3>啟動時機與方案</h3>
+    <p>建議在 PE 或 IVIg 啟動後同步或稍晚開始口服潑尼松，初始劑量 60–80 mg/天（或 1–1.5 mg/kg/天），亦可先以 PE/IVIg 穩定病情後再啟動類固醇，降低「類固醇誘發惡化」風險。</p>
+
+    <h3>類固醇誘發惡化（Steroid Dip）</h3>
+    <p>啟動後第 1–3 週內，約 21–48% 患者可能出現一過性症狀加重，其中約 7–11% 為重度（需插管或輔助通氣）。高齡、球部症狀、疾病嚴重度為預測因素，此現象並不預示長期預後不良。</p>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot"></div><div class="flow-track"></div></div>
+        <div class="flow-body"><h5>週 0：啟動類固醇</h5><p>建議先以 PE/IVIg 穩定病情，降低誘發惡化風險</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot"></div><div class="flow-track"></div></div>
+        <div class="flow-body"><h5>週 1–3：觀察類固醇誘發惡化</h5><p>密切監測呼吸與球部功能，約 85% 患者在 3 週內開始顯示療效</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot"></div></div>
+        <div class="flow-body"><h5>療效出現後：緩慢減量</h5><p>每月減 5–10 mg/天；&lt; 5 mg 時以 1 mg/月極慢遞減，目標維持劑量 ≤ 7.5 mg/天</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s4">
+    <div class="stage-head">
+      <span class="stage-num">STAGE 4</span>
+      <span class="stage-time">第 2 週–6 個月</span>
+    </div>
+    <h2 class="stage-title">長期免疫抑制劑的導入：維持緩解</h2>
+
+    <table>
+      <tr><th>藥物</th><th>起效時間</th><th>劑量</th><th>重點提醒</th></tr>
+      <tr><td><strong>硫唑嘌呤（AZA）</strong></td><td>4–6 個月（最大療效 12–18 個月）</td><td>目標 2–3 mg/kg/天</td><td>治療前檢測 TPMT 活性；長期使用（&gt;10年）需留意惡性腫瘤風險</td></tr>
+      <tr><td><strong>黴酚酸酯（MMF）</strong></td><td>約 5 個月</td><td>1000–1500 mg，每日兩次</td><td>致畸性強，育齡女性須嚴格避孕；穩定後建議維持至少 5 年</td></tr>
+      <tr><td><strong>他克莫司</strong></td><td>2–4 週</td><td>固定 3 mg/天，目標血中濃度 4.8–9 ng/mL</td><td>亞洲人群應用較廣；胸腺瘤相關 MG 可能有額外益處</td></tr>
+      <tr><td><strong>Rituximab</strong></td><td>數週至數月</td><td>375 mg/m² 每週×4，或 1000 mg 每 2 週×2</td><td>對 MuSK-MG 及難治性 AChR-MG 療效優異，B細胞清除效應可持續 6 個月以上</td></tr>
+    </table>
+
+    <h3>胸腺切除術</h3>
+    <p>MGTX 隨機對照試驗證實，對 AChR 抗體陽性全身型 MG 患者，胸腺切除可改善疾病嚴重度、降低類固醇需求、減少住院次數，早發型（&lt; 60 歲）效果最佳。胸腺瘤患者應一律接受胸腺切除術，通常建議症狀穩定後進行。</p>
+  </section>
+
+  <section id="s5">
+    <div class="stage-head">
+      <span class="stage-num">STAGE 5</span>
+      <span class="stage-time">第 1 週–長期</span>
+    </div>
+    <h2 class="stage-title">復健與功能恢復</h2>
+
+    <h3>呼吸肌訓練</h3>
+    <ul>
+      <li><strong>閾值負荷訓練：</strong>每次 30 分鐘、每週 6 次、持續 3 個月，可顯著改善 NIF、FVC 與呼吸困難指數</li>
+      <li><strong>間歇性吸氣肌訓練結合呼吸再訓練：</strong>每週 3 次、8 週，可改善最大吸氣/呼氣壓力與胸廓活動度</li>
+      <li><strong>常二氧化碳高通氣訓練：</strong>以 50–60% 最大自主通氣量訓練 4–6 週，惟停止訓練後約 25% 效果於 3–5 個月內喪失，須強調持續性</li>
+    </ul>
+
+    <h3>肢體運動與平衡訓練</h3>
+    <p>近年證據支持病情穩定的輕中度 MG 患者可安全接受監督下的有氧與抗阻訓練。Westerberg 等人的先導研究（10 例，每週 2 次、每次 75 分鐘、12 週）顯示 CMAP 波幅增加、6 分鐘步行測試與 30 秒坐站測試皆顯著改善，且無患者因訓練導致疾病惡化。訓練強度建議為中等，避免過度疲勞，並應在藥物穩定基礎上進行。平衡策略訓練（單腳站立、不穩定平面）可降低跌倒風險。</p>
+
+    <div class="callout tip">
+      <h4>💡 教學重點</h4>
+      <p>「運動可能加重 MG」的舊觀念已被近期對照研究修正：在病情穩定、藥物控制良好的前提下，結構化、監督下的中等強度運動是安全且有益的，這點在對患者衛教時尤其重要。</p>
+    </div>
+
+    <h3>心理支持</h3>
+    <p>危象患者常伴隨焦慮、憂鬱與社交孤立。將心理治療與物理訓練（有氧、伸展、呼吸策略）結合，對改善疲勞的效果優於單一訓練，團體治療有助於情緒管理與生活方式調整，此為 2023 年綜述特別強調之照護面向，臨床上常被低估。</p>
+  </section>
+
+  <section id="s6">
+    <div class="stage-head">
+      <span class="stage-num">STAGE 6</span>
+      <span class="stage-time">第 3–14 天</span>
+    </div>
+    <h2 class="stage-title">撤機與拔管策略</h2>
+    <ul>
+      <li><strong>拔管時機：</strong>FVC &gt; 15 mL/kg、NIF 改善、咳嗽反射恢復通常提示可嘗試撤機</li>
+      <li><strong>最大呼氣壓力（MEP）</strong>為拔管成功的獨立預測因子；拔管失敗最常見原因為咳嗽無力與氣道清除不足</li>
+      <li>拔管失敗率約 27%，高齡、肺炎、肺不張為預測因子；約 14–40% 患者需要氣管切開</li>
+      <li>建議拔管後於高度依賴護理單元觀察 72 小時，穩定後再轉入普通病房</li>
+    </ul>
+  </section>
+
+  <section id="summary">
+    <h2 class="stage-title" style="margin-top:0;">肌無力危象治療時間線總覽</h2>
+    <div class="summary-table-wrap">
+    <table>
+      <tr><th>時間階段</th><th>核心介入措施</th><th>關鍵參數/目標</th></tr>
+      <tr><td>第 0–48 小時</td><td>NICU 收入、呼吸評估與支持、停用/減量膽鹼酯酶抑制劑</td><td>MEP 下降 30% 為高風險警訊；NIF 優於 −40 cmH₂O 為低風險</td></tr>
+      <tr><td>第 1–14 天</td><td>PE（5–6 次）／DFPP（3–5 次）／IA／IVIg（0.4 g/kg×5天）；難治型可考慮附加 FcRn 拮抗劑或補體抑制劑</td><td>起效時間：PE 約 2 天、efgartigimod 約 8 天、IVIg 約 4–5～12 天</td></tr>
+      <tr><td>第 3–14 天</td><td>啟動皮質類固醇（潑尼松 60–80 mg/天），警惕類固醇誘發惡化</td><td>2–3 週出現療效，85% 於 3 週內改善</td></tr>
+      <tr><td>第 2–4 週</td><td>拔管評估與撤機、開始呼吸肌訓練</td><td>MEP 預測拔管成功，拔管後觀察 72 小時</td></tr>
+      <tr><td>第 1–6 個月</td><td>導入長期免疫抑制劑（AZA/MMF/他克莫司/rituximab）</td><td>AZA 起效 4–6 個月，MMF 約 5 個月</td></tr>
+      <tr><td>第 6 個月–長期</td><td>類固醇緩慢減量、免疫抑制劑維持、持續復健</td><td>目標潑尼松 ≤ 7.5 mg/天，維持 MM 或更好狀態</td></tr>
+      <tr><td>持續全程</td><td>物理訓練（有氧+抗阻，中等強度，12 週+）、平衡訓練、心理支持</td><td>監測 MG-ADL、QMG、CMAP、6MWT</td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section id="refs">
+    <h2 class="stage-title" style="margin-top:0;">參考文獻</h2>
+    <div class="refbox">
+      <p style="font-size:13px;color:var(--text-dim);">標示 <span class="newtag">NEW</span> 者為本次更新新增之近五年文獻。</p>
+      <ol>
+        <li>Claytor B, Cho SM, Li Y. Myasthenic crisis. <em>Muscle &amp; Nerve</em>. 2023;68(1):8-19. doi:10.1002/mus.27832 <span class="newtag">NEW</span></li>
+        <li>Jani-Acsadi A, Lisak RP. Myasthenic crisis: Guidelines for prevention and treatment. <em>J Neurol Sci</em>. 2007;261(1-2):127-133.</li>
+        <li>Chaudhuri A, Behan PO. Myasthenic crisis. <em>QJM</em>. 2008;102(2):97-107.</li>
+        <li>Wendell LC, Levine JM. Myasthenic Crisis. <em>The Neurohospitalist</em>. 2011;1(1):16-22.</li>
+        <li>Mahalati K, Dawson RB, Collins JO, Mayer RF. Predictable recovery from myasthenia gravis crisis with plasma exchange. <em>J Clin Apheresis</em>. 1999;14(1):1-8.</li>
+        <li>Yeh JH, Chen WH, Chiu HC. Double filtration plasmapheresis in the treatment of myasthenic crisis. <em>Acta Neurol Scand</em>. 2001;104(2):78-82.</li>
+        <li>Zeitler H, Ulrich-Merzenich G, Hoffmann L, et al. Long-term effects of a multimodal approach including immunoadsorption for the treatment of myasthenic crisis. <em>Artif Organs</em>. 2006;30(8):597-605.</li>
+        <li>Köhler W, Bucka C, Klingel R. A randomized and controlled study comparing immunoadsorption and plasma exchange in myasthenic crisis. <em>J Clin Apheresis</em>. 2011;26(6):347-355.</li>
+        <li>Morren J, Li Y. Maintenance immunosuppression in myasthenia gravis, an update. <em>J Neurol Sci</em>. 2020;410:116648.</li>
+        <li>Corrado B, Giardulli B, Costa M. Evidence-based practice in rehabilitation of myasthenia gravis: a systematic review. <em>J Funct Morphol Kinesiol</em>. 2020;5(4):71.</li>
+        <li>Westerberg E, Molin CJ, Lindblad I, Emtner M, Punga AR. Physical exercise in myasthenia gravis is safe and improves neuromuscular parameters and physical performance-based measures: a pilot study. <em>Muscle Nerve</em>. 2017;56(2):207-214.</li>
+        <li>Narayanaswami P, et al. International consensus guidance for management of myasthenia gravis: 2020 update. <em>Neurology</em>. 2021;96(3):114-122. <span class="newtag">NEW</span></li>
+        <li>Wiendl H, et al. Guideline for the management of myasthenic syndromes. <em>Ther Adv Neurol Disord</em>. 2023;16:17562864231213240. <span class="newtag">NEW</span></li>
+        <li>Alhaj Omar O, Diel NJ, Gerner ST, Mück A, Huttner HB, Krämer-Best HH. Efgartigimod as rescue medication in a patient with therapy-refractory myasthenic crisis. <em>Case Rep Neurol Med</em>. 2024;2024:9455237. <span class="newtag">NEW</span></li>
+        <li>Efficacy and safety of efgartigimod in the treatment of impending myasthenic crisis: a prospective randomized study. 2026. <span class="newtag">NEW</span></li>
+        <li>Sun F, Batra A, Dickson D, Li Y, Wu EL. Efgartigimod infusion in the treatment regimen for myasthenic crisis: a case report. <em>Muscle Nerve</em>. 2024;70(2):290-292. <span class="newtag">NEW</span></li>
+        <li>Prominent and fast response to eculizumab in myasthenic crisis: the potential as rescue therapy in refractory myasthenia gravis. <em>Neurol Sci</em>. 2025. <span class="newtag">NEW</span></li>
+        <li>Jacob S, et al. Suggested algorithm for management of myasthenia gravis (ABN update). <em>Pract Neurol</em>. 2025;25:422-437. <span class="newtag">NEW</span></li>
+        <li>Nelke C, Stascheit F, Eckert C, et al. Independent risk factors for myasthenic crisis and disease exacerbation. <em>J Neuroinflammation</em>. 2022;19(1):89. <span class="newtag">NEW</span></li>
+      </ol>
+    </div>
+  </section>
+</div>
+
+<footer>
+  HCH-CMU / HCH-FYH 神經科教學研究部 · 內部教學用資料，非取代臨床判斷 · 最後更新：2026 年 7 月
+</footer>
+
+</body>
+</html>

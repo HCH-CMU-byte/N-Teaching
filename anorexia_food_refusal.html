@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>不同情境下食慾不振與拒食的鑑別與實證處置｜實證審閱｜HCH-FYH Neurology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #1c2128;
+  --border: rgba(255,255,255,.08);
+  --border2: rgba(255,255,255,.16);
+  --text: #e6edf3;
+  --text2: #8b949e;
+  --text3: #6e7681;
+  --muted: #8b949e;
+  --blue: #58a6ff;
+  --blue-bg: rgba(88,166,255,.10);
+  --blue-l: #85c4f0;
+  --blue-d: #0c3460;
+  --teal: #39d353;
+  --teal-l: #7de8cc;
+  --teal-d: #1a5c4a;
+  --amber: #e3b341;
+  --amber-l: #fcd27a;
+  --amber-d: #6b4a0d;
+  --purple: #bc8cff;
+  --purple-l: #c4bffc;
+  --pink: #ff7bb5;
+  --coral: #f97a5c;
+  --coral-l: #f9a88a;
+  --coral-d: #6b2c14;
+  --red-l: #f29090;
+  --red-d: #5a1818;
+  --accent: var(--coral);
+  --surface: var(--bg2);
+  --surface2: var(--bg3);
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* ════════════ 站台導覽列 ════════════ */
+nav.site-nav {
+  position: sticky; top: 0; z-index: 300;
+  background: rgba(13,17,23,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 28px;
+  display: flex; align-items: center;
+  height: 54px; gap: 4px;
+}
+.nav-logo {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px; font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+  white-space: nowrap;
+  margin-right: 24px;
+  flex-shrink: 0;
+}
+.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; flex: 1; }
+.nav-links > a {
+  color: var(--text2); text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  padding: 6px 13px; border-radius: 6px;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+.nav-links > a:hover  { color: var(--text); background: var(--bg3); }
+.nav-links > a.active { color: var(--blue); background: var(--blue-bg); }
+.nav-dropdown { position: relative; }
+.nav-dropdown > a {
+  color: var(--text2); text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  padding: 6px 13px; border-radius: 6px;
+  display: flex; align-items: center; gap: 5px;
+  transition: color .15s, background .15s;
+  cursor: pointer; white-space: nowrap;
+}
+.nav-dropdown > a::after { content: '▾'; font-size: 10px; opacity: 0.55; }
+.nav-dropdown > a:hover  { color: var(--text); background: var(--bg3); }
+.nav-dropdown > a.active { color: var(--coral); background: rgba(249,122,92,.10); }
+.dropdown-menu {
+  display: none;
+  position: absolute; top: calc(100% + 6px); left: 0;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 8px; padding: 6px;
+  min-width: 250px; z-index: 999;
+  box-shadow: 0 8px 28px rgba(0,0,0,.5);
+}
+.nav-dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu a {
+  display: block; padding: 9px 14px;
+  font-size: 14.5px; color: var(--text2);
+  text-decoration: none; border-radius: 6px;
+  transition: background .12s, color .12s;
+  white-space: nowrap;
+}
+.dropdown-menu a:hover { background: var(--bg3); color: var(--text); }
+.dropdown-menu a.active { color: var(--coral); }
+.dropdown-menu a.disabled { color: var(--text3); pointer-events: none; font-style: italic; }
+.dropdown-divider { height: 1px; background: var(--border); margin: 5px 0; }
+
+/* ════════════ 頁面容器 ════════════ */
+.page { max-width: 820px; margin: 0 auto; }
+
+/* ── Header ── */
+.header {
+  background: linear-gradient(135deg, #2a1710 0%, #10242a 100%);
+  border-bottom: 1px solid var(--border2);
+  padding: 32px 20px 24px;
+}
+.header-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--coral); color: #2a0e04;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.05em;
+  padding: 4px 11px; border-radius: 20px;
+  margin-bottom: 12px; text-transform: uppercase;
+}
+.header h1 { font-size: clamp(20px, 4.6vw, 27px); font-weight: 700; color: #fff; line-height: 1.42; font-family: 'Noto Serif TC', serif; }
+.header p { margin-top: 10px; font-size: 13.5px; color: var(--muted); line-height: 1.8; }
+.header .src-note { margin-top: 12px; font-size: 12px; color: var(--text3); border-top: 1px solid var(--border); padding-top: 10px; line-height: 1.7; }
+
+/* ── 頁內分頁導覽 ── */
+.nav-wrap {
+  position: sticky; top: 54px; z-index: 200;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto; scrollbar-width: none;
+}
+.nav-wrap::-webkit-scrollbar { display: none; }
+.tabnav { display: flex; gap: 0; white-space: nowrap; padding: 0 12px; }
+.tabnav a {
+  display: inline-block; padding: 12px 15px;
+  color: var(--muted); font-size: 14px; font-weight: 500;
+  text-decoration: none; border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.tabnav a:hover, .tabnav a.active { color: var(--coral-l); border-bottom-color: var(--coral); }
+
+/* ── Section layout ── */
+.section { padding: 30px 18px 8px; scroll-margin-top: 106px; }
+.section-title { display: flex; align-items: center; gap: 11px; margin-bottom: 16px; }
+.section-title .icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.section-title h2 { font-size: 19px; font-weight: 700; color: #fff; font-family: 'Noto Serif TC', serif; line-height: 1.4; }
+.section-subtitle { font-size: 13.5px; color: var(--muted); margin-top: -12px; margin-bottom: 18px; padding-left: 43px; line-height: 1.7; }
+.divider { height: 1px; background: var(--border); margin: 10px 18px; }
+
+/* ── Cards ── */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; }
+.card-title { font-size: 14.5px; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.bullet-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.bullet-list li { display: flex; flex-direction: column; gap: 2px; font-size: 15px; line-height: 1.65; color: var(--text); padding-left: 18px; position: relative; }
+.bullet-list li::before { content: "▸"; color: var(--accent); font-size: 12px; position: absolute; left: 0; top: 3px; }
+.bullet-list .sub { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ── 分類方格 ── */
+.criteria-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+@media (max-width: 560px) { .criteria-grid { grid-template-columns: 1fr; } }
+.crit-card { border-radius: 8px; padding: 14px 15px; border: 1px solid var(--border); }
+.crit-card .label { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px; }
+.crit-card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.crit-card li { font-size: 14px; line-height: 1.6; display: flex; gap: 7px; align-items: flex-start; color: var(--text); }
+.crit-card li::before { content: "·"; color: var(--accent); font-weight: 700; }
+
+/* ── 步驟流程 ── */
+.step-list { display: flex; flex-direction: column; gap: 11px; }
+.step-item { display: flex; gap: 13px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.step-num {
+  width: 28px; height: 28px; border-radius: 50%; background: rgba(249,122,92,.15); color: var(--coral-l);
+  font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; text-align:center; line-height:1.1;
+}
+.step-text { font-size: 14.5px; line-height: 1.65; color: var(--text); }
+.step-text b { color: #fff; }
+
+/* ── 比較表 ── */
+.bio-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 4px; }
+.bio-table th {
+  background: var(--surface2); color: var(--muted); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border2);
+}
+.bio-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+.bio-table tr:last-child td { border-bottom: none; }
+.bio-table .tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border2); border-radius: 4px; padding: 2px 8px; font-size: 12px; font-weight: 600; color: var(--muted); }
+.table-scroll { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 14px; -webkit-overflow-scrolling: touch; }
+.table-scroll .bio-table { min-width: 660px; }
+.table-scroll .bio-table th, .table-scroll .bio-table td { border-color: var(--border); }
+.scroll-hint { font-size: 11.5px; color: var(--text3); margin: -8px 0 12px; text-align: right; }
+
+/* ── 領域卡片 ── */
+.domain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 560px) { .domain-grid { grid-template-columns: 1fr; } }
+.domain-card { border-radius: 10px; padding: 16px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
+.domain-card .d-title { font-size: 14.5px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.domain-card .d-icon { font-size: 17px; }
+.domain-card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.domain-card li { font-size: 13.5px; color: var(--muted); line-height: 1.6; padding-left: 13px; position: relative; }
+.domain-card li::before { content: "·"; position: absolute; left: 2px; color: var(--accent); font-weight: 700; }
+.domain-card .hl { color: var(--text); font-weight: 600; }
+.domain-card .note { font-size: 12px; color: var(--muted); font-style: italic; border-top: 1px solid var(--border); padding-top: 8px; margin-top: 2px; }
+
+/* ── 警示 / 資訊框 ── */
+.warning-box { border-left: 3px solid #e24b4a; background: rgba(162,45,45,0.12); border-radius: 0 8px 8px 0; padding: 15px 16px; margin-bottom: 14px; }
+.warning-box .w-title { font-size: 14px; font-weight: 700; color: var(--red-l); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.warning-box ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.warning-box li { font-size: 14px; line-height: 1.6; display: flex; gap: 9px; align-items: flex-start; color: var(--text); }
+.warning-box li::before { content: "!"; color: #e24b4a; font-size: 12px; font-weight: 700; margin-top: 2px; flex-shrink: 0; }
+
+.info-box { border-left: 3px solid var(--accent); background: rgba(249,122,92,0.08); border-radius: 0 8px 8px 0; padding: 15px 16px; margin-bottom: 14px; }
+.info-box .i-title { font-size: 14px; font-weight: 700; color: var(--coral-l); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.info-box p, .info-box li { font-size: 14.5px; line-height: 1.65; color: var(--text); }
+.info-box ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.info-box li { padding-left: 16px; position: relative; }
+.info-box li::before { content: "◆"; color: var(--accent); font-size: 9px; position: absolute; left: 0; top: 6px; }
+
+/* ── 審閱標註框 ── */
+.review-box { border-left: 3px solid var(--purple); background: rgba(188,140,255,0.08); border-radius: 0 8px 8px 0; padding: 15px 16px; margin-bottom: 14px; }
+.review-box .rv-title { font-size: 14px; font-weight: 700; color: var(--purple-l); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.review-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.review-box li { font-size: 14px; line-height: 1.65; color: var(--text); padding-left: 16px; position: relative; }
+.review-box li::before { content: "◆"; color: var(--purple); font-size: 9px; position: absolute; left: 0; top: 6px; }
+
+.badge { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .03em; padding: 2px 9px; border-radius: 20px; margin-left: 6px; vertical-align: 2px; white-space: nowrap; }
+.badge-verified { background: rgba(57,211,83,.15); color: var(--teal-l); border: 1px solid rgba(57,211,83,.32); }
+.badge-update   { background: rgba(227,179,65,.15); color: var(--amber-l); border: 1px solid rgba(227,179,65,.35); }
+.badge-caution  { background: rgba(226,75,74,.15); color: var(--red-l); border: 1px solid rgba(226,75,74,.35); }
+.badge-tw       { background: rgba(255,123,181,.15); color: var(--pink); border: 1px solid rgba(255,123,181,.35); }
+
+/* ── 引用標記 ── */
+.cite { font-size: 11.5px; color: var(--text3); font-family: 'JetBrains Mono', monospace; vertical-align: super; margin-left: 1px; }
+
+/* ── 延伸閱讀卡 ── */
+.link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 560px) { .link-grid { grid-template-columns: 1fr; } }
+.link-card {
+  display: block; text-decoration: none; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px; transition: border-color .18s, transform .16s;
+}
+.link-card:hover { border-color: rgba(249,122,92,.4); transform: translateY(-2px); }
+.link-card .lc-cat { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--coral); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
+.link-card .lc-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; font-family: 'Noto Serif TC', serif; line-height: 1.4; }
+.link-card .lc-desc { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+.link-card .lc-arrow { margin-top: 12px; font-size: 13px; color: var(--text3); }
+
+/* ── 參考文獻 ── */
+.ref-box { padding: 18px; margin: 0 18px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ref-box h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 14px; }
+.ref-box ol { padding-left: 20px; display: flex; flex-direction: column; gap: 11px; }
+.ref-box li { font-size: 13.5px; line-height: 1.65; color: var(--text2); }
+.ref-box li span { color: var(--text); }
+.ref-box li em { color: var(--text2); }
+
+/* ── 進度條 ── */
+.scroll-indicator { position: fixed; top: 54px; left: 0; right: 0; height: 2px; background: transparent; z-index: 250; }
+.scroll-progress { height: 100%; width: 0%; background: linear-gradient(90deg, var(--coral), var(--teal)); transition: width .1s; }
+
+footer { text-align: center; padding: 32px 18px 8px; color: var(--muted); font-size: 12.5px; line-height: 1.9; }
+
+@media (max-width: 620px) {
+  nav.site-nav { padding: 0 14px; height: 50px; }
+  .nav-logo { font-size: 13px; margin-right: 14px; }
+  .nav-links > a, .nav-dropdown > a { font-size: 13.5px; padding: 6px 10px; }
+  .nav-wrap { top: 50px; }
+  .scroll-indicator { top: 50px; }
+  .section { padding: 26px 15px 8px; scroll-margin-top: 100px; }
+  .section-subtitle { padding-left: 0; margin-top: 0; }
+  .header { padding: 26px 16px 20px; }
+  body { font-size: 15.5px; }
+  .badge { display: block; width: fit-content; margin: 6px 0 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     站台導覽列
+     ══════════════════════════════════════════════════ -->
+<nav class="site-nav">
+  <a class="nav-logo" href="index.html">⬡ HCH-FYH Neurology</a>
+  <div class="nav-links">
+    <a href="index.html">首頁</a>
+    <a href="ncs.html">神經傳導</a>
+    <a href="neuro-ultrasound.html">神經超音波</a>
+
+    <div class="nav-dropdown">
+      <a href="migraine_headache.html">頭痛</a>
+      <div class="dropdown-menu">
+        <a href="migraine_headache.html">偏頭痛治療近五年進展</a>
+        <div class="dropdown-divider"></div>
+        <a href="cluster-headache.html" class="disabled">叢發性頭痛（整理中）</a>
+        <a href="moh.html" class="disabled">藥物過度使用性頭痛（整理中）</a>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <a href="dementia.html" class="active">失智症</a>
+      <div class="dropdown-menu">
+        <a href="dementia.html">失智症總覽</a>
+        <a href="DLB_clinical_guide.html">路易氏體失智症（DLB）</a>
+        <a href="dementia_reversible.html">可治療的失智類疾病</a>
+        <a href="ad_integrated_care.html">AD 整合照護與藥物治療</a>
+        <a href="bpsd_management.html">跨類型 BPSD 精神行為症狀管理</a>
+        <a href="anorexia_food_refusal.html" class="active">食慾不振與拒食的鑑別處置</a>
+        <div class="dropdown-divider"></div>
+        <a href="dementia_autoimmune.html" class="disabled">免疫腦炎（整理中）</a>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <a href="epilepsy_psychiatry.html">癲癇</a>
+      <div class="dropdown-menu">
+        <a href="epilepsy_psychiatry.html">癲癇與精神疾病</a>
+        <a href="seizure_mimics.html">像癲癇，不是癲癇</a>
+        <div class="dropdown-divider"></div>
+        <a href="status_epilepticus.html" class="disabled">癲癇積重狀態（整理中）</a>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <a href="#movement">動作障礙</a>
+      <div class="dropdown-menu">
+        <a href="parkinsons_disease.html" class="disabled">巴金森氏症診斷與治療（整理中）</a>
+        <a href="movement_differential.html" class="disabled">動作障礙鑑別診斷（整理中）</a>
+        <a href="movement_medication.html" class="disabled">動作障礙藥物治療（整理中）</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="scroll-indicator"><div class="scroll-progress" id="prog"></div></div>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-badge">🍽️ Anorexia Review · 2026</div>
+    <h1>不同情境下食慾不振與拒食<br>的鑑別與實證處置</h1>
+    <p>癌症／非癌症 ✦ 有／無腸胃症狀 ✦ 有／無失智症 ✦ 症狀群集（symptom cluster）導向處置策略</p>
+    <div class="src-note">本頁以使用者提供之綜述文件為藍本，經審閱者核對近五年（2021–2026）美國、歐洲、日本與台灣文獻及指引後重新整理。內文以 <span class="badge badge-verified" style="margin-left:0;">原文查證屬實</span> <span class="badge badge-update">已更新增補</span> <span class="badge badge-tw">台灣新增</span> 標註審閱結果。</div>
+  </div>
+
+  <!-- 頁內分頁導覽 -->
+  <div class="nav-wrap">
+    <nav class="tabnav">
+      <a href="#sec-review" class="active">審閱總結</a>
+      <a href="#sec-concept">總論：症狀群集</a>
+      <a href="#sec-cancer">癌症 vs 非癌症</a>
+      <a href="#sec-gi">有／無腸胃症狀</a>
+      <a href="#sec-dementia">有／無失智症</a>
+      <a href="#sec-compare">綜合比較表</a>
+      <a href="#sec-taiwan">台灣倫理與法律</a>
+      <a href="#sec-general">跨情境通用原則</a>
+      <a href="#sec-refs">參考文獻</a>
+    </nav>
+  </div>
+
+  <!-- ═══════════════ SECTION 0：審閱總結 ═══════════════ -->
+  <div class="section" id="sec-review">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(188,140,255,0.15);">🔍</div>
+      <h2>實證審閱總結</h2>
+    </div>
+    <p class="section-subtitle">以實證醫學角度，對照近五年歐美、日本、台灣文獻與臨床指引所做的整體評估</p>
+
+    <div class="card" style="border-color:rgba(57,211,83,.3); background:rgba(57,211,83,.06);">
+      <div class="card-title"><div class="dot" style="background:var(--teal);"></div>整體評估：架構清晰，核心數據可靠</div>
+      <p style="font-size:14.5px; line-height:1.7; color:var(--text);">本文獻以「不想吃 vs 吃不下」「症狀群集」為核心框架，橫跨腫瘤學、老年醫學、腸胃學與失智症照護四個次專科，是少見的跨領域整合整理。核心數據（ONS 統合分析熱量與體重增加幅度、megestrol acetate 療效與死亡率風險比、PAMORA 統合分析、老年營養補充降低短期死亡率 34%）皆可追溯至具公信力之系統性回顧與統合分析，數字準確。<b>主要限制在於部分關鍵試驗（如 MENAC）成文時仍在進行中，現已有明確結果；且完全缺少台灣關於人工營養倫理與法律框架的說明</b>，以下逐項列出審閱標註。</p>
+    </div>
+
+    <div class="review-box">
+      <div class="rv-title">📌 需要更新增補之處</div>
+      <ul>
+        <li><b>MENAC 試驗已有正式結果</b> <span class="badge badge-update">已更新增補</span>：原文將「運動＋營養＋抗發炎藥物」多模式介入列為「未來方向」，惟該第三期試驗（212 位晚期肺癌／胰臟癌患者）已於 2024 年正式發表：多模式組於 6 週內<b>體重維持穩定</b>（平均變化 +0.05 kg vs. 對照組 −0.99 kg，p=0.04），但肌肉量與身體活動量<b>未見顯著差異</b>。屬於部分陽性、效果溫和的結果，而非「未來仍待驗證」的假說 <span class="cite">[15]</span></li>
+        <li><b>Megestrol acetate 安全性數據可再補充脈絡</b> <span class="badge badge-verified">原文查證屬實</span>：原文引用之死亡率風險比（RR=1.42）與美國腫瘤學會（ASCO）2020 年惡病質治療指引數據完全一致，該指引亦同時指出血栓栓塞事件風險上升（RR=1.84）；指引仍將孕激素類列為可短期試用之選項，但強調需以治療目標與風險效益individualize <span class="cite">[16]</span></li>
+        <li><b>Olanzapine 為新增實證選項</b> <span class="badge badge-update">已更新增補</span>：2023 年一項多中心隨機對照試驗顯示 olanzapine 可改善化療相關厭食，已納入 ASCO 2023 年快速更新指引，為原文未提及之近期進展 <span class="cite">[17]</span></li>
+        <li><b>GLIM 營養不良診斷準則未提及</b> <span class="badge badge-update">已更新增補</span>：2019 年由全球臨床營養學會共同發布之 GLIM（Global Leadership Initiative on Malnutrition）準則，現為國際公認之營養不良<b>診斷</b>標準（需至少一項表現型準則＋一項病因型準則），2025 年五年期更新確認其架構穩定、預測效度良好，可與原文提及之 PG-SGA、MNA、SNAQ 等<b>篩檢</b>工具互補使用 <span class="cite">[18]</span></li>
+        <li><b>台灣人工營養倫理與法律框架完全缺漏</b> <span class="badge badge-tw">台灣新增</span>：原文對失智與末期患者拒食的倫理討論（不可強迫餵食、須與家屬團隊討論記錄）完全正確，但未提及台灣已有具體法律工具可落實此原則——詳見下方「台灣倫理與法律框架」專節 <span class="cite">[19]</span></li>
+      </ul>
+    </div>
+
+    <div class="review-box" style="border-color:var(--teal); background:rgba(57,211,83,.06);">
+      <div class="rv-title" style="color:var(--teal-l);">✅ 查證屬實之核心論述</div>
+      <ul>
+        <li>癌症厭食原發性／繼發性分類與細胞激素機制、盛行率數據（初診約 50%、晚期 60–65%），與 ESMO／ASCO 惡病質共識定義一致</li>
+        <li>ESPEN 心衰竭／COPD 腸道優先、靜脈營養為最後手段之建議，與現行 ESPEN 慢性病腸道與腸外營養指引方向相符</li>
+        <li>胃輕癱之 ACG 指引（小量多餐、促動力藥物、頑固型考慮空腸營養）、鴉片類便秘之 PAMORA 統合分析數據，皆與現行腸胃學會指引一致</li>
+        <li>失智症進食困難五分類與末期拒食之倫理討論，與 1999 年 Finucane 回顧一脈相承的近期文獻（如 AGS 2014 立場聲明：不建議管灌用於晚期失智症）結論方向一致</li>
+        <li>老年營養不良之可逆因子矯正原則與口服營養補充降低短期死亡率之統合分析數據準確</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 1：總論 ═══════════════ -->
+  <div class="section" id="sec-concept">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(249,122,92,0.15);">🧩</div>
+      <h2>1 · 總論：厭食不是單一症狀，而是「症狀群集」</h2>
+    </div>
+    <p class="section-subtitle">喪失食慾（anorexia）與拒食（food refusal）表現相似，但本質不同</p>
+
+    <div class="domain-grid">
+      <div class="domain-card" style="border-color:rgba(249,122,92,0.3); background:rgba(249,122,92,0.06);">
+        <div class="d-title"><span class="d-icon">😔</span><span style="color:var(--coral-l);">喪失食慾 Anorexia</span></div>
+        <ul>
+          <li>主觀上失去進食慾望</li>
+          <li>常與早飽、噁心、味覺改變、疲倦、疼痛、憂鬱等症狀共同形成「症狀群集」</li>
+        </ul>
+      </div>
+      <div class="domain-card" style="border-color:rgba(88,166,255,0.3); background:rgba(88,166,255,0.06);">
+        <div class="d-title"><span class="d-icon">🚫</span><span style="color:var(--blue-l);">拒食 Food Refusal</span></div>
+        <ul>
+          <li>認知、行為、吞嚥功能或心理因素造成的「吃不下、不想吃、不肯吃」</li>
+          <li>處理邏輯與單純厭食完全不同，須先拆解主導症狀</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="i-title">💡 三軸線鑑別架構</div>
+      <p>本頁依循原文架構，從「<b>癌症／非癌症</b>」「<b>有／無腸胃症狀</b>」「<b>有／無失智症</b>」三個軸線，說明厭食／拒食的細微差異與各自的實證處置重點。</p>
+    </div>
+
+    <div class="review-box" style="margin-top:0;">
+      <div class="rv-title">📝 用詞審閱</div>
+      <ul>
+        <li>原文使用「症狀簇」對應英文 <b>symptom cluster</b>，此譯法較常見於中國大陸護理／腫瘤學文獻；台灣護理與腫瘤學界（如《源遠護理》〈症狀群集概念分析〉、《領導護理》等期刊）普遍譯為<b>「症狀群集」</b>，故本頁已依台灣慣用譯名全面替換 <span class="badge badge-tw" style="margin-left:4px;">用詞校正</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 2：癌症 vs 非癌症 ═══════════════ -->
+  <div class="section" id="sec-cancer">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(255,123,181,0.15);">🎗️</div>
+      <h2>2 · 癌症 vs 非癌症患者</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><div class="dot" style="background:var(--pink);"></div>癌症患者的厭食</div>
+      <ul class="bullet-list">
+        <li><b>原發性厭食</b><span class="sub">發炎性細胞激素（TNF-α、IL-6）干擾下視丘食慾調控中樞</span></li>
+        <li><b>繼發性厭食</b><span class="sub">味嗅覺改變、噁心嘔吐、口乾、便秘、吞嚥困難等阻礙進食的症狀所致</span></li>
+        <li><b>盛行率與預後</b><span class="sub">初診約 50%，晚期可達 60–65% 以上；厭食與體重下降為獨立不良預後指標</span></li>
+        <li><b>非藥物首選</b><span class="sub">個別化飲食諮商；口服營養介入可增加熱量攝取（+432 kcal/日）與體重（+1.86 kg），改善情緒功能與生活品質，惟不改善存活（RR=1.06）</span></li>
+        <li><b>藥物選擇</b><span class="sub">僅皮質類固醇（短期）與孕激素類（megestrol acetate）具「建議用於臨床」等級之實證；megestrol 800mg/日約 63% 患者食慾改善（對照組 39%），惟需權衡死亡率與血栓風險</span></li>
+      </ul>
+    </div>
+
+    <div class="domain-grid">
+      <div class="domain-card" style="border-color:rgba(88,166,255,0.3); background:rgba(88,166,255,0.06);">
+        <div class="d-title"><span class="d-icon">❤️</span><span style="color:var(--blue-l);">心衰竭</span></div>
+        <ul>
+          <li>厭食於惡病質成因中僅占 10–20%，主要為神經內分泌與細胞激素失衡之持續分解代謝</li>
+          <li>口服補充為優先；避免體液負荷過重；靜脈營養僅限吸收障礙者</li>
+        </ul>
+      </div>
+      <div class="domain-card" style="border-color:rgba(57,211,83,0.3); background:rgba(57,211,83,0.06);">
+        <div class="d-title"><span class="d-icon">🫁</span><span style="color:var(--teal-l);">COPD</span></div>
+        <ul>
+          <li>25–40% 有營養不良；厭食是體重與脂肪流失的核心原因之一，急性惡化期尤著</li>
+          <li>能量需求約 35–40 kcal/kg/日，蛋白質約 1.5 g/kg/日；補充品建議晚間給予，避免取代正餐</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="i-title">👴 老化性厭食（Anorexia of Aging）</div>
+      <ul>
+        <li>嗅覺味覺衰退、胃排空延緩、飽足激素敏感性上升、發炎細胞激素升高等多因素造成</li>
+        <li>憂鬱症於老年人常以食慾下降表現，占門診／機構住民體重下降原因之 30–36%</li>
+        <li>與他人共餐可增加多達 50% 進食量；口服營養補充（≥400 kcal/日）可增重並降低短期住院老人死亡率達 34%</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 3：有／無腸胃症狀 ═══════════════ -->
+  <div class="section" id="sec-gi">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(88,166,255,0.15);">🩺</div>
+      <h2>3 · 有腸胃症狀 vs 無腸胃症狀</h2>
+    </div>
+    <p class="section-subtitle">先鑑別「不想吃」還是「吃不下」，決定處置方向</p>
+
+    <div class="table-scroll">
+      <table class="bio-table">
+        <thead><tr><th>情境</th><th>機制／特徵</th><th>實證優先處理</th></tr></thead>
+        <tbody>
+          <tr><td>胃輕癱</td><td>早飽、餐後脹、噁心嘔吐——「吃不下」而非「不想吃」</td><td>每日 4–5 次小量低脂低纖餐；固體不耐受改勻漿／液體；促動力藥、止吐藥；頑固型考慮空腸營養</td></tr>
+          <tr><td>噁心嘔吐</td><td>常見誘因：便秘、電解質異常、藥物副作用</td><td>先處理可逆原因；小量多餐、避免強烈氣味；P6 穴道按壓／針灸；依受體路徑選藥或經驗性 D2 拮抗劑</td></tr>
+          <tr><td>便秘</td><td>重症患者盛行率可達 87%</td><td>採預防性處理；PEG 優於 lactulose；鴉片類便秘可用 PAMORA（周邊型 μ-受體拮抗劑）</td></tr>
+          <tr><td>無腸胃症狀</td><td>中樞性調控異常、藥物副作用、憂鬱與孤立、味嗅覺退化</td><td>用藥盤點（停用抑制食慾藥物）；共餐、改善餐點色香味與質地；治療憂鬱</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="scroll-hint">表格可左右滑動 →</div>
+
+    <div class="warning-box">
+      <div class="w-title">⚠️ 鑑別提醒</div>
+      <ul>
+        <li>無明顯腸胃症狀者若突然食慾下降，需警覺潛在器質性疾病（腫瘤、內分泌異常、感染）或藥物調整，老年男性尤應留意憂鬱症與早期失智</li>
+        <li>心衰竭患者腸道即使「無症狀」，也可能因腸壁水腫、灌注下降而有亞臨床吸收障礙</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 4：有／無失智症 ═══════════════ -->
+  <div class="section" id="sec-dementia">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(227,179,65,0.15);">🧠</div>
+      <h2>4 · 有失智症 vs 無失智症</h2>
+    </div>
+    <p class="section-subtitle">失智症患者的拒食有獨特的行為表現，需與單純厭食區分處理邏輯</p>
+
+    <div class="card">
+      <div class="card-title"><div class="dot" style="background:var(--amber);"></div>失智症進食困難的五種類型</div>
+      <ul class="bullet-list">
+        <li><b>啟動困難</b><span class="sub">拒食、對食物厭惡</span></li>
+        <li><b>維持注意力困難</b><span class="sub">分心、無法持續進食、打瞌睡</span></li>
+        <li><b>送食入口困難</b><span class="sub">運動功能不佳</span></li>
+        <li><b>咀嚼困難</b><span class="sub">牙齒問題、無效咀嚼</span></li>
+        <li><b>吞嚥困難</b><span class="sub">嗆咳、吸入風險</span></li>
+      </ul>
+    </div>
+
+    <div class="criteria-grid">
+      <div class="crit-card" style="background:rgba(227,179,65,.08); border-color:var(--amber-d);">
+        <div class="label" style="color:var(--amber-l);">實證處置重點</div>
+        <ul>
+          <li>環境調整：減少噪音干擾、固定照護者與用餐時間、善用食慾最好的時段</li>
+          <li>餵食技巧：坐姿端正、平視、手把手示範、簡單語言提示、讓患者自己動手</li>
+          <li>質地調整：依吞嚥功能改變食物質地可增加口入量；體重下降時高脂高糖反為「健康選擇」</li>
+        </ul>
+      </div>
+      <div class="crit-card" style="background:rgba(226,75,74,.08); border-color:var(--red-d);">
+        <div class="label" style="color:var(--red-l);">管灌實證與倫理</div>
+        <ul>
+          <li>無證據支持管灌（鼻胃管／PEG）改善失智患者存活、功能，或降低吸入性肺炎、壓瘡風險</li>
+          <li>失智老人 PEG 後死亡率風險較其他臨床群體高，英國實務以保守照護為主</li>
+          <li>不可強迫餵食；末期停止供食常為疾病自然歷程，非照護失敗</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 5：綜合比較表 ═══════════════ -->
+  <div class="section" id="sec-compare">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(57,211,83,0.15);">📊</div>
+      <h2>5 · 各情境處置重點綜合比較</h2>
+    </div>
+
+    <div class="table-scroll">
+      <table class="bio-table">
+        <thead><tr><th>情境</th><th>厭食細微特徵</th><th>實證優先處理</th></tr></thead>
+        <tbody>
+          <tr><td>癌症（無腸胃症狀）</td><td>細胞激素驅動中樞厭食＋症狀群集；獨立預後指標</td><td>飲食諮商＋口服營養；短期類固醇、孕激素類</td></tr>
+          <tr><td>癌症（有腸胃症狀）</td><td>化療嘔吐、黏膜炎、早飽、便秘、腸阻塞</td><td>積極止吐、促動力、瀉劑；口服／免疫營養</td></tr>
+          <tr><td>非癌症（心衰竭）</td><td>惡病質以分解代謝為主，厭食僅占部分</td><td>口服補充優先；避免體液負荷；靜脈營養僅限吸收障礙</td></tr>
+          <tr><td>非癌症（COPD）</td><td>厭食是體重下降核心；急性惡化期加重</td><td>長期口服補充＋運動復健；補充品晚間給予</td></tr>
+          <tr><td>老化性厭食（無失智）</td><td>感官、激素、胃排空多因素；恆定失調</td><td>共餐、質地風味強化、口服營養、矯正憂鬱與藥物</td></tr>
+          <tr><td>失智症</td><td>行為性拒食＋失認失用＋吞嚥障礙；末期拒食常為自然歷程</td><td>環境與餵食技巧調整、質地改變；管灌無實證益處</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="scroll-hint">表格可左右滑動 →</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 6：台灣倫理與法律框架（審閱新增）═══════════════ -->
+  <div class="section" id="sec-taiwan">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(255,123,181,0.15);">🇹🇼</div>
+      <h2>6 · 台灣人工營養倫理與法律框架 <span class="badge badge-tw">審閱新增</span></h2>
+    </div>
+    <p class="section-subtitle">原文正確指出失智與末期患者不可強迫餵食、應與家屬團隊討論記錄——台灣已有具體法律工具可落實此原則</p>
+
+    <div class="info-box">
+      <div class="i-title">⚖️ 病人自主權利法（2019 年 1 月上路）</div>
+      <ul>
+        <li>亞洲第一部完整保障病人自主權利之專法，適用五種臨床條件：末期病人、不可逆轉昏迷、永久植物人狀態、<b>極重度失智</b>、其他經公告之重症</li>
+        <li>意願人可透過「預立醫療照護諮商（ACP）」，就<b>人工營養及流體餵養</b>（經導管或侵入性措施餵養食物與水分）預先表達接受或拒絕之全部或一部</li>
+        <li>ACP 須由意願人本人、二親等內親屬至少一人及醫療委任代理人共同參與，經醫療機構核章並註記於健保卡上始生效</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <div class="w-title">⚠️ 關鍵限制：失智症患者須「趁早」完成 ACP</div>
+      <ul>
+        <li>若醫療機構有事實足以認定意願人<b>心智缺陷或非出於自願</b>，不得為 ACP 核章證明——換言之，已進入極重度失智、喪失決策能力的患者<b>無法再簽署</b>預立醫療決定</li>
+        <li>對於未及早完成 ACP 的失智症患者，是否停止人工營養餵養須回歸<b>家屬與醫療團隊共識</b>之最佳利益判斷，並依安寧緩和醫療條例之相關規定處理</li>
+        <li>臨床實務建議：於失智症輕度階段、患者仍具決策能力時，即主動與病人及家屬討論並轉介 ACP 諮商門診，避免留待末期才倉促決策</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ SECTION 7：跨情境通用原則 ═══════════════ -->
+  <div class="section" id="sec-general">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(88,166,255,0.15);">🧭</div>
+      <h2>7 · 跨情境通用注意事項</h2>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item"><div class="step-num">1</div><div class="step-text">先鑑別<b>「不想吃」還是「吃不下」</b>：有腸胃症狀者用促動力與止吐藥物；無腸胃症狀者處理情緒、藥物、環境與社會因素</div></div>
+      <div class="step-item"><div class="step-num">2</div><div class="step-text">重視<b>症狀群集</b>而非單一症狀：厭食常與憂鬱／焦慮／失眠或噁心／疲倦／疼痛等症狀同時出現、形成群集，依不同症狀群集選擇策略（如心理症狀群集可用 mirtazapine、olanzapine）</div></div>
+      <div class="step-item"><div class="step-num">3</div><div class="step-text">定期<b>營養篩檢與監測</b>：癌症患者診斷時即應篩檢並定期複評（PG-SGA 等），機構老年人應每月量體重並記錄一週進食狀況</div></div>
+      <div class="step-item"><div class="step-num">4</div><div class="step-text">與家屬的<b>溝通是治療的一部分</b>：厭食對家屬造成的痛苦常大於患者本人，應主動引導家屬理解末期食慾喪失是疾病自然歷程，並將焦點轉向舒適與陪伴</div></div>
+      <div class="step-item"><div class="step-num">5</div><div class="step-text">尊重<b>自主與倫理界線</b>：失智與末期患者不可強迫進食或未經同意置入管路，需區分「有意識的拒絕」與「疾病造成的無法進食」</div></div>
+      <div class="step-item"><div class="step-num">6</div><div class="step-text"><b>多模式介入</b>是趨勢：單靠藥物或營養補充難以逆轉惡病質，運動＋營養＋抗發炎藥物之多模式介入（如 MENAC 試驗）已展現部分陽性成效</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ 延伸閱讀 ═══════════════ -->
+  <div class="section" id="sec-links" style="padding-bottom:6px;">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(188,140,255,0.15);">📚</div>
+      <h2>延伸閱讀</h2>
+    </div>
+    <div class="link-grid">
+      <a class="link-card" href="ad_integrated_care.html">
+        <div class="lc-cat">AD · Integrated Care</div>
+        <div class="lc-title">AD 整合照護與藥物治療</div>
+        <div class="lc-desc">分期照護、疾病修飾治療與安寧緩和照護整理，含台灣核准現況。</div>
+        <div class="lc-arrow">前往專頁 →</div>
+      </a>
+      <a class="link-card" href="bpsd_management.html">
+        <div class="lc-cat">BPSD Management</div>
+        <div class="lc-title">跨類型 BPSD 精神行為症狀管理</div>
+        <div class="lc-desc">AD、DLB、FTD、VaD 之精神行為症狀非藥物與藥物治療完整整理。</div>
+        <div class="lc-arrow">前往專頁 →</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════ 參考文獻 ═══════════════ -->
+  <div class="section" id="sec-refs" style="padding-bottom:4px;">
+    <div class="section-title">
+      <div class="icon" style="background:rgba(144,149,168,0.15);">📖</div>
+      <h2>參考文獻</h2>
+    </div>
+  </div>
+
+  <div class="ref-box">
+    <h3>原文獻回顧引用</h3>
+    <ol>
+      <li><span>Shragge JE, Wismer WV, Olson KL, Baracos VE.</span> The management of anorexia by patients with advanced cancer: a critical review of the literature. <em>Palliat Med.</em> 2006;20(6):623–629. DOI: 10.1177/0269216306070322</li>
+      <li><span>Ehret C, Jatoi A.</span> Should Loss of Appetite Be Palliated in Patients with Advanced Cancer? <em>Curr Treat Options Oncol.</em> 2021;22(4). DOI: 10.1007/s11864-021-00829-0</li>
+      <li><span>Wasson K, Tate H, Hayes C.</span> Food refusal and dysphagia in older people with dementia: ethical and practical issues. <em>Int J Palliat Nurs.</em> 2001;7(10):465–471. DOI: 10.12968/ijpn.2001.7.10.9902</li>
+      <li><span>Chang CC, Roberts BL.</span> Strategies for Feeding Patients with Dementia. <em>AJN.</em> 2011;111(4):36–44. DOI: 10.1097/01.naj.0000396553.01996.5e</li>
+      <li><span>Chapman IM.</span> The Anorexia of Aging. <em>Clin Geriatr Med.</em> 2007;23(4):735–756. DOI: 10.1016/j.cger.2007.06.001</li>
+      <li><span>Landi F, Calvani R, Tosato M, et al.</span> Anorexia of Aging: Risk Factors, Consequences, and Potential Treatments. <em>Nutrients.</em> 2016;8(2):69. DOI: 10.3390/nu8020069</li>
+      <li><span>Malec M, Shega JW.</span> Management of Gastrointestinal Symptoms (Nausea, Anorexia and Cachexia, Constipation) in Advanced Illness. <em>Med Clin North Am.</em> 2020;104(3):439–454. DOI: 10.1016/j.mcna.2019.12.005</li>
+      <li><span>Bharadwaj S, Meka K, Tandon P, et al.</span> Management of gastroparesis-associated malnutrition. <em>J Dig Dis.</em> 2016;17(5):285–294. DOI: 10.1111/1751-2980.12344</li>
+      <li><span>Anker SD, Laviano A, Filippatos G, et al.</span> ESPEN Guidelines on Parenteral Nutrition: On Cardiology and Pneumology. <em>Clin Nutr.</em> 2009;28(4):455–460. DOI: 10.1016/j.clnu.2009.04.023</li>
+      <li><span>Paiva SAR, Campana AO, Godoy I.</span> Nutrition Support for the Patient with Chronic Obstructive Pulmonary Disease. <em>Nutr Clin Care.</em> 2000;3(1):44–50. DOI: 10.1046/j.1523-5408.2000.00005.x</li>
+      <li><span>Adams LA, Shepard N, Caruso RA, et al.</span> Putting Evidence Into Practice®: Evidence-Based Interventions to Prevent and Manage Anorexia. <em>Clin J Oncol Nurs.</em> 2009;13(1):95–102. DOI: 10.1188/09.cjon.95-102</li>
+      <li><span>Brown JK.</span> A Systematic Review of the Evidence on Symptom Management of Cancer-Related Anorexia and Cachexia. <em>Oncol Nurs Forum.</em> 2002;29(3):517–532. DOI: 10.1188/02.onf.517-532</li>
+      <li><span>Baldwin C, Spiro A, Ahern R, Emery PW.</span> Oral Nutritional Interventions in Malnourished Patients With Cancer: A Systematic Review and Meta-Analysis. <em>JNCI.</em> 2012;104(5):371–385. DOI: 10.1093/jnci/djr556</li>
+      <li><span>Kim JM, Sung MK.</span> The Efficacy of Oral Nutritional Intervention in Malnourished Cancer Patients: a Systemic Review. <em>Clin Nutr Res.</em> 2016;5(4):219. DOI: 10.7762/cnr.2016.5.4.219</li>
+    </ol>
+  </div>
+
+  <div class="ref-box">
+    <h3>審閱新增查證來源</h3>
+    <ol start="15">
+      <li><span>Ottestad I, Solheim TS, et al.</span> Results from a randomised, open-label trial of a multimodal intervention (MENAC) versus standard care to attenuate cachexia in advanced cancer. <em>J Clin Oncol.</em> 2024;42(17_suppl):LBA12007.</li>
+      <li><span>Roeland EJ, Bohlke K, Baracos VE, et al.</span> Management of Cancer Cachexia: ASCO Guideline. <em>J Clin Oncol.</em> 2020;38(21):2438–2453. DOI: 10.1200/JCO.20.00611</li>
+      <li><span>Sandhya L, Devi Sreenivasan N, Goenka L, et al.</span> Randomized double-blind placebo-controlled study of olanzapine for chemotherapy-related anorexia. <em>J Clin Oncol.</em> 2023;41:2617–2627；亦見 ASCO Rapid Recommendation Update, 2023。</li>
+      <li><span>Cederholm T, Jensen GL, Correia MITD, et al.</span> GLIM Criteria for the Diagnosis of Malnutrition: A Consensus Report. <em>J Cachexia Sarcopenia Muscle.</em> 2019;10:207–217；五年更新版 <em>Clin Nutr.</em> 2025。</li>
+      <li><span>中華民國衛生福利部.</span> 病人自主權利法（105 年 1 月 6 日公布，108 年 1 月 6 日施行）及其子法規；亦參台灣安寧照顧基金會與各醫療機構預立醫療照護諮商（ACP）實務資料。</li>
+    </ol>
+  </div>
+
+  <footer>
+    <div style="margin-bottom:6px;">HCH-FYH Neurology · AI 輔助審閱與整理資源</div>
+    <div>本頁為文獻審閱與教育用途，不構成個別病患之處置建議；營養與安寧照護決策應與醫療團隊、病人及家屬充分討論後個別化決定</div>
+  </footer>
+
+</div><!-- /page -->
+
+<script>
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('prog').style.width = pct + '%';
+});
+
+const sections = document.querySelectorAll('.section[id]');
+const tabLinks = document.querySelectorAll('.tabnav a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      tabLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
