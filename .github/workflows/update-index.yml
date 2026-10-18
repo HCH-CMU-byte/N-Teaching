@@ -1,1 +1,61 @@
+# 每次你上傳（push）教學頁面到 main 之後，自動執行 scripts/build_index.py，
+# 把首頁 index.html 的導覽列與分類卡片更新好，並通知 GitHub Pages 重新發佈。
+# 若你的主要分支叫 master，請把下面的 main 改成 master。
+name: 自動更新首頁索引
 
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "**.html"
+      - "index-data/**"
+      - "scripts/build_index.py"
+  workflow_dispatch:           # 也可在 Actions 頁籤手動按「Run workflow」
+
+permissions:
+  contents: write              # 讓程式能把更新後的 index.html 存回 repo
+  pages: write                 # 讓程式能要求 Pages 重新發佈
+
+concurrency:
+  group: update-index
+  cancel-in-progress: false
+
+jobs:
+  update:
+    # 避免機器人自己的提交再次觸發自己
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0       # 需要完整歷史才能取得每個頁面的「最後更新日期」
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 更新首頁索引
+        run: python scripts/build_index.py
+
+      - name: 有變動就存回 repo
+        id: commit
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "首頁沒有變動，不需要提交。"
+          else
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add index.html
+            git commit -m "自動更新首頁索引"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 通知 GitHub Pages 重新發佈
+        if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true      # 失敗也沒關係：Pages 通常會自己偵測到新提交
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
