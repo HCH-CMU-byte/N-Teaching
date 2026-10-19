@@ -1,5 +1,5 @@
 {
-  "_說明": "沒有在頁面裡填 nt: meta 的舊頁面，就用這裡的資料。頁面自己的 meta 優先於這裡。新頁面不需要改這個檔案。",
+  "_說明": "沒有在頁面裡填 nt: meta 的舊頁面，就用這裡的資料；頁面自己的 meta 優先於這裡。舊頁面的 updated 是歷史日期（避免統一頁首改版讓所有頁面都顯示 NEW）；內容有大改時，請更新該日期或在頁面加 nt:updated。新頁面不需要改這個檔案。",
   "ncs.html": {
     "category": "electro",
     "icon": "⚡",
@@ -13,7 +13,8 @@
       "多發性神經病變",
       "單神經病變"
     ],
-    "status": "已上線 · 持續更新中"
+    "status": "已上線 · 持續更新中",
+    "updated": "2026-06-28"
   },
   "neuro-ultrasound.html": {
     "category": "ultrasound",
@@ -28,7 +29,8 @@
       "Doppler",
       "狹窄評估"
     ],
-    "status": "已上線 · 持續更新中"
+    "status": "已上線 · 持續更新中",
+    "updated": "2026-06-29"
   },
   "migraine_headache.html": {
     "category": "headache",
@@ -36,7 +38,8 @@
     "label": "Migraine",
     "title": "偏頭痛治療近五年進展",
     "summary": "CGRP 單株抗體、gepants、ditans 及保健品證據， 依台灣頭痛學會與 AHS 2024 共識整理。",
-    "order": 1
+    "order": 1,
+    "updated": "2026-06-29"
   },
   "dementia.html": {
     "category": "dementia",
@@ -44,7 +47,8 @@
     "label": "Dementia",
     "title": "失智症總覽",
     "summary": "阿茲海默症、血管型失智症等常見類型的診斷架構與 整體臨床評估流程整理。",
-    "order": 1
+    "order": 1,
+    "updated": "2026-07-30"
   },
   "DLB_clinical_guide.html": {
     "category": "dementia",
@@ -52,7 +56,8 @@
     "label": "DLB",
     "title": "路易氏體失智症（DLB）",
     "summary": "McKeith 2017 診斷準則、α-synuclein SAA 生物標記與 前驅期亞型鑑別診斷整理。",
-    "order": 2
+    "order": 2,
+    "updated": "2026-07-06"
   },
   "dementia_reversible.html": {
     "category": "dementia",
@@ -60,7 +65,8 @@
     "label": "Reversible Dementia",
     "title": "可治療的失智類疾病",
     "summary": "甲狀腺功能低下、NPH、維生素缺乏等可逆性病因的 篩檢與治療整理。",
-    "order": 3
+    "order": 3,
+    "updated": "2026-07-07"
   },
   "epilepsy_psychiatry.html": {
     "category": "epilepsy",
@@ -73,7 +79,8 @@
       "EEG",
       "ASM 副作用"
     ],
-    "status": "已上線 · 持續更新中"
+    "status": "已上線 · 持續更新中",
+    "updated": "2026-07-04"
   },
   "seizure_mimics.html": {
     "category": "epilepsy",
@@ -81,7 +88,8 @@
     "label": "Epilepsy",
     "title": "像癲癇，不是癲癇",
     "summary": "昏厥、偏頭痛、動作障礙等癲癇模擬疾病的 鑑別診斷整理。",
-    "order": 2
+    "order": 2,
+    "updated": "2026-07-12"
   },
   "stroke_progression.html": {
     "category": "cerebrovascular",
@@ -93,10 +101,19 @@
     "tags": [
       "END",
       "實證查核"
-    ]
+    ],
+    "updated": "2026-08-06"
   },
   "ncs_firebase_ready.html": {
     "hide": true,
     "_說明": "這是 NCS 判讀工具（非教學頁面），不放進首頁索引"
+  },
+  "LR_teaching.html": {
+    "updated": "2026-07-11",
+    "_說明": "尚未歸類；補上 category 後會出現在對應分類"
+  },
+  "ddx_bulbar dysfunction.html": {
+    "updated": "2026-07-11",
+    "_說明": "尚未歸類；補上 category 後會出現在對應分類"
   }
 }
