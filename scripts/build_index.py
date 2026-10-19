@@ -9,6 +9,13 @@ N-Teaching 首頁自動更新程式
           3. Hero 的「主題模組」數字 <!--NT:COUNT-->9<!--/NT:COUNT-->
         標記以外的內容（版面、CSS、Hero 文字、Footer）完全不會被動到。
 
+        另外還會：
+          4. 重新產生 assets/site-header.js —— 所有教學頁面共用的「統一頁首」
+             （與首頁一致的導覽列＋下拉選單＋捲動後的「回首頁」浮動按鈕）
+          5. 檢查每個教學頁面是否已引用統一頁首；沒有的話自動在 <body> 開頭補上一行
+             <script src="assets/site-header.js"></script>
+             所以以後新上傳的頁面不用自己做導覽列，也一定有回首頁的入口。
+
 資料來源（優先順序高 → 低）：
     頁面自己的 <meta name="nt:...">   >   index-data/overrides.json   >   自動擷取
 
@@ -37,6 +44,9 @@ DEFAULT_ICON = "📄"
 DEFAULT_STATUS = "已上線"
 SUMMARY_MAX = 110                      # 沒有手動摘要時，自動擷取的字數上限
 NEW_DAYS = 30                          # 幾天內更新過的頁面顯示 NEW 標記
+HEADER_TEMPLATE = Path("scripts/site-header.template.js")
+HEADER_OUT = Path("assets/site-header.js")
+HEADER_MARK = "site-header.js"           # 頁面裡出現這個字串，就視為已經有統一頁首
 UNCATEGORIZED_LABEL = "未分類 · Uncategorized（請在頁面補上 nt:category）"
 # ================================================
 
@@ -45,6 +55,17 @@ SEC_START, SEC_END = "<!-- NT:SECTIONS:START -->", "<!-- NT:SECTIONS:END -->"
 COUNT_RE = re.compile(r"<!--NT:COUNT-->.*?<!--/NT:COUNT-->", re.S)
 
 esc = lambda s: H.escape(str(s), quote=True)
+
+
+def rd(path):
+    with open(path, encoding="utf-8", errors="replace", newline="") as fh:   # newline="" 保留原本換行符號
+        return fh.read()
+
+
+def wr(path, text):
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8", newline="") as fh:
+        fh.write(text)
 
 
 # ---------------------------------------------------------------- 讀頁面
@@ -151,7 +172,7 @@ def split_tags(v):
 def collect(cat_keys, overrides):
     pages, report = [], []
     for f in find_pages():
-        text = f.read_text(encoding="utf-8", errors="replace")
+        text = rd(f)
         p = PageParser()
         p.feed(text)
         m = p.meta
@@ -178,7 +199,7 @@ def collect(cat_keys, overrides):
             summary = shorten(m.get("description") or p.lede or p.first_p, SUMMARY_MAX)
             notes.append("沒有摘要 → 自動擷取：" + (summary[:28] + "…" if summary else "（找不到文字）"))
 
-        updated = m.get("nt:updated") or git_date(f) or \
+        updated = m.get("nt:updated") or ov.get("updated") or git_date(f) or \
             datetime.fromtimestamp(f.stat().st_mtime).strftime("%Y-%m-%d")
         try:
             order = float(get("order")) if get("order") is not None else 100.0
@@ -200,6 +221,7 @@ def collect(cat_keys, overrides):
             "order": order,
             "updated": updated,
             "replaces": m.get("nt:replaces", ""),
+            "header": str(m.get("nt:header", ov.get("header", ""))).lower() not in ("false", "0", "no", "none"),
             "source": source,
         })
         report.append((key, source, notes))
@@ -335,6 +357,57 @@ def replace_block(text, start, end, new):
     return pat.sub(lambda m: start + "\n" + new + "\n" + end, text, count=1)
 
 
+# ---------------------------------------------------------------- 統一頁首
+def header_data(cats, live_by, planned_by, uncategorized):
+    """整理成 site-header.js 需要的資料（和首頁導覽列同一份來源）。"""
+    out = []
+    for c in cats:
+        if c.get("planned_only"):
+            continue
+        items = [{"file": p["file"], "title": p["title"]} for p in live_by.get(c["key"], [])]
+        plan = [{"title": p["title"]} for p in planned_by.get(c["key"], []) if p.get("in_nav")]
+        if items or plan:
+            out.append({"key": c["key"], "nav": c.get("nav") or c["label"], "items": items, "planned": plan})
+    return {"cats": out, "other": [{"file": p["file"], "title": p["title"]} for p in uncategorized]}
+
+
+def write_header(data, dry):
+    if not HEADER_TEMPLATE.exists():
+        sys.exit("❌ 找不到 %s" % HEADER_TEMPLATE)
+    tpl = rd(HEADER_TEMPLATE)
+    if "/*NT:DATA*/null" not in tpl:
+        sys.exit("❌ %s 裡找不到 /*NT:DATA*/null 佔位符" % HEADER_TEMPLATE)
+    js = tpl.replace("/*NT:DATA*/null", json.dumps(data, ensure_ascii=False, separators=(",", ":")), 1)
+    old = rd(HEADER_OUT) if HEADER_OUT.exists() else None
+    if js != old and not dry:
+        wr(HEADER_OUT, js)
+    return js != old
+
+
+def ensure_loader(pages, dry):
+    """每個教學頁面都要有統一頁首；缺的就在 <body> 開頭補一行。回傳 (已補上, 找不到 body)。"""
+    added, nobody = [], []
+    for pg in pages:
+        if not pg["header"]:
+            continue
+        f = Path(pg["file"])
+        text = rd(f)
+        if HEADER_MARK in text:
+            continue
+        m = re.search(r"<body\b[^>]*>", text, re.I)
+        if not m:
+            nobody.append(pg["file"])
+            continue
+        prefix = "../" * (len(f.parts) - 1)
+        eol = "\r\n" if "\r\n" in text else "\n"
+        tag = '<script src="%s%s"></script>' % (prefix, HEADER_OUT.as_posix())
+        new = text[:m.end()] + eol + tag + text[m.end():]
+        if not dry:
+            wr(f, new)
+        added.append(pg["file"])
+    return added, nobody
+
+
 # ---------------------------------------------------------------- 主程式
 def main():
     dry = "--dry-run" in sys.argv
@@ -362,7 +435,7 @@ def main():
 
     if not INDEX_FILE.exists():
         sys.exit("❌ 找不到 %s（請在 repo 根目錄執行）" % INDEX_FILE)
-    old = INDEX_FILE.read_text(encoding="utf-8")
+    old = rd(INDEX_FILE)
     new = replace_block(old, NAV_START, NAV_END, build_nav(cats, live_by, planned_by))
     new = replace_block(new, SEC_START, SEC_END, build_sections(cats, live_by, planned_by, uncategorized))
     if not COUNT_RE.search(new):
@@ -371,7 +444,10 @@ def main():
 
     changed = new != old
     if changed and not dry:
-        INDEX_FILE.write_text(new, encoding="utf-8")
+        wr(INDEX_FILE, new)
+
+    header_changed = write_header(header_data(cats, live_by, planned_by, uncategorized), dry)
+    added, nobody = ensure_loader(pages, dry)
 
     # ---- 報告
     print("=" * 62)
@@ -379,6 +455,11 @@ def main():
           (len(pages), len(planned), len(uncategorized),
            ("（試跑，未寫入）會更新" if dry else "已更新") if changed else "沒有變動"))
     print("=" * 62)
+    print("統一頁首 %s：%s" % (HEADER_OUT, ("（試跑，未寫入）會更新" if dry else "已更新") if header_changed else "沒有變動"))
+    for fn in added:
+        print("✔ 已在 %s 補上統一頁首（它原本沒有）" % fn)
+    for fn in nobody:
+        print("▲ %s 找不到 <body> 標籤，無法補上統一頁首" % fn)
     for title in gone:
         print("✔ 規劃中的「%s」已有對應頁面，自動從「即將上線」移除" % title)
     bad = 0
