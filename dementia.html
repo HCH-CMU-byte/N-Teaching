@@ -138,7 +138,7 @@ nav.site-nav {
 
 /* ── 頁內分頁導覽 ── */
 .nav-wrap {
-  position: sticky; top: 54px; z-index: 200;
+  position: sticky; top: 0; z-index: 200;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   overflow-x: auto; scrollbar-width: none;
@@ -260,7 +260,7 @@ nav.site-nav {
 .ref-box li em { color: var(--text2); }
 
 /* ── 進度條 ── */
-.scroll-indicator { position: fixed; top: 54px; left: 0; right: 0; height: 2px; background: transparent; z-index: 250; }
+.scroll-indicator { position: fixed; top: 0; left: 0; right: 0; height: 2px; background: transparent; z-index: 250; }
 .scroll-progress { height: 100%; width: 0%; background: linear-gradient(90deg, var(--amber), var(--teal)); transition: width .1s; }
 
 footer { text-align: center; padding: 32px 18px 8px; color: var(--muted); font-size: 12.5px; line-height: 1.9; }
@@ -280,58 +280,8 @@ footer { text-align: center; padding: 32px 18px 8px; color: var(--muted); font-s
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════
-     站台導覽列
-     新增主題：在 .nav-links 裡複製一個 <div class="nav-dropdown"> 區塊
-     ══════════════════════════════════════════════════ -->
-<nav class="site-nav">
-  <a class="nav-logo" href="index.html">⬡ HCH-FYH Neurology</a>
-  <div class="nav-links">
-    <a href="index.html">首頁</a>
-    <a href="ncs.html">神經傳導</a>
-    <a href="neuro-ultrasound.html">神經超音波</a>
-
-    <div class="nav-dropdown">
-      <a href="migraine_headache.html">頭痛</a>
-      <div class="dropdown-menu">
-        <a href="migraine_headache.html">偏頭痛治療近五年進展</a>
-        <div class="dropdown-divider"></div>
-        <a href="cluster-headache.html" class="disabled">叢發性頭痛（整理中）</a>
-        <a href="moh.html" class="disabled">藥物過度使用性頭痛（整理中）</a>
-      </div>
-    </div>
-
-    <div class="nav-dropdown">
-      <a href="dementia.html" class="active">失智症</a>
-      <div class="dropdown-menu">
-        <a href="dementia.html" class="active">失智症總覽</a>
-        <a href="DLB_clinical_guide.html">路易氏體失智症（DLB）</a>
-        <a href="dementia_reversible.html">可治療的失智類疾病</a>
-        <div class="dropdown-divider"></div>
-        <a href="dementia_autoimmune.html" class="disabled">免疫腦炎（整理中）</a>
-      </div>
-    </div>
-
-    <div class="nav-dropdown">
-      <a href="epilepsy_psychiatry.html">癲癇</a>
-      <div class="dropdown-menu">
-        <a href="epilepsy_psychiatry.html">癲癇與精神疾病</a>
-        <a href="seizure_mimics.html">像癲癇，不是癲癇</a>
-        <div class="dropdown-divider"></div>
-        <a href="status_epilepticus.html" class="disabled">癲癇積重狀態（整理中）</a>
-      </div>
-    </div>
-
-    <div class="nav-dropdown">
-      <a href="#movement">動作障礙</a>
-      <div class="dropdown-menu">
-        <a href="parkinsons_disease.html" class="disabled">巴金森氏症診斷與治療（整理中）</a>
-        <a href="movement_differential.html" class="disabled">動作障礙鑑別診斷（整理中）</a>
-        <a href="movement_medication.html" class="disabled">動作障礙藥物治療（整理中）</a>
-      </div>
-    </div>
-  </div>
-</nav>
+<!-- 統一頁首：由 scripts/build_index.py 自動產生；請勿在各頁面自行做導覽列 -->
+<script src="assets/site-header.js"></script>
 
 <div class="scroll-indicator"><div class="scroll-progress" id="prog"></div></div>
 
