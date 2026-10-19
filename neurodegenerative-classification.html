@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神經退化性疾病：分類與診斷新進展</title>
+<style>
+:root{
+  --bg:#0d1117;
+  --bg-card:#161b22;
+  --bg-card-hover:#1c2128;
+  --border:#2a3038;
+  --text:#e6edf3;
+  --text-dim:#93a1b0;
+  --text-faint:#5f6b78;
+  --amber:#d9a441;
+  --amber-dim:#8a6a2c;
+  --teal:#3fc5b0;
+  --teal-dim:#245e54;
+  --red:#e0665a;
+  --purple:#a48ae0;
+  --card-radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;
+  line-height:1.75;
+  font-size:16px;
+}
+.en{
+  font-family:"Georgia","Times New Roman",serif;
+  font-style:italic;
+  color:var(--text-dim);
+  font-size:0.86em;
+}
+a{color:var(--amber);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* ===== Nav ===== */
+.topnav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 28px;
+  background:rgba(13,17,23,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  flex-wrap:wrap;
+  gap:10px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem;color:var(--text);}
+.brand .logo-mark{
+  width:30px;height:30px;border-radius:7px;
+  background:linear-gradient(135deg,var(--amber),var(--teal));
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.85rem;font-weight:800;color:#0d1117;
+}
+.brand:hover{text-decoration:none;}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap;align-items:center;}
+.nav-links a{
+  color:var(--text-dim);font-size:0.88rem;padding:7px 12px;border-radius:6px;
+  transition:all .15s;
+}
+.nav-links a:hover{color:var(--text);background:var(--bg-card);text-decoration:none;}
+.nav-links a.current{color:var(--amber);background:rgba(217,164,65,0.1);}
+
+/* ===== Hero ===== */
+.hero{
+  padding:64px 28px 40px;
+  max-width:960px;margin:0 auto;
+  border-bottom:1px solid var(--border);
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--teal);font-size:0.82rem;letter-spacing:0.06em;
+  border:1px solid var(--teal-dim);padding:4px 12px;border-radius:20px;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-size:2.1rem;font-weight:800;line-height:1.4;
+  background:linear-gradient(90deg,var(--text) 40%,var(--amber));
+  -webkit-background-clip:text;background-clip:text;
+}
+.hero .subtitle{margin-top:14px;color:var(--text-dim);font-size:1.02rem;max-width:680px;}
+.hero-meta{display:flex;gap:22px;margin-top:26px;flex-wrap:wrap;}
+.hero-meta div{font-size:0.82rem;color:var(--text-faint);}
+.hero-meta b{color:var(--text-dim);display:block;font-size:0.95rem;font-weight:600;}
+
+/* ===== Section shell ===== */
+section{max-width:960px;margin:0 auto;padding:52px 28px;border-bottom:1px solid var(--border);}
+.section-label{
+  color:var(--amber);font-size:0.8rem;letter-spacing:0.08em;font-weight:700;
+  display:flex;align-items:center;gap:10px;margin-bottom:10px;
+}
+.section-label::before{content:"";width:22px;height:2px;background:var(--amber);}
+h2{font-size:1.5rem;font-weight:700;margin-bottom:8px;}
+h2 .en{display:block;font-size:0.72rem;margin-top:4px;font-weight:400;}
+h3{font-size:1.12rem;font-weight:700;margin:28px 0 10px;color:var(--text);}
+h3 .en{font-size:0.7rem;}
+p{color:var(--text-dim);margin-bottom:14px;}
+p b, li b{color:var(--text);font-weight:600;}
+ul,ol{margin:10px 0 16px 22px;color:var(--text-dim);}
+li{margin-bottom:8px;}
+.lede{color:var(--text-dim);margin-bottom:26px;}
+
+/* ===== evidence chip ===== */
+.chip{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:0.72rem;font-weight:700;padding:2px 8px;border-radius:5px;
+  vertical-align:middle;margin-left:4px;white-space:nowrap;
+}
+.chip-A{background:rgba(63,197,176,0.14);color:var(--teal);border:1px solid var(--teal-dim);}
+.chip-B{background:rgba(217,164,65,0.14);color:var(--amber);border:1px solid var(--amber-dim);}
+.chip-C{background:rgba(164,138,224,0.14);color:var(--purple);border:1px solid #4d3f78;}
+.legend{
+  display:flex;gap:18px;flex-wrap:wrap;margin:18px 0 8px;
+  padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;
+  font-size:0.8rem;color:var(--text-dim);
+}
+.legend span{display:flex;align-items:center;gap:6px;}
+
+/* ===== card grid ===== */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px;}
+.card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--card-radius);
+  padding:20px;transition:all .18s;
+}
+.card:hover{border-color:var(--amber-dim);background:var(--bg-card-hover);transform:translateY(-2px);}
+.card .icon{font-size:1.5rem;margin-bottom:10px;display:block;}
+.card .cat{font-size:0.72rem;color:var(--teal);letter-spacing:0.05em;font-weight:700;margin-bottom:6px;}
+.card h4{font-size:1rem;color:var(--text);margin-bottom:6px;}
+.card p{font-size:0.86rem;margin-bottom:0;color:var(--text-dim);}
+.card .foot{margin-top:12px;font-size:0.74rem;color:var(--text-faint);border-top:1px solid var(--border);padding-top:10px;}
+
+/* ===== table ===== */
+.table-wrap{overflow-x:auto;margin:18px 0;border:1px solid var(--border);border-radius:8px;}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;min-width:560px;}
+th{
+  background:rgba(217,164,65,0.08);color:var(--amber);text-align:left;
+  padding:11px 14px;font-size:0.78rem;letter-spacing:0.03em;border-bottom:1px solid var(--border);
+}
+td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+td b{color:var(--text);}
+
+/* ===== callout ===== */
+.callout{
+  background:rgba(63,197,176,0.06);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);
+  border-radius:6px;padding:16px 18px;margin:18px 0;color:var(--text-dim);font-size:0.92rem;
+}
+.callout b{color:var(--teal);}
+.callout.warn{background:rgba(224,102,90,0.06);border-color:#6b3a34;border-left-color:var(--red);}
+.callout.warn b{color:var(--red);}
+
+/* ===== timeline / flow ===== */
+.flow{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin:20px 0;}
+.flow-step{
+  flex:1 1 150px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;
+  padding:14px 16px;position:relative;min-width:140px;
+}
+.flow-step .n{font-size:0.7rem;color:var(--amber);font-weight:700;letter-spacing:0.05em;}
+.flow-step h5{font-size:0.92rem;margin:4px 0 4px;color:var(--text);}
+.flow-step p{font-size:0.78rem;margin:0;color:var(--text-dim);}
+.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--text-faint);padding:0 6px;font-size:1.1rem;}
+
+/* ===== ATN grid ===== */
+.atn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0;}
+.atn-box{
+  border-radius:8px;padding:16px;text-align:center;border:1px solid var(--border);background:var(--bg-card);
+}
+.atn-box .letter{font-size:1.7rem;font-weight:800;}
+.atn-box.A .letter{color:var(--teal);}
+.atn-box.T .letter{color:var(--amber);}
+.atn-box.N .letter{color:var(--purple);}
+.atn-box .label{font-size:0.78rem;color:var(--text-dim);margin-top:4px;}
+.atn-box .desc{font-size:0.74rem;color:var(--text-faint);margin-top:8px;}
+@media(max-width:600px){.atn-grid{grid-template-columns:1fr;}}
+
+/* ===== refs ===== */
+.ref-list{list-style:none;margin:0;padding:0;}
+.ref-list li{
+  padding:12px 0;border-bottom:1px solid var(--border);font-size:0.84rem;color:var(--text-dim);
+  display:flex;gap:12px;
+}
+.ref-list li:last-child{border-bottom:none;}
+.ref-num{color:var(--amber);font-weight:700;flex-shrink:0;width:26px;}
+.ref-list .doi{color:var(--text-faint);font-size:0.78rem;}
+
+footer{max-width:960px;margin:0 auto;padding:36px 28px 60px;color:var(--text-faint);font-size:0.8rem;}
+
+@media(max-width:700px){
+  .hero h1{font-size:1.55rem;}
+  section{padding:40px 20px;}
+  .atn-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="brand"><span class="logo-mark">N</span></a>
+  <div class="nav-links">
+    <a href="index.html">首頁</a>
+    <a href="#classification" class="current">分類重構</a>
+    <a href="#atn">AT(N)框架</a>
+    <a href="#imaging">影像進展</a>
+    <a href="#immunology">神經免疫</a>
+    <a href="#diagnosis">診斷整合</a>
+    <a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">● 失智症 / 神經退化性疾病 <span class="en">Neurodegenerative Disease</span></div>
+  <h1>神經退化性疾病：分類與診斷標準新進展</h1>
+  <p class="subtitle">從「臨床症狀導向」到「分子病理與生物標記導向」——整理近年神經病理學、神經影像學與神經免疫學的關鍵進展，供住院醫師與臨床教學使用。</p>
+  <div class="hero-meta">
+    <div><b>9</b>篇核心文獻</div>
+    <div><b>4</b>大蛋白病理分類</div>
+    <div><b>AT(N)</b>生物標記框架</div>
+    <div><b>2018</b>NIA-AA研究框架</div>
+  </div>
+</div>
+
+<section id="classification">
+  <div class="section-label">01 · 分類體系重構 <span class="en">Reclassification</span></div>
+  <h2>基於蛋白病理性狀的分類重構<span class="en">From Clinical Syndrome to Molecular Pathology</span></h2>
+  <p class="lede">傳統分類依臨床症候群區分（如阿茲海默型失智、帕金森型症候群），但臨床-病理對照研究顯示：<b>同一症候群可對應多種病理，同一病理也可能呈現不同臨床表現</b>。因此學界改採「致病蛋白」作為分類基礎。</p>
+
+  <div class="legend">
+    <span><span class="chip chip-A">A級</span> 大型世代研究 / 系統性框架（NIA-AA、A/T/N）</span>
+    <span><span class="chip chip-B">B級</span> 病理對照研究 / 世代研究</span>
+    <span><span class="chip chip-C">C級</span> 綜述 / 專家共識</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>蛋白病類型</th><th>致病蛋白</th><th>代表性疾病</th></tr></thead>
+      <tbody>
+        <tr><td><b>Tau蛋白病</b><br><span class="en">Tauopathy</span></td><td>過度磷酸化 Tau</td><td>阿茲海默病（合併Aβ）、進行性核上性麻痺（PSP）、皮質基底節退化症（CBD）、Pick病</td></tr>
+        <tr><td><b>類澱粉蛋白病</b><br><span class="en">Amyloidopathy</span></td><td>β-類澱粉蛋白（Aβ）</td><td>阿茲海默病（合併tau病理）</td></tr>
+        <tr><td><b>突觸核蛋白病</b><br><span class="en">Synucleinopathy</span></td><td>α-突觸核蛋白</td><td>帕金森病、帕金森病失智（PDD）、路易體失智（DLB）、多系統萎縮症（MSA）</td></tr>
+        <tr><td><b>TDP-43蛋白病</b><br><span class="en">TDP-43 Proteinopathy</span></td><td>TAR DNA結合蛋白43</td><td>額顳葉退化症（FTLD-TDP）、肌萎縮性側索硬化症（ALS）、LATE（邊緣系統老年TDP-43腦病）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.85rem;">值得注意：混合病理在老年人群極為常見——多數DLB病人同時存在不同程度的AD相關病理<span class="chip chip-B">B</span>，AD病人海馬區也常見α-突觸核蛋白與TDP-43共同聚集<span class="chip chip-B">B</span>。</p>
+
+  <h3>路易體疾病譜系的連續體概念<span class="en">Lewy Body Disease Continuum</span></h3>
+  <p>PD、PDD、DLB三者的關係長期以「一年原則」（痴呆與運動症狀出現的時間先後）人為區分，但此界定的合理性日益受到質疑。從神經病理學角度，三者共享 α-突觸核蛋白聚集這一核心特徵：</p>
+  <div class="flow">
+    <div class="flow-step"><div class="n">PD</div><h5>病理侷限</h5><p>主要局限於腦幹與邊緣系統</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">PDD</div><h5>擴展至新皮質</h5><p>病理範圍擴大，認知功能受累</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">DLB</div><h5>合併AD共病理更重</h5><p>Aβ／tau沉積更明顯，認知衰退更早、更突出</p></div>
+  </div>
+  <p style="font-size:0.85rem;">目前傾向將PD、PDD、DLB視為<b>同一疾病譜系的不同表現</b>，而非截然獨立的疾病實體 <span class="chip chip-B">B</span>（Walker et al., 2019）。</p>
+
+  <h3>額顳葉退化症的精細化亞型<span class="en">FTLD Subtyping</span></h3>
+  <p>FTLD依病理蛋白可分為：<b>Tau蛋白病</b>（如Pick病）、<b>TDP-43蛋白病</b>（最常見，與C9orf72重複擴增、GRN突變相關）、<b>FET家族蛋白病</b>。臨床上除經典行為變異型FTD（bvFTD）與原發性進行性失語（PPA，非流利/語意型）外，近年更識別出：</p>
+  <ul>
+    <li><b>右顳變異型FTD</b>：以面容失認、情節記憶障礙為特徵</li>
+    <li><b>FTD-ALS重疊譜系</b>：行為認知症狀與運動神經元退化並存</li>
+  </ul>
+</section>
+
+<section id="atn">
+  <div class="section-label">02 · AD生物學定義 <span class="en">Biological Definition</span></div>
+  <h2>阿茲海默病生物學定義與 AT(N) 框架<span class="en">NIA-AA Research Framework &amp; AT(N)</span></h2>
+
+  <p class="lede">2018年NIA-AA（美國國家衰老研究所-阿茲海默協會）研究框架 <span class="chip chip-A">A</span> 是里程碑式轉變——將AD重新定義為<b>可在活體以生物標記識別的病理過程</b>（Aβ斑塊＋tau纖維纏結），不再要求臨床症狀作為診斷必要條件。</p>
+
+  <div class="callout warn">
+    <b>臨床意涵：</b>約10–30%臨床診斷為AD失智的病人，尸檢並未發現AD病理；反之，約30–40%認知功能正常的老年人尸檢卻已有AD病理改變——顯示病理變化可早於症狀數十年出現。
+  </div>
+
+  <h3>AT(N) 分類系統<span class="en">Jack et al., 2016 / NIA-AA 2018</span></h3>
+  <p>由Jack等人於2016年首次提出<span class="chip chip-A">A</span>，後於2018年NIA-AA框架中正式採用，將AD相關生物標記分為三大類，各自以「正常（−）／異常（＋）」標示，共組成8種生物標記組合：</p>
+  <div class="atn-grid">
+    <div class="atn-box A"><div class="letter">A</div><div class="label">Amyloid 類澱粉蛋白</div><div class="desc">類澱粉蛋白PET／CSF Aβ42</div></div>
+    <div class="atn-box T"><div class="letter">T</div><div class="label">Tau 濤蛋白</div><div class="desc">CSF磷酸化tau／tau PET</div></div>
+    <div class="atn-box N"><div class="letter">(N)</div><div class="label">Neurodegeneration 神經退化</div><div class="desc">MRI萎縮／FDG-PET代謝／CSF總tau</div></div>
+  </div>
+  <p style="font-size:0.85rem;">其中 <b>A+T+</b>（同時具Aβ與tau病理）定義為「阿茲海默病」；<b>A+T−</b>稱為「阿茲海默病理改變」（更早期階段）。研究顯示A+T+N+個體認知下降最快、由MCI轉為失智的風險最高 <span class="chip chip-B">B</span>；未來可擴展納入血管性（V）、發炎性（I）等新維度形成 ATI(N)。</p>
+
+  <h3>血液生物標記的突破性進展<span class="en">Blood-based Biomarkers</span></h3>
+  <div class="card-grid">
+    <div class="card">
+      <span class="icon">🩸</span>
+      <div class="cat">血漿標記</div>
+      <h4>p-tau217 / p-tau181</h4>
+      <p>與CSF及PET結果高度一致，可有效區分AD與非AD失智，適合大規模篩檢。</p>
+      <div class="foot">Boeve et al., 2022 · <span class="chip chip-B">B</span></div>
+    </div>
+    <div class="card">
+      <span class="icon">🧵</span>
+      <div class="cat">神經軸突損傷</div>
+      <h4>血漿 NfL</h4>
+      <p>非AD特異，但對FTD鑑別診斷（尤其bvFTD vs. 精神疾病）具重要價值。</p>
+      <div class="foot">AUC約0.84–0.94 · <span class="chip chip-B">B</span></div>
+    </div>
+    <div class="card">
+      <span class="icon">⚖️</span>
+      <div class="cat">類澱粉蛋白比值</div>
+      <h4>Aβ42 / Aβ40</h4>
+      <p>與類澱粉蛋白PET結果有良好一致性，微創、低成本、可重複監測。</p>
+      <div class="foot"><span class="chip chip-B">B</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="imaging">
+  <div class="section-label">03 · 神經影像學 <span class="en">Neuroimaging</span></div>
+  <h2>從結構觀察到分子可視化<span class="en">Structural to Molecular Imaging</span></h2>
+
+  <h3>分子PET成像<span class="en">Molecular PET</span></h3>
+  <div class="card-grid">
+    <div class="card"><span class="icon">🔬</span><div class="cat">已成熟應用</div><h4>類澱粉蛋白PET</h4><p>與尸檢Aβ負荷高度一致，廣泛用於AD早期與鑑別診斷。</p></div>
+    <div class="card"><span class="icon">🧠</span><div class="cat">已成熟應用</div><h4>Tau PET（flortaucipir）</h4><p>空間分布與Braak分期高度一致，提供AD體內分期工具。</p></div>
+    <div class="card"><span class="icon">⏳</span><div class="cat">開發中</div><h4>α-突觸核蛋白PET</h4><p>尚未進入臨床應用，是未來鑑別突觸核蛋白病的關鍵突破口。</p></div>
+    <div class="card"><span class="icon">🍩</span><div class="cat">已成熟應用</div><h4>FDG-PET</h4><p>AD呈顳頂葉代謝減低；FTLD呈額顳葉減低；DLB可見枕葉「扣帶回島徵」。</p></div>
+  </div>
+
+  <h3>多模態MRI技術<span class="en">Multimodal MRI</span></h3>
+  <ul>
+    <li><b>DTI 弥散張量成像</b>：評估白質完整性，可區分PSP（小脑上腳、腦橋弥散異常）與PD</li>
+    <li><b>SWI／QSM</b>：偵測腦鐵沉積——AD殼核/蒼白球鐵增加；PD黑質鐵含量顯著升高（較常人增加約225%）<span class="chip chip-B">B</span></li>
+    <li><b>ASL 動脈自旋標記</b>：無創評估腦血流，AD呈後扣帶回、顳頂葉低灌注</li>
+    <li><b>海馬亞區分割</b>：AD以CA1亞區萎縮為特徵性改變，DLB海馬萎縮相對較輕，可輔助鑑別</li>
+    <li><b>自由水成像</b>：可偵測PD黑質與皮質區神經發炎相關組織改變</li>
+  </ul>
+  <div class="callout"><b>整合趨勢：</b>PET＋MRI多模態整合，結合AI影像組學分析，可提取肉眼無法辨識的微觀結構特徵，顯著提升早期與鑑別診斷準確性。</div>
+</section>
+
+<section id="immunology">
+  <div class="section-label">04 · 神經免疫學 <span class="en">Neuroimmunology</span></div>
+  <h2>從旁觀者到關鍵參與者<span class="en">Microglia &amp; Adaptive Immunity</span></h2>
+
+  <h3>小膠質細胞表型異質性<span class="en">Microglial Heterogeneity</span></h3>
+  <p>小膠質細胞並非被動響應者，而是疾病進程的主動調節者。高解析度3D分析AD與DLB病人海馬亞區（CA1、CA3、DG/CA4）發現 <span class="chip chip-B">B</span>（Fixemer et al., 2022）：</p>
+  <ul>
+    <li>AD與DLB中小膠質細胞皆向「變形蟲樣」及「半分支樣」形態轉變，<b>AD變化更顯著</b></li>
+    <li>海馬<b>CA1</b>亞區在AD中病理負荷最重（pTau與pSyn共存），小膠質細胞改變也最突出，提示反應與區域選擇性易損性相關</li>
+    <li>pTau與pSyn呈強正相關（R²≈0.79），但多聚集於<b>相鄰的不同神經元</b>，而非同一細胞內</li>
+  </ul>
+
+  <h3>固有免疫基因風險<span class="en">Innate Immune Risk Genes</span></h3>
+  <p>全基因組關聯研究（GWAS）鑑定出多個AD風險位點直接涉及小膠質細胞功能，如 <b>TREM2、CD33、CR1、SPI1</b>。TREM2功能缺失突變會顯著增加AD與FTD風險，使小膠質細胞成為新興治療標的 <span class="chip chip-B">B</span>。</p>
+
+  <h3>適應性免疫的新角色<span class="en">Adaptive Immunity</span></h3>
+  <ul>
+    <li>AD病人腦實質內可見CD8+毒殺型與CD4+輔助型T細胞浸潤，程度與tau病理嚴重度相關</li>
+    <li>T細胞浸潤主要透過趨化因子（如CCL3）及血腦屏障破壞驅動</li>
+    <li>外周血中存在Aβ與tau特異性T/B細胞，提示中樞抗原可經腦膜淋巴管引流至頸部淋巴結，引發外周免疫反應</li>
+    <li>動物模型中B細胞耗竭可減輕Aβ斑塊負荷、恢復小膠質細胞穩態，為B細胞標靶治療提供新思路</li>
+  </ul>
+  <div class="callout warn"><b>致病循環：</b>pTau與Aβ沉積可活化小膠質細胞釋放促發炎因子；慢性神經發炎又進一步促進tau磷酸化與α-突觸核蛋白聚集，形成惡性循環——神經退化性疾病應被視為「神經退化-神經免疫複合性疾病」，而非單純蛋白沉積病。</div>
+</section>
+
+<section id="diagnosis">
+  <div class="section-label">05 · 診斷整合 <span class="en">Integrated Diagnosis</span></div>
+  <h2>診斷標準的整合進展<span class="en">Biomarker-driven Diagnostic Paradigm</span></h2>
+
+  <p class="lede">目前主流診斷框架（NIA-AA 2018、IWG診斷標準）已從「臨床主導」轉向「生物標記與臨床結合」，通常需整合四個面向：</p>
+  <div class="flow">
+    <div class="flow-step"><div class="n">01</div><h5>臨床評估</h5><p>認知功能、日常生活能力、精神行為症狀</p></div>
+    <div class="flow-arrow">＋</div>
+    <div class="flow-step"><div class="n">02</div><h5>核心生物標記</h5><p>CSF或PET檢測Aβ／tau病理狀態</p></div>
+    <div class="flow-arrow">＋</div>
+    <div class="flow-step"><div class="n">03</div><h5>神經影像</h5><p>MRI結構萎縮模式、FDG-PET代謝模式</p></div>
+    <div class="flow-arrow">＋</div>
+    <div class="flow-step"><div class="n">04</div><h5>排除其他病因</h5><p>血管性病變、其他神經退化性疾病</p></div>
+  </div>
+
+  <h3>FTD診斷的挑戰與進展<span class="en">FTD Diagnostic Advances</span></h3>
+  <ul>
+    <li><b>社會認知測試精細化</b>：情緒辨識、同理心、心智理論測試的引入，提升bvFTD早期識別率</li>
+    <li><b>遺傳學常規篩檢</b>：C9orf72、MAPT、GRN致病基因篩檢，有助辨識遺傳性FTLD並篩選臨床試驗參與者</li>
+    <li><b>血液NfL</b>：於診斷與預後判斷中扮演關鍵角色，可預測症狀前突變帶因者的臨床轉化時間</li>
+    <li><b>Tau PET局限</b>：第一代配體對非AD原發性tau蛋白病（PSP、CBD）結合力弱，限制其於FTD鑑別的應用</li>
+  </ul>
+
+  <h3>多重病理共存的挑戰<span class="en">Co-pathology</span></h3>
+  <p>老年神經退化性疾病常是<b>多重病理共存</b>的結果——AD病人可同時存在路易體病理、TDP-43病理與腦血管病變。AT(N)框架透過分離蛋白特異性與非特異性生物標記，結合臨床與影像資訊，為多重病理的表徵提供了可行方案。</p>
+</section>
+
+<section id="summary">
+  <div class="section-label">06 · 總結展望 <span class="en">Summary &amp; Future Directions</span></div>
+  <h2>重點回顧與未來方向</h2>
+  <div class="card-grid">
+    <div class="card"><span class="icon">🧬</span><div class="cat">分類</div><h4>症狀 → 分子病理</h4><p>以致病蛋白聚集類型（Aβ、tau、α-synuclein、TDP-43）作為分類基礎，並承認病理間的重疊交互。</p></div>
+    <div class="card"><span class="icon">📊</span><div class="cat">診斷</div><h4>綜合徵推斷 → 生物學定義</h4><p>AT(N)框架提供AD研究的統一描述語言；血漿標記推動診斷可及性革命。</p></div>
+    <div class="card"><span class="icon">🖥️</span><div class="cat">影像</div><h4>結構評估 → 分子可視化</h4><p>類澱粉蛋白PET、tau PET，加上DTI、SWI、ASL等多模態技術豐富鑑別診斷維度。</p></div>
+    <div class="card"><span class="icon">🛡️</span><div class="cat">免疫</div><h4>旁觀者 → 主動調控者</h4><p>小膠質細胞、T細胞、B細胞的角色，開闢免疫調節治療新標的。</p></div>
+  </div>
+  <h3 style="margin-top:32px;">未來方向</h3>
+  <ul>
+    <li>開發 α-突觸核蛋白與TDP-43 特異性PET示蹤劑</li>
+    <li>將神經發炎生物標記納入AT(N)擴展系統（如ATI(N)）</li>
+    <li>以AI整合多模態數據，實現個體化精準診斷與預後預測</li>
+    <li>依分子病理分層，開展精準標靶治療臨床試驗</li>
+  </ul>
+</section>
+
+<section id="refs">
+  <div class="section-label">參考文獻 <span class="en">References</span></div>
+  <h2>Reference List</h2>
+  <ul class="ref-list">
+    <li><span class="ref-num">[1]</span><span>Walker L, Stefanis L, Attems J. Clinical and neuropathological differences between Parkinson's disease, Parkinson's disease dementia and dementia with Lewy bodies. <i>J Neurochem.</i> 2019;150(5):467-474. <span class="doi">DOI: 10.1111/jnc.14698</span></span></li>
+    <li><span class="ref-num">[2]</span><span>Gabelle A, Portet F, Berr C, Touchon J. Neurodegenerative dementia and Parkinsonism. <i>J Nutr Health Aging.</i> 2010;14(1):37-44. <span class="doi">DOI: 10.1007/s12603-010-0007-z</span></span></li>
+    <li><span class="ref-num">[3]</span><span>Jack CR Jr, Bennett DA, Blennow K, et al. A/T/N: An unbiased descriptive classification scheme for Alzheimer disease biomarkers. <i>Neurology.</i> 2016;87(5):539-547. <span class="doi">DOI: 10.1212/wnl.0000000000002923</span></span></li>
+    <li><span class="ref-num">[4]</span><span>Hampel H, Elhage A, Cummings J, et al. The AT(N) System for Describing Biological Changes in Alzheimer's Disease: A Plain Language Summary. <i>Neurodegener Dis Manag.</i> 2022;12(5):231-239. <span class="doi">DOI: 10.2217/nmt-2022-0013</span></span></li>
+    <li><span class="ref-num">[5]</span><span>Fixemer S, Ameli C, Hammer G, et al. Microglia phenotypes are associated with subregional patterns of concomitant tau, amyloid-β and α-synuclein pathologies in the hippocampus of patients with AD and DLB. <i>Acta Neuropathol Commun.</i> 2022;10(1). <span class="doi">DOI: 10.1186/s40478-022-01342-7</span></span></li>
+    <li><span class="ref-num">[6]</span><span>Jack CR Jr, Bennett DA, Blennow K, et al. NIA-AA Research Framework: Toward a biological definition of Alzheimer's disease. <i>Alzheimers Dement.</i> 2018;14(4):535-562. <span class="doi">DOI: 10.1016/j.jalz.2018.02.018</span></span></li>
+    <li><span class="ref-num">[7]</span><span>Boeve BF, Boxer AL, Kumfor F, Pijnenburg Y, Rohrer JD. Advances and controversies in frontotemporal dementia: diagnosis, biomarkers, and therapeutic considerations. <i>Lancet Neurol.</i> 2022;21(3):258-272. <span class="doi">DOI: 10.1016/s1474-4422(21)00341-0</span></span></li>
+    <li><span class="ref-num">[8]</span><span>Chen Y, Colonna M. Spontaneous and induced adaptive immune responses in Alzheimer's disease: new insights into old observations. <i>Curr Opin Immunol.</i> 2022;77:102233. <span class="doi">DOI: 10.1016/j.coi.2022.102233</span></span></li>
+    <li><span class="ref-num">[9]</span><span>Li KR, Wu AG, Tang Y, et al. The Key Role of Magnetic Resonance Imaging in the Detection of Neurodegenerative Diseases-Associated Biomarkers: A Review. <i>Mol Neurobiol.</i> 2022;59(10):5935-5954. <span class="doi">DOI: 10.1007/s12035-022-02944-x</span></span></li>
+  </ul>
+  <p style="margin-top:16px;font-size:0.8rem;color:var(--text-faint);">核心事實（NIA-AA 2018研究框架架構、AT(N)分類系統定義）已與原始文獻及公開摘要交叉核對確認。文中量化數據（如尸檢病理不一致比例、AUC值、鐵沉積百分比）引用自來源整理文件所標註的對應文獻，建議教學前對關鍵數字再次核對原文全文。</p>
+</section>
+
+<footer>
+  N-Teaching 神經科教學研究部 · 本頁面為住院醫師／專科護理師教學用整理資料，非臨床診斷依據 · <a href="index.html">返回首頁</a>
+</footer>
+
+</body>
+</html>
