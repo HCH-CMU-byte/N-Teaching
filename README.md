@@ -1,3 +1,4 @@
+# Neuro AI assistance self-learning
 # N-Teaching 首頁自動更新：使用說明
 
 ## 這套東西做什麼
