@@ -47,7 +47,8 @@ NEW_DAYS = 30                          # 幾天內更新過的頁面顯示 NEW �
 HEADER_TEMPLATE = Path("scripts/site-header.template.js")
 HEADER_OUT = Path("assets/site-header.js")
 HEADER_MARK = "site-header.js"           # 頁面裡出現這個字串，就視為已經有統一頁首
-UNCATEGORIZED_LABEL = "未分類 · Uncategorized（請在頁面補上 nt:category）"
+SHOW_PLANNED = False                   # False＝首頁與導覽列只顯示「已上傳的頁面」，不顯示規劃中／不可點的項目
+UNCATEGORIZED_LABEL = "未分類 · Uncategorized"
 # ================================================
 
 NAV_START, NAV_END = "<!-- NT:NAV:START -->", "<!-- NT:NAV:END -->"
@@ -158,7 +159,8 @@ def clean_title(t):
 def find_pages():
     for d in SCAN_DIRS:
         for f in sorted(Path(d).rglob("*.html")):
-            if set(f.parts) & EXCLUDE_DIRS or f.name in EXCLUDE_FILES or f.name.startswith("_"):
+            if (set(f.parts) & EXCLUDE_DIRS or f.name in EXCLUDE_FILES
+                    or any(part.startswith(("_", ".")) and part not in (".", "..") for part in f.parts)):   # _layouts、_includes 等
                 continue
             yield f
 
@@ -169,13 +171,22 @@ def split_tags(v):
     return [t.strip() for t in re.split(r"[,，、]", v or "") if t.strip()]
 
 
-def collect(cat_keys, overrides):
+def collect(cat_keys, overrides, suffix_map):
     pages, report = [], []
     for f in find_pages():
         text = rd(f)
         p = PageParser()
         p.feed(text)
         m = p.meta
+        fm = re.match(r"---[ \t]*\r?\n(.*?)\r?\n---", text, re.S)       # Jekyll front matter（若有）
+        if fm:
+            for k in ("title", "description"):
+                mm = re.search(r"^%s:\s*\"?(.*?)\"?\s*$" % k, fm.group(1), re.M)
+                if mm:
+                    if k == "title" and not p.title:
+                        p.title = mm.group(1)
+                    if k == "description" and "description" not in m:
+                        m["description"] = mm.group(1)
         key = f.as_posix()
         ov = overrides.get(key, {}) if isinstance(overrides.get(key), dict) else {}
 
@@ -187,6 +198,11 @@ def collect(cat_keys, overrides):
         notes = []
 
         cat = get("category") or ""
+        if not cat:                                   # 沒填分類時，試試檔名後綴：xxx_dementia.html → dementia
+            suffix = f.stem.rsplit("_", 1)[-1].lower() if "_" in f.stem else ""
+            cat = suffix_map.get(suffix, "")
+            if cat:
+                source = "檔名後綴"
         if not cat:
             notes.append("沒有 nt:category → 放入「未分類」")
         elif cat not in cat_keys or cat == "soon":
@@ -317,7 +333,7 @@ def build_nav(cats, live_by, planned_by):
         if not live and not plan:
             continue
         nav = c.get("nav") or c["label"]
-        if len(live) == 1 and not plan:
+        if len(live) == 1 and not plan and not c.get("always_menu"):
             out.append('<a href="%s">%s</a>' % (esc(href(live[0]["file"])), esc(nav)))
             continue
         head = href(live[0]["file"]) if live else "#cat-" + c["key"]
@@ -367,7 +383,8 @@ def header_data(cats, live_by, planned_by, uncategorized):
         items = [{"file": p["file"], "title": p["title"]} for p in live_by.get(c["key"], [])]
         plan = [{"title": p["title"]} for p in planned_by.get(c["key"], []) if p.get("in_nav")]
         if items or plan:
-            out.append({"key": c["key"], "nav": c.get("nav") or c["label"], "items": items, "planned": plan})
+            out.append({"key": c["key"], "nav": c.get("nav") or c["label"], "items": items, "planned": plan,
+                        "menu": bool(c.get("always_menu"))})
     return {"cats": out, "other": [{"file": p["file"], "title": p["title"]} for p in uncategorized]}
 
 
@@ -395,13 +412,20 @@ def ensure_loader(pages, dry):
         if HEADER_MARK in text:
             continue
         m = re.search(r"<body\b[^>]*>", text, re.I)
-        if not m:
+        if m:
+            pos = m.end()
+        elif "<html" not in text.lower():
+            # 沒有 <html>／<body> 的「片段頁面」（例如開頭是 Jekyll front matter 的頁面，外框由 _layouts 提供）：
+            # 把統一頁首放在 front matter 之後、內容的最前面
+            fm = re.match(r"---[ \t]*\r?\n.*?\r?\n---[ \t]*\r?\n", text, re.S)
+            pos = fm.end() if fm else 0
+        else:
             nobody.append(pg["file"])
             continue
         prefix = "../" * (len(f.parts) - 1)
         eol = "\r\n" if "\r\n" in text else "\n"
         tag = '<script src="%s%s"></script>' % (prefix, HEADER_OUT.as_posix())
-        new = text[:m.end()] + eol + tag + text[m.end():]
+        new = text[:pos] + (eol if m else "") + tag + eol + text[pos:]
         if not dry:
             wr(f, new)
         added.append(pg["file"])
@@ -420,12 +444,16 @@ def main():
         sys.exit("❌ 找不到 index-data/categories.json")
     cat_keys = [c["key"] for c in cats]
 
-    pages, report = collect(cat_keys, overrides)
+    suffix_map = {}
+    for c in cats:
+        for name in [c["key"]] + list(c.get("aliases", [])):
+            suffix_map[name.lower()] = c["key"]
+    pages, report = collect(cat_keys, overrides, suffix_map)
     pages.sort(key=lambda p: (p["order"], p["title"]))
 
     present = {p["file"] for p in pages} | {p["replaces"] for p in pages if p["replaces"]}
-    planned = [p for p in planned_all if p["id"] not in present]
-    gone = [p["title"] for p in planned_all if p["id"] in present]
+    planned = [p for p in planned_all if p["id"] not in present] if SHOW_PLANNED else []
+    gone = [p["title"] for p in planned_all if p["id"] in present] if SHOW_PLANNED else []
 
     live_by, planned_by, uncategorized = {}, {}, []
     for p in pages:

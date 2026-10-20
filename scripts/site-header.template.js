@@ -81,7 +81,7 @@
       if (!live.length && !plan.length) return;
       var on = live.some(function (p) { return isHere(p.file); });
       var nav = c.nav || c.label;
-      if (live.length === 1 && !plan.length) {
+      if (live.length === 1 && !plan.length && !c.menu) {
         html += '<div class="nt-item"><a class="nt-top' + (on ? ' nt-on' : '') + '" href="' + esc(url(live[0].file)) + '">' + esc(nav) + '</a></div>';
         return;
       }
@@ -98,7 +98,7 @@
     var other = DATA.other || [];
     if (other.length) {
       var onO = other.some(function (p) { return isHere(p.file); });
-      html += '<div class="nt-item"><a class="nt-top' + (onO ? ' nt-on' : '') + '" href="#" onclick="return false">其他教材 ▾</a><div class="nt-menu">';
+      html += '<div class="nt-item"><a class="nt-top' + (onO ? ' nt-on' : '') + '" href="#" onclick="return false">未分類 ▾</a><div class="nt-menu">';
       other.forEach(function (p) {
         html += '<a href="' + esc(url(p.file)) + '"' + (isHere(p.file) ? ' class="nt-cur"' : '') + '>' + esc(p.title) + '</a>';
       });
