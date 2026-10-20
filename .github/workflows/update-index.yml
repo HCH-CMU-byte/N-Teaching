@@ -1,5 +1,8 @@
-# 每次你上傳（push）教學頁面到 main 之後，自動執行 scripts/build_index.py，
-# 把首頁 index.html 的導覽列與分類卡片更新好，並通知 GitHub Pages 重新發佈。
+# 每次你上傳（push）教學頁面到 main 之後，自動執行 scripts/build_index.py：
+#   - 更新首頁 index.html 的導覽列與分類卡片
+#   - 重新產生統一頁首 assets/site-header.js
+#   - 替缺少統一頁首的新頁面自動補上一行
+# 然後存回 repo，並通知 GitHub Pages 重新發佈。
 # 若你的主要分支叫 master，請把下面的 main 改成 master。
 name: 自動更新首頁索引
 
@@ -9,16 +12,16 @@ on:
     paths:
       - "**.html"
       - "index-data/**"
-      - "scripts/build_index.py"
+      - "scripts/**"
   workflow_dispatch:           # 也可在 Actions 頁籤手動按「Run workflow」
 
 permissions:
-  contents: write              # 讓程式能把更新後的 index.html 存回 repo
+  contents: write              # 讓程式能把更新後的檔案存回 repo
   pages: write                 # 讓程式能要求 Pages 重新發佈
 
 concurrency:
   group: update-index
-  cancel-in-progress: false
+  cancel-in-progress: false    # 前一次還在跑時排隊，不要中斷
 
 jobs:
   update:
@@ -34,23 +37,38 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: 更新首頁索引
-        run: python scripts/build_index.py
-
-      - name: 有變動就存回 repo
+      - name: 更新首頁索引並存回 repo
         id: commit
         run: |
-          if git diff --quiet -- index.html; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "首頁沒有變動，不需要提交。"
-          else
-            git config user.name  "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add index.html
-            git commit -m "自動更新首頁索引"
-            git pull --rebase origin "${GITHUB_REF_NAME}"
-            git push
-            echo "changed=true" >> "$GITHUB_OUTPUT"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          BRANCH="${GITHUB_REF_NAME}"
+          changed=false
+          ok=0
+          for i in 1 2 3; do
+            python scripts/build_index.py
+            git add -A
+            if git diff --cached --quiet; then
+              echo "沒有變動，不需要提交。"
+              ok=1
+              break
+            fi
+            git commit -m "自動更新首頁索引與統一頁首"
+            if git push origin "HEAD:${BRANCH}"; then
+              changed=true
+              ok=1
+              break
+            fi
+            # 推送失敗：通常是執行期間你又上傳或改名了檔案。丟掉這次結果，用最新版本重做。
+            echo "推送失敗（第 ${i} 次），以最新版本重新產生…"
+            git reset -q --hard "HEAD~1"
+            git fetch -q origin "${BRANCH}"
+            git reset -q --hard "origin/${BRANCH}"
+          done
+          echo "changed=${changed}" >> "$GITHUB_OUTPUT"
+          if [ "$ok" != "1" ]; then
+            echo "連續 3 次無法存回 repo，請稍後在 Actions 頁籤按 Run workflow 重跑。"
+            exit 1
           fi
 
       - name: 通知 GitHub Pages 重新發佈
