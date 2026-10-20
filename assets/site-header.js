@@ -11,7 +11,7 @@
   if (window.__ntHeader) return;
   window.__ntHeader = true;
 
-  var DATA = {"cats":[{"key":"electro","nav":"神經傳導","items":[{"file":"ncs.html","title":"神經傳導檢查判讀"}],"planned":[]},{"key":"ultrasound","nav":"神經超音波","items":[{"file":"neuro-ultrasound.html","title":"神經超音波檢查"}],"planned":[]},{"key":"headache","nav":"頭痛","items":[{"file":"migraine_headache.html","title":"偏頭痛治療近五年進展"}],"planned":[{"title":"叢發性頭痛"},{"title":"藥物過度使用性頭痛"}]},{"key":"dementia","nav":"失智症","items":[{"file":"dementia.html","title":"失智症總覽"},{"file":"DLB_clinical_guide.html","title":"路易氏體失智症（DLB）"},{"file":"dementia_reversible.html","title":"可治療的失智類疾病"},{"file":"dementia-imaging-evidence-review.html","title":"輔助失智症診斷的影像研究：實證回顧與檢查選擇"}],"planned":[{"title":"免疫腦炎"}]},{"key":"epilepsy","nav":"癲癇","items":[{"file":"epilepsy_psychiatry.html","title":"癲癇與精神疾病"},{"file":"seizure_mimics.html","title":"像癲癇，不是癲癇"}],"planned":[{"title":"癲癇積重狀態"}]},{"key":"cerebrovascular","nav":"腦血管疾病","items":[{"file":"stroke_progression.html","title":"惡化型腦中風／早期神經惡化（END）"}],"planned":[{"title":"中風二級預防與抗凝血"}]},{"key":"movement","nav":"動作障礙","items":[],"planned":[{"title":"巴金森氏症診斷與治療"},{"title":"動作障礙鑑別診斷"},{"title":"動作障礙藥物治療"}]}],"other":[{"file":"ddx_bulbar dysfunction.html","title":"延髓三徵候的鑑別診斷｜吞嚥困難・構音障礙・呼吸衰竭"},{"file":"LR_teaching.html","title":"臨床概似比推理教材｜JAMA Rational Clinical Examination"}]};
+  var DATA = {"cats":[{"key":"electro","nav":"神經傳導","items":[{"file":"ncs.html","title":"神經傳導檢查判讀"}],"planned":[],"menu":false},{"key":"ultrasound","nav":"神經超音波","items":[{"file":"neuro-ultrasound.html","title":"神經超音波檢查"}],"planned":[],"menu":false},{"key":"headache","nav":"頭痛","items":[{"file":"migraine_headache.html","title":"偏頭痛治療近五年進展"}],"planned":[],"menu":false},{"key":"dementia","nav":"失智症","items":[{"file":"dementia.html","title":"失智症總覽"},{"file":"neuroDG-classification_dementia.html","title":"神經退化性疾病：分類與診斷標準新進展"},{"file":"DLB_clinical_guide.html","title":"路易氏體失智症（DLB）"},{"file":"dementia_reversible.html","title":"可治療的失智類疾病"},{"file":"dementia-imaging-evidence-review.html","title":"輔助失智症診斷的影像研究：實證回顧與檢查選擇"},{"file":"ad_integrated_care.html","title":"阿茲海默症整合照護與藥物治療"},{"file":"bpsd_management.html","title":"跨失智症類型精神行為症狀（BPSD）管理"},{"file":"bpsd-refractory-tx_dementia.html","title":"BPSD 治療高原期：藥效不佳或副作用限制劑量時的下一步"},{"file":"anorexia_food_refusal.html","title":"食慾不振與拒食的鑑別與實證處置"},{"file":"ddx_bulbar dysfunction.html","title":"延髓三徵候的鑑別診斷"}],"planned":[],"menu":false},{"key":"epilepsy","nav":"癲癇","items":[{"file":"epilepsy_psychiatry.html","title":"癲癇與精神疾病"},{"file":"seizure_mimics.html","title":"像癲癇，不是癲癇"}],"planned":[],"menu":false},{"key":"cerebrovascular","nav":"腦血管疾病","items":[{"file":"stroke_progression.html","title":"惡化型腦中風／早期神經惡化（END）"},{"file":"cvt-evidence-update.html","title":"腦靜脈竇血栓（CVT）實證更新"}],"planned":[],"menu":false},{"key":"movement","nav":"動作障礙","items":[{"file":"movement_medication.html","title":"帕金森病用藥實證指南"}],"planned":[],"menu":false},{"key":"neuromuscular","nav":"神經肌肉","items":[{"file":"myasthenic-crisis.html","title":"肌無力危象治療流程（2026 實證更新）"},{"file":"recurrent-bulbar-mg.html","title":"肌無力危象血漿置換後復發性延髓功能障礙之處置"}],"planned":[],"menu":false},{"key":"other","nav":"其他教材","items":[{"file":"LR_teaching.html","title":"臨床概似比推理教材"}],"planned":[],"menu":true}],"other":[]};
 
   var script = document.currentScript;
   var src = (script && script.src) || '';
@@ -81,7 +81,7 @@
       if (!live.length && !plan.length) return;
       var on = live.some(function (p) { return isHere(p.file); });
       var nav = c.nav || c.label;
-      if (live.length === 1 && !plan.length) {
+      if (live.length === 1 && !plan.length && !c.menu) {
         html += '<div class="nt-item"><a class="nt-top' + (on ? ' nt-on' : '') + '" href="' + esc(url(live[0].file)) + '">' + esc(nav) + '</a></div>';
         return;
       }
@@ -98,7 +98,7 @@
     var other = DATA.other || [];
     if (other.length) {
       var onO = other.some(function (p) { return isHere(p.file); });
-      html += '<div class="nt-item"><a class="nt-top' + (onO ? ' nt-on' : '') + '" href="#" onclick="return false">其他教材 ▾</a><div class="nt-menu">';
+      html += '<div class="nt-item"><a class="nt-top' + (onO ? ' nt-on' : '') + '" href="#" onclick="return false">未分類 ▾</a><div class="nt-menu">';
       other.forEach(function (p) {
         html += '<a href="' + esc(url(p.file)) + '"' + (isHere(p.file) ? ' class="nt-cur"' : '') + '>' + esc(p.title) + '</a>';
       });
