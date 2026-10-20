@@ -110,10 +110,147 @@
   },
   "LR_teaching.html": {
     "updated": "2026-07-11",
-    "_說明": "尚未歸類；補上 category 後會出現在對應分類"
+    "category": "other",
+    "icon": "📐",
+    "label": "Clinical Reasoning",
+    "title": "臨床概似比推理教材",
+    "summary": "以貝氏定理把驗前機率與概似比更新為驗後機率，含 JAMA Rational Clinical Examination 四個案例。",
+    "tags": [
+      "概似比",
+      "貝氏",
+      "JAMA RCE"
+    ],
+    "order": 1
   },
   "ddx_bulbar dysfunction.html": {
     "updated": "2026-07-11",
-    "_說明": "尚未歸類；補上 category 後會出現在對應分類"
+    "category": "dementia",
+    "icon": "🫁",
+    "label": "Bulbar",
+    "title": "延髓三徵候的鑑別診斷",
+    "summary": "吞嚥困難、構音障礙、呼吸衰竭三徵候的系統化鑑別，標註可治療與需緊急處置的病因。",
+    "tags": [
+      "延髓",
+      "吞嚥困難",
+      "鑑別診斷"
+    ],
+    "order": 9
+  },
+  "neuroDG-classification_dementia.html": {
+    "category": "dementia",
+    "icon": "🧬",
+    "label": "Neurodegeneration",
+    "title": "神經退化性疾病：分類與診斷標準新進展",
+    "summary": "從臨床症狀導向轉為致病蛋白與生物標記導向，整理神經病理、神經影像與神經免疫的關鍵進展。",
+    "tags": [
+      "神經退化",
+      "生物標記",
+      "致病蛋白"
+    ],
+    "order": 1.5
+  },
+  "ad_integrated_care.html": {
+    "category": "dementia",
+    "icon": "🧩",
+    "label": "Alzheimer's Disease",
+    "title": "阿茲海默症整合照護與藥物治療",
+    "summary": "近五年美／歐／日／台指引比對、疾病修飾治療最新進展與 BPSD 全人照護的實證審閱。",
+    "tags": [
+      "阿茲海默症",
+      "疾病修飾治療",
+      "整合照護"
+    ],
+    "order": 5
+  },
+  "bpsd_management.html": {
+    "category": "dementia",
+    "icon": "💬",
+    "label": "BPSD",
+    "title": "跨失智症類型精神行為症狀（BPSD）管理",
+    "summary": "DICE／ABC 評估架構、AD／DLB／FTD／VaD 症狀側寫比較、非藥物治療實證與藥物安全性監測。",
+    "tags": [
+      "BPSD",
+      "非藥物",
+      "藥物安全"
+    ],
+    "order": 6
+  },
+  "bpsd-refractory-tx_dementia.html": {
+    "category": "dementia",
+    "icon": "💊",
+    "label": "BPSD",
+    "title": "BPSD 治療高原期：藥效不佳或副作用限制劑量時的下一步",
+    "summary": "重新評估 → 非藥物介入 → 藥物微調 → 減藥／停藥 → 難治個案轉介，含 2021–2026 新實證查核。",
+    "tags": [
+      "BPSD",
+      "藥物調整",
+      "減藥"
+    ],
+    "order": 7
+  },
+  "anorexia_food_refusal.html": {
+    "category": "dementia",
+    "icon": "🍽️",
+    "label": "Feeding",
+    "title": "食慾不振與拒食的鑑別與實證處置",
+    "summary": "依癌症／非癌症、有無腸胃症狀、有無失智症，以症狀群集導向整理處置策略。",
+    "tags": [
+      "厭食",
+      "拒食",
+      "症狀群集"
+    ],
+    "order": 8
+  },
+  "cvt-evidence-update.html": {
+    "category": "cerebrovascular",
+    "icon": "🩸",
+    "label": "CVT",
+    "title": "腦靜脈竇血栓（CVT）實證更新",
+    "summary": "從 RE-SPECT CVT 到 DOAC-CVT，整理抗凝血劑選擇、手術減壓時機與出血併發症處置。",
+    "tags": [
+      "CVT",
+      "抗凝血",
+      "DOAC"
+    ],
+    "order": 2
+  },
+  "movement_medication.html": {
+    "category": "movement",
+    "icon": "💊",
+    "label": "Parkinson's Disease",
+    "title": "帕金森病用藥實證指南",
+    "summary": "整合 AAN 2021 指引、網絡統合分析與左旋多巴等效劑量（LED），依 YOPD、晚發型與非典型巴金森綜合症分層用藥。",
+    "tags": [
+      "帕金森",
+      "LED",
+      "用藥策略"
+    ],
+    "order": 1
+  },
+  "myasthenic-crisis.html": {
+    "icon": "⚡",
+    "label": "Myasthenia Gravis",
+    "title": "肌無力危象治療流程（2026 實證更新）",
+    "summary": "依時間線整合管理肌無力危象，標示各項處置的實證等級與近期變動。",
+    "tags": [
+      "肌無力危象",
+      "IVIG",
+      "血漿置換"
+    ],
+    "category": "neuromuscular",
+    "order": 1
+  },
+  "recurrent-bulbar-mg.html": {
+    "icon": "⚡",
+    "label": "Myasthenia Gravis",
+    "title": "肌無力危象血漿置換後復發性延髓功能障礙之處置",
+    "summary": "完整血漿置換療程後再度出現延髓功能障礙時的臨床決策流程。",
+    "tags": [
+      "肌無力",
+      "延髓功能障礙",
+      "血漿置換"
+    ],
+    "category": "neuromuscular",
+    "order": 2
   }
 }

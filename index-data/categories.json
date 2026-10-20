@@ -4,14 +4,21 @@
     "label": "電生理 · Electrodiagnostics",
     "color": "blue",
     "nav": "神經傳導",
-    "planned_only": false
+    "planned_only": false,
+    "aliases": [
+      "emg",
+      "ncs"
+    ]
   },
   {
     "key": "ultrasound",
     "label": "血管 · 神經超音波 · Ultrasound",
     "color": "teal",
     "nav": "神經超音波",
-    "planned_only": false
+    "planned_only": false,
+    "aliases": [
+      "us"
+    ]
   },
   {
     "key": "headache",
@@ -25,7 +32,10 @@
     "label": "失智症 · Dementia",
     "color": "amber",
     "nav": "失智症",
-    "planned_only": false
+    "planned_only": false,
+    "aliases": [
+      "dem"
+    ]
   },
   {
     "key": "epilepsy",
@@ -39,14 +49,40 @@
     "label": "腦血管疾病 · Cerebrovascular Disease",
     "color": "red",
     "nav": "腦血管疾病",
-    "planned_only": false
+    "planned_only": false,
+    "aliases": [
+      "stroke",
+      "cvd"
+    ]
   },
   {
     "key": "movement",
     "label": "動作障礙疾病 · Movement Disorders",
     "color": "pink",
     "nav": "動作障礙",
-    "planned_only": false
+    "planned_only": false,
+    "aliases": [
+      "pd",
+      "parkinson"
+    ]
+  },
+  {
+    "key": "neuromuscular",
+    "label": "神經肌肉疾病 · Neuromuscular Disease",
+    "color": "teal",
+    "nav": "神經肌肉",
+    "aliases": [
+      "nm",
+      "mg",
+      "neuromuscular"
+    ]
+  },
+  {
+    "key": "other",
+    "label": "其他教材 · Other Resources",
+    "color": "blue",
+    "nav": "其他教材",
+    "always_menu": true
   },
   {
     "key": "soon",
