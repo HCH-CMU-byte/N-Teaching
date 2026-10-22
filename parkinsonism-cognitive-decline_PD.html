@@ -1,0 +1,484 @@
+---
+layout: default
+title: "各類帕金森症候群認知功能退化之鑑別全覽"
+description: "系統性比較 PDD、DLB、PSP、MSA、CBD/CBS 的認知退化時序、剖面與病理機轉，納入近十年遺傳風險分層與 α-突觸核蛋白生物標記進展，附比較表與實證治療整理。"
+permalink: /dementia/parkinsonian-cognitive-decline.html
+---
+
+<style>
+:root{
+  --paper:#EAF0EE;
+  --paper-2:#DEE8E5;
+  --card:#F5FAF8;
+  --ink:#1C2B2A;
+  --ink-soft:#49605D;
+  --ink-faint:#85A19D;
+  --teal:#2E6B63;
+  --teal-deep:#1B423E;
+  --copper:#B06A3B;
+  --copper-soft:#F0DCC3;
+  --olive:#6A7A41;
+  --olive-soft:#E2E8D1;
+  --brick:#99453A;
+  --brick-soft:#F0DAD5;
+  --sky:#335E7C;
+  --sky-soft:#D8E4EB;
+  --line:#CBDAD6;
+  --radius:14px;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;}
+body{background:var(--paper);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.8;}
+h1,h2,h3,h4{font-family:"Noto Serif TC",serif;color:var(--ink);margin:0 0 .5em;}
+p{margin:0 0 1em;}
+.mono{font-family:"IBM Plex Mono",monospace;}
+
+/* ---------- page-local quick nav ---------- */
+.page-quicknav{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  overflow-x:auto;background:var(--card);
+  -webkit-overflow-scrolling:touch;scrollbar-width:thin;margin-bottom:1rem;
+}
+.page-quicknav-inner{max-width:var(--maxw);margin:0 auto;padding:.6rem 1.5rem;display:flex;gap:.5rem;white-space:nowrap;}
+.page-pill{
+  font-size:.78rem;padding:.32rem .8rem;border-radius:999px;
+  background:var(--paper);border:1px solid var(--line);color:var(--ink-soft);
+  text-decoration:none;transition:.15s;flex-shrink:0;
+}
+.page-pill:hover{background:var(--teal);color:#fff;border-color:var(--teal);}
+@media(max-width:600px){.page-quicknav-inner{padding:.5rem 1rem;}}
+
+/* ---------- hero ---------- */
+.hero{max-width:var(--maxw);margin:0 auto;padding:3rem 1.5rem 2rem;display:grid;grid-template-columns:1.3fr .9fr;gap:2.5rem;align-items:end;}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding:2.2rem 1rem 1.6rem;}}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.14em;color:var(--copper);text-transform:uppercase;margin-bottom:.9rem;display:block;}
+.hero h1{font-size:clamp(1.7rem,3.2vw,2.5rem);line-height:1.3;}
+.hero-sub{color:var(--ink-soft);font-size:1rem;max-width:54ch;}
+.hero-art{width:100%;height:auto;display:block;}
+.chip-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem;}
+.chip{font-size:.72rem;padding:.3rem .7rem;border-radius:7px;font-family:"IBM Plex Mono",monospace;border:1px solid var(--line);color:var(--ink-soft);background:var(--card);}
+.chip.b{border-color:var(--copper);color:var(--copper);background:var(--copper-soft);}
+.chip.c{border-color:var(--olive);color:var(--olive);background:var(--olive-soft);}
+.badge-new{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.66rem;padding:.16rem .5rem;border-radius:6px;background:var(--copper);color:#fff;margin-left:.4rem;vertical-align:middle;white-space:nowrap;}
+
+.divider{max-width:var(--maxw);margin:0 auto;padding:0 1.5rem;}
+.divider svg{width:100%;height:20px;display:block;opacity:.5;}
+
+/* ---------- section shell ---------- */
+section.block{max-width:var(--maxw);margin:0 auto;padding:2.4rem 1.5rem;}
+@media(max-width:600px){section.block{padding:1.7rem 1rem;}}
+.section-label{display:flex;align-items:baseline;gap:.7rem;margin-bottom:1.4rem;}
+.section-num{font-family:"IBM Plex Mono",monospace;color:var(--copper);font-size:.85rem;}
+.section-label h2{font-size:1.4rem;margin:0;}
+@media(max-width:600px){.section-label h2{font-size:1.18rem;}}
+.section-desc{color:var(--ink-soft);max-width:76ch;margin-bottom:1.6rem;font-size:.94rem;}
+
+/* ---------- article (per-syndrome prose) ---------- */
+.article-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.5rem 1.6rem;margin-bottom:1.1rem;
+}
+@media(max-width:600px){.article-card{padding:1.1rem 1.15rem;}}
+.article-head{display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem;flex-wrap:wrap;}
+.article-tag{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;padding:.25rem .6rem;border-radius:6px;
+  background:var(--teal);color:#fff;flex-shrink:0;
+}
+.article-head h3{margin:0;font-size:1.12rem;}
+.article-meta{font-size:.78rem;color:var(--ink-faint);font-family:"IBM Plex Mono",monospace;margin-bottom:.8rem;display:flex;gap:1.2rem;flex-wrap:wrap;}
+.article-meta b{color:var(--ink-soft);font-weight:500;}
+.article-card p{font-size:.93rem;color:var(--ink);}
+.hallmark{
+  margin-top:.8rem;padding:.7rem .9rem;background:var(--paper-2);border-radius:9px;font-size:.85rem;
+  border-left:4px solid var(--copper);
+}
+.hallmark b{color:var(--teal-deep);}
+
+/* ---------- table ---------- */
+.tbl-wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);position:relative;}
+table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:680px;}
+th,td{padding:.7rem .9rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+th{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint);background:var(--paper-2);}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:var(--paper-2);}
+@media(max-width:600px){
+  table{font-size:.8rem;}
+  th,td{padding:.55rem .65rem;}
+  .tbl-wrap::before{
+    content:"← 左右滑動可查看完整表格 →";display:block;font-family:"IBM Plex Mono",monospace;
+    font-size:.68rem;color:var(--ink-faint);text-align:center;padding:.55rem .6rem 0;
+  }
+}
+
+/* ---------- timeline visual ---------- */
+.timeline-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.3rem;overflow-x:auto;}
+.timeline-wrap svg{display:block;margin:0 auto;min-width:620px;}
+@media(max-width:600px){.timeline-wrap svg{min-width:560px;}}
+
+/* ---------- callouts ---------- */
+.callout{border-radius:10px;padding:1rem 1.2rem;font-size:.9rem;margin:1rem 0;border-left:4px solid var(--sky);background:var(--sky-soft);color:var(--ink);}
+.callout.warn{border-left-color:var(--brick);background:var(--brick-soft);}
+.callout.ok{border-left-color:var(--olive);background:var(--olive-soft);}
+.callout b{display:block;margin-bottom:.3rem;font-family:"Noto Serif TC",serif;}
+
+/* ---------- card grid (biomarkers / treatment) ---------- */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+@media(max-width:920px){.card-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:620px){.card-grid{grid-template-columns:1fr;}}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.2rem 1.25rem 1.05rem;display:flex;flex-direction:column;gap:.5rem;}
+.tcard-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:var(--paper-2);color:var(--teal);font-size:1.05rem;font-family:"IBM Plex Mono",monospace;font-weight:600;}
+.tcard-cat{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase;}
+.tcard h4{font-size:1rem;margin:.1rem 0 0;}
+.tcard p{font-size:.85rem;color:var(--ink-soft);margin:0;}
+.tcard-footer{font-size:.73rem;color:var(--olive);border-top:1px dashed var(--line);padding-top:.5rem;margin-top:.2rem;font-family:"IBM Plex Mono",monospace;}
+
+/* ---------- refs ---------- */
+.refs{font-size:.78rem;color:var(--ink-soft);columns:2;column-gap:2.2rem;}
+@media(max-width:700px){.refs{columns:1;}}
+.refs li{margin-bottom:.6rem;break-inside:avoid;}
+</style>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div>
+    <span class="eyebrow">失智症教學模組 · 鑑別診斷</span>
+    <h1>各類帕金森症候群認知功能退化之鑑別全覽</h1>
+    <p class="hero-sub">系統性比較帕金森氏症失智症（PDD）、路易氏體失智症（DLB）、進行性核上性麻痺（PSP）、多系統萎縮（MSA）與皮質基底節退化症（CBD/CBS）的認知退化時序、剖面特徵與病理機轉，並納入近十年遺傳風險分層與 α-突觸核蛋白生物標記的關鍵進展。</p>
+    <div class="chip-row">
+      <span class="chip b">雙症候群假說 Dual-syndrome hypothesis</span>
+      <span class="chip">五大症候群系統性比較</span>
+      <span class="chip c">近十年新增：基因分層 + SAA 生物標記</span>
+    </div>
+  </div>
+  <svg class="hero-art" viewBox="0 0 420 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect x="0" y="0" width="420" height="150" rx="16" fill="#1B423E"/>
+    <circle cx="90" cy="75" r="34" fill="none" stroke="#B06A3B" stroke-width="2.2"/>
+    <circle cx="170" cy="75" r="34" fill="none" stroke="#E2E8D1" stroke-width="2.2" opacity=".8"/>
+    <circle cx="250" cy="75" r="34" fill="none" stroke="#D8E4EB" stroke-width="2.2" opacity=".65"/>
+    <circle cx="330" cy="75" r="34" fill="none" stroke="#F0DAD5" stroke-width="2.2" opacity=".55"/>
+    <text x="20" y="132" fill="#E2E8D1" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1">PDD · DLB · PSP · MSA · CBD OVERLAPPING PROFILES</text>
+  </svg>
+</div>
+
+<nav class="page-quicknav" aria-label="本頁章節捷徑">
+  <div class="page-quicknav-inner">
+    <a class="page-pill" href="#overview">01 核心規律</a>
+    <a class="page-pill" href="#timeline">02 發病時序圖</a>
+    <a class="page-pill" href="#pdd">03 PD／PDD</a>
+    <a class="page-pill" href="#dlb">04 DLB</a>
+    <a class="page-pill" href="#psp">05 PSP</a>
+    <a class="page-pill" href="#msa">06 MSA</a>
+    <a class="page-pill" href="#cbd">07 CBD／CBS</a>
+    <a class="page-pill" href="#compare">08 總覽比較表</a>
+    <a class="page-pill" href="#genetics">09 遺傳風險分層</a>
+    <a class="page-pill" href="#biomarker">10 生物標記進展</a>
+    <a class="page-pill" href="#treatment">11 實證治療</a>
+    <a class="page-pill" href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<div class="divider">
+  <svg viewBox="0 0 1180 20" preserveAspectRatio="none"><path d="M0 10 Q30 2 60 10 T120 10 T180 10 T240 10 T300 10 T360 10 T420 10 T480 10 T540 10 T600 10 T660 10 T720 10 T780 10 T840 10 T900 10 T960 10 T1020 10 T1080 10 T1140 10 T1180 10" fill="none" stroke="#2E6B63" stroke-width="1.5"/></svg>
+</div>
+
+<!-- ================= 01 核心規律 ================= -->
+<section class="block" id="overview">
+  <div class="section-label"><span class="section-num">01</span><h2>核心規律：共同的皮質下—皮質核心模式</h2></div>
+  <p class="section-desc">帕金森氏症（PD）是全球第二大神經退化疾病，全球盛行率約每千人 1.51 例，60 歲以上達每千人 9.34 例，且自 1980 至 2023 年持續上升。約 80% 的患者在診斷時認知功能正常，但輕度認知障礙（MCI）盛行率由診斷時約 20% 上升至 5 年後 40–50%，明顯高於同齡一般族群（16–20%）；患者整體失智風險為健康族群的 2.5–6.0 倍。</p>
+
+  <p>PD 的認知異質性可用「雙症候群假說（dual syndrome hypothesis）」解釋：一條是多巴胺依賴的前額葉—紋狀體路徑，主導執行功能障礙，進展較慢；另一條是非多巴胺依賴的後皮質路徑，主導記憶與視覺空間缺損，進展較快、與失智較直接相關。機制上，早期以膽鹼性與單胺性系統缺損為主，隨病程進展 α-突觸核蛋白蔓延至新皮質與邊緣系統，並常與阿茲海默症（AD）病理（類澱粉蛋白 β、tau）交互作用而加速認知衰退。此外，Meynert 基底核與前腦膽鹼性基底的退化，尤其是後部區域，與整體認知及注意力缺陷密切相關。</p>
+
+  <div class="callout ok">
+    <b>跨症候群的共同模式</b>
+    PSP、MSA、CBD 三者在認知剖面上高度重疊，均以額葉／執行功能障礙為核心，這可能反映「獨立於病理種類的帕金森症候群共同核心模式」——即皮質與皮質下萎縮及相關神經生理改變的直接後果。三者的差異主要在於語言、視覺空間與記憶缺損的程度，反映 tau 或 α-突觸核蛋白病理分布的不同。
+  </div>
+</section>
+
+<!-- ================= 02 時序圖 ================= -->
+<section class="block" id="timeline">
+  <div class="section-label"><span class="section-num">02</span><h2>認知障礙相對於運動症狀的發病時序</h2></div>
+  <p class="section-desc">五大症候群最關鍵的鑑別線索之一，是「認知障礙出現在運動症狀之前、同時，還是之後」。下圖以運動症狀發病為時間軸的「0」點，標示各症候群認知障礙典型的相對出現時機。</p>
+
+  <div class="timeline-wrap">
+    <svg viewBox="0 0 1080 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="認知障礙相對運動症狀發病時序比較圖">
+      <!-- axis -->
+      <line x1="80" y1="260" x2="1020" y2="260" stroke="#49605D" stroke-width="1.5"/>
+      <line x1="440" y1="20" x2="440" y2="260" stroke="#99453A" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <text x="440" y="14" text-anchor="middle" font-size="11" fill="#99453A" font-family="IBM Plex Mono">運動症狀發病（t=0）</text>
+      <text x="90" y="278" font-size="10.5" fill="#85A19D" font-family="IBM Plex Mono">早於運動症狀</text>
+      <text x="930" y="278" text-anchor="end" font-size="10.5" fill="#85A19D" font-family="IBM Plex Mono">晚於運動症狀</text>
+
+      <!-- CBD: up to -8y -->
+      <circle cx="140" cy="60" r="7" fill="#2E6B63"/>
+      <text x="155" y="64" font-size="12.5" fill="#1C2B2A">CBD／CBS：可早於運動症狀約 8 年</text>
+
+      <!-- DLB: 0 to -1y (within 1y rule) -->
+      <circle cx="400" cy="100" r="7" fill="#B06A3B"/>
+      <text x="415" y="104" font-size="12.5" fill="#1C2B2A">DLB：先於或與運動症狀同時（≤1年規則）</text>
+
+      <!-- PSP: early, often concurrent/overlapping -->
+      <circle cx="460" cy="140" r="7" fill="#335E7C"/>
+      <text x="475" y="144" font-size="12.5" fill="#1C2B2A">PSP：早期（輕度疾病階段即約50%已有認知障礙）</text>
+
+      <!-- MSA: late, ~7y after -->
+      <circle cx="760" cy="180" r="7" fill="#6A7A41"/>
+      <text x="775" y="184" font-size="12.5" fill="#1C2B2A">MSA：診斷後平均約 7 年；病程 8 年以上近半受累</text>
+
+      <!-- PDD: ~10y after -->
+      <circle cx="900" cy="220" r="7" fill="#99453A"/>
+      <text x="915" y="224" font-size="12.5" fill="#1C2B2A">PDD：平均發病後約 10 年（進展較慢但終將多數受累）</text>
+
+      <text x="550" y="296" text-anchor="middle" font-size="10.5" fill="#85A19D" font-family="IBM Plex Mono">時間軸為典型群體層級中位數，個體差異極大，僅供教學示意</text>
+    </svg>
+  </div>
+</section>
+
+<div class="divider">
+  <svg viewBox="0 0 1180 20" preserveAspectRatio="none"><path d="M0 10 Q30 2 60 10 T120 10 T180 10 T240 10 T300 10 T360 10 T420 10 T480 10 T540 10 T600 10 T660 10 T720 10 T780 10 T840 10 T900 10 T960 10 T1020 10 T1080 10 T1140 10 T1180 10" fill="none" stroke="#2E6B63" stroke-width="1.5"/></svg>
+</div>
+
+<!-- ================= 03 PDD ================= -->
+<section class="block" id="pdd">
+  <div class="section-label"><span class="section-num">03</span><h2>帕金森氏症與帕金森氏症失智症（PD／PDD）</h2></div>
+
+  <div class="article-card">
+    <div class="article-head"><span class="article-tag">α-突觸核蛋白</span><h3>流行病學、病程與認知剖面</h3></div>
+    <div class="article-meta"><span><b>發病時機：</b>運動症狀後 &gt;1 年，平均約 10 年</span><span><b>累積失智風險：</b>5年17%／10年9–46%／20年74–83%</span></div>
+    <p>系統性回顧顯示橫斷研究中 PDD 點盛行率約 31.3%，佔一般族群失智的 3–4%。認知軌跡高度異質：一項涵蓋 4011 位 PD 患者的統合分析發現，診斷後 3 年內，PD 認知正常者（PD-NC）有 25% 轉為 PD 輕度認知障礙（PD-MCI）、2% 轉為 PDD；PD-MCI 患者中 20% 進展為 PDD、28% 回復至 PD-NC，回復現象在較寬鬆的 level I 診斷標準下更常見。多領域型與失憶型 PD-MCI 進展為 PDD 的風險較高，危險因子包括診斷年齡、男性、低教育程度、幻覺、焦慮、姿勢不穩／步態障礙（PIGD）表型與 REM 睡眠行為障礙（RBD）。</p>
+    <p>PD 認知障礙以執行功能、注意力與視覺空間缺損為主，記憶問題多為提取（retrieval）障礙，可經提示（cueing）改善，此點與阿茲海默症的編碼／儲存障礙本質不同，是臨床鑑別的重要線索。</p>
+    <div class="hallmark"><b>標誌性特徵：</b>視幻覺、認知波動（多見於晚期）、REM 睡眠行為障礙；記憶障礙可經提示改善，與 AD 的真性遺忘不同。</div>
+  </div>
+</section>
+
+<!-- ================= 04 DLB ================= -->
+<section class="block" id="dlb">
+  <div class="section-label"><span class="section-num">04</span><h2>路易氏體失智症（DLB）</h2></div>
+
+  <div class="article-card">
+    <div class="article-head"><span class="article-tag">α-突觸核蛋白</span><h3>「≤1 年規則」與早期執行功能缺損</h3></div>
+    <div class="article-meta"><span><b>發病時機：</b>認知障礙先於或與運動症狀同時（≤1年）</span><span><b>病程：</b>較 PDD 嚴重、存活期較短</span></div>
+    <p>DLB 的定義核心為「≤1 年規則」：認知障礙出現於帕金森症之前或 1 年內者診斷為 DLB；反之則為 PDD。DLB 以認知障礙為首發症狀，病程通常較重，相較 AD 有更短的存活期與更早入住安養機構的風險。臨床核心特徵包括認知波動、反覆成形的視幻覺、自發性帕金森症、RBD 及神經阻斷劑過度敏感。</p>
+    <p>DLB 與 PDD 在嚴重失智階段的認知剖面相似，但在早期輕中度階段，DLB 的執行功能缺損（啟動／固著、概念化能力）較 PDD 明顯，暗示 PDD 患者的前額葉皮質受累時間較晚。與 AD 相比，DLB／PDD 患者的記憶分數通常較高，但啟動／固著與建構分數較低。</p>
+    <p>雖然 DLB 與 PDD 常被視為同一連續光譜上的兩端，但屍解研究顯示 DLB 有更高的 Braak Lewy body 分期、神經纖維纏結分期與 Thal 類澱粉分期；DLB 的腦皮質澱粉樣血管病（CAA）發生率與嚴重度遠高於 PDD（約 98.7% 對 50%），紋狀體類澱粉負荷與海馬 CA2/3、內嗅皮質的 α-突觸核蛋白負荷也普遍較重。這意味著 DLB 的病理型態實際上更接近 AD，此點在臨床試驗分層與疾病修飾治療設計上必須納入考量。</p>
+    <div class="hallmark"><b>標誌性特徵：</b>早期認知波動、反覆視幻覺、腦皮質澱粉樣血管病與 AD 共病理負荷較重。</div>
+  </div>
+</section>
+
+<!-- ================= 05 PSP ================= -->
+<section class="block" id="psp">
+  <div class="section-label"><span class="section-num">05</span><h2>進行性核上性麻痺（PSP）</h2></div>
+
+  <div class="article-card">
+    <div class="article-head"><span class="article-tag">4R-Tau</span><h3>皮質下失智的典型代表，表現型高度異質</h3></div>
+    <div class="article-meta"><span><b>盛行率：</b>每十萬人年 4.28–7.1 例</span><span><b>認知障礙比例：</b>臨床判定達76.5%</span></div>
+    <p>在最大的前瞻性世代研究（NNIPPS，760 例）中，PSP 組以 Mattis 失智評量表（DRS）低於第 5 百分位定義的認知障礙達 57.2%，額葉評估電池（FAB）障礙達 62.0%。值得注意的是，即使在早期輕度疾病階段，已有約 50% 呈現認知障礙，且與病程長短無明顯關聯。</p>
+    <p>PSP 是「皮質下失智」的典型代表：訊息處理速度極度緩慢（bradyphrenia）、執行功能與口語流暢度（尤以字母流暢度）嚴重缺損，記憶多為提取障礙（自由回憶差但辨識保留），屬於「失執行性遺忘」。研究顯示 PSP 在處理速度、計畫、語文抽象推理、語文流暢度與固著錯誤上顯著差於 PD；執行功能、處理速度與手部靈巧度最具診斷區辨力，可正確分類約 96% 之 PSP 與 PD。語言方面可見進行性非流暢性失語與言語失用。行為症狀以冷漠（約91%）與去抑制最常見，憂鬱相對較 CBD 少。</p>
+    <div class="callout">
+      <b>近十年關鍵更新：PSP 表現型的高度異質性</b>
+      2017 年 MDS-PSP 臨床診斷準則（Höglinger 等）正式將認知／行為表現納入核心診斷架構，定義出 PSP-F（額葉型，早期即出現冷漠、去抑制與執行功能障礙，臨床表現可酷似額顳葉失智行為變異型 bvFTD，運動症狀甚至可晚於認知症狀數年才出現）與 PSP-CBS（具不對稱皮質徵象，如肢體失用、皮質感覺喪失或異己手），連同典型的 PSP-RS（Richardson 氏症候群）共計十種臨床亞型。認知／行為症狀如今已被公認為高度盛行、常見於疾病早期，且對功能障礙有重大影響——這與 PSP 早年僅被視為單純運動疾病的觀念已有明顯轉變。臨床上遇到 PSP-CBS 表現型時，應以 CSF 或 PET 生物標記排除合併原發性 AD 病理。
+    </div>
+    <div class="hallmark"><b>標誌性特徵：</b>皮質下失智原型、冷漠、假性延髓症狀；辨識保留但自由回憶差；表現型異質（PSP-RS／PSP-F／PSP-CBS 等十種臨床亞型）。</div>
+  </div>
+</section>
+
+<!-- ================= 06 MSA ================= -->
+<section class="block" id="msa">
+  <div class="section-label"><span class="section-num">06</span><h2>多系統萎縮（MSA）</h2></div>
+
+  <div class="article-card">
+    <div class="article-head"><span class="article-tag">α-突觸核蛋白（寡樹突膠細胞）</span><h3>曾被視為排除特徵，如今已正名為整合性部分</h3></div>
+    <div class="article-meta"><span><b>發病時機：</b>診斷後平均約7年</span><span><b>視幻覺：</b>極少見（約9%）</span></div>
+    <p>MSA 過去將失智視為「不支持」甚至「排除」診斷的特徵，但 MODIMSA 專責小組的立場聲明已明確指出，認知障礙實為 MSA 的整合性部分，盛行率由輕度至失智不等。前瞻性世代（NNIPPS）中，MSA 組以 DRS 定義的認知障礙約 19.6%，FAB 障礙約 31.8–42.3%。自 MSA 診斷至臨床顯著認知症狀平均約 7 年；病程存活超過 8 年者近 50% 有認知障礙；末期（死前一年）約 14% 達失智程度。認知障礙與較大年齡、運動障礙嚴重度、男性、低教育程度及心血管自律神經失調相關。</p>
+    <p>MSA 以額葉—執行功能障礙最常見（可達49%），包括語意／音素流暢度下降、固著行為、問題解決與注意力／工作記憶缺損；記憶障礙（可達66%）多為立即與延遲回憶受損，辨識功能相對保留；視覺空間與建構功能可能受損，語言能力大致保留。MSA-P（帕金森型）以執行與回憶（可經提示改善）缺損為主，MSA-C（小腦型）則以學習障礙與視覺空間缺損較突出。影像與病理證據支持 MSA 認知障礙源自紋狀體—前額葉去傳入，並疊加內在皮質退化與小腦病理，早期以皮質下為主，晚期皮質參與逐漸增加。</p>
+    <div class="hallmark"><b>標誌性特徵：</b>視幻覺極為少見、認知波動不明顯——此為與 DLB 最重要的區辨點；自律神經失調程度與認知障礙嚴重度相關。</div>
+  </div>
+</section>
+
+<!-- ================= 07 CBD/CBS ================= -->
+<section class="block" id="cbd">
+  <div class="section-label"><span class="section-num">07</span><h2>皮質基底節退化症（CBD）／皮質基底症候群（CBS）</h2></div>
+
+  <div class="article-card">
+    <div class="article-head"><span class="article-tag">4R-Tau</span><h3>認知行為症狀常為首發，可早於運動症狀多年</h3></div>
+    <div class="article-meta"><span><b>盛行率：</b>每十萬人年 2.05–2.3 例</span><span><b>中位存活期：</b>約6.7–7.9年</span></div>
+    <p>CBD 為罕見的 4R-tau 病變，發病高峰在 70–79 歲。認知與行為症狀常為首發表現，甚至可在運動症狀出現前長達約 8 年，確切表現取決於臨床表型。少數病例（約4.8%）為暴發型，病程不到3年即進展至嚴重失能。</p>
+    <p>CBD 認知障礙以執行功能、視覺空間與語言（非流暢性失語、言語失用）缺損為主，語文與非語文記憶相對保留，並以肢體失用與異己手現象為標誌。大系列研究中，失用見於 96.8%、失語見於 67.7% 之 probable CBS 病例，語言剖面自進行性非流暢性失語延伸至詞彙語意缺損，口語流暢度普遍受損。行為改變與額顳葉失智行為變異型（bvFTD）重疊，包括冷漠、去抑制、固著與不專注；憂鬱亦常見。異於 AD，CBD 患者的邏輯記憶通常優於同等簡短智能測驗（MMSE）分數之 AD 患者。</p>
+    <div class="callout warn">
+      <b>重要臨床提醒：CBS（臨床症候群）≠ CBD（病理診斷）</b>
+      皮質基底症候群（CBS）是一組臨床表現的集合，背後病理並不等同於皮質基底節退化症（CBD）。2013 年 Armstrong 共識準則明確將 CBS 定義為臨床診斷類別，其背後可由 CBD、PSP、阿茲海默症，甚至 TDP-43 蛋白病變等多種不同病理造成。臨床上遇到 CBS 表現型時，應保持病理異質性的警覺，並視情況以生物標記（澱粉蛋白 PET、CSF tau/Aβ）輔助鑑別是否存在原發性 AD 病理，這對治療期望與疾病修飾藥物試驗的受試者篩選尤其關鍵。
+    </div>
+    <div class="hallmark"><b>標誌性特徵：</b>肢體失用、異己手現象、不對稱額頂葉萎縮；記憶相對保留，與 PSP 同屬「腦網路崩解」疾病但皮質（尤其 perirolandic 區）受累更顯著。</div>
+  </div>
+</section>
+
+<div class="divider">
+  <svg viewBox="0 0 1180 20" preserveAspectRatio="none"><path d="M0 10 Q30 2 60 10 T120 10 T180 10 T240 10 T300 10 T360 10 T420 10 T480 10 T540 10 T600 10 T660 10 T720 10 T780 10 T840 10 T900 10 T960 10 T1020 10 T1080 10 T1140 10 T1180 10" fill="none" stroke="#2E6B63" stroke-width="1.5"/></svg>
+</div>
+
+<!-- ================= 08 總覽比較表 ================= -->
+<section class="block" id="compare">
+  <div class="section-label"><span class="section-num">08</span><h2>五大症候群總覽比較表</h2></div>
+  <p class="section-desc">整合各章節重點的速查表，供臨床快速比對鑑別診斷線索。</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>症候群</th><th>認知障礙出現時機</th><th>病程特徵</th><th>主要認知缺損模式</th><th>標誌性特徵</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>PDD</b></td>
+          <td>帕金森症後 &gt;1 年；平均發病後約10年</td>
+          <td>進展較慢但最終多數受累（20年累積74–83%）</td>
+          <td>執行、注意力、視覺空間；記憶為提取障礙、可經提示改善</td>
+          <td>視幻覺、認知波動（晚期）、RBD</td>
+        </tr>
+        <tr>
+          <td><b>DLB</b></td>
+          <td>認知障礙先於或與帕金森症同時（≤1年）</td>
+          <td>病程較重、存活較短</td>
+          <td>與PDD相似但早期執行缺損更重；注意力波動</td>
+          <td>早期認知波動、視幻覺、CAA與AD病理較重</td>
+        </tr>
+        <tr>
+          <td><b>PSP</b></td>
+          <td>早期即常見（早期輕度即約50%）</td>
+          <td>與病程長短關聯弱</td>
+          <td>處理速度極慢、執行與字母流暢度嚴重缺損；辨識保留</td>
+          <td>皮質下失智原型、冷漠、假性延髓症狀；十種臨床亞型</td>
+        </tr>
+        <tr>
+          <td><b>MSA</b></td>
+          <td>診斷後平均約7年；&gt;8年者近半受累</td>
+          <td>病程快速，失智為晚期特徵</td>
+          <td>額葉—執行為主，記憶（立即／延遲回憶）、視覺空間</td>
+          <td>視幻覺極少、無認知波動、自律神經失調</td>
+        </tr>
+        <tr>
+          <td><b>CBD／CBS</b></td>
+          <td>常為首發，可早於運動症狀約8年</td>
+          <td>中位存活6.7–7.9年</td>
+          <td>執行、視覺空間、語言（nfvPPA）；記憶相對保留</td>
+          <td>失用、異己手、不對稱額頂萎縮；CBS≠CBD病理</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= 09 遺傳風險分層 ================= -->
+<section class="block" id="genetics">
+  <div class="section-label"><span class="section-num">09</span><h2>近十年關鍵進展：遺傳風險分層<span class="badge-new">近十年新增</span></h2></div>
+  <p class="section-desc">此部分為原始文獻回顧中較少著墨、但近十年證據已相當穩固的重要補充：<i>GBA</i> 與 <i>APOE</i>-ε4 基因型對 PD 認知衰退與失智風險具有可量化且可能具加成作用的影響。</p>
+
+  <div class="card-grid">
+    <div class="tcard">
+      <div class="tcard-icon">GBA</div>
+      <div class="tcard-cat">溶小體儲積疾病基因</div>
+      <h4><i>GBA</i> 突變</h4>
+      <p>一項涵蓋六個前瞻性世代、長達10年追蹤的大型統合分析（PICC 合作網）顯示，<i>GBA</i> 突變攜帶者的失智風險為非攜帶者的 1.76–1.8 倍，且整體認知衰退速度更快。高基氏症（Gaucher disease，GBA雙套突變）患者的 PD 風險更可增加達 20 倍，並伴隨更明顯的認知衰退；單套突變攜帶者的 PD 與認知功能障礙風險約增加 5 倍。</p>
+      <div class="tcard-footer">Szwedo AA, et al. Mov Disord. 2022；PICC 世代統合分析</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">E4</div>
+      <div class="tcard-cat">脂蛋白基因型</div>
+      <h4><i>APOE</i>-ε4 等位基因</h4>
+      <p><i>APOE</i>-ε4 不僅是偶發性阿茲海默症最強的遺傳風險因子，也是 DLB 全基因組關聯研究中排名最高的風險位點。同一項10年世代研究顯示，攜帶一個 ε4 等位基因者進展為 PDD 的風險為非攜帶者的3.1倍，攜帶兩個 ε4 等位基因者則高達6.4倍，呈現明確的劑量效應關係，且 ε4 對 PDD 風險的影響在疾病早期階段更為顯著。</p>
+      <div class="tcard-footer">Szwedo AA, et al. Mov Disord. 2022</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-icon">+</div>
+      <div class="tcard-cat">基因型交互作用</div>
+      <h4>GBA ＋ APOE-ε4 的加成風險</h4>
+      <p>同時攜帶 <i>GBA</i> 突變與 <i>APOE</i>-ε4 者，認知衰退與失智風險進一步升高；此交互作用現象也在百人規模的 Ashkenazi 猶太裔 DLB 世代中獲得類似觀察（攜帶兩種風險基因型者 MMSE 下降速度更快）。<i>MAPT</i> 單套型與 <i>SNCA</i> 常見變異體在此分析中則未顯示顯著獨立效應。</p>
+      <div class="tcard-footer">臨床意義：可用於臨床試驗受試者分層與預後溝通</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>臨床應用提醒</b>
+    目前 <i>GBA</i> 與 <i>APOE</i> 基因型檢測主要仍用於研究世代分層與臨床試驗受試者篩選，尚未成為常規臨床照護的必要檢查；但對於有家族史、早發型或認知衰退速度異常快的病人，基因諮詢與檢測可提供額外的預後資訊，並有助於病人與家屬對病程的心理準備。
+  </div>
+</section>
+
+<!-- ================= 10 生物標記進展 ================= -->
+<section class="block" id="biomarker">
+  <div class="section-label"><span class="section-num">10</span><h2>近十年關鍵進展：α-突觸核蛋白生物標記與「蛋白株型」鑑別<span class="badge-new">近十年新增</span></h2></div>
+  <p class="section-desc">α-突觸核蛋白種子擴增檢測（seed amplification assay, SAA；舊稱 RT-QuIC／PMCA）是近十年對突觸核蛋白病變（synucleinopathy）鑑別診斷影響最大的技術進展，原始文獻對此著墨甚少，在此補充說明其對 PDD／DLB 與 MSA 鑑別的意義。</p>
+
+  <div class="article-card">
+    <div class="article-head"><span class="article-tag">分子生物標記</span><h3>「Lewy-fold」與「MSA-fold」：同一蛋白、不同摺疊株型</h3></div>
+    <p>SAA 技術利用 α-突觸核蛋白如同普恩蛋白（prion）般的「種子—擴增」特性，將腦脊髓液（或皮膚、唾液腺等周邊組織）中微量的異常摺疊 α-突觸核蛋白大量擴增後偵測。近年結構生物學研究證實，PD／DLB 與 MSA 的致病性 α-突觸核蛋白實際上摺疊成兩種不同的構形株型：PD 與 DLB 屬於「Lewy-fold」，MSA 則屬於截然不同的「MSA-fold」，且 MSA-fold 的聚集傾向性更強、具有更高的神經毒性。</p>
+    <p>這項發現使 SAA 檢測不僅能用於「是否為突觸核蛋白病變」的二元判斷，更能透過反應動力學曲線的差異進行「株型分型」，協助鑑別 PD／DLB 與 MSA——這在臨床症狀高度重疊、尤其是早期 MSA-P 與 PD 難以區分的情境下極具潛力。一項定量 Lewy-fold 專一性 SAA 研究顯示，對 PD／DLB 的敏感度達 97.8%，與 MSA、PSP 及對照組的區辨特異度達 100%；但現階段 MSA 專一性 SAA 的敏感度與特異度仍有限（約68–80%），尚待標準化與跨實驗室驗證後方能廣泛應用於臨床常規。</p>
+    <div class="hallmark"><b>教學重點：</b>SAA 陽性支持「突觸核蛋白病變」大方向診斷（PD／DLB／MSA 皆可能陽性），但唯有結合動力學株型分析，才可能進一步區分 Lewy-fold（PD／DLB）與 MSA-fold（MSA）——這是目前最接近「分子層級鑑別診斷」的工具，但仍主要用於研究與臨床試驗情境。</div>
+  </div>
+
+  <div class="tbl-wrap" style="margin-top:1rem;">
+    <table>
+      <thead><tr><th>DLB 生物標記分級（2017第四版共識準則）</th><th>項目</th><th>臨床意義</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="3"><b>指標性生物標記<br>Indicative biomarkers</b></td><td>DAT SPECT／PET 顯示基底核多巴胺轉運體攝取減少</td><td>診斷特異度最高的影像標記之一</td></tr>
+        <tr><td>MIBG 心肌閃爍造影顯示交感神經去支配</td><td>反映周邊自律神經受累，PSP／CBD通常正常</td></tr>
+        <tr><td>多頻道睡眠生理檢查（PSG）證實 REM 期無張力喪失</td><td>客觀確認 RBD，為近十年權重提升最多的項目之一</td></tr>
+        <tr><td rowspan="3"><b>支持性生物標記<br>Supportive biomarkers</b></td><td>結構影像：內側顳葉相對保留</td><td>與AD形成對比（AD常見明顯顳葉萎縮）</td></tr>
+        <tr><td>FDG-PET 枕葉代謝活性低下</td><td>反映後皮質視覺路徑受累，對應視幻覺症狀</td></tr>
+        <tr><td>腦電圖（EEG）後枕葉慢波活動明顯</td><td>可及性高，適合基層篩檢情境</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:.82rem;color:var(--ink-faint);margin-top:.8rem;">依 McKeith IG, et al. Neurology. 2017（DLB共識小組第四版報告）整理；該版本相較舊版最主要的更新，是明確區分臨床核心特徵與生物標記的「指標性／支持性」兩級架構，並大幅提升 RBD 與 MIBG 的診斷權重。</p>
+</section>
+
+<!-- ================= 11 實證治療 ================= -->
+<section class="block" id="treatment">
+  <div class="section-label"><span class="section-num">11</span><h2>目前實證治療</h2></div>
+
+  <div class="article-card">
+    <div class="article-head"><span class="article-tag">證據最強</span><h3>PDD 與 DLB</h3></div>
+    <p><b>膽鹼酯酶抑制劑：</b>大型隨機安慰劑對照試驗與統合分析的良好證據顯示，rivastigmine 與 donepezil 對 PDD 與 DLB 皆有效；不良反應主要為胃腸道症狀，通常輕微且短暫，一般不致使運動症狀惡化。Rivastigmine 已獲准用於 PDD。對合併姿勢性低血壓的 PDD 患者，rivastigmine 療效可能更佳，可能與其膽鹼性與抗低血壓之協同作用有關。</p>
+    <p><b>Memantine：</b>作為 NMDA 部分拮抗劑，在路易氏體失智部分研究顯示正面效果、部分未證實，可能同時改善睡眠。</p>
+    <p><b>PD-MCI：</b>證據仍屬有限。一項小型交叉試驗以 rivastigmine 貼片治療 PD-MCI，耐受良好，主要終點未達顯著，但在部分次要指標有改善趨勢。</p>
+    <p><b>新興藥物：</b>M1 蕈毒性乙醯膽鹼受體正向異位調節劑 TAK-071 之第二期隨機雙盲交叉試驗（54例 PD 合併認知障礙與跌倒史）中，安全性與耐受性良好，雖未達步態主要終點，但在認知（尤其執行功能與注意力）次級終點較安慰劑有顯著改善，尚待更大規模驗證。</p>
+    <p><b>精神症狀：</b>clozapine 為 PD 精神症狀最有力的證據；pimavanserin（5-HT2A 血清素性藥物）亦有正面結果；非典型抗精神病藥使用須謹慎，DLB患者應避免典型抗精神病藥物（神經阻斷劑過度敏感）。</p>
+  </div>
+
+  <div class="article-card">
+    <div class="article-head"><span class="article-tag">輔助策略</span><h3>非藥物治療</h3></div>
+    <p>身體運動（有氧與阻力訓練）與認知訓練之初步證據顯示可改善 PD 認知，如 PRET-PD 研究中兩組運動介入後注意力與執行功能均有改善；重複經顱磁刺激（rTMS，高頻作用於背側前額葉）在部分研究改善 PD 認知，但結果不一致；Meynert 基底核深部腦刺激在 DLB 未顯示明確益處，仍持續研究中。生活方式調整（支持心血管與睡眠健康）可能有認知益處，惟尚待穩健臨床試驗驗證。</p>
+  </div>
+
+  <div class="article-card">
+    <div class="article-head"><span class="article-tag">證據有限</span><h3>PSP、MSA、CBD</h3></div>
+    <p>上述非典型症候群目前無核准的症狀性或疾病修飾治療針對認知障礙，處置仍以症狀控制與安寧緩和為主。CBD 有效治療選項有限，凸顯早期診斷與針對異常蛋白之疾病修飾療法研發的迫切性。MSA 的皮質廣泛乙醯膽鹼酯酶活性下降，理論上為治療標的，但目前缺乏針對 MSA 認知障礙的隨機對照試驗。近年多項以 tau 或 α-突觸核蛋白為標的之免疫療法（如抗 tau 單株抗體、抗突觸核蛋白療法）陸續在 PSP 與 MSA 進入第二、三期臨床試驗，但多數主要運動或功能終點未達統計顯著，認知相關次級結果的報告仍相對有限，是目前研發的主要瓶頸之一。</p>
+  </div>
+
+  <div class="callout ok">
+    <b>共通原則</b>
+    所有症候群的治療皆強調：避免使用可能惡化認知之抗膽鹼藥物（PD 患者使用抗膽鹼藥物者認知下降更快）；謹慎使用精神藥物；並在失智確立前以敏感篩檢工具（MoCA 優於 MMSE）與生物標記（α-突觸核蛋白 SAA、Aβ／tau、NfL、DAT 影像等）進行風險分層與早期介入。
+  </div>
+</section>
+
+<!-- ================= 參考文獻 ================= -->
+<section class="block" id="refs">
+  <div class="section-label"><span class="section-num">Ref</span><h2>參考文獻</h2></div>
+  <ol class="refs">
+    <li>Oikonomou P, Akhoundi FH, Olfati N, Litvan I. Characteristics and mechanisms of cognitive impairment in Parkinson disease. <i>Nat Rev Neurol.</i> 2025;22(2):90–109. doi:10.1038/s41582-025-01163-x</li>
+    <li>Aarsland D, Kurz MW. The Epidemiology of Dementia Associated with Parkinson's Disease. <i>Brain Pathol.</i> 2010;20(3):633–639. doi:10.1111/j.1750-3639.2009.00369.x</li>
+    <li>Aarsland D. Cognitive impairment in Parkinson's disease and dementia with Lewy bodies. <i>Parkinsonism Relat Disord.</i> 2016;22:S144–S148. doi:10.1016/j.parkreldis.2015.09.034</li>
+    <li>Aarsland D. Performance on the dementia rating scale in Parkinson's disease with dementia and dementia with Lewy bodies: comparison with progressive supranuclear palsy and Alzheimer's disease. <i>J Neurol Neurosurg Psychiatry.</i> 2003;74(9):1215–1220. doi:10.1136/jnnp.74.9.1215</li>
+    <li>Jellinger KA. Parkinson's Disease and Dementia with Lewy Bodies: One and the Same? <i>J Parkinsons Dis.</i> 2024;14(5):1071–1072. doi:10.3233/jpd-240174</li>
+    <li>Jellinger KA. Pathomechanisms of cognitive and behavioral impairment in corticobasal degeneration. <i>J Neural Transm.</i> 2023;130(12):1509–1522. doi:10.1007/s00702-023-02691-w</li>
+    <li>Brown RG, Lacomblez L, Landwehrmeyer BG, et al. Cognitive impairment in patients with multiple system atrophy and progressive supranuclear palsy. <i>Brain.</i> 2010;133(8):2382–2393. doi:10.1093/brain/awq158</li>
+    <li>Lee YC, Williams DR, Anderson JFI. Frontal deficits differentiate progressive supranuclear palsy from Parkinson's disease. <i>J Neuropsychol.</i> 2014;10(1):1–14. doi:10.1111/jnp.12053</li>
+    <li>Kertesz A, McMonagle P. Behavior and cognition in corticobasal degeneration and progressive supranuclear palsy. <i>J Neurol Sci.</i> 2010;289(1-2):138–143. doi:10.1016/j.jns.2009.08.036</li>
+    <li>Stankovic I, Krismer F, Jesic A, et al. Cognitive impairment in multiple system atrophy: A position statement by the neuropsychology task force of the MDS MSA (MODIMSA) study group. <i>Mov Disord.</i> 2014;29(7):857–867. doi:10.1002/mds.25880</li>
+    <li>Aman Y. Effect of cholinergic modulator in Parkinson's disease with cognitive impairment. <i>Nat Aging.</i> 2025;5(2):177–177. doi:10.1038/s43587-025-00825-1</li>
+    <li>Szwedo AA, Dalen I, Pedersen KF, et al. <i>GBA</i> and <i>APOE</i> Impact Cognitive Decline in Parkinson's Disease: A 10-Year Population-Based Study. <i>Mov Disord.</i> 2022;37(5):1016–1027. doi:10.1002/mds.28932</li>
+    <li>Bernhardt AM, Longen S, Trossbach SV, et al. A quantitative Lewy-fold-specific alpha-synuclein seed amplification assay as a progression marker for Parkinson's disease. <i>Acta Neuropathol.</i> 2025. doi:10.1007/s00401-025-02853-y</li>
+    <li>Martinez-Valbuena I, et al. Molecular strain typing of α-synuclein seed amplification assays distinguishes MSA from PD/DLB (Lewy-fold vs. MSA-fold). <i>Nat Commun.</i> 2025 review.</li>
+    <li>McKeith IG, Boeve BF, Dickson DW, et al. Diagnosis and management of dementia with Lewy bodies: Fourth consensus report of the DLB Consortium. <i>Neurology.</i> 2017;89(1):88–100. doi:10.1212/WNL.0000000000004058</li>
+    <li>Höglinger GU, Respondek G, Stamelou M, et al. Clinical diagnosis of progressive supranuclear palsy: the Movement Disorder Society criteria. <i>Mov Disord.</i> 2017;32(6):853–864. doi:10.1002/mds.26987</li>
+    <li>Ruiz-Barrio I, et al. Cognitive and behavioral disturbances in PSP and MSA: clinical features and imaging correlates. <i>J Neural Transm.</i> 2026 review. doi:10.1007/s00702-026-03146-8</li>
+    <li>Armstrong MJ, Litvan I, Lang AE, et al. Criteria for the diagnosis of corticobasal degeneration. <i>Neurology.</i> 2013;80(5):496–503.</li>
+  </ol>
+  <p style="font-size:.76rem;color:var(--ink-faint);margin-top:1.2rem;">本頁第09、10節（遺傳風險分層、SAA生物標記）為針對原始文獻回顧之補充，整理自近十年（約2015–2026年）發表之統合分析與共識準則文獻，臨床應用時請留意：基因檢測與SAA株型分型目前多用於研究與臨床試驗情境，尚未全面納入常規臨床診斷流程，實際解讀仍應以當下最新共識準則與檢驗單位報告為準。</p>
+</section>
