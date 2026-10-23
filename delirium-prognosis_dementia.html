@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="nt:category" content="dementia">
+<meta name="nt:label" content="Delirium">
+<meta name="nt:icon" content="🌫️">
+<meta name="nt:summary" content="譫妄症狀緩解不等於大腦恢復：預後評估、認知恢復的多面向追蹤指標與長期認知障礙風險，並交叉查核原 PDF 的主張與 PADIS 2025 指引。">
+<meta name="nt:tags" content="譫妄, 認知恢復, 預後, PADIS 2025">
+<meta name="nt:order" content="10">
+<meta name="nt:updated" content="2026-10-23">
+<title>急性譫妄的預後評估、認知恢復指標與長期認知障礙｜HCH-FYH Neurology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* 色票：與首頁（index.html）同一組深色色票 */
+:root{
+  --bg:#0d1117;
+  --bg-card:#161b22;
+  --bg-card-hover:#1c2128;
+  --border:rgba(255,255,255,.10);
+  --text:#e6edf3;
+  --text-dim:#8b949e;
+  --text-faint:#6e7681;
+  --amber:#e3b341;
+  --amber-dim:rgba(227,179,65,.35);
+  --blue:#58a6ff;
+  --blue-dim:rgba(88,166,255,.32);
+  --green:#39d353;
+  --green-dim:rgba(57,211,83,.32);
+  --red:#f0616f;
+  --red-dim:rgba(240,97,111,.32);
+  --purple:#bc8cff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:70px;}
+body{background:var(--bg);color:var(--text);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;
+  line-height:1.75;font-size:16px;}
+.en{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--text-dim);font-size:0.86em;}
+a{color:var(--amber);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* ===== Nav ===== */
+.topnav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:flex-start;
+  padding:8px 28px;background:rgba(13,17,23,0.93);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px;}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap;align-items:center;}
+.nav-links a{color:var(--text-dim);font-size:0.86rem;padding:7px 11px;border-radius:6px;transition:all .15s;}
+.nav-links a:hover{color:var(--text);background:var(--bg-card);text-decoration:none;}
+
+/* ===== Hero ===== */
+.hero{padding:60px 28px 38px;max-width:980px;margin:0 auto;border-bottom:1px solid var(--border);}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--blue);font-size:0.82rem;letter-spacing:0.05em;
+  border:1px solid var(--blue-dim);padding:4px 12px;border-radius:20px;margin-bottom:18px;}
+.hero h1{font-size:2rem;font-weight:800;line-height:1.4;
+  background:linear-gradient(90deg,var(--text) 45%,var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero .subtitle{margin-top:14px;color:var(--text-dim);max-width:720px;}
+.hero-meta{display:flex;gap:26px;margin-top:24px;flex-wrap:wrap;}
+.hero-meta div{font-size:0.8rem;color:var(--text-faint);}
+.hero-meta b{color:var(--text);display:block;font-size:1.05rem;}
+
+/* ===== Layout ===== */
+section{max-width:980px;margin:0 auto;padding:50px 28px;border-bottom:1px solid var(--border);}
+.section-label{color:var(--amber);font-size:0.78rem;letter-spacing:0.08em;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.section-label::before{content:"";width:22px;height:2px;background:var(--amber);}
+h2{font-size:1.45rem;font-weight:700;margin-bottom:8px;}
+h2 .en{display:block;font-size:0.72rem;margin-top:3px;font-weight:400;}
+h3{font-size:1.08rem;font-weight:700;margin:28px 0 10px;}
+h3 .en{font-size:0.72rem;font-weight:400;}
+p{color:var(--text-dim);margin-bottom:14px;}
+p b,li b{color:var(--text);font-weight:600;}
+ul,ol{margin:10px 0 16px 22px;color:var(--text-dim);}
+li{margin-bottom:7px;}
+.lede{margin-bottom:22px;}
+
+/* ===== chips ===== */
+.chip{display:inline-flex;align-items:center;gap:3px;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:5px;
+  vertical-align:middle;margin:0 2px;white-space:nowrap;}
+.g-rct{background:rgba(57,211,83,.13);color:var(--green);border:1px solid var(--green-dim);}
+.g-meta{background:rgba(88,166,255,.13);color:var(--blue);border:1px solid var(--blue-dim);}
+.g-cohort{background:rgba(227,179,65,.13);color:var(--amber);border:1px solid var(--amber-dim);}
+.g-guide{background:rgba(188,140,255,.13);color:var(--purple);border:1px solid rgba(188,140,255,.32);}
+.g-expert{background:rgba(152,163,181,.12);color:var(--text-dim);border:1px solid var(--border);}
+.v-ok{background:rgba(57,211,83,.13);color:var(--green);border:1px solid var(--green-dim);}
+.v-fix{background:rgba(240,97,111,.12);color:var(--red);border:1px solid var(--red-dim);}
+.v-over{background:rgba(227,179,65,.13);color:var(--amber);border:1px solid var(--amber-dim);}
+.v-na{background:rgba(152,163,181,.12);color:var(--text-dim);border:1px solid var(--border);}
+.legend{display:flex;gap:14px 20px;flex-wrap:wrap;margin:16px 0;padding:13px 16px;background:var(--bg-card);
+  border:1px solid var(--border);border-radius:8px;font-size:0.78rem;color:var(--text-dim);}
+
+/* ===== cards ===== */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:18px;}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .18s;}
+.card:hover{border-color:var(--amber-dim);background:var(--bg-card-hover);transform:translateY(-2px);}
+.card .icon{font-size:1.4rem;display:block;margin-bottom:8px;}
+.card .cat{font-size:0.7rem;color:var(--blue);letter-spacing:0.05em;font-weight:700;margin-bottom:4px;}
+.card h4{font-size:0.98rem;margin-bottom:6px;}
+.card p{font-size:0.85rem;margin-bottom:0;}
+.card .foot{margin-top:11px;font-size:0.74rem;color:var(--text-faint);border-top:1px solid var(--border);padding-top:9px;}
+
+/* ===== table ===== */
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--border);border-radius:8px;}
+table{width:100%;border-collapse:collapse;font-size:0.86rem;min-width:620px;}
+th{background:rgba(227,179,65,.08);color:var(--amber);text-align:left;padding:10px 13px;font-size:0.76rem;border-bottom:1px solid var(--border);}
+td{padding:10px 13px;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+td b{color:var(--text);}
+
+/* ===== callout ===== */
+.callout{background:rgba(88,166,255,.06);border:1px solid var(--blue-dim);border-left:3px solid var(--blue);
+  border-radius:6px;padding:15px 18px;margin:18px 0;color:var(--text-dim);font-size:0.9rem;}
+.callout b{color:var(--blue);}
+.callout.warn{background:rgba(240,97,111,.06);border-color:var(--red-dim);border-left-color:var(--red);}
+.callout.warn b{color:var(--red);}
+
+/* ===== flow ===== */
+.flow{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin:18px 0;}
+.flow-step{flex:1 1 170px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;min-width:150px;}
+.flow-step .n{font-size:0.7rem;color:var(--amber);font-weight:700;letter-spacing:0.05em;}
+.flow-step h5{font-size:0.92rem;margin:3px 0;}
+.flow-step p{font-size:0.78rem;margin:0;}
+.flow-arrow{display:flex;align-items:center;color:var(--text-faint);padding:0 6px;}
+
+/* ===== bars ===== */
+.bar-row{margin:12px 0;}
+.bar-label{display:flex;justify-content:space-between;font-size:0.82rem;color:var(--text-dim);margin-bottom:4px;}
+.bar-track{height:14px;background:var(--bg-card);border:1px solid var(--border);border-radius:7px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:7px;}
+
+/* ===== quiz ===== */
+.q{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin:14px 0;}
+.q h4{font-size:0.96rem;margin-bottom:10px;line-height:1.6;}
+.q .opt{display:block;width:100%;text-align:left;background:var(--bg);color:var(--text-dim);border:1px solid var(--border);
+  border-radius:7px;padding:9px 13px;margin-bottom:7px;cursor:pointer;font-size:0.88rem;font-family:inherit;transition:all .15s;}
+.q .opt:hover{border-color:var(--amber-dim);color:var(--text);}
+.q .opt.right{border-color:var(--green);color:var(--green);background:rgba(57,211,83,.08);}
+.q .opt.wrong{border-color:var(--red);color:var(--red);background:rgba(240,97,111,.08);}
+.q .why{display:none;margin-top:10px;font-size:0.84rem;color:var(--text-dim);border-top:1px dashed var(--border);padding-top:10px;}
+.q.done .why{display:block;}
+.score{margin-top:12px;font-size:0.9rem;color:var(--amber);font-weight:700;}
+
+/* ===== refs ===== */
+.ref-list{list-style:none;margin:0;padding:0;}
+.ref-list li{padding:11px 0;border-bottom:1px solid var(--border);font-size:0.82rem;color:var(--text-dim);display:flex;gap:11px;}
+.ref-list li:last-child{border-bottom:none;}
+.ref-num{color:var(--amber);font-weight:700;flex-shrink:0;min-width:34px;}
+.ref-list .doi{color:var(--text-faint);font-size:0.76rem;}
+.ref-sub{font-size:0.78rem;color:var(--blue);margin:22px 0 4px;font-weight:700;letter-spacing:0.04em;}
+
+footer{max-width:980px;margin:0 auto;padding:34px 28px 60px;color:var(--text-faint);font-size:0.8rem;}
+@media(max-width:700px){.topnav{padding:6px 12px;}.nav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}.nav-links a{white-space:nowrap;}.hero h1{font-size:1.5rem;}section{padding:38px 18px;}}
+</style>
+</head>
+<body>
+<script src="assets/site-header.js"></script>
+
+<nav class="topnav" aria-label="本頁章節">
+  <div class="nav-links">
+    <a href="#review">PDF審查</a>
+    <a href="#prognosis">預後評估</a>
+    <a href="#factors">預後因子</a>
+    <a href="#recovery">恢復指標</a>
+    <a href="#longterm">長期認知障礙</a>
+    <a href="#treatment">治療證據</a>
+    <a href="#practice">臨床流程</a>
+    <a href="#quiz">自我測驗</a>
+    <a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">● 譫妄 · 老年神經 <span class="en">Delirium &amp; Cognition</span></div>
+  <h1>急性譫妄的預後評估、認知恢復指標與長期認知障礙</h1>
+  <p class="subtitle">譫妄（delirium）症狀緩解，不等於大腦恢復。本頁整理如何評估預後、如何以多面向指標追蹤認知恢復，並將原始 PDF 的主張與近十年期刊論文、治療指引交叉審查，標示哪些可信、哪些需修正。</p>
+  <div class="hero-meta">
+    <div><b>17</b>篇原 PDF 文獻</div>
+    <div><b>10</b>篇補充查核文獻與指引</div>
+    <div><b>PADIS 2025</b>最新 ICU 指引</div>
+    <div><b>≥3 個月</b>長期認知追蹤</div>
+  </div>
+</div>
+
+<section id="summary">
+  <div class="section-label">重點摘要 <span class="en">Key Takeaways</span></div>
+  <h2>先看五個核心訊息</h2>
+  <div class="card-grid">
+    <div class="card"><span class="icon">🧠</span><div class="cat">長期結局</div><h4>譫妄與長期認知下降相關</h4><p>統合分析（24 項研究）顯示，譫妄後 ≥3 個月出現認知下降的機會約為無譫妄者的 2.3 倍；但屬觀察性證據，不能斷定因果。</p><div class="foot"><span class="chip g-meta">統合分析 Meta-analysis</span> Goldberg 2020</div></div>
+    <div class="card"><span class="icon">⏱️</span><div class="cat">劑量效應</div><h4>譫妄持續越久，長期認知越差</h4><p>BRAIN-ICU 世代中，譫妄天數與 3、12 個月的整體認知與執行功能較差獨立相關，鎮靜藥物暴露則無一致關聯。</p><div class="foot"><span class="chip g-cohort">世代研究 Cohort</span> Pandharipande 2013</div></div>
+    <div class="card"><span class="icon">📏</span><div class="cat">評估</div><h4>沒有單一「恢復量表」</h4><p>常用偵測工具（CAM、4AT）並非為追蹤恢復而驗證；應組合警醒度、注意力、整體認知、各領域與日常功能。</p><div class="foot"><span class="chip g-meta">系統性回顧 Review</span> McCartney 2023</div></div>
+    <div class="card"><span class="icon">💊</span><div class="cat">治療</div><h4>沒有藥物證實能改善長期認知</h4><p>抗精神病藥對譫妄病程缺乏一致益處；PADIS 2025 對「以抗精神病藥治療譫妄」未能提出建議。</p><div class="foot"><span class="chip g-guide">治療指引 Guideline</span> SCCM 2025</div></div>
+    <div class="card"><span class="icon">⚠️</span><div class="cat">審查發現</div><h4>原 PDF 有 3 處需修正</h4><p>「唯一能改善長期結局」「早期活動為首個改善策略」等說法過度推論，已於下方審查表逐項標示。</p><div class="foot">詳見「PDF 審查」</div></div>
+  </div>
+</section>
+
+<section id="review">
+  <div class="section-label">01 · PDF 交叉審查 <span class="en">Cross-check</span></div>
+  <h2>原 PDF 主張查核結果<span class="en">Claim-by-claim verification against recent literature</span></h2>
+  <p class="lede">以近十年（2016–2026）期刊論文與治療指引為主，並納入少數奠基研究。以下僅列最具臨床影響的主張；<b>「未能查核」代表本次檢索未取得原文佐證，並不代表有誤</b>，教學前請對照原文。</p>
+
+  <div class="legend">
+    <span><span class="chip v-ok">✔ 已查核</span> 與文獻一致</span>
+    <span><span class="chip v-fix">▲ 需修正</span> 數字或結論與文獻不符</span>
+    <span><span class="chip v-over">▲ 過度推論</span> 方向正確但說得太滿</span>
+    <span><span class="chip v-na">○ 未能查核</span> 本次未取得原文</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:27%">原 PDF 主張</th><th style="width:14%">審查結果</th><th>交叉查核說明</th></tr></thead>
+      <tbody>
+        <tr><td>重症存活者 12 個月時 34% 的整體認知分數相當於中度創傷性腦損傷、24% 相當於輕度阿茲海默症；譫妄天數越長，認知與執行功能越差</td>
+          <td><span class="chip v-ok">✔ 已查核</span></td>
+          <td>與 BRAIN-ICU（821 位病人，NEJM 2013）摘要一致，且鎮靜／鎮痛藥物與長期認知障礙無一致關聯。注意：此為 2013 年奠基研究，超出「近十年」窗口。</td></tr>
+        <tr><td>重症存活者出院後 3 個月 66%、12 個月 58% 仍有認知障礙</td>
+          <td><span class="chip v-na">○ 未能查核</span></td>
+          <td>此數字口徑與 BRAIN-ICU 的 34%／24%（「相當於 TBI／AD 程度」）不同，可能是「任何程度的障礙」。<b>教學時請勿混用兩種定義</b>，並回查 [8][9] 原文。</td></tr>
+        <tr><td>多重非藥物介入降低譫妄發生率約 43%（RR 0.57）、縮短約 1 天，<b>且是目前唯一能降低長期後果的策略</b></td>
+          <td><span class="chip v-over">▲ 過度推論</span></td>
+          <td>Hshieh 2015 統合分析：11 項研究合併 OR 0.47；4 項隨機或配對試驗降低發生率 44%（OR 0.56）。但<b>功能與認知結局因異質性無法合併分析</b>，故「降低長期認知障礙」並未被證實。RR 0.57 可能來自 PDF 引用的 [10]（2025 年文獻，本次未能查核）。</td></tr>
+        <tr><td>早期活動與職能治療是「首個能改善長期認知結局的介入」（1 年認知障礙 24/99 vs 43/99）</td>
+          <td><span class="chip v-over">▲ 過度推論</span></td>
+          <td>單中心小型試驗證據與後續大型試驗不一致：TEAM（NEJM 2022，750 位病人）顯示早期主動活動未增加存活且離院天數，且不良事件較多。PADIS 2025 僅有條件式建議強化活動／復健。</td></tr>
+        <tr><td>Haloperidol 與第二代抗精神病藥不建議常規用於預防或治療譫妄；AID-ICU 顯示 haloperidol 組 1 年死亡率較低</td>
+          <td><span class="chip v-fix">▲ 需補充</span></td>
+          <td>AID-ICU 1 年追蹤確認：死亡率較低，但生活品質無顯著改善（為預先規劃之追蹤分析，宜視為假說產生）。<b>PADIS 2025 更新：對抗精神病藥治療譫妄「未能提出建議」</b>，比 2018 版「建議不常規使用」更保守。原文 44.7% vs 51.6% 本次未逐字核對。</td></tr>
+        <tr><td>使用 α2 促效劑（dexmedetomidine）取代 benzodiazepine 可降低譫妄發生率</td>
+          <td><span class="chip v-over">▲ 需補充</span></td>
+          <td>PADIS 2025：機械通氣病人若以輕度鎮靜或減少譫妄為優先，<b>有條件式建議 dexmedetomidine 優於 propofol</b>。但 MENDS-II（NEJM 2021，敗血症通氣病人）未見無譫妄／無昏迷天數差異，證據並非一面倒。</td></tr>
+        <tr><td>血中 NfL、GFAP、CSF tau 上升與譫妄及後續認知下降相關</td>
+          <td><span class="chip v-over">▲ 降級為研究階段</span></td>
+          <td>SAGES：術後 1 個月 NfL 升高與譫妄及較差認知相關；但 GFAP 結果不一致（SAGES II 小型研究 OR 1.52，95% CI 0.85–2.72，未達顯著）。<b>尚不可用於個別病人的預後判斷。</b></td></tr>
+        <tr><td>CAM-ICU 於例行臨床使用時敏感度僅約 47%、特異度 98%（van Eijk 2011）</td>
+          <td><span class="chip v-na">○ 未能查核</span></td>
+          <td>與既有知識一致，本次未重新取得原文；結論（單次陰性不能排除譫妄）符合臨床共識。</td></tr>
+        <tr><td>譫妄後病人若分數「持平」可能實為相對退步；引用思覺失調症練習效應研究 [17] 支持</td>
+          <td><span class="chip v-over">▲ 間接證據</span></td>
+          <td>[17] 研究對象為老年思覺失調症，並非譫妄族群；概念（練習效應與可靠改變指數）合理，但<b>不宜視為譫妄的直接證據</b>。同理，[16] 為創傷後失憶研究，屬間接類推。</td></tr>
+        <tr><td>出院前、3、6、12 個月（必要時 2 年）重複評估</td>
+          <td><span class="chip v-na">○ 專家建議</span></td>
+          <td>未見公認指引硬性規定時間點；屬合理的專家實務建議，應依病人風險與資源調整。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn"><b>文獻年代提醒：</b>原 PDF 中 [3]（2010）、[4]（2011）、[6]（2011）、[15]（2005）等重要依據超出近十年；本頁以近十年統合分析、隨機試驗與 2025 年指引補強，並保留奠基研究作為背景。</div>
+</section>
+
+<section id="prognosis">
+  <div class="section-label">02 · 預後評估架構 <span class="en">Prognostic Assessment</span></div>
+  <h2>如何評估譫妄治療後的預後<span class="en">From assessability to outcome selection</span></h2>
+
+  <div class="flow">
+    <div class="flow-step"><div class="n">STEP 1</div><h5>確認「能不能評估」</h5><p>先以 RASS／SAS 確認警醒度；昏迷或過度鎮靜只能記為「無法評估」，不是「無譫妄」。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">STEP 2</div><h5>量化譫妄</h5><p>有無、嚴重度、亞型（過動／低動／混合）、持續天數、是否復發。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">STEP 3</div><h5>選擇終點</h5><p>死亡、長期機構化、功能（ADL／IADL）、各認知領域，涵蓋家屬最在意的事。</p></div>
+  </div>
+
+  <h3>常用工具與限制<span class="en">Tools &amp; Caveats</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>用途</th><th>工具</th><th>使用時的限制</th></tr></thead>
+      <tbody>
+        <tr><td><b>警醒度</b><br><span class="en">Arousal</span></td><td>RASS、SAS、OSLA</td><td>RASS ≥ −3（能被聲音喚醒）才可進行譫妄評估</td></tr>
+        <tr><td><b>譫妄有無／嚴重度</b><br><span class="en">Detection / Severity</span></td><td>CAM、CAM-ICU、ICDSC、4AT、DRS-R98、MDAS</td><td>多數為「偵測」而非「追蹤恢復」設計；CAM-ICU 例行使用敏感度偏低（低動型更明顯），需每日多次施測並搭配護理觀察；DRS-R98 偏重過動特徵</td></tr>
+        <tr><td><b>整體認知</b><br><span class="en">Global cognition</span></td><td>MMSE、MoCA、CAMCOG-R</td><td>需與病前基準比較，建議以 IQCODE 與家屬訪談確認</td></tr>
+        <tr><td><b>日常功能</b><br><span class="en">Function</span></td><td>Barthel Index、IADL、FIM／FAM</td><td>IADL（服藥、理財）對輕微認知下降較敏感</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.84rem;">依據：McCartney 2023 系統性回顧指出，目前沒有標準化的「譫妄恢復」評估共識，建議以量化、多面向、對變化敏感的方式涵蓋多個神經心理與功能領域 <span class="chip g-meta">系統性回顧</span></p>
+</section>
+
+<section id="factors">
+  <div class="section-label">03 · 預後因子 <span class="en">Prognostic Factors</span></div>
+  <h2>哪些因素影響後續意識、語言與空間定向<span class="en">What predicts persistence and poor recovery</span></h2>
+  <p class="lede">以下多為<b>相關性</b>，來自世代研究與系統性回顧，效應量差異大；用於風險分層與家屬溝通，不能保證個別病人的結局。</p>
+
+  <div class="card-grid">
+    <div class="card"><span class="icon">👤</span><div class="cat">病人基線</div><h4>既有失智、衰弱、基線功能依賴</h4><p>既有失智是持續性譫妄最一致的預測因子；衰弱程度與較差功能恢復相關；入院前 ADL 依賴為獨立因子。</p><div class="foot"><span class="chip g-meta">系統性回顧</span> Dasgupta 2010（奠基）</div></div>
+    <div class="card"><span class="icon">🎓</span><div class="cat">病人基線</div><h4>認知儲備 Cognitive reserve</h4><p>教育與職業複雜度等代理指標與重症後較好的認知表現相關；近年主張納入重症後風險分層。</p><div class="foot"><span class="chip g-expert">評論／專家意見</span> López-Aguilar 2025</div></div>
+    <div class="card"><span class="icon">📈</span><div class="cat">譫妄特徵</div><h4>嚴重度與持續時間</h4><p>初始嚴重度越高、持續越久，結局越差；持續時間是最一致且可改變的長期認知風險因子。</p><div class="foot"><span class="chip g-cohort">世代研究</span> BRAIN-ICU</div></div>
+    <div class="card"><span class="icon">🌙</span><div class="cat">譫妄特徵</div><h4>低動型 Hypoactive 與亞症候群</h4><p>低動型常被漏診；亞症候群與殘餘症狀者恢復軌跡延長，「未達診斷閾值」不等於完全恢復。</p><div class="foot"><span class="chip g-meta">系統性回顧</span> McCartney 2023</div></div>
+    <div class="card"><span class="icon">🫁</span><div class="cat">誘發病因</div><h4>缺氧、急性腎衰竭、敗血症</h4><p>缺氧與急性腎衰竭和不良恢復相關；中風後譫妄為 2 年後失智的預測因子（小型研究）。</p><div class="foot"><span class="chip g-cohort">世代研究</span> 證據量有限</div></div>
+    <div class="card"><span class="icon">👁️</span><div class="cat">照護因素</div><h4>是否被及早辨識</h4><p>未被辨識的譫妄與較差結局相關，同時是可改善的照護品質指標。</p><div class="foot"><span class="chip g-cohort">世代研究</span> Andrew 2005（奠基）</div></div>
+  </div>
+</section>
+
+<section id="recovery">
+  <div class="section-label">04 · 認知恢復指標 <span class="en">Recovery Metrics</span></div>
+  <h2>各認知領域如何追蹤<span class="en">Domain-specific recovery after delirium</span></h2>
+  <p class="lede">譫妄緩解後，注意力、警醒度、語言、視空間、記憶與執行功能的恢復速度並不一致。臨床上「病人能對話」不能等同於「已恢復」。</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>認知領域</th><th>建議測量</th><th>恢復特點（依原 PDF 所引研究整理）</th><th>證據強度</th></tr></thead>
+      <tbody>
+        <tr><td><b>警醒度／注意力</b><br><span class="en">Arousal / Attention</span></td><td>RASS、OSLA、注意力測試</td><td>為譫妄最突出且最持續的缺損之一，恢復較慢</td><td><span class="chip g-meta">系統性回顧</span></td></tr>
+        <tr><td><b>語言</b><br><span class="en">Language</span></td><td>CAMCOG-R 語言分項</td><td>出院前評估，譫妄組於語言、運用與執行功能較差；不應只因能對話判定恢復</td><td><span class="chip g-cohort">小型世代</span></td></tr>
+        <tr><td><b>視空間／定向</b><br><span class="en">Visuospatial / Orientation</span></td><td>視覺建構（如時鐘繪圖）、定向題</td><td>中風後譫妄者 2 年後視覺建構明顯較差；頂葉（尤其右側）損傷與忽略和較差功能相關</td><td><span class="chip g-cohort">小型世代</span> 部分為間接證據</td></tr>
+        <tr><td><b>記憶</b><br><span class="en">Memory</span></td><td>口語與視覺記憶測驗</td><td>短期與長期記憶恢復較緩慢</td><td><span class="chip g-meta">系統性回顧</span></td></tr>
+        <tr><td><b>執行功能／整體認知</b><br><span class="en">Executive / Global</span></td><td>MoCA、執行功能測驗</td><td>重症後 12 個月以整體認知與執行功能缺損最一致，且與譫妄天數相關</td><td><span class="chip g-cohort">世代研究</span> BRAIN-ICU</td></tr>
+        <tr><td><b>日常功能</b><br><span class="en">Function</span></td><td>Barthel、IADL、FIM</td><td>認知缺損轉譯為 IADL 下降與睡眠障礙，影響生活品質</td><td><span class="chip g-cohort">世代研究</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>追蹤時間與判讀<span class="en">Timing &amp; Interpretation</span></h3>
+  <ul>
+    <li><b>基準</b>：以 IQCODE、家屬訪談與病歷確認病前認知與功能，才能判斷「恢復」的相對程度。</li>
+    <li><b>時間點</b>：出院前（症狀緩解後 1 週內）、3、6、12 個月，必要時延伸至 2 年 <span class="chip g-expert">專家建議</span></li>
+    <li><b>練習效應</b>：重複施測時分數「持平」可能代表相對退步，宜搭配常模或可靠改變指數；此概念來自其他族群，應謹慎引用。</li>
+    <li><b>低動型陷阱</b>：低警醒病人可能因「無法評估」而得分為零，造成恢復評估的系統性盲點。</li>
+  </ul>
+</section>
+
+<section id="longterm">
+  <div class="section-label">05 · 長期認知障礙 <span class="en">Long-term Cognitive Impairment</span></div>
+  <h2>譫妄之後，認知會走向哪裡<span class="en">Trajectories after delirium</span></h2>
+
+  <h3>BRAIN-ICU：12 個月時的認知障礙程度<span class="en">Pandharipande, NEJM 2013</span></h3>
+  <p style="font-size:0.85rem;">821 位重症病人（呼吸衰竭或休克）；74% 於住院期間出現譫妄；病前認知障礙約 6%。</p>
+  <div class="bar-row"><div class="bar-label"><span>分數相當於中度創傷性腦損傷</span><span>34%</span></div><div class="bar-track"><div class="bar-fill" style="width:34%;background:var(--amber);"></div></div></div>
+  <div class="bar-row"><div class="bar-label"><span>分數相當於輕度阿茲海默症</span><span>24%</span></div><div class="bar-track"><div class="bar-fill" style="width:24%;background:var(--blue);"></div></div></div>
+
+  <div class="card-grid">
+    <div class="card"><span class="icon">📊</span><div class="cat">統合分析</div><h4>勝算約 2.3 倍</h4><p>24 項研究、3,562 位譫妄病人與 6,987 位對照；譫妄後 ≥3 個月出現認知下降的勝算約 2.3 倍，且與譫妄情境（麻醉、創傷、感染等）無關。</p><div class="foot"><span class="chip g-meta">統合分析</span> Goldberg, JAMA Neurol 2020</div></div>
+    <div class="card"><span class="icon">⛓️</span><div class="cat">因果限制</div><h4>相關不等於因果</h4><p>研究皆為觀察性設計，無法排除「譫妄只是揭露原本潛在退化」的可能；作者明確表示結果與因果假說一致但非定論。</p><div class="foot">需要操弄譫妄的介入試驗才能釐清</div></div>
+    <div class="card"><span class="icon">🧪</span><div class="cat">生物標記</div><h4>NfL、tau、GFAP</h4><p>術後 NfL 升高與譫妄及較差認知相關；GFAP 結果不一致；p-tau 相關研究仍在累積，皆屬研究階段。</p><div class="foot"><span class="chip g-cohort">世代研究</span> SAGES</div></div>
+  </div>
+
+  <div class="callout"><b>教學重點：</b>把譫妄視為「可測量的腦損傷事件」是合理的預警框架，但現有證據支持的是<b>風險升高與追蹤必要性</b>，尚不足以宣稱「預防譫妄必然降低失智」。</div>
+</section>
+
+<section id="treatment">
+  <div class="section-label">06 · 預防與治療證據 <span class="en">Prevention &amp; Treatment</span></div>
+  <h2>哪些介入有證據、哪些尚無定論<span class="en">What changes delirium vs. long-term cognition</span></h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>介入</th><th>對譫妄本身</th><th>對長期認知</th><th>證據</th></tr></thead>
+      <tbody>
+        <tr><td><b>多重非藥物介入</b><br><span class="en">Multicomponent non-drug</span></td><td>降低發生率（OR 0.47；隨機／配對試驗約 44%）</td><td>尚未證實（無法合併分析）</td><td><span class="chip g-meta">統合分析</span> Hshieh 2015</td></tr>
+        <tr><td><b>Dexmedetomidine</b></td><td>PADIS 2025 有條件式建議優於 propofol（以輕度鎮靜／減少譫妄為優先）；MENDS-II 未見差異</td><td>未證實</td><td><span class="chip g-guide">指引</span> <span class="chip g-rct">RCT</span></td></tr>
+        <tr><td><b>Haloperidol／抗精神病藥</b></td><td>MIND-USA（NEJM 2018）等未證實改善病程；PADIS 2025 對治療譫妄無建議</td><td>AID-ICU：1 年死亡率較低、生活品質無顯著改善</td><td><span class="chip g-rct">RCT</span> <span class="chip g-guide">指引</span></td></tr>
+        <tr><td><b>強化活動／復健</b></td><td>PADIS 2025 有條件式建議</td><td>TEAM：未增加存活且離院天數，不良事件較多</td><td><span class="chip g-rct">RCT</span> <span class="chip g-guide">指引</span></td></tr>
+        <tr><td><b>Melatonin</b></td><td>PADIS 2025 有條件式建議使用</td><td>未證實</td><td><span class="chip g-guide">指引</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn"><b>常見誤解：</b>「ABCDEF bundle＋多重非藥物介入」是目前降低譫妄發生率證據最一致的做法，但不能對家屬承諾「因此保護長期認知」。</div>
+</section>
+
+<section id="practice">
+  <div class="section-label">07 · 臨床實務流程 <span class="en">Clinical Workflow</span></div>
+  <h2>可直接操作的追蹤流程<span class="en">A practical sequence</span></h2>
+
+  <div class="flow">
+    <div class="flow-step"><div class="n">急性期</div><h5>每日確認可評估性</h5><p>RASS → CAM-ICU／ICDSC／4AT；記錄嚴重度、亞型（主動排查低動型）與持續天數。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">出院前</div><h5>完整基準評估</h5><p>神經心理（注意力、語言、視空間、記憶、執行）＋功能；以 IQCODE 與家屬訪談確認病前基準。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">3–12 個月</div><h5>重複追蹤</h5><p>整體認知與各領域、IADL、睡眠；分數持平時考慮練習效應；持續異常則走失智症鑑別。</p></div>
+  </div>
+
+  <h3>與家屬溝通的建議說法<span class="en">Family Communication</span></h3>
+  <ul>
+    <li>譫妄是<b>重要的預後警訊</b>，不代表一定失智，但需要後續追蹤認知。</li>
+    <li>預測模型的準確度有限（原研究 AUC 約 0.68），<b>即使低風險仍有相當比例不良恢復</b>，不能用來保證結局。</li>
+    <li>能做的事：及早辨識、多重非藥物照護、減少不必要的鎮靜藥物、安排出院後追蹤。</li>
+  </ul>
+</section>
+
+<section id="quiz">
+  <div class="section-label">08 · 自我測驗 <span class="en">Self-check</span></div>
+  <h2>五題快速檢視</h2>
+  <div id="quiz-box"></div>
+  <div class="score" id="score"></div>
+</section>
+
+<section id="refs">
+  <div class="section-label">參考文獻 <span class="en">References</span></div>
+  <h2>Reference List</h2>
+
+  <div class="ref-sub">A. 本次補充查核文獻與指引</div>
+  <ul class="ref-list">
+    <li><span class="ref-num">[A1]</span><span>Goldberg TE, Chen C, Wang Y, et al. Association of Delirium With Long-term Cognitive Decline: A Meta-analysis. <i>JAMA Neurol.</i> 2020. <span class="doi">DOI: 10.1001/jamaneurol.2020.2273</span></span></li>
+    <li><span class="ref-num">[A2]</span><span>Pandharipande PP, Girard TD, Jackson JC, et al. Long-term cognitive impairment after critical illness (BRAIN-ICU). <i>N Engl J Med.</i> 2013;369(14):1306-1316. <span class="doi">DOI: 10.1056/NEJMoa1301372</span></span></li>
+    <li><span class="ref-num">[A3]</span><span>Hshieh TT, Yue J, Oh E, et al. Effectiveness of multicomponent nonpharmacological delirium interventions: a meta-analysis. <i>JAMA Intern Med.</i> 2015.</span></li>
+    <li><span class="ref-num">[A4]</span><span>Lewis K, Balas MC, Stollings JL, et al. A Focused Update to the Clinical Practice Guideline for the Prevention and Management of Pain, Anxiety, Agitation/Sedation, Delirium, Immobility, and Sleep Disruption in Adult Patients in the ICU (PADIS). <i>Crit Care Med.</i> 2025;53(3):e711-e727.</span></li>
+    <li><span class="ref-num">[A5]</span><span>TEAM Study Investigators. Early Active Mobilization during Mechanical Ventilation in the ICU. <i>N Engl J Med.</i> 2022;387:1747-1758. <span class="doi">DOI: 10.1056/NEJMoa2209083</span></span></li>
+    <li><span class="ref-num">[A6]</span><span>AID-ICU Trial Group. Long-term outcomes with haloperidol versus placebo in acutely admitted adult ICU patients with delirium (AID-ICU 1-year follow-up). 作者與期刊資訊請於引用前核對原文。</span></li>
+    <li><span class="ref-num">[A7]</span><span>Fong TG, Vasunilashorn SM, Ngo L, et al. Association of Plasma Neurofilament Light with Postoperative Delirium (SAGES). <i>Ann Neurol.</i> 2020.</span></li>
+    <li><span class="ref-num">[A8]</span><span>Biomarkers of neurodegeneration and neural injury as potential predictors for delirium (SAGES II). <i>Delirium.</i> 小型初步研究。</span></li>
+    <li><span class="ref-num">[A9]</span><span>Girard TD, et al. Haloperidol and Ziprasidone for Treatment of Delirium in Critical Illness (MIND-USA). <i>N Engl J Med.</i> 2018. <span class="doi">（引用自既有知識，未於本次逐字核對）</span></span></li>
+    <li><span class="ref-num">[A10]</span><span>Hughes CG, et al. Dexmedetomidine or propofol for sedation in mechanically ventilated adults with sepsis (MENDS-II). <i>N Engl J Med.</i> 2021. <span class="doi">（取自二手摘要，建議核對原文）</span></span></li>
+  </ul>
+
+  <div class="ref-sub">B. 原 PDF 所引文獻（編號沿用原文）</div>
+  <ul class="ref-list">
+    <li><span class="ref-num">[1]</span><span>McCartney H, Noble E, MacLullich AMJ, et al. A systematic review of studies reporting on neuropsychological and functional domains used for assessment of recovery from delirium in acute hospital patients. <i>Int J Geriatr Psychiatry.</i> 2023;38(6). <span class="doi">DOI: 10.1002/gps.5943</span></span></li>
+    <li><span class="ref-num">[2]</span><span>Dasgupta M, Brymer C. Prognosis of delirium in hospitalized elderly: worse than we thought. <i>Int J Geriatr Psychiatry.</i> 2014;29(5):497-505. <span class="doi">DOI: 10.1002/gps.4032</span></span></li>
+    <li><span class="ref-num">[3]</span><span>Dasgupta M, Hillier LM. Factors associated with prolonged delirium: a systematic review. <i>Int Psychogeriatr.</i> 2010;22(3):373-394. <span class="doi">DOI: 10.1017/s1041610209991517</span></span></li>
+    <li><span class="ref-num">[4]</span><span>van Eijk MM, van den Boogaard M, van Marum RJ, et al. Routine use of the Confusion Assessment Method for the Intensive Care Unit. <i>Am J Respir Crit Care Med.</i> 2011;184(3):340-344. <span class="doi">DOI: 10.1164/rccm.201101-0065oc</span></span></li>
+    <li><span class="ref-num">[6]</span><span>van Rijsbergen MWA, et al. Delirium in acute stroke: a predictor of subsequent cognitive impairment? <i>J Neurol Sci.</i> 2011;306(1-2):138-142. <span class="doi">DOI: 10.1016/j.jns.2011.03.024</span></span></li>
+    <li><span class="ref-num">[8]</span><span>Sakusic A, O'Horo JC, Dziadzko M, et al. Potentially modifiable risk factors for long-term cognitive impairment after critical illness: a systematic review. <i>Mayo Clin Proc.</i> 2018;93(1):68-82. <span class="doi">DOI: 10.1016/j.mayocp.2017.11.005</span></span></li>
+    <li><span class="ref-num">[9]</span><span>Nassar AP, Ely EW, Fiest KM. Long-term outcomes of intensive care unit delirium. <i>Intensive Care Med.</i> 2023;49(6):677-680. <span class="doi">DOI: 10.1007/s00134-023-07029-4</span></span></li>
+    <li><span class="ref-num">[10]</span><span>van Munster BC, Strijkert F, Trzpis M, et al. Delirium: a modifiable risk factor for dementia. <i>Eur Geriatr Med.</i> 2025. <span class="doi">DOI: 10.1007/s41999-025-01360-3（本次未能查核）</span></span></li>
+    <li><span class="ref-num">[11]</span><span>López-Aguilar J, et al. Cognitive reserve: an emerging dimension in post-ICU recovery stratification. <i>Intensive Care Med.</i> 2025;51(12):2459-2460. <span class="doi">DOI: 10.1007/s00134-025-08154-y</span></span></li>
+    <li><span class="ref-num">[12]</span><span>Devlin JW, Duprey MS, Girard TD. How does haloperidol influence the long-term outcomes of delirium? <i>Intensive Care Med.</i> 2024;50(2):269-271. <span class="doi">DOI: 10.1007/s00134-024-07321-x</span></span></li>
+    <li><span class="ref-num">[13]</span><span>Heneghan C, O'Sullivan J. Antipsychotics for preventing and treating delirium: not recommended. <i>BMJ Evid Based Med.</i> 2021;26(1):32-33. <span class="doi">DOI: 10.1136/bmjebm-2019-111293</span></span></li>
+    <li><span class="ref-num">[15]</span><span>Andrew MK, Freter SH, Rockwood K. Incomplete functional recovery after delirium in elderly people: a prospective cohort study. <i>BMC Geriatr.</i> 2005;5:5. <span class="doi">DOI: 10.1186/1471-2318-5-5</span></span></li>
+    <li><span class="ref-num">[16–17]</span><span>Gurin L, et al. <i>J Neuropsychiatry Clin Neurosci.</i> 2016（創傷後失憶）；Harvey PD, et al. <i>Biol Psychiatry.</i> 2010（老年思覺失調症）— 皆為間接證據。</span></li>
+  </ul>
+  <p style="margin-top:16px;font-size:0.8rem;color:var(--text-faint);">編號 [5][7][14] 因與本頁主題關聯較低未重列。「已查核」僅表示與檢索到的摘要或權威二手摘要一致；教學前建議對關鍵數字再次核對原文全文。</p>
+</section>
+
+<footer>
+  N-Teaching 神經科教學研究部 · 本頁面為住院醫師／專科護理師教學用整理資料，非臨床診斷依據 · <a href="index.html">返回首頁</a>
+</footer>
+
+<script>
+/* 自我測驗：要新增題目，複製一個 {...} 區塊即可 */
+var QUIZ = [
+  { q: "病人 RASS −4，無法被聲音喚醒。CAM-ICU 的正確處理是？",
+    opts: ["記錄為「無譫妄」", "記錄為「無法評估」，待警醒度改善後再評估", "直接診斷低動型譫妄", "改用 MMSE 評估"],
+    a: 1, why: "RASS 至少 ≥ −3（能被聲音喚醒）才可進行譫妄評估；否則只能記為「無法評估」，不能視為無譫妄。" },
+  { q: "BRAIN-ICU 中，與 12 個月較差整體認知與執行功能一致相關的是？",
+    opts: ["鎮靜藥物暴露量", "譫妄持續天數", "ICU 住院天數", "是否使用升壓劑"],
+    a: 1, why: "較長的譫妄天數與 3、12 個月較差的整體認知與執行功能獨立相關；鎮靜或鎮痛藥物並無一致關聯。" },
+  { q: "下列關於多重非藥物介入的描述，何者最正確？",
+    opts: ["已證實能降低長期失智風險", "能降低譫妄發生率，但長期認知效益尚未證實", "對譫妄發生率沒有效果", "只適用於 ICU 病人"],
+    a: 1, why: "Hshieh 2015 統合分析顯示發生率下降，但功能與認知結局因異質性無法合併分析，不能說已證實保護長期認知。" },
+  { q: "單次 CAM-ICU 陰性的最合適解讀是？",
+    opts: ["可排除譫妄", "不能排除，尤其低動型；需每日多次施測並搭配護理觀察", "代表認知已完全恢復", "可停止追蹤"],
+    a: 1, why: "例行臨床使用時 CAM-ICU 敏感度偏低，低動型與神經重症族群更低，單次陰性不能排除譫妄。" },
+  { q: "預測模型 AUC 約 0.68，向家屬說明時應強調？",
+    opts: ["低風險者幾乎不會不良恢復", "模型可保證個別病人預後", "模型僅能輔助溝通與資源配置，低風險者仍有不少不良恢復", "高風險者必然死亡"],
+    a: 2, why: "此類模型鑑別力有限，不能保證個別結局；有無譫妄本身即是預後警訊。" }
+];
+var answered = 0, correct = 0;
+(function build(){
+  var box = document.getElementById("quiz-box");
+  QUIZ.forEach(function(item, qi){
+    var d = document.createElement("div"); d.className = "q";
+    var h = document.createElement("h4"); h.textContent = (qi+1) + ". " + item.q; d.appendChild(h);
+    item.opts.forEach(function(o, oi){
+      var b = document.createElement("button"); b.className = "opt"; b.type = "button"; b.textContent = o;
+      b.onclick = function(){
+        if (d.classList.contains("done")) return;
+        d.classList.add("done"); answered++;
+        var btns = d.querySelectorAll(".opt");
+        btns[item.a].classList.add("right");
+        if (oi === item.a) { correct++; } else { b.classList.add("wrong"); }
+        document.getElementById("score").textContent = "目前答對 " + correct + " / " + answered + "（共 " + QUIZ.length + " 題）";
+      };
+      d.appendChild(b);
+    });
+    var w = document.createElement("div"); w.className = "why"; w.textContent = "解析：" + item.why; d.appendChild(w);
+    box.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>
