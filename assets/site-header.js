@@ -11,7 +11,7 @@
   if (window.__ntHeader) return;
   window.__ntHeader = true;
 
-  var DATA = {"cats":[{"key":"electro","nav":"神經傳導","items":[{"file":"ncs.html","title":"神經傳導檢查判讀"}],"planned":[],"menu":false},{"key":"ultrasound","nav":"神經超音波","items":[{"file":"neuro-ultrasound.html","title":"神經超音波檢查"}],"planned":[],"menu":false},{"key":"headache","nav":"頭痛","items":[{"file":"migraine_headache.html","title":"偏頭痛治療近五年進展"}],"planned":[],"menu":false},{"key":"dementia","nav":"失智症","items":[{"file":"dementia.html","title":"失智症總覽"},{"file":"neuroDG-classification_dementia.html","title":"神經退化性疾病：分類與診斷標準新進展"},{"file":"DLB_clinical_guide.html","title":"路易氏體失智症（DLB）"},{"file":"dementia_reversible.html","title":"可治療的失智類疾病"},{"file":"dementia-imaging-evidence-review.html","title":"輔助失智症診斷的影像研究：實證回顧與檢查選擇"},{"file":"ad_integrated_care.html","title":"阿茲海默症整合照護與藥物治療"},{"file":"bpsd_management.html","title":"跨失智症類型精神行為症狀（BPSD）管理"},{"file":"bpsd-refractory-tx_dementia.html","title":"BPSD 治療高原期：藥效不佳或副作用限制劑量時的下一步"},{"file":"anorexia_food_refusal.html","title":"食慾不振與拒食的鑑別與實證處置"},{"file":"ddx_bulbar dysfunction.html","title":"延髓三徵候的鑑別診斷"},{"file":"delirium-prognosis_dementia.html","title":"急性譫妄的預後評估、認知恢復指標與長期認知障礙"}],"planned":[],"menu":false},{"key":"epilepsy","nav":"癲癇","items":[{"file":"epilepsy_psychiatry.html","title":"癲癇與精神疾病"},{"file":"seizure_mimics.html","title":"像癲癇，不是癲癇"}],"planned":[],"menu":false},{"key":"cerebrovascular","nav":"腦血管疾病","items":[{"file":"stroke_progression.html","title":"惡化型腦中風／早期神經惡化（END）"},{"file":"cvt-evidence-update_stroke.html","title":"腦靜脈竇血栓（CVT）實證更新｜臨床・診斷・治療"}],"planned":[],"menu":false},{"key":"movement","nav":"動作障礙","items":[{"file":"movement_medication.html","title":"帕金森病用藥實證指南"},{"file":"uric-acid-nervous-system_PD.html","title":"尿酸與神經系統：從基礎機轉到臨床證據的實證回顧"}],"planned":[],"menu":false},{"key":"neuromuscular","nav":"神經肌肉","items":[{"file":"myasthenic-crisis.html","title":"肌無力危象治療流程（2026 實證更新）"},{"file":"recurrent-bulbar-mg.html","title":"肌無力危象血漿置換後復發性延髓功能障礙之處置"}],"planned":[],"menu":false},{"key":"other","nav":"其他教材","items":[{"file":"LR_teaching.html","title":"臨床概似比推理教材"}],"planned":[],"menu":true}],"other":[{"file":"parkinsonism-cognitive-decline_PD.html","title":"各類帕金森症候群認知功能退化之鑑別全覽"}]};
+  var DATA = {"cats":[{"key":"electro","nav":"神經傳導","items":[{"file":"ncs.html","title":"神經傳導檢查判讀"}],"planned":[],"menu":false},{"key":"ultrasound","nav":"神經超音波","items":[{"file":"neuro-ultrasound.html","title":"神經超音波檢查"}],"planned":[],"menu":false},{"key":"headache","nav":"頭痛","items":[{"file":"migraine_headache.html","title":"偏頭痛治療近五年進展"}],"planned":[],"menu":false},{"key":"dementia","nav":"失智症","items":[{"file":"dementia.html","title":"失智症總覽"},{"file":"neuroDG-classification_dementia.html","title":"神經退化性疾病：分類與診斷標準新進展"},{"file":"DLB_clinical_guide.html","title":"路易氏體失智症（DLB）"},{"file":"dementia_reversible.html","title":"可治療的失智類疾病"},{"file":"dementia-imaging-evidence-review.html","title":"輔助失智症診斷的影像研究：實證回顧與檢查選擇"},{"file":"ad_integrated_care.html","title":"阿茲海默症整合照護與藥物治療"},{"file":"bpsd_management.html","title":"跨失智症類型精神行為症狀（BPSD）管理"},{"file":"bpsd-refractory-tx_dementia.html","title":"BPSD 治療高原期：藥效不佳或副作用限制劑量時的下一步"},{"file":"anorexia_food_refusal.html","title":"食慾不振與拒食的鑑別與實證處置"},{"file":"ddx_bulbar dysfunction.html","title":"延髓三徵候的鑑別診斷"},{"file":"delirium-prognosis_dementia.html","title":"急性譫妄的預後評估、認知恢復指標與長期認知障礙"}],"planned":[],"menu":false},{"key":"epilepsy","nav":"癲癇","items":[{"file":"epilepsy_psychiatry.html","title":"癲癇與精神疾病"},{"file":"seizure_mimics.html","title":"像癲癇，不是癲癇"}],"planned":[],"menu":false},{"key":"cerebrovascular","nav":"腦血管疾病","items":[{"file":"stroke_progression.html","title":"惡化型腦中風／早期神經惡化（END）"},{"file":"cvt-evidence-update_stroke.html","title":"腦靜脈竇血栓（CVT）實證更新｜臨床・診斷・治療"}],"planned":[],"menu":false},{"key":"movement","nav":"動作障礙","items":[{"file":"movement_medication.html","title":"帕金森病用藥實證指南"},{"file":"parkinsonism-cognitive-decline_PD.html","title":"各類帕金森症候群認知功能退化之鑑別全覽"},{"file":"uric-acid-nervous-system_PD.html","title":"尿酸與神經系統：從基礎機轉到臨床證據的實證回顧"}],"planned":[],"menu":false},{"key":"neuromuscular","nav":"神經肌肉","items":[{"file":"myasthenic-crisis.html","title":"肌無力危象治療流程（2026 實證更新）"},{"file":"recurrent-bulbar-mg.html","title":"肌無力危象血漿置換後復發性延髓功能障礙之處置"}],"planned":[],"menu":false},{"key":"other","nav":"其他教材","items":[{"file":"LR_teaching.html","title":"臨床概似比推理教材"}],"planned":[],"menu":true}],"other":[]};
 
   var script = document.currentScript;
   var src = (script && script.src) || '';
@@ -28,6 +28,31 @@
     return base + f.split('/').map(encodeURIComponent).join('/');
   }
   function isHere(f) { return f.split('/').pop() === here; }
+
+  /* ---------- 造訪次數（只存在這個瀏覽器的 localStorage，用來決定下拉選單顯示哪 3 個細項） ---------- */
+  var MAX_ITEMS = 3;
+  function visits() {
+    try { return JSON.parse(localStorage.getItem('nt-visits') || '{}') || {}; } catch (e) { return {}; }
+  }
+  (function countThisVisit() {
+    try {
+      if (here === 'index.html') return;
+      var k = 'nt-seen:' + here;
+      if (sessionStorage.getItem(k)) return;            // 同一個分頁工作階段內，重新整理不重複計算
+      sessionStorage.setItem(k, '1');
+      var v = visits();
+      v[here] = (v[here] || 0) + 1;
+      localStorage.setItem('nt-visits', JSON.stringify(v));
+    } catch (e) {}
+  })();
+  /* 取最常造訪的前 MAX_ITEMS 個；次數相同依原本順序；不足就全部列出 */
+  function top(items) {
+    if (items.length <= MAX_ITEMS) return items;
+    var v = visits();
+    return items.map(function (p, i) { return { p: p, i: i, n: v[p.file.split('/').pop()] || 0 }; })
+      .sort(function (a, b) { return b.n - a.n || a.i - b.i; })
+      .slice(0, MAX_ITEMS).map(function (x) { return x.p; });
+  }
 
   /* ---------- 樣式（全部加 nt- 前綴，避免和各頁面原本的 CSS 互相影響） ---------- */
   var css =
@@ -81,25 +106,22 @@
       if (!live.length && !plan.length) return;
       var on = live.some(function (p) { return isHere(p.file); });
       var nav = c.nav || c.label;
-      if (live.length === 1 && !plan.length && !c.menu) {
-        html += '<div class="nt-item"><a class="nt-top' + (on ? ' nt-on' : '') + '" href="' + esc(url(live[0].file)) + '">' + esc(nav) + '</a></div>';
-        return;
-      }
-      var head = live.length ? url(live[0].file) : url('#cat-' + c.key);
-      html += '<div class="nt-item"><a class="nt-top' + (on ? ' nt-on' : '') + '" href="' + esc(head) + '">' + esc(nav) + ' ▾</a><div class="nt-menu">';
-      live.forEach(function (p) {
+      var shown = top(live);
+      html += '<div class="nt-item"><a class="nt-top' + (on ? ' nt-on' : '') + '" href="' + esc(url('#cat-' + c.key)) + '">' + esc(nav) + ' ▾</a><div class="nt-menu">';
+      shown.forEach(function (p) {
         html += '<a href="' + esc(url(p.file)) + '"' + (isHere(p.file) ? ' class="nt-cur" aria-current="page"' : '') + '>' + esc(p.title) + '</a>';
       });
-      if (live.length && plan.length) html += '<div class="nt-sep"></div>';
-      plan.forEach(function (p) { html += '<a class="nt-soon" href="#" tabindex="-1">' + esc(p.title) + '（整理中）</a>'; });
+      var room = Math.max(0, MAX_ITEMS - shown.length);
+      if (shown.length && plan.length && room) html += '<div class="nt-sep"></div>';
+      plan.slice(0, room).forEach(function (p) { html += '<a class="nt-soon" href="#" tabindex="-1">' + esc(p.title) + '（整理中）</a>'; });
       html += '</div></div>';
     });
 
     var other = DATA.other || [];
     if (other.length) {
       var onO = other.some(function (p) { return isHere(p.file); });
-      html += '<div class="nt-item"><a class="nt-top' + (onO ? ' nt-on' : '') + '" href="#" onclick="return false">未分類 ▾</a><div class="nt-menu">';
-      other.forEach(function (p) {
+      html += '<div class="nt-item"><a class="nt-top' + (onO ? ' nt-on' : '') + '" href="' + esc(url('#cat-uncategorized')) + '">未分類 ▾</a><div class="nt-menu">';
+      top(other).forEach(function (p) {
         html += '<a href="' + esc(url(p.file)) + '"' + (isHere(p.file) ? ' class="nt-cur"' : '') + '>' + esc(p.title) + '</a>';
       });
       html += '</div></div>';
