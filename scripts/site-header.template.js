@@ -29,6 +29,31 @@
   }
   function isHere(f) { return f.split('/').pop() === here; }
 
+  /* ---------- 造訪次數（只存在這個瀏覽器的 localStorage，用來決定下拉選單顯示哪 3 個細項） ---------- */
+  var MAX_ITEMS = 3;
+  function visits() {
+    try { return JSON.parse(localStorage.getItem('nt-visits') || '{}') || {}; } catch (e) { return {}; }
+  }
+  (function countThisVisit() {
+    try {
+      if (here === 'index.html') return;
+      var k = 'nt-seen:' + here;
+      if (sessionStorage.getItem(k)) return;            // 同一個分頁工作階段內，重新整理不重複計算
+      sessionStorage.setItem(k, '1');
+      var v = visits();
+      v[here] = (v[here] || 0) + 1;
+      localStorage.setItem('nt-visits', JSON.stringify(v));
+    } catch (e) {}
+  })();
+  /* 取最常造訪的前 MAX_ITEMS 個；次數相同依原本順序；不足就全部列出 */
+  function top(items) {
+    if (items.length <= MAX_ITEMS) return items;
+    var v = visits();
+    return items.map(function (p, i) { return { p: p, i: i, n: v[p.file.split('/').pop()] || 0 }; })
+      .sort(function (a, b) { return b.n - a.n || a.i - b.i; })
+      .slice(0, MAX_ITEMS).map(function (x) { return x.p; });
+  }
+
   /* ---------- 樣式（全部加 nt- 前綴，避免和各頁面原本的 CSS 互相影響） ---------- */
   var css =
     '.nt-bar,.nt-bar *{box-sizing:border-box;margin:0;padding:0;line-height:1.4;letter-spacing:0;text-transform:none}' +
@@ -81,25 +106,22 @@
       if (!live.length && !plan.length) return;
       var on = live.some(function (p) { return isHere(p.file); });
       var nav = c.nav || c.label;
-      if (live.length === 1 && !plan.length && !c.menu) {
-        html += '<div class="nt-item"><a class="nt-top' + (on ? ' nt-on' : '') + '" href="' + esc(url(live[0].file)) + '">' + esc(nav) + '</a></div>';
-        return;
-      }
-      var head = live.length ? url(live[0].file) : url('#cat-' + c.key);
-      html += '<div class="nt-item"><a class="nt-top' + (on ? ' nt-on' : '') + '" href="' + esc(head) + '">' + esc(nav) + ' ▾</a><div class="nt-menu">';
-      live.forEach(function (p) {
+      var shown = top(live);
+      html += '<div class="nt-item"><a class="nt-top' + (on ? ' nt-on' : '') + '" href="' + esc(url('#cat-' + c.key)) + '">' + esc(nav) + ' ▾</a><div class="nt-menu">';
+      shown.forEach(function (p) {
         html += '<a href="' + esc(url(p.file)) + '"' + (isHere(p.file) ? ' class="nt-cur" aria-current="page"' : '') + '>' + esc(p.title) + '</a>';
       });
-      if (live.length && plan.length) html += '<div class="nt-sep"></div>';
-      plan.forEach(function (p) { html += '<a class="nt-soon" href="#" tabindex="-1">' + esc(p.title) + '（整理中）</a>'; });
+      var room = Math.max(0, MAX_ITEMS - shown.length);
+      if (shown.length && plan.length && room) html += '<div class="nt-sep"></div>';
+      plan.slice(0, room).forEach(function (p) { html += '<a class="nt-soon" href="#" tabindex="-1">' + esc(p.title) + '（整理中）</a>'; });
       html += '</div></div>';
     });
 
     var other = DATA.other || [];
     if (other.length) {
       var onO = other.some(function (p) { return isHere(p.file); });
-      html += '<div class="nt-item"><a class="nt-top' + (onO ? ' nt-on' : '') + '" href="#" onclick="return false">未分類 ▾</a><div class="nt-menu">';
-      other.forEach(function (p) {
+      html += '<div class="nt-item"><a class="nt-top' + (onO ? ' nt-on' : '') + '" href="' + esc(url('#cat-uncategorized')) + '">未分類 ▾</a><div class="nt-menu">';
+      top(other).forEach(function (p) {
         html += '<a href="' + esc(url(p.file)) + '"' + (isHere(p.file) ? ' class="nt-cur"' : '') + '>' + esc(p.title) + '</a>';
       });
       html += '</div></div>';

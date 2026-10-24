@@ -47,6 +47,7 @@ NEW_DAYS = 30                          # 幾天內更新過的頁面顯示 NEW �
 HEADER_TEMPLATE = Path("scripts/site-header.template.js")
 HEADER_OUT = Path("assets/site-header.js")
 HEADER_MARK = "site-header.js"           # 頁面裡出現這個字串，就視為已經有統一頁首
+NAV_MAX_ITEMS = 3                      # 導覽列下拉選單最多列出幾個細項（依造訪次數排序；不足就全部列出）
 SHOW_PLANNED = False                   # False＝首頁與導覽列只顯示「已上傳的頁面」，不顯示規劃中／不可點的項目
 UNCATEGORIZED_LABEL = "未分類 · Uncategorized"
 # ================================================
@@ -77,6 +78,7 @@ class PageParser(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.title, self.meta, self.lede, self.first_p = "", {}, "", ""
         self._in_title, self._skip, self._p = False, 0, None
+        self._depth = 0
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -88,19 +90,23 @@ class PageParser(HTMLParser):
             key = a.get("name") or a.get("property")
             if key and "content" in a:
                 self.meta[key.strip().lower()] = (a["content"] or "").strip()
-        elif tag == "p" and self._p is None:
-            self._p = {"cls": a.get("class", ""), "text": ""}
+        elif self._p is not None and tag == self._p["tag"]:
+            self._depth += 1
+        elif self._p is None and (tag == "p" or (tag == "div" and re.search(r"lede|hero-sub|hero-desc|subtitle", a.get("class", "")))):
+            self._p = {"tag": tag, "cls": a.get("class", ""), "text": ""}
+            self._depth = 0
 
     def handle_endtag(self, tag):
         if tag == "title":
             self._in_title = False
         elif tag in ("script", "style") and self._skip:
             self._skip -= 1
-        elif tag == "p" and self._p is not None:
+        elif self._p is not None and tag == self._p["tag"] and self._depth > 0:
+            self._depth -= 1
+        elif self._p is not None and tag == self._p["tag"]:
             text = re.sub(r"\s+", " ", self._p["text"]).strip()
             if text:
-                if not self.lede and ("lede" in self._p["cls"] or "hero-sub" in self._p["cls"]
-                                      or "section-intro" in self._p["cls"]):
+                if not self.lede and re.search(r"lede|hero-sub|hero-desc|subtitle|section-intro", self._p["cls"]):
                     self.lede = text
                 if not self.first_p and len(text) >= 20:
                     self.first_p = text
@@ -197,7 +203,9 @@ def collect(cat_keys, overrides, suffix_map):
         source = "meta" if m.get("nt:category") else ("overrides" if ov else "自動")
         notes = []
 
-        cat = get("category") or ""
+        cat = (get("category") or "").strip()
+        if cat:
+            cat = suffix_map.get(cat.lower(), cat)        # 不分大小寫；別名也可以（stroke、pd、mg…）
         if not cat:                                   # 沒填分類時，試試檔名後綴：xxx_dementia.html → dementia
             suffix = f.stem.rsplit("_", 1)[-1].lower() if "_" in f.stem else ""
             cat = suffix_map.get(suffix, "")
@@ -294,6 +302,8 @@ def card_planned(pl, color):
 
 
 SEARCH_BLOCK = """<style>
+html{scroll-behavior:smooth;}
+.nt-section .section-label{scroll-margin-top:76px;}
 .nt-search{max-width:880px;margin:36px auto 0;padding:0 24px;}
 .nt-search input{width:100%;font:inherit;font-size:15px;padding:12px 16px;border-radius:10px;border:1px solid var(--border2);background:var(--bg2);color:var(--text);}
 .nt-search input::placeholder{color:var(--text3);}
@@ -321,30 +331,47 @@ SEARCH_JS = """<script>
     document.getElementById('ntEmpty').style.display = total ? 'none' : 'block';
   });
 })();
+
+/* 導覽列下拉選單：只留最常造訪的前 N 個（造訪次數記在這個瀏覽器的 localStorage；沒有紀錄時依 order 排序） */
+(function(){
+  var MAX = __MAX__, v = {};
+  try { v = JSON.parse(localStorage.getItem('nt-visits') || '{}') || {}; } catch (e) {}
+  document.querySelectorAll('.nav-dropdown .dropdown-menu').forEach(function(menu){
+    var items = [].slice.call(menu.querySelectorAll('a[data-file]'));
+    if (items.length <= MAX) return;
+    items.forEach(function(a, i){ a._i = i; });
+    items.sort(function(a, b){ return (v[b.getAttribute('data-file')] || 0) - (v[a.getAttribute('data-file')] || 0) || a._i - b._i; });
+    items.forEach(function(a, i){ a.style.display = i < MAX ? '' : 'none'; menu.appendChild(a); });
+  });
+})();
 </script>"""
 
 
 def build_nav(cats, live_by, planned_by):
+    """導覽列：點分類名稱 → 跳到首頁下方該分類的段落（#cat-xxx）；
+       下拉選單只列最常造訪的 NAV_MAX_ITEMS 個細項（預設依 order 排序，讀者造訪後會依個人造訪次數重新排序）。"""
     out = ['<a href="index.html" class="active">首頁</a>']
     for c in cats:
         if c.get("planned_only"):
             continue
-        live, plan = live_by.get(c["key"], []), [p for p in planned_by.get(c["key"], []) if p.get("in_nav")]
+        live = live_by.get(c["key"], [])
+        plan = [p for p in planned_by.get(c["key"], []) if p.get("in_nav")]
         if not live and not plan:
             continue
         nav = c.get("nav") or c["label"]
-        if len(live) == 1 and not plan and not c.get("always_menu"):
-            out.append('<a href="%s">%s</a>' % (esc(href(live[0]["file"])), esc(nav)))
-            continue
-        head = href(live[0]["file"]) if live else "#cat-" + c["key"]
-        items = ['<a href="%s">%s</a>' % (esc(href(p["file"])), esc(p["title"])) for p in live]
-        if live and plan:
+        items = []
+        for i, p in enumerate(live):
+            extra = ' class="nt-extra" style="display:none"' if i >= NAV_MAX_ITEMS else ""
+            items.append('<a href="%s" data-file="%s"%s>%s</a>' %
+                         (esc(href(p["file"])), esc(Path(p["file"]).name), extra, esc(p["title"])))
+        room = max(0, NAV_MAX_ITEMS - len(live))
+        if live and plan[:room]:
             items.append('<div class="dropdown-divider"></div>')
-        items += ['<a href="%s" class="disabled">%s（整理中）</a>' % (esc(p["id"] if p["id"].startswith("#")
-                                                                      else "#" + p["id"] if "." not in p["id"] else p["id"]),
-                                                                     esc(p["title"])) for p in plan]
-        out.append('<div class="nav-dropdown">\n<a href="%s">%s</a>\n<div class="dropdown-menu">\n%s\n</div>\n</div>'
-                   % (esc(head), esc(nav), "\n".join(items)))
+        for p in plan[:room]:
+            pid = p["id"] if ("." in p["id"] or p["id"].startswith("#")) else "#" + p["id"]
+            items.append('<a href="%s" class="disabled">%s（整理中）</a>' % (esc(pid), esc(p["title"])))
+        out.append('<div class="nav-dropdown">\n<a href="#cat-%s">%s</a>\n<div class="dropdown-menu">\n%s\n</div>\n</div>'
+                   % (esc(c["key"]), esc(nav), "\n".join(items)))
     return "\n".join(out)
 
 
@@ -362,7 +389,7 @@ def build_sections(cats, live_by, planned_by, uncategorized):
             section(c["key"], c["label"], cards)
     if uncategorized:
         section("uncategorized", UNCATEGORIZED_LABEL, [card_live(p, "", "") for p in uncategorized])
-    return SEARCH_BLOCK + "\n" + "\n".join(blocks) + "\n" + SEARCH_JS
+    return SEARCH_BLOCK + "\n" + "\n".join(blocks) + "\n" + SEARCH_JS.replace("__MAX__", str(NAV_MAX_ITEMS))
 
 
 def replace_block(text, start, end, new):
