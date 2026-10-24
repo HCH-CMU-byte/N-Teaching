@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>出血轉換、腦出血合併缺血與外傷性腦出血的 MRI 鑑別</title>
+<style>
+:root{
+  --bg:#10131a;--bg-card:#1a1f2a;--bg-card-hover:#212837;--border:#2d3445;
+  --text:#e9edf4;--text-dim:#9aa5b8;--text-faint:#667286;
+  --rose:#ee7a6d;--rose-dim:#7a3b36;
+  --blue:#6aa9f5;--blue-dim:#2f4f7d;
+  --gold:#e0b04a;--gold-dim:#85692a;
+  --green:#5cc79b;--green-dim:#265c48;
+  --purple:#a98ee6;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:70px;}
+body{background:var(--bg);color:var(--text);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;line-height:1.75;font-size:16px;}
+.en{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--text-dim);font-size:.86em;}
+a{color:var(--gold);text-decoration:none;} a:hover{text-decoration:underline;}
+
+.topnav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;
+  background:rgba(16,19,26,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px;}
+.brand{display:flex;align-items:center;}
+.logo-mark{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,var(--rose),var(--blue));display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#10131a;}
+.brand:hover{text-decoration:none;}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap;align-items:center;}
+.nav-links a{color:var(--text-dim);font-size:.86rem;padding:7px 11px;border-radius:6px;transition:all .15s;}
+.nav-links a:hover{color:var(--text);background:var(--bg-card);text-decoration:none;}
+.nav-links a.home{color:var(--gold);}
+
+.hero{padding:60px 28px 38px;max-width:980px;margin:0 auto;border-bottom:1px solid var(--border);}
+.eyebrow{display:inline-flex;gap:8px;color:var(--rose);font-size:.82rem;letter-spacing:.05em;border:1px solid var(--rose-dim);padding:4px 12px;border-radius:20px;margin-bottom:18px;}
+.hero h1{font-size:2rem;font-weight:800;line-height:1.4;background:linear-gradient(90deg,var(--text) 45%,var(--rose));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero .subtitle{margin-top:14px;color:var(--text-dim);max-width:760px;}
+.hero-meta{display:flex;gap:26px;margin-top:24px;flex-wrap:wrap;}
+.hero-meta div{font-size:.8rem;color:var(--text-faint);} .hero-meta b{color:var(--text);display:block;font-size:1.05rem;}
+
+section{max-width:980px;margin:0 auto;padding:50px 28px;border-bottom:1px solid var(--border);}
+.section-label{color:var(--gold);font-size:.78rem;letter-spacing:.08em;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.section-label::before{content:"";width:22px;height:2px;background:var(--gold);}
+h2{font-size:1.45rem;font-weight:700;margin-bottom:8px;} h2 .en{display:block;font-size:.72rem;margin-top:3px;font-weight:400;}
+h3{font-size:1.08rem;font-weight:700;margin:28px 0 10px;} h3 .en{font-size:.72rem;font-weight:400;}
+p{color:var(--text-dim);margin-bottom:14px;} p b,li b{color:var(--text);font-weight:600;}
+ul,ol{margin:10px 0 16px 22px;color:var(--text-dim);} li{margin-bottom:7px;}
+.lede{margin-bottom:22px;}
+
+.chip{display:inline-flex;align-items:center;gap:3px;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:5px;vertical-align:middle;margin:0 2px;white-space:nowrap;}
+.g-rct{background:rgba(92,199,155,.13);color:var(--green);border:1px solid var(--green-dim);}
+.g-meta{background:rgba(106,169,245,.13);color:var(--blue);border:1px solid var(--blue-dim);}
+.g-cohort{background:rgba(224,176,74,.13);color:var(--gold);border:1px solid var(--gold-dim);}
+.g-img{background:rgba(169,142,230,.13);color:var(--purple);border:1px solid #50407f;}
+.g-guide{background:rgba(238,122,109,.12);color:var(--rose);border:1px solid var(--rose-dim);}
+.g-expert{background:rgba(154,165,184,.12);color:var(--text-dim);border:1px solid var(--border);}
+.v-ok{background:rgba(92,199,155,.13);color:var(--green);border:1px solid var(--green-dim);}
+.v-fix{background:rgba(238,122,109,.12);color:var(--rose);border:1px solid var(--rose-dim);}
+.v-warn{background:rgba(224,176,74,.13);color:var(--gold);border:1px solid var(--gold-dim);}
+.v-na{background:rgba(154,165,184,.12);color:var(--text-dim);border:1px solid var(--border);}
+.legend{display:flex;gap:14px 20px;flex-wrap:wrap;margin:16px 0;padding:13px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:.78rem;color:var(--text-dim);}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:18px;}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .18s;}
+.card:hover{border-color:var(--gold-dim);background:var(--bg-card-hover);transform:translateY(-2px);}
+.card .icon{font-size:1.4rem;display:block;margin-bottom:8px;}
+.card .cat{font-size:.7rem;color:var(--blue);letter-spacing:.05em;font-weight:700;margin-bottom:4px;}
+.card h4{font-size:.98rem;margin-bottom:6px;} .card p{font-size:.85rem;margin-bottom:0;}
+.card .foot{margin-top:11px;font-size:.74rem;color:var(--text-faint);border-top:1px solid var(--border);padding-top:9px;}
+
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--border);border-radius:8px;}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:700px;}
+th{background:rgba(224,176,74,.08);color:var(--gold);text-align:left;padding:10px 13px;font-size:.76rem;border-bottom:1px solid var(--border);}
+td{padding:10px 13px;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top;} tr:last-child td{border-bottom:none;} td b{color:var(--text);}
+
+.callout{background:rgba(106,169,245,.06);border:1px solid var(--blue-dim);border-left:3px solid var(--blue);border-radius:6px;padding:15px 18px;margin:18px 0;color:var(--text-dim);font-size:.9rem;}
+.callout b{color:var(--blue);}
+.callout.warn{background:rgba(238,122,109,.06);border-color:var(--rose-dim);border-left-color:var(--rose);} .callout.warn b{color:var(--rose);}
+
+.flow{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin:18px 0;}
+.flow-step{flex:1 1 150px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:13px 14px;min-width:140px;}
+.flow-step .n{font-size:.7rem;color:var(--gold);font-weight:700;letter-spacing:.05em;}
+.flow-step h5{font-size:.9rem;margin:3px 0;} .flow-step p{font-size:.78rem;margin:0;}
+.flow-arrow{display:flex;align-items:center;color:var(--text-faint);padding:0 6px;}
+
+.svgbox{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:14px;margin:18px 0;overflow-x:auto;}
+.svgbox svg{display:block;margin:0 auto;max-width:100%;height:auto;}
+.svgbox .cap{font-size:.78rem;color:var(--text-faint);text-align:center;margin-top:8px;}
+
+.q{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin:14px 0;}
+.q h4{font-size:.96rem;margin-bottom:10px;line-height:1.6;}
+.q .opt{display:block;width:100%;text-align:left;background:var(--bg);color:var(--text-dim);border:1px solid var(--border);border-radius:7px;padding:9px 13px;margin-bottom:7px;cursor:pointer;font-size:.88rem;font-family:inherit;transition:all .15s;}
+.q .opt:hover{border-color:var(--gold-dim);color:var(--text);}
+.q .opt.right{border-color:var(--green);color:var(--green);background:rgba(92,199,155,.08);}
+.q .opt.wrong{border-color:var(--rose);color:var(--rose);background:rgba(238,122,109,.08);}
+.q .why{display:none;margin-top:10px;font-size:.84rem;color:var(--text-dim);border-top:1px dashed var(--border);padding-top:10px;}
+.q.done .why{display:block;}
+.score{margin-top:12px;font-size:.9rem;color:var(--gold);font-weight:700;}
+
+.ref-list{list-style:none;margin:0;padding:0;}
+.ref-list li{padding:11px 0;border-bottom:1px solid var(--border);font-size:.82rem;color:var(--text-dim);display:flex;gap:11px;} .ref-list li:last-child{border-bottom:none;}
+.ref-num{color:var(--gold);font-weight:700;flex-shrink:0;min-width:34px;}
+.ref-list .doi{color:var(--text-faint);font-size:.76rem;}
+.ref-sub{font-size:.78rem;color:var(--blue);margin:22px 0 4px;font-weight:700;letter-spacing:.04em;}
+
+footer{max-width:980px;margin:0 auto;padding:34px 28px 60px;color:var(--text-faint);font-size:.8rem;}
+@media(max-width:700px){.hero h1{font-size:1.5rem;}section{padding:38px 18px;}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="brand"><span class="logo-mark">N</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="home">← 首頁</a>
+    <a href="#nature">三種情境</a>
+    <a href="#series">序列解析</a>
+    <a href="#table">對照表</a>
+    <a href="#workflow">判讀流程</a>
+    <a href="#pitfall">陷阱</a>
+    <a href="#check">可信度查核</a>
+    <a href="#quiz">自我測驗</a>
+    <a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">● 腦中風 · 神經影像 <span class="en">Stroke Neuroimaging</span></div>
+  <h1>出血轉換、腦出血合併缺血與外傷性腦出血的 MRI 鑑別</h1>
+  <p class="subtitle">三種情境都有「血」與「缺血」，差別在於血在哪裡、缺血在哪裡、兩者的血管區域關係，以及有沒有外傷脈絡。本頁依「病理本質 → 各 MR 序列 → 判讀流程 → 陷阱」整理，並將貼上的草稿與近十年文獻、分類共識逐項對照，標示需修正之處。</p>
+  <div class="hero-meta">
+    <div><b>DWI＋SWI</b>最小必備組合</div>
+    <div><b>Heidelberg 2015</b>出血分類共識</div>
+    <div><b>31.3%</b>ICH 病人有 DWI 病灶</div>
+    <div><b>CT 先行</b>MRI 解決疑問</div>
+  </div>
+</div>
+
+<section id="summary">
+  <div class="section-label">重點摘要 <span class="en">Key Takeaways</span></div>
+  <h2>先看五個核心訊息</h2>
+  <div class="card-grid">
+    <div class="card"><span class="icon">🧭</span><div class="cat">核心概念</div><h4>「血在缺血裡」還是「血旁有缺血」</h4><p>以 DWI/ADC 找出<b>沒被血覆蓋的梗塞區</b>，判斷血液與缺血是否屬同一血管區域。這是 MRI 鑑別的主軸。</p><div class="foot"><span class="chip g-guide">共識 Heidelberg 2015</span></div></div>
+    <div class="card"><span class="icon">⚠️</span><div class="cat">修正</div><h4>ICH 合併「遠端 DWI 小病灶」很常見</h4><p>合併個案資料顯示約 31% 的 ICH 病人有 DWI 病灶，多與小血管病變、血壓與血腫體積相關，<b>不能當作栓塞性出血轉換的證據</b>。</p><div class="foot"><span class="chip g-meta">個案層級合併分析</span> JAMA Neurol 2020</div></div>
+    <div class="card"><span class="icon">🩸</span><div class="cat">序列</div><h4>SWI／GRE 看「血的形態」</h4><p>點狀或腦回狀且局限於梗塞，傾向出血轉換；融合大塊傾向原發血腫；灰白質交界與胼胝體點狀傾向外傷性軸突損傷。</p><div class="foot"><span class="chip g-img">影像診斷研究</span></div></div>
+    <div class="card"><span class="icon">📉</span><div class="cat">預測</div><h4>MRI 預測出血轉換：敏感但不夠特異</h4><p>進階 MRI 的合併敏感度 92%、特異度 78%（信賴區間寬）；近年預測模型合併 AUC 約 0.70，不足以單獨決定治療。</p><div class="foot"><span class="chip g-meta">統合分析</span></div></div>
+    <div class="card"><span class="icon">🧲</span><div class="cat">外傷</div><h4>CT 先行，MRI 解決「CT 解釋不了」的問題</h4><p>ACR 2020 頭部外傷準則：急性期以 CT 為首選；MRI 用於 CT 無法解釋的臨床表現或進行性缺損等情境，SWI 與 DWI 價值最大。</p><div class="foot"><span class="chip g-guide">準則</span></div></div>
+  </div>
+</section>
+
+<section id="nature">
+  <div class="section-label">01 · 病理本質 <span class="en">Pathophysiology</span></div>
+  <h2>先釐清三種情境的差異<span class="en">Blood in ischemia vs ischemia beside blood vs trauma</span></h2>
+
+  <div class="svgbox">
+    <svg viewBox="0 0 900 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="三種情境示意：出血轉換、腦出血合併遠端小缺血、外傷性腦出血">
+      <g font-family="sans-serif">
+        <!-- Panel 1 -->
+        <ellipse cx="150" cy="125" rx="115" ry="95" fill="#1a1f2a" stroke="#667286"/>
+        <path d="M150 60 L225 95 L215 170 L140 185 Z" fill="rgba(106,169,245,.25)" stroke="#6aa9f5" stroke-dasharray="5 4"/>
+        <circle cx="175" cy="105" r="5" fill="#ee7a6d"/><circle cx="195" cy="125" r="5" fill="#ee7a6d"/><circle cx="170" cy="140" r="5" fill="#ee7a6d"/>
+        <circle cx="200" cy="150" r="5" fill="#ee7a6d"/><circle cx="160" cy="165" r="5" fill="#ee7a6d"/>
+        <text x="150" y="240" fill="#e9edf4" font-size="14" text-anchor="middle">① 出血轉換 HT</text>
+        <text x="150" y="260" fill="#9aa5b8" font-size="11" text-anchor="middle">血在楔形梗塞區內（同一血管區域）</text>
+        <!-- Panel 2 -->
+        <ellipse cx="450" cy="125" rx="115" ry="95" fill="#1a1f2a" stroke="#667286"/>
+        <circle cx="440" cy="115" r="46" fill="none" stroke="#6aa9f5" stroke-dasharray="4 4"/>
+        <circle cx="440" cy="115" r="28" fill="#ee7a6d"/>
+        <circle cx="520" cy="80" r="5" fill="#6aa9f5"/><circle cx="385" cy="175" r="5" fill="#6aa9f5"/><circle cx="500" cy="165" r="5" fill="#6aa9f5"/>
+        <text x="450" y="240" fill="#e9edf4" font-size="14" text-anchor="middle">② 原發性 ICH（＋缺血）</text>
+        <text x="450" y="260" fill="#9aa5b8" font-size="11" text-anchor="middle">圓形血腫＋離心性水腫；藍點＝遠端小 DWI 病灶</text>
+        <!-- Panel 3 -->
+        <ellipse cx="750" cy="125" rx="115" ry="95" fill="#1a1f2a" stroke="#667286"/>
+        <path d="M642 90 Q632 125 645 165 Q652 165 656 160 Q645 125 654 92 Z" fill="#ee7a6d"/>
+        <circle cx="690" cy="70" r="12" fill="#ee7a6d"/><circle cx="672" cy="100" r="9" fill="#ee7a6d"/>
+        <circle cx="715" cy="88" r="4" fill="#ee7a6d"/><circle cx="800" cy="95" r="4" fill="#ee7a6d"/><circle cx="790" cy="150" r="4" fill="#ee7a6d"/>
+        <rect x="725" y="118" width="48" height="8" rx="4" fill="rgba(238,122,109,.5)"/>
+        <text x="750" y="240" fill="#e9edf4" font-size="14" text-anchor="middle">③ 外傷性腦出血</text>
+        <text x="750" y="260" fill="#9aa5b8" font-size="11" text-anchor="middle">皮質挫傷、硬膜下血、灰白質交界與胼胝體點狀出血</text>
+      </g>
+    </svg>
+    <div class="cap">示意圖：紅色＝血液；藍色虛線＝梗塞或水腫範圍；藍點＝遠端小缺血病灶。</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">情境</th><th>血液的角色</th><th>缺血成分</th></tr></thead>
+      <tbody>
+        <tr><td><b>① 缺血性中風合併出血轉換</b><br><span class="en">Hemorrhagic transformation</span></td><td>血液位於已壞死的梗塞組織內。依 ECASS／Heidelberg：HI1（散在點狀）、HI2（融合點狀）、PH1（血腫 &lt;梗塞體積 30%、無明顯占位）、PH2（≥30% 並有明顯占位，血腫可超出梗塞）</td><td>與出血同一血管區域，範圍通常大於出血</td></tr>
+        <tr><td><b>② 原發性腦出血合併缺血</b><br><span class="en">ICH with ischemic lesions</span></td><td>血腫為原發事件。Heidelberg 稱「距離梗塞組織遙遠的實質血腫」為第 3a 類</td><td>最常見的是<b>小型、遠離血腫的 DWI 點狀病灶</b>（與小血管病變、血壓、血腫體積相關）；同時發生的大範圍另一血管區域梗塞則罕見，僅有個案報告</td></tr>
+        <tr><td><b>③ 外傷性腦出血</b><br><span class="en">Traumatic hemorrhage</span></td><td>皮質挫傷（coup／contrecoup）、DAI 的點狀出血、硬膜下或蜘蛛膜下血；常伴頭皮血腫與骨折</td><td>可有續發性外傷性梗塞（血管受壓、dissection、腦疝所致）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Heidelberg 出血分類（2015）<span class="en">von Kummer et al., Stroke</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:12%">類別</th><th style="width:16%">ECASS 對應</th><th>定義</th></tr></thead>
+      <tbody>
+        <tr><td><b>1a</b></td><td>HI1</td><td>散在小點狀出血，無占位效應</td></tr>
+        <tr><td><b>1b</b></td><td>HI2</td><td>融合的點狀出血，無占位效應</td></tr>
+        <tr><td><b>1c</b></td><td>PH1</td><td>梗塞組織內血腫，占梗塞體積 &lt;30%，無明顯占位</td></tr>
+        <tr><td><b>2</b></td><td>PH2</td><td>血腫占梗塞體積 ≥30% 並有明顯占位，範圍可在梗塞內與梗塞外</td></tr>
+        <tr><td><b>3a / 3b / 3c / 3d</b></td><td>—</td><td>遠離梗塞的實質血腫／腦室內出血／蜘蛛膜下出血／硬膜下出血</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:.85rem;">此分類同時區分「影像出血型態」與「是否有症狀」，建議再灌流治療後 48 小時內與臨床惡化時重新影像評估。分類原以 CT 為基礎；使用 MRI（特別是 SWI）時會偵測到更多點狀出血，直接套用分級需謹慎。</p>
+</section>
+
+<section id="series">
+  <div class="section-label">02 · 各 MR 序列解析 <span class="en">Sequence-by-sequence</span></div>
+  <h2>每個序列回答什麼問題<span class="en">What each series tells you</span></h2>
+
+  <h3>1. DWI 與 ADC：「地形學」序列<span class="en">Topography</span></h3>
+  <ul>
+    <li><b>目的</b>：找出<b>沒有被血覆蓋的缺血區</b>，判斷病灶是否遵循單一血管區域、是否楔形抵達皮質、是否有多發離散小點。</li>
+    <li><b>血腫本身</b>：DWI 訊號不均勻，ADC 在血腫核心不可靠（出血的磁敏感效應會造成訊號衰減，即 T2* blackout；有時也受 T2 穿透效應影響），<b>不能用血腫區的低 ADC 判定為梗塞</b>。血腫周圍的 ADC 多偏高，反映血管源性水腫。</li>
+    <li><b>出血轉換</b>：出血區之外、同血管區域內可見均勻高訊號／低 ADC 的梗塞組織；ADC 在出血區受 T2* 影響可能假性偏低。</li>
+    <li><b>外傷</b>：皮質挫傷內的 DWI 訊號混合血液產物與細胞毒性水腫；DAI 可見小型卵圓形擴散受限灶，沿白質走向，分布於灰白質交界、胼胝體、腦幹。DWI 對<b>非出血性</b>軸突損傷有價值。</li>
+  </ul>
+
+  <h3>2. T1WI／T2WI：血液「年齡」<span class="en">Blood product evolution</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>階段（大約）</th><th>主要血液成分</th><th>T1</th><th>T2</th></tr></thead>
+      <tbody>
+        <tr><td><b>超急性</b>（&lt;24 小時）</td><td>細胞內氧合血紅素</td><td>等訊號至稍低</td><td>高</td></tr>
+        <tr><td><b>急性</b>（約 1–3 天）</td><td>細胞內去氧血紅素</td><td>等至稍低</td><td>明顯低</td></tr>
+        <tr><td><b>早期亞急性</b>（約 3–7 天）</td><td>細胞內正鐵血紅素</td><td>高</td><td>低</td></tr>
+        <tr><td><b>晚期亞急性</b>（約 1 週至數週）</td><td>細胞外正鐵血紅素</td><td>高</td><td>高</td></tr>
+        <tr><td><b>慢性</b>（數週以後）</td><td>含鐵血黃素／鐵蛋白（邊緣環）</td><td>低</td><td>低（GRE/SWI 持續 blooming）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:.85rem;">時間界線為教科書的概略值，個體差異大，且小血腫演化較快。<b>外傷性挫傷</b>常在同一次掃描看到多期血液並存、由外向內演化；一定侵犯皮質表面，可與皮質下 DAI 區分。</p>
+
+  <h3>3. T2* GRE／SWI／相位影像：血的「形態學」<span class="en">Susceptibility imaging</span></h3>
+  <ul>
+    <li><b>敏感度</b>：HEME 研究（200 位 6 小時內病人）顯示 GRE 對急性出血的準確度與 CT 相當，且<b>偵測到 4 例 CT 看不到的出血，全部判讀為梗塞內的出血轉換</b>；對慢性出血（多為微出血）遠優於 CT <span class="chip g-img">2004</span>。這項結果代表 CT 可能低估點狀出血轉換，<b>但 MRI 才看到的出血是否增加症狀性出血風險仍不確定</b>。</li>
+    <li><b>SWI 優於 GRE</b>：在 DAI 與創傷性微出血，SWI 偵測的病灶明顯較多；3T、薄切、3D SWI 的增益最大。</li>
+    <li><b>形態與分布</b>：點狀或腦回狀、局限於梗塞 → 出血轉換；大而融合 → 原發血腫；灰白質交界、胼胝體、腦幹點狀 → DAI；微出血在深部（基底核、視丘、腦幹、小腦）→ 高血壓性小血管病，在腦葉 → 類澱粉血管病變（CAA）傾向。</li>
+    <li><b>血 vs 鈣</b>：相位影像或 QSM 可分辨順磁性（血）與逆磁性（鈣），但基底核常為鐵鈣混合，仍需謹慎。</li>
+    <li><b>血管內訊號</b>：<b>susceptibility vessel sign（SVS）</b>是血管內低訊號，不可與實質出血混淆（見「陷阱」對 SVS 的修正）。</li>
+  </ul>
+
+  <h3>4. FLAIR<span class="en"></span></h3>
+  <ul>
+    <li><b>梗塞</b>：依血管區域分布的皮質或皮質下高訊號，可見「亮血管徵」。</li>
+    <li><b>血腫旁</b>：FLAIR 顯示的是血外的水腫／梗塞形狀與範圍；出血轉換與原發血腫的核心訊號常無法區分。</li>
+    <li><b>蜘蛛膜下／腦室內出血</b>：FLAIR 敏感，但腦溝高訊號不特異（CSF 搏動、慢流、氧氣治療、腦膜炎、軟腦膜疾病都可模擬）。</li>
+  </ul>
+
+  <h3>5. 灌流與血腦障壁通透性<span class="en">PWI &amp; permeability</span></h3>
+  <ul>
+    <li><b>HT 風險</b>：低 ADC、大 DWI 病灶、高通透性、低 CBV 等與出血轉換相關。統合分析：進階 MRI（灌流、擴散、通透性等）預測 HT 的敏感度 92%（95% CI 70–98）、特異度 78%（65–87），信賴區間寬，異質性高 <span class="chip g-meta">統合分析 2019</span>。</li>
+    <li><b>預測模型的現實</b>：15 項研究、8 個外部驗證模型的合併 AUC 約 0.70；神經影像 AI／機器學習六項研究合併敏感度 0.849、特異度 0.878，但研究數少、異質性大。<b>尚不能單獨決定再灌流治療</b> <span class="chip g-meta">統合分析 2024–2025</span>。</li>
+    <li><b>血腫周圍</b>：動物實驗顯示血腫周圍水腫主要來自血腦障壁破壞與血液成分毒性，並未達缺血閾值；人體 CT 灌流研究顯示通透性與水腫隨時間動態變化 <span class="chip g-cohort">CTP 研究 2023</span>。因此「血腫旁 ADC 輕度下降」不等於梗塞。</li>
+    <li><b>新標記</b>：黑血對比增強 MRI 的「皮質靜脈周圍強化」（PECV）與 BBB 破壞相關，屬 2025 年單中心初步研究，截點與診斷效能需外部驗證。</li>
+  </ul>
+
+  <h3>6. MRA／MRV／血管壁影像<span class="en">Vessels</span></h3>
+  <ul>
+    <li><b>缺血與出血轉換</b>：TOF-MRA 看閉塞血管是否對應梗塞區；SVS 可輔助推測血栓成分（見修正）。</li>
+    <li><b>外傷</b>：尋找 dissection、假性動脈瘤、頸動脈海綿竇瘻，以及靜脈竇血栓（MRV）；腦疝可造成延遲性外傷性梗塞。</li>
+  </ul>
+</section>
+
+<section id="table">
+  <div class="section-label">03 · 系列對照表 <span class="en">Comparison Table</span></div>
+  <h2>三種情境逐序列比較</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:14%">序列</th><th>出血轉換（HT）</th><th>原發 ICH（＋缺血）</th><th>外傷性腦出血</th></tr></thead>
+      <tbody>
+        <tr><td><b>DWI/ADC</b></td><td>出血區混雜；血外同血管區域有均勻高訊號／低 ADC 的梗塞；可有離散小病灶</td><td>血腫核心混雜；周圍水腫 ADC 偏高；可有<b>遠端小 DWI 病灶（常見，多與小血管病變相關）</b></td><td>挫傷：血液＋細胞毒水腫混合；DAI：沿白質走向的小卵圓形受限灶</td></tr>
+        <tr><td><b>T1/T2</b></td><td>依血液年齡；點狀出血難以由 T1/T2 辨識</td><td>依血液年齡；大血腫呈典型演化</td><td>多期血液並存、由外向內演化、侵犯皮質</td></tr>
+        <tr><td><b>FLAIR</b></td><td>血管區域高訊號＋亮血管徵</td><td>血腫外離心性水腫（不循血管區域）</td><td>挫傷水腫、SAH 之腦溝高訊號（不特異）</td></tr>
+        <tr><td><b>T2*/SWI</b></td><td>腦回狀或斑點狀 blooming，局限於梗塞內；CT 可能陰性</td><td>大而融合的 blooming；微出血分布推病因（深部 vs 腦葉）</td><td>SWI 優於 GRE；灰白質交界、胼胝體、腦幹點狀出血；皮質挫傷、SDH/SAH</td></tr>
+        <tr><td><b>灌流／通透性</b></td><td>灌流缺損通常大於血腫；通透性升高、CBV 降低與風險相關</td><td>血腫周圍為血腦障壁破壞與水腫，非典型缺血半影</td><td>依併發症而異</td></tr>
+        <tr><td><b>MRA/MRV</b></td><td>對應動脈閉塞或再通；SVS 為輔助</td><td>多無大血管閉塞（除非繼發性 ICH）</td><td>dissection、假性動脈瘤、靜脈竇血栓</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="workflow">
+  <div class="section-label">04 · 判讀流程 <span class="en">Workflow</span></div>
+  <h2>實務可依序操作的六個步驟</h2>
+  <div class="flow">
+    <div class="flow-step"><div class="n">STEP 1</div><h5>先問脈絡</h5><p>外傷史、頭皮血腫、骨折？再灌流治療史？先前影像有無缺血？</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">STEP 2</div><h5>DWI/ADC 看地形</h5><p>病灶是否單一血管區域、楔形抵達皮質？血外有無梗塞？</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">STEP 3</div><h5>SWI 看血的形態</h5><p>點狀／腦回狀局限於梗塞，或融合大塊，或灰白質交界點狀？</p></div>
+  </div>
+  <div class="flow">
+    <div class="flow-step"><div class="n">STEP 4</div><h5>微出血分布推病因</h5><p>深部（高血壓）、腦葉（CAA）、灰白質交界＋胼胝體（外傷）。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">STEP 5</div><h5>血管證據</h5><p>MRA 有無閉塞；GRE 有無 SVS；外傷需查 dissection 與靜脈竇。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">STEP 6</div><h5>前後對照影像</h5><p>HT 常需「先缺血、後出血」的時序證據；外傷需追蹤 24–48 小時後的挫傷擴大。</p></div>
+  </div>
+  <div class="callout"><b>最小掃描組合：</b>DWI＋ADC、FLAIR、T2WI、T1WI、T2* GRE 與 3D SWI（建議含相位／QSM）、TOF-MRA（可加 MRV），視需要加灌流或延遲對比增強。若病人躁動無法配合，<b>至少完成 DWI＋GRE/SWI</b>。</div>
+</section>
+
+<section id="pitfall">
+  <div class="section-label">05 · 常見陷阱 <span class="en">Pitfalls</span></div>
+  <h2>直接影響診斷正確率的七個地方</h2>
+  <div class="card-grid">
+    <div class="card"><span class="icon">🔍</span><div class="cat">CT 陰性</div><h4>點狀出血轉換</h4><p>GRE/SWI 才看得到，治療前容易被忽略；但臨床意義需對照症狀與時序。</p></div>
+    <div class="card"><span class="icon">⏳</span><div class="cat">血液年齡</div><h4>小型急性血腫被判成慢性</h4><p>HEME 中有 3 例 CT 的急性出血在 MRI 被判為慢性；小血腫、鈣化與血管內血栓訊號相似，需 CT 或相位影像輔助。</p></div>
+    <div class="card"><span class="icon">📐</span><div class="cat">ADC</div><h4>血腫 ADC 假性受限</h4><p>不要用血腫核心的低 ADC 判定梗塞；要在血的外面找梗塞。</p></div>
+    <div class="card"><span class="icon">🧵</span><div class="cat">SVS</div><h4>SVS 不是病因診斷</h4><p>SVS 陰性對 ICAS 敏感度與陰性預測值 100%，但特異度僅 67%、陽性預測值 43%（91 人小樣本）。SVS 陽性預測心因性栓塞的敏感度高、特異度很低。</p></div>
+    <div class="card"><span class="icon">🔵</span><div class="cat">DWI</div><h4>ICH 的遠端 DWI 小病灶</h4><p>約三成 ICH 病人有，多與小血管病變相關；不要因此診斷「栓塞合併出血」。</p></div>
+    <div class="card"><span class="icon">🧪</span><div class="cat">鈣化／靜脈</div><h4>血管內訊號與鈣化</h4><p>SVS、皮質靜脈、鈣化與鐵鈣混合都可能被誤認為實質出血，需結合相位與分布。</p></div>
+    <div class="card"><span class="icon">🌫️</span><div class="cat">FLAIR</div><h4>腦溝高訊號不特異</h4><p>CSF 搏動、慢流、氧氣、腦膜炎、軟腦膜疾病皆可模擬 SAH。</p></div>
+  </div>
+</section>
+
+<section id="check">
+  <div class="section-label">06 · 內容可信度查核 <span class="en">Credibility Check</span></div>
+  <h2>貼上草稿中哪些可信、哪些要修正<span class="en">What holds up, what needs correction</span></h2>
+  <p class="lede">整體架構（病理本質 → 序列 → 流程 → 陷阱）與「地形學為核心」的概念是正確的。主要問題在於：<b>部分數字與歸屬需修正、關鍵新證據缺漏、若干論述過度推論</b>。12 篇引用中有 7 篇已超出近十年。</p>
+
+  <div class="legend">
+    <span><span class="chip v-ok">✔ 已查核</span> 與文獻一致</span>
+    <span><span class="chip v-fix">▲ 需修正</span> 與文獻不符或缺漏</span>
+    <span><span class="chip v-warn">▲ 過度推論</span> 方向對但說得太滿</span>
+    <span><span class="chip v-na">○ 未能查核</span> 本次未取得原文</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">草稿的說法</th><th style="width:14%">結果</th><th>說明</th></tr></thead>
+      <tbody>
+        <tr><td>鑑別核心是「血在缺血處 vs 血旁有缺血」，需靠 DWI/ADC 找出非出血的梗塞區</td><td><span class="chip v-ok">✔ 已查核</span></td><td>與 Heidelberg 分類（第 1 類為梗塞內出血轉換；第 3a 類為遠離梗塞的實質血腫）的邏輯一致。</td></tr>
+        <tr><td>ICH 合併缺血：缺血在不同血管區域，「少見」</td><td><span class="chip v-fix">▲ 需修正</span></td><td>DWI 病灶在 ICH 中並不少見：報告範圍 11–41%；1,752 位病人的個案層級合併分析為 <b>31.3%</b>，與年齡、血腫體積、收縮壓、小血管病變標記相關；整體與較差功能預後相關（OR 1.50，1.13–2.00），且主要見於深部而非腦葉 ICH。多為<b>小型點狀</b>病灶。真正同時發生的大範圍另一區梗塞才是罕見（草稿引用的 2007 年報告為個案）。</td></tr>
+        <tr><td>出血轉換可見「遠端離散小擴散受限灶」，為栓塞性機轉的線索</td><td><span class="chip v-warn">▲ 缺乏特異性</span></td><td>上列證據顯示遠端小 DWI 病灶在 ICH 同樣常見，不能單靠它區分 HT 與 ICH。</td></tr>
+        <tr><td>分類只用 HI-1／HI-2／PH-1／PH-2</td><td><span class="chip v-fix">▲ 需補充</span></td><td>應補入 <b>Heidelberg Bleeding Classification（2015）</b>：新增第 2 類（血腫在梗塞內外）、第 3 類（遠端實質血腫、IVH、SAH、SDH），並定義症狀性出血（NIHSS 惡化 ≥4 分，或單一項目 ≥2 分，且影像出血為主因）。</td></tr>
+        <tr><td>血液年齡表（T1/T2 對照）</td><td><span class="chip v-fix">▲ 需修正</span></td><td>草稿的階段表因格式損壞（如「超急性（1 m）」）無法使用，已依教科書概念重建；時間界線僅為概略值。</td></tr>
+        <tr><td>HI 的 T1 高訊號 1–2 天即出現，比大血腫的 3–4 天早</td><td><span class="chip v-na">○ 未能查核</span></td><td>來源為 2000 年綜述，未見近期驗證；<b>不建議用來鑑別</b>。</td></tr>
+        <tr><td>HEME：200 例 6 小時內，GRE 偵測到 4 例 CT 陰性的點狀出血轉換</td><td><span class="chip v-ok">✔ 已查核</span></td><td>200 人、4 例 CT 未見而 MRI 見到之急性出血皆判為 HT；任何出血 MRI 71 人 vs CT 29 人（多為慢性微出血）；3 例 CT 急性出血在 MRI 被判為慢性。需補充：<b>MRI 才看到的 HT 是否增加症狀性出血風險，作者明言不確定</b>；另一項小型回溯研究顯示 SWI 偵測 HT 敏感度 97%、特異度 46%（相對 CT）。</td></tr>
+        <tr><td>SWI vs T2* GRE：76±52 vs 21±19 個病灶；SWI 多看到約 30% 病灶</td><td><span class="chip v-na">○ 未能查核</span></td><td>方向正確（SWI 較 GRE 敏感）但數字來自小型研究與綜述轉述；建議以「SWI 明顯較多」定性描述。</td></tr>
+        <tr><td>約 80% 的 DAI 病灶不含出血</td><td><span class="chip v-na">○ 未能查核</span></td><td>可確認 DAI 同時有出血性與非出血性病灶、CT 常正常、SWI 看出血性、DWI／FLAIR 看非出血性；「80%」本次未見原始佐證。</td></tr>
+        <tr><td>SVS 陰性對 ICAS：敏感度 100%、NPV 100%；SVS 陽性為紅血球血栓、心因性栓塞</td><td><span class="chip v-warn">▲ 過度推論</span></td><td>第一句屬實，但 Kim 2015 僅 91 人，<b>特異度 67.1%、PPV 42.9%</b>。THRACE 研究：目視 SVS 預測心因性栓塞敏感度 0.89、<b>特異度僅 0.21</b>；兩層 SVS＋過度估計比值可提高特異度（3T 達 1.00），但敏感度降到 0.23。</td></tr>
+        <tr><td>進階 MRI 預測 HT：敏感度 92%、特異度 78%，優於傳統 MRI（約 57%）</td><td><span class="chip v-ok">✔ 部分查核</span></td><td>92%（70–98）與 78%（65–87）已確認；信賴區間寬。傳統 MRI 的 57% 本次未見。需補充：15 項研究合併預測模型 AUC 約 0.70，神經影像 AI 六項研究合併敏感度 0.849／特異度 0.878，仍不足以單獨決定治療。</td></tr>
+        <tr><td>灌流缺損超出血腫 → HI；不超出 → ICH</td><td><span class="chip v-na">○ 啟發式</span></td><td>出自 2012 年綜述，無診斷準確度資料；僅作輔助。</td></tr>
+        <tr><td>血腫旁無真正缺血，ADC 輕降≠梗塞</td><td><span class="chip v-ok">✔ 方向正確</span></td><td>大鼠實驗顯示血腫旁水腫與 BBB 破壞相關而未誘發缺血性血流；人體資料較複雜。草稿所述「PS 雙相上升」未能確認；引用的 Yang 2023 為 <b>CT 灌流</b>研究，並非 MRI，結論為通透性與水腫動態變化。</td></tr>
+        <tr><td>PECV 4.5 條切點、敏感度 83.3%／特異度 83.1%</td><td><span class="chip v-na">○ 未能查核</span></td><td>2025 年單中心新標記，數字本次未取得；BBB 通透性 MRI 預測 HT 的一般概念有較早的研究支持。教學時宜標為「研究階段」。</td></tr>
+        <tr><td>嚴重 TBI 約 8% 出現延遲性外傷性梗塞</td><td><span class="chip v-na">○ 未能查核</span></td><td>未取得佐證；建議只說「可發生」。</td></tr>
+        <tr><td>缺少外傷影像適應症與流程</td><td><span class="chip v-fix">▲ 需補充</span></td><td>ACR 2020 頭部外傷準則：急性期以 CT 為首選；MRI 用於 CT 無法解釋的臨床表現、新或進行性神經缺損等情境（各變項請核對原準則）。</td></tr>
+        <tr><td>引用文獻年代</td><td><span class="chip v-warn">▲ 需更新</span></td><td>[2] 2007、[3] 2000、[5] 2004、[6] 2009、[8] 2011、[1] 2012、[9] 2015 皆超出近十年（HEME 與 Kim 2015 仍是該主題的主要原始研究，保留並標示年代）；已補入 Heidelberg 2015（現行分類共識）、JAMA Neurol 2020、Suh 2019 與 2024–2025 預測研究。</td></tr>
+        <tr><td>格式問題</td><td><span class="chip v-fix">▲ 需修正</span></td><td>ADC 公式 LaTeX 損壞；拼字錯誤（hermiation）；階段表殘缺。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="section-label">07 · 自我測驗 <span class="en">Self-check</span></div>
+  <h2>五題快速檢視</h2>
+  <div id="quiz-box"></div>
+  <div class="score" id="score"></div>
+</section>
+
+<section id="refs">
+  <div class="section-label">參考文獻 <span class="en">References</span></div>
+  <h2>Reference List</h2>
+
+  <div class="ref-sub">A. 本次補充查核的文獻與準則</div>
+  <ul class="ref-list">
+    <li><span class="ref-num">[A1]</span><span>von Kummer R, Broderick JP, Campbell BC, et al. The Heidelberg Bleeding Classification: classification of bleeding events after ischemic stroke and reperfusion therapy. <i>Stroke.</i> 2015;46(10):2981-2986. <span class="doi">DOI: 10.1161/STROKEAHA.115.010049</span></span></li>
+    <li><span class="ref-num">[A2]</span><span>Murthy SB, et al. A pooled analysis of diffusion-weighted imaging lesions in patients with acute intracerebral hemorrhage. <i>JAMA Neurol.</i> 2020.</span></li>
+    <li><span class="ref-num">[A3]</span><span>ACR Appropriateness Criteria®: Head Trauma. Revised 2020.</span></li>
+    <li><span class="ref-num">[A4]</span><span>Kim SK, Yoon W, Heo TW, Park MS, Kang HK. Negative susceptibility vessel sign and underlying intracranial atherosclerotic stenosis in acute middle cerebral artery occlusion. <i>AJNR.</i> 2015;36(7):1266-1271. <span class="doi">DOI: 10.3174/ajnr.A4280</span></span></li>
+    <li><span class="ref-num">[A5]</span><span>THRACE 研究之前瞻性分析：兩層 SVS 與過度估計比值預測心因性栓塞. <i>AJNR.</i> 2019;40(1):65. <span class="doi">作者資訊請於引用前核對原文</span></span></li>
+    <li><span class="ref-num">[A6]</span><span>Suh CH, Jung SC, Cho SJ, et al. MRI for prediction of hemorrhagic transformation in acute ischemic stroke: a systematic review and meta-analysis. <i>Acta Radiol.</i> 2019;61(7):964-972. <span class="doi">DOI: 10.1177/0284185119887593</span></span></li>
+    <li><span class="ref-num">[A7]</span><span>Dagher R, Ozkara BB, Karabacak M, et al. Artificial intelligence/machine learning for neuroimaging to predict hemorrhagic transformation: systematic review/meta-analysis. 2024.</span></li>
+    <li><span class="ref-num">[A8]</span><span>傳統與機器學習模型預測缺血性中風出血轉換之系統性回顧與統合分析（15 項研究、8 個模型）. <i>Syst Rev.</i> 2025. <span class="doi">DOI: 10.1186/s13643-025-02771-w</span></span></li>
+    <li><span class="ref-num">[A9]</span><span>Xi G, Hua Y, Bhasin RR, et al. Mechanisms of edema formation after intracerebral hemorrhage: effects of extravasated red blood cells on blood flow and blood-brain barrier integrity. <i>Stroke.</i> 2001. <span class="doi">DOI: 10.1161/hs1201.099820（動物實驗）</span></span></li>
+  </ul>
+
+  <div class="ref-sub">B. 草稿引用的 12 篇（編號沿用）</div>
+  <ul class="ref-list">
+    <li><span class="ref-num">[1]</span><span>Choi PMC, Ly JV, Srikanth V, et al. Differentiating between hemorrhagic infarct and parenchymal intracerebral hemorrhage. <i>Radiol Res Pract.</i> 2012;2012:1-11. <span class="doi">DOI: 10.1155/2012/475497</span></span></li>
+    <li><span class="ref-num">[2]</span><span>Balci K, Utku U, Asil T, Unlu E. Simultaneous onset of hemorrhagic and ischemic strokes. <i>Neurologist.</i> 2007;13(3):148-149（個案報告）. <span class="doi">DOI: 10.1097/01.nrl.0000256434.19734.77</span></span></li>
+    <li><span class="ref-num">[3]</span><span>Zaheer A, Ozsunar Y, Schaefer PW. Magnetic resonance imaging of cerebral hemorrhagic stroke. <i>Top Magn Reson Imaging.</i> 2000;11(5):288-299. <span class="doi">DOI: 10.1097/00002142-200010000-00005</span></span></li>
+    <li><span class="ref-num">[4]</span><span>Altmeyer W, Steven A, Gutierrez J. Use of magnetic resonance in the evaluation of cranial trauma. <i>Magn Reson Imaging Clin N Am.</i> 2016;24(2):305-323. <span class="doi">DOI: 10.1016/j.mric.2015.11.011</span></span></li>
+    <li><span class="ref-num">[5]</span><span>Kidwell CS, et al. Comparison of MRI and CT for detection of acute intracerebral hemorrhage. <i>JAMA.</i> 2004;292(15):1823-1830. <span class="doi">DOI: 10.1001/jama.292.15.1823</span></span></li>
+    <li><span class="ref-num">[6]</span><span>Akiyama Y, Miyata K, Harada K, et al. Susceptibility-weighted MRI for the detection of cerebral microhemorrhage in patients with traumatic brain injury. <i>Neurol Med Chir.</i> 2009;49(3):97-99. <span class="doi">DOI: 10.2176/nmc.49.97</span></span></li>
+    <li><span class="ref-num">[7]</span><span>Jain N, Kumar S, Singh A, Jain S, Phadke RV. Blood in the brain on susceptibility-weighted imaging. <i>Indian J Radiol Imaging.</i> 2022;33(1):89-97. <span class="doi">DOI: 10.1055/s-0042-1758880</span></span></li>
+    <li><span class="ref-num">[8]</span><span>Smith SD, Eskey CJ. Hemorrhagic stroke. <i>Radiol Clin North Am.</i> 2011;49(1):27-45. <span class="doi">DOI: 10.1016/j.rcl.2010.07.011</span></span></li>
+    <li><span class="ref-num">[9]</span><span>Kim SK 等，見 [A4]。</span></li>
+    <li><span class="ref-num">[10]</span><span>Suh CH 等，見 [A6]。</span></li>
+    <li><span class="ref-num">[11]</span><span>Yang D, Wang X, Zhang X, et al. Temporal evolution of perihematomal blood-brain barrier compromise and edema growth after intracerebral hemorrhage. <i>Clin Neuroradiol.</i> 2023;33(3):813-824（CT 灌流研究）. <span class="doi">DOI: 10.1007/s00062-023-01285-z</span></span></li>
+    <li><span class="ref-num">[12]</span><span>Zhu D, Wang T, Bai Y, et al. Perivenous-enhanced cortical veins on contrast-enhanced black-blood MRI: a novel marker for blood-brain barrier disruption in ischemic stroke. <i>Neuroradiology.</i> 2025;67(9):2295-2307（新興標記）. <span class="doi">DOI: 10.1007/s00234-025-03658-2</span></span></li>
+  </ul>
+  <p style="margin-top:16px;font-size:.8rem;color:var(--text-faint);">「已查核」僅表示與檢索到的摘要或準則一致；標為「未能查核」的數字請勿直接用於教學或發表。ACR 準則各臨床變項的適切性等級，請於引用前對照原文。</p>
+</section>
+
+<footer>
+  N-Teaching 神經科教學研究部 · 本頁面為住院醫師／專科護理師教學用整理資料，非臨床診斷依據 · <a href="index.html">返回首頁</a>
+</footer>
+
+<script>
+/* 自我測驗：要新增題目，複製一個 {...} 區塊再修改文字即可 */
+var QUIZ = [
+  { q: "按 Heidelberg 分類，一個遠離梗塞組織的實質血腫應歸為？",
+    opts: ["第 1a 類（HI1）", "第 1c 類（PH1）", "第 3a 類", "第 2 類（PH2）"],
+    a: 2, why: "第 3a 類是「距離梗塞組織遙遠的實質血腫」；第 1 類為梗塞組織內的出血轉換；第 2 類為血腫範圍在梗塞內外且有明顯占位。" },
+  { q: "原發性 ICH 病人 DWI 上發現數個小型遠端點狀高訊號，最合適的解讀是？",
+    opts: ["證實為栓塞性出血轉換", "很常見（約三成），多與小血管病變、血壓與血腫體積相關，不能單獨用來診斷栓塞", "代表血腫周圍缺血半影", "一定是急性腦膜炎"],
+    a: 1, why: "個案層級合併分析（n = 1,752）顯示 31.3% 有 DWI 病灶，與年齡、血腫體積、收縮壓及小血管病變標記相關；這些病灶並不特異於栓塞。" },
+  { q: "T2* GRE 在 HEME 研究中偵測到而 CT 看不到的 4 例急性出血，皆被判為？",
+    opts: ["原發性腦出血", "梗塞內的出血轉換", "外傷性挫傷", "蜘蛛膜下出血"],
+    a: 1, why: "MRI 比 CT 更容易看到點狀出血轉換；但作者也指出，MRI 才看到的 HT 是否增加症狀性出血風險仍不確定。" },
+  { q: "關於 susceptibility vessel sign（SVS）的描述，何者最正確？",
+    opts: ["SVS 陰性可確診顱內動脈粥狀硬化狹窄", "SVS 陰性對 ICAS 敏感度與 NPV 高，但特異度與 PPV 偏低（小樣本）", "SVS 陽性可確診心因性栓塞", "SVS 是實質出血的特異標記"],
+    a: 1, why: "Kim 2015（n = 91）：敏感度 100%、特異度 67.1%、PPV 42.9%、NPV 100%；目視 SVS 對心因性栓塞特異度很低，不能當成病因診斷。" },
+  { q: "為什麼不能用血腫核心的低 ADC 判斷「這裡有梗塞」？",
+    opts: ["ADC 只適用於慢性期", "血腫的磁敏感效應使訊號衰減，造成 ADC 不可靠，應在血的外面找梗塞", "血腫一定沒有缺血", "ADC 計算在血腫中不需要 b 值"],
+    a: 1, why: "出血的 T2* 效應壓低 DWI 訊號，血腫核心的 ADC 不可靠；應以血外、遵循血管區域的 DWI 受限區判斷是否另有梗塞。" }
+];
+var answered = 0, correct = 0;
+(function build(){
+  var box = document.getElementById("quiz-box");
+  QUIZ.forEach(function(item, qi){
+    var d = document.createElement("div"); d.className = "q";
+    var h = document.createElement("h4"); h.textContent = (qi+1) + ". " + item.q; d.appendChild(h);
+    item.opts.forEach(function(o, oi){
+      var b = document.createElement("button"); b.className = "opt"; b.type = "button"; b.textContent = o;
+      b.onclick = function(){
+        if (d.classList.contains("done")) return;
+        d.classList.add("done"); answered++;
+        var btns = d.querySelectorAll(".opt");
+        btns[item.a].classList.add("right");
+        if (oi === item.a) { correct++; } else { b.classList.add("wrong"); }
+        document.getElementById("score").textContent = "目前答對 " + correct + " / " + answered + "（共 " + QUIZ.length + " 題）";
+      };
+      d.appendChild(b);
+    });
+    var w = document.createElement("div"); w.className = "why"; w.textContent = "解析：" + item.why; d.appendChild(w);
+    box.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>
