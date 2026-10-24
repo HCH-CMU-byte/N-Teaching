@@ -201,19 +201,6 @@
     ],
     "order": 8
   },
-  "cvt-evidence-update.html": {
-    "category": "cerebrovascular",
-    "icon": "🩸",
-    "label": "CVT",
-    "title": "腦靜脈竇血栓（CVT）實證更新",
-    "summary": "從 RE-SPECT CVT 到 DOAC-CVT，整理抗凝血劑選擇、手術減壓時機與出血併發症處置。",
-    "tags": [
-      "CVT",
-      "抗凝血",
-      "DOAC"
-    ],
-    "order": 2
-  },
   "movement_medication.html": {
     "category": "movement",
     "icon": "💊",
@@ -252,5 +239,31 @@
     ],
     "category": "neuromuscular",
     "order": 2
+  },
+  "cvt-evidence-update_stroke.html": {
+    "category": "cerebrovascular",
+    "icon": "🩸",
+    "label": "CVT",
+    "title": "腦靜脈竇血栓（CVT）實證更新",
+    "summary": "從 RE-SPECT CVT 到 DOAC-CVT，整理抗凝血劑選擇、手術減壓時機與出血併發症處置。",
+    "tags": [
+      "CVT",
+      "抗凝血",
+      "DOAC"
+    ],
+    "order": 2
+  },
+  "uric-acid-nervous-system_PD.html": {
+    "category": "movement",
+    "icon": "🧪",
+    "label": "Uric Acid",
+    "title": "尿酸與神經系統：從基礎機轉到臨床證據的實證回顧",
+    "summary": "觀察性研究常見尿酸較高、帕金森氏症風險較低，但提高尿酸的隨機試驗失敗、孟德爾隨機化也不支持因果。",
+    "tags": [
+      "尿酸",
+      "帕金森氏症",
+      "孟德爾隨機化"
+    ],
+    "order": 3
   }
 }
