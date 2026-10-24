@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>尿酸與神經系統：從基礎機轉到臨床證據的實證回顧</title>
+<style>
+:root{
+  --bg:#0f1218;--bg-card:#181d27;--bg-card-hover:#1e2431;--border:#2c3343;
+  --text:#e9edf4;--text-dim:#99a4b6;--text-faint:#636e81;
+  --gold:#e3b341;--gold-dim:#8a6d22;
+  --teal:#4fc3c3;--teal-dim:#245f60;
+  --red:#e5695e;--red-dim:#6b3933;
+  --green:#5cc79b;--green-dim:#265c48;
+  --purple:#a98ee6;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:70px;}
+body{background:var(--bg);color:var(--text);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;line-height:1.75;font-size:16px;}
+.en{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--text-dim);font-size:0.86em;}
+a{color:var(--gold);text-decoration:none;} a:hover{text-decoration:underline;}
+
+.topnav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+  padding:12px 28px;background:rgba(15,18,24,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px;}
+.brand{display:flex;align-items:center;}
+.logo-mark{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,var(--gold),var(--teal));
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#0f1218;}
+.brand:hover{text-decoration:none;}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap;align-items:center;}
+.nav-links a{color:var(--text-dim);font-size:.86rem;padding:7px 11px;border-radius:6px;transition:all .15s;}
+.nav-links a:hover{color:var(--text);background:var(--bg-card);text-decoration:none;}
+.nav-links a.home{color:var(--gold);}
+
+.hero{padding:60px 28px 38px;max-width:980px;margin:0 auto;border-bottom:1px solid var(--border);}
+.eyebrow{display:inline-flex;gap:8px;color:var(--teal);font-size:.82rem;letter-spacing:.05em;border:1px solid var(--teal-dim);
+  padding:4px 12px;border-radius:20px;margin-bottom:18px;}
+.hero h1{font-size:2rem;font-weight:800;line-height:1.4;background:linear-gradient(90deg,var(--text) 45%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero .subtitle{margin-top:14px;color:var(--text-dim);max-width:740px;}
+.hero-meta{display:flex;gap:26px;margin-top:24px;flex-wrap:wrap;}
+.hero-meta div{font-size:.8rem;color:var(--text-faint);}
+.hero-meta b{color:var(--text);display:block;font-size:1.05rem;}
+
+section{max-width:980px;margin:0 auto;padding:50px 28px;border-bottom:1px solid var(--border);}
+.section-label{color:var(--gold);font-size:.78rem;letter-spacing:.08em;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.section-label::before{content:"";width:22px;height:2px;background:var(--gold);}
+h2{font-size:1.45rem;font-weight:700;margin-bottom:8px;}
+h2 .en{display:block;font-size:.72rem;margin-top:3px;font-weight:400;}
+h3{font-size:1.08rem;font-weight:700;margin:28px 0 10px;} h3 .en{font-size:.72rem;font-weight:400;}
+p{color:var(--text-dim);margin-bottom:14px;} p b,li b{color:var(--text);font-weight:600;}
+ul,ol{margin:10px 0 16px 22px;color:var(--text-dim);} li{margin-bottom:7px;}
+.lede{margin-bottom:22px;}
+
+.chip{display:inline-flex;align-items:center;gap:3px;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:5px;vertical-align:middle;margin:0 2px;white-space:nowrap;}
+.g-rct{background:rgba(92,199,155,.13);color:var(--green);border:1px solid var(--green-dim);}
+.g-meta{background:rgba(79,195,195,.13);color:var(--teal);border:1px solid var(--teal-dim);}
+.g-cohort{background:rgba(227,179,65,.13);color:var(--gold);border:1px solid var(--gold-dim);}
+.g-mr{background:rgba(169,142,230,.13);color:var(--purple);border:1px solid #50407f;}
+.g-pre{background:rgba(153,164,182,.12);color:var(--text-dim);border:1px solid var(--border);}
+.v-ok{background:rgba(92,199,155,.13);color:var(--green);border:1px solid var(--green-dim);}
+.v-fix{background:rgba(229,105,94,.12);color:var(--red);border:1px solid var(--red-dim);}
+.v-na{background:rgba(153,164,182,.12);color:var(--text-dim);border:1px solid var(--border);}
+.legend{display:flex;gap:14px 20px;flex-wrap:wrap;margin:16px 0;padding:13px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:.78rem;color:var(--text-dim);}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:18px;}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .18s;}
+.card:hover{border-color:var(--gold-dim);background:var(--bg-card-hover);transform:translateY(-2px);}
+.card .icon{font-size:1.4rem;display:block;margin-bottom:8px;}
+.card .cat{font-size:.7rem;color:var(--teal);letter-spacing:.05em;font-weight:700;margin-bottom:4px;}
+.card h4{font-size:.98rem;margin-bottom:6px;} .card p{font-size:.85rem;margin-bottom:0;}
+.card .foot{margin-top:11px;font-size:.74rem;color:var(--text-faint);border-top:1px solid var(--border);padding-top:9px;}
+
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--border);border-radius:8px;}
+table{width:100%;border-collapse:collapse;font-size:.86rem;min-width:640px;}
+th{background:rgba(227,179,65,.08);color:var(--gold);text-align:left;padding:10px 13px;font-size:.76rem;border-bottom:1px solid var(--border);}
+td{padding:10px 13px;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top;} tr:last-child td{border-bottom:none;} td b{color:var(--text);}
+
+.callout{background:rgba(79,195,195,.06);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);border-radius:6px;padding:15px 18px;margin:18px 0;color:var(--text-dim);font-size:.9rem;}
+.callout b{color:var(--teal);}
+.callout.warn{background:rgba(229,105,94,.06);border-color:var(--red-dim);border-left-color:var(--red);} .callout.warn b{color:var(--red);}
+
+.flow{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin:18px 0;}
+.flow-step{flex:1 1 130px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:13px 14px;min-width:120px;}
+.flow-step .n{font-size:.7rem;color:var(--gold);font-weight:700;letter-spacing:.05em;}
+.flow-step h5{font-size:.9rem;margin:3px 0;} .flow-step p{font-size:.76rem;margin:0;}
+.flow-arrow{display:flex;align-items:center;color:var(--text-faint);padding:0 6px;}
+
+.ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0;}
+.rung{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;}
+.rung .tag{font-size:.7rem;font-weight:700;letter-spacing:.05em;margin-bottom:6px;}
+.rung.r1 .tag{color:var(--gold);} .rung.r2 .tag{color:var(--purple);} .rung.r3 .tag{color:var(--green);}
+.rung h4{font-size:.95rem;margin-bottom:8px;}
+.rung ul{margin:0 0 0 18px;font-size:.82rem;}
+.rung .verdict{margin-top:10px;font-size:.8rem;font-weight:700;}
+.r1 .verdict{color:var(--gold);} .r2 .verdict{color:var(--purple);} .r3 .verdict{color:var(--green);}
+@media(max-width:760px){.ladder{grid-template-columns:1fr;}}
+
+.svgbox{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:14px;margin:18px 0;overflow-x:auto;}
+.svgbox svg{display:block;margin:0 auto;max-width:100%;height:auto;}
+.svgbox .cap{font-size:.78rem;color:var(--text-faint);text-align:center;margin-top:8px;}
+
+.q{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin:14px 0;}
+.q h4{font-size:.96rem;margin-bottom:10px;line-height:1.6;}
+.q .opt{display:block;width:100%;text-align:left;background:var(--bg);color:var(--text-dim);border:1px solid var(--border);border-radius:7px;padding:9px 13px;margin-bottom:7px;cursor:pointer;font-size:.88rem;font-family:inherit;transition:all .15s;}
+.q .opt:hover{border-color:var(--gold-dim);color:var(--text);}
+.q .opt.right{border-color:var(--green);color:var(--green);background:rgba(92,199,155,.08);}
+.q .opt.wrong{border-color:var(--red);color:var(--red);background:rgba(229,105,94,.08);}
+.q .why{display:none;margin-top:10px;font-size:.84rem;color:var(--text-dim);border-top:1px dashed var(--border);padding-top:10px;}
+.q.done .why{display:block;}
+.score{margin-top:12px;font-size:.9rem;color:var(--gold);font-weight:700;}
+
+.ref-list{list-style:none;margin:0;padding:0;}
+.ref-list li{padding:11px 0;border-bottom:1px solid var(--border);font-size:.82rem;color:var(--text-dim);display:flex;gap:11px;}
+.ref-list li:last-child{border-bottom:none;}
+.ref-num{color:var(--gold);font-weight:700;flex-shrink:0;min-width:34px;}
+.ref-list .doi{color:var(--text-faint);font-size:.76rem;}
+.ref-sub{font-size:.78rem;color:var(--teal);margin:22px 0 4px;font-weight:700;letter-spacing:.04em;}
+
+footer{max-width:980px;margin:0 auto;padding:34px 28px 60px;color:var(--text-faint);font-size:.8rem;}
+@media(max-width:700px){.hero h1{font-size:1.5rem;}section{padding:38px 18px;}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="brand"><span class="logo-mark">N</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="home">← 首頁</a>
+    <a href="#basic">基礎原理</a>
+    <a href="#preclinical">動物機轉</a>
+    <a href="#clinical">臨床證據</a>
+    <a href="#inference">因果推論</a>
+    <a href="#check">可信度查核</a>
+    <a href="#practice">臨床意涵</a>
+    <a href="#quiz">自我測驗</a>
+    <a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">● 神經退化 · 腦血管 <span class="en">Urate &amp; the Nervous System</span></div>
+  <h1>尿酸與神經系統：從基礎機轉到臨床證據的實證回顧</h1>
+  <p class="subtitle">尿酸（uric acid／urate）是強效抗氧化劑，觀察性研究也常見「尿酸較高、帕金森氏症風險較低」。但提高尿酸的隨機試驗失敗、孟德爾隨機化也不支持因果。本頁依「基礎原理 → 動物實驗 → 臨床觀察 → 嚴謹因果推論」的順序整理，並逐項標示貼上資料中可信與需修正之處。</p>
+  <div class="hero-meta">
+    <div><b>PD · ALS · 中風 · 失智</b>四個臨床情境</div>
+    <div><b>RCT／MR</b>因果層級證據</div>
+    <div><b>SURE-PD3</b>n = 298，結果陰性</div>
+    <div><b>2024–2026</b>補充較新大型資料</div>
+  </div>
+</div>
+
+<section id="summary">
+  <div class="section-label">重點摘要 <span class="en">Key Takeaways</span></div>
+  <h2>先看五個核心訊息</h2>
+  <div class="card-grid">
+    <div class="card"><span class="icon">🧬</span><div class="cat">基礎</div><h4>人類尿酸「偏高」是演化結果</h4><p>尿酸氧化酶（uricase）失活使人類尿酸停在嘌呤代謝終點，生理上是主要血漿抗氧化物，但濃度超過約 6.8 mg/dL 即接近溶解度上限。</p><div class="foot"><span class="chip g-pre">基礎／綜述</span></div></div>
+    <div class="card"><span class="icon">🐭</span><div class="cat">動物</div><h4>保護作用在齧齒類模型成立</h4><p>6-OHDA 模型中，提高內源或飲食尿酸可減輕多巴胺神經元損傷；但腦內濃度與血腦障壁穿透仍有疑問。</p><div class="foot"><span class="chip g-pre">動物實驗</span></div></div>
+    <div class="card"><span class="icon">📉</span><div class="cat">觀察性</div><h4>PD、ALS 的尿酸較低</h4><p>世代研究一致顯示尿酸較高者 PD 風險較低（Copenhagen：最高 vs 最低三分位 HR 0.56）。</p><div class="foot"><span class="chip g-cohort">世代研究</span></div></div>
+    <div class="card"><span class="icon">🧪</span><div class="cat">因果</div><h4>MR 與 RCT 不支持「提高尿酸有益」</h4><p>兩項孟德爾隨機化皆無保護效應；SURE-PD3（inosine，n = 298）使尿酸升高約 2 mg/dL，臨床進展無差異、腎結石增加。</p><div class="foot"><span class="chip g-mr">MR</span><span class="chip g-rct">RCT</span></div></div>
+    <div class="card"><span class="icon">⚖️</span><div class="cat">失智</div><h4>方向互相矛盾</h4><p>痛風病人失智風險升高（UK Biobank HR 1.60），但較高尿酸與 AD 風險的資料又偏向較低，統合分析未見一致結論。</p><div class="foot"><span class="chip g-cohort">世代研究</span><span class="chip g-meta">統合分析</span></div></div>
+  </div>
+</section>
+
+<section id="basic">
+  <div class="section-label">01 · 基礎學科原理 <span class="en">Basic Science</span></div>
+  <h2>尿酸從哪裡來、做什麼、為什麼是雙面刃<span class="en">Biochemistry, transport &amp; redox</span></h2>
+
+  <h3>代謝路徑與演化<span class="en">Purine catabolism &amp; uricase loss</span></h3>
+  <div class="flow">
+    <div class="flow-step"><div class="n">1</div><h5>嘌呤 Purine</h5><p>核酸與 ATP 代謝</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">2</div><h5>次黃嘌呤／黃嘌呤</h5><p>經黃嘌呤氧化酶（XOR）氧化</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">3</div><h5>尿酸 Urate</h5><p>人類終產物；生理約 2–7 mg/dL</p></div>
+    <div class="flow-arrow">⇢</div>
+    <div class="flow-step"><div class="n">其他哺乳動物</div><h5>尿囊素 Allantoin</h5><p>由 uricase 進一步分解，水溶性高</p></div>
+  </div>
+  <p>人類與部分靈長類因編碼尿酸氧化酶的基因失活，尿酸無法再被分解，血中濃度因此遠高於多數哺乳動物。一個長期的假說認為，這提供了抗氧化防禦與壽命延長的演化優勢；但是否仍具益處存有爭議 <span class="chip g-pre">PNAS 2013 引言</span>。濃度超過約 <b>6.8 mg/dL</b> 即接近溶解度上限，易形成單鈉尿酸鹽（MSU）結晶，是痛風與腎結石的基礎。</p>
+
+  <h3>排泄與轉運蛋白<span class="en">Transporters</span></h3>
+  <ul>
+    <li>腎臟為主要排泄路徑（約三分之二至 70%），腸道（主要經 ABCG2／BCRP）負責其餘部分。</li>
+    <li>腎小管轉運：<b>URAT1（SLC22A12）</b>與 <b>GLUT9（SLC2A9）</b>調控再吸收，<b>ABCG2</b>等負責分泌。</li>
+    <li><b>SLC2A9 與 ABCG2 的常見變異</b>強烈影響血清尿酸，因此被用作孟德爾隨機化的工具變數（見「因果推論」）。</li>
+  </ul>
+
+  <h3>為何被視為神經保護候選<span class="en">Why a neuroprotective candidate</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">功能</th><th>機轉</th><th style="width:20%">證據性質</th></tr></thead>
+      <tbody>
+        <tr><td><b>抗氧化</b></td><td>清除過氧亞硝酸鹽（peroxynitrite）、羥自由基、單重態氧並螯合金屬離子；常被引用為血漿總抗氧化能力的 35–65%</td><td><span class="chip g-pre">綜述轉述</span></td></tr>
+        <tr><td><b>抗老化／NAD⁺</b></td><td>以異位性方式抑制 CD38，減少 NAD⁺ 降解與發炎；小鼠與線蟲有延壽報告</td><td><span class="chip g-pre">綜述轉述</span></td></tr>
+        <tr><td><b>免疫（雙面性）</b></td><td>只有結晶態 MSU 是危險訊號（DAMP），會活化 NLRP3 發炎體；溶解態尿酸可能有相反的免疫調節作用</td><td><span class="chip g-pre">綜述轉述</span></td></tr>
+        <tr><td><b>促氧化面向</b></td><td>在血管與代謝環境下，尿酸可促進氧化壓力與血管病變，因此與心血管、腎臟及代謝疾病相關</td><td><span class="chip g-pre">綜述轉述</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn"><b>教學提醒：</b>尿酸對血漿抗氧化力的貢獻比例、CD38 抑制的 IC₅₀ 等數字來自綜述的轉述，本次未取得原始研究逐一核對，教學時建議以「定性概念」呈現，避免強調具體百分比。</div>
+</section>
+
+<section id="preclinical">
+  <div class="section-label">02 · 動物實驗與機轉 <span class="en">Preclinical Evidence</span></div>
+  <h2>保護作用在動物成立，但有三個前提問題<span class="en">Where animal data help — and where they stop</span></h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">模型</th><th>主要發現</th><th style="width:30%">解讀限制</th></tr></thead>
+      <tbody>
+        <tr><td><b>Uox 基因剔除 vs 轉殖小鼠</b><br><span class="en">Chen et al., PNAS 2013</span></td><td>Uox KO 小鼠腦內尿酸較高，6-OHDA 造成的黑質多巴胺細胞損失、紋狀體多巴胺耗竭與旋轉行為較輕；Uox 過表現的小鼠尿酸較低</td><td>基因操弄為終生暴露，與成人藥物升高尿酸不同</td></tr>
+        <tr><td><b>飲食誘發高尿酸的 6-OHDA 小鼠</b><br><span class="en">Nakashima 2019</span></td><td>以含 1% 尿酸＋2.5% 氧嗪酸鉀（potassium oxonate，uricase 抑制劑）的飼料，血漿尿酸上升並改善行為異常</td><td>屬單側損傷的急性毒素模型，與慢性、多系統的 PD 不同</td></tr>
+        <tr><td><b>MPTP 小鼠與 6-OHDA 大鼠微透析</b><br><span class="en">De Luca 2014</span></td><td>重度損傷（6-OHDA 大鼠）的去神經紋狀體尿酸顯著升高，且與多巴胺呈負相關；輕度損傷（MPTP 小鼠）僅有趨勢</td><td>提示損傷後的「內源性代償」，同時也支持尿酸可能是損傷的<b>結果</b>，而非原因</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>三個尚待釐清的前提<span class="en">Open questions</span></h3>
+  <ol>
+    <li><b>血腦障壁（BBB）穿透</b>：生理狀況下尿酸難以進入腦實質；不同研究對進入方式（簡單擴散或轉運）與腦內濃度的描述不一，詳細數值（如 Kᵢ）未能由本次檢索核對。</li>
+    <li><b>濃度落差</b>：微透析量到的腦內尿酸在 μM 等級，遠低於體外實驗中顯現神經保護作用所需的濃度。</li>
+    <li><b>作用標的</b>：在中風研究中，尿酸可能主要保護腦血管內皮（vasculoprotection），而不是直接保護神經元。</li>
+  </ol>
+  <div class="callout"><b>教學重點：</b>動物實驗能回答「尿酸<i>能不能</i>在某種條件下保護神經」，但不能回答「提高人體尿酸<i>值不值得</i>當成治療」。後者需要人體因果層級的證據。</div>
+</section>
+
+<section id="clinical">
+  <div class="section-label">03 · 臨床觀察與試驗 <span class="en">Clinical Evidence</span></div>
+  <h2>四個疾病情境各自的證據圖像<span class="en">PD · ALS · Stroke · Dementia</span></h2>
+
+  <h3>帕金森氏症 Parkinson's disease</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">研究</th><th>結果</th><th style="width:20%">層級</th></tr></thead>
+      <tbody>
+        <tr><td><b>統合分析</b><br><span class="en">Balabandian 2023</span></td><td>30 項研究；PD 病人血清尿酸平均差 MD −0.49 mg/dL（較低）</td><td><span class="chip g-meta">統合分析</span><span class="chip g-pre">橫斷面為主</span></td></tr>
+        <tr><td><b>Copenhagen General Population Study</b><br><span class="en">Kobylecki 2018</span></td><td>約 10 萬人；最高 vs 最低三分位，多變項校正 HR 0.56（0.41–0.77）</td><td><span class="chip g-cohort">世代研究</span></td></tr>
+        <tr><td><b>UK Biobank</b><br><span class="en">2024，n = 382,182</span></td><td>較高尿酸與較低 PD 風險（HR 0.87）、ADRD（HR 0.93）及神經退化性死亡（HR 0.88）相關，呈線性</td><td><span class="chip g-cohort">世代研究</span></td></tr>
+        <tr><td><b>孟德爾隨機化 ①</b><br><span class="en">Kobylecki 2018</span></td><td>以 SLC2A9／ABCG2 等位基因分數：每高 50 μmol/L，PD 的 OR 1.20（0.85–1.71），不支持因果</td><td><span class="chip g-mr">MR</span></td></tr>
+        <tr><td><b>孟德爾隨機化 ②</b><br><span class="en">Kia 2018（兩樣本）</span></td><td>以更多遺傳位點與更大 PD 樣本進行兩樣本分析，亦未見尿酸與 PD 的因果關聯（效應量接近 1）</td><td><span class="chip g-mr">MR</span></td></tr>
+        <tr><td><b>SURE-PD（第二期）</b><br><span class="en">Schwarzschild 2014</span></td><td>n = 75；口服 inosine 可安全提高血清與腦脊髓液尿酸</td><td><span class="chip g-rct">RCT（先導）</span></td></tr>
+        <tr><td><b>SURE-PD3（第三期）</b><br><span class="en">JAMA 2021</span></td><td>n = 298、追蹤至 2 年；MDS-UPDRS I–III 每年進展 11.1 vs 9.9 分，差 1.26 分，P = .18；兩組血清尿酸差約 2.02 mg/dL；腎結石 7.0 vs 1.4／100 人年；因預先設定的期中無效分析而提前結束</td><td><span class="chip g-rct">RCT</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:.85rem;">SURE-PD3 收案條件為早期、尚未用多巴胺藥物、且血清尿酸低於中位數（&lt;5.8 mg/dL）者，目標將尿酸滴定至 7.1–8.0 mg/dL。<b>目標確實達成（target engagement），但臨床無益。</b></p>
+
+  <h3>肌萎縮性脊髓側索硬化症 ALS</h3>
+  <ul>
+    <li><b>預後標記</b>：PRO-ACT 合併 1,736 位 ALS 病人，基線尿酸較高與較慢的功能下降及較長存活相關 <span class="chip g-cohort">世代／試驗資料庫</span>；在 EMPOWER 試驗中，此關聯在男性較明顯，校正 BMI 後減弱。</li>
+    <li><b>發病風險</b>：前瞻性世代研究中，診斷前血漿尿酸每高 1 mg/dL，ALS 風險 RR 0.89（0.78–1.02），<b>未達統計顯著</b> <span class="chip g-cohort">世代研究</span>。</li>
+    <li><b>解讀</b>：尿酸與 BMI、肌酸酐（肌肉量）高度共線，且 ALS 的體重下降會降低尿酸，因此「低尿酸」可能是疾病的<b>結果或營養指標</b>，而非原因。</li>
+  </ul>
+
+  <h3>急性缺血性中風 Acute ischemic stroke</h3>
+  <ul>
+    <li><b>URICO-ICTUS</b>（第 2b/3 期，西班牙 10 個中心）：所有病人接受 alteplase，隨機加上尿酸 1000 mg 或安慰劑靜脈輸注。主要分析 411 人（211 vs 200），90 天良好預後 39% vs 33%（校正 RR 1.23，0.96–1.56，<b>P = .099，未達顯著</b>）<span class="chip g-rct">RCT</span>。</li>
+    <li>預先設定的次要結果顯示尿酸可減少早期缺血惡化；機械取栓次群（n = 45）的勝算比很大但信賴區間極寬（OR 6.12，1.08–34.56），屬<b>假說產生</b>，不能視為證據。</li>
+    <li>機轉較偏向<b>血管保護</b>與配合再灌流的抗氧化作用，是否有效仍需更大型第三期試驗。</li>
+  </ul>
+
+  <h3>失智症與痛風 Dementia &amp; gout</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">研究</th><th>結果</th><th style="width:20%">層級</th></tr></thead>
+      <tbody>
+        <tr><td><b>Three-City Dijon</b><br><span class="en">Latourte 2018</span></td><td>1,598 位社區老人、110 例失智；較高血清尿酸與失智風險上升相關，血管性或混合型 HR 3.66（1.29–10.41）、AD 1.55（0.92–2.61，不顯著）；作者指出可能受期間中風影響</td><td><span class="chip g-cohort">世代研究</span></td></tr>
+        <tr><td><b>Rotterdam 世代</b></td><td>較高尿酸與較低失智風險、較佳認知功能相關，與上者方向相反</td><td><span class="chip g-cohort">世代研究</span></td></tr>
+        <tr><td><b>UK Biobank 痛風</b><br><span class="en">Topiwala 2023</span></td><td>11,735 位痛風者；全因失智 HR 1.60（1.38–1.85），血管性 2.41，AD 1.62，PD 1.43，疑似原發性顫抖 6.75；腦容積較小、腦鐵標記較高；<b>診斷後前 3 年的失智 HR 高達 7.40</b></td><td><span class="chip g-cohort">世代研究</span><span class="chip g-mr">含 MR 分析</span></td></tr>
+        <tr><td><b>統合分析（二手整理）</b></td><td>2021：痛風／高尿酸與失智 HR 0.94（0.69–1.28）、AD 0.78（0.64–0.95）；2024：整體 0.92（0.81–1.05）、AD 0.82（0.70–0.96）</td><td><span class="chip g-meta">統合分析</span><span class="chip g-pre">轉述</span></td></tr>
+        <tr><td><b>台灣健保資料庫</b></td><td>3,242 位痛風者配對分析：僅 benzbromarone 使用者失智風險較低（校正 OR 0.81，0.68–0.97）</td><td><span class="chip g-cohort">觀察性</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn"><b>矛盾如何解？</b>① 痛風是「結晶化疾病」，與「血清尿酸高低」並非同一暴露；② 診斷後前 3 年風險特別高，提示反向因果或偵測偏誤；③ 痛風病人的心血管、腎臟與代謝共病本身就是失智的風險因子。目前資料無法判定尿酸「本身」是保護或傷害。</div>
+</section>
+
+<section id="inference">
+  <div class="section-label">04 · 嚴謹因果推論 <span class="en">Causal Inference</span></div>
+  <h2>為什麼觀察性的「保護」沒有被證明<span class="en">From association to causation</span></h2>
+
+  <div class="ladder">
+    <div class="rung r1"><div class="tag">第一層 · 觀察性</div><h4>關聯一致</h4>
+      <ul><li>PD：HR 0.56（三分位）</li><li>UK Biobank 2024：PD HR 0.87</li><li>ALS：存活較長</li></ul>
+      <div class="verdict">方向一致，但易受混雜與反向因果影響</div></div>
+    <div class="rung r2"><div class="tag">第二層 · 孟德爾隨機化</div><h4>基因工具變數</h4>
+      <ul><li>Kobylecki：OR 1.20（0.85–1.71）</li><li>Kia：更大樣本，效應量接近 1</li><li>UK Biobank 2024：無線性或非線性證據</li></ul>
+      <div class="verdict">未見保護性因果效應</div></div>
+    <div class="rung r3"><div class="tag">第三層 · 隨機對照試驗</div><h4>實際提高尿酸</h4>
+      <ul><li>SURE-PD3：進展差 1.26 分／年</li><li>尿酸確實升高約 2 mg/dL</li><li>腎結石 7.0 vs 1.4／100 人年</li></ul>
+      <div class="verdict">無益，且有副作用</div></div>
+  </div>
+
+  <h3>混雜與反向因果示意<span class="en">Confounding &amp; reverse causation</span></h3>
+  <div class="svgbox">
+    <svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="尿酸、BMI肌肉量與神經疾病的混雜與反向因果示意圖">
+      <defs><marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#99a4b6"/></marker></defs>
+      <rect x="260" y="10" width="180" height="50" rx="10" fill="#181d27" stroke="#e3b341"/>
+      <text x="350" y="32" fill="#e9edf4" font-size="14" text-anchor="middle">BMI／肌肉量／營養</text>
+      <text x="350" y="50" fill="#99a4b6" font-size="11" text-anchor="middle">共同原因（混雜）</text>
+      <rect x="40" y="170" width="170" height="50" rx="10" fill="#181d27" stroke="#4fc3c3"/>
+      <text x="125" y="200" fill="#e9edf4" font-size="14" text-anchor="middle">血清尿酸</text>
+      <rect x="490" y="170" width="170" height="50" rx="10" fill="#181d27" stroke="#a98ee6"/>
+      <text x="575" y="192" fill="#e9edf4" font-size="14" text-anchor="middle">PD／ALS</text>
+      <text x="575" y="209" fill="#99a4b6" font-size="11" text-anchor="middle">發病或進展</text>
+      <line x1="290" y1="62" x2="150" y2="168" stroke="#99a4b6" stroke-width="2" marker-end="url(#ar)"/>
+      <line x1="410" y1="62" x2="550" y2="168" stroke="#99a4b6" stroke-width="2" marker-end="url(#ar)"/>
+      <line x1="212" y1="190" x2="486" y2="190" stroke="#5cc79b" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ar)"/>
+      <text x="350" y="182" fill="#5cc79b" font-size="12" text-anchor="middle">假說：尿酸保護（未被證實）</text>
+      <line x1="486" y1="208" x2="214" y2="208" stroke="#e5695e" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ar)"/>
+      <text x="350" y="228" fill="#e5695e" font-size="12" text-anchor="middle">反向：疾病→食慾、體重、肌肉下降→尿酸下降</text>
+    </svg>
+    <div class="cap">兩條實線表示 BMI／肌肉量同時影響尿酸與疾病預後；綠色虛線是待驗證的保護假說；紅色虛線是反向因果。</div>
+  </div>
+
+  <h3>生物標記不等於治療標靶<span class="en">Biomarker ≠ therapeutic target</span></h3>
+  <p>SURE-PD3 提供了經典案例：藥物成功改變了標記（血清尿酸約升高 2 mg/dL），臨床結果卻沒有改善。這意味著：<b>尿酸可以是風險、預後或代謝狀態的「標記」，但把它拉高並不會改變疾病本身。</b>此外，兩項 MR 與 2024 年大型 UK Biobank 分析一致指出：觀察性關聯在遺傳層級消失。</p>
+
+  <div class="callout"><b>統計提醒：</b>Kobylecki 的 MR 信賴區間（0.85–1.71）很寬，單一研究無法排除小幅保護效應；但結合 Kia 的更大樣本、2024 年 UK Biobank 以及 RCT，整體證據一致偏向「無因果保護」。</div>
+</section>
+
+<section id="check">
+  <div class="section-label">05 · 內容可信度查核 <span class="en">Credibility Check</span></div>
+  <h2>貼上資料中哪些可信、哪些要修正<span class="en">What holds up, what needs correction</span></h2>
+  <p class="lede">貼上的內容包含數個版本。整體而言：<b>附有 14 筆 DOI 的版本（最後兩版）大致可信</b>；較早的長版草稿含多處與原始論文不符的數字與歸屬錯置，建議不要使用。以下對照原始摘要逐項整理。</p>
+
+  <div class="legend">
+    <span><span class="chip v-ok">✔ 已查核</span> 與原始論文摘要一致</span>
+    <span><span class="chip v-fix">▲ 需修正</span> 與原始論文不符</span>
+    <span><span class="chip v-na">○ 未能查核</span> 本次未取得原文</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">貼上內容的說法</th><th style="width:14%">結果</th><th>說明</th></tr></thead>
+      <tbody>
+        <tr><td>SURE-PD3：n = 298、MDS-UPDRS 11.1 vs 9.9、P = .18、腎結石 7.0 vs 1.4</td><td><span class="chip v-ok">✔ 已查核</span></td><td>全部與 JAMA 2021 摘要一致。另需補充：因期中無效分析提前結束；收案限尿酸 &lt;5.8 mg/dL；兩組尿酸差約 2.02 mg/dL。</td></tr>
+        <tr><td>早期草稿把「11.1 vs 9.9」放在 SURE-PD（第二期）</td><td><span class="chip v-fix">▲ 需修正</span></td><td>該數字屬 <b>SURE-PD3（第三期）</b>；第二期（n = 75）的重點是安全性與提高尿酸，並非進展差異。</td></tr>
+        <tr><td>Copenhagen：HR 0.56（0.41–0.77）；MR：OR 1.20（0.85–1.71）</td><td><span class="chip v-ok">✔ 已查核</span></td><td>HR 0.56 是「最高 vs 最低<b>三分位</b>」；MR 的 OR 是「每高 50 μmol/L」。早期草稿寫成「每上升 1 mg/dL HR 0.56（0.43–0.73）」為<b>錯誤</b>。「檢定力約 19%」本次未能核對。</td></tr>
+        <tr><td>URICO-ICTUS：n = 421、主要終點 mRS 0–2、P = .23</td><td><span class="chip v-fix">▲ 需修正</span></td><td>主要分析為 <b>411 人</b>（211 vs 200）；終點為 mRS 0–1（病前為 2 者放寬至 2）；<b>P = .099</b>，校正 RR 1.23（0.96–1.56）。「絕對增加約 6%」（39% vs 33%）正確。前後版本 n 值不一致（411／421），請以主要分析為準。</td></tr>
+        <tr><td>機械取栓次群 n = 45、OR 6.12（1.08–34.56）</td><td><span class="chip v-na">○ 僅能判讀</span></td><td>本次未取得該次群論文全文；早期草稿將其誤放為「TOAST 小血管亞型」，歸屬錯誤。信賴區間極寬，應視為假說產生。</td></tr>
+        <tr><td>ALS：PRO-ACT n = 1,736、HR 0.89（0.82–0.97）</td><td><span class="chip v-ok">✔ 部分查核</span></td><td>n = 1,736 與關聯方向已確認；HR 數值本次未見摘要，建議核對。早期草稿的「歐洲逾百萬人世代、HR 0.89（0.81–0.98）」與實際不符：O'Reilly 前瞻性研究為 RR 0.89（0.78–1.02，P = .08，<b>未達顯著</b>）。</td></tr>
+        <tr><td>UK Biobank 痛風：失智 HR 1.60、血管性 2.41、PD 1.43</td><td><span class="chip v-ok">✔ 已查核</span></td><td>早期草稿的信賴區間 1.31–1.95 應為 <b>1.38–1.85</b>。尚須補充「診斷後 3 年內 HR 7.40」，這提示反向因果或偵測偏誤。「MR 支持痛風與腦結構因果」與「尿酸 U 型關聯」兩點本次未能核對。</td></tr>
+        <tr><td>參考文獻 [14] 作為 Latourte 研究的證據</td><td><span class="chip v-fix">▲ 需修正</span></td><td>[14]（Lee &amp; Song, 2018）是對 Latourte 研究的<b>讀者來函</b>，並非原始資料。應改引 Latourte 等人（Ann Rheum Dis 2018;77:328–335）；一份草稿寫「追蹤 6 年」，實際中位追蹤約 10 年。</td></tr>
+        <tr><td>6-OHDA 飲食模型：1% 尿酸＋2.5% 氧嗪酸鉀（小鼠）</td><td><span class="chip v-ok">✔ 已查核</span></td><td>與 Nakashima 摘要一致。「血漿尿酸升高約 4 倍」「TH 蛋白由下降 52% 回復至 17%」等數值本次未能核對。早期草稿誤寫成「大鼠餵食 inosine」。</td></tr>
+        <tr><td>De Luca：紋狀體尿酸僅在重度損傷顯著升高</td><td><span class="chip v-ok">✔ 已查核</span></td><td>6-OHDA 大鼠顯著升高並與多巴胺負相關；MPTP 小鼠僅有趨勢。具體 μM 數值與 r = −0.89 本次未核對。</td></tr>
+        <tr><td>血漿抗氧化力 35–65%、CD38 IC₅₀、BBB Kᵢ = 0.195 等基礎數值</td><td><span class="chip v-na">○ 未能查核</span></td><td>皆為綜述或單一研究的轉述；建議以定性方式教學。</td></tr>
+        <tr><td>PD 統合分析 MD −0.49 mg/dL</td><td><span class="chip v-ok">✔ 點估計</span></td><td>不同版本的 95% CI 不一致（−0.67 至 −0.31 vs −0.65 至 −0.33），請以原文為準。研究多為橫斷面，只能說「PD 病人尿酸較低」。</td></tr>
+        <tr><td>早期長版草稿中其餘文獻（如 Wu 1992、Stover 1999、Chen 2013 Neuroscience 等）及其數值</td><td><span class="chip v-na">○ 建議不採用</span></td><td>多數無法與後續附 DOI 的清單對上，部分引用已證實與原始論文不符；請只保留有 DOI 且能查回原文者。</td></tr>
+        <tr><td>內容完整度</td><td><span class="chip v-fix">▲ 需補充</span></td><td>缺少兩個關鍵證據：<b>Kia 2018 的大型兩樣本 MR</b>與 <b>2024 年 UK Biobank 世代＋MR</b>（n = 382,182）；已補入本頁（Kia 的樣本數與效應量細節本次未取得，教學前請核對原文）。另請避免簡體用語並以英文標題引用文獻。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="practice">
+  <div class="section-label">06 · 臨床意涵 <span class="en">Clinical Implications</span></div>
+  <h2>對門診與教學的實務結論<span class="en">What to do — and not to do</span></h2>
+  <div class="card-grid">
+    <div class="card"><span class="icon">🚫</span><div class="cat">不要做</div><h4>不以升高尿酸作為神經保護</h4><p>SURE-PD3 已證實提高尿酸對早期 PD 無益，且腎結石增加；觀察性關聯不能轉成治療建議。</p><div class="foot"><span class="chip g-rct">RCT</span></div></div>
+    <div class="card"><span class="icon">📌</span><div class="cat">可以用</div><h4>低尿酸是預後線索，不是治療目標</h4><p>在 ALS 與 PD，較低尿酸可能反映較差的營養／肌肉或疾病階段，可作為預後的輔助資訊。</p><div class="foot"><span class="chip g-cohort">世代研究</span></div></div>
+    <div class="card"><span class="icon">🧠</span><div class="cat">痛風病人</div><h4>留意認知與動作症狀</h4><p>UK Biobank 顯示痛風者失智與 PD 風險較高；前 3 年特別明顯，宜主動詢問症狀，但不能據此證明尿酸有害。</p><div class="foot"><span class="chip g-cohort">世代研究</span></div></div>
+    <div class="card"><span class="icon">💊</span><div class="cat">降尿酸治療</div><h4>目前沒有試驗證據可改變痛風目標</h4><p>降尿酸藥物（如 allopurinol、febuxostat、benzbromarone）與失智的關聯僅見於觀察性資料，結果不一，易受適應症混雜。</p><div class="foot"><span class="chip g-cohort">觀察性</span></div></div>
+    <div class="card"><span class="icon">🩸</span><div class="cat">中風</div><h4>尚屬研究階段</h4><p>URICO-ICTUS 主要終點未達顯著，仍待大型第三期試驗驗證，目前不是常規治療。</p><div class="foot"><span class="chip g-rct">RCT</span></div></div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="section-label">07 · 自我測驗 <span class="en">Self-check</span></div>
+  <h2>五題快速檢視</h2>
+  <div id="quiz-box"></div>
+  <div class="score" id="score"></div>
+</section>
+
+<section id="refs">
+  <div class="section-label">參考文獻 <span class="en">References</span></div>
+  <h2>Reference List</h2>
+
+  <div class="ref-sub">A. 貼上資料中的 14 筆文獻（編號沿用）</div>
+  <ul class="ref-list">
+    <li><span class="ref-num">[1]</span><span>Wen S, Arakawa H, Tamai I. Uric acid in health and disease: From physiological functions to pathogenic mechanisms. <i>Pharmacol Ther.</i> 2024;256:108615. <span class="doi">DOI: 10.1016/j.pharmthera.2024.108615</span></span></li>
+    <li><span class="ref-num">[2]</span><span>Keenan RT. The biology of urate. <i>Semin Arthritis Rheum.</i> 2020;50(3):S2-S10. <span class="doi">DOI: 10.1016/j.semarthrit.2020.04.007</span></span></li>
+    <li><span class="ref-num">[3]</span><span>Nakashima A, Yamauchi A, Matsumoto J, et al. Feeding-produced subchronic high plasma levels of uric acid improve behavioral dysfunction in 6-hydroxydopamine-induced mouse model of Parkinson's disease. <i>Behav Pharmacol.</i> 2019;30(1):89-94. <span class="doi">DOI: 10.1097/fbp.0000000000000413</span></span></li>
+    <li><span class="ref-num">[4]</span><span>De Luca MA, Cauli O, Morelli M, Simola N. Elevation of striatal urate in experimental models of Parkinson's disease: a compensatory mechanism triggered by dopaminergic nigrostriatal degeneration? <i>J Neurochem.</i> 2014;131(3):284-289. <span class="doi">DOI: 10.1111/jnc.12809</span></span></li>
+    <li><span class="ref-num">[5]</span><span>Kobylecki CJ, Nordestgaard BG, Afzal S. Plasma urate and risk of Parkinson's disease: a mendelian randomization study. <i>Ann Neurol.</i> 2018;84(2):178-190. <span class="doi">DOI: 10.1002/ana.25292</span></span></li>
+    <li><span class="ref-num">[6]</span><span>Balabandian M, Salahi S, Mahmoudvand B, et al. Serum uric acid and Parkinson's disease: a systematic review and meta-analysis. <i>Neurol Clin Neurosci.</i> 2023;11(6):299-309. <span class="doi">DOI: 10.1111/ncn3.12761</span></span></li>
+    <li><span class="ref-num">[7]</span><span>Chamorro Á, Amaro S, Jiménez-Altayó F. Uric acid therapy for vasculoprotection in acute ischemic stroke. <i>Brain Circ.</i> 2019;5(2):55. <span class="doi">DOI: 10.4103/bc.bc_1_19</span></span></li>
+    <li><span class="ref-num">[8]</span><span>Chamorro Á, Amaro S, Castellanos M, et al. Uric acid therapy improves the outcomes of stroke patients treated with intravenous tissue plasminogen activator and mechanical thrombectomy. <i>Int J Stroke.</i> 2016;12(4):377-382. <span class="doi">DOI: 10.1177/1747493016684354</span></span></li>
+    <li><span class="ref-num">[9]</span><span>Schwarzschild MA, Ascherio A, Beal MF, et al. Inosine to increase serum and cerebrospinal fluid urate in Parkinson disease. <i>JAMA Neurol.</i> 2014;71(2):141. <span class="doi">DOI: 10.1001/jamaneurol.2013.5528</span></span></li>
+    <li><span class="ref-num">[10]</span><span>Parkinson Study Group SURE-PD3 Investigators. Effect of urate-elevating inosine on early Parkinson disease progression. <i>JAMA.</i> 2021;326(10):926-939. <span class="doi">DOI: 10.1001/jama.2021.10207</span></span></li>
+    <li><span class="ref-num">[11]</span><span>Paganoni S, Nicholson K, Chan J, et al. Urate levels predict survival in amyotrophic lateral sclerosis: analysis of the expanded PRO-ACT database. <i>Muscle Nerve.</i> 2017;57(3):430-434. <span class="doi">DOI: 10.1002/mus.25950</span></span></li>
+    <li><span class="ref-num">[12]</span><span>Zhang F, Zhang Q, Ke Y, et al. Serum uric acid levels in patients with amyotrophic lateral sclerosis: a meta-analysis. <i>Sci Rep.</i> 2018;8(1). <span class="doi">DOI: 10.1038/s41598-018-19609-2</span></span></li>
+    <li><span class="ref-num">[13]</span><span>Topiwala A, Mankia K, Bell S, et al. Association of gout with brain reserve and vulnerability to neurodegenerative disease. <i>Nat Commun.</i> 2023;14(1). <span class="doi">DOI: 10.1038/s41467-023-38602-6</span></span></li>
+    <li><span class="ref-num">[14]</span><span>Lee YH, Song GG. Uric acid and incident dementia: a population-based cohort study（讀者來函）. <i>Ann Rheum Dis.</i> 2018;77(9):e62. <span class="doi">DOI: 10.1136/annrheumdis-2017-212570</span></span></li>
+  </ul>
+
+  <div class="ref-sub">B. 本次補充查核的文獻</div>
+  <ul class="ref-list">
+    <li><span class="ref-num">[B1]</span><span>Kia DA, et al. Mendelian randomization study shows no causal relationship between circulating urate levels and Parkinson's disease. <i>Ann Neurol.</i> 2018;84(2):191-199. <span class="doi">DOI: 10.1002/ana.25294</span></span></li>
+    <li><span class="ref-num">[B2]</span><span>Chamorro Á, Amaro S, Castellanos M, et al. Safety and efficacy of uric acid in patients with acute stroke (URICO-ICTUS): a randomised, double-blind phase 2b/3 trial. <i>Lancet Neurol.</i> 2014;13(5):453-460. <span class="doi">DOI: 10.1016/S1474-4422(14)70054-7</span></span></li>
+    <li><span class="ref-num">[B3]</span><span>Latourte A, Soumaré A, Bardin T, et al. Uric acid and incident dementia over 12 years of follow-up: a population-based cohort study. <i>Ann Rheum Dis.</i> 2018;77:328-335.</span></li>
+    <li><span class="ref-num">[B4]</span><span>O'Reilly ÉJ, Bjornevik K, Schwarzschild MA, et al. Pre-diagnostic plasma urate and the risk of amyotrophic lateral sclerosis. <i>Amyotroph Lateral Scler Frontotemporal Degener.</i> 2017;19(3-4):194-200. <span class="doi">DOI: 10.1080/21678421.2017.1418005</span></span></li>
+    <li><span class="ref-num">[B5]</span><span>Chen X, et al. Disrupted and transgenic urate oxidase alter urate and dopaminergic neurodegeneration. <i>Proc Natl Acad Sci U S A.</i> 2013;110(1):300-305. <span class="doi">DOI: 10.1073/pnas.1217296110</span></span></li>
+    <li><span class="ref-num">[B6]</span><span>Serum urate levels and neurodegenerative outcomes: a prospective cohort study and Mendelian randomization analysis of the UK Biobank (n = 382,182). <i>Alzheimers Res Ther.</i> 2024. <span class="doi">作者資訊請於引用前核對原文</span></span></li>
+    <li><span class="ref-num">[B7]</span><span>Anti-gout preparations and dementia: a nationwide population-based cohort study（台灣健保資料庫）. <i>Front Med.</i> 2020;7:607808. <span class="doi">DOI: 10.3389/fmed.2020.607808</span></span></li>
+  </ul>
+  <p style="margin-top:16px;font-size:.8rem;color:var(--text-faint);">「已查核」僅表示與檢索到的摘要或權威二手摘要一致；未列出「未能查核」的數值請勿直接用於教學或發表，教學前建議對關鍵數字再次核對原文全文。</p>
+</section>
+
+<footer>
+  N-Teaching 神經科教學研究部 · 本頁面為住院醫師／專科護理師教學用整理資料，非臨床診斷依據 · <a href="index.html">返回首頁</a>
+</footer>
+
+<script>
+/* 自我測驗：要新增題目，複製一個 {...} 區塊再修改文字即可 */
+var QUIZ = [
+  { q: "SURE-PD3 使血清尿酸升高約 2 mg/dL，但 MDS-UPDRS 進展沒有改善。這最能說明什麼？",
+    opts: ["試驗樣本太小，不能下結論", "尿酸可以是標記，但提高它並不改變疾病進展", "inosine 劑量不足", "尿酸對 PD 完全沒有生物作用"],
+    a: 1, why: "目標確實達成（尿酸升高）卻無臨床益處，是「生物標記 ≠ 治療標靶」的典型案例；同時腎結石增加。這不代表尿酸毫無生物作用，但不支持以提高尿酸治療早期 PD。" },
+  { q: "Kobylecki 的孟德爾隨機化結果為 OR 1.20（0.85–1.71）。正確解讀是？",
+    opts: ["尿酸升高會顯著增加 PD 風險", "未見尿酸保護 PD 的因果證據，但信賴區間很寬", "證實尿酸能降低 PD 風險", "MR 無法用於 PD 研究"],
+    a: 1, why: "點估計大於 1 且信賴區間跨過 1，並未支持保護效應；單一研究檢定力有限，需與 Kia 2018 的更大樣本 MR、UK Biobank 2024 及 RCT 一起判讀。" },
+  { q: "觀察性研究中 ALS 病人尿酸較低，下列哪個解釋最需要考慮？",
+    opts: ["尿酸直接保護運動神經元", "疾病造成體重與肌肉下降，使尿酸降低（反向因果／混雜）", "ALS 病人喝水較多", "尿酸測量一定不準"],
+    a: 1, why: "尿酸與 BMI、肌酸酐高度共線，ALS 的體重下降會降低尿酸；EMPOWER 校正 BMI 後關聯減弱，O'Reilly 前瞻研究 RR 0.89 也未達顯著。" },
+  { q: "UK Biobank 顯示痛風病人失智風險上升，且診斷後前 3 年 HR 特別高（7.40）。這最可能提示？",
+    opts: ["高尿酸一定會導致失智", "可能存在反向因果或偵測偏誤，且痛風並不等於血清尿酸高低", "降尿酸藥物會導致失智", "AD 與痛風無關"],
+    a: 1, why: "前 3 年風險最高很不像是緩慢累積的毒性效應；同時，痛風是結晶化疾病，與共病（心血管、腎臟、代謝）高度糾纏，不能直接推論尿酸本身有害。" },
+  { q: "URICO-ICTUS 的主要結果應如何描述？",
+    opts: ["尿酸顯著提高良好預後（P &lt; 0.05）", "主要終點未達顯著（39% vs 33%，P = .099），早期惡化減少屬次要結果", "尿酸組死亡率顯著較高", "試驗證實尿酸應納入常規溶栓"],
+    a: 1, why: "主要終點（90 天良好預後）未達顯著；早期缺血惡化減少與機械取栓次群為預先設定的次要分析，只能作為後續試驗的假說。" }
+];
+var answered = 0, correct = 0;
+(function build(){
+  var box = document.getElementById("quiz-box");
+  QUIZ.forEach(function(item, qi){
+    var d = document.createElement("div"); d.className = "q";
+    var h = document.createElement("h4"); h.textContent = (qi+1) + ". " + item.q; d.appendChild(h);
+    item.opts.forEach(function(o, oi){
+      var b = document.createElement("button"); b.className = "opt"; b.type = "button"; b.innerHTML = o;
+      b.onclick = function(){
+        if (d.classList.contains("done")) return;
+        d.classList.add("done"); answered++;
+        var btns = d.querySelectorAll(".opt");
+        btns[item.a].classList.add("right");
+        if (oi === item.a) { correct++; } else { b.classList.add("wrong"); }
+        document.getElementById("score").textContent = "目前答對 " + correct + " / " + answered + "（共 " + QUIZ.length + " 題）";
+      };
+      d.appendChild(b);
+    });
+    var w = document.createElement("div"); w.className = "why"; w.textContent = "解析：" + item.why; d.appendChild(w);
+    box.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>
