@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="nt:category" content="cerebrovascular">
+<meta name="nt:label" content="Stenting Complications">
+<meta name="nt:icon" content="🩺">
+<meta name="nt:summary" content="顱內外動脈支架術後三大問題：高灌流症候群、術後中風（缺血與出血）與術後低血壓。整理病因、症狀、診斷與處理，逐項標示證據強度，並修正常見的數字與推論。">
+<meta name="nt:tags" content="動脈支架, 高灌流症候群, 術後血壓, 腦出血">
+<meta name="nt:order" content="3">
+<meta name="nt:updated" content="2026-11-02">
+<title>顱內外動脈支架術後併發症：高灌流、術後中風與低血壓｜HCH-FYH Neurology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* 色票：與首頁（index.html）同一組深色色票 */
+:root{
+  --bg:#0d1117; --bg-card:#161b22; --bg-hover:#1c2128;
+  --border:rgba(255,255,255,.10); --border-strong:rgba(255,255,255,.20);
+  --text:#e6edf3; --dim:#8b949e; --faint:#6e7681;
+  --amber:#e3b341; --blue:#58a6ff; --green:#39d353; --red:#f0616f; --purple:#bc8cff; --teal:#2dd4bf;
+  --amber-bg:rgba(227,179,65,.10); --blue-bg:rgba(88,166,255,.10); --green-bg:rgba(57,211,83,.10);
+  --red-bg:rgba(240,97,111,.10); --purple-bg:rgba(188,140,255,.10); --teal-bg:rgba(45,212,191,.10);
+  --serif:'Noto Serif TC',serif; --sans:'Noto Sans TC',sans-serif; --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth; scroll-padding-top:64px;}
+body{margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.75; -webkit-font-smoothing:antialiased;}
+a{color:var(--blue);}
+.wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+
+.topnav{position:sticky; top:0; z-index:100; background:rgba(13,17,23,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:8px 28px;}
+.topnav .links{display:flex; gap:2px; max-width:1100px; margin:0 auto; overflow-x:auto; scrollbar-width:none;}
+.topnav a{color:var(--dim); text-decoration:none; font-size:.84rem; padding:6px 12px; border-radius:6px; white-space:nowrap;}
+.topnav a:hover{background:var(--bg-hover); color:var(--text);}
+
+.hero{padding:64px 24px 44px; border-bottom:1px solid var(--border); background:radial-gradient(900px 300px at 10% -10%, rgba(240,97,111,.12), transparent 60%), radial-gradient(700px 260px at 100% 0, rgba(88,166,255,.10), transparent 60%);}
+.hero-in{max-width:920px; margin:0 auto;}
+.eyebrow{font-family:var(--mono); font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:10px; margin-bottom:16px;}
+.eyebrow::before{content:""; width:26px; height:1px; background:var(--red);}
+.hero h1{font-family:var(--serif); font-weight:900; font-size:clamp(1.6rem,4vw,2.4rem); line-height:1.38; margin:0 0 16px;}
+.hero p.lede{color:var(--dim); font-size:1.02rem; max-width:68ch; margin:0 0 26px;}
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px;}
+.stat{background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:16px 18px;}
+.stat b{display:block; font-family:var(--mono); font-size:1.5rem; font-weight:600; line-height:1.2;}
+.stat span{font-size:.82rem; color:var(--dim);}
+
+section.block{padding:54px 0; border-bottom:1px solid var(--border);}
+.label{font-family:var(--mono); font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; color:var(--red); margin-bottom:10px; display:flex; gap:10px; align-items:center;}
+.label .n{background:var(--red-bg); color:var(--red); border:1px solid rgba(240,97,111,.3); border-radius:6px; padding:1px 8px;}
+h2{font-family:var(--serif); font-size:clamp(1.3rem,2.6vw,1.8rem); margin:0 0 10px; font-weight:800;}
+h3{font-family:var(--serif); font-size:1.15rem; margin:34px 0 10px;}
+p.intro{color:var(--dim); max-width:72ch; margin:0 0 26px;}
+p{margin:0 0 12px;} ul{padding-left:20px; margin:6px 0 12px;} li{margin-bottom:4px;}
+
+.grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.card{background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px; border-top:3px solid var(--c,var(--blue));}
+.card h4{margin:0 0 8px; font-family:var(--serif); font-size:1.02rem; line-height:1.5;}
+.card p,.card li{font-size:.9rem; color:var(--dim);} .card p:last-child{margin-bottom:0;}
+.card .foot{margin-top:12px; padding-top:10px; border-top:1px dashed var(--border); font-family:var(--mono); font-size:.72rem; color:var(--faint); display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;}
+.c-blue{--c:var(--blue);} .c-amber{--c:var(--amber);} .c-green{--c:var(--green);} .c-red{--c:var(--red);} .c-purple{--c:var(--purple);} .c-teal{--c:var(--teal);}
+.badge{display:inline-block; font-family:var(--mono); font-size:.68rem; font-weight:600; padding:2px 9px; border-radius:999px; white-space:nowrap;}
+.g-a{background:var(--green-bg); color:var(--green); border:1px solid rgba(57,211,83,.3);}
+.g-b{background:var(--amber-bg); color:var(--amber); border:1px solid rgba(227,179,65,.3);}
+.g-c{background:var(--red-bg); color:var(--red); border:1px solid rgba(240,97,111,.3);}
+.callout{border-radius:12px; padding:16px 18px; margin:18px 0; font-size:.92rem; border:1px solid var(--border); background:var(--bg-card);}
+.callout h5{margin:0 0 6px; font-size:.92rem;} .callout p:last-child{margin:0;} .callout ul{margin-bottom:0;}
+.callout.red{background:var(--red-bg); border-color:rgba(240,97,111,.3);}
+.callout.amber{background:var(--amber-bg); border-color:rgba(227,179,65,.3);}
+.callout.green{background:var(--green-bg); border-color:rgba(57,211,83,.3);}
+.callout.blue{background:var(--blue-bg); border-color:rgba(88,166,255,.3);}
+
+.check{background:#0a0e13; border:1px solid var(--border-strong); border-radius:16px; padding:22px 24px 8px;}
+.check h3{margin:0 0 6px;} .check .sub{color:var(--dim); font-size:.88rem; margin:0 0 16px;}
+.row{font-family:var(--mono); font-size:.82rem; line-height:1.85; border-top:1px solid var(--border); padding:14px 0;}
+.row div{display:flex; gap:10px; padding:2px 0;} .row .m{flex-shrink:0; width:14px;}
+.row .old{color:var(--faint);} .row .old .t{text-decoration:line-through; text-decoration-color:rgba(240,97,111,.6);} .row .old .m{color:var(--red);}
+.row .new{color:#d3ecdc;} .row .new .m{color:var(--green);}
+.row .src{color:var(--faint); font-size:.74rem; padding-left:24px;}
+details.fold{border-top:1px solid var(--border); padding:12px 0; font-size:.88rem;}
+details.fold summary{cursor:pointer; font-weight:600;} details.fold ul{color:var(--dim); font-size:.86rem;}
+
+.tw{overflow-x:auto; border:1px solid var(--border); border-radius:12px; background:var(--bg-card);}
+table{width:100%; border-collapse:collapse; font-size:.86rem; min-width:680px;}
+th,td{padding:11px 14px; border-bottom:1px solid var(--border); text-align:left; vertical-align:top;}
+th{font-family:var(--mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--faint); background:rgba(255,255,255,.02);}
+tr:last-child td{border-bottom:none;} td{color:var(--dim);} td:first-child{color:var(--text); font-weight:500;}
+
+/* 血壓視窗圖 */
+.bpwin{background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:20px; margin:14px 0;}
+.bpbar{display:flex; height:38px; border-radius:10px; overflow:hidden; margin:10px 0 6px; font-family:var(--mono); font-size:.72rem;}
+.bpbar div{display:flex; align-items:center; justify-content:center; text-align:center; padding:0 6px;}
+.bp-low{background:rgba(88,166,255,.25); color:#a8cdfb; flex:1.1;} .bp-ok{background:rgba(57,211,83,.22); color:#9be8aa; flex:.9;} .bp-high{background:rgba(240,97,111,.25); color:#f5a3ac; flex:1.1;}
+.bpbar.narrow .bp-ok{flex:.35;} .bpbar.narrow .bp-low{flex:1.4;} .bpbar.narrow .bp-high{flex:1.4;}
+.bpnote{display:flex; justify-content:space-between; gap:10px; font-size:.78rem; color:var(--faint);}
+.seg{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:6px;}
+.segb{font-family:var(--sans); font-size:.85rem; color:var(--dim); background:var(--bg); border:1px solid var(--border); border-radius:999px; padding:6px 14px; cursor:pointer;}
+.segb[aria-pressed="true"]{color:var(--text); border-color:var(--red); background:var(--red-bg);}
+
+/* 時間軸 */
+.tl{position:relative; margin:14px 0; padding-left:26px;}
+.tl::before{content:""; position:absolute; left:8px; top:6px; bottom:6px; width:2px; background:linear-gradient(var(--red),var(--blue));}
+.tli{position:relative; background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:12px 16px; margin-bottom:10px; font-size:.88rem; color:var(--dim);}
+.tli::before{content:""; position:absolute; left:-23px; top:16px; width:12px; height:12px; border-radius:50%; background:var(--red); border:2px solid var(--bg);}
+.tli b{color:var(--text);} .tli .t{font-family:var(--mono); font-size:.72rem; color:var(--red); display:block; margin-bottom:2px;}
+
+/* 互動：術後狀況判讀 */
+.tool{background:var(--bg-card); border:1px solid var(--border-strong); border-radius:16px; padding:22px;}
+.tool .qs{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px;}
+.tool label{display:block; font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--red); margin-bottom:6px;}
+.tool select{width:100%; font-family:var(--sans); font-size:.9rem; color:var(--text); background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 12px;}
+.out{margin-top:18px; display:grid; gap:12px;}
+.out .box{background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:14px 16px; font-size:.9rem;}
+.out .box h6{margin:0 0 6px; font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--faint);} .out .box ul{margin:0; color:var(--dim);}
+.out .title{font-family:var(--serif); font-size:1.15rem; margin:0; display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+
+.qcard{background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:20px; margin-bottom:14px;}
+.qcard h5{margin:0 0 12px; font-size:.97rem; font-weight:500; line-height:1.65;} .qcard h5 span{font-family:var(--mono); color:var(--red); margin-right:8px;}
+.qopt{display:block; width:100%; text-align:left; font-family:var(--sans); font-size:.9rem; color:var(--text); background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 14px; margin-bottom:8px; cursor:pointer;}
+.qopt:hover{border-color:var(--red);} .qopt.ok{border-color:var(--green); background:var(--green-bg);} .qopt.no{border-color:var(--red); background:var(--red-bg);}
+.exp{display:none; margin-top:10px; font-size:.88rem; color:var(--dim); border-left:3px solid var(--green); padding:8px 14px; background:var(--bg);} .qcard.done .exp{display:block;}
+.score{font-family:var(--mono); font-size:.85rem; color:var(--dim);}
+
+ol.refs{list-style:none; counter-reset:r; padding:0; font-size:.84rem; color:var(--dim);}
+ol.refs li{counter-increment:r; position:relative; padding:9px 0 9px 38px; border-bottom:1px dashed var(--border);}
+ol.refs li::before{content:"["counter(r)"]"; position:absolute; left:0; font-family:var(--mono); color:var(--red); font-size:.78rem;}
+.st{font-family:var(--mono); font-size:.64rem; margin-left:8px; padding:1px 7px; border-radius:999px;}
+.st.v{background:var(--green-bg); color:var(--green);} .st.u{background:var(--amber-bg); color:var(--amber);}
+
+footer{padding:34px 24px; color:var(--faint); font-size:.85rem; border-top:1px solid var(--border);}
+footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+:focus-visible{outline:3px solid var(--red); outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){*{transition:none !important; scroll-behavior:auto !important;}}
+@media print{.topnav{display:none;}}
+</style>
+</head>
+<body>
+<script src="assets/site-header.js"></script>
+
+<nav class="topnav" aria-label="本頁章節">
+  <div class="links">
+    <a href="#check">證據查核</a><a href="#overview">總覽</a><a href="#chs">高灌流症候群</a><a href="#stroke">術後中風</a>
+    <a href="#hypo">術後低血壓</a><a href="#tool">情境判讀</a><a href="#pathway">監護路徑</a><a href="#quiz">自我測驗</a><a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="eyebrow">Cerebrovascular · Endovascular · Perioperative</div>
+    <h1>顱內外動脈支架術後併發症：高灌流、術後中風與低血壓</h1>
+    <p class="lede">支架解除狹窄、血流突然恢復，既可能讓血壓「太高」造成高灌流與出血，也可能讓血壓「太低」造成低灌流性梗塞。本頁把這三件事放在同一個血流動力學架構下，逐項核對原始研究、標示證據強度，並修正常見的數字與推論。</p>
+    <div class="stats">
+      <div class="stat"><b>14.7% vs 5.8%</b><span>SAMMPRIS：顱內支架組與積極內科治療組 30 天中風或死亡 [1]</span></div>
+      <div class="stat"><b>1.16% / 1.9%</b><span>高灌流症候群發生率：頸動脈支架（CAS）與內膜切除術（CEA）[11]</span></div>
+      <div class="stat"><b>沒有隨機試驗</b><span>術後最適血壓目標，在顱內支架尚無隨機試驗證據 [14]</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 01 證據查核 ================= -->
+<section class="block" id="check">
+  <div class="wrap">
+    <div class="label"><span class="n">01</span>證據查核</div>
+    <h2>哪些常見說法需要修正</h2>
+    <p class="intro">灰色刪除線是常被引用、但找不到出處或與原始研究不符的說法；綠色是查核後的內容。第 3、10、11 項是推論與研究證據之間落差最大的地方。</p>
+
+    <div class="check">
+      <h3>查核紀錄</h3><p class="sub">共 14 項；另列已核實與無法核實的清單。本頁證據來自國際研究，沒有納入台灣專屬資料。</p>
+
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">顱內動脈支架後的出血「幾乎都在 30 分鐘至 16–18 小時內出現」，且出血病人術前 SPECT「全都有血流動力學障礙」</span></div>
+        <div class="new"><span class="m">+</span><span>這組時間窗與「全部都有」找不到可核實的出處。顱內支架後的出血原因不只高灌流：導絲穿孔、血管破裂、血栓合併再灌流都可能；因此「術後出血 = 高灌流」不成立。CHS 在顱內支架僅有零星病例報告與少數病例對照研究，整體研究不足</span></div>
+        <div class="src">Terada 2006 [8]（僅核對到文獻存在）；Ghuman 2019 [14]；[34]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">顱內外（craniocervical）支架 140 例的 CHS 發生率 5.0%；顱內支架 CHS 約 2–5%</span></div>
+        <div class="new"><span class="m">+</span><span>文獻說法是「顱內血管成形術後的 CHS 研究較少，只有估計值」；2–5% 無可靠原始數字。可核實的是頸動脈：CAS 後 CHS 1.16%、ICH 0.74%；CEA 後 CHS 1.9%、ICH 0.37%（兩者合計約 9,000 人的回顧）</span></div>
+        <div class="src">Moulakakis 2009 [11]；Farooq 2016 [10]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">術後收縮壓 &gt;130 mmHg 使 ICH 風險增加 37.67 倍，所以術後 24 小時應控制在 130 mmHg 以下</span></div>
+        <div class="new"><span class="m">+</span><span>數字無誤（OR 37.67，95% CI 6.79–209.01），但這是單中心 173 例的回顧研究，信賴區間跨越 30 倍，事件數很少；130 mmHg 是研究分組的切點，不是經驗證的目標。作者的結論是 CAS 後 24 小時內 BP 應低於 130 mmHg，仍屬觀察性證據</span></div>
+        <div class="src">Zheng 2020 [19]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">頸動脈狹窄 &gt;80–90% 是高灌流的危險因子</span></div>
+        <div class="new"><span class="m">+</span><span>證據不一致：有研究發現狹窄程度與術前靜息 CBF「不是」顯著預測因子，顯著的是年齡、術前腦血管反應性（CVR）與不對稱指數</span></div>
+        <div class="src">AJNR 2004 [15]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">CTP 門檻（CBF↓≥40%、CBV↓≥30%、TTP↑≥2 s、MTT↑≥1 s、梗塞 ≥20 mL、側枝 ASITN/SIR ≤2）為術後腦出血的獨立預測因子</span></div>
+        <div class="new"><span class="m">+</span><span>這些門檻出自單中心的探索性研究，原文用詞是「probably」獨立預測因子，且門檻由同一批資料得出，未經外部驗證。另有 2023 年的病例對照研究發現 Tmax &gt;4 s 的體積可預測顱內支架後的 HPS，作者也說需要前瞻研究確認</span></div>
+        <div class="src">Liu 2020 [12]；Yan 2023 [13]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">CVR 15% 切點預測 HPS 敏感度 100%、特異度 72.7%；頸段 ICA 直徑比 &lt;0.677 預測 CHS（AUC 0.97）；煙霧病密集血管 OR 3.04</span></div>
+        <div class="new"><span class="m">+</span><span>這三項數字我都只核對到文獻存在，內文數字無法核實；而且它們來自頸動脈支架、頸動脈血管重建與煙霧病，是類比證據，不能直接套用到顱內動脈粥狀硬化支架</span></div>
+        <div class="src">Iwata 2011 [16]；Anan 2025 [17]；Shi 2023 [18]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">低量中心併發症 17.2%、高量中心 6.8%（多中心 Wingspan 登錄）</span></div>
+        <div class="new"><span class="m">+</span><span>找不到這組數字。可核實的操作者經驗證據：433 例單中心 Wingspan 系列，術後 30 天中風 6.7%；兩年累積中風率在「經驗累積期」18.8%、技術成熟期 9.1%</span></div>
+        <div class="src">Li 2015 [5]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">血管攝影追蹤支架再狹窄率 26.7%、有症狀 11.1%；停用雙抗血小板 3 天即中風</span></div>
+        <div class="new"><span class="m">+</span><span>26.7% 與「3 天」無法核實。另一個 77 例系列的二元再狹窄率 24.6%、其中有症狀者 17.6%。「晚期事件多與再狹窄或中斷抗血小板藥物有關」是常被提出的機轉與臨床經驗，我沒有找到可核實的量化資料</span></div>
+        <div class="src">Shin [6]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">「術後血壓下降並非良性」：術中 MAP 降幅 &gt;40% 與不良預後獨立相關（OR 2.8，&gt;70% 需升壓劑）</span></div>
+        <div class="new"><span class="m">+</span><span>這項研究是<b>急性缺血性中風取栓</b>（全身麻醉）的回顧研究，不是選擇性支架手術；結論是「MAP 下降 &gt;40% 是不良預後的獨立預測因子」。把它套用到支架術後屬外推。隨機試驗（AnStroke）發現，只要避免低血壓，全身麻醉與清醒鎮靜的結果相同</span></div>
+        <div class="src">Löwhagen Hendén 2015 [20]；[21]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">氣球擴張使術中低血壓從 1% 升到 20%（OR 4.4）；術後 24 小時低血壓或心搏過緩 32% 對 75%</span></div>
+        <div class="new"><span class="m">+</span><span>這組數字我無法核實。可核實的是：CAS 後血流動力學抑制很常見（低血壓約 14%、心搏過緩 23–27%、兩者皆有 5–15%），持續性低血壓約 4–11%；<b>2012 年統合分析未發現它與死亡、中風、TIA 或主要心血管事件增加有關</b>；但另一個 237 例的回顧中，需要持續升壓劑輸注的低血壓與 MACE 相關</span></div>
+        <div class="src">Lavoie 2008 [26]；Lin [27]；Moulakakis 2012 [25]；Bogniotti 2022 [28]；[29]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">建議的目標：MAP 降幅 &lt;20%、SBP 110–140 mmHg；慢性高血壓者 CPP ≥60 mmHg、維持基線 ±10%</span></div>
+        <div class="new"><span class="m">+</span><span>這些是推論，沒有任何研究驗證。文獻明說最適血壓常是「任意」設定；各中心的實際做法也不同。本頁只列出常見做法，一律標為證據 C</span></div>
+        <div class="src">Ghuman 2019 [14]；Jellish 2006 [24]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">降壓即可預防高灌流出血；嚴格控壓後仍出血代表罕見例外</span></div>
+        <div class="new"><span class="m">+</span><span>嚴格控壓確實被廣泛用於預防，也被認為可降低高危險者的 CHS；但有 CAS 後在 SBP &lt;110 mmHg 的嚴格控制下仍發生丘腦出血的個案報告。控壓是必要，不是充分</span></div>
+        <div class="src">Farooq 2016 [10]；個案報告 [30]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">只引用 SAMMPRIS（14.7% 對 5.8%）說明支架的圍手術期風險</span></div>
+        <div class="new"><span class="m">+</span><span>補上後續試驗：VISSIT（24.1% 對 9.4%，30 天內中風或 TIA）；CASSISS（2022）：主要終點無差異，但 30 天內 ICH 2.3% 對 0、30 天中風或死亡（事後分析）5.1% 對 2.2%。ESO 的整理也傾向內科治療優先。這讓「辨識並預防圍手術期併發症」更為重要</span></div>
+        <div class="src">[1,2,3,32]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">降壓藥要用 labetalol、clonidine，避免 hydralazine、nitroprusside、nitroglycerin 與鈣離子通道阻斷劑</span></div>
+        <div class="new"><span class="m">+</span><span>邏輯是避免擴張腦血管、增加腦血流；來自回顧與臨床經驗，沒有比較藥物的試驗。保留作為實務原則，標為證據 C</span></div>
+        <div class="src">Farooq 2016 [10]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">CAS 後血壓持續下降超過 1 週，機轉歸因於單側頸動脈體被牽張後壓力感受器過度活性；顱內與椎基底支架可能引發「中樞性血壓下降」</span></div>
+        <div class="new"><span class="m">+</span><span>這兩點都是個案報告與機轉推論，缺乏前瞻資料。個案報告可說明「少數可持續很久、需要升壓」，不能推論成常態</span></div>
+        <div class="src">Winters 2014 [23]</div>
+      </div>
+
+      <details class="fold"><summary>已核實的內容（點開）</summary>
+        <ul>
+          <li>SAMMPRIS 30 天中風或死亡 14.7%（支架）對 5.8%（內科）；VISSIT 24.1% 對 9.4%；CASSISS 主要終點 8.0% 對 7.2%，30 天內 ICH 2.3% 對 0 [1,2,3]</li>
+          <li>CAS 4,446 人：CHS 1.16%、ICH 0.74%；CEA 4,689 人：CHS 1.9%、ICH 0.37% [11]</li>
+          <li>Jiang 2011：100 例連續病人，30 天內中風 5 例，1 年主要終點 7.3% [4]；Li 2015：433 例，30 天中風 6.7%，兩年累積中風率 18.8%（經驗累積期）對 9.1%（成熟期）[5]</li>
+          <li>Liu 2020 的各項門檻與 Zheng 2020 的 OR 37.67（6.79–209.01）數字屬實，限制如上 [12,19]</li>
+          <li>Löwhagen Hendén 2015：MAP 下降 &gt;40% 是取栓不良預後的獨立預測因子 [20]</li>
+          <li>CAS 後血流動力學抑制的發生率與預測因子；2012 統合分析未發現與死亡、中風、TIA、MACE 有顯著差異 [25,26,27]</li>
+        </ul>
+      </details>
+      <details class="fold"><summary>無法核實、請保守引用（點開）</summary>
+        <ul>
+          <li>Terada 2006 [8] 的 106 次處置、3% 直接相關出血；Meyers 2000 [9] 的 140 例；Zhao 2016 [7] 的 278 例 Wingspan（出血 2.9%、缺血 1.4%、致死 0.7%）；Liu 2020 的 19/501（3.8%）</li>
+          <li>Iwata 2011 [16]、Anan 2025 [17]、Shi 2023 [18] 的具體數字；Bussière 2009 [22] 的 1% 對 20%；Maeda 2019 [31] 的椎動脈 CHS 個案；Jellish 2006 [24] 的 CPP 與基線 ±10% 建議</li>
+          <li>各中心 Wingspan 方案中 nimodipine、urapidil 的劑量與目標血壓；「CHS 在 CEA 多在第 2–5 天」的具體時間窗；「CHS 後 ICH 約三成殘障、死亡最高五成」</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 總覽 ================= -->
+<section class="block" id="overview">
+  <div class="wrap">
+    <div class="label"><span class="n">02</span>總覽</div>
+    <h2>同一個病理基礎，兩個方向的風險</h2>
+    <p class="intro">長期嚴重狹窄會使遠端小動脈持續擴張、腦血管自動調節（autoregulation）受損、血腦屏障脆弱。狹窄一解除，灌流壓突然上升，微血管無法收縮 → 高灌流與出血；反過來，血壓一旦太低，這些「已被動固定」的血管床也沒有代償能力 → 低灌流性梗塞。所以術後血壓管理要有上限，也要有下限。</p>
+
+    <div class="bpwin">
+      <div class="seg" id="bpseg" role="group" aria-label="自動調節狀態">
+        <button class="segb" type="button" aria-pressed="true" data-m="ok">自動調節大致正常</button>
+        <button class="segb" type="button" aria-pressed="false" data-m="bad">長期低灌流、自動調節受損（高風險）</button>
+      </div>
+      <div class="bpbar" id="bpbar"><div class="bp-low">血壓太低：低灌流、梗塞</div><div class="bp-ok">可耐受範圍</div><div class="bp-high">血壓太高：高灌流、出血</div></div>
+      <div class="bpnote"><span>低</span><span id="bpnote">範圍較寬</span><span>高</span></div>
+      <p style="font-size:.8rem;color:var(--faint);margin:10px 0 0;">概念示意（不是定量圖）：自動調節越差，可耐受範圍越窄；同一個血壓數字在不同病人身上可能是「高灌流」也可能是「低灌流」。</p>
+    </div>
+
+    <h3>各種併發症的時序（概念整理）</h3>
+    <div class="tl">
+      <div class="tli"><span class="t">數分鐘至數小時（CAS）</span><b>壓力感受器反射</b>：球囊擴張或支架展開牽張頸動脈竇，造成心搏過緩與低血壓；多為暫時性，持續性低血壓約 4–11% [26,29]。</div>
+      <div class="tli"><span class="t">術後最初 24 小時（CAS 多見）</span><b>高灌流性出血</b>：CAS 後 ICH 多發生在術後數小時內；致死性個案可見於手術結束時、3 小時與 8 小時 [35]。顱內支架的 CHS 以病例報告為主，時間點不一致。</div>
+      <div class="tli"><span class="t">術後數天（CEA 多見）</span><b>CEA 後的 CHS</b>：臨床上較晚才出現，常在術後數天（具體天數文獻不一致）。</div>
+      <div class="tli"><span class="t">術後 30 天內</span><b>圍手術期中風</b>：穿支閉塞、遠端栓塞、急性支架內血栓、導絲穿孔或血管破裂；SAMMPRIS 與 VISSIT 的主要風險集中在這段期間 [1,2]。</div>
+      <div class="tli"><span class="t">術後數週至數月</span><b>支架內再狹窄與晚期缺血事件</b>：二元再狹窄率約 25%、有症狀者約 17.6% [6]；與再狹窄、中斷抗血小板藥物的關聯屬常見的臨床經驗。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 高灌流 ================= -->
+<section class="block" id="chs">
+  <div class="wrap">
+    <div class="label"><span class="n">03</span>高灌流症候群（CHS／HPS）</div>
+    <h2>血壓上限：高灌流與再灌流性出血</h2>
+
+    <div class="grid">
+      <div class="card c-red">
+        <h4>定義與機轉</h4>
+        <p>常用診斷要素：術後 30 天內新發頭痛、癲癇、局部神經缺損或意識下降，或影像上的腦水腫／出血；同時有灌流增加的證據（CBF 較術前增加 &gt;100%，或收縮壓 &gt;180 mmHg）；並排除新的缺血、血管閉塞與代謝或藥物因素 [10]。</p>
+        <p>機轉：狹窄解除後灌流壓與血流驟升，而小動脈因慢性缺血無法收縮（正常灌流壓突破）；加上血腦屏障破壞、再灌流後自由基與 NO 增加、壓力感受器失調造成血壓波動 [10]。</p>
+        <div class="foot"><span>回顧文章</span><span>[10]</span></div>
+      </div>
+      <div class="card c-amber">
+        <h4>發生率</h4>
+        <div class="tw" style="border:none;"><table style="min-width:0;font-size:.82rem;">
+          <tr><th>處置</th><th>CHS</th><th>ICH</th></tr>
+          <tr><td>CAS</td><td>1.16%</td><td>0.74%</td></tr>
+          <tr><td>CEA</td><td>1.9%</td><td>0.37%</td></tr>
+          <tr><td>顱內支架</td><td colspan="2">缺乏可靠數字；零星病例與少數病例對照研究 [13,14]</td></tr>
+        </table></div>
+        <div class="foot"><span>約 9,000 人的回顧</span><span>[11]</span></div>
+      </div>
+    </div>
+
+    <h3>危險因子（依證據層級）</h3>
+    <div class="tw"><table>
+      <thead><tr><th>類別</th><th>內容</th><th>證據與限制</th></tr></thead>
+      <tbody>
+        <tr><td>血流動力學與影像</td><td>腦血管反應性（CVR）耗竭、CT 灌流顯示灌流嚴重下降、側枝差（ASITN/SIR ≤2）、梗塞體積大；Tmax &gt;4 s 體積預測顱內支架後 HPS</td><td><span class="badge g-b">B</span> 多為單中心回顧，門檻未外部驗證 [12,13,16]</td></tr>
+        <tr><td>術後血壓</td><td>CAS 後 24 小時 SBP &gt;130 mmHg 與 ICH 相關</td><td><span class="badge g-b">B</span> 回顧研究，信賴區間極寬 [19]</td></tr>
+        <tr><td>臨床因子</td><td>長期高血壓、高齡、吸菸；狹窄程度的證據不一致</td><td><span class="badge g-b">B</span> [10,15,19]</td></tr>
+        <tr><td>術式與藥物</td><td>擴張一次到位、殘餘狹窄極小；雙重抗血小板與圍手術期肝素把「水腫」放大成「出血」；分階段擴張被提出作為預防策略</td><td><span class="badge g-c">C</span> 專家意見與機轉推論 [10]</td></tr>
+        <tr><td>類比證據</td><td>頸段 ICA 直徑比小、煙霧病的密集血管</td><td><span class="badge g-c">C</span> 不同疾病與術式的外推，數字未核實 [17,18]</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>症狀、診斷與處理</h3>
+    <div class="grid">
+      <div class="card c-purple"><h4>症狀</h4><ul><li>同側搏動性頭痛、噁心嘔吐</li><li>意識改變、癲癇、局部無力</li><li>可進展為腦水腫或腦出血；一旦出血，預後差（文獻稱約三成殘障、死亡率最高可達五成）[10]</li></ul><div class="foot"><span>回顧</span><span>[10]</span></div></div>
+      <div class="card c-blue"><h4>診斷</h4><ul><li>先做 CT／MRI：區分出血、水腫與缺血</li><li>灌流證據：TCD（MCA 流速上升）、SPECT、CT／MR 灌流</li><li>顱內支架：血管攝影在支架後立即以基線血壓拍攝，找「哨兵徵象」（早期靜脈顯影、分水嶺區移位等）[14]</li><li>同時排除新缺血、支架血栓與代謝原因</li></ul><div class="foot"><span>技術報告與回顧</span><span>[10,14]</span></div></div>
+      <div class="card c-green"><h4>處理</h4><ul><li>以不增加腦血流的藥物嚴格控壓：labetalol、clonidine；避免 hydralazine、nitroprusside、nitroglycerin、鈣離子通道阻斷劑 <span class="badge g-c">C</span> [10]</li><li>癲癇、水腦腫與出血依一般神經重症處理</li><li>預防勝於治療：高危險者術後嚴格控壓；<b>最適目標血壓沒有證據，常是任意設定</b> [14]</li><li>抗血栓藥：在出血與支架血栓之間取捨，需個別化，不要自行停藥</li></ul><div class="foot"><span>多為專家意見</span><span>[10,14]</span></div></div>
+    </div>
+    <div class="callout amber"><h5>控壓是必要，不是充分</h5><p>CAS 後在嚴格控壓下仍發生腦出血的個案報告不少，尤其是後循環；若只依賴降壓，無法完全避免 CHS。高危險者要同時考慮術前分層、分階段擴張與更密集的監測 [10,30]。</p></div>
+  </div>
+</section>
+
+<!-- ================= 04 術後中風 ================= -->
+<section class="block" id="stroke">
+  <div class="wrap">
+    <div class="label"><span class="n">04</span>術後中風</div>
+    <h2>缺血與出血：問題集中在圍手術期</h2>
+    <div class="grid">
+      <div class="card c-red"><h4>隨機試驗的圍手術期風險</h4><ul><li>SAMMPRIS：30 天中風或死亡 14.7%（支架）對 5.8%（內科）[1]</li><li>VISSIT：24.1% 對 9.4%（30 天內中風或 TIA）[2]</li><li>CASSISS：主要終點無差異；30 天內 ICH 2.3% 對 0；30 天中風或死亡（事後分析）5.1% 對 2.2% [3]</li></ul><div class="foot"><span>隨機試驗</span><span>[1,2,3] <span class="badge g-a">A</span></span></div></div>
+      <div class="card c-amber"><h4>高量中心的觀察性資料</h4><ul><li>Jiang 2011（100 例）：30 天內中風 5 例，1 年主要終點 7.3% [4]</li><li>Li 2015（433 例）：30 天中風 6.7%；兩年累積中風率在經驗累積期 18.8%、技術成熟期 9.1% [5]</li></ul><div class="foot"><span>病例系列</span><span>[4,5] <span class="badge g-b">B</span></span></div></div>
+    </div>
+
+    <h3>缺血性中風的原因與危險因子</h3>
+    <div class="tw"><table>
+      <thead><tr><th>原因</th><th>說明</th><th>證據</th></tr></thead>
+      <tbody>
+        <tr><td>穿支動脈閉塞</td><td>支架或斑塊推移（雪犁效應），在基底動脈與 M1 較常見；症狀源自穿支病變者不適合支架</td><td><span class="badge g-b">B</span> 機轉分析與病例系列 [4,33]</td></tr>
+        <tr><td>急性支架內血栓、遠端栓塞</td><td>術中或術後早期；需緊急評估與處置</td><td><span class="badge g-b">B</span> [33]</td></tr>
+        <tr><td>導絲穿孔、血管破裂（出血）</td><td>造成蜘蛛膜下腔或腦內出血，與高灌流性出血要分辨</td><td><span class="badge g-b">B</span> [33]</td></tr>
+        <tr><td>操作者與中心經驗</td><td>經驗累積期的中風率明顯較高</td><td><span class="badge g-b">B</span> [5]</td></tr>
+        <tr><td>支架內再狹窄與抗血小板中斷</td><td>二元再狹窄率約 25%（77 例，有症狀者 17.6%）；晚期事件與再狹窄、中斷抗血小板藥物的關聯是常見的臨床經驗</td><td><span class="badge g-b">B</span> [6]；關聯屬 <span class="badge g-c">C</span></td></tr>
+        <tr><td>術後低灌流（血壓過低）</td><td>機轉合理（自動調節受損者），但在選擇性支架術後缺乏直接研究 [見第 05 節]</td><td><span class="badge g-c">C</span></td></tr>
+        <tr><td>血管危險因子控制不佳</td><td>吸菸、LDL、糖尿病、血壓未達標是動脈粥狀硬化病人再中風的一般危險因子</td><td><span class="badge g-c">C</span> 專家共識</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>處理原則</h3>
+    <div class="callout green"><h5>新的神經缺損：先看影像，再決定方向</h5>
+      <ul>
+        <li>立即做頭部 CT（排除出血）；必要時 CTA、血管攝影確認支架通暢、穿支或栓塞（專家意見）</li>
+        <li><b>出血</b>：停用或調整抗血栓、控壓、依出血類型處理；先分辨高灌流性出血與穿孔性出血</li>
+        <li><b>缺血</b>：確認是否支架血栓或遠端栓塞，並與血管內治療團隊討論；同時避免血壓過低</li>
+        <li><b>不要自行中斷雙重抗血小板</b>：中斷被認為與支架內血栓和缺血事件有關（臨床經驗，證據 C）</li>
+      </ul></div>
+    <p style="font-size:.85rem;color:var(--faint);">以上屬臨床常見做法，沒有針對支架術後事件的隨機試驗，標為證據 C。ESO 對症狀性顱內動脈粥狀硬化狹窄的整理也傾向積極內科治療優先、支架僅限選擇性病人 [32]。</p>
+  </div>
+</section>
+
+<!-- ================= 05 術後低血壓 ================= -->
+<section class="block" id="hypo">
+  <div class="wrap">
+    <div class="label"><span class="n">05</span>術後低血壓</div>
+    <h2>血壓下限：原因很多，意義因情境而異</h2>
+    <p class="intro">這是三個主題中直接證據最少的。以下依來源分類；請特別區分「頸動脈竇壓力感受器反射」（CAS 特有、多為暫時性）與「其他原因造成的持續低血壓」。</p>
+
+    <div class="tw"><table>
+      <thead><tr><th>原因</th><th>要點</th><th>證據</th></tr></thead>
+      <tbody>
+        <tr><td>壓力感受器反射（CAS）</td><td>球囊擴張與自膨式支架牽張頸動脈竇，造成心搏過緩與低血壓；低血壓約 14%、心搏過緩 23–27%、兩者皆有 5–15%；持續性低血壓約 4–11%；預測因子：年齡、自膨式支架、鈣化、病灶距分叉處 ≤10 mm（心搏過緩）；曾做 CEA 者：一項研究發生較少，後設迴歸卻與「持續性」抑制相關，結果不一致 [25,26,27,29]</td><td><span class="badge g-b">B</span> 回顧研究與統合分析</td></tr>
+        <tr><td>降壓與鎮靜藥物</td><td>為預防 CHS 而用的降壓藥（labetalol、nimodipine、urapidil 等，各中心方案不同）加上麻醉與鎮靜殘留，疊加造成相對過度降壓</td><td><span class="badge g-c">C</span> 機轉推論；方案細節未核實</td></tr>
+        <tr><td>容積不足與出血</td><td>禁食、顯影劑利尿、限水；<b>穿刺部位血腫或腹膜後出血</b>必須列為常規排除項目（CAS 資料中有病例）</td><td><span class="badge g-c">C</span> 個案與專家意見</td></tr>
+        <tr><td>心臟與自律神經</td><td>心肌缺血、心律不整、竇緩；少數個案報告需 midodrine 與升壓劑長期支持</td><td><span class="badge g-c">C</span> 個案報告 [23]</td></tr>
+        <tr><td>顯影劑或藥物過敏反應</td><td>起病快，常伴皮疹、支氣管痙攣等表現（一般臨床知識）</td><td><span class="badge g-c">C</span> 專家意見</td></tr>
+        <tr><td>中樞（腦幹）因素</td><td>後循環支架或腦幹缺血可能影響血壓調控</td><td><span class="badge g-c">C</span> 純機轉推論，缺乏資料</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>為什麼要在意？</h3>
+    <div class="grid">
+      <div class="card c-blue"><h4>在缺血性腦血管病</h4><p>急性缺血性中風取栓的資料顯示，術中 MAP 下降 &gt;40% 是不良預後的獨立預測因子（回顧研究）；隨機試驗發現避免低血壓比麻醉方式更重要 [20,21]。對自動調節受損的病人，低灌流壓有擴大梗塞的理論風險，但<b>在選擇性支架術後缺少直接研究</b>。</p><div class="foot"><span>外推</span><span>[20,21]</span></div></div>
+      <div class="card c-amber"><h4>CAS 反射性低血壓的結局</h4><p>2012 年統合分析：發生血流動力學抑制者與未發生者，在死亡、中風、TIA 或 MACE 並無顯著差異；但 237 例回顧顯示需要持續升壓劑輸注的低血壓與 MACE 相關 [25,28]。結論：暫時性反射多半良性，持續或需升壓者要積極找原因。</p><div class="foot"><span>統合分析＋回顧</span><span>[25,28]</span></div></div>
+    </div>
+
+    <h3>處理步驟（專家意見，證據 C）</h3>
+    <div class="callout blue"><ol style="margin:0;padding-left:20px;">
+      <li>先確認 ABC 與生命徵象，連續動脈壓監測；重新檢查神經功能（是否出現新缺損）</li>
+      <li>檢查穿刺部位與血紅素；有疑慮時影像排除腹膜後出血</li>
+      <li>12 導程心電圖、心肌酵素；評估心律與心肌缺血</li>
+      <li>檢視並調整降壓藥與鎮靜藥；補充容積</li>
+      <li>心搏過緩可用 atropine；持續低血壓用升壓劑（如 phenylephrine）或 midodrine，並兼顧腦灌流</li>
+      <li>高風險者維持術前基線附近的血壓，避免劇烈下降；目標沒有證據，請依院內流程</li>
+    </ol></div>
+  </div>
+</section>
+
+<!-- ================= 06 情境判讀 ================= -->
+<section class="block" id="tool">
+  <div class="wrap">
+    <div class="label"><span class="n">06</span>互動</div>
+    <h2>術後狀況判讀（教學用）</h2>
+    <p class="intro">選四個條件，看最符合的類型與下一步。這個工具只用時間、血壓與症狀做初步分類，協助記憶與討論；同一位病人可以有多種問題，任何新的神經症狀都需要儘速影像評估。</p>
+    <div class="tool">
+      <div class="qs">
+        <div><label for="qa">支架位置</label><select id="qa"><option value="carotid">頸部頸動脈（CAS）</option><option value="intra">顱內動脈</option></select></div>
+        <div><label for="qb">距離手術多久</label><select id="qb"><option value="h6">術中到 6 小時</option><option value="h24">6–24 小時</option><option value="d7">1–7 天</option><option value="late">數週到數月</option></select></div>
+        <div><label for="qc">血壓</label><select id="qc"><option value="high">明顯偏高、控制不良</option><option value="low">明顯偏低或較基線大幅下降</option><option value="norm">大致正常</option></select></div>
+        <div><label for="qd">症狀</label><select id="qd"><option value="head">同側頭痛、癲癇或新局部缺損</option><option value="sudden">突發劇烈頭痛、嘔吐、意識惡化</option><option value="brady">心搏過緩、頭暈，無神經缺損</option><option value="focal">新的局部神經缺損（無頭痛）</option><option value="none">沒有神經症狀</option></select></div>
+      </div>
+      <div class="out" id="out" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 07 監護路徑 ================= -->
+<section class="block" id="pathway">
+  <div class="wrap">
+    <div class="label"><span class="n">07</span>整合</div>
+    <h2>圍手術期監護的思考框架</h2>
+    <div class="grid">
+      <div class="card c-blue"><h4>術前：分層</h4><p>評估是否為高灌流高風險：長期嚴重狹窄、側枝差、灌流嚴重下降（CTP／SPECT／CVR）、既有大梗塞；考慮分階段擴張與更密集的術後監測。門檻與預測模型尚缺外部驗證 [12,13]。</p><div class="foot"><span>證據 B–C</span></div></div>
+      <div class="card c-purple"><h4>術中：技術</h4><p>選擇經驗豐富的術者與團隊（經驗累積期風險較高）[5]；避免不必要的過度擴張與反覆球囊刺激頸動脈竇（機轉合理，缺乏直接比較）。支架後即時血管攝影找高灌流徵象 [14]。</p><div class="foot"><span>證據 B–C</span></div></div>
+      <div class="card c-red"><h4>術後 24–72 小時：監測</h4><p>連續動脈壓監測、定時神經功能評估；高灌流高風險者嚴格控制血壓上限；任何血壓過低都要找原因。<b>目標血壓沒有隨機試驗證據</b>，請依院內流程並個別化 [14,19]。</p><div class="foot"><span>證據 C</span></div></div>
+      <div class="card c-green"><h4>抗栓：取捨</h4><p>雙重抗血小板是支架通暢所必需，中斷被認為與缺血事件有關（臨床經驗）；同時它會放大高灌流出血的後果。需要事先訂好「出血 vs 缺血」的取捨與橋接計畫。</p><div class="foot"><span>專家意見</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 08 測驗 ================= -->
+<section class="block" id="quiz">
+  <div class="wrap">
+    <div class="label"><span class="n">08</span>自我檢核</div>
+    <h2>八題觀念測驗</h2>
+    <div id="quizBox"></div>
+    <p class="score" id="score"></p>
+  </div>
+</section>
+
+<!-- ================= 參考文獻 ================= -->
+<section class="block" id="refs" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="label"><span class="n">09</span>參考文獻</div>
+    <h2>References</h2>
+    <p style="font-size:.85rem;color:var(--dim);">「已核對」＝這次回到原文摘要或全文、或權威二手摘要比對過；「引用既有」＝文獻存在，但這次沒有重新比對其中的數字。</p>
+    <ol class="refs">
+      <li>Chimowitz MI, Lynn MJ, Derdeyn CP, et al. Stenting versus aggressive medical therapy for intracranial arterial stenosis (SAMMPRIS). <em>N Engl J Med</em>. 2011;365:993-1003. <span class="st v">已核對（試驗摘要）</span></li>
+      <li>Zaidat OO, Fitzsimmons BF, Woodward BK, et al. Effect of a balloon-expandable intracranial stent vs medical therapy on risk of stroke in patients with symptomatic intracranial stenosis (VISSIT). <em>JAMA</em>. 2015;313(12):1240-1248. <span class="st v">已核對（試驗摘要）</span></li>
+      <li>Gao P, Wang T, Wang D, et al. Effect of stenting plus medical therapy vs medical therapy alone on stroke in patients with symptomatic intracranial stenosis: the CASSISS randomized clinical trial. <em>JAMA</em>. 2022;328(6):534-542. <span class="st v">已核對（摘要）</span></li>
+      <li>Jiang WJ, Yu W, Du B, Gao F, Cui LY. Outcome of patients with ≥70% symptomatic intracranial stenosis after Wingspan stenting. <em>Stroke</em>. 2011;42(7):1971-1975. DOI: 10.1161/STROKEAHA.110.595926 <span class="st v">已核對（二手摘要）</span></li>
+      <li>Wingspan stenting for severe symptomatic intracranial atherosclerotic stenosis in 433 patients treated at a single medical center. <em>PLoS ONE</em>. 2015. <span class="st v">已核對（摘要）</span></li>
+      <li>Wingspan stenting for intracranial atherosclerotic stenosis: clinical outcomes and risk factors for in-stent restenosis（77 例系列）. <span class="st v">已核對（摘要）</span></li>
+      <li>Zhao T, Zhu WY, Xiong XY, et al. Safety and efficacy of Wingspan stenting for severe symptomatic atherosclerotic stenosis of the middle cerebral artery: analysis of 278 continuous cases. <em>J Stroke Cerebrovasc Dis</em>. 2016;25(10):2368-2372. <span class="st u">引用既有（數字未核實）</span></li>
+      <li>Terada T, Tsuura M, Matsumoto H, et al. Hemorrhagic complications after endovascular therapy for atherosclerotic intracranial arterial stenoses. <em>Neurosurgery</em>. 2006;59(2):310-318. <span class="st u">引用既有（數字未核實）</span></li>
+      <li>Meyers PM, Higashida RT, Phatouros CC, et al. Cerebral hyperperfusion syndrome after percutaneous transluminal stenting of the craniocervical arteries. <em>Neurosurgery</em>. 2000;47(2):335-345. <span class="st u">引用既有（數字未核實）</span></li>
+      <li>Farooq MU, Goshgarian C, Min J, Gorelick PB. Pathophysiology and management of reperfusion injury and hyperperfusion syndrome after carotid endarterectomy and carotid artery stenting. <em>Exp Transl Stroke Med</em>. 2016;8(1). DOI: 10.1186/s13231-016-0021-2 <span class="st v">已核對（摘要）</span></li>
+      <li>Moulakakis KG, Mylonas SN, Sfyroeras GS, Andrikopoulos V. Hyperperfusion syndrome after carotid revascularization. <em>J Vasc Surg</em>. 2009. <span class="st v">已核對（摘要）</span></li>
+      <li>Liu L, Li J, Yang QW. Predictors of risk of intracerebral hemorrhage after intracranial artery intervention in intracranial atherosclerotic stenosis patients. <em>Brain Hemorrhages</em>. 2020;1(1):59-64. DOI: 10.1016/j.hest.2020.01.005 <span class="st v">已核對（摘要）</span></li>
+      <li>Yan L, Song J, Yu Y, et al. Predictors of hyperperfusion syndrome after stent implantation in symptomatic intracranial atherosclerotic stenosis. <em>Quant Imaging Med Surg</em>. 2023. <span class="st v">已核對（摘要）</span></li>
+      <li>Sentinel angiographic signs of cerebral hyperperfusion after angioplasty and stenting of intracranial atherosclerotic stenosis: a technical note. <em>AJNR Am J Neuroradiol</em>. 2019;40(9):1523. <span class="st v">已核對（摘要）</span></li>
+      <li>Factors predictive of cerebral hyperperfusion after carotid angioplasty and stent placement. <em>AJNR Am J Neuroradiol</em>. 2004. <span class="st v">已核對（摘要）</span></li>
+      <li>Iwata T, Mori T, Tajiri H, Nakazaki M. Predictors of hyperperfusion syndrome before and immediately after carotid artery stenting in SPECT and transcranial color-coded real-time sonography studies. <em>Neurosurgery</em>. 2011;68(3):649-656. <span class="st u">引用既有（數字未核實）</span></li>
+      <li>Anan M, Onishi K, Morishige M, et al. Evaluation of preoperative cervical internal carotid artery diameter as a predictor of cerebral hyperperfusion syndrome following revascularization surgery. <em>Clin Neurol Neurosurg</em>. 2025;258:109125. <span class="st u">引用既有（數字未核實）</span></li>
+      <li>Shi Z, Wu L, Wang Y, et al. Risk factors of postoperative cerebral hyperperfusion syndrome and its relationship with clinical prognosis in adult patients with moyamoya disease. <em>Chin Neurosurg J</em>. 2023;9(1). <span class="st u">引用既有（類比證據）</span></li>
+      <li>Zheng L, Li J, Liu H, et al. Perioperative blood pressure control in carotid artery stenosis patients with carotid angioplasty stenting: a retrospective analysis of 173 cases. <em>Front Neurol</em>. 2020;11:567623. DOI: 10.3389/fneur.2020.567623 <span class="st v">已核對（摘要）</span></li>
+      <li>Löwhagen Hendén P, Rentzos A, Karlsson JE, et al. Hypotension during endovascular treatment of ischemic stroke is a risk factor for poor neurological outcome. <em>Stroke</em>. 2015;46(9):2678-2680. DOI: 10.1161/STROKEAHA.115.009808 <span class="st v">已核對（論文摘要）</span></li>
+      <li>Löwhagen Hendén P, Rentzos A, Karlsson JE, et al. General anesthesia versus conscious sedation for endovascular treatment of acute ischemic stroke: the AnStroke trial. <em>Stroke</em>. 2017;48(6):1601-1607；及 Collette SL, et al. Hypotension during endovascular treatment under general anesthesia for acute ischemic stroke. <em>PLoS ONE</em>. 2021;16(6):e0249093. <span class="st v">已核對（摘要）</span></li>
+      <li>Bussière M, Lownie SP, Lee D, Gulka I, Leung A, Pelz DM. Hemodynamic instability during carotid artery stenting: the relative contribution of stent deployment versus balloon dilation. <em>J Neurosurg</em>. 2009;110(5):905-912. <span class="st u">引用既有（數字未核實）</span></li>
+      <li>Winters HS, Anderson C, Parker G. Prolonged hypotension following elective stenting of an internal carotid artery stenosis. <em>BMJ Case Rep</em>. 2014. <span class="st u">引用既有（個案報告）</span></li>
+      <li>Jellish WS. Anesthetic issues and perioperative blood pressure management in patients who have cerebrovascular diseases undergoing surgical procedures. <em>Neurol Clin</em>. 2006;24(4):647-659. <span class="st u">引用既有</span></li>
+      <li>Moulakakis KG, et al. Carotid artery stenting-induced hemodynamic instability. <em>J Endovasc Ther</em>. 2012. <span class="st v">已核對（摘要）</span></li>
+      <li>Lavoie P, Rutledge J, Dawoud MA, Mazumdar M, Riina H, Gobin YP. Predictors and timing of hypotension and bradycardia after carotid artery stenting. <em>AJNR Am J Neuroradiol</em>. 2008. <span class="st v">已核對（摘要）</span></li>
+      <li>Lin PH, Zhou W, Kougias P, et al. Factors associated with hypotension and bradycardia after carotid angioplasty and stenting. <em>J Vasc Surg</em>. <span class="st v">已核對（摘要）</span></li>
+      <li>Bogniotti LA, Teivelis MP, Cardozo FA, et al. Hemodynamic depression after carotid surgery: incidence, risk factors and outcomes. <em>Clinics</em>. 2022. DOI: 10.1016/j.clinsp.2022.100090 <span class="st v">已核對（摘要）</span></li>
+      <li>Carotid stenting complications. <em>E-Journal of Cardiology Practice</em>（European Society of Cardiology）, Volume 8. <span class="st v">已核對</span></li>
+      <li>Intracranial hemorrhage after carotid artery stenting in both anterior and posterior circulation: a case report. <em>Medicine</em>. 2018;97(51):e13800. <span class="st v">已核對（摘要）</span></li>
+      <li>Maeda K, Ochi T, Goto Y, Arisawa K, Nanbu S. A patient with hyperperfusion-related cerebral hemorrhage after neuroendovascular treatment for vertebral artery stenosis. <em>J Neuroendovasc Ther</em>. 2019;13(2):84-90. <span class="st u">引用既有（個案）</span></li>
+      <li>Should we be stenting symptomatic atherosclerotic intracranial stenoses? European Stroke Organisation（ESO）. <span class="st v">已核對</span></li>
+      <li>Mechanisms of stroke after intracranial angioplasty and stenting in the SAMMPRIS trial. <em>Neurosurgery</em>. 2013（PMID 23328689）. <span class="st v">已核對（標題）</span></li>
+      <li>Symptomatic intracranial stenosis: cerebrovascular complications from elective stent placement（系列研究）. <em>Radiology</em>. 2007（DOI 10.1148/radiol.2431060139）. <span class="st u">引用既有（僅核對標題）</span></li>
+      <li>Zhou Y, Zheng C, Chen L, Lin Y. Fatal intracranial hemorrhage after carotid artery stenting: three case reports and a literature review. <em>J Int Med Res</em>. 2020;48. <span class="st v">已核對（摘要）</span></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>N-Teaching 神經科教學研究部 · 教學用途，不做為個別病人之診療依據</span><span><a href="index.html">返回首頁</a></span></div>
+</footer>
+
+<script>
+/* ============ 資料區：要改內容只需改這裡 ============ */
+
+/* 術後狀況判讀 */
+const R = {
+ chs:{ title:'符合高灌流症候群（CHS）／高灌流性出血的型態', grade:'C', tag:'g-c',
+  feat:['血壓偏高、控制不良，加上同側頭痛、癲癇或新的局部缺損','時間在術後數小時至數天；CAS 後 ICH 多在數小時內 [35]','危險因子：長期嚴重狹窄、側枝差、灌流嚴重下降、術後血壓高 [10,12,19]'],
+  next:['立即做頭部 CT（出血、水腫），必要時 MRI','以不增加腦血流的藥物嚴格控壓（labetalol、clonidine）；避免血管擴張劑 [10]','灌流評估（TCD、SPECT、CT／MR 灌流）；抗栓藥由團隊個別化決定'],
+  cave:['最適血壓目標沒有證據，常是任意設定 [14]','嚴格控壓下仍可能出血，尤其後循環 [30]'] },
+ sah:{ title:'符合出血性併發症：導絲穿孔、血管破裂或 SAH', grade:'C', tag:'g-c',
+  feat:['顱內支架術後早期突發劇烈頭痛、嘔吐、意識惡化','與高灌流性出血要分辨：原因不同，處理也不同 [33]'],
+  next:['立即頭部 CT；必要時血管攝影找穿孔點','逆轉或暫停抗血栓需與血管內治療團隊討論','神經重症與神經外科會診'],
+  cave:['SAMMPRIS 與 CASSISS 都顯示早期出血是支架的重要風險 [1,3]'] },
+ hd:{ title:'符合頸動脈竇壓力感受器反射（血流動力學抑制）', grade:'B', tag:'g-b',
+  feat:['CAS 術中至術後數小時內的心搏過緩與低血壓','發生率：低血壓約 14%、心搏過緩 23–27% [26,27]','預測因子：年齡、自膨式支架、鈣化、病灶近分叉處 [25,26,29]'],
+  next:['連續監測；心搏過緩可用 atropine；持續低血壓用升壓劑','檢查有無新的神經缺損；排除血腫、出血與心肌缺血 [28]'],
+  cave:['多為暫時性，統合分析未發現與死亡或中風增加有關；但需要持續升壓者與 MACE 相關 [25,28]','持續超過 48 小時要積極找其他原因（個案報告可更久）[23]'] },
+ hypo:{ title:'符合低灌流風險（血壓過低）', grade:'C', tag:'g-c',
+  feat:['血壓較基線明顯下降，同時出現新的神經缺損或意識惡化','自動調節受損者，血壓下限更窄'],
+  next:['確認並矯正低血壓原因：藥物、容積、出血（穿刺部位、腹膜後）、心因性','適度放寬降壓、補充容積，必要時升壓劑','同時確認支架通暢與影像（CT／MRI）以區分血栓與低灌流'],
+  cave:['選擇性支架術後缺乏直接的血壓下限研究；多為外推 [20,21]'] },
+ isch:{ title:'符合圍手術期缺血性中風（穿支、栓塞、支架血栓）', grade:'B', tag:'g-b',
+  feat:['新的局部神經缺損，血壓正常或無明顯異常','機轉：穿支閉塞、遠端栓塞、急性支架內血栓 [33]'],
+  next:['立即 CT 排除出血，隨後 CTA／血管攝影確認通暢','與血管內治療團隊討論緊急處置','維持抗血小板藥物；避免血壓過低'],
+  cave:['圍手術期事件是品質缺口所在：SAMMPRIS 14.7%、VISSIT 24.1% [1,2]'] },
+ late:{ title:'符合晚期事件：支架內再狹窄或中斷抗血小板藥物', grade:'B', tag:'g-b',
+  feat:['術後數週至數月出現同側 TIA 或中風','二元再狹窄率約 25%，其中有症狀者約 17.6% [6]','多數晚期事件與再狹窄或中斷抗血小板藥物有關 [4]'],
+  next:['確認用藥順從性與有無中斷','血管影像追蹤（CTA／DSA／TCD）','必要時由血管內治療團隊評估再治療'],
+  cave:['再治療本身也有風險，需由血管內治療團隊評估'] },
+ watch:{ title:'目前沒有明確的併發症型態：持續監測', grade:'C', tag:'g-c',
+  feat:['沒有符合上述任何一型的組合'],
+  next:['依術後常規連續監測血壓與神經功能','血壓控制避免劇烈波動；有疑慮時重新評估並做影像'],
+  cave:['任何新的神經症狀都需要儘速影像評估'] }
+};
+function decide(a,b,c,d){
+  if(a==='intra' && b!=='late' && d==='sudden') return 'sah';
+  if(c==='high' && (d==='head' || d==='sudden') && b!=='late') return 'chs';
+  if(a==='carotid' && b==='h6' && (d==='brady' || (d==='none' && c==='low'))) return 'hd';
+  if(c==='low' && (d==='focal' || d==='head' || d==='sudden')) return 'hypo';
+  if(b==='late' && (d==='focal' || d==='head')) return 'late';
+  if(d==='focal') return 'isch';
+  if(a==='carotid' && c==='low' && d==='brady') return 'hd';
+  return 'watch';
+}
+
+/* 測驗 */
+const QUIZ = [
+ {q:'關於 CAS 與 CEA 後的高灌流症候群發生率，下列何者正確？',
+  o:['CAS 約 1.16%（ICH 0.74%）、CEA 約 1.9%（ICH 0.37%）','兩者都高達 10%','CEA 完全不會發生','顱內支架已有可靠的 5% 數字'], a:0,
+  e:'頸動脈 CHS 並不高，但一旦出血預後差；ICH 在 CAS 較多。顱內支架的 CHS 缺乏可靠發生率，只有零星病例與少數病例對照研究。'},
+ {q:'「CAS 後 24 小時 SBP >130 mmHg 使 ICH 風險增加 37.67 倍」該如何解讀？',
+  o:['已證實 130 mmHg 是最適目標','單中心 173 例的回顧研究，信賴區間 6.79–209.01 極寬，130 是研究切點不是經驗證的目標','代表所有支架病人都應降到 130 以下','與基線血壓高低決定'], a:1,
+  e:'數字正確，但事件少、研究為回顧性；結論是「應控制」，並不等於有最適目標證據。'},
+ {q:'顱內動脈支架術後的出血，下列何者最正確？',
+  o:['都是高灌流造成的','原因不只高灌流：導絲穿孔、血管破裂、血栓合併再灌流也有可能','只發生在 30 分鐘內','控壓可以完全預防'], a:1,
+  e:'因此要分辨高灌流性出血與穿孔性出血；嚴格控壓下仍可能出血。'},
+ {q:'SAMMPRIS、VISSIT 與 CASSISS 共同顯示什麼？',
+  o:['支架明顯優於內科治療','支架的圍手術期風險高，且主要終點沒有優於積極內科治療','與操作者經驗無關','只有出血風險，沒有缺血風險'], a:1,
+  e:'SAMMPRIS 14.7% 對 5.8%、VISSIT 24.1% 對 9.4%；CASSISS 主要終點無差異，30 天 ICH 2.3% 對 0。'},
+ {q:'關於操作者經驗，下列哪一個資料最可靠？',
+  o:['低量中心 17.2% 對高量中心 6.8%','433 例單中心系列：兩年累積中風率在經驗累積期 18.8%，技術成熟期 9.1%','經驗與結果無關','只對 CEA 有關'], a:1,
+  e:'17.2% 對 6.8% 找不到出處；Li 2015 提供了可核實的學習曲線資料。'},
+ {q:'CAS 後常見的心搏過緩與低血壓，對預後的意義是？',
+  o:['一定增加死亡與中風','2012 年統合分析未發現與死亡、中風、TIA 或 MACE 有顯著差異；但需要持續升壓劑的低血壓與 MACE 相關','完全無需處理','只發生在顱內支架'], a:1,
+  e:'多為暫時性反射；持續或需升壓者要積極找原因（出血、心肌缺血、藥物、容積）。'},
+ {q:'「術中 MAP 降幅 >40% 與不良預後獨立相關」這項研究的族群是？',
+  o:['選擇性顱內支架','急性缺血性中風取栓（全身麻醉），屬回顧研究','CEA','頸動脈支架'], a:1,
+  e:'套用到支架術後屬外推；AnStroke 隨機試驗顯示只要避免低血壓，麻醉方式並不影響結果。'},
+ {q:'關於支架術後的「最適血壓目標」，下列何者最正確？',
+  o:['MAP 降幅 <20%、SBP 110–140 已被證實','目前沒有隨機試驗；常見做法因中心而異，標為專家意見','必須維持在基線 ±10%','只要低於 100 就安全'], a:1,
+  e:'相關數字多是整理者的推論；Ghuman 2019 直言最適血壓常是任意設定。'}
+];
+
+/* ============ 程式 ============ */
+(function(){
+  /* 血壓視窗圖 */
+  var bar = document.getElementById('bpbar'), note = document.getElementById('bpnote');
+  document.querySelectorAll('#bpseg .segb').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('#bpseg .segb').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+      b.setAttribute('aria-pressed','true');
+      var bad = b.getAttribute('data-m') === 'bad';
+      bar.classList.toggle('narrow', bad);
+      note.textContent = bad ? '範圍很窄：上下限都要守' : '範圍較寬';
+    });
+  });
+
+  /* 術後狀況判讀 */
+  var qa = document.getElementById('qa'), qb = document.getElementById('qb'), qc = document.getElementById('qc'), qd = document.getElementById('qd'), out = document.getElementById('out');
+  function li(a){ return a.map(function(x){ return '<li>' + x + '</li>'; }).join(''); }
+  function render(){
+    var r = R[decide(qa.value, qb.value, qc.value, qd.value)];
+    out.innerHTML = '<p class="title">' + r.title + ' <span class="badge ' + r.tag + '">證據 ' + r.grade + '</span></p>' +
+      '<div class="box"><h6>符合的特徵</h6><ul>' + li(r.feat) + '</ul></div>' +
+      '<div class="box"><h6>下一步</h6><ul>' + li(r.next) + '</ul></div>' +
+      '<div class="box"><h6>注意</h6><ul>' + li(r.cave) + '</ul></div>';
+  }
+  [qa,qb,qc,qd].forEach(function(s){ s.addEventListener('change', render); });
+  render();
+
+  /* 測驗 */
+  var box = document.getElementById('quizBox'), sc = document.getElementById('score'), right = 0, done = 0;
+  QUIZ.forEach(function(q, qi){
+    var c = document.createElement('div'); c.className = 'qcard';
+    c.innerHTML = '<h5><span>Q' + (qi+1) + '</span>' + q.q + '</h5><div class="o"></div><div class="exp"><b>解析：</b>' + q.e + '</div>';
+    var o = c.querySelector('.o');
+    q.o.forEach(function(t, oi){
+      var b = document.createElement('button'); b.className = 'qopt'; b.type = 'button'; b.textContent = t;
+      b.addEventListener('click', function(){
+        if(c.classList.contains('done')) return;
+        c.classList.add('done');
+        var all = o.querySelectorAll('.qopt'); all[q.a].classList.add('ok');
+        if(oi !== q.a){ b.classList.add('no'); } else { right++; }
+        done++; sc.textContent = '目前：答對 ' + right + ' / ' + done + '（共 ' + QUIZ.length + ' 題）';
+      });
+      o.appendChild(b);
+    });
+    box.appendChild(c);
+  });
+})();
+</script>
+</body>
+</html>
