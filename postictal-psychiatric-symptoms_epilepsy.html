@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="nt:category" content="epilepsy">
+<meta name="nt:label" content="Postictal Psychiatry">
+<meta name="nt:icon" content="🌀">
+<meta name="nt:summary" content="癲癇發作後的焦慮、憂鬱與精神病：風險數字、發作後精神病的表現與評估、抗癲癇藥與精神科藥物的選擇，以及與功能性（心因性）發作的鑑別，逐項標示證據強度並修正常見誤傳。">
+<meta name="nt:tags" content="發作後精神病, 抗癲癇藥物, 功能性發作, 精神共病">
+<meta name="nt:order" content="3">
+<meta name="nt:updated" content="2026-10-25">
+<title>癲癇發作後的精神症狀：風險、評估與處理｜HCH-FYH Neurology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* 色票：與首頁（index.html）同一組深色色票 */
+:root{
+  --bg:#0d1117; --bg-card:#161b22; --bg-hover:#1c2128;
+  --border:rgba(255,255,255,.10); --border-strong:rgba(255,255,255,.20);
+  --text:#e6edf3; --dim:#8b949e; --faint:#6e7681;
+  --amber:#e3b341; --blue:#58a6ff; --green:#39d353; --red:#f0616f; --purple:#bc8cff;
+  --amber-bg:rgba(227,179,65,.10); --blue-bg:rgba(88,166,255,.10); --green-bg:rgba(57,211,83,.10);
+  --red-bg:rgba(240,97,111,.10); --purple-bg:rgba(188,140,255,.10);
+  --serif:'Noto Serif TC',serif; --sans:'Noto Sans TC',sans-serif; --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth; scroll-padding-top:64px;}
+body{margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.75; -webkit-font-smoothing:antialiased;}
+a{color:var(--blue);}
+.wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+.wide{max-width:1100px; margin:0 auto; padding:0 24px;}
+
+/* ---- 頁內章節導覽（站台導覽由統一頁首提供） ---- */
+.topnav{position:sticky; top:0; z-index:100; background:rgba(13,17,23,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:8px 28px;}
+.topnav .links{display:flex; gap:2px; max-width:1100px; margin:0 auto; overflow-x:auto; scrollbar-width:none;}
+.topnav a{color:var(--dim); text-decoration:none; font-size:.84rem; padding:6px 12px; border-radius:6px; white-space:nowrap;}
+.topnav a:hover{background:var(--bg-hover); color:var(--text);}
+
+/* ---- Hero ---- */
+.hero{padding:64px 24px 44px; border-bottom:1px solid var(--border); background:radial-gradient(900px 300px at 12% -10%, rgba(88,166,255,.12), transparent 60%), radial-gradient(700px 260px at 100% 0, rgba(188,140,255,.10), transparent 60%);}
+.hero-in{max-width:920px; margin:0 auto;}
+.eyebrow{font-family:var(--mono); font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); display:flex; align-items:center; gap:10px; margin-bottom:16px;}
+.eyebrow::before{content:""; width:26px; height:1px; background:var(--blue);}
+.hero h1{font-family:var(--serif); font-weight:900; font-size:clamp(1.6rem,4vw,2.4rem); line-height:1.38; margin:0 0 16px;}
+.hero p.lede{color:var(--dim); font-size:1.02rem; max-width:68ch; margin:0 0 26px;}
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;}
+.stat{background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:16px 18px;}
+.stat b{display:block; font-family:var(--mono); font-size:1.7rem; font-weight:600; color:var(--text); line-height:1.2;}
+.stat span{font-size:.82rem; color:var(--dim);}
+
+/* ---- 區塊 ---- */
+section.block{padding:54px 0; border-bottom:1px solid var(--border);}
+.label{font-family:var(--mono); font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin-bottom:10px; display:flex; gap:10px; align-items:center;}
+.label .n{background:var(--blue-bg); color:var(--blue); border:1px solid rgba(88,166,255,.3); border-radius:6px; padding:1px 8px;}
+h2{font-family:var(--serif); font-size:clamp(1.3rem,2.6vw,1.8rem); margin:0 0 10px; font-weight:800;}
+h3{font-family:var(--serif); font-size:1.15rem; margin:34px 0 10px;}
+p.intro{color:var(--dim); max-width:72ch; margin:0 0 26px;}
+p{margin:0 0 12px;}
+ul{padding-left:20px; margin:6px 0 12px;} li{margin-bottom:4px;}
+
+/* ---- 卡片／標籤 ---- */
+.grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.card{background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px; border-top:3px solid var(--c,var(--blue));}
+.card h4{margin:0 0 8px; font-family:var(--serif); font-size:1.02rem; line-height:1.5;}
+.card p,.card li{font-size:.9rem; color:var(--dim);} .card p:last-child{margin-bottom:0;}
+.card .foot{margin-top:12px; padding-top:10px; border-top:1px dashed var(--border); font-family:var(--mono); font-size:.72rem; color:var(--faint); display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;}
+.c-blue{--c:var(--blue);} .c-amber{--c:var(--amber);} .c-green{--c:var(--green);} .c-red{--c:var(--red);} .c-purple{--c:var(--purple);}
+.badge{display:inline-block; font-family:var(--mono); font-size:.68rem; font-weight:600; padding:2px 9px; border-radius:999px; white-space:nowrap;}
+.g-a{background:var(--green-bg); color:var(--green); border:1px solid rgba(57,211,83,.3);}
+.g-b{background:var(--amber-bg); color:var(--amber); border:1px solid rgba(227,179,65,.3);}
+.g-c{background:var(--red-bg); color:var(--red); border:1px solid rgba(240,97,111,.3);}
+.callout{border-radius:12px; padding:16px 18px; margin:18px 0; font-size:.92rem; border:1px solid var(--border); background:var(--bg-card);}
+.callout h5{margin:0 0 6px; font-size:.92rem;} .callout p:last-child{margin:0;}
+.callout.red{background:var(--red-bg); border-color:rgba(240,97,111,.3);}
+.callout.amber{background:var(--amber-bg); border-color:rgba(227,179,65,.3);}
+.callout.green{background:var(--green-bg); border-color:rgba(57,211,83,.3);}
+.callout.blue{background:var(--blue-bg); border-color:rgba(88,166,255,.3);}
+
+/* ---- 查核紀錄 ---- */
+.check{background:#0a0e13; border:1px solid var(--border-strong); border-radius:16px; padding:22px 24px 8px;}
+.check h3{margin:0 0 6px;} .check .sub{color:var(--dim); font-size:.88rem; margin:0 0 16px;}
+.row{font-family:var(--mono); font-size:.82rem; line-height:1.85; border-top:1px solid var(--border); padding:14px 0;}
+.row div{display:flex; gap:10px; padding:2px 0;} .row .m{flex-shrink:0; width:14px;}
+.row .old{color:var(--faint);} .row .old .t{text-decoration:line-through; text-decoration-color:rgba(240,97,111,.6);} .row .old .m{color:var(--red);}
+.row .new{color:#d3ecdc;} .row .new .m{color:var(--green);}
+.row .unk{color:#f2dc9b;} .row .unk .m{color:var(--amber);}
+.row .src{color:var(--faint); font-size:.74rem; padding-left:24px;}
+details.fold{border-top:1px solid var(--border); padding:12px 0; font-size:.88rem;}
+details.fold summary{cursor:pointer; color:var(--text); font-weight:600;}
+details.fold ul{color:var(--dim); font-size:.86rem;}
+
+/* ---- 長條圖 ---- */
+.bars{display:grid; gap:10px; margin:14px 0;}
+.bar{display:grid; grid-template-columns:150px 1fr 48px; align-items:center; gap:12px; font-size:.88rem;}
+.bar .track{height:14px; background:var(--bg-hover); border-radius:7px; overflow:hidden;}
+.bar .fill{height:100%; border-radius:7px; background:var(--c,var(--blue)); width:0; transition:width .9s cubic-bezier(.2,.8,.2,1);}
+.bar b{font-family:var(--mono); text-align:right;}
+@media (max-width:560px){.bar{grid-template-columns:110px 1fr 40px;}}
+
+/* ---- 表格 ---- */
+.tw{overflow-x:auto; border:1px solid var(--border); border-radius:12px; background:var(--bg-card);}
+table{width:100%; border-collapse:collapse; font-size:.87rem; min-width:620px;}
+th,td{padding:11px 14px; border-bottom:1px solid var(--border); text-align:left; vertical-align:top;}
+th{font-family:var(--mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--faint); background:rgba(255,255,255,.02);}
+tr:last-child td{border-bottom:none;} td{color:var(--dim);} td:first-child{color:var(--text);}
+.chip{display:inline-block; font-family:var(--mono); font-size:.68rem; font-weight:600; padding:2px 9px; border-radius:999px;}
+.chip.lo{background:var(--green-bg); color:var(--green);} .chip.mid{background:var(--amber-bg); color:var(--amber);} .chip.hi{background:var(--red-bg); color:var(--red);}
+.dir-f{color:var(--purple);} .dir-e{color:var(--blue);}
+
+/* ---- 階段時間軸 ---- */
+.phases{display:grid; grid-template-columns:repeat(5,1fr); gap:0; margin:6px 0;}
+.phase{background:var(--bg-card); border:1px solid var(--border); padding:16px 14px; font-size:.85rem; color:var(--dim);}
+.phase + .phase{border-left:none;} .phase:first-child{border-radius:12px 0 0 12px;} .phase:last-child{border-radius:0 12px 12px 0;}
+.phase h4{margin:0 0 6px; font-family:var(--serif); font-size:.98rem; color:var(--text);}
+.phase .t{font-family:var(--mono); font-size:.7rem; color:var(--blue); display:block; margin-bottom:6px;}
+.phase.hot{background:var(--blue-bg); border-color:rgba(88,166,255,.35);}
+@media (max-width:860px){.phases{grid-template-columns:1fr; gap:8px;} .phase{border-radius:12px !important; border-left:1px solid var(--border) !important;}}
+
+/* ---- 互動：時間關係速判 ---- */
+.tool{background:var(--bg-card); border:1px solid var(--border-strong); border-radius:16px; padding:22px;}
+.tool .q{font-family:var(--mono); font-size:.75rem; letter-spacing:.06em; text-transform:uppercase; color:var(--blue); margin-bottom:10px;}
+.opts{display:grid; gap:8px;}
+.opt{text-align:left; font-family:var(--sans); font-size:.9rem; color:var(--text); background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:11px 14px; cursor:pointer;}
+.opt:hover{border-color:var(--blue);} .opt[aria-pressed="true"]{border-color:var(--blue); background:var(--blue-bg);}
+.out{margin-top:18px; display:none; gap:12px;} .out.show{display:grid;}
+.out .box{background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:14px 16px; font-size:.9rem;}
+.out .box h6{margin:0 0 6px; font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--faint);}
+.out .box ul{margin:0; color:var(--dim);} .out .title{font-family:var(--serif); font-size:1.15rem; margin:0;}
+
+/* ---- 測驗 ---- */
+.qcard{background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:20px; margin-bottom:14px;}
+.qcard h5{margin:0 0 12px; font-size:.97rem; font-weight:500; line-height:1.65;} .qcard h5 span{font-family:var(--mono); color:var(--blue); margin-right:8px;}
+.qopt{display:block; width:100%; text-align:left; font-family:var(--sans); font-size:.9rem; color:var(--text); background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 14px; margin-bottom:8px; cursor:pointer;}
+.qopt:hover{border-color:var(--blue);} .qopt.ok{border-color:var(--green); background:var(--green-bg);} .qopt.no{border-color:var(--red); background:var(--red-bg);}
+.exp{display:none; margin-top:10px; font-size:.88rem; color:var(--dim); border-left:3px solid var(--green); padding:8px 14px; background:var(--bg);} .qcard.done .exp{display:block;}
+.score{font-family:var(--mono); font-size:.85rem; color:var(--dim);}
+
+/* ---- 參考文獻 ---- */
+ol.refs{list-style:none; counter-reset:r; padding:0; font-size:.84rem; color:var(--dim);}
+ol.refs li{counter-increment:r; position:relative; padding:9px 0 9px 38px; border-bottom:1px dashed var(--border);}
+ol.refs li::before{content:"["counter(r)"]"; position:absolute; left:0; font-family:var(--mono); color:var(--blue); font-size:.78rem;}
+ol.refs li .st{font-family:var(--mono); font-size:.64rem; margin-left:8px; padding:1px 7px; border-radius:999px;}
+.st.v{background:var(--green-bg); color:var(--green);} .st.u{background:var(--amber-bg); color:var(--amber);}
+
+footer{padding:34px 24px; color:var(--faint); font-size:.85rem; border-top:1px solid var(--border);}
+footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+:focus-visible{outline:3px solid var(--blue); outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){*{transition:none !important; scroll-behavior:auto !important;}}
+@media print{.topnav{display:none;}}
+</style>
+</head>
+<body>
+<script src="assets/site-header.js"></script>
+
+<nav class="topnav" aria-label="本頁章節">
+  <div class="links">
+    <a href="#check">證據查核</a><a href="#risk">風險</a><a href="#phenom">臨床表現</a><a href="#assess">評估</a>
+    <a href="#drug">用藥</a><a href="#fds">與功能性發作鑑別</a><a href="#quiz">自我測驗</a><a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="eyebrow">Epilepsy · Neuropsychiatry</div>
+    <h1>癲癇發作後的精神症狀：風險、評估與處理</h1>
+    <p class="lede">依「風險 → 臨床表現 → 評估 → 用藥 → 與功能性（心因性）發作的鑑別」整理。每個數字與主張都回到原始研究核對，標示證據強度，並把常被轉述錯誤的地方直接修正在頁面上。</p>
+    <div class="stats">
+      <div class="stat"><b>7%</b><span>難治型局部癲癇患者在發作後出現精神病症狀（Kanner 2004，n=100）</span></div>
+      <div class="stat"><b>2%</b><span>發作後精神病（PIP）在癲癇的估計盛行率；顳葉癲癇約 7%</span></div>
+      <div class="stat"><b>20–30%</b><span>轉診到癲癇專科中心的人最後被診斷為功能性／解離性發作</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 01 證據查核 ================= -->
+<section class="block" id="check">
+  <div class="wrap">
+    <div class="label"><span class="n">01</span>證據查核</div>
+    <h2>哪些常見說法需要修正</h2>
+    <p class="intro">灰色刪除線是常被引用但與原始研究不符或過度推論的說法；綠色是查核後的內容；黃色是我找不到原始出處、無法核實，請保守引用。</p>
+
+    <div class="check">
+      <h3>查核紀錄</h3><p class="sub">共 13 項修正，並列出已核實與未核實的清單。</p>
+
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">發作後精神病（PIP）的「獨立危險因子」（以 Cox 模型確認）：發作成簇 OR 7.59、aura OR 2.49、精神疾病家族史 OR 5.17、右顳側放電 OR 4.87、男性</span></div>
+        <div class="new"><span class="m">+</span><span>研究是病例對照＋邏輯迴歸，不是 Cox 模型。上述 OR 都是「單變項」結果；多變項分析後只剩男性（女性 OR 0.22）、有 aura（OR 3.49）、發作成簇（OR 8.57）。家族史與右顳放電不是獨立因子；另一個較大的病例對照研究（Alper 2008，59 例 PIP）強調的是雙側放電、繼發全身化、腦炎病史與家族史，各研究的危險因子並不一致</span></div>
+        <div class="src">Braatz 2021 [3]；Alper 2008 [24]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">「安慰劑組的癲癇發生率為抗憂鬱藥組的 19 倍」，所以憂鬱症本身是癲癇風險因子</span></div>
+        <div class="new"><span class="m">+</span><span>FDA 試驗資料中，抗憂鬱藥組癲癇發生率低於安慰劑組（SIR 0.48，95% CI 0.36–0.61）；「19 倍」是憂鬱症試驗的安慰劑組相對於一般人口的發生率，不是相對於抗憂鬱藥組。這也只是試驗資料，觀察性研究的結果並不一致</span></div>
+        <div class="src">Alper 2007 [9]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">接受抗精神病藥治療者，PIP 病程被認為可縮短</span></div>
+        <div class="new"><span class="m">+</span><span>2024 年系統性回顧（13 個研究、1,180 人）：效果無定論；4 個世代研究中有 3 個發現使用抗精神病藥與「較長」的病程相關，很可能是適應症混淆（較嚴重者才用藥）。ILAE 的整理也指出指引選藥的證據幾乎不存在</span></div>
+        <div class="src">Arora 2024 [6]；ILAE Epigraph 2020 [23]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">PIP 分級給藥流程（輕度 benzodiazepine 單用、中重度合併抗精神病藥、難治用 ECT／rTMS）有研究支持</span></div>
+        <div class="new"><span class="m">+</span><span>這是專家共識。原始回顧明確寫「很少有對照研究」，推薦的依據是臨床經驗；ECT／rTMS 只有個案報告。本頁一律標為證據 C</span></div>
+        <div class="src">de Toffol 2018 [5]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">lamotrigine 的整體精神副作用率最低（約 4.8%）；改用 brivaracetam「約 67% 改善」</span></div>
+        <div class="new"><span class="m">+</span><span>2025 年回顧列出的「行為風險最低」是 carbamazepine、ethosuximide、lacosamide、oxcarbazepine、phenytoin、pregabalin、primidone，沒有 lamotrigine；4.8% 找不到出處。這是敘述性回顧（非系統性）。換成 brivaracetam 的資料多為小型回溯或開放標籤研究，沒有隨機試驗；67% 無法核實</span></div>
+        <div class="src">Lyndon 2025 [11]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">PNES 佔癲癇監測中心轉介者 5%–40%；PNES 患者合併真正癲癇 5%–40%</span></div>
+        <div class="new"><span class="m">+</span><span>專科監測單位約 20–30%；急診癲癇表現者 11–27%；合併真正癲癇約 10–20%。誤診延遲平均約 7 年</span></div>
+        <div class="src">[20] [29] [30]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">支持 PNES 的特徵清單（含弓角反張、發作後耳語說話、可被暗示誘發、每週 ≥2 次且 ≥2 種藥無效且 ≥2 次 EEG 正常者 85% 為 PNES）</span></div>
+        <div class="new"><span class="m">+</span><span>只有 10 個徵象有 ≥2 個對照研究支持（見第 06 節）；弓角反張、耳語沒有；「85%」規則找不到出處，已刪除。各徵象都要在整體脈絡中解讀，不能累加成分數</span></div>
+        <div class="src">Avbersek 2010 [16]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">舌咬傷罕見，若發生多在舌尖</span></div>
+        <div class="new"><span class="m">+</span><span>舌「側」咬傷可「確認」癲癇（敏感度 22%、特異度約 100%），但沒有它不能排除；沒有指明部位的「舌咬傷」對鑑別沒有價值</span></div>
+        <div class="src">Brigo 2012 [17]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">FDS 患者的猝死率較一般族群高 2.5 倍</span></div>
+        <div class="new"><span class="m">+</span><span>找不到出處，已刪除</span></div>
+        <div class="src">—</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">心率／HRV 可區辨癲癇與功能性發作（ROC 0.99、敏感度 92%、特異度 94%）</span></div>
+        <div class="new"><span class="m">+</span><span>數字無誤，但是單一中心、53 例癲癇對 46 例功能性發作、只限「驚攣性」事件且排除自律神經共病者，尚無外部驗證。2026 年的另一項研究（以發作前 HRV 熵降低區辨）也只有「中等」的區辨力</span></div>
+        <div class="src">Ryan 2023 [18]；[27]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">SSRI／SNRI 在治療劑量下「安全」（僅 4 種藥例外）</span></div>
+        <div class="new"><span class="m">+</span><span>2021 年 Cochrane（10 個研究、626 人）：沒有看到抗憂鬱藥使發作增加，但「抗憂鬱藥是否真的改善癲癇患者的憂鬱」證據仍非常有限。要同時說「發作安全性大致可接受」與「療效證據不足」</span></div>
+        <div class="src">Maguire 2021 [10]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">抗精神病藥的癲癇風險數字（整體 SIR 2.05、移除 clozapine 與 olanzapine 後 1.18、quetiapine 2.05、其餘 1.03）</span></div>
+        <div class="new"><span class="m">+</span><span>方向正確（試驗資料：clozapine、olanzapine、quetiapine 高於安慰劑；risperidone、ziprasidone 無差異），但這些具體 SIR 無法核實，且 quetiapine 與整體同為 2.05 很可能是轉述錯誤。台灣健保資料的世代研究則顯示 aripiprazole 風險可能較低</span></div>
+        <div class="src">Alper 2007 [9]；Wu 2016 [13]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">「抗癲癇藥與三環抗憂鬱劑交叉過敏率約 70%」</span></div>
+        <div class="new"><span class="m">+</span><span>找不到支持這個數字與配對的來源。可靠的做法是：HLA-B*1502 篩檢用於漢人使用 carbamazepine 前（台灣前瞻研究），芳香族 ASM 之間有交叉反應風險</span></div>
+        <div class="src">Chen 2011 [22]</div>
+      </div>
+
+      <details class="fold"><summary>已核實的數字（點開）</summary>
+        <ul>
+          <li>Kanner 2004：100 人；發作後憂鬱 43、焦慮 45、精神病 7、輕躁 22、神經植物性 52、疲勞 37 人；平均每人 5.9±5.3 項精神症狀、2.8±1.8 項認知症狀；38 人既有症狀在發作後惡化 [1]</li>
+          <li>發作後自殺意念 13/100，中位持續 24 小時（1–240 小時）[26]</li>
+          <li>Braatz 2021：3,288 人中 83 人有精神病、49 人為 PIP；幻覺 88%、思考紊亂 84%、妄想 69%、行為紊亂 67%；74% 反覆發作、10% 後來變成慢性 interictal psychosis；PRS 比癲癇對照高（R²=3%）但與思覺失調症患者無差異 [3]</li>
+          <li>Shen 2025：882 人，精神病 13%（interictal 7%、ictal 3%、postictal 2%）；PIP 風險因子為嚴重頭部外傷、目前頻繁發作、顳葉癲癇 [4]</li>
+          <li>Umbrella review：4 篇系統性回顧、66 個研究、10,217 人，證據確定性「非常低」；發作後最常見的是焦慮與憂鬱 [2]</li>
+          <li>癲癇患者精神病整體盛行率 pooled 5.6% [5]；Kubota 2023：醒轉後 60 秒心率上升中位數 86.7% 對 26.1% [19]</li>
+        </ul>
+      </details>
+      <details class="fold"><summary>無法核實、請保守引用（點開）</summary>
+        <ul>
+          <li>Umbrella review 內的具體百分比（發作後焦慮 45.0%、憂鬱 43.0%、前驅期混亂 9.0%、焦慮 8.6%）；「局部癲癇 60%、全身性 26%」的細項</li>
+          <li>Kanner 2004 的認知症狀 82%、「另 62 人」、輕躁症狀的中位持續時間（約 2 小時）、PSI 患者中「77%」有憂鬱或雙極病史（方向已核實，百分比未核實）</li>
+          <li>癲癇後 1–3 年首次精神病的 IRR（10.9、4.8、4.0）與反向 IRR（15.7、8.5、7.7）；Shen 2025 的 HR 數值與各症狀百分比；「IIP 嚴重度最高、PIP 次之、IP 最輕」</li>
+          <li>酵素誘導劑使 SSRI 劑量需增加約 30%；carbamazepine 使 haloperidol 濃度下降 50–60% 等百分比</li>
+          <li>Ryan 2023 的最佳切點（心率增加 19.5%）、Kubota 2023 的切點（48.7%）與 AUC；急診 26.5% 為 FDS；ictal fear 佔 aura 10–15%、ictal depression 約 1%</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 風險 ================= -->
+<section class="block" id="risk">
+  <div class="wrap">
+    <div class="label"><span class="n">02</span>風險與流行病學</div>
+    <h2>發作後是精神症狀最密集的時期</h2>
+    <p class="intro">癲癇患者的精神共病本來就多；其中與發作時間相關的（peri-ictal）症狀長期被低估，發作後尤其明顯。</p>
+
+    <div class="grid">
+      <div class="card c-blue">
+        <h4>基線負擔</h4>
+        <p>癲癇患者的精神共病高達約 50%（局部癲癇、顳葉癲癇更高）；精神病性疾患約 6%，風險是一般人口的近 8 倍 [3,5]。癲癇合併精神病者的自殺風險約為一般人口的 12.5 倍 [4]。</p>
+        <div class="foot"><span>系統性回顧引述</span><span>[3,4,5]</span></div>
+      </div>
+      <div class="card c-amber">
+        <h4>發作後最常見，但證據很弱</h4>
+        <p>Umbrella review（4 篇回顧、66 個研究、10,217 人）：發作後的精神表現最常見，以焦慮與憂鬱為主；前驅期以混亂為主。<b>整體證據確定性為「非常低」</b>（異質性高、偏差風險大）。</p>
+        <div class="foot"><span>Alva-Diaz 2024</span><span>[2] <span class="badge g-c">C</span></span></div>
+      </div>
+    </div>
+
+    <h3>最常被引用的量化資料：難治型局部癲癇的前瞻性問卷</h3>
+    <p style="color:var(--dim);font-size:.9rem;">100 位難治型局部癲癇患者，以問卷詢問「習慣性」的發作後症狀（出現在超過半數的發作之後）。單一中心、自填問卷，不是盛行率的精確估計 [1]。</p>
+    <div class="bars" id="bars">
+      <div class="bar" style="--c:var(--blue)"><span>發作後焦慮</span><div class="track"><div class="fill" data-v="45"></div></div><b>45%</b></div>
+      <div class="bar" style="--c:var(--purple)"><span>發作後憂鬱</span><div class="track"><div class="fill" data-v="43"></div></div><b>43%</b></div>
+      <div class="bar" style="--c:var(--amber)"><span>神經植物性症狀</span><div class="track"><div class="fill" data-v="52"></div></div><b>52%</b></div>
+      <div class="bar" style="--c:var(--amber)"><span>發作後疲勞</span><div class="track"><div class="fill" data-v="37"></div></div><b>37%</b></div>
+      <div class="bar" style="--c:var(--green)"><span>發作後輕躁</span><div class="track"><div class="fill" data-v="22"></div></div><b>22%</b></div>
+      <div class="bar" style="--c:var(--red)"><span>發作後精神病</span><div class="track"><div class="fill" data-v="7"></div></div><b>7%</b></div>
+    </div>
+    <div class="callout blue"><h5>臨床上更重要的兩個觀察</h5><p>多數人同時有多種症狀（平均 5.9 項），且另有 38 位患者雖無新症狀，卻在發作後讓<b>原本的 interictal 精神與認知症狀明顯惡化</b>。這提醒我們：發作後要檢查的是「整體精神狀態是否變差」，不是只找新症狀 [1]。</p></div>
+
+    <h3>精神病的規模與風險因子</h3>
+    <div class="grid">
+      <div class="card c-purple">
+        <h4>PIP 的盛行率</h4>
+        <ul>
+          <li>整體癲癇約 2%，顳葉癲癇約 7%；占癲癇相關精神病約四分之一 [3]</li>
+          <li>長時間 video-EEG 監測單位的年發生率：精神病性事件 6.4%（另 1.4% 為非精神病性）；監測期間成簇發作是重要情境，不能直接外推到一般門診 [25]</li>
+          <li>西部中國三個三級中心的 882 人：精神病 13%（IIP 7%、IP 3%、PIP 2%），可能比過去報告高約兩倍；但為回溯、三級中心的資料 [4]</li>
+        </ul>
+        <div class="foot"><span>各研究族群不同，不能直接互比</span><span>[3,4,25]</span></div>
+      </div>
+      <div class="card c-purple">
+        <h4>PIP 風險因子：單變項 vs 多變項</h4>
+        <table style="min-width:0;font-size:.82rem;">
+          <tr><th>因子</th><th>單變項 OR</th><th>多變項 OR</th></tr>
+          <tr><td>發作成簇</td><td>7.59</td><td>8.57</td></tr>
+          <tr><td>有 aura</td><td>2.49</td><td>3.49</td></tr>
+          <tr><td>女性（相對於男性）</td><td>—</td><td>0.22</td></tr>
+          <tr><td>精神疾病家族史</td><td>5.17</td><td>—</td></tr>
+          <tr><td>右顳側放電</td><td>4.87</td><td>—</td></tr>
+        </table>
+        <div class="foot"><span>病例對照；邏輯迴歸</span><span>[3]</span></div>
+      </div>
+      <div class="card c-purple">
+        <h4>遺傳與其他</h4>
+        <p>PIP 患者的思覺失調症多基因風險分數高於癲癇對照（R²=3%），與思覺失調症患者無顯著差異；作者提出「癲癇發作成簇＋思覺失調症遺傳易感性」的模型，但樣本小且僅歐洲族群，屬假說。PIP 者的癲癇手術結果也較差（Engel I–II 50% 對 88%）[3]。</p>
+        <div class="foot"><span>假說層級</span><span>[3] <span class="badge g-b">B</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 臨床表現 ================= -->
+<section class="block" id="phenom">
+  <div class="wrap">
+    <div class="label"><span class="n">03</span>臨床表現</div>
+    <h2>以「與發作的時間關係」分類</h2>
+    <p class="intro">時間關係是分類的核心，也決定處理方向：症狀是「發作的一部分」、「發作的後果」，還是「與發作無關」。</p>
+
+    <div class="phases">
+      <div class="phase"><span class="t">PRE-ICTAL · 數小時–3 天</span><h4>發作前</h4>混亂、焦慮、易怒、煩躁。與 interictal 症狀幾乎無法區分，只能靠與發作的時間關聯。</div>
+      <div class="phase"><span class="t">ICTAL · 秒–分鐘</span><h4>發作中</h4>Ictal fear 最常見（多源自右側內側顳葉）；較少見憂鬱、幻覺、gelastic。持續數小時的 twilight state 要想到非驚攣性重積。</div>
+      <div class="phase hot"><span class="t">POST-ICTAL · 數小時–1 週</span><h4>發作後</h4>焦慮、憂鬱、輕躁、疲勞、認知症狀；<b>發作後精神病（PIP）</b>；自殺意念。</div>
+      <div class="phase"><span class="t">PARA-ICTAL</span><h4>強迫性正常化</h4>癲癇被控制、EEG 正常化的同時出現精神病或煩躁。不是特定藥物專屬，與「癲癇控制」本身有關 [5]。</div>
+      <div class="phase"><span class="t">INTER-ICTAL · 持續</span><h4>發作間期</h4>慢性憂鬱、焦慮、精神病。發作後常惡化（38% 患者）[1]。</div>
+    </div>
+    <p style="font-size:.85rem;color:var(--faint);">階段描述整理自綜述 [7]（證據 C：專家整理）；具體百分比未逐項核實。</p>
+
+    <h3>發作後精神病（PIP）：最需要認得的一型</h3>
+    <div class="grid">
+      <div class="card c-red">
+        <h4>典型時序</h4>
+        <ul>
+          <li><b>清明期</b>：發作（群）後症狀先緩解，經過一段看起來正常的時間才出現精神病。常見 12–72 小時，文獻最長約 120 小時；研究定義多採「發作後 1 週內發病、持續 1 天至 3 個月」[3,25]</li>
+          <li><b>內容</b>（n=49）：幻覺 88%、思考紊亂 84%、妄想 69%、行為紊亂 67% [3]</li>
+          <li>現象學常帶強烈情感色彩（誇大、宗教妄想、情緒高亢）；評論性幻聽較少 [7]</li>
+        </ul>
+        <div class="foot"><span>證據 B（病例系列）</span><span>[3,7]</span></div>
+      </div>
+      <div class="card c-red">
+        <h4>病程與預後</h4>
+        <ul>
+          <li>平均約 10 天（1–63 天），約 95% 在 1 個月內緩解 [3 引述]</li>
+          <li>Braatz 系列：74% 反覆發作、20% 單次、10%（5/49）之後變成慢性 interictal psychosis [3]</li>
+          <li>ILAE：反覆 PIP 者約 10–25% 最終發展為 interictal psychosis [23]</li>
+          <li>66%（27 人，有資料者）需要住院 [3]</li>
+        </ul>
+        <div class="foot"><span>多為回溯資料</span><span>[3,23]</span></div>
+      </div>
+      <div class="card c-amber">
+        <h4>危險性</h4>
+        <p>PIP 可伴目標明確的暴力與自傷；延遲治療與傷害風險上升有關 [5,7]。發作後自殺意念約 13%（中位 24 小時，範圍 1–240 小時）；這些人過去較常有雙極症或重度憂鬱病史與精神科住院史 [26]。</p>
+        <div class="foot"><span>安全評估不可省略</span><span>[5,26]</span></div>
+      </div>
+    </div>
+    <div class="callout amber"><h5>PIP 很容易被誤診為原發性精神病</h5><p>一項 143 位癲癇患者的研究中，11.9% 被診斷為雙極症，但只有 1.4% 能歸為原發性精神疾病 [2 引述，數字未核實]。區辨關鍵：與發作的時間關聯（清明期、成簇之後）、病程短、對低劑量治療反應快，以及以情感色彩濃厚的內容為主。</p></div>
+  </div>
+</section>
+
+<!-- ================= 04 評估 ================= -->
+<section class="block" id="assess">
+  <div class="wrap">
+    <div class="label"><span class="n">04</span>評估</div>
+    <h2>先分類、再排除、後處理</h2>
+    <p class="intro">開精神科藥之前，先回答四件事：症狀和發作是什麼時間關係、安不安全、有沒有可逆的原因、抗癲癇藥本身是不是原因。</p>
+
+    <div class="grid">
+      <div class="card c-blue"><h4>1　建立時間軸</h4><p>以發作日誌對照症狀：發作當中？發作後立即？清明期之後？發作被控制之後？剛換藥之後？</p></div>
+      <div class="card c-red"><h4>2　安全評估</h4><p>自殺意念（發作後常見）、暴力與自傷、是否需要住院。症狀明顯時不要等待。</p></div>
+      <div class="card c-amber"><h4>3　排除其他原因</h4><p>持續混亂時做 EEG（排除非驚攣性重積）；感染、代謝、物質、藥物戒斷（benzodiazepine 戒斷可引起譫妄與精神病）。</p></div>
+      <div class="card c-purple"><h4>4　抗癲癇藥盤點</h4><p>有無新加、快速調高、停用、多藥合併；是否使用高行為風險藥物（見第 05 節）。</p></div>
+    </div>
+    <p style="font-size:.88rem;color:var(--dim);margin-top:14px;">常用篩檢工具包括 NDDI-E（憂鬱）、GAD-7（焦慮）、PHQ-9；建議於基線與調藥期間定期篩檢（專家共識，證據 C）[11]。</p>
+
+    <h3>互動：時間關係速判（教學用）</h3>
+    <div class="tool">
+      <div class="q">症狀出現在什麼時候？</div>
+      <div class="opts" id="opts"></div>
+      <div class="out" id="out" aria-live="polite"></div>
+    </div>
+    <p style="font-size:.8rem;color:var(--faint);margin-top:10px;">這個工具只用「時間關係」做初步分類，協助記憶與討論，不能取代臨床評估；同一個病人可以同時有多種型態。</p>
+  </div>
+</section>
+
+<!-- ================= 05 用藥 ================= -->
+<section class="block" id="drug">
+  <div class="wrap">
+    <div class="label"><span class="n">05</span>用藥</div>
+    <h2>用藥原則：先處理可逆因素，再「低劑量、慢慢加」</h2>
+
+    <h3>① 抗癲癇藥本身的精神作用</h3>
+    <p class="intro">抗癲癇藥（ASM）既可能引起、也可能改善精神症狀，是選藥時的第一線考量。2025 年敘述性回顧把 28 種 ASM 分成五個行為風險層級 [11]：</p>
+    <div class="tw"><table>
+      <thead><tr><th>行為風險</th><th>藥物（依該回顧）</th><th>重點</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip hi">高～極高</span></td><td>levetiracetam、perampanel、felbamate、stiripentol</td><td>以易怒、攻擊性為主</td></tr>
+        <tr><td><span class="chip mid">較高</span></td><td>vigabatrin、zonisamide（及其他）</td><td>回顧中的細項層級我未能逐一核對</td></tr>
+        <tr><td><span class="chip lo">最低</span></td><td>carbamazepine、ethosuximide、lacosamide、oxcarbazepine、phenytoin、pregabalin、primidone</td><td>部分有情緒穩定作用</td></tr>
+      </tbody>
+    </table></div>
+    <ul style="font-size:.9rem;color:var(--dim);">
+      <li>風險調節因子：多藥合併、快速加量、高劑量、既有精神疾病、智能障礙、社會剝奪 [11]</li>
+      <li>被視為可能誘發精神病的 ASM：Braatz 系列中包括 topiramate、vigabatrin、zonisamide；文獻也有 levetiracetam 的報告，carbamazepine 則相對少見 [3]。Shen 2025 中 perampanel 與「≥2 種 ASM」與 interictal psychosis 風險上升有關 [4]</li>
+      <li>levetiracetam 引起行為副作用時，換成 brivaracetam 的小型觀察研究多半有改善，但沒有隨機試驗，不能視為證實有效 [11]</li>
+      <li>酵素誘導型 ASM（phenytoin、carbamazepine、phenobarbital、primidone）會耗損葉酸，建議補充 [11]</li>
+      <li><b>不要因為精神症狀驟然停用 ASM</b>：停藥本身可誘發發作，也可能造成戒斷性精神病</li>
+    </ul>
+
+    <h3>② 抗憂鬱劑</h3>
+    <div class="grid">
+      <div class="card c-green">
+        <h4>發作安全性：大致可接受</h4>
+        <p>FDA 試驗資料（約 7.6 萬人）：抗憂鬱藥組癲癇發生率低於安慰劑組（SIR 0.48）。僅 bupropion、clomipramine、amoxapine、maprotiline 在治療劑量下有促癲癇作用，應避免或極謹慎；其餘 SSRI／SNRI 在治療劑量下風險低，但中毒劑量仍可致發作 [8,9]。</p>
+        <div class="foot"><span>試驗資料</span><span>[8,9] <span class="badge g-b">B</span></span></div>
+      </div>
+      <div class="card c-amber">
+        <h4>療效證據：非常有限</h4>
+        <p>2021 Cochrane（10 個研究、626 人）：沒有看到發作增加，但抗憂鬱藥是否優於安慰劑、其他治療或不治療，證據非常有限；多數比較的證據確定性為低到極低 [10]。英國基層醫療資料庫的觀察性研究則看到 SSRI／SNRI 使用者發作的校正 OR 約 2（一般族群、受適應症混淆影響）。</p>
+        <div class="foot"><span>系統性回顧</span><span>[10] <span class="badge g-a">A</span></span></div>
+      </div>
+      <div class="card c-purple">
+        <h4>實務原則</h4>
+        <ul>
+          <li>低劑量起始、逐步加量至症狀完全緩解；無效則換不同類別 [8]</li>
+          <li><b>只有 interictal 症狀才對抗憂鬱／抗焦慮藥有反應</b>；pre-ictal、ictal、post-ictal 症狀不會（專家意見）[7,8]</li>
+          <li>有雙極症者不單獨使用抗憂鬱劑</li>
+          <li>與 ASM 的交互作用：酵素誘導劑會降低 sertraline、citalopram 等濃度；fluoxetine、fluvoxamine 抑制代謝，使 phenytoin、carbamazepine 濃度上升 [8,12]</li>
+        </ul>
+        <div class="foot"><span>專家意見為主</span><span>[7,8,12] <span class="badge g-c">C</span></span></div>
+      </div>
+    </div>
+
+    <h3>③ 抗精神病藥</h3>
+    <div class="grid">
+      <div class="card c-blue">
+        <h4>發作風險的證據</h4>
+        <ul>
+          <li>試驗資料：clozapine、olanzapine、quetiapine 的發作發生率高於安慰劑；risperidone、ziprasidone 沒有差異 [9]</li>
+          <li>clozapine：發作風險與劑量相關（約 1% 到最高 4–5%）；多為肌陣攣或全身強直陣攣 [12]</li>
+          <li>台灣健保資料世代（精神分裂症與情感疾患新使用者）：aripiprazole 的風險可能較低；clozapine、thioridazine、haloperidol 約為 risperidone 的 2–3 倍 [13]</li>
+        </ul>
+        <div class="foot"><span>觀察性＋試驗資料</span><span>[9,12,13] <span class="badge g-b">B</span></span></div>
+      </div>
+      <div class="card c-blue">
+        <h4>在癲癇患者的療效與安全</h4>
+        <p>2024 系統性回顧：13 個研究、1,180 人，<b>療效證據無定論</b>（可能受適應症混淆）；多數研究顯示抗精神病藥沒有明顯加重發作，發作頻率不變或下降；沒有可靠的隨機試驗 [6]。</p>
+        <p>實務共識：在已有效控制的 ASM 之下，低劑量使用「start low, go slow」；沒有證據顯示哪一種較優；控制良好的精神病，獲益通常大於理論風險 [5]。</p>
+        <div class="foot"><span>系統性回顧＋專家共識</span><span>[5,6] <span class="badge g-b">B</span></span></div>
+      </div>
+      <div class="card c-amber">
+        <h4>交互作用與監測</h4>
+        <ul>
+          <li>carbamazepine 等酵素誘導劑會降低多種抗精神病藥濃度；valproate 可能抑制部分藥物清除（具體百分比未核實）[5,12]</li>
+          <li>監測：鎮靜、體重與代謝、心血管、高泌乳素、性功能、錐體外症狀 [5]</li>
+        </ul>
+        <div class="foot"><span>方向性資料</span><span>[5,12] <span class="badge g-c">C</span></span></div>
+      </div>
+    </div>
+
+    <h3>④ 發作後精神病（PIP）的處理</h3>
+    <div class="callout red"><h5>證據層級：專家共識（C）</h5><p>PIP 沒有可靠的對照研究；ILAE 的整理直言「指引選藥的證據不存在」。以下是臨床上常見的做法，不是證據支持的演算法。</p></div>
+    <div class="grid">
+      <div class="card c-red"><h4>先做什麼</h4><ul><li>重新檢視 ASM 與發作控制程度（共識認為這是治療的一部分）[5]</li><li>安全評估；明顯時可考慮精神科住院，延遲治療與傷害風險有關 [5]</li><li>預防比治療重要：控制發作、特別是避免成簇 [23]</li></ul></div>
+      <div class="card c-red"><h4>症狀治療</h4><ul><li>benzodiazepine 與抗精神病藥是公認的症狀治療選擇（postictal 與短暫 interictal 精神病）[5]</li><li>Braatz 系列中，有治療資料者約 56% 使用抗精神病藥、26% 使用 benzodiazepine [3]</li><li>benzodiazepine 單用可能引起反常興奮；躁動暴力者常合併抗精神病藥（專家意見）</li><li>難治且暴力者有 ECT／rTMS 的個案報告，證據極薄弱</li></ul></div>
+    </div>
+
+    <h3>⑤ 其他用藥安全提醒</h3>
+    <ul style="font-size:.9rem;color:var(--dim);">
+      <li><b>Bupropion 在癲癇患者應避免</b>（尤其合併飲食障礙或酒精、benzodiazepine 戒斷）[14]</li>
+      <li>漢人使用 carbamazepine 前建議檢測 HLA-B*1502（台灣前瞻研究支持篩檢）；芳香族 ASM 之間有交叉反應風險 [22]</li>
+      <li>FDA 對所有 ASM 有「自殺意念」類別警語；仍建議基線與加藥期篩檢 [11]</li>
+      <li>只有少數精神藥物明顯降低發作閾值，卻常導致精神共病被治療不足 [14]</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 06 與功能性發作鑑別 ================= -->
+<section class="block" id="fds">
+  <div class="wrap">
+    <div class="label"><span class="n">06</span>與功能性（心因性）發作的鑑別</div>
+    <h2>單一徵象都不夠，要整合脈絡與 video-EEG</h2>
+    <p class="intro">功能性／解離性發作（FDS，舊稱 PNES）指外觀像癲癇、但沒有癲癇性腦電活動的事件。最常見的模仿者還有昏厥；反過來，額葉癲癇也常被誤認為 FDS。</p>
+
+    <div class="stats" style="margin-bottom:22px;">
+      <div class="stat"><b>20–30%</b><span>癲癇專科中心轉介者最後診斷為 FDS [20,30]</span></div>
+      <div class="stat"><b>~7 年</b><span>FDS 平均被正確診斷前的延遲 [20,30]</span></div>
+      <div class="stat"><b>11–27%</b><span>急診「癲癇發作」事後診斷為 FDS 的比例 [29]</span></div>
+      <div class="stat"><b>10–20%</b><span>FDS 患者同時有真正癲癇，不可因診斷 FDS 就停所有 ASM [20,30]</span></div>
+    </div>
+
+    <h3>症狀學：哪些徵象有證據</h3>
+    <p style="font-size:.9rem;color:var(--dim);">以 video-EEG 為標準的 34 個研究整理：同時有 ≥2 個對照研究支持者才算「證據良好」[16]。</p>
+    <div class="tw"><table>
+      <thead><tr><th>徵象</th><th>偏向</th><th>證據與限制</th></tr></thead>
+      <tbody>
+        <tr><td>事件持續時間長（常以 &gt;2 分鐘為界）</td><td class="dir-f">功能性</td><td>證據良好 [16]</td></tr>
+        <tr><td>發作過程忽強忽弱（waxing and waning）</td><td class="dir-f">功能性</td><td>證據良好 [16]</td></tr>
+        <tr><td>閉眼</td><td class="dir-f">功能性</td><td>證據良好；先前統合分析特異度約 0.9、LR+ 約 5.5；但口述或目擊者報告的閉眼<b>不可靠</b>，需在影片中看到、且多次事件才穩定 [16,28]</td></tr>
+        <tr><td>非同步動作、骨盆前挺、左右搖頭</td><td class="dir-f">功能性</td><td>證據良好；額葉發作需排除（可有類似表現）[16]</td></tr>
+        <tr><td>發作中哭泣、事後記得經過</td><td class="dir-f">功能性</td><td>證據良好 [16]</td></tr>
+        <tr><td>從「看似睡眠」中發生（EEG 證實為清醒）</td><td class="dir-f">功能性</td><td>證據良好；需 EEG 確認 [16]</td></tr>
+        <tr><td>發作後沒有混亂；發作後鼾聲呼吸（stertorous）</td><td><span class="dir-f">無混亂→功能性</span>／<span class="dir-e">鼾聲→癲癇</span></td><td>證據良好 [16]</td></tr>
+        <tr><td>舌「側」咬傷</td><td class="dir-e">癲癇</td><td>敏感度 22%、特異度約 100%：確認用，沒有不能排除；未指明部位的舌咬傷無價值 [17]</td></tr>
+        <tr><td>短暫、刻板、有 aura、發作後混亂、發作後肌痛與局部缺損</td><td class="dir-e">癲癇</td><td>臨床經驗為主；「抽搐」與「尿失禁」在昏厥與功能性發作也可見，不可單獨判斷 [15]</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout amber"><h5>反向陷阱</h5><p>額葉癲癇的戲劇化動作、發聲、意識保留、發作後期短，常被誤認為功能性發作；鑑別點是短暫、刻板、偏好睡眠中發生 [15]。</p></div>
+
+    <h3>客觀工具</h3>
+    <div class="grid">
+      <div class="card c-blue">
+        <h4>Video-EEG：首選，但有盲點</h4>
+        <p>錄到典型事件、且無伴隨 EEG 異常，並經熟悉其發作的家人確認，是確定診斷的標準。單純部分發作（aura）或深部中線（內側額葉、頂葉）起源者，頭皮 EEG 可能看不到；以 EEG 改變診斷時，癲癇被誤判為非癲癇的比率高於反向 [15,20]。</p>
+        <div class="foot"><span>共識／專家</span><span>[15,20]</span></div>
+      </div>
+      <div class="card c-purple">
+        <h4>心率／自律神經：驚攣性事件才有用</h4>
+        <ul>
+          <li>驚攣性事件：心率變化量＋發作後心率組合模型 ROC 0.99、敏感度 92%、特異度 94%（單一中心，53 例癲癇對 46 例 FDS）[18]</li>
+          <li>非驚攣性事件：只用心率的特異度 &lt;50%，價值有限 [18]</li>
+          <li>夜間醒轉：60 秒內心率上升中位數 86.7%（癲癇性）對 26.1%（非癲癇性）[19]</li>
+          <li>澳洲三級醫院回溯研究：所有事件類型合併時，心率的區辨力差；只有雙側強直陣攣對 PNES 時，最大 ictal 心率 AUC 0.84、發作後心率 AUC 0.90 [31]</li><li>2026 年研究：發作前 HRV 熵降低與 FDS 相關，但對癲癇的區辨力僅「中等」[27]</li>
+        </ul>
+        <div class="foot"><span>尚缺外部驗證</span><span>[18,19,27,31] <span class="badge g-c">C</span></span></div>
+      </div>
+      <div class="card c-amber">
+        <h4>泌乳素與 CK</h4>
+        <p>事件後 10–20 分鐘採血的血清泌乳素，是全身強直陣攣與顳葉複雜部分發作的輔助工具；額葉起源無效，昏厥亦不適用 [21]。驚攣性假性重積後 CK 上升幅度通常低於真正的癲癇重積 [15]。</p>
+        <div class="foot"><span>AAN 指引；CK 為專家意見</span><span>[15,21]</span></div>
+      </div>
+    </div>
+
+    <h3>與「發作相關精神症狀」的內部鑑別</h3>
+    <ul style="font-size:.9rem;color:var(--dim);">
+      <li>peri-ictal 精神症狀常被當成原發性精神疾病：看<b>與發作的時間關聯</b>、病程是否短（多在 1 個月內緩解）、對低劑量治療反應、現象學是否情感色彩濃厚 [3,7]</li>
+      <li>Ictal fear 與恐慌發作的區分：恐慌發作無刻板性、無自動症、無發作後混亂 [15]</li>
+      <li>5–10% 的 PNES 研究族群有誤診或合併問題：診斷 FDS 後仍要持續追蹤是否有真正發作</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 07 流程總結 ================= -->
+<section class="block" id="summary">
+  <div class="wrap">
+    <div class="label"><span class="n">07</span>臨床要點</div>
+    <h2>帶走的六件事</h2>
+    <div class="callout blue">
+      <ul>
+        <li><b>發作後精神症狀很常見，但證據確定性低。</b>難治型局部癲癇中，發作後焦慮 45%、憂鬱 43%、精神病 7%，且既有症狀常在發作後惡化。</li>
+        <li><b>PIP 的辨識靠時序：</b>發作成簇 → 清明期 → 情感色彩濃厚的精神病；多數 1 個月內緩解，但約 74% 會復發。</li>
+        <li><b>危險因子要看對層級：</b>多變項分析後只有男性、aura、發作成簇；家族史與右顳放電只在單變項成立。</li>
+        <li><b>先盤點 ASM，再談精神科藥。</b>高行為風險藥物、快速加量、多藥合併、驟然停藥都要先處理。</li>
+        <li><b>PIP 的用藥是專家共識（C）。</b>抗精神病藥在有效 ASM 之下低劑量使用大致可接受，但沒有證據顯示縮短病程；抗憂鬱藥的療效證據同樣有限。</li>
+        <li><b>鑑別功能性發作靠整合：</b>病史、有證據的症狀學徵象、video-EEG；心率指標只適用於驚攣性事件，且尚缺外部驗證。</li>
+      </ul>
+    </div>
+    <p style="font-size:.85rem;color:var(--faint);">本頁為教學用途；用藥請依個案、仿單與院內規範判斷，並與癲癇專科及精神科共同處理。</p>
+  </div>
+</section>
+
+<!-- ================= 08 測驗 ================= -->
+<section class="block" id="quiz">
+  <div class="wrap">
+    <div class="label"><span class="n">08</span>自我檢核</div>
+    <h2>八題觀念測驗</h2>
+    <div id="quizBox"></div>
+    <p class="score" id="score"></p>
+  </div>
+</section>
+
+<!-- ================= 參考文獻 ================= -->
+<section class="block" id="refs" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="label"><span class="n">09</span>參考文獻</div>
+    <h2>References</h2>
+    <p style="font-size:.85rem;color:var(--dim);">標籤「已核對」＝本次回到原文摘要或全文比對過；「引用既有」＝文獻存在且為常用來源，但本次未重新比對其中的數字。</p>
+    <ol class="refs">
+      <li>Kanner AM, Soto A, Gross-Kanner H. Prevalence and clinical characteristics of postictal psychiatric symptoms in partial epilepsy. <em>Neurology</em>. 2004;62(5):708-713. DOI: 10.1212/01.wnl.0000113763.11862.26 <span class="st v">已核對（摘要）</span></li>
+      <li>Alva-Diaz C, Cabanillas-Lazo M, Navarro-Flores A, et al. Peri-ictal psychiatric manifestations in people with epilepsy: an umbrella review. <em>Epilepsia Open</em>. 2024;9(4):1166-1175. DOI: 10.1002/epi4.12949 <span class="st v">已核對（摘要）</span></li>
+      <li>Braatz V, Martins Custodio H, Leu C, et al. Postictal psychosis in epilepsy: a clinicogenetic study. <em>Annals of Neurology</em>. 2021;90(3):464-476. DOI: 10.1002/ana.26174 <span class="st v">已核對（全文）</span></li>
+      <li>Shen S, Sun H, Dong Z, et al. Prevalence, clinical characteristics, and risk factors for psychosis in people with epilepsy: a multicenter retrospective cohort study. <em>Epilepsia</em>. 2025;66(8):2904-2915. DOI: 10.1111/epi.18409 <span class="st v">已核對（摘要）</span></li>
+      <li>de Toffol B, Trimble M, Hesdorffer DC, et al. Pharmacotherapy in patients with epilepsy and psychosis. <em>Epilepsy &amp; Behavior</em>. 2018;88:54-60. DOI: 10.1016/j.yebeh.2018.09.001 <span class="st v">已核對（摘要）</span></li>
+      <li>Arora A, Prakash P, Rizzo L, Blackman G, David AS, Rogers JP. Effectiveness of antipsychotic drug therapy for treating psychosis in people with epilepsy: a systematic review. <em>Epilepsia</em>. 2024. DOI: 10.1111/epi.18123 <span class="st v">已核對（摘要）</span></li>
+      <li>Mula M, Monaco F. Ictal and peri-ictal psychopathology. <em>Behavioural Neurology</em>. 2011;24(1):21-25. DOI: 10.1155/2011/450635 <span class="st u">引用既有</span></li>
+      <li>Kanner AM. Most antidepressant drugs are safe for patients with epilepsy at therapeutic doses: a review of the evidence. <em>Epilepsy &amp; Behavior</em>. 2016;61:282-286. DOI: 10.1016/j.yebeh.2016.03.022 <span class="st u">引用既有</span></li>
+      <li>Alper K, Schwartz KA, Kolts RL, Khan A. Seizure incidence in psychopharmacological clinical trials: an analysis of FDA summary basis of approval reports. <em>Biological Psychiatry</em>. 2007;62(4):345-354. <span class="st v">已核對（摘要引述）</span></li>
+      <li>Maguire MJ, Marson AG, Nevitt SJ. Antidepressants for people with epilepsy and depression. <em>Cochrane Database of Systematic Reviews</em>. 2021;4:CD010682. <span class="st v">已核對</span></li>
+      <li>Lyndon S, Dworetzky BA, Baslet G. Psychiatric and behavioural side effects of antiseizure medications in epilepsy. <em>Journal of Neurology</em>. 2025;273(1):45. DOI: 10.1007/s00415-025-13591-2 <span class="st v">已核對（摘要，敘述性回顧）</span></li>
+      <li>Mula M, Monaco F, Trimble MR. Use of psychotropic drugs in patients with epilepsy: interactions and seizure risk. <em>Expert Review of Neurotherapeutics</em>. 2004;4(6):953-964. DOI: 10.1586/14737175.4.6.953 <span class="st u">引用既有</span></li>
+      <li>Wu CS, et al. Comparative risk of antipsychotic-related seizure: a nationwide population-based cohort study (Taiwan). <em>Journal of Clinical Psychiatry</em>. 2016;77(5):e573-e579. <span class="st v">已核對（摘要）</span></li>
+      <li>Tallian K. Three clinical pearls in the treatment of patients with seizures and comorbid psychiatric disorders. <em>Mental Health Clinician</em>. 2017;7(6):235-245. DOI: 10.9740/mhc.2017.11.235 <span class="st u">引用既有</span></li>
+      <li>Carreño M. Recognition of nonepileptic events. <em>Seminars in Neurology</em>. 2008;28(3):297-304. DOI: 10.1055/s-2008-1079334 <span class="st u">引用既有</span></li>
+      <li>Avbersek A, Sisodiya S. Does the primary literature provide support for clinical signs used to distinguish psychogenic nonepileptic seizures from epileptic seizures? <em>J Neurol Neurosurg Psychiatry</em>. 2010;81(7):719-725. <span class="st v">已核對（摘要）</span></li>
+      <li>Brigo F, Storti M, Lochner P, et al. Tongue biting in epileptic seizures and psychogenic events: an evidence-based perspective. <em>Epilepsy &amp; Behavior</em>. 2012. <span class="st v">已核對（摘要）</span></li>
+      <li>Ryan JM, Wagner KT, Yerram S, et al. Heart rate and autonomic biomarkers distinguish convulsive epileptic vs. functional or dissociative seizures. <em>Seizure</em>. 2023;111:178-186. DOI: 10.1016/j.seizure.2023.08.015 <span class="st v">已核對（會議摘要版）</span></li>
+      <li>Kubota T, Thyagaraj S, Gia Huynh H, et al. Distinction between epileptic and non-epileptic arousal by heart rate change. <em>Epilepsy &amp; Behavior</em>. 2023;148:109487. DOI: 10.1016/j.yebeh.2023.109487 <span class="st v">已核對（摘要）</span></li>
+      <li>Yogarajah M, Diehl B. Enhancing diagnostic yield in functional seizures: a narrative review. <em>Seizure</em>. 2025. <span class="st v">已核對（摘要）</span></li>
+      <li>Chen DK, So YT, Fisher RS. Use of serum prolactin in diagnosing epileptic seizures: report of the Therapeutics and Technology Assessment Subcommittee of the AAN. <em>Neurology</em>. 2005;65(5):668-675. <span class="st u">引用既有</span></li>
+      <li>Chen P, Lin JJ, Lu CS, et al. Carbamazepine-induced toxic effects and HLA-B*1502 screening in Taiwan. <em>New England Journal of Medicine</em>. 2011;364:1126-1133. <span class="st u">引用既有</span></li>
+      <li>ILAE. Post-ictal psychosis: identification, treatment and prevention. <em>Epigraph</em>. 2020;22(2). <span class="st v">已核對</span></li>
+      <li>Alper K, Kuzniecky R, Carlson C, et al. Postictal psychosis in partial epilepsy: a case-control study. <em>Annals of Neurology</em>. 2008;63(5):602-610. <span class="st v">已核對（摘要）</span></li>
+      <li>Kanner AM, Stagno S, Kotagal P, Morris HH. Postictal psychiatric events during prolonged video-electroencephalographic monitoring studies. <em>Archives of Neurology</em>. 1996;53(3):258-263. <span class="st v">已核對（摘要）</span></li>
+      <li>Gross-Kanner H, Kanner AM. Postictal suicidal ideation: prevalence and risk factors. AES Annual Meeting abstract G.02；另見 Kanner AM. Suicidality in patients with epilepsy. <em>Front Integr Neurosci</em>. 2022;16:898547. <span class="st v">已核對（摘要）</span></li>
+      <li>Preictal reduction in heart rate variability entropy is associated with functional/dissociative seizures and provides modest discrimination from epileptic seizures. <em>Epilepsy &amp; Behavior</em>. 2026;183:111181. <span class="st v">已核對（摘要）</span></li>
+      <li>Using semiology to classify epileptic seizures vs psychogenic nonepileptic seizures (meta-analysis). <em>Neurology: Clinical Practice</em>. 2022. <span class="st v">已核對（摘要）</span></li>
+      <li>急診功能性／解離性發作的診斷研究. <em>J Neurol Neurosurg Psychiatry</em>. 2024;95(4):294（jnnp.bmj.com/content/95/4/294）. <span class="st v">已核對（摘要）</span></li>
+      <li>功能性（心因性非癲癇）發作的回顧. <em>Dtsch Arztebl Int</em>. 2013（PMC3647137）. <span class="st v">已核對（摘要）</span></li>
+          <li>Can seizure-related heart rate differentiate epileptic from psychogenic nonepileptic seizures? <em>Epilepsy &amp; Behavior</em>（澳洲三級醫院 video-EEG 回溯研究）. <span class="st v">已核對（摘要）</span></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>N-Teaching 神經科教學研究部 · 教學用途，不做為個別病人之診療依據</span><span><a href="index.html">返回首頁</a></span></div>
+</footer>
+
+<script>
+/* ============ 資料區：要改內容只需改這裡 ============ */
+
+/* 時間關係速判：每個選項對應一種型態 */
+const TYPES = [
+ { k:'ictal', label:'發作當中（刻板、數秒至數分鐘，可伴自動症或意識改變）',
+   title:'Ictal 症狀（發作本身的表現）', grade:'C',
+   feat:['ictal fear 最常見，多源自右側內側顳葉；其次是 ictal 憂鬱、幻覺、gelastic 等 [7]','持續數小時至數天的 twilight／混亂狀態：要想到非驚攣性癲癇重積'],
+   next:['盡快做 EEG（必要時 video-EEG）','處理方向是控制發作、調整 ASM，而不是精神科藥物','與恐慌發作區分：ictal fear 通常不到 1 分鐘，恐慌發作至少約 5 分鐘、可持續到 20 分鐘；前者刻板、可有自動症與發作後混亂（專家意見）[15]'],
+   cave:['抗憂鬱／抗焦慮藥對 ictal 症狀無效（專家意見）[7,8]'] },
+ { k:'post', label:'發作後立即出現（混亂、焦慮、憂鬱、輕躁），沒有清明期',
+   title:'發作後的非精神病性症狀', grade:'B',
+   feat:['發作後焦慮 45%、憂鬱 43%、輕躁 22%、疲勞 37%；多數同時有多種症狀 [1]','發作後自殺意念約 13% [26]','常見的另一種情形是既有精神症狀在發作後惡化（38%）[1]'],
+   next:['評估自殺意念與安全（發作後常見）','檢查 interictal 症狀是否一併惡化，需要時治療 interictal 症狀','重點在控制發作、避免成簇；多數症狀的中位持續時間約 24 小時，個別可長達數天 [1,26]'],
+   cave:['單純的發作後症狀通常不需要精神科藥物；頻繁或嚴重時再評估是否有 interictal 精神疾患'] },
+ { k:'pip', label:'發作（群）後經過一段看起來正常的時間（約 12 小時以上），才出現幻覺、妄想或行為紊亂',
+   title:'符合發作後精神病（PIP）的時間模式', grade:'C',
+   feat:['清明期常見 12–72 小時，文獻最長約 120 小時；多在發作後 1 週內發病 [3,25]','幻覺 88%、思考紊亂 84%、妄想 69%、行為紊亂 67%；內容常帶情感色彩 [3,7]','風險：發作成簇、有 aura、男性（多變項）[3]'],
+   next:['安全評估（暴力、自傷、住院需求）','EEG 排除非驚攣性重積；排除毒物、感染、戒斷','檢視 ASM（近期變動、停藥、藥物誘發的精神病）','精神科共同評估；治療為 benzodiazepine 和／或低劑量抗精神病藥（專家共識）[5]'],
+   cave:['多數 1 個月內緩解，但約 74% 會反覆發作、約 10% 之後變成慢性 interictal psychosis [3]','抗精神病藥是否縮短病程沒有證據（反而有較長病程的關聯，可能是適應症混淆）[6]'] },
+ { k:'iip', label:'與發作沒有明確時間關係，持續數週以上',
+   title:'Interictal 精神病，或原發性精神疾患', grade:'C',
+   feat:['Shen 2025 中的風險因子：發病年齡早、思覺失調症家族史、頻繁發作、顳葉癲癇、海馬硬化、perampanel、≥2 種 ASM [4]'],
+   next:['精神科共同照護','抗精神病藥低劑量起始、慢慢加（start low, go slow）[5]','留意 ASM 與精神藥物的交互作用；檢視是否為 ASM 誘發'],
+   cave:['在癲癇患者的抗精神病藥療效證據仍無定論 [6]'] },
+ { k:'fn', label:'癲癇被有效控制（藥物、手術或迷走神經刺激）後出現失眠、煩躁、焦慮或精神病',
+   title:'強迫性正常化／交替性精神病', grade:'C',
+   feat:['EEG 正常化的同時出現精神病或 dysphoria','並非特定藥物專屬，與「癲癇控制」本身的機制有關 [5]'],
+   next:['癲癇專科與精神科共同處理','重新評估 ASM 種類與發作控制程度 [5]'],
+   cave:['證據多為病例報告與臨床描述'] },
+ { k:'asm', label:'剛新加、快速調高或停用抗癲癇藥之後',
+   title:'ASM 相關的精神症狀（誘發或戒斷）', grade:'B',
+   feat:['高行為風險：levetiracetam、perampanel、felbamate、stiripentol；其他如 topiramate、vigabatrin、zonisamide 在病例中也有精神病 [3,11]','風險調節：多藥合併、快速加量、高劑量、既有精神疾病、智能障礙 [11]','benzodiazepine 戒斷可引起譫妄與精神病'],
+   next:['對照用藥時間線與症狀出現時間','盡可能不要驟然停藥；與癲癇專科討論減量或換成行為風險較低的藥物（carbamazepine、oxcarbazepine、lacosamide 等屬低風險群）[11]'],
+   cave:['換藥策略的證據多為回溯或小型研究；換藥可能影響發作控制'] }
+];
+
+/* 測驗 */
+const QUIZ = [
+ {q:'依 Braatz 2021 的病例對照研究，經多變項分析後，哪三項才是 PIP 的獨立危險因子？',
+  o:['精神疾病家族史、右顳側放電、女性','男性、有 aura、發作成簇','癲癇罹病年數、海馬硬化、多藥合併','發作成簇、右顳側放電、顳葉癲癇'], a:1,
+  e:'家族史（OR 5.17）與右顳側放電（OR 4.87）只在單變項成立；多變項只剩男性、aura（OR 3.49）與發作成簇（OR 8.57）。研究用的是邏輯迴歸，不是 Cox 模型。'},
+ {q:'「安慰劑組癲癇發生率是抗憂鬱藥組的 19 倍」這句話對嗎？',
+  o:['對，所以憂鬱症本身會增加癲癇風險','不對：19 倍是憂鬱症試驗的安慰劑組相對於一般人口；抗憂鬱藥組 SIR 約為安慰劑組的 0.48','不對：實際上抗憂鬱藥會增加癲癇','對，而且所有抗憂鬱藥都一樣安全'], a:1,
+  e:'Alper 2007 以 FDA 資料分析：抗憂鬱藥 SIR 0.48（對安慰劑組）；安慰劑組發生率比一般人口高約 19 倍（憂鬱症試驗）。這是試驗資料，且 bupropion 等少數藥物例外。'},
+ {q:'PIP 的藥物處理，證據層級最接近下列哪一項？',
+  o:['多個大型隨機對照試驗','系統性回顧證實抗精神病藥縮短病程','專家共識；對照研究很少，抗精神病藥效果無定論','前瞻性世代已證實 benzodiazepine 單用即足夠'], a:2,
+  e:'2024 年 13 個研究（1,180 人）的回顧結論是效果無定論，4 個世代中 3 個甚至看到病程較長（可能為適應症混淆）；ILAE 也指出選藥的證據不存在。'},
+ {q:'依 2025 年回顧，下列哪一群 ASM 的行為風險最低？',
+  o:['levetiracetam、perampanel、felbamate','carbamazepine、oxcarbazepine、lacosamide、phenytoin、pregabalin','vigabatrin、zonisamide','topiramate、perampanel'], a:1,
+  e:'最低風險群：carbamazepine、ethosuximide、lacosamide、oxcarbazepine、phenytoin、pregabalin、primidone；levetiracetam、perampanel、felbamate、stiripentol 在最高風險端。'},
+ {q:'一位剛從強直陣攣事件中醒來的病人舌「側」有咬傷。這個發現的意義是？',
+  o:['沒有診斷價值，因為任何舌咬傷都不能區分','可以幫助「確認」癲癇（特異度約 100%），但沒有時不能排除','可以確認是功能性發作','只在昏厥時有意義'], a:1,
+  e:'Brigo 2012：舌側咬傷敏感度 22%、特異度約 100%。「未指明部位的舌咬傷」才沒有鑑別價值。'},
+ {q:'下列哪些徵象在 video-EEG 研究中有「良好證據」支持功能性發作？',
+  o:['弓角反張、發作後耳語說話','事件長、忽強忽弱、閉眼、非同步動作、左右搖頭','發作時尿失禁','發作後肌痛'], a:1,
+  e:'Avbersek 2010 整理的良好證據：長時間、從看似睡眠中發生、忽強忽弱、非同步動作、骨盆前挺、左右搖頭、閉眼、哭泣、事後記得、無發作後混亂（以及發作後鼾聲呼吸對照強直陣攣）。弓角反張與耳語沒有，尿失禁在昏厥也可見。'},
+ {q:'關於心率／HRV 區辨癲癇與功能性發作，下列敘述何者最適當？',
+  o:['任何事件類型都有很高的區辨力','只有驚攣性事件有高區辨力，非驚攣性事件價值有限；且尚缺外部驗證','已可取代 video-EEG','只要心率增加 19.5% 就可確診'], a:1,
+  e:'Ryan 2023 的 ROC 0.99 限於驚攣性事件（單一中心）；非驚攣性事件只用心率的特異度 <50%。2026 年的另一研究也只有「中等」區辨力；澳洲回溯研究也指出所有事件合併時心率區辨力差。19.5% 的切點無法核實。'},
+ {q:'確診功能性發作之後，下列處置何者較適當？',
+  o:['立即停掉所有抗癲癇藥','因為約 10–20% 的人同時有真正癲癇，要持續評估，不可自動停所有 ASM','認為不可能同時有癲癇','只需要 CK 追蹤'], a:1,
+  e:'FDS 患者約 10–20% 同時有癲癇，且癲癇的發病通常早於功能性發作；診斷 FDS 並不代表可以停掉所有 ASM。'}
+];
+
+/* ============ 程式 ============ */
+(function(){
+  /* 長條圖：進入視窗時播放 */
+  var fills = document.querySelectorAll('#bars .fill');
+  function play(){ fills.forEach(function(f){ f.style.width = f.getAttribute('data-v') + '%'; }); }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ play(); io.disconnect(); } }); }, {threshold:.3});
+    io.observe(document.getElementById('bars'));
+  } else { play(); }
+
+  /* 時間關係速判 */
+  var optsBox = document.getElementById('opts'), out = document.getElementById('out');
+  function li(a){ return a.map(function(x){ return '<li>' + x + '</li>'; }).join(''); }
+  TYPES.forEach(function(t, i){
+    var b = document.createElement('button');
+    b.className = 'opt'; b.type = 'button'; b.textContent = t.label; b.setAttribute('aria-pressed','false');
+    b.addEventListener('click', function(){
+      optsBox.querySelectorAll('.opt').forEach(function(o){ o.setAttribute('aria-pressed','false'); });
+      b.setAttribute('aria-pressed','true');
+      out.innerHTML =
+        '<p class="title">' + t.title + ' <span class="badge g-' + (t.grade==='B'?'b':'c') + '">證據 ' + t.grade + '</span></p>' +
+        '<div class="box"><h6>特徵</h6><ul>' + li(t.feat) + '</ul></div>' +
+        '<div class="box"><h6>評估與下一步</h6><ul>' + li(t.next) + '</ul></div>' +
+        '<div class="box"><h6>注意</h6><ul>' + li(t.cave) + '</ul></div>';
+      out.classList.add('show');
+    });
+    optsBox.appendChild(b);
+  });
+
+  /* 測驗 */
+  var box = document.getElementById('quizBox'), sc = document.getElementById('score'), right = 0, done = 0;
+  QUIZ.forEach(function(q, qi){
+    var c = document.createElement('div'); c.className = 'qcard';
+    c.innerHTML = '<h5><span>Q' + (qi+1) + '</span>' + q.q + '</h5><div class="o"></div><div class="exp"><b>解析：</b>' + q.e + '</div>';
+    var o = c.querySelector('.o');
+    q.o.forEach(function(t, oi){
+      var b = document.createElement('button'); b.className = 'qopt'; b.type = 'button'; b.textContent = t;
+      b.addEventListener('click', function(){
+        if(c.classList.contains('done')) return;
+        c.classList.add('done');
+        var all = o.querySelectorAll('.qopt'); all[q.a].classList.add('ok');
+        if(oi !== q.a){ b.classList.add('no'); } else { right++; }
+        done++; sc.textContent = '目前：答對 ' + right + ' / ' + done + '（共 ' + QUIZ.length + ' 題）';
+      });
+      o.appendChild(b);
+    });
+    box.appendChild(c);
+  });
+})();
+</script>
+</body>
+</html>
