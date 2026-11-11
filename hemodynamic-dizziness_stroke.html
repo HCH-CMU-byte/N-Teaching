@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>血流動力學相關頭暈與身體不適症狀：診斷與處理</title>
+<style>
+:root{
+  --bg:#0f1319;--bg-card:#19202b;--bg-card-hover:#202939;--border:#2c3546;
+  --text:#e9edf4;--text-dim:#9aa6b9;--text-faint:#647087;
+  --blue:#62aef0;--blue-dim:#2c5080;
+  --coral:#f0866b;--coral-dim:#7b4136;
+  --gold:#e3b24c;--gold-dim:#86692b;
+  --green:#5cc79b;--green-dim:#265c48;
+  --purple:#a98ee6;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:70px;}
+body{background:var(--bg);color:var(--text);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;line-height:1.75;font-size:16px;}
+.en{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--text-dim);font-size:.86em;}
+a{color:var(--gold);text-decoration:none;} a:hover{text-decoration:underline;}
+
+.topnav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;
+  background:rgba(15,19,25,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px;}
+.brand{display:flex;align-items:center;}
+.logo-mark{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,var(--blue),var(--coral));display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#0f1319;}
+.brand:hover{text-decoration:none;}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap;align-items:center;}
+.nav-links a{color:var(--text-dim);font-size:.86rem;padding:7px 11px;border-radius:6px;transition:all .15s;}
+.nav-links a:hover{color:var(--text);background:var(--bg-card);text-decoration:none;}
+.nav-links a.home{color:var(--gold);}
+
+.hero{padding:60px 28px 38px;max-width:980px;margin:0 auto;border-bottom:1px solid var(--border);}
+.eyebrow{display:inline-flex;gap:8px;color:var(--blue);font-size:.82rem;letter-spacing:.05em;border:1px solid var(--blue-dim);padding:4px 12px;border-radius:20px;margin-bottom:18px;}
+.hero h1{font-size:2rem;font-weight:800;line-height:1.4;background:linear-gradient(90deg,var(--text) 45%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero .subtitle{margin-top:14px;color:var(--text-dim);max-width:760px;}
+.hero-meta{display:flex;gap:26px;margin-top:24px;flex-wrap:wrap;}
+.hero-meta div{font-size:.8rem;color:var(--text-faint);} .hero-meta b{color:var(--text);display:block;font-size:1.05rem;}
+
+section{max-width:980px;margin:0 auto;padding:50px 28px;border-bottom:1px solid var(--border);}
+.section-label{color:var(--gold);font-size:.78rem;letter-spacing:.08em;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.section-label::before{content:"";width:22px;height:2px;background:var(--gold);}
+h2{font-size:1.45rem;font-weight:700;margin-bottom:8px;} h2 .en{display:block;font-size:.72rem;margin-top:3px;font-weight:400;}
+h3{font-size:1.08rem;font-weight:700;margin:28px 0 10px;} h3 .en{font-size:.72rem;font-weight:400;}
+p{color:var(--text-dim);margin-bottom:14px;} p b,li b{color:var(--text);font-weight:600;}
+ul,ol{margin:10px 0 16px 22px;color:var(--text-dim);} li{margin-bottom:7px;}
+.lede{margin-bottom:22px;}
+
+.chip{display:inline-flex;align-items:center;gap:3px;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:5px;vertical-align:middle;margin:0 2px;white-space:nowrap;}
+.g-rct{background:rgba(92,199,155,.13);color:var(--green);border:1px solid var(--green-dim);}
+.g-meta{background:rgba(98,174,240,.13);color:var(--blue);border:1px solid var(--blue-dim);}
+.g-cohort{background:rgba(227,178,76,.13);color:var(--gold);border:1px solid var(--gold-dim);}
+.g-guide{background:rgba(240,134,107,.12);color:var(--coral);border:1px solid var(--coral-dim);}
+.g-cons{background:rgba(169,142,230,.13);color:var(--purple);border:1px solid #50407f;}
+.g-expert{background:rgba(154,166,185,.12);color:var(--text-dim);border:1px solid var(--border);}
+.v-ok{background:rgba(92,199,155,.13);color:var(--green);border:1px solid var(--green-dim);}
+.v-fix{background:rgba(240,134,107,.12);color:var(--coral);border:1px solid var(--coral-dim);}
+.v-warn{background:rgba(227,178,76,.13);color:var(--gold);border:1px solid var(--gold-dim);}
+.v-na{background:rgba(154,166,185,.12);color:var(--text-dim);border:1px solid var(--border);}
+.legend{display:flex;gap:14px 20px;flex-wrap:wrap;margin:16px 0;padding:13px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:.78rem;color:var(--text-dim);}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:18px;}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .18s;}
+.card:hover{border-color:var(--gold-dim);background:var(--bg-card-hover);transform:translateY(-2px);}
+.card .icon{font-size:1.4rem;display:block;margin-bottom:8px;}
+.card .cat{font-size:.7rem;color:var(--blue);letter-spacing:.05em;font-weight:700;margin-bottom:4px;}
+.card h4{font-size:.98rem;margin-bottom:6px;} .card p{font-size:.85rem;margin-bottom:0;}
+.card .foot{margin-top:11px;font-size:.74rem;color:var(--text-faint);border-top:1px solid var(--border);padding-top:9px;}
+
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--border);border-radius:8px;}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:700px;}
+th{background:rgba(227,178,76,.08);color:var(--gold);text-align:left;padding:10px 13px;font-size:.76rem;border-bottom:1px solid var(--border);}
+td{padding:10px 13px;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top;} tr:last-child td{border-bottom:none;} td b{color:var(--text);}
+
+.callout{background:rgba(98,174,240,.06);border:1px solid var(--blue-dim);border-left:3px solid var(--blue);border-radius:6px;padding:15px 18px;margin:18px 0;color:var(--text-dim);font-size:.9rem;}
+.callout b{color:var(--blue);}
+.callout.warn{background:rgba(240,134,107,.06);border-color:var(--coral-dim);border-left-color:var(--coral);} .callout.warn b{color:var(--coral);}
+
+.flow{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin:18px 0;}
+.flow-step{flex:1 1 150px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:13px 14px;min-width:140px;}
+.flow-step .n{font-size:.7rem;color:var(--gold);font-weight:700;letter-spacing:.05em;}
+.flow-step h5{font-size:.9rem;margin:3px 0;} .flow-step p{font-size:.78rem;margin:0;}
+.flow-arrow{display:flex;align-items:center;color:var(--text-faint);padding:0 6px;}
+
+.svgbox{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:14px;margin:18px 0;overflow-x:auto;}
+.svgbox svg{display:block;margin:0 auto;max-width:100%;height:auto;}
+.svgbox .cap{font-size:.78rem;color:var(--text-faint);text-align:center;margin-top:8px;}
+
+.q{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin:14px 0;}
+.q h4{font-size:.96rem;margin-bottom:10px;line-height:1.6;}
+.q .opt{display:block;width:100%;text-align:left;background:var(--bg);color:var(--text-dim);border:1px solid var(--border);border-radius:7px;padding:9px 13px;margin-bottom:7px;cursor:pointer;font-size:.88rem;font-family:inherit;transition:all .15s;}
+.q .opt:hover{border-color:var(--gold-dim);color:var(--text);}
+.q .opt.right{border-color:var(--green);color:var(--green);background:rgba(92,199,155,.08);}
+.q .opt.wrong{border-color:var(--coral);color:var(--coral);background:rgba(240,134,107,.08);}
+.q .why{display:none;margin-top:10px;font-size:.84rem;color:var(--text-dim);border-top:1px dashed var(--border);padding-top:10px;}
+.q.done .why{display:block;}
+.score{margin-top:12px;font-size:.9rem;color:var(--gold);font-weight:700;}
+
+.ref-list{list-style:none;margin:0;padding:0;}
+.ref-list li{padding:11px 0;border-bottom:1px solid var(--border);font-size:.82rem;color:var(--text-dim);display:flex;gap:11px;} .ref-list li:last-child{border-bottom:none;}
+.ref-num{color:var(--gold);font-weight:700;flex-shrink:0;min-width:34px;}
+.ref-list .doi{color:var(--text-faint);font-size:.76rem;}
+.ref-sub{font-size:.78rem;color:var(--blue);margin:22px 0 4px;font-weight:700;letter-spacing:.04em;}
+
+footer{max-width:980px;margin:0 auto;padding:34px 28px 60px;color:var(--text-faint);font-size:.8rem;}
+@media(max-width:700px){.hero h1{font-size:1.5rem;}section{padding:38px 18px;}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="brand"><span class="logo-mark">N</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="home">← 首頁</a>
+    <a href="#concept">概念與症狀</a>
+    <a href="#classify">分類</a>
+    <a href="#diagnosis">診斷</a>
+    <a href="#ddx">與血管性鑑別</a>
+    <a href="#treatment">處理</a>
+    <a href="#check">可信度查核</a>
+    <a href="#quiz">自我測驗</a>
+    <a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">● 腦中風 · 眩暈與暈厥鑑別 <span class="en">Hemodynamic Dizziness</span></div>
+  <h1>血流動力學相關頭暈與身體不適症狀：診斷與處理</h1>
+  <p class="subtitle">起身或站立時頭暈、眼前發黑、無力、思考變慢，但常規血壓量測「看起來正常」，該怎麼辦？本頁整理定義與分類、診斷流程、與 TIA 和內耳缺血的鑑別，以及處理原則，並將貼上的草稿與近十年文獻逐項對照，標示可信與需修正之處。</p>
+  <div class="hero-meta">
+    <div><b>Bárány 2019</b>血流動力學姿勢性頭暈準則</div>
+    <div><b>OH · IOH · POTS</b>五種血流動力學模式</div>
+    <div><b>HINTS</b>只用於急性前庭症候群</div>
+    <div><b>症狀與目標</b>處理重在症狀與跌倒</div>
+  </div>
+</div>
+
+<section id="summary">
+  <div class="section-label">重點摘要 <span class="en">Key Takeaways</span></div>
+  <h2>先看五個核心訊息</h2>
+  <div class="card-grid">
+    <div class="card"><span class="icon">🧭</span><div class="cat">概念</div><h4>「未達門檻」不等於「沒有」</h4><p>Bárány 學會 2019 準則為「血壓與心跳都沒有達到 OH／POTS 標準」的病人保留了正式標籤：<b>probable</b> 血流動力學姿勢性頭暈／眩暈。</p><div class="foot"><span class="chip g-cons">共識準則</span></div></div>
+    <div class="card"><span class="icon">⏱️</span><div class="cat">診斷</div><h4>時間窗決定你看不看得到</h4><p>初始型 OH 在站起 15 秒內出現、很快恢復，需要逐拍血壓；延遲型 OH 要站超過 3 分鐘才出現。只做一次 3 分鐘袖帶量測會漏掉這兩類。</p><div class="foot"><span class="chip g-cohort">世代／回顧</span></div></div>
+    <div class="card"><span class="icon">🧠</span><div class="cat">腦血流</div><h4>OCHOs：血壓心跳正常、腦血流速度下降</h4><p>1,279 位姿勢性頭暈病人中 102 位（約 8%）符合；傾斜時腦血流速度下降 24.1%（對照 4.2%）。仍屬<b>單中心回溯性</b>描述，未納入共識準則。</p><div class="foot"><span class="chip g-cohort">單中心回溯</span></div></div>
+    <div class="card"><span class="icon">🚨</span><div class="cat">鑑別</div><h4>突發、局部神經症狀、聽損就走血管路線</h4><p>HINTS 只適用於「急性持續性前庭症候群（有自發性眼振）」，<b>不能用來評估短暫或姿勢性頭暈</b>；早期 DWI 約 15% 假陰性。</p><div class="foot"><span class="chip g-meta">統合分析 2023</span></div></div>
+    <div class="card"><span class="icon">💊</span><div class="cat">處理</div><h4>先處理藥物、體液與生活，再談藥</h4><p>OH 處理目標是症狀與跌倒預防，不是追求站立血壓正常；midodrine 與 droxidopa 為美國僅有核准的藥物；POTS 目前沒有核准藥物，隨機試驗證據偏弱。</p><div class="foot"><span class="chip g-guide">綜述／共識</span></div></div>
+  </div>
+</section>
+
+<section id="concept">
+  <div class="section-label">01 · 概念與症狀 <span class="en">Concept &amp; Symptoms</span></div>
+  <h2>頭暈只是其中一個症狀<span class="en">Hemodynamic orthostatic dizziness is a syndrome, not a number</span></h2>
+  <p class="lede">姿勢性血流動力學失調引起的症狀，常常不只頭暈。Novak 的研究以下列症狀作為納入條件：頭暈、無力、疲倦、視力模糊、眩暈感、<b>枕下／頸旁／胸痛</b>、頭痛、呼吸困難、心悸與下背痛。所有症狀的共同特徵是：<b>站立時出現或加重，坐下或躺下很快緩解</b>。</p>
+
+  <div class="card-grid">
+    <div class="card"><span class="icon">👁️</span><div class="cat">腦灌流不足</div><h4>眼前發黑、視力模糊、頭重腳輕</h4><p>最典型，常在起身數秒到數分鐘內出現；嚴重時前驅暈厥或暈厥。</p></div>
+    <div class="card"><span class="icon">🫀</span><div class="cat">心跳反應</div><h4>心悸、胸悶、運動不耐</h4><p>POTS 與初始型 OH 的暫時性心搏過速常見。</p></div>
+    <div class="card"><span class="icon">🧩</span><div class="cat">全身與認知</div><h4>無力、疲倦、思考與專注困難</h4><p>Bárány 準則把這類症狀列為「probable」診斷所需的伴隨症狀之一。</p></div>
+    <div class="card"><span class="icon">💢</span><div class="cat">疼痛</div><h4>枕下、頸肩、下背痛、頭痛</h4><p>屬姿勢性症狀的一部分，易被誤認為肌肉骨骼或原發性頭痛。</p></div>
+  </div>
+
+  <h3>症狀與血壓下降幅度常常脫鉤<span class="en">Symptom–BP dissociation</span></h3>
+  <ul>
+    <li>人群研究顯示，姿勢性頭暈與姿勢性血壓下降經常並不重疊；有研究指出，站立時頭暈或頭重腳輕的老年人，最多約 31% 沒有姿勢性血壓變化。</li>
+    <li>老年姿勢性頭暈常與年齡、藥物、糖尿病、中風、前庭功能、視力及本體感覺障礙並存。</li>
+    <li>OH 的診斷閾值（20/10 mmHg、3 分鐘）是為了門診可操作而選定的；<b>「未達標準」不等於沒有腦灌流不足</b>。</li>
+  </ul>
+
+  <div class="callout"><b>關於「subclinical」這個詞：</b>它不是自主神經學的標準術語，且容易被理解為「沒有症狀」。真正「亞臨床」的是<b>偵測方法</b>（常規血壓計看不到），不是症狀。建議用「次閾值（subthreshold）」，或直接使用 Bárány 的 <b>probable</b> 標籤。</div>
+</section>
+
+<section id="classify">
+  <div class="section-label">02 · 定義與分類 <span class="en">Definitions &amp; Classification</span></div>
+  <h2>五種血流動力學模式與一個正式標籤<span class="en">OH · IOH · delayed OH · POTS · orthostatic HTN · OCHOs</span></h2>
+
+  <div class="svgbox">
+    <svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="站立後血壓與心跳隨時間變化的示意圖">
+      <g font-family="sans-serif">
+        <!-- BP panel -->
+        <text x="20" y="22" fill="#e9edf4" font-size="14" font-weight="700">收縮壓（示意）</text>
+        <line x1="70" y1="40" x2="70" y2="230" stroke="#647087"/><line x1="70" y1="230" x2="730" y2="230" stroke="#647087"/>
+        <line x1="70" y1="90" x2="730" y2="90" stroke="#2c3546" stroke-dasharray="3 4"/>
+        <text x="62" y="94" fill="#647087" font-size="10" text-anchor="end">臥位</text>
+        <line x1="150" y1="40" x2="150" y2="230" stroke="#2c3546" stroke-dasharray="2 4"/><text x="150" y="246" fill="#9aa6b9" font-size="11" text-anchor="middle">15 秒</text>
+        <line x1="230" y1="40" x2="230" y2="230" stroke="#2c3546" stroke-dasharray="2 4"/><text x="230" y="246" fill="#9aa6b9" font-size="11" text-anchor="middle">1 分</text>
+        <line x1="400" y1="40" x2="400" y2="230" stroke="#f0866b" stroke-dasharray="5 4"/><text x="400" y="246" fill="#f0866b" font-size="11" text-anchor="middle">3 分</text>
+        <line x1="640" y1="40" x2="640" y2="230" stroke="#2c3546" stroke-dasharray="2 4"/><text x="640" y="246" fill="#9aa6b9" font-size="11" text-anchor="middle">10 分</text>
+        <text x="70" y="246" fill="#9aa6b9" font-size="11" text-anchor="middle">站立</text>
+        <!-- normal -->
+        <path d="M70 90 L130 106 L190 94 L260 92 L730 94" fill="none" stroke="#5cc79b" stroke-width="2.5"/>
+        <!-- IOH -->
+        <path d="M70 90 L110 190 L150 200 L215 120 L270 96 L730 96" fill="none" stroke="#e3b24c" stroke-width="2.5" stroke-dasharray="7 4"/>
+        <!-- classic OH -->
+        <path d="M70 90 L150 120 L300 170 L400 178 L730 182" fill="none" stroke="#f0866b" stroke-width="2.5"/>
+        <!-- delayed OH -->
+        <path d="M70 90 L250 96 L400 100 L520 150 L640 180 L730 184" fill="none" stroke="#a98ee6" stroke-width="2.5" stroke-dasharray="2 4"/>
+        <!-- legend -->
+        <g font-size="11">
+          <line x1="470" y1="48" x2="500" y2="48" stroke="#5cc79b" stroke-width="2.5"/><text x="506" y="52" fill="#9aa6b9">正常</text>
+          <line x1="470" y1="64" x2="500" y2="64" stroke="#e3b24c" stroke-width="2.5" stroke-dasharray="7 4"/><text x="506" y="68" fill="#9aa6b9">初始型 OH（15 秒內，快速恢復）</text>
+          <line x1="470" y1="80" x2="500" y2="80" stroke="#f0866b" stroke-width="2.5"/><text x="506" y="84" fill="#9aa6b9">典型 OH（3 分鐘內持續下降）</text>
+          <line x1="470" y1="96" x2="500" y2="96" stroke="#a98ee6" stroke-width="2.5" stroke-dasharray="2 4"/><text x="506" y="100" fill="#9aa6b9">延遲型 OH（3 分鐘後才下降）</text>
+        </g>
+        <!-- HR panel -->
+        <text x="20" y="282" fill="#e9edf4" font-size="14" font-weight="700">心跳（示意）</text>
+        <line x1="70" y1="298" x2="70" y2="400" stroke="#647087"/><line x1="70" y1="400" x2="730" y2="400" stroke="#647087"/>
+        <line x1="70" y1="370" x2="730" y2="370" stroke="#2c3546" stroke-dasharray="3 4"/>
+        <text x="62" y="374" fill="#647087" font-size="10" text-anchor="end">臥位</text>
+        <path d="M70 370 L150 352 L400 350 L730 352" fill="none" stroke="#5cc79b" stroke-width="2.5"/>
+        <path d="M70 370 L150 340 L400 318 L730 312" fill="none" stroke="#62aef0" stroke-width="2.5"/>
+        <text x="640" y="304" fill="#62aef0" font-size="11" text-anchor="middle">POTS：10 分鐘內上升 ≥30 bpm（12–19 歲 ≥40）</text>
+        <text x="640" y="344" fill="#5cc79b" font-size="11" text-anchor="middle">正常</text>
+        <text x="640" y="418" fill="#647087" font-size="10" text-anchor="middle">POTS 血壓維持穩定、無典型 OH</text>
+      </g>
+    </svg>
+    <div class="cap">示意圖（非實測資料）：橫軸為站立後時間（非等比例）；曲線僅用於說明各模式的時間特徵。</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:18%">類別</th><th>診斷標準</th><th style="width:26%">重點備註</th></tr></thead>
+      <tbody>
+        <tr><td><b>典型 OH</b><br><span class="en">Classic OH</span></td><td>站立 3 分鐘內，收縮壓下降 ≥20 和／或舒張壓下降 ≥10 mmHg；臥位高血壓者收縮壓需下降 ≥30 mmHg</td><td>約 95% 的典型 OH 單用收縮壓標準即可辨識；站立 SBP &lt;90 mmHg 在 ESC 另列為標準</td></tr>
+        <tr><td><b>初始型 OH</b><br><span class="en">Initial OH</span></td><td>主動站立 15 秒內，收縮壓下降 &gt;40 和／或舒張壓下降 &gt;20 mmHg，伴腦灌流不足症狀，3 分鐘時無持續性 OH</td><td>需逐拍血壓；被動傾斜床無法診斷。「數值符合」≠「就是病因」</td></tr>
+        <tr><td><b>延遲型 OH</b><br><span class="en">Delayed OH</span></td><td>站立或傾斜 3 分鐘後才達到典型 OH 的下降幅度</td><td>10 年追蹤：54% 進展為典型 OH、31% 發展為 α-突觸核蛋白病；10 年死亡率 29%（對照 9%）</td></tr>
+        <tr><td><b>POTS</b></td><td>站立或傾斜 10 分鐘內心跳增加 ≥30 bpm（12–19 歲 ≥40 bpm），無典型 OH，慢性症狀 ≥3 個月，排除其他原因</td><td>暫時性初始型 OH 不排除 POTS；各組織標準略有差異</td></tr>
+        <tr><td><b>誇大升壓反應／姿勢性高血壓</b></td><td>站立時收縮壓持續上升 ≥20 mmHg 為「誇大升壓反應」；若站立收縮壓 ≥140 mmHg 稱「姿勢性高血壓」（2022 共識）</td><td>與心血管風險相關；目前高血壓指引尚未涵蓋，治療證據有限</td></tr>
+        <tr><td><b>OCHOs</b><br><span class="en">Orthostatic cerebral hypoperfusion syndrome</span></td><td>傾斜時腦血流速度（CBFv）異常下降，而血壓、心跳與呼氣末 CO₂ 皆無異常</td><td>單中心回溯性；需 TCD；尚未納入共識準則</td></tr>
+        <tr><td><b>Probable 血流動力學姿勢性頭暈／眩暈</b></td><td>A）≥5 次由起身誘發或站立時存在、坐下或躺下後緩解的頭暈、不穩或眩暈；B）至少一項伴隨症狀：全身無力或疲倦、思考或專注困難、視力模糊、心悸或心搏過速；C）無法以其他疾病更好解釋</td><td>「確定」診斷需要在站立或傾斜測試中<b>記錄到</b> OH、POTS 或暈厥（B 項不同）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>為什麼需要逐拍血壓與延長站立<span class="en">Why timing matters</span></h3>
+  <ul>
+    <li><b>初始型 OH</b>：250 位不明原因暈厥門診病人中，11.2% 最終診斷為初始型 OH（15 秒內平均血壓下降 47.4/29.0 mmHg），是該族群第二常見的暈厥原因。但另一方面，長者用該閾值判定的「初始型 OH」盛行率可高達 25–70%，說明<b>單靠門檻會產生大量偽陽性</b>。</li>
+    <li><b>延遲型 OH</b>：10 年追蹤（回溯性、轉診中心）顯示它常是進展中的自主神經失常；與藥物、利尿劑與抗高血壓藥有關者較少進展。</li>
+    <li><b>姿勢性頭暈的重現性</b>：即使是已有 OH 紀錄的病人，傾斜測試中 OH 的重現性也偏低，因此單次陰性不能完全排除。</li>
+  </ul>
+</section>
+
+<section id="diagnosis">
+  <div class="section-label">03 · 診斷流程 <span class="en">Diagnostic Approach</span></div>
+  <h2>由病史開始，逐步升級<span class="en">History first, then escalate</span></h2>
+
+  <div class="flow">
+    <div class="flow-step"><div class="n">STEP 1</div><h5>病史與藥物</h5><p>觸發因子（起身、久站、餐後、熱、臥床後）、緩解方式、伴隨症狀；完整藥物清單。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">STEP 2</div><h5>床邊站立測試</h5><p>仰臥約 5 分鐘後測 BP／HR；站立 1 分與 3 分鐘；有疑慮延長至 5–10 分鐘。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">STEP 3</div><h5>基礎檢查</h5><p>ECG、血球、血糖與電解質、脫水與貧血評估；篩檢臥位高血壓。</p></div>
+  </div>
+  <div class="flow">
+    <div class="flow-step"><div class="n">STEP 4</div><h5>陰性但高度懷疑</h5><p>逐拍血壓＋主動站立（15 秒、1、3、5、10 分鐘）；症狀情境重複量測；居家或 24 小時動態血壓。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">STEP 5</div><h5>專科自主神經檢查</h5><p>傾斜床測試（可加 TCD、呼氣末 CO₂）；排除過度換氣、心律不整與其他原因。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">STEP 6</div><h5>標籤與分流</h5><p>以 OH／IOH／延遲型 OH／POTS／姿勢性高血壓／OCHOs／probable 命名；有血管性紅旗者轉急性中風評估。</p></div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">檢查</th><th>回答的問題</th><th style="width:30%">限制</th></tr></thead>
+      <tbody>
+        <tr><td><b>床邊站立測試（袖帶）</b></td><td>典型 OH；站超過 2 分鐘可評估嚴重度；1 分鐘可偵測到幾乎所有 OH</td><td>間歇式袖帶抓不到 15 秒內的谷底</td></tr>
+        <tr><td><b>逐拍血壓＋主動站立</b></td><td>初始型 OH、血壓與心跳的時間軌跡</td><td>需設備；數值符合者多，須與病史對照</td></tr>
+        <tr><td><b>傾斜床測試</b></td><td>OH、POTS、延遲型 OH、反射性暈厥</td><td>被動傾斜無法診斷 IOH；OH 重現性偏低</td></tr>
+        <tr><td><b>TCD 腦血流速度＋呼氣末 CO₂</b></td><td>OCHOs；排除過度換氣造成的低 CO₂ 血管收縮</td><td>測的是流速不是流量；證據為單中心回溯性</td></tr>
+        <tr><td><b>居家／24 小時動態血壓</b></td><td>隱藏型 OH、餐後低血壓、臥位或夜間高血壓</td><td>需配合症狀日誌</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn"><b>常見陷阱：</b>只做一次 3 分鐘袖帶測量就下結論；把被動傾斜床陰性當成可排除 IOH；把「數值符合」直接當作病因；或反過來把病人的症狀歸因於「焦慮」而不測量。</div>
+</section>
+
+<section id="ddx">
+  <div class="section-label">04 · 與血管性頭暈鑑別 <span class="en">Differential: Vascular &amp; Inner Ear</span></div>
+  <h2>如何與 TIA、後循環缺血與內耳缺血區分<span class="en">Triggers, timing, and associated symptoms</span></h2>
+  <p class="lede">第一個問題永遠是<b>時序與觸發因子</b>：姿勢性血流動力學症狀在起身或站立時出現、坐下或躺下後緩解；血管性症狀則多為突發、無固定姿勢關係，常伴局部神經症狀或聽覺症狀。</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:16%">特徵</th><th>姿勢性血流動力學</th><th>後循環 TIA／短暫血管性眩暈</th><th>耳蝸／迷路缺血</th></tr></thead>
+      <tbody>
+        <tr><td><b>觸發</b></td><td>起身、久站、餐後、熱、臥床後</td><td>突發，無固定觸發</td><td>突發，無固定觸發</td></tr>
+        <tr><td><b>時長</b></td><td>數秒至數分鐘；站立期間持續</td><td>數分鐘至 &lt;24 小時</td><td>突發聽損／眩暈，可短暫前驅</td></tr>
+        <tr><td><b>姿勢改變</b></td><td>坐下或躺下緩解</td><td>無一致關係</td><td>無一致關係</td></tr>
+        <tr><td><b>伴隨症狀</b></td><td>視力模糊、無力、心悸、思考困難；無局部缺損</td><td>複視、構音／吞嚥困難、肢體無力、軀幹共濟失調、嚴重姿勢不穩</td><td>耳鳴、耳悶、單側感音神經性聽損</td></tr>
+        <tr><td><b>關鍵檢查</b></td><td>逐拍血壓、傾斜床、TCD</td><td>MRI（含 DWI）＋MRA／CTA；神經學與眼動檢查</td><td>聽力圖、語詞辨識；MRI 正常不能排除</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Bárány 學會血管性眩暈準則（2022）<span class="en">Kim JS et al., J Vestib Res</span></h3>
+  <ul>
+    <li><b>急性持續性（≥24 小時）</b>與<b>短暫性（&lt;24 小時）</b>分開定義；各有「確定」（需有對應的腦或內耳缺血／出血影像證據）與「可能」（無影像證據但具臨床線索）。</li>
+    <li>「可能的短暫血管性眩暈」所需線索包括：發作中的局部中樞神經症狀或嚴重姿勢不穩，以及血管事件風險升高（如 ABCD² ≥4 或心房顫動）等；<b>各條細節請對照原準則</b>。</li>
+    <li><b>孤立性迷路梗塞</b>沒有確診性檢查：在急性單側前庭功能喪失且伴有或 30 天內出現前下小腦動脈（AICA）梗塞時可以推定。</li>
+    <li>「椎基底動脈供血不足（VBI）」一詞已較少使用，現多稱「後循環 TIA」或「短暫血管性眩暈」。</li>
+  </ul>
+
+  <h3>HINTS 的適用範圍與準確度<span class="en">Scope and accuracy</span></h3>
+  <div class="card-grid">
+    <div class="card"><span class="icon">🎯</span><div class="cat">適用對象</div><h4>急性前庭症候群（AVS）</h4><p>急性持續性眩暈、自發性眼振、噁心嘔吐、頭動不耐、步態不穩。<b>不適用於短暫發作或姿勢性頭暈。</b></p></div>
+    <div class="card"><span class="icon">📊</span><div class="cat">統合分析 2023</div><h4>敏感度 95.3%、特異度 92.6%</h4><p>特異度在專科醫師（97.6%）高於非專科醫師（89.1%）；AICA 中風敏感度僅 84.0%（PICA 97.7%），加入床邊聽力（HINTS+）可補強。</p><div class="foot"><span class="chip g-meta">統合分析</span></div></div>
+    <div class="card"><span class="icon">🧲</span><div class="cat">早期 DWI</div><h4>24–48 小時內約 15% 假陰性</h4><p>小型腦幹梗塞的假陰性率可更高；因此「早期 MRI 正常」不能單獨排除後循環中風。</p><div class="foot"><span class="chip g-meta">統合分析</span></div></div>
+  </div>
+
+  <div class="callout warn"><b>紅旗：</b>突發發作、局部神經症狀、嚴重軀幹不穩、新發頸部或頭痛、聽損、血管危險因子（含心房顫動）。出現任一項，請轉向血管性評估：DWI＋MRA／CTA、聽力評估，必要時延長觀察並重複影像。</div>
+</section>
+
+<section id="treatment">
+  <div class="section-label">05 · 處理原則 <span class="en">Management</span></div>
+  <h2>先找可逆因素，再分型處理<span class="en">Reversible causes first, then subtype-specific measures</span></h2>
+  <p class="lede">處理的目標是<b>改善症狀、增加站立時間、預防跌倒</b>，而不是把站立血壓拉到正常；治療 OH 時常需平衡「站立低血壓」與「臥位高血壓」。</p>
+
+  <h3>1. 所有分型共通的第一步<span class="en">Common first step</span></h3>
+  <ul>
+    <li><b>藥物檢視與減量</b>：利尿劑、α 受體阻斷劑、降壓藥、鈣離子通道阻斷劑、血管擴張劑、三環抗憂鬱藥、左旋多巴及胰島素等都可能誘發 OH。</li>
+    <li><b>體液與貧血</b>：評估脫水、出血、貧血、營養與酒精；治療可逆因素。</li>
+    <li><b>篩檢相關狀況</b>：臥位高血壓、餐後低血壓、神經退化性疾病（如延遲型 OH 與 α-突觸核蛋白病的關聯）、糖尿病神經病變。</li>
+  </ul>
+
+  <h3>2. 非藥物措施<span class="en">Non-pharmacologic</span></h3>
+  <div class="card-grid">
+    <div class="card"><span class="icon">💧</span><div class="cat">擴充血量</div><h4>水分與鹽分</h4><p>增加水分與鹽分攝取；晨起前先喝水；快速喝水（冷水）可短暫升壓。需評估心腎功能與高血壓。</p></div>
+    <div class="card"><span class="icon">🩳</span><div class="cat">減少靜脈蓄積</div><h4>腹帶與壓力衣</h4><p>覆蓋腹部與下肢的壓力衣（約 20–40 mmHg）；僅下肢的效果證據較弱。</p></div>
+    <div class="card"><span class="icon">🛏️</span><div class="cat">姿勢</div><h4>床頭抬高與慢速起身</h4><p>床頭抬高可減少夜間排尿；起身分階段；站立時使用反壓動作（交叉雙腿、蹲姿、握拳）。</p></div>
+    <div class="card"><span class="icon">🍽️</span><div class="cat">生活</div><h4>少量多餐與避熱</h4><p>避免大量碳水化合物餐、酒精、熱水澡與久站；規律運動與重量訓練改善去適應。</p></div>
+  </div>
+
+  <h3>3. 藥物（依證據與角色）<span class="en">Pharmacologic</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:18%">適應</th><th>常用選項</th><th style="width:34%">證據與提醒</th></tr></thead>
+      <tbody>
+        <tr><td><b>OH（尤其神經源性）</b></td><td>midodrine、droxidopa；fludrocortisone、pyridostigmine、atomoxetine 為仿單外使用</td><td>JAMA 2024 綜述：midodrine 與 droxidopa 是美國 FDA 核准的 OH 藥物；2024 專家共識以 midodrine 與 fludrocortisone 為一線，重症可合併。常見副作用為臥位高血壓；midodrine 服用後數小時避免平躺</td></tr>
+        <tr><td><b>臥位高血壓</b></td><td>睡前省略抗低血壓藥；睡前短效降壓；床頭抬高</td><td>需於診斷時與用藥後篩檢</td></tr>
+        <tr><td><b>POTS</b></td><td>文獻常見：propranolol 低劑量、ivabradine、pyridostigmine、midodrine、fludrocortisone</td><td>目前<b>無 FDA 核准藥物</b>；2025 隨機試驗系統性回顧（21 項、750 人）認為證據小而分散，需更大型試驗；治療應由非藥物措施開始</td></tr>
+        <tr><td><b>姿勢性高血壓</b></td><td>依整體心血管風險調整；證據有限</td><td>目前高血壓指引尚未涵蓋</td></tr>
+        <tr><td><b>OCHOs</b></td><td>尚無專屬治療研究</td><td>以處理誘因與共病為主，需前瞻性驗證</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:.84rem;">文獻中 POTS 藥物的常見劑量範圍僅供教學參考：propranolol 10–20 mg 每日最多 4 次、ivabradine 2.5–7.5 mg 每 12 小時、pyridostigmine 30–60 mg 每日最多 3 次、midodrine 2.5–15 mg 每日 3 次、fludrocortisone 0.1–0.2 mg 每日。<b>實際處方請依個案與最新仿單。</b></p>
+
+  <h3>4. 各分型的處理重點<span class="en">By subtype</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:20%">分型</th><th>處理重點</th></tr></thead>
+      <tbody>
+        <tr><td><b>初始型 OH</b></td><td>衛教與動作調整（慢速起身、起身前先做反壓動作）為主；重點在確認症狀與測量一致，避免過度用藥（專家意見）。</td></tr>
+        <tr><td><b>典型與延遲型 OH</b></td><td>處理誘因、非藥物措施、必要時藥物；延遲型 OH 需追蹤神經退化性疾病的徵兆與進展。</td></tr>
+        <tr><td><b>POTS</b></td><td>分級：先水分與鹽分、壓力衣（含腹部）、漸進式半臥式運動；再依症狀選擇 β 阻斷劑、ivabradine、midodrine 或 pyridostigmine；常與偏頭痛、疲勞、過度活動型 Ehlers-Danlos 症候群並存，需一併處理。</td></tr>
+        <tr><td><b>Probable 血流動力學姿勢性頭暈</b></td><td>處理貢獻因子（藥物、脫水、貧血、去適應、前庭或視覺問題）；避免標籤膨脹；追蹤並重複量測。</td></tr>
+        <tr><td><b>血管性頭暈（排除後）</b></td><td>依急性中風／TIA 路徑處理（本站其他頁面）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout"><b>與前庭疾病並存：</b>周邊前庭病變與姿勢性血流動力學異常常同時存在，並非互斥；必要時同時進行前庭評估與自主神經評估。</div>
+</section>
+
+<section id="check">
+  <div class="section-label">06 · 內容可信度查核 <span class="en">Credibility Check</span></div>
+  <h2>貼上草稿中哪些可信、哪些要修正<span class="en">What holds up, what needs correction</span></h2>
+  <p class="lede">草稿的主軸（次閾值姿勢性頭暈確實存在、Bárány 標籤、以時序與觸發因子做鑑別）可信。主要問題是：<b>數字歸屬錯置、引用與準則來源不對、HINTS 的適用範圍描述不精確，以及完全缺少「處理」</b>。16 篇引用中有 5 篇超出近十年。</p>
+
+  <div class="legend">
+    <span><span class="chip v-ok">✔ 已查核</span> 與文獻一致</span>
+    <span><span class="chip v-fix">▲ 需修正</span> 與文獻不符或缺漏</span>
+    <span><span class="chip v-warn">▲ 過度推論</span> 方向對但說得太滿</span>
+    <span><span class="chip v-na">○ 未能查核</span> 本次未取得原文</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">草稿的說法</th><th style="width:14%">結果</th><th>說明</th></tr></thead>
+      <tbody>
+        <tr><td>Bárány「probable」準則：≥5 次發作＋至少一項伴隨症狀（無力或疲倦、思考困難、視力模糊、心悸）</td><td><span class="chip v-ok">✔ 已查核</span></td><td>與 2019 準則一致（DOI 正確）。補充：「確定」診斷需記錄到 OH、POTS 或暈厥；2019 準則同時指出傾斜測試中 OH 的重現性偏低。</td></tr>
+        <tr><td>「subclinical」不是標準術語，建議改用次閾值或 probable</td><td><span class="chip v-ok">✔ 合理</span></td><td>屬專家意見，與準則的用法一致。</td></tr>
+        <tr><td>初始型 OH 定義（15 秒內 SBP &gt;40／DBP &gt;20、伴症狀、3 分鐘無持續性 OH）；van Twist 2018：11.2% 為 IOH</td><td><span class="chip v-ok">✔ 已查核</span></td><td>250 位不明原因暈厥門診病人，平均下降 47.4/29.0 mmHg，為第二常見暈厥原因。草稿的「50.2% 符合門檻、健康 50 歲以上 32.9% 符合」本次未取得，標為未查核；2021 年綜述指出長者以門檻判定的 IOH 盛行率為 25–70%，支持「易偽陽性」的看法。</td></tr>
+        <tr><td>延遲型 OH：10 年死亡率 29%（對照 9%）；進展為典型 OH 則達 50%</td><td><span class="chip v-fix">▲ 引用需修正</span></td><td>數字正確，但來源是 <b>Gibbons &amp; Freeman, Neurology 2015;85:1362</b>（回溯性、轉診中心、48 位延遲型 OH 有完整追蹤；54% 進展、31% 發展為 α-突觸核蛋白病）；草稿引用 [7]（2020 綜述）不是原始研究。草稿的「46% 在 3 分鐘內、39% 10 分鐘後；占 OH 的 20–45%」本次未查到。</td></tr>
+        <tr><td>POTS 標準：心跳 ≥30 bpm（12–19 歲 ≥40）；症狀「部分標準要求 ≥6 個月」；引用 Jacob 2000 NEJM</td><td><span class="chip v-fix">▲ 需修正</span></td><td>主要共識（2011 AAS/AAN、2015 HRS、2020 CCS、2019 NIH 會議）要求<b>症狀 ≥3 個月</b>，且各組織標準不盡相同；心跳標準應引用 HRS 2015／CCS 2020／NIH 2021，而非 Jacob 2000（描述神經病變型 POTS）。「87% 的 IOH 病人有 HR 增加 &gt;40 bpm」本次未查核。</td></tr>
+        <tr><td>OCHOs：1,279 篩檢、102 位；CBFv 下降 24.1±8.2% vs 4.2±5.6%；血壓、心跳、呼氣末 CO₂ 無差異</td><td><span class="chip v-ok">✔ 已查核</span></td><td>全部與 Novak 2016 一致。補充：回溯性單中心；定義為 CBFv 異常下降且無 OH；提出的機轉為主動腦血管收縮或周邊靜脈順應性增加。草稿說的「血壓約 90 mmHg」為<b>平均血壓</b>；「所有病人皆有症狀、88% 為頭暈」本次未核。OCHOs 未列入 Bárány 準則。</td></tr>
+        <tr><td>誇大升壓反應 SBP ≥20；姿勢性高血壓站立 SBP ≥140；引用 Jordan 2022</td><td><span class="chip v-ok">✔ 已查核</span></td><td>與 2022 共識一致（建議以收縮壓判定；舒張壓在站立時上升可為正常）。</td></tr>
+        <tr><td>血管性眩暈準則：引用 [13] Inui 與 [12] 還原</td><td><span class="chip v-fix">▲ 需修正</span></td><td>準則的原始來源應引用 <b>Kim JS et al., J Vestib Res 2022;32:205–222</b>。已確認：短暫與急性持續性分類；「可能」類型含 ABCD² ≥4 或心房顫動；孤立性迷路梗塞無確診性檢查。草稿列的「顯著 &gt;50% 椎基底動脈狹窄」等細項本次未能核對。</td></tr>
+        <tr><td>HINTS 適用於「急性持續性（&gt;24 小時）眩暈、至少一項中風危險因子、無聽損」並優於 DWI</td><td><span class="chip v-fix">▲ 需修正</span></td><td>HINTS 適用於<b>急性前庭症候群（持續性眩暈＋自發性眼振）</b>，不是以 24 小時或危險因子界定，也不適用於短暫或姿勢性頭暈；需受訓檢查者。2023 統合分析：敏感度 95.3%、特異度 92.6%；AICA 中風敏感度 84.0%，需加聽力（HINTS+）；早期 DWI 約 15% 假陰性，小型腦幹梗塞更高。</td></tr>
+        <tr><td>椎動脈雙功超音波：敏感度 53.6%、特異度 94.9%</td><td><span class="chip v-na">○ 未能查核</span></td><td>來源不明，不建議採用。</td></tr>
+        <tr><td>VBI：&gt;60% 有眩暈；62% 曾有孤立性眩暈、19% 以眩暈為首發症狀；AICA 梗塞 12 例中 11 例有聽損</td><td><span class="chip v-na">○ 未能查核</span></td><td>多來自 2002–2020 年的小型研究與綜述；概念（內聽動脈為終端動脈、迷路對缺血敏感、MRI 正常不能排除）與準則一致，但具體百分比請回查原文。「VBI」一詞建議改為後循環 TIA。</td></tr>
+        <tr><td>cVEMP 缺失者站立時 OH 較多；前庭神經炎可伴 POTS 或 OH；Ricci 功能分級</td><td><span class="chip v-na">○ 未能查核</span></td><td>未取得佐證，建議僅說「前庭與自主神經問題可並存」。</td></tr>
+        <tr><td>「症狀者與無症狀者血壓下降幅度與時間相同」（45 分鐘傾斜）</td><td><span class="chip v-na">○ 未能查核</span></td><td>方向與人群研究（姿勢性頭暈與血壓下降常不重疊）一致，但該具體研究本次未查到。</td></tr>
+        <tr><td>草稿內容範圍</td><td><span class="chip v-fix">▲ 需補充</span></td><td>缺少「處理」：藥物檢視、體液與鹽分、壓力衣、反壓動作、臥位高血壓、midodrine／droxidopa／fludrocortisone、POTS 分級治療；已依 JAMA 2024、Rev Neurol 2024 與 POTS 系統性回顧補入。</td></tr>
+        <tr><td>引用年代與品質</td><td><span class="chip v-warn">▲ 需更新</span></td><td>[4] 2007、[6] 2006、[8] 2000、[15] 2009、[16] 2002 超出近十年；[6] 與 [7] 標題相近易混淆，已區分。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="section-label">07 · 自我測驗 <span class="en">Self-check</span></div>
+  <h2>五題快速檢視</h2>
+  <div id="quiz-box"></div>
+  <div class="score" id="score"></div>
+</section>
+
+<section id="refs">
+  <div class="section-label">參考文獻 <span class="en">References</span></div>
+  <h2>Reference List</h2>
+
+  <div class="ref-sub">A. 本次補充查核的文獻與準則</div>
+  <ul class="ref-list">
+    <li><span class="ref-num">[A1]</span><span>Kim JS, Newman-Toker DE, Kerber KA, et al. Vascular vertigo and dizziness: diagnostic criteria. <i>J Vestib Res.</i> 2022;32(3):205-222. <span class="doi">DOI: 10.3233/VES-210169</span></span></li>
+    <li><span class="ref-num">[A2]</span><span>Gibbons CH, Freeman R. Clinical implications of delayed orthostatic hypotension: a 10-year follow-up study. <i>Neurology.</i> 2015;85(16). <span class="doi">DOI: 10.1212/WNL.0000000000002030</span></span></li>
+    <li><span class="ref-num">[A3]</span><span>Raj SR, Fedorowski A, Sheldon RS. Diagnosis and management of postural orthostatic tachycardia syndrome. <i>CMAJ.</i> 2022;194(10):E378-E385. <span class="doi">DOI: 10.1503/cmaj.211373</span></span></li>
+    <li><span class="ref-num">[A4]</span><span>Vernino S, Bourne KM, Stiles LE, et al. POTS: state of the science and clinical care from a 2019 NIH expert consensus meeting – Part 1. <i>Auton Neurosci.</i> 2021;235:102828. <span class="doi">DOI: 10.1016/j.autneu.2021.102828</span></span></li>
+    <li><span class="ref-num">[A5]</span><span>Jordan J, Biaggioni I, Kotsis V, et al. Consensus statement on the definition of orthostatic hypertension endorsed by the American Autonomic Society and the Japanese Society of Hypertension. <i>Hypertens Res.</i> 2023;46:291-294. <span class="doi">DOI: 10.1038/s41440-022-01074-0</span></span></li>
+    <li><span class="ref-num">[A6]</span><span>Management of orthostatic hypotension: a review. <i>JAMA.</i> 2024. <span class="doi">作者與卷期請於引用前核對原文</span></span></li>
+    <li><span class="ref-num">[A7]</span><span>Orthostatic hypotension: review and expert position statement. <i>Rev Neurol (Paris).</i> 2024;180(1-2):53-64. <span class="doi">DOI: 10.1016/j.neurol.2023.11.001</span></span></li>
+    <li><span class="ref-num">[A8]</span><span>Impact of clinician training background and stroke location on bedside diagnostic test accuracy in the acute vestibular syndrome: a meta-analysis. <i>Ann Neurol.</i> 2023;94:295-308.</span></li>
+    <li><span class="ref-num">[A9]</span><span>Van Twist DJL, Harms MPM, van Wijnen VK, et al. Diagnostic criteria for initial orthostatic hypotension: a narrative review. <i>Clin Auton Res.</i> 2021. <span class="doi">DOI: 10.1007/s10286-021-00833-2</span></span></li>
+    <li><span class="ref-num">[A10]</span><span>Kwok CS, et al. The evidence for treatments for POTS: a systematic review of randomized trials. 2025. <span class="doi">作者與期刊請於引用前核對</span></span></li>
+  </ul>
+
+  <div class="ref-sub">B. 草稿引用的 16 篇（編號沿用，僅列主要）</div>
+  <ul class="ref-list">
+    <li><span class="ref-num">[1]</span><span>Tzur I, Izhakian S, Gorelik O. Orthostatic hypotension: definition, classification and evaluation. <i>Blood Press.</i> 2019;28(3):146-156. <span class="doi">DOI: 10.1080/08037051.2019.1604067</span></span></li>
+    <li><span class="ref-num">[2]</span><span>Kim HA, Bisdorff A, Bronstein AM, et al. Hemodynamic orthostatic dizziness/vertigo: diagnostic criteria. <i>J Vestib Res.</i> 2019;29(2-3):45-56. <span class="doi">DOI: 10.3233/VES-190655</span></span></li>
+    <li><span class="ref-num">[3]</span><span>Novak P. Orthostatic cerebral hypoperfusion syndrome. <i>Front Aging Neurosci.</i> 2016;8:22. <span class="doi">DOI: 10.3389/fnagi.2016.00022</span></span></li>
+    <li><span class="ref-num">[4]</span><span>Wieling W, Krediet CTP, van Dijk N, et al. Initial orthostatic hypotension: review of a forgotten condition. <i>Clin Sci.</i> 2007;112(3):157-165（&gt;10 年）. <span class="doi">DOI: 10.1042/cs20060091</span></span></li>
+    <li><span class="ref-num">[5]</span><span>van Twist DJL, Dinh T, Bouwmans EME, Kroon AA. Initial orthostatic hypotension among patients with unexplained syncope: an overlooked diagnosis? <i>Int J Cardiol.</i> 2018;271:269-273. <span class="doi">DOI: 10.1016/j.ijcard.2018.05.043</span></span></li>
+    <li><span class="ref-num">[6–7]</span><span>Gibbons CH, Freeman R. Delayed orthostatic hypotension. <i>Neurology.</i> 2006;67(1):28-32（&gt;10 年）；<i>Auton Neurosci.</i> 2020;229:102724（綜述）。10 年追蹤原始研究見 [A2]。</span></li>
+    <li><span class="ref-num">[8]</span><span>Jacob G, Costa F, Shannon JR, et al. The neuropathic postural tachycardia syndrome. <i>N Engl J Med.</i> 2000;343(14):1008-1014（&gt;10 年；非診斷準則來源）. <span class="doi">DOI: 10.1056/nejm200010053431404</span></span></li>
+    <li><span class="ref-num">[9]</span><span>Jordan J 等，見 [A5]。</span></li>
+    <li><span class="ref-num">[10]</span><span>Stewart JM, Javaid S, Fialkoff T, et al. Initial orthostatic hypotension causes (transient) postural tachycardia. <i>J Am Coll Cardiol.</i> 2019;74(9):1271-1273. <span class="doi">DOI: 10.1016/j.jacc.2019.06.054</span></span></li>
+    <li><span class="ref-num">[11]</span><span>Lima Neto A, Bittar R, Gattas G, et al. Pathophysiology and diagnosis of vertebrobasilar insufficiency: a review. <i>Int Arch Otorhinolaryngol.</i> 2016;21(3):302-307. <span class="doi">DOI: 10.1055/s-0036-1593448</span></span></li>
+    <li><span class="ref-num">[12]</span><span>Lee SH, Kim JS. Differential diagnosis of acute vascular vertigo. <i>Curr Opin Neurol.</i> 2020;33(1):142-149. <span class="doi">DOI: 10.1097/wco.0000000000000776</span></span></li>
+    <li><span class="ref-num">[13]</span><span>Inui T, Kuriyama T, Haginomori S, et al. Different results of vestibular examinations and blood flow in cases with transient vascular vertigo/dizziness with or without central nervous system symptoms. <i>Acta Otolaryngol.</i> 2022;142(9-12):685-690. <span class="doi">DOI: 10.1080/00016489.2022.2134587</span></span></li>
+    <li><span class="ref-num">[14]</span><span>Kim HA, Lee H, Kim JS. Vertigo due to vascular mechanisms. <i>Semin Neurol.</i> 2020;40(1):67-75. <span class="doi">DOI: 10.1055/s-0039-3402737</span></span></li>
+    <li><span class="ref-num">[15–16]</span><span>Kim JS, Lee H. <i>Semin Neurol.</i> 2009;29(5):534-540；Lee H, Sohn SI, Jung DK, et al. <i>Stroke.</i> 2002;33(12):2807-2812（皆 &gt;10 年）。</span></li>
+  </ul>
+  <p style="margin-top:16px;font-size:.8rem;color:var(--text-faint);">「已查核」僅表示與檢索到的摘要或準則一致；標為「未能查核」的數字請勿直接用於教學或發表。藥物劑量範圍僅供教學參考，臨床使用請依最新仿單與個案評估。</p>
+</section>
+
+<footer>
+  N-Teaching 神經科教學研究部 · 本頁面為住院醫師／專科護理師教學用整理資料，非臨床診斷依據 · <a href="index.html">返回首頁</a>
+</footer>
+
+<script>
+/* 自我測驗：要新增題目，複製一個 {...} 區塊再修改文字即可 */
+var QUIZ = [
+  { q: "病人 ≥5 次起身頭暈、伴全身無力與視力模糊，但站立與傾斜測試皆未見 OH、POTS 或暈厥。依 Bárány 準則最合適的標籤是？",
+    opts: ["確定的血流動力學姿勢性頭暈", "可能的（probable）血流動力學姿勢性頭暈／眩暈", "前庭神經炎", "亞臨床 OH"],
+    a: 1, why: "「確定」需在站立或傾斜測試中記錄到 OH、POTS 或暈厥；若僅有 ≥5 次姿勢性發作加上至少一項伴隨症狀且無法由其他疾病解釋，歸為 probable。「亞臨床」不是標準術語。" },
+  { q: "初始型 OH 的正確描述是？",
+    opts: ["站立 3 分鐘後血壓持續下降", "主動站立 15 秒內 SBP 降 >40 和／或 DBP 降 >20 mmHg，伴症狀，3 分鐘時無持續性 OH；需逐拍血壓", "被動傾斜床是診斷的首選", "只在年輕女性出現"],
+    a: 1, why: "初始型 OH 的谷底在 15 秒內出現並快速恢復，間歇式袖帶與被動傾斜床都無法診斷，需逐拍血壓與主動站立。" },
+  { q: "下列何者最不適合用 HINTS 評估？",
+    opts: ["急性持續性眩暈、有自發性眼振、噁心嘔吐的病人", "起身後 10 秒內頭暈、坐下緩解的反覆發作", "懷疑 AICA 梗塞並搭配床邊聽力檢查", "急診急性前庭症候群"],
+    a: 1, why: "HINTS 適用於急性前庭症候群，不適用於短暫發作或姿勢性頭暈；AICA 中風需加聽力（HINTS+）。" },
+  { q: "關於 OCHOs 的描述，何者正確？",
+    opts: ["已列入 Bárány 準則並有 RCT 證據", "血壓、心跳與呼氣末 CO₂ 無異常，但傾斜時 TCD 腦血流速度明顯下降；為單中心回溯性描述", "一定有 OH", "只能用 MRI 診斷"],
+    a: 1, why: "Novak 2016：1,279 位篩檢病人中 102 位符合，CBFv 下降 24.1% vs 4.2%；屬回溯性單中心，尚未納入共識準則，且 TCD 測的是流速。" },
+  { q: "關於 OH 處理目標，何者最正確？",
+    opts: ["將站立血壓拉到完全正常", "改善症狀、延長站立時間並預防跌倒，並篩檢臥位高血壓", "一律使用 fludrocortisone", "非藥物措施無效"],
+    a: 1, why: "處理 OH 的目標在症狀與跌倒預防；常需平衡站立低血壓與臥位高血壓。非藥物措施（藥物檢視、水鹽、壓力衣、反壓動作）是基礎，midodrine 與 droxidopa 為美國核准藥物。" }
+];
+var answered = 0, correct = 0;
+(function build(){
+  var box = document.getElementById("quiz-box");
+  QUIZ.forEach(function(item, qi){
+    var d = document.createElement("div"); d.className = "q";
+    var h = document.createElement("h4"); h.textContent = (qi+1) + ". " + item.q; d.appendChild(h);
+    item.opts.forEach(function(o, oi){
+      var b = document.createElement("button"); b.className = "opt"; b.type = "button"; b.textContent = o;
+      b.onclick = function(){
+        if (d.classList.contains("done")) return;
+        d.classList.add("done"); answered++;
+        var btns = d.querySelectorAll(".opt");
+        btns[item.a].classList.add("right");
+        if (oi === item.a) { correct++; } else { b.classList.add("wrong"); }
+        document.getElementById("score").textContent = "目前答對 " + correct + " / " + answered + "（共 " + QUIZ.length + " 題）";
+      };
+      d.appendChild(b);
+    });
+    var w = document.createElement("div"); w.className = "why"; w.textContent = "解析：" + item.why; d.appendChild(w);
+    box.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>

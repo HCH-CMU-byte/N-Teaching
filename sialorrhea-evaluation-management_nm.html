@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="nt:category" content="neuromuscular">
+<meta name="nt:label" content="Sialorrhea">
+<meta name="nt:icon" content="💧">
+<meta name="nt:summary" content="口水過多多半是「清除不了」而不是「分泌太多」：機轉與鑑別診斷、評估工具，以及帕金森氏症、ALS、中風、腦性麻痺與藥物（clozapine）引起流涎的證據分級處理，並修正常見的誤傳。">
+<meta name="nt:tags" content="流涎, 肉毒桿菌毒素, 抗膽鹼藥, 吞嚥障礙">
+<meta name="nt:order" content="3">
+<meta name="nt:updated" content="2026-10-25">
+<title>口水分泌過多：評估、鑑別診斷與處理｜HCH-FYH Neurology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* 色票：與首頁（index.html）同一組深色色票 */
+:root{
+  --bg:#0d1117; --bg-card:#161b22; --bg-hover:#1c2128;
+  --border:rgba(255,255,255,.10); --border-strong:rgba(255,255,255,.20);
+  --text:#e6edf3; --dim:#8b949e; --faint:#6e7681;
+  --amber:#e3b341; --blue:#58a6ff; --green:#39d353; --red:#f0616f; --purple:#bc8cff; --teal:#2dd4bf;
+  --amber-bg:rgba(227,179,65,.10); --blue-bg:rgba(88,166,255,.10); --green-bg:rgba(57,211,83,.10);
+  --red-bg:rgba(240,97,111,.10); --purple-bg:rgba(188,140,255,.10); --teal-bg:rgba(45,212,191,.10);
+  --serif:'Noto Serif TC',serif; --sans:'Noto Sans TC',sans-serif; --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth; scroll-padding-top:64px;}
+body{margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.75; -webkit-font-smoothing:antialiased;}
+a{color:var(--blue);}
+.wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+
+/* ---- 頁內章節導覽（站台導覽由統一頁首提供） ---- */
+.topnav{position:sticky; top:0; z-index:100; background:rgba(13,17,23,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:8px 28px;}
+.topnav .links{display:flex; gap:2px; max-width:1100px; margin:0 auto; overflow-x:auto; scrollbar-width:none;}
+.topnav a{color:var(--dim); text-decoration:none; font-size:.84rem; padding:6px 12px; border-radius:6px; white-space:nowrap;}
+.topnav a:hover{background:var(--bg-hover); color:var(--text);}
+
+/* ---- Hero ---- */
+.hero{padding:64px 24px 44px; border-bottom:1px solid var(--border); background:radial-gradient(900px 300px at 10% -10%, rgba(45,212,191,.12), transparent 60%), radial-gradient(700px 260px at 100% 0, rgba(88,166,255,.10), transparent 60%);}
+.hero-in{max-width:920px; margin:0 auto;}
+.eyebrow{font-family:var(--mono); font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:var(--teal); display:flex; align-items:center; gap:10px; margin-bottom:16px;}
+.eyebrow::before{content:""; width:26px; height:1px; background:var(--teal);}
+.hero h1{font-family:var(--serif); font-weight:900; font-size:clamp(1.6rem,4vw,2.4rem); line-height:1.38; margin:0 0 16px;}
+.hero p.lede{color:var(--dim); font-size:1.02rem; max-width:68ch; margin:0 0 26px;}
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px;}
+.stat{background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:16px 18px;}
+.stat b{display:block; font-family:var(--mono); font-size:1.6rem; font-weight:600; line-height:1.2;}
+.stat span{font-size:.82rem; color:var(--dim);}
+
+/* ---- 區塊 ---- */
+section.block{padding:54px 0; border-bottom:1px solid var(--border);}
+.label{font-family:var(--mono); font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; color:var(--teal); margin-bottom:10px; display:flex; gap:10px; align-items:center;}
+.label .n{background:var(--teal-bg); color:var(--teal); border:1px solid rgba(45,212,191,.3); border-radius:6px; padding:1px 8px;}
+h2{font-family:var(--serif); font-size:clamp(1.3rem,2.6vw,1.8rem); margin:0 0 10px; font-weight:800;}
+h3{font-family:var(--serif); font-size:1.15rem; margin:34px 0 10px;}
+p.intro{color:var(--dim); max-width:72ch; margin:0 0 26px;}
+p{margin:0 0 12px;} ul{padding-left:20px; margin:6px 0 12px;} li{margin-bottom:4px;}
+
+/* ---- 卡片／標籤 ---- */
+.grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.card{background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px; border-top:3px solid var(--c,var(--blue));}
+.card h4{margin:0 0 8px; font-family:var(--serif); font-size:1.02rem; line-height:1.5;}
+.card p,.card li{font-size:.9rem; color:var(--dim);} .card p:last-child{margin-bottom:0;}
+.card .foot{margin-top:12px; padding-top:10px; border-top:1px dashed var(--border); font-family:var(--mono); font-size:.72rem; color:var(--faint); display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;}
+.c-blue{--c:var(--blue);} .c-amber{--c:var(--amber);} .c-green{--c:var(--green);} .c-red{--c:var(--red);} .c-purple{--c:var(--purple);} .c-teal{--c:var(--teal);}
+.badge{display:inline-block; font-family:var(--mono); font-size:.68rem; font-weight:600; padding:2px 9px; border-radius:999px; white-space:nowrap;}
+.g-a{background:var(--green-bg); color:var(--green); border:1px solid rgba(57,211,83,.3);}
+.g-b{background:var(--amber-bg); color:var(--amber); border:1px solid rgba(227,179,65,.3);}
+.g-c{background:var(--red-bg); color:var(--red); border:1px solid rgba(240,97,111,.3);}
+.callout{border-radius:12px; padding:16px 18px; margin:18px 0; font-size:.92rem; border:1px solid var(--border); background:var(--bg-card);}
+.callout h5{margin:0 0 6px; font-size:.92rem;} .callout p:last-child{margin:0;} .callout ul{margin-bottom:0;}
+.callout.red{background:var(--red-bg); border-color:rgba(240,97,111,.3);}
+.callout.amber{background:var(--amber-bg); border-color:rgba(227,179,65,.3);}
+.callout.green{background:var(--green-bg); border-color:rgba(57,211,83,.3);}
+.callout.blue{background:var(--blue-bg); border-color:rgba(88,166,255,.3);}
+.callout.teal{background:var(--teal-bg); border-color:rgba(45,212,191,.3);}
+
+/* ---- 查核紀錄 ---- */
+.check{background:#0a0e13; border:1px solid var(--border-strong); border-radius:16px; padding:22px 24px 8px;}
+.check h3{margin:0 0 6px;} .check .sub{color:var(--dim); font-size:.88rem; margin:0 0 16px;}
+.row{font-family:var(--mono); font-size:.82rem; line-height:1.85; border-top:1px solid var(--border); padding:14px 0;}
+.row div{display:flex; gap:10px; padding:2px 0;} .row .m{flex-shrink:0; width:14px;}
+.row .old{color:var(--faint);} .row .old .t{text-decoration:line-through; text-decoration-color:rgba(240,97,111,.6);} .row .old .m{color:var(--red);}
+.row .new{color:#d3ecdc;} .row .new .m{color:var(--green);}
+.row .src{color:var(--faint); font-size:.74rem; padding-left:24px;}
+details.fold{border-top:1px solid var(--border); padding:12px 0; font-size:.88rem;}
+details.fold summary{cursor:pointer; font-weight:600;} details.fold ul{color:var(--dim); font-size:.86rem;}
+
+/* ---- 表格 ---- */
+.tw{overflow-x:auto; border:1px solid var(--border); border-radius:12px; background:var(--bg-card);}
+table{width:100%; border-collapse:collapse; font-size:.87rem; min-width:640px;}
+th,td{padding:11px 14px; border-bottom:1px solid var(--border); text-align:left; vertical-align:top;}
+th{font-family:var(--mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--faint); background:rgba(255,255,255,.02);}
+tr:last-child td{border-bottom:none;} td{color:var(--dim);} td:first-child{color:var(--text);}
+
+/* ---- 機轉圖 ---- */
+.mech{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin:6px 0 4px;}
+.mech .m{background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:16px;}
+.mech .m h4{margin:0 0 4px; font-family:var(--serif); font-size:1rem;}
+.meter{margin:10px 0 4px; font-size:.78rem; color:var(--dim);}
+.meter .lab{display:flex; justify-content:space-between; font-family:var(--mono); font-size:.7rem; margin-bottom:3px;}
+.meter .tr{height:8px; background:var(--bg-hover); border-radius:5px; overflow:hidden;}
+.meter .f{height:100%; border-radius:5px;}
+
+/* ---- 分頁籤（各疾病處理） ---- */
+.tabs{display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 16px;}
+.tab{font-family:var(--sans); font-size:.9rem; color:var(--dim); background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:9px 16px; cursor:pointer;}
+.tab:hover{border-color:var(--teal);} .tab[aria-selected="true"]{color:var(--text); border-color:var(--teal); background:var(--teal-bg);}
+.panel{display:none; background:var(--bg-card); border:1px solid var(--border-strong); border-radius:16px; padding:22px;} .panel.show{display:block;}
+.panel h3{margin:0 0 6px;} .panel .lead{color:var(--dim); font-size:.92rem; margin-bottom:14px;}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;} @media (max-width:760px){.two{grid-template-columns:1fr;}}
+.box{background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:14px 16px; font-size:.88rem; color:var(--dim);}
+.box h6{margin:0 0 6px; font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--faint);} .box ul{margin:0;}
+.ladder{counter-reset:s; display:grid; gap:10px; margin:12px 0;}
+.step{counter-increment:s; position:relative; background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:12px 16px 12px 52px; font-size:.88rem; color:var(--dim);}
+.step::before{content:counter(s); position:absolute; left:14px; top:12px; width:26px; height:26px; border-radius:50%; background:var(--teal-bg); color:var(--teal); border:1px solid rgba(45,212,191,.35); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:600; font-size:.8rem;}
+.step b{color:var(--text);} .step .badge{margin-left:6px;}
+
+/* ---- 評估流程 ---- */
+.flow{display:grid; gap:10px; margin:14px 0;}
+.fs{display:grid; grid-template-columns:44px 1fr; gap:14px; background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:14px 16px;}
+.fs .n{width:34px; height:34px; border-radius:50%; background:var(--teal-bg); color:var(--teal); border:1px solid rgba(45,212,191,.35); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:600;}
+.fs h5{margin:0 0 3px; font-family:var(--serif); font-size:1rem;} .fs p{margin:0; font-size:.88rem; color:var(--dim);}
+
+/* ---- 測驗 ---- */
+.qcard{background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:20px; margin-bottom:14px;}
+.qcard h5{margin:0 0 12px; font-size:.97rem; font-weight:500; line-height:1.65;} .qcard h5 span{font-family:var(--mono); color:var(--teal); margin-right:8px;}
+.qopt{display:block; width:100%; text-align:left; font-family:var(--sans); font-size:.9rem; color:var(--text); background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 14px; margin-bottom:8px; cursor:pointer;}
+.qopt:hover{border-color:var(--teal);} .qopt.ok{border-color:var(--green); background:var(--green-bg);} .qopt.no{border-color:var(--red); background:var(--red-bg);}
+.exp{display:none; margin-top:10px; font-size:.88rem; color:var(--dim); border-left:3px solid var(--green); padding:8px 14px; background:var(--bg);} .qcard.done .exp{display:block;}
+.score{font-family:var(--mono); font-size:.85rem; color:var(--dim);}
+
+/* ---- 參考文獻 ---- */
+ol.refs{list-style:none; counter-reset:r; padding:0; font-size:.84rem; color:var(--dim);}
+ol.refs li{counter-increment:r; position:relative; padding:9px 0 9px 38px; border-bottom:1px dashed var(--border);}
+ol.refs li::before{content:"["counter(r)"]"; position:absolute; left:0; font-family:var(--mono); color:var(--teal); font-size:.78rem;}
+.st{font-family:var(--mono); font-size:.64rem; margin-left:8px; padding:1px 7px; border-radius:999px;}
+.st.v{background:var(--green-bg); color:var(--green);} .st.u{background:var(--amber-bg); color:var(--amber);}
+
+footer{padding:34px 24px; color:var(--faint); font-size:.85rem; border-top:1px solid var(--border);}
+footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+:focus-visible{outline:3px solid var(--teal); outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){*{transition:none !important; scroll-behavior:auto !important;}}
+@media print{.topnav{display:none;} .panel{display:block !important; page-break-inside:avoid;}}
+</style>
+</head>
+<body>
+<script src="assets/site-header.js"></script>
+
+<nav class="topnav" aria-label="本頁章節">
+  <div class="links">
+    <a href="#check">證據查核</a><a href="#basics">定義與機轉</a><a href="#ddx">鑑別診斷</a><a href="#assess">評估</a>
+    <a href="#manage">依疾病處理</a><a href="#tools">處理工具總覽</a><a href="#taiwan">台灣脈絡</a><a href="#quiz">自我測驗</a><a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="eyebrow">Neurology · Sialorrhea / Drooling</div>
+    <h1>口水分泌過多：評估、鑑別診斷與處理</h1>
+    <p class="lede">神經疾病病人的「流口水」，多半不是唾液分泌太多，而是吞嚥清除不了。本頁依「機轉 → 鑑別 → 評估 → 依疾病處理」整理，每個主張回到原始研究核對，標示證據強度，並把常被轉述錯誤的地方直接修正。</p>
+    <div class="stats">
+      <div class="stat"><b>32–74%</b><span>帕金森氏症患者有流涎（各研究定義不同）[30]</span></div>
+      <div class="stat"><b>>50%</b><span>急性中風病人有吞嚥困難 [20]</span></div>
+      <div class="stat"><b>2 種</b><span>獲 FDA 核准用於流涎的肉毒桿菌毒素：incobotulinumtoxinA、rimabotulinumtoxinB [24]</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 01 證據查核 ================= -->
+<section class="block" id="check">
+  <div class="wrap">
+    <div class="label"><span class="n">01</span>證據查核</div>
+    <h2>哪些常見說法需要修正</h2>
+    <p class="intro">灰色刪除線是常被引用、但與原始研究不符或過度推論的說法；綠色是查核後的內容。第一項是引用本身的問題，影響後面所有條目的可追溯性。</p>
+
+    <div class="check">
+      <h3>查核紀錄</h3><p class="sub">共 15 項修正；另列已核實與無法核實的清單。</p>
+
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">內文引用編號（[1]–[20]）對應文末參考文獻</span></div>
+        <div class="new"><span class="m">+</span><span>編號與文獻大量錯置：例如帕金森氏症的敘述引用到 ALS 的 Cochrane 回顧、腦中風的敘述引用到「腦性麻痺貼紮試驗」、GERD 與特發性陣發性流涎的引用互相對調；[9] 與 [20] 還是同一篇。本頁已逐句重新對應到正確的來源</span></div>
+        <div class="src">本頁參考文獻重新編號</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">約 45% 的帕金森氏症患者有流涎，其中 15% 在疾病早期出現</span></div>
+        <div class="new"><span class="m">+</span><span>系統性回顧：盛行率 32–74%，差異主要來自定義（是否含夜間流涎）；輕症較低。「15%」找不到出處</span></div>
+        <div class="src">Kalf 2009 [30]；Isaacson 2020 [3]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">腦中風約 30% 有流涎；急性中風高達 80% 有口咽期吞嚥困難；FEES 優於 VFSS</span></div>
+        <div class="new"><span class="m">+</span><span>ESO/ESSD 2021：急性中風吞嚥困難 &gt;50%；「30% 流涎」找不到出處；FEES 與 VFSS 是不同用途的工具，指引沒有宣稱誰「優於」誰</span></div>
+        <div class="src">Dziewas 2021 [20]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">咽部電刺激（PES）可用於氣切重症患者「促進早期拔管」</span></div>
+        <div class="new"><span class="m">+</span><span>指引的內容是：氣切且嚴重吞嚥困難的中風病人，PES 可「加速拔除氣切管（decannulation）」（弱建議、高證據確定性）；不是拔除氣管內管</span></div>
+        <div class="src">[20]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">A 型（onabotulinumtoxinA、incobotulinumtoxinA、abobotulinumtoxinA）與 B 型都可用於流涎，皆有 FDA 核准</span></div>
+        <div class="new"><span class="m">+</span><span>只有 incobotulinumtoxinA（2018-07）與 rimabotulinumtoxinB（2019-08）取得 FDA 流涎適應症；其他製劑屬藥證外使用。各廠牌「單位」不能互換</span></div>
+        <div class="src">[24]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">ALS：A 型總劑量 250 U（腮腺 100 U/側、下頷腺 25 U/側）或 B 型 2,500 U</span></div>
+        <div class="new"><span class="m">+</span><span>沒有指明製劑，劑量不能直接使用。已核實的是：incobotulinumtoxinA 的核准劑量約 100 U 分注腮腺與下頷腺；rimabotulinumtoxinB 試驗用 1,500／2,500／3,500 U</span></div>
+        <div class="src">[25]；[35]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">ALS：東莨菪鹼貼片約 85% 有效、約 20% 因皮膚反應停藥；控制流涎「顯著改善 NIV 耐受性、延長存活」</span></div>
+        <div class="new"><span class="m">+</span><span>找不到這兩組數字。已核實的是：ALS 的抗膽鹼藥「幾乎沒有療效證據」；EFNS 的建議屬良好臨床實務（GCPP）；NIV 的說法只有「皮下 glycopyrrolate 有助使用 NIV」的病例系列，延長存活沒有證據</span></div>
+        <div class="src">Banfi 2015 [10]；EFNS [29]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">ALS 放療：20 Gy 分 5 次，65–82% 有效，持續 4–6 個月</span></div>
+        <div class="new"><span class="m">+</span><span>文獻中常見方案是 20 Gy 分 4 次（每次 5 Gy、每週兩次），或單次 8 Gy（與 12.5 Gy 分 2 次相當）；整理 10 個研究、171 人，多為觀察性資料。百分比與持續時間無法核實</span></div>
+        <div class="src">Shehee 2020 [12]；Hawkey [23]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">腦性麻痺的階梯式處理（口腔運動 6 個月 → 藥物 → 肉毒桿菌 → 手術）有證據支持</span></div>
+        <div class="new"><span class="m">+</span><span>2022 Cochrane：證據不足，無法比較各種介入；沒有任何手術、口腔運動或行為治療的隨機試驗。階梯式是 NICE 與 AACPDM 的共識做法；「6 個月」找不到出處</span></div>
+        <div class="src">[22]；[27]；[28]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">腦性麻痺兒童流涎發生率 10–38%</span></div>
+        <div class="new"><span class="m">+</span><span>NICE 引用的是「中重度流涎」10–37%；另外超過 4 歲仍流涎才視為病理</span></div>
+        <div class="src">[28]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">氯氮平：機轉是 M4 致效、α 腎上腺素拮抗；處理清單（atropine、ipratropium、amisulpride、benztropine、terazosin…）</span></div>
+        <div class="new"><span class="m">+</span><span>機轉是 M4 致效、<b>α2</b> 拮抗，加上食道蠕動與吞嚥減少。Cochrane：15 個試驗、964 人，幾乎都在中國、≤4 週；抗蕈毒鹼藥（astemizole、diphenhydramine、propantheline）優於安慰劑；其餘清單都是藥證外使用，證據為病例報告或小型研究</span></div>
+        <div class="src">[6]；[21]；[33]；[34]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">特發性陣發性流涎：每次 20–50 mL、每週 1–2 次</span></div>
+        <div class="new"><span class="m">+</span><span>原始描述（單一臨床描述報告）可核實的只有：發作 2–5 分鐘、伴噁心或上腹痛的前驅症狀；「20–50 mL」與頻率找不到出處</span></div>
+        <div class="src">Lieblich 1989 [8]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">心因性（身體化）流涎：「需併入鑑別」（引用 ALS 回顧）</span></div>
+        <div class="new"><span class="m">+</span><span>引用的文獻是 ALS 的治療回顧，與此無關；找不到來源。此項屬專家意見，不是研究證據</span></div>
+        <div class="src">—</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">Kinesio Taping 可減輕腦性麻痺兒童流涎</span></div>
+        <div class="new"><span class="m">+</span><span>只有一個小型安慰劑對照試驗，且研究的是「急性效果」；證據等級低，不足以建議常規使用</span></div>
+        <div class="src">Yilmaz 2024 [16]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">肉毒桿菌毒素「是最具證據力的選項」，但沒有說明限制</span></div>
+        <div class="new"><span class="m">+</span><span>在帕金森氏症證據最強（隨機試驗支持；FDA 核准）；Cochrane 2021 顯示 A 與 B 型在 4 週時都能降低流涎頻率與嚴重度，12 週時 B 型仍有效；常見副作用為吞嚥困難與口乾。在 ALS 則仍是小型研究與一個 20 人的隨機試驗（4 週內有效、8–12 週不明顯）</span></div>
+        <div class="src">[26]；[11]；[12]</div>
+      </div>
+
+      <details class="fold"><summary>已核實的數字（點開）</summary>
+        <ul>
+          <li>氯氮平流涎：92%；夜間 85%、日間 48%；至少中度影響生活品質 15%（n=98）[4]；Cochrane 引用的範圍為 30–80% [21]</li>
+          <li>PD 患者唾液產生量低於非 PD 者；主因是吞嚥頻率下降與口咽運動遲緩 [3]</li>
+          <li>FDA 核准：incobotulinumtoxinA 2018-07、rimabotulinumtoxinB 2019-08 [24]；rimabotulinumtoxinB 隨機試驗 187 人，2,500 與 3,500 U 優於安慰劑 [35]</li>
+          <li>ESO/ESSD 2021：吞嚥篩檢對所有中風病人（證據中等）；神經刺激作為輔助（弱建議、中等證據）；PES 加速拔除氣切（弱建議、高證據）[20]</li>
+          <li>Cochrane 2022：腦性麻痺流涎的介入證據不足 [22]；AACPDM：後方流涎（posterior drooling）不可做導管後移術 [27]</li>
+          <li>ALS：約半數有流涎；BoNT 14 個研究 138 人、放療 10 個研究 171 人，多數顯示有益 [12]</li>
+        </ul>
+      </details>
+      <details class="fold"><summary>無法核實、請保守引用（點開）</summary>
+        <ul>
+          <li>Scully 2009 的唾液流速數字（0.3 mL/min、刺激後 1.5 mL/min 以上）；每日唾液量 0.5–1.5 L（另一來源為 1–1.5 L）</li>
+          <li>下頷腺導管後移術「約 80% 滿意率、ranula 8–10%」；鼓室神經切除術「50–80%」；手術前「至少 6 個月保守治療」</li>
+          <li>PD 以 Drooling Severity and Frequency Scale、Sialorrhea Clinical Scale for PD 評估的細節；SCS-PD 的切點</li>
+          <li>glycopyrrolate 對 PD 的 RCT 細節只核對到標題（Arbouw 2010）；嚼口香糖的研究為小型初步研究</li>
+          <li>辣椒素改善吞嚥反射的臨床效益：指引層級未推薦，仍屬研究性</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 定義與機轉 ================= -->
+<section class="block" id="basics">
+  <div class="wrap">
+    <div class="label"><span class="n">02</span>定義與機轉</div>
+    <h2>「清除不了」還是「分泌太多」</h2>
+    <p class="intro">流涎（sialorrhea、drooling）是唾液不自主地溢出唇緣。正常成人每天分泌約 1–1.5 公升唾液；副交感神經經顏面神經（CN VII）支配下頷腺與舌下腺、經舌咽神經（CN IX）支配腮腺，促進分泌。靜息時以下頷腺為主，刺激時以腮腺為主，產量約增加 5 倍 [3]。</p>
+
+    <div class="mech">
+      <div class="m"><h4>清除障礙（最常見）</h4><p style="font-size:.88rem;color:var(--dim);">吞嚥頻率下降、口咽協調差、口唇閉合不全、姿勢前傾。唾液量「正常甚至偏低」。</p>
+        <div class="meter"><div class="lab"><span>分泌量</span><span>正常／低</span></div><div class="tr"><div class="f" style="width:40%;background:var(--blue)"></div></div></div>
+        <div class="meter"><div class="lab"><span>清除能力</span><span>↓↓</span></div><div class="tr"><div class="f" style="width:18%;background:var(--red)"></div></div></div>
+        <p style="font-size:.8rem;color:var(--faint);margin-top:8px;">帕金森氏症、ALS、中風、腦性麻痺、失智症、MSA/PSP [1–3]</p></div>
+      <div class="m"><h4>真性分泌增多（較少見）</h4><p style="font-size:.88rem;color:var(--dim);">藥物、胃食道逆流、口腔與唾液腺疾病、少數系統性疾病。</p>
+        <div class="meter"><div class="lab"><span>分泌量</span><span>↑</span></div><div class="tr"><div class="f" style="width:85%;background:var(--amber)"></div></div></div>
+        <div class="meter"><div class="lab"><span>清除能力</span><span>常正常</span></div><div class="tr"><div class="f" style="width:70%;background:var(--green)"></div></div></div>
+        <p style="font-size:.8rem;color:var(--faint);margin-top:8px;">GERD 的食道—唾液反射、口腔發炎、孕吐 [7]</p></div>
+      <div class="m"><h4>兩者並存</h4><p style="font-size:.88rem;color:var(--dim);">氯氮平：M4 致效（增加分泌）加上 α2 拮抗，同時食道蠕動與吞嚥減少（降低清除）[6,34]。</p>
+        <div class="meter"><div class="lab"><span>分泌量</span><span>↑</span></div><div class="tr"><div class="f" style="width:75%;background:var(--amber)"></div></div></div>
+        <div class="meter"><div class="lab"><span>清除能力</span><span>↓</span></div><div class="tr"><div class="f" style="width:35%;background:var(--red)"></div></div></div></div>
+    </div>
+    <div class="callout teal"><h5>為什麼這很重要？</h5><p>治療方向不同：清除障礙的病人，把「分泌」壓太低會造成口乾、分泌物變黏、增加吸入與呼吸風險；真性增多才是以減少分泌為主。多數神經疾病病人屬前者，因此目標是「減少、而不是完全消除」唾液 [3]。</p></div>
+    <div class="callout amber"><h5>前流涎與後流涎</h5><p>唾液從唇緣溢出是<b>前流涎（anterior drooling）</b>；積在咽後、引起咳嗽、反覆吸入與肺炎的是<b>後流涎（posterior drooling）</b>，後者的處理與手術選擇完全不同（例如導管後移術是禁忌）[27]。</p></div>
+  </div>
+</section>
+
+<!-- ================= 03 鑑別診斷 ================= -->
+<section class="block" id="ddx">
+  <div class="wrap">
+    <div class="label"><span class="n">03</span>鑑別診斷</div>
+    <h2>先分急症，再分機轉</h2>
+
+    <div class="callout red"><h5>先排除的急症警訊（專家意見，證據 C）</h5>
+      <ul>
+        <li><b>突然流涎且無法吞下口水</b>，合併發燒、含糊的「含著東西」般聲音、吸氣性喘鳴或坐姿前傾：會厭炎、扁桃腺周圍或咽後膿瘍、食道異物，屬氣道急症</li>
+        <li><b>突發單側顏面無力</b>伴流涎：中風或顏面神經麻痺，依急性中風流程處理</li>
+        <li><b>流涎合併流汗、流淚、瞳孔縮小、腹瀉、肌束顫動</b>：有機磷或膽鹼過量中毒</li>
+        <li>流涎合併畏水、吞嚥時喉部痙攣：想到狂犬病</li>
+      </ul></div>
+
+    <div class="grid" style="margin-top:18px;">
+      <div class="card c-blue">
+        <h4>A　神經肌肉功能障礙（最常見）</h4>
+        <ul>
+          <li>中樞：腦性麻痺（兒童最常見）、帕金森氏症（成人最常見）、中風、假性延髓麻痺、PSP、MSA、失智症</li>
+          <li>周邊：顏面神經麻痺、舌咽神經麻痺</li>
+          <li>神經肌肉接合處：重症肌無力</li>
+          <li>運動神經元：ALS（延髓型尤其）</li>
+          <li>其他：唐氏症候群、智能發展遲緩；年輕成人合併肌張力不全者要想到 Wilson 病</li>
+        </ul>
+        <div class="foot"><span>唾液量正常或偏低</span><span>[1–3]</span></div>
+      </div>
+      <div class="card c-amber">
+        <h4>B　藥物引起</h4>
+        <ul>
+          <li>最典型：<b>clozapine</b>（盛行率 30–92%，夜間多於日間）[4,21]</li>
+          <li>擬膽鹼藥：donepezil 等 cholinesterase inhibitors、pilocarpine、cevimeline</li>
+          <li>其他：lithium、部分抗精神病藥（amisulpride、olanzapine、risperidone）、benzodiazepines（鎮靜使吞嚥減少）[5]</li>
+        </ul>
+        <div class="foot"><span>先做藥物盤點</span><span>[4,5,6]</span></div>
+      </div>
+      <div class="card c-green">
+        <h4>C　胃食道逆流（GERD）</h4>
+        <p>胃酸刺激食道，經迷走神經傳入啟動食道—唾液反射，唾液大量分泌（water brash）；孕婦因下食道括約肌張力下降也常見。這是保護性反應，用來中和胃酸 [7]。</p>
+        <div class="foot"><span>治療原發的逆流</span><span>[7]</span></div>
+      </div>
+      <div class="card c-purple">
+        <h4>D　口腔與唾液腺</h4>
+        <ul><li>急性化膿性腮腺炎、唾液腺結石</li><li>牙齦炎、齲齒、潰瘍、不合適的假牙</li><li>咬合不正、巨舌症、鼻塞（口呼吸）、扁桃腺肥大</li><li>顏面術後缺損（如下頷骨前段切除後）</li></ul>
+      </div>
+      <div class="card c-teal">
+        <h4>E　少見：系統性與特發性</h4>
+        <ul>
+          <li>家族性自主神經失調（Riley-Day）、汞中毒</li>
+          <li>孕吐合併流涎（需先控制噁心嘔吐）</li>
+          <li><b>特發性陣發性流涎</b>：發作約 2–5 分鐘，前驅有噁心或上腹痛；僅有單一臨床描述報告 [8]</li>
+        </ul>
+      </div>
+      <div class="card c-red">
+        <h4>F　功能性／心因性</h4>
+        <p>主訴流涎過多、但客觀測量正常；可能與焦慮或身體化有關。<b>這是專家意見，沒有可靠的研究證據</b>，只能在排除其他原因之後考慮，且要以客觀測量（唾液流速）支持。</p>
+        <div class="foot"><span>證據 C</span><span>—</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 評估 ================= -->
+<section class="block" id="assess">
+  <div class="wrap">
+    <div class="label"><span class="n">04</span>評估</div>
+    <h2>五步驟評估：從「有沒有」到「風險有多大」</h2>
+    <div class="flow">
+      <div class="fs"><div class="n">1</div><div><h5>確認是哪一種流涎</h5><p>唇緣溢出（前）或積在咽後（後）？白天、夜間或兩者？有咳嗽、反覆嗆咳、肺炎史嗎？用餐時流涎或安靜時流涎？</p></div></div>
+      <div class="fs"><div class="n">2</div><div><h5>判斷是清除障礙還是分泌增多</h5><p>是否有頭部前傾、口唇閉合不全、吞嚥頻率低？有無新增藥物（特別是 clozapine、擬膽鹼藥）、逆流症狀、牙口問題？必要時以唾液收集（例如牙科棉捲稱重）或無刺激唾液流速量化 [3,36]。</p></div></div>
+      <div class="fs"><div class="n">3</div><div><h5>量化嚴重度與影響</h5><p>常用量表：<b>DSFS</b>（流涎嚴重度與頻率）、<b>NHRS</b>（氯氮平的夜間流涎）、<b>ALSFRS-R</b> 的唾液項目、帕金森氏症專用的 SCS-PD；兒童可用 Drooling Impact Scale。同時問生活品質、皮膚破損、社交影響 [4,6,12]（量表細節我未逐項核實）。</p></div></div>
+      <div class="fs"><div class="n">4</div><div><h5>評估吞嚥與吸入風險</h5><p>床邊篩檢後，需要時做 VFSS（動態看口腔到食道）或 FEES（可評估分泌物管理與咽部感覺，可床邊進行）；中風病人所有人都要先篩檢 [20]。ALS 加做呼吸與咳嗽能力評估，並分辨稀薄唾液與黏稠分泌物。</p></div></div>
+      <div class="fs"><div class="n">5</div><div><h5>盤點治療限制</h5><p>認知功能與譫妄風險（影響能否用抗膽鹼藥）、預期壽命、是否有抗凝血或出血傾向（影響注射與手術）、照顧者能力、是否需要多專科（語言治療、耳鼻喉、牙科、緩和醫療）[19]。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 依疾病處理 ================= -->
+<section class="block" id="manage">
+  <div class="wrap">
+    <div class="label"><span class="n">05</span>依疾病處理</div>
+    <h2>不同疾病，處理順序不同</h2>
+    <p class="intro">選一個疾病看：機轉、評估重點、階梯式處理（每一步標示證據強度）與注意事項。證據強度：<span class="badge g-a">A</span> 隨機試驗／系統性回顧支持；<span class="badge g-b">B</span> 小型試驗或觀察研究；<span class="badge g-c">C</span> 專家意見或病例報告。</p>
+    <div class="tabs" id="tabs" role="tablist" aria-label="選擇疾病"></div>
+    <div id="panels"></div>
+  </div>
+</section>
+
+<!-- ================= 06 工具總覽 ================= -->
+<section class="block" id="tools">
+  <div class="wrap">
+    <div class="label"><span class="n">06</span>處理工具總覽</div>
+    <h2>藥物、注射、放療、手術的比較</h2>
+
+    <h3 style="margin-top:0;">藥物與注射</h3>
+    <div class="tw"><table>
+      <thead><tr><th>類別</th><th>代表</th><th>特點</th><th>主要限制</th></tr></thead>
+      <tbody>
+        <tr><td>全身抗膽鹼藥</td><td>glycopyrrolate、hyoscine、amitriptyline</td><td>glycopyrrolate 較不易穿透血腦屏障；帕金森氏症有隨機交叉試驗 [31]</td><td>口乾、便秘、尿滯留；老年與認知障礙者的認知與譫妄風險；ALS 可能使分泌物變黏稠</td></tr>
+        <tr><td>經皮貼片</td><td>hyoscine（scopolamine）</td><td>持續釋放約 72 小時；NICE 在腦性麻痺列為選項 [28]</td><td>皮膚反應、口乾、譫妄；ALS 療效證據極少 [10]</td></tr>
+        <tr><td>局部抗膽鹼</td><td>舌下 atropine 眼藥水、ipratropium</td><td>全身副作用較少；氯氮平流涎常用 [6]</td><td>多為小型研究或病例報告</td></tr>
+        <tr><td>其他全身藥</td><td>clonidine、amisulpride、terazosin、benztropine</td><td>用於氯氮平流涎；amisulpride 的證據來自小型病例系列 [33,34]</td><td>低血壓、催乳素升高、鎮靜；皆藥證外</td></tr>
+        <tr><td>肉毒桿菌毒素</td><td>incobotulinumtoxinA、rimabotulinumtoxinB（FDA 核准）；其他製劑藥證外</td><td>局部作用，全身副作用少；約 1 週內起效、持續約 3 個月；超音波引導可提高準確度 [3,24,25,35]</td><td>吞嚥困難與口乾；需重複注射；ALS 偶有 TMJ 脫位或延髓功能惡化的報告 [12]</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>放療與手術</h3>
+    <div class="tw"><table>
+      <thead><tr><th>方式</th><th>適用</th><th>要點</th><th>限制</th></tr></thead>
+      <tbody>
+        <tr><td>唾液腺放療</td><td>藥物與注射失敗；預期壽命有限（如 ALS）</td><td>常見：20 Gy 分 4 次，或單次 8 Gy；效果可持續數月 [12,23]</td><td>口乾、味覺改變；證據多為觀察性；不適合預期壽命長者</td></tr>
+        <tr><td>下頷腺導管後移</td><td>前流涎、無吸入問題的兒童（常 ≥6 歲）</td><td>將唾液導向口咽後方促進吞嚥 [14,15]</td><td><b>後流涎為禁忌</b>；可能形成 ranula [27]</td></tr>
+        <tr><td>四導管或雙導管結紮、腺體切除</td><td>後流涎或有吸入問題者</td><td>減少總唾液量 [14,15,27]</td><td>口乾、齲齒；顏面神經損傷與疤痕（腺體切除）</td></tr>
+        <tr><td>鼓室神經切除</td><td>已不常規使用</td><td>—</td><td>味覺改變、暫時性聽力受損</td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:.85rem;color:var(--faint);margin-top:8px;">手術與放療的具體百分比（滿意率、併發症率）我未能逐項核實，此處只保留方向。腦性麻痺的各種手術證據整體不足 [22]。</p>
+
+    <h3>非藥物與復健</h3>
+    <div class="grid">
+      <div class="card c-teal"><h4>姿勢與口腔運動</h4><p>改善坐姿與頭部位置；口唇閉合、舌頭控制、增加吞嚥頻率的訓練。腦性麻痺的口腔運動與行為治療<b>沒有隨機試驗證據</b> [22]，仍是臨床第一步。</p><div class="foot"><span>證據 C</span><span>[17,18,22]</span></div></div>
+      <div class="card c-teal"><h4>吞嚥提示與嚼口香糖</h4><p>定時提示裝置提醒吞嚥，效果可能隨時間減退，需認知配合；帕金森氏症嚼無糖口香糖的小型初步研究顯示吞嚥頻率增加 [32]。</p><div class="foot"><span>證據 C</span><span>[3,32]</span></div></div>
+      <div class="card c-teal"><h4>吞嚥復健與神經刺激</h4><p>中風：質地調整、補償性策略、Shaker 運動等；rTMS、tDCS、經皮電刺激、PES 可作為輔助（弱建議、中等證據）[20]。</p><div class="foot"><span>證據 B</span><span>[13,20]</span></div></div>
+      <div class="card c-teal"><h4>輔助工具與口腔照護</h4><p>口水收集裝置、手環毛巾、頭部支撐；口腔照護可降低中風病人的肺炎風險（弱建議、低證據）[20]；皮膚照護避免唇周破損。</p><div class="foot"><span>證據 C</span><span>[20]</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 07 台灣脈絡 ================= -->
+<section class="block" id="taiwan">
+  <div class="wrap">
+    <div class="label"><span class="n">07</span>台灣脈絡</div>
+    <h2>可用的資料與需要自行確認的事</h2>
+    <div class="grid">
+      <div class="card c-blue"><h4>台灣已有的臨床經驗</h4><p>台大研究：A 型肉毒桿菌注射於腦性麻痺兒童的腮腺與下頷腺，與對照組相比，3 個月內流涎有顯著改善，未見嚴重副作用。台北榮總耳鼻喉部也有唾液腺局部注射治療流涎的衛教資料。台灣 Cochrane 提供了肉毒桿菌毒素治療流涎的中文摘要 [26,37]。</p><div class="foot"><span>台灣研究與衛教</span><span>[26,37]</span></div></div>
+      <div class="card c-amber"><h4>我沒有查到的資料</h4><p>台灣食藥署對 incobotulinumtoxinA、rimabotulinumtoxinB 的「慢性流涎」適應症，以及健保對肉毒桿菌毒素、各類抗膽鹼藥用於流涎的給付規定，我都沒有查到明確資訊。教學與衛教前，請查食藥署藥品許可證資料與健保署最新公告，並依仿單與院內規範處方。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 08 測驗 ================= -->
+<section class="block" id="quiz">
+  <div class="wrap">
+    <div class="label"><span class="n">08</span>自我檢核</div>
+    <h2>八題觀念測驗</h2>
+    <div id="quizBox"></div>
+    <p class="score" id="score"></p>
+  </div>
+</section>
+
+<!-- ================= 參考文獻 ================= -->
+<section class="block" id="refs" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="label"><span class="n">09</span>參考文獻</div>
+    <h2>References</h2>
+    <p style="font-size:.85rem;color:var(--dim);">「已核對」＝這次回到原文摘要或全文、或權威二手摘要比對過；「引用既有」＝文獻存在，但這次沒有重新比對其中的數字。</p>
+    <ol class="refs">
+      <li>Scully C, Limeres J, Gleeson M, Tomás I, Diz P. Drooling. <em>J Oral Pathol Med</em>. 2009;38(4):321-327. DOI: 10.1111/j.1600-0714.2008.00727.x <span class="st u">引用既有</span></li>
+      <li>Potulska A, Friedman A. Controlling sialorrhoea: a review of available treatment options. <em>Expert Opin Pharmacother</em>. 2005;6(9):1551-1554. DOI: 10.1517/14656566.6.9.1551 <span class="st u">引用既有</span></li>
+      <li>Isaacson J, Patel S, Torres-Yaghi Y, Pagán F. Sialorrhea in Parkinson's disease. <em>Toxins</em>. 2020;12(11):691. DOI: 10.3390/toxins12110691 <span class="st v">已核對</span></li>
+      <li>Maher S, Cunningham F, O'Callaghan E, et al. Clozapine-induced hypersalivation: an estimate of prevalence, severity and impact on quality of life. <em>Ther Adv Psychopharmacol</em>. 2016;6(3):178-184. DOI: 10.1177/2045125316641019 <span class="st v">已核對</span></li>
+      <li>Haastrup MB, Henriksen DP, Christensen MMH. Drug-induced sialorrhoea. <em>Adverse Drug React Bull</em>. 2018;313(1):1211-1214. <span class="st u">引用既有</span></li>
+      <li>Gupta S, Khastgir U, Croft M, Roshny S. Management of clozapine-induced sialorrhoea. <em>BJPsych Advances</em>. 2019;26(2):106-108. DOI: 10.1192/bja.2019.58 <span class="st v">已核對</span></li>
+      <li>Mandel L, Tamari K. Sialorrhea and gastroesophageal reflux. <em>J Am Dent Assoc</em>. 1995;126(11):1537-1541. <span class="st u">引用既有</span></li>
+      <li>Lieblich S. Episodic supersalivation (idiopathic paroxysmal sialorrhea): description of a new clinical syndrome. <em>Oral Surg Oral Med Oral Pathol</em>. 1989;68(2):159-161. <span class="st v">已核對（二手描述）</span></li>
+      <li>Srivanitchapoom P, Pandey S, Hallett M. Drooling in Parkinson's disease: a review. <em>Parkinsonism Relat Disord</em>. 2014;20(11):1109-1118. <span class="st u">引用既有</span></li>
+      <li>Banfi P, Ticozzi N, Lax A, et al. A review of options for treating sialorrhea in amyotrophic lateral sclerosis. <em>Respir Care</em>. 2015;60(3):446-454. <span class="st v">已核對（摘要）</span></li>
+      <li>Young CA, Ellis C, Johnson J, et al. Treatment for sialorrhea (excessive saliva) in people with motor neuron disease/ALS. <em>Cochrane Database Syst Rev</em>. 2011;CD006981. <span class="st v">已核對（二手摘要）</span></li>
+      <li>Shehee L, O'Rourke A, Garand KL. The role of radiation therapy and botulinum toxin injections in the management of sialorrhea in patients with ALS: a systematic review. <em>J Clin Neuromuscul Dis</em>. 2020;21(4):205-221. <span class="st v">已核對（摘要）</span></li>
+      <li>Labeit B, Muhle P, Dziewas R, Suntrup-Krueger S. Diagnostik und Therapie der Dysphagie nach einem Schlaganfall. <em>Nervenarzt</em>. 2023;94(8):676-683. <span class="st u">引用既有</span></li>
+      <li>Little SA, Kubba H, Hussain SSM. An evidence-based approach to the child who drools saliva. <em>Clin Otolaryngol</em>. 2009;34(3):236-239. <span class="st u">引用既有</span></li>
+      <li>Crysdale WS, McCann C, Roske L, et al. Saliva control issues in the neurologically challenged. <em>Int J Pediatr Otorhinolaryngol</em>. 2006;70(3):519-527. <span class="st u">引用既有</span></li>
+      <li>Yilmaz N, Turker D, Aytar A, et al. The acute effects of Kinesio Taping on drooling in children with cerebral palsy: a randomized placebo-controlled trial. <em>Dev Neurorehabil</em>. 2024;27(5-6):161-168. <span class="st u">引用既有</span></li>
+      <li>Wu J, Burdick R, Deckelman C, et al. Management of dysphagia in neurodegenerative disease. <em>Curr Otorhinolaryngol Rep</em>. 2023;11(3):352-364. <span class="st u">引用既有</span></li>
+      <li>Yee JP, Rogus-Pulia N. Behavioral rehabilitation of swallowing disorders in patients with neurocognitive disorders. <em>Curr Phys Med Rehabil Rep</em>. 2025;13(1). <span class="st u">引用既有</span></li>
+      <li>II CCP, Snider JW III. When saliva becomes a problem: the challenges and palliative care for patients with sialorrhea. <em>Ann Palliat Med</em>. 2020;9(3):1333-1339. DOI: 10.21037/apm.2020.02.34 <span class="st u">引用既有</span></li>
+      <li>Dziewas R, Michou E, et al. European Stroke Organisation and European Society for Swallowing Disorders guideline for the diagnosis and treatment of post-stroke dysphagia. <em>Eur Stroke J</em>. 2021;6(3):LXXXIX-CXV. <span class="st v">已核對</span></li>
+      <li>Syed R, et al. Pharmacological interventions for clozapine-induced hypersalivation. <em>Cochrane Database Syst Rev</em>. 2008;(3):CD005579. <span class="st v">已核對</span></li>
+      <li>Interventions for drooling in children with cerebral palsy. <em>Cochrane Database Syst Rev</em>. 2022;(3):CD008624. <span class="st v">已核對</span></li>
+      <li>Hawkey NM, Zaorsky NG, Galloway TJ. The role of radiation therapy in the management of sialorrhea: a systematic review. <span class="st v">已核對（摘要）</span></li>
+      <li>FDA 核准流涎適應症：incobotulinumtoxinA（Xeomin，2018-07）、rimabotulinumtoxinB（Myobloc，2019-08）. NeurologyLive 報導. <span class="st v">已核對</span></li>
+      <li>Jost WH, Bäumer T, Laskawi R, et al. Therapy of sialorrhea with botulinum neurotoxin. <em>Neurol Ther</em>. 2019. <span class="st v">已核對（摘要）</span></li>
+      <li>Botulinum toxin for sialorrhea: Cochrane 系統性回顧（PMID 34449931）；台灣 Cochrane 中文摘要（taiwan.cochrane.org/node/258）. <span class="st v">已核對（摘要）</span></li>
+      <li>AACPDM Care Pathway: Sialorrhea — "Bottom line" evidence-informed recommendations for children/youth with cerebral palsy. 2016. <span class="st v">已核對</span></li>
+      <li>NICE. Cerebral palsy in under 25s: assessment and management；NICE Evidence Summary ES5（兒童流涎）. <span class="st v">已核對</span></li>
+      <li>EFNS ALS 指引關於流涎的建議（經 MND Australia 醫療人員資源摘要）. <span class="st v">已核對（二手摘要）</span></li>
+      <li>Kalf JG, de Swart BJ, Bloem BR, Munneke M. Prevalence and definition of drooling in Parkinson's disease: a systematic review. <em>J Neurol</em>. 2009;256(9):1391-1396. <span class="st v">已核對（二手摘要）</span></li>
+      <li>Arbouw MEL, Movig KLL, Koopmann M, et al. Glycopyrrolate for sialorrhea in Parkinson disease: a randomized, double-blind, crossover trial. <em>Neurology</em>. 2010;74(15):1203-1207. <span class="st u">引用既有（僅核對標題）</span></li>
+      <li>South AR, Somers SM, Jog MS. Gum chewing improves swallow frequency and latency in Parkinson patients: a preliminary study. <em>Neurology</em>. 2010;74(15):1198-1202. <span class="st u">引用既有（僅核對標題）</span></li>
+      <li>Kulkarni RR, et al. Low-dose amisulpride for debilitating clozapine-induced sialorrhea: case series and review of literature. <em>Indian J Psychol Med</em>. 2015. <span class="st v">已核對（摘要）</span></li>
+      <li>Sockalingam S, Shammi C, Remington G. Clozapine-induced hypersalivation: a review of treatment strategies. <em>Can J Psychiatry</em>. 2007;52(6):377-384. DOI: 10.1177/070674370705200607 <span class="st v">已核對（摘要）</span></li>
+      <li>Isaacson SH, Ondo W, Jackson CE, et al. Safety and efficacy of rimabotulinumtoxinB for treatment of sialorrhea in adults: a randomized clinical trial. <em>JAMA Neurol</em>. 2020;77(4):461-469. <span class="st v">已核對（摘要）</span></li>
+      <li>Jost WH, Friedman A, Michel O, et al. SIAXI: placebo-controlled, randomized, double-blind study of incobotulinumtoxinA for sialorrhea（含帕金森氏症、中風與其他病因）. <em>Neurology</em>. 2019. <span class="st v">已核對（二手摘要）</span></li>
+      <li>台大研究（腦性麻痺流涎的肉毒桿菌毒素治療）；台北榮總耳鼻喉部〈肉毒桿菌神經毒素在唾液腺之臨床應用〉衛教資料. <span class="st v">已核對（摘要）</span></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>N-Teaching 神經科教學研究部 · 教學用途，不做為個別病人之診療依據</span><span><a href="index.html">返回首頁</a></span></div>
+</footer>
+
+<script>
+/* ============ 資料區：要改內容只需改這裡 ============ */
+
+/* 各疾病的處理（標籤頁）。ladder 的 g 是證據強度 A／B／C */
+const DISEASES = [
+ { k:'pd', name:'帕金森氏症', color:'blue',
+   lead:'流涎的主因是吞嚥頻率下降與口咽運動遲緩，不是分泌過多——PD 患者唾液產量反而低於一般人 [3]。盛行率 32–74%，夜間流涎納入時最高 [30]。',
+   assess:['區分白天與夜間；DSFS、SCS-PD 等量表','VFSS 評估口咽期；盤點藥物（抗精神病藥、擬膽鹼藥）與逆流','留意認知與譫妄風險（決定能否用抗膽鹼藥）'],
+   caution:['抗膽鹼藥在老年與認知障礙者要謹慎 [3,31]','優化多巴胺能藥物對流涎的效果有限','DBS 沒有證據可直接用於治療流涎'],
+   ladder:[
+    {t:'非藥物',x:'姿勢調整、有意識吞嚥提示（效果可能隨時間減退）、嚼無糖口香糖（小型初步研究顯示吞嚥頻率增加）',g:'C',r:'[3,32]'},
+    {t:'優化多巴胺能治療',x:'可能改善口咽運動，但對流涎的效果有限',g:'C',r:'[3]'},
+    {t:'口服 glycopyrrolate',x:'隨機交叉試驗顯示有效；副作用為口乾、便秘、尿滯留，老年人需評估認知',g:'B',r:'[3,31]'},
+    {t:'肉毒桿菌毒素（腮腺與下頷腺）',x:'證據最強（class A）；FDA 核准 incobotulinumtoxinA（2018）與 rimabotulinumtoxinB（2019）；建議超音波引導；效果約 3 個月',g:'A',r:'[3,24,35]'},
+    {t:'放療',x:'頑固病例的選項，證據多為觀察性',g:'C',r:'[23]'} ] },
+ { k:'als', name:'ALS', color:'amber',
+   lead:'舌肌痙攣或無力、顏面肌無力與口咽協調障礙使唾液無法清除；約半數 ALS 患者有流涎 [12]。重點是分辨稀薄唾液與黏稠分泌物，兩者處理相反。',
+   assess:['ALSFRS-R 的唾液項目','稀薄唾液（流涎）或黏稠分泌物（痰栓風險）','咳嗽能力、呼吸功能與 NIV 使用情形；吞嚥評估'],
+   caution:['抗膽鹼藥可能使分泌物更黏稠、增加痰栓與呼吸風險（專家意見）','肉毒桿菌毒素偶有 TMJ 脫位或延髓功能快速惡化的報告 [12]','手術在 ALS 極少使用（專家意見）'],
+   ladder:[
+    {t:'非藥物',x:'吸痰器、姿勢、口腔護理、必要時使用口水收集裝置',g:'C',r:'[10]'},
+    {t:'抗膽鹼藥',x:'EFNS 建議（良好臨床實務）：amitriptyline、口服或經皮 hyoscine、舌下 atropine；皮下 glycopyrrolate 也有使用，但 ALS 的療效證據幾乎沒有',g:'C',r:'[10,29]'},
+    {t:'肉毒桿菌毒素',x:'EFNS：B 型 level B、A 型 level C；14 個研究共 138 人多數有益；僅有的 20 人隨機試驗顯示 B 型在 4 週內有效、8–12 週不明顯。劑量因製劑而異，不可互換',g:'B',r:'[11,12,29]'},
+    {t:'唾液腺放療',x:'10 個研究共 171 人多數有益；常見 20 Gy 分 4 次或單次 8 Gy；適合預期壽命有限者',g:'B',r:'[12,23]'} ] },
+ { k:'stroke', name:'腦中風', color:'green',
+   lead:'急性中風有 >50% 合併吞嚥困難 [20]；流涎只是吞嚥問題的一部分，首要任務是篩檢與預防吸入性肺炎，而不是先處理唾液量。',
+   assess:['所有中風病人做吞嚥篩檢（證據中等）','篩檢異常或有預測因子（嚴重失語、構音障礙、顏面無力、神經缺損嚴重）者盡快做吞嚥評估','FEES 或 VFSS 擇一（FEES 可評估分泌物管理與咽部感覺，可床邊進行）'],
+   caution:['全身抗膽鹼藥的認知與譫妄風險','辣椒素等藥物促進吞嚥反射仍屬研究性','氣切合併嚴重吞嚥困難：PES 加速拔除氣切管（弱建議、高證據）'],
+   ladder:[
+    {t:'口腔照護',x:'降低吸入性肺炎風險（弱建議、低證據）',g:'C',r:'[20]'},
+    {t:'吞嚥復健',x:'質地調整與增稠液體、下巴內收等補償性姿勢、Shaker 運動等',g:'C',r:'[13,17]'},
+    {t:'神經刺激（輔助）',x:'rTMS、經皮電刺激、tDCS、PES 作為傳統吞嚥治療的輔助（弱建議、中等證據）',g:'B',r:'[20]'},
+    {t:'針對流涎的藥物與注射',x:'incobotulinumtoxinA 的 SIAXI 試驗納入帕金森氏症、中風與其他病因，核准用於神經疾病所致的成人慢性流涎；全身抗膽鹼藥視認知狀態使用',g:'B',r:'[24,36]'},
+    {t:'嚴重吞嚥困難',x:'考慮經皮內視鏡胃造口（PEG）',g:'C',r:'[20]'} ] },
+ { k:'cp', name:'腦性麻痺', color:'purple',
+   lead:'口腔運動功能障礙使吞嚥啟動延遲、舌頭不協調、口唇閉合不全。嬰兒期流涎正常，超過 4 歲仍流涎視為病理；中重度流涎約 10–37% [28]。',
+   assess:['區分前流涎與後流涎（決定手術選擇）[27]','多專科評估：耳鼻喉、語言治療、兒童牙科、社工','姿勢、咬合、鼻腔通暢度、胃食道逆流'],
+   caution:['2022 Cochrane：各種介入的證據不足，無法比較 [22]','導管後移術在後流涎為禁忌 [27]','手術通常保留給保守治療失敗、≥6 歲者'],
+   ladder:[
+    {t:'非藥物',x:'姿勢、口腔運動與行為治療（沒有隨機試驗，但屬共識的第一步）',g:'C',r:'[22,27]'},
+    {t:'抗膽鹼藥',x:'NICE：glycopyrronium bromide（口服或管灌）、經皮 hyoscine；trihexyphenidyl 用於運動障礙型 CP，需專科參與',g:'B',r:'[28]'},
+    {t:'肉毒桿菌毒素',x:'注射下頷腺、腮腺；A 型研究最多；效果通常需約每 6 個月重複',g:'B',r:'[22,27]'},
+    {t:'手術',x:'導管結紮或後移、腺體切除；選擇依前或後流涎而定',g:'C',r:'[14,15,27]'},
+    {t:'貼紮',x:'Kinesio Taping 僅有小型安慰劑對照試驗的急性效果，不建議作為常規',g:'C',r:'[16]'} ] },
+ { k:'drug', name:'藥物（clozapine）', color:'red',
+   lead:'氯氮平流涎盛行率約 30–92%，夜間（85%）多於日間（48%）；約 15% 認為至少中度影響生活品質 [4,21]。機轉：M4 致效、α2 拮抗，加上食道蠕動與吞嚥減少 [6,34]。',
+   assess:['以 NHRS（夜間）與 DSFS 量化','記錄與劑量、滴定速度的關係（早期、與劑量相關）','評估鎮靜與吸入風險'],
+   caution:['全身抗膽鹼藥可能加重 clozapine 的腸蠕動不足與便秘（專家意見）','所有藥物處理皆為藥證外使用；沒有哪一個被證實最優 [33]','不要為了流涎自行停用或換藥；需與精神科討論'],
+   ladder:[
+    {t:'非藥物',x:'枕頭覆蓋毛巾、側睡並抬高頭部、日間嚼無糖口香糖',g:'C',r:'[6]'},
+    {t:'調整劑量',x:'可能時降低 clozapine 劑量或放慢滴定',g:'C',r:'[6,21]'},
+    {t:'局部抗膽鹼',x:'舌下 atropine 眼藥水滴劑、ipratropium：全身副作用較少',g:'C',r:'[6,34]'},
+    {t:'其他全身藥',x:'amisulpride（同時可改善精神症狀；小型病例系列）、glycopyrrolate、benztropine、clonidine、terazosin；Cochrane 中只有 astemizole、diphenhydramine、propantheline 優於安慰劑（≤4 週、多在中國）',g:'B',r:'[21,33,34]'},
+    {t:'肉毒桿菌毒素、換藥',x:'頑固嚴重者；換藥是最後選項',g:'C',r:'[6]'} ] }
+];
+
+/* 測驗 */
+const QUIZ = [
+ {q:'帕金森氏症患者流涎的主要機轉是什麼？',
+  o:['唾液分泌過多','吞嚥頻率下降與口咽運動遲緩，唾液量反而偏低','腮腺過度增生','自主神經過度興奮'], a:1,
+  e:'PD 的唾液產量低於非 PD 者；問題在清除，不在產生。所以治療要小心不要把分泌壓得太低。'},
+ {q:'目前哪兩種肉毒桿菌毒素獲 FDA 核准用於慢性流涎？',
+  o:['onabotulinumtoxinA 與 abobotulinumtoxinA','incobotulinumtoxinA（2018）與 rimabotulinumtoxinB（2019）','只有 rimabotulinumtoxinB','所有 A 型與 B 型製劑都有'], a:1,
+  e:'其他製劑屬藥證外使用；各廠牌的單位不能互換，劑量要依製劑查證。'},
+ {q:'關於氯氮平引起的流涎，下列何者正確？',
+  o:['只有日間流涎，夜間不會','夜間多於日間；機轉包含 M4 致效、α2 拮抗與吞嚥減少','機轉是 α1 阻斷，與吞嚥無關','所有處理方式都有高品質證據'], a:1,
+  e:'Maher 2016：92% 有流涎，夜間 85%、日間 48%。處理多為藥證外且證據偏低。'},
+ {q:'Cochrane 2008 對氯氮平流涎的藥物介入證據，下列敘述何者最適當？',
+  o:['大型長期試驗證實 amisulpride 最有效','15 個短期（≤4 週）試驗、多在中國；部分抗蕈毒鹼藥優於安慰劑，其餘證據有限','結論是任何藥物都無效','只有 botulinum toxin 被研究'], a:1,
+  e:'納入 964 人、多在中國醫院；astemizole、diphenhydramine、propantheline 優於安慰劑；整體證據品質有限。'},
+ {q:'腦性麻痺兒童流涎，下列敘述何者正確？',
+  o:['Cochrane 2022 顯示手術證據明確優於藥物','證據不足，且導管後移術在「後流涎」為禁忌','口腔運動訓練有大型隨機試驗支持','貼紮已被指引推薦為常規'], a:1,
+  e:'Cochrane 2022 指出介入證據不足，沒有手術或口腔運動的隨機試驗；AACPDM 指出後流涎不可做導管後移。'},
+ {q:'ALS 病人使用全身抗膽鹼藥處理流涎時，最需要注意什麼？',
+  o:['會使分泌物變黏稠，增加痰栓與呼吸風險；且療效證據很少','抗膽鹼藥在 ALS 是唯一有高證據的選項','不會有任何副作用','必須同時使用 β 阻斷劑'], a:0,
+  e:'ALS 的抗膽鹼藥「證據幾乎沒有」；肉毒桿菌毒素 B 型（level B）與放療是藥物失敗後的選項。'},
+ {q:'依 ESO/ESSD 2021 中風吞嚥困難指引，下列何者正確？',
+  o:['只需對高風險病人篩檢','急性中風 >50% 有吞嚥困難；建議所有中風病人篩檢；PES 用於氣切且嚴重吞嚥困難者以加速拔除氣切管','FEES 一定優於 VFSS','辣椒素已被強力推薦'], a:1,
+  e:'神經刺激是輔助（弱建議、中等證據）；PES 加速 decannulation 為弱建議、高證據確定性；辣椒素仍屬研究。'},
+ {q:'一位病人突然流涎、無法吞下口水，伴發燒與吸氣性喘鳴，最需要先考慮什麼？',
+  o:['特發性陣發性流涎','功能性流涎','氣道急症（如會厭炎、咽後膿瘍、食道異物）','氯氮平副作用'], a:2,
+  e:'這些警訊屬急症，應先處理氣道，不是按一般神經疾病流涎的階梯處理。'}
+];
+
+/* ============ 程式 ============ */
+(function(){
+  var tabs = document.getElementById('tabs'), panels = document.getElementById('panels');
+  function li(a){ return a.map(function(x){ return '<li>' + x + '</li>'; }).join(''); }
+  DISEASES.forEach(function(d, i){
+    var b = document.createElement('button');
+    b.className = 'tab'; b.type = 'button'; b.setAttribute('role','tab'); b.textContent = d.name;
+    b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    tabs.appendChild(b);
+    var p = document.createElement('div');
+    p.className = 'panel' + (i === 0 ? ' show' : ''); p.setAttribute('role','tabpanel');
+    var steps = d.ladder.map(function(s){
+      return '<div class="step"><b>' + s.t + '</b><span class="badge g-' + s.g.toLowerCase() + '">' + s.g + '</span><br>' + s.x + ' <span style="color:var(--faint)">' + s.r + '</span></div>';
+    }).join('');
+    p.innerHTML = '<h3>' + d.name + '</h3><p class="lead">' + d.lead + '</p>' +
+      '<div class="two"><div class="box"><h6>評估重點</h6><ul>' + li(d.assess) + '</ul></div><div class="box"><h6>注意事項</h6><ul>' + li(d.caution) + '</ul></div></div>' +
+      '<div class="ladder">' + steps + '</div>';
+    panels.appendChild(p);
+    b.addEventListener('click', function(){
+      tabs.querySelectorAll('.tab').forEach(function(t){ t.setAttribute('aria-selected','false'); });
+      panels.querySelectorAll('.panel').forEach(function(x){ x.classList.remove('show'); });
+      b.setAttribute('aria-selected','true'); p.classList.add('show');
+    });
+  });
+
+  var box = document.getElementById('quizBox'), sc = document.getElementById('score'), right = 0, done = 0;
+  QUIZ.forEach(function(q, qi){
+    var c = document.createElement('div'); c.className = 'qcard';
+    c.innerHTML = '<h5><span>Q' + (qi+1) + '</span>' + q.q + '</h5><div class="o"></div><div class="exp"><b>解析：</b>' + q.e + '</div>';
+    var o = c.querySelector('.o');
+    q.o.forEach(function(t, oi){
+      var b = document.createElement('button'); b.className = 'qopt'; b.type = 'button'; b.textContent = t;
+      b.addEventListener('click', function(){
+        if(c.classList.contains('done')) return;
+        c.classList.add('done');
+        var all = o.querySelectorAll('.qopt'); all[q.a].classList.add('ok');
+        if(oi !== q.a){ b.classList.add('no'); } else { right++; }
+        done++; sc.textContent = '目前：答對 ' + right + ' / ' + done + '（共 ' + QUIZ.length + ' 題）';
+      });
+      o.appendChild(b);
+    });
+    box.appendChild(c);
+  });
+})();
+</script>
+</body>
+</html>

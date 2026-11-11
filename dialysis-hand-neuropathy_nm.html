@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="nt:category" content="neuromuscular">
+<meta name="nt:label" content="Dialysis Neuropathy">
+<meta name="nt:icon" content="🖐️">
+<meta name="nt:summary" content="洗腎病人手麻痛：同側有動靜脈瘻管（遠端缺血、缺血性單肢神經病變、通路相關壓迫）與沒有瘻管（尿毒性多發性神經病變、腕隧道、神經根病變）兩種情境的鑑別、檢查與處理，並修正常見的數字誤傳。">
+<meta name="nt:tags" content="洗腎, 動靜脈瘻管, 缺血性單肢神經病變, 腕隧道症候群">
+<meta name="nt:order" content="4">
+<meta name="nt:updated" content="2026-10-31">
+<title>洗腎患者的手部神經病變：有無瘻管的鑑別、檢查與處理｜HCH-FYH Neurology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* 色票：與首頁（index.html）同一組深色色票 */
+:root{
+  --bg:#0d1117; --bg-card:#161b22; --bg-hover:#1c2128;
+  --border:rgba(255,255,255,.10); --border-strong:rgba(255,255,255,.20);
+  --text:#e6edf3; --dim:#8b949e; --faint:#6e7681;
+  --amber:#e3b341; --blue:#58a6ff; --green:#39d353; --red:#f0616f; --purple:#bc8cff; --teal:#2dd4bf;
+  --amber-bg:rgba(227,179,65,.10); --blue-bg:rgba(88,166,255,.10); --green-bg:rgba(57,211,83,.10);
+  --red-bg:rgba(240,97,111,.10); --purple-bg:rgba(188,140,255,.10); --teal-bg:rgba(45,212,191,.10);
+  --serif:'Noto Serif TC',serif; --sans:'Noto Sans TC',sans-serif; --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth; scroll-padding-top:64px;}
+body{margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.75; -webkit-font-smoothing:antialiased;}
+a{color:var(--blue);}
+.wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+
+.topnav{position:sticky; top:0; z-index:100; background:rgba(13,17,23,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:8px 28px;}
+.topnav .links{display:flex; gap:2px; max-width:1100px; margin:0 auto; overflow-x:auto; scrollbar-width:none;}
+.topnav a{color:var(--dim); text-decoration:none; font-size:.84rem; padding:6px 12px; border-radius:6px; white-space:nowrap;}
+.topnav a:hover{background:var(--bg-hover); color:var(--text);}
+
+.hero{padding:64px 24px 44px; border-bottom:1px solid var(--border); background:radial-gradient(900px 300px at 10% -10%, rgba(88,166,255,.12), transparent 60%), radial-gradient(700px 260px at 100% 0, rgba(240,97,111,.08), transparent 60%);}
+.hero-in{max-width:920px; margin:0 auto;}
+.eyebrow{font-family:var(--mono); font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); display:flex; align-items:center; gap:10px; margin-bottom:16px;}
+.eyebrow::before{content:""; width:26px; height:1px; background:var(--blue);}
+.hero h1{font-family:var(--serif); font-weight:900; font-size:clamp(1.6rem,4vw,2.4rem); line-height:1.38; margin:0 0 16px;}
+.hero p.lede{color:var(--dim); font-size:1.02rem; max-width:68ch; margin:0 0 26px;}
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px;}
+.stat{background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:16px 18px;}
+.stat b{display:block; font-family:var(--mono); font-size:1.5rem; font-weight:600; line-height:1.2;}
+.stat span{font-size:.82rem; color:var(--dim);}
+
+section.block{padding:54px 0; border-bottom:1px solid var(--border);}
+.label{font-family:var(--mono); font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin-bottom:10px; display:flex; gap:10px; align-items:center;}
+.label .n{background:var(--blue-bg); color:var(--blue); border:1px solid rgba(88,166,255,.3); border-radius:6px; padding:1px 8px;}
+h2{font-family:var(--serif); font-size:clamp(1.3rem,2.6vw,1.8rem); margin:0 0 10px; font-weight:800;}
+h3{font-family:var(--serif); font-size:1.15rem; margin:34px 0 10px;}
+p.intro{color:var(--dim); max-width:72ch; margin:0 0 26px;}
+p{margin:0 0 12px;} ul{padding-left:20px; margin:6px 0 12px;} li{margin-bottom:4px;}
+
+.grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.card{background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px; border-top:3px solid var(--c,var(--blue));}
+.card h4{margin:0 0 8px; font-family:var(--serif); font-size:1.02rem; line-height:1.5;}
+.card p,.card li{font-size:.9rem; color:var(--dim);} .card p:last-child{margin-bottom:0;}
+.card .foot{margin-top:12px; padding-top:10px; border-top:1px dashed var(--border); font-family:var(--mono); font-size:.72rem; color:var(--faint); display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;}
+.c-blue{--c:var(--blue);} .c-amber{--c:var(--amber);} .c-green{--c:var(--green);} .c-red{--c:var(--red);} .c-purple{--c:var(--purple);} .c-teal{--c:var(--teal);}
+.badge{display:inline-block; font-family:var(--mono); font-size:.68rem; font-weight:600; padding:2px 9px; border-radius:999px; white-space:nowrap;}
+.g-a{background:var(--green-bg); color:var(--green); border:1px solid rgba(57,211,83,.3);}
+.g-b{background:var(--amber-bg); color:var(--amber); border:1px solid rgba(227,179,65,.3);}
+.g-c{background:var(--red-bg); color:var(--red); border:1px solid rgba(240,97,111,.3);}
+.callout{border-radius:12px; padding:16px 18px; margin:18px 0; font-size:.92rem; border:1px solid var(--border); background:var(--bg-card);}
+.callout h5{margin:0 0 6px; font-size:.92rem;} .callout p:last-child{margin:0;} .callout ul{margin-bottom:0;}
+.callout.red{background:var(--red-bg); border-color:rgba(240,97,111,.3);}
+.callout.amber{background:var(--amber-bg); border-color:rgba(227,179,65,.3);}
+.callout.green{background:var(--green-bg); border-color:rgba(57,211,83,.3);}
+.callout.blue{background:var(--blue-bg); border-color:rgba(88,166,255,.3);}
+
+.check{background:#0a0e13; border:1px solid var(--border-strong); border-radius:16px; padding:22px 24px 8px;}
+.check h3{margin:0 0 6px;} .check .sub{color:var(--dim); font-size:.88rem; margin:0 0 16px;}
+.row{font-family:var(--mono); font-size:.82rem; line-height:1.85; border-top:1px solid var(--border); padding:14px 0;}
+.row div{display:flex; gap:10px; padding:2px 0;} .row .m{flex-shrink:0; width:14px;}
+.row .old{color:var(--faint);} .row .old .t{text-decoration:line-through; text-decoration-color:rgba(240,97,111,.6);} .row .old .m{color:var(--red);}
+.row .new{color:#d3ecdc;} .row .new .m{color:var(--green);}
+.row .src{color:var(--faint); font-size:.74rem; padding-left:24px;}
+details.fold{border-top:1px solid var(--border); padding:12px 0; font-size:.88rem;}
+details.fold summary{cursor:pointer; font-weight:600;} details.fold ul{color:var(--dim); font-size:.86rem;}
+
+.tw{overflow-x:auto; border:1px solid var(--border); border-radius:12px; background:var(--bg-card);}
+table{width:100%; border-collapse:collapse; font-size:.86rem; min-width:700px;}
+th,td{padding:11px 14px; border-bottom:1px solid var(--border); text-align:left; vertical-align:top;}
+th{font-family:var(--mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--faint); background:rgba(255,255,255,.02);}
+tr:last-child td{border-bottom:none;} td{color:var(--dim);} td:first-child{color:var(--text); font-weight:500;}
+.pill{display:inline-block; font-family:var(--mono); font-size:.68rem; font-weight:600; padding:2px 9px; border-radius:999px;}
+.p-red{background:var(--red-bg); color:var(--red);} .p-amber{background:var(--amber-bg); color:var(--amber);} .p-blue{background:var(--blue-bg); color:var(--blue);} .p-purple{background:var(--purple-bg); color:var(--purple);}
+
+.switch{display:grid; grid-template-columns:1fr 1fr; gap:14px;} @media (max-width:700px){.switch{grid-template-columns:1fr;}}
+.sw{background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:18px 20px; text-decoration:none; color:var(--text); display:block; border-top:3px solid var(--c);}
+.sw:hover{background:var(--bg-hover);} .sw h4{margin:0 0 6px; font-family:var(--serif);} .sw p{margin:0; color:var(--dim); font-size:.88rem;}
+
+.tool{background:var(--bg-card); border:1px solid var(--border-strong); border-radius:16px; padding:22px;}
+.tool .qs{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px;}
+.tool label{display:block; font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--blue); margin-bottom:6px;}
+.tool select{width:100%; font-family:var(--sans); font-size:.9rem; color:var(--text); background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 12px;}
+.out{margin-top:18px; display:grid; gap:12px;}
+.out .box{background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:14px 16px; font-size:.9rem;}
+.out .box h6{margin:0 0 6px; font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--faint);} .out .box ul{margin:0; color:var(--dim);}
+.out .title{font-family:var(--serif); font-size:1.15rem; margin:0; display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+
+.ladder{counter-reset:s; display:grid; gap:10px; margin:12px 0;}
+.step{counter-increment:s; position:relative; background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:12px 16px 12px 52px; font-size:.88rem; color:var(--dim);}
+.step::before{content:counter(s); position:absolute; left:14px; top:12px; width:26px; height:26px; border-radius:50%; background:var(--blue-bg); color:var(--blue); border:1px solid rgba(88,166,255,.35); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:600; font-size:.8rem;}
+.step b{color:var(--text);} .step .badge{margin-left:6px;}
+
+.qcard{background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:20px; margin-bottom:14px;}
+.qcard h5{margin:0 0 12px; font-size:.97rem; font-weight:500; line-height:1.65;} .qcard h5 span{font-family:var(--mono); color:var(--blue); margin-right:8px;}
+.qopt{display:block; width:100%; text-align:left; font-family:var(--sans); font-size:.9rem; color:var(--text); background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:10px 14px; margin-bottom:8px; cursor:pointer;}
+.qopt:hover{border-color:var(--blue);} .qopt.ok{border-color:var(--green); background:var(--green-bg);} .qopt.no{border-color:var(--red); background:var(--red-bg);}
+.exp{display:none; margin-top:10px; font-size:.88rem; color:var(--dim); border-left:3px solid var(--green); padding:8px 14px; background:var(--bg);} .qcard.done .exp{display:block;}
+.score{font-family:var(--mono); font-size:.85rem; color:var(--dim);}
+
+ol.refs{list-style:none; counter-reset:r; padding:0; font-size:.84rem; color:var(--dim);}
+ol.refs li{counter-increment:r; position:relative; padding:9px 0 9px 38px; border-bottom:1px dashed var(--border);}
+ol.refs li::before{content:"["counter(r)"]"; position:absolute; left:0; font-family:var(--mono); color:var(--blue); font-size:.78rem;}
+.st{font-family:var(--mono); font-size:.64rem; margin-left:8px; padding:1px 7px; border-radius:999px;}
+.st.v{background:var(--green-bg); color:var(--green);} .st.u{background:var(--amber-bg); color:var(--amber);}
+
+footer{padding:34px 24px; color:var(--faint); font-size:.85rem; border-top:1px solid var(--border);}
+footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+:focus-visible{outline:3px solid var(--blue); outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){*{transition:none !important; scroll-behavior:auto !important;}}
+@media print{.topnav{display:none;}}
+</style>
+</head>
+<body>
+<script src="assets/site-header.js"></script>
+
+<nav class="topnav" aria-label="本頁章節">
+  <div class="links">
+    <a href="#check">證據查核</a><a href="#overview">總覽</a><a href="#with">有瘻管</a><a href="#without">沒有瘻管</a>
+    <a href="#tool">情境判讀</a><a href="#manage">處理總覽</a><a href="#taiwan">台灣脈絡</a><a href="#quiz">自我測驗</a><a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="eyebrow">Neuromuscular · Nephrology · Vascular Access</div>
+    <h1>洗腎患者的手部神經病變：有無瘻管的鑑別、檢查與處理</h1>
+    <p class="lede">洗腎病人手麻痛，第一個問題是「這隻手有沒有動靜脈通路」。有通路時要在三種病之間分辨：遠端缺血、缺血性單肢神經病變、通路相關的神經壓迫；沒有通路時，主角是尿毒性多發性神經病變與壓迫性神經病變。本頁逐項核對原始研究、標示證據強度，並修正常見的誤傳。</p>
+    <div class="stats">
+      <div class="stat"><b>1.9%</b><span>前瞻資料庫中，通路術後「需介入」的嚴重遠端缺血（1,498 人、10 年）[17]</span></div>
+      <div class="stat"><b>分鐘–小時</b><span>缺血性單肢神經病變的典型發病時間；手常是溫的、脈搏可摸到 [14,31]</span></div>
+      <div class="stat"><b>8–31%</b><span>洗腎病人腕隧道症候群的盛行範圍；與瘻管側別的關聯並不一致 [8]</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 01 證據查核 ================= -->
+<section class="block" id="check">
+  <div class="wrap">
+    <div class="label"><span class="n">01</span>證據查核</div>
+    <h2>哪些常見說法需要修正</h2>
+    <p class="intro">灰色刪除線是常被引用、但找不到出處或與原始研究不符的說法；綠色是查核後的內容。下面的數字多半出現在二手整理中，值得逐項確認。</p>
+
+    <div class="check">
+      <h3>查核紀錄</h3><p class="sub">共 13 項：11 項修正、2 項補充；另列已核實與無法核實的清單。</p>
+
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">通路相關缺血發生率：brachial-based 瘻管 10–25%、radiocephalic 僅 1–2%；前臂 graft 4.3–6%、brachial graft 19%</span></div>
+        <div class="new"><span class="m">+</span><span>文獻回報的通路相關遠端缺血整體約 1.6–8%（多為回溯研究、可能低估）；前瞻資料中「需要介入的嚴重缺血」為 1.9%。上臂（brachial 為流入）通路風險確實較高，但各研究數字差異大，「10–25%」與「19%」找不到出處</span></div>
+        <div class="src">Allon 2023（CJASN 社論引述）[17]；HFM [18]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">竊血危險因子的一組 OR（年齡 OR 1.03、女性 1.77、吸菸 2.0、糖尿病 1.9、PAD 2.3、冠心病 2.7、高血壓 2.8、近端瘻管 4.5）</span></div>
+        <div class="new"><span class="m">+</span><span>找不到這組 OR 的單一原始來源。可核實的是：前瞻多中心研究，女性 OR 3.17、糖尿病 13.62、冠心病 2.60、術前靜脈容受性高 2.76；加拿大單中心：糖尿病 OR 5.0，女性不顯著。各研究的結果並不一致</span></div>
+        <div class="src">[18]；[19]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">side-to-side 吻合比 end-to-side 竊血風險獨立增加（OR 3.27）、糖尿病 OR 6.72、女性 OR 3.08；19% 的竊血發生在尚未開始透析的病人</span></div>
+        <div class="new"><span class="m">+</span><span>這些數字出自單中心 324 條近端瘻管的回顧研究，我只核對到文獻存在、無法核實內文數字，請當作「單一回溯研究的假說」；吻合型態的影響尚缺系統性證據</span></div>
+        <div class="src">Rocha 2012 [10]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">指尖壓 &lt;60 mmHg 診斷缺血準確度 92%（敏感度 100%、特異度 87%）；DBI &lt;0.4 準確度 94%；術前 DBI &lt;0.47 或指尖壓 &lt;50 mmHg 提示風險高</span></div>
+        <div class="new"><span class="m">+</span><span>可核實的是方向：指尖壓 &lt;60 mmHg 或 DBI &lt;0.4 與手部缺血高度相關；DBI &lt;0.6 提示血流動力學受損。診斷仍以病史、理學檢查與「壓迫通路後症狀改善」為主，指尖壓與 DBI 是輔助。精確的敏感度與特異度數字無法核實</span></div>
+        <div class="src">[5,20,21]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">IMN 的客觀指標：指尖壓 &gt;50 mmHg、DBI &gt;0.3，NCS 多條神經振幅下降</span></div>
+        <div class="new"><span class="m">+</span><span>「50 mmHg」「0.3」找不到出處。IMN 的定義是「缺血不成比例地傷害神經」：多根單神經病變、手常是溫的且脈搏可摸到、沒有明顯皮膚缺血。NCS 可確認軸突受損，但在急性期不應延誤處理</span></div>
+        <div class="src">Datta 2019 [14]；Hosp Med 2017 [31]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">IMN 「幾乎只發生在 brachiocephalic／antecubital」，原因是肘部是三條神經 vasa nervorum 的分水嶺</span></div>
+        <div class="new"><span class="m">+</span><span>文獻說法是：多與以肱動脈為流入的通路有關（含 graft），年長、已有糖尿病周邊神經病變者風險最高；非糖尿病者也有案例。「分水嶺」是機轉假說，不是已證實的解釋。發生率沒有可靠數據</span></div>
+        <div class="src">[32]；Hosp Med [31]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">四種手術的 pooled 結果：banding 症狀緩解 90.2%（早期血栓 8.2%）、DRIL 89.6%（0.9%）、PAI 99.7%（7%）、RUDI 93.1%（12.1%）</span></div>
+        <div class="new"><span class="m">+</span><span>找不到這組數字。已核實：27 個研究的系統性回顧顯示四種術式都能緩解症狀，DRIL 的通路通暢度較佳；2026 年的統合分析發現 DRIL 症狀緩解 91%、PAI 93%，沒有顯著差異（DRIL 是否仍是「黃金標準」受到質疑）；RUDI 與 DRIL 的通暢、症狀緩解與存活相當。證據皆來自觀察性研究</span></div>
+        <div class="src">Al Shakarchi 2015 [12]；[23]；Misskey 2016 [13]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">嚴重缺血病人 1 年死亡率 28%、5 年 79%；RUDI 與 DRIL 症狀緩解 90% 對 81%</span></div>
+        <div class="new"><span class="m">+</span><span>兩組數字都找不到出處。可說的是：嚴重的遠端缺血反映全身血管病變嚴重度，預後較差</span></div>
+        <div class="src">Maastricht 博士論文 [33]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">IMN 的判斷：「單一神經受累原則上排除 IMN」「術後單一神經麻痺要當成空間佔據病灶」</span></div>
+        <div class="new"><span class="m">+</span><span>方向正確（IMN 的定義是多根神經），保留；但要補上：術後早期的單一神經症狀也可能是缺血、血腫、假性動脈瘤或通路擴張壓迫，需影像確認</span></div>
+        <div class="src">[14,16]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">洗腎病人 82% 有感覺運動多發性神經病變；小纖維（CSP）約 32% 延長；CSP 異常反映瘻管</span></div>
+        <div class="new"><span class="m">+</span><span>82% 與 32% 找不到出處。已核實的是：38 位洗腎病人的研究中，Kt/V 較高者正中神經感覺傳導較好、β2-微球蛋白較高者傳導較慢；2023 年研究顯示 CSP 在「瘻管側與非瘻管側」手都同樣延長，所以小纖維受損<b>不是瘻管專屬</b></span></div>
+        <div class="src">Denislic 2015 [4]；Al-Adl 2023 [26]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">腕隧道症候群與 β2-微球蛋白類澱粉及透析年數有關（傳統觀點）</span></div>
+        <div class="new"><span class="m">+</span><span>證據不一致：112 位 ESKD 的電生理研究發現 CTS 頻率在瘻管側與對側無差異，也與 β2M、透析年數無關；但敘述性回顧提出靜脈高壓與微缺血假說，另有資料稱透析 10 年後可高達 50%。不能把所有手麻都歸因於通路，也不能排除通路的貢獻</span></div>
+        <div class="src">Kwon 2011 [8]；[28]；[16]</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">區域神經阻斷後的殘留「通常會放過 ulnar nerve」，ulnar 分佈缺損即可排除殘留阻斷</span></div>
+        <div class="new"><span class="m">+</span><span>找不到出處，已刪除。術後早期神經症狀應先想到缺血與血腫，再考慮麻醉殘留</span></div>
+        <div class="src">—</div>
+      </div>
+      <div class="row">
+        <div class="old"><span class="m">−</span><span class="t">只用「DASS／IMN」兩個詞，沒有說明其他常見原因的比例</span></div>
+        <div class="new"><span class="m">+</span><span>補充：愛爾蘭三級中心 73 位洗腎病人的神經電生理轉介，53% 有單神經病變（15 位為瘻管相關的醫源性單神經病變）、59% 有多發性神經病變。洗腎病人手痛的鑑別至少還包括軟組織腫脹、傷口血腫、腕隧道症候群、遠端缺血與 IMN</span></div>
+        <div class="src">O'Regan 2012 [24]；Han 2013 [25]</div>
+      </div>
+
+      <details class="fold"><summary>已核實的內容（點開）</summary>
+        <ul>
+          <li>IMN 是罕見併發症，精確發生率缺乏資料；多在術後數分鐘到數小時內發病；手溫、脈搏可摸到；一旦診斷應立即結紮通路，但不一定能完全恢復 [14,31]</li>
+          <li>通路相關遠端缺血：回報發生率 1.6–8%（多為回溯）；前瞻資料庫需介入的嚴重缺血 1.9%（28/1,498）；女性、周邊血管疾病與冠心病較常見；第二次 graft 在 13 位中只有 1 位再度缺血 [17]</li>
+          <li>HFM 前瞻研究：需介入者不常見；糖尿病、女性、冠心病、靜脈容受性高與風險相關 [18]</li>
+          <li>診斷：指尖壓 &lt;60 mmHg 或 DBI &lt;0.4 與缺血高度相關；壓迫通路後症狀與橈動脈脈搏改善支持診斷；duplex 可量化流量與找狹窄 [5,20,21]</li>
+          <li>神經併發症回顧：感覺神經損傷常見但很少致殘；腕隧道與尺神經壓迫在透析多年者常見，部分與通路相關，減壓手術有效，使用止血帶看來安全 [16]</li>
+          <li>Kwon 2011：112 位 ESKD（64 位 HD、48 位 PD），CTS 頻率在 HD 與 PD 間（P=0.823）、瘻管側與對側間（P=0.816）都無差異 [8]</li>
+          <li>尿毒性神經病變：遠端對稱的感覺運動軸突病變，下肢重於上肢；腎臟移植最有效；透析只能使之穩定或緩慢改善 [27]</li>
+        </ul>
+      </details>
+      <details class="fold"><summary>無法核實、請保守引用（點開）</summary>
+        <ul>
+          <li>Zanow 的肘部 1.8%、腕部 0.3%；AVG 4.3% 對前臂自體 AVF 1.8%（Morsy 1998 原文未重新核對）；93.3% 手部缺血合併 PAD</li>
+          <li>Kim 2020 發病超過 20 天後結紮仍近乎完全恢復的細節；Awais 2012 非糖尿病 IMN 經 DRIL 後症狀立即改善的細節</li>
+          <li>雙臂血壓差 &gt;20 mmHg 與 Allen test 的預測價值；手術前「Tinel/Phalen 與 NCS（糖尿病患尤建議）」的建議強度</li>
+          <li>各項手術的併發症率（如 ranula、淋巴囊腫）與「中位數、滿意率」類百分比</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 總覽 ================= -->
+<section class="block" id="overview">
+  <div class="wrap">
+    <div class="label"><span class="n">02</span>總覽</div>
+    <h2>第一個問題：這隻手有沒有動靜脈通路？</h2>
+    <p class="intro">手麻痛的鑑別，先看症狀在哪一隻手。同側有通路時，要先排除會「在數小時內」造成永久傷害的急症；沒有通路時，多半是慢性、較對稱的問題，但也別漏掉非通路相關的缺血與頸椎病變。</p>
+    <div class="switch">
+      <a class="sw" href="#with" style="--c:var(--red)"><h4>同側有動靜脈通路</h4><p>遠端缺血（HAIDI／DASS）、缺血性單肢神經病變（IMN）、通路相關神經壓迫，以及原本就有的尿毒性或腕隧道問題。</p></a>
+      <a class="sw" href="#without" style="--c:var(--blue)"><h4>這隻手沒有通路</h4><p>對側手臂、腹膜透析、導管、尚未建立通路：尿毒性多發性神經病變、腕隧道、尺神經、神經根病變、代謝與其他缺血原因。</p></a>
+    </div>
+    <div class="callout amber"><h5>名詞對照</h5><p><b>HAIDI</b>（haemodialysis access-induced distal ischaemia）是目前較常用的名稱；<b>DASS／AVAIS</b> 是舊稱或同義詞。HAIDI 之所以不再只叫「竊血」，是因為有研究認為它主要由「局部低灌流壓」造成，而不是單純血流被抽走 [22]。<b>IMN</b> 則是缺血選擇性傷害神經的獨立變型，與遠端缺血被視為上肢缺血的兩種臨床變型 [29,30]。</p></div>
+  </div>
+</section>
+
+<!-- ================= 03 有瘻管 ================= -->
+<section class="block" id="with">
+  <div class="wrap">
+    <div class="label"><span class="n">03</span>同側有動靜脈通路</div>
+    <h2>三種病，五個鑑別切點</h2>
+
+    <div class="callout red"><h5>時間急症：IMN</h5><p>通路術後數分鐘到數小時內出現劇烈疼痛、多根神經分佈的無力與感覺喪失，而手是溫的、脈搏摸得到，要立刻想到 IMN，並馬上通知血管外科。診斷延遲會降低可逆性；NCS 等支持性檢查不應延誤處理 [14,15,31]。</p></div>
+
+    <div class="tw"><table>
+      <thead><tr><th>切點</th><th>HAIDI／DASS（遠端缺血）</th><th>IMN（缺血性單肢神經病變）</th><th>通路相關神經壓迫、CTS</th></tr></thead>
+      <tbody>
+        <tr><td>發病時間</td><td>術後數天到數月，常逐漸出現；透析中或運動時加重</td><td>術後數分鐘到數小時（常在恢復室發現）</td><td>急性（血腫、假性動脈瘤）或慢性（數月到數年）</td></tr>
+        <tr><td>範圍</td><td>多指冰冷、麻木、絞痛；嚴重者休息痛、潰瘍、壞疽</td><td>多根神經（正中、尺、橈）分佈的劇痛、無力、感覺喪失（垂腕、爪形手）</td><td>單一神經分佈（正中神經：夜間麻、拇指到無名指；尺神經：小指）</td></tr>
+        <tr><td>手溫與脈搏</td><td>手冰冷、微血管回填慢、橈動脈脈搏常減弱（但「摸得到」不能排除）</td><td>手通常是溫的，脈搏常可觸及，無皮膚壞死</td><td>溫、脈搏正常</td></tr>
+        <tr><td>壓迫通路</td><td>壓住通路後症狀與橈動脈脈搏改善</td><td>多半無效（神經已受損）</td><td>無效</td></tr>
+        <tr><td>檢查</td><td>指尖壓 &lt;60 mmHg 或 DBI &lt;0.4；duplex、血管攝影</td><td>NCS／EMG：多條神經軸突性振幅下降、急性去神經；指尖壓可不低</td><td>NCS：單神經局部傳導異常；超音波找壓迫物</td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:.85rem;color:var(--faint);margin-top:8px;">表格整理自 [1,5,14,16,20,21]；這幾類不是互斥，可同時存在。</p>
+
+    <h3>檢查：從床邊到電生理</h3>
+    <div class="grid">
+      <div class="card c-blue"><h4>床邊</h4><ul><li>手溫、顏色、微血管回填、橈與尺動脈脈搏</li><li>壓迫通路前後的症狀與脈搏變化</li><li>神經檢查：區分多根神經還是單一神經；Tinel、Phalen</li><li>找血腫、搏動性腫塊、感染</li></ul><div class="foot"><span>病史與理學檢查為主</span><span>[20,21]</span></div></div>
+      <div class="card c-red"><h4>血流動力學</h4><ul><li>指尖壓與 DBI（有無壓迫通路各量一次）；&lt;60 mmHg 或 DBI &lt;0.4 高度相關</li><li>duplex：通路流量、動脈狹窄、橈動脈逆流</li><li>必要時血管攝影，找近端動脈狹窄</li></ul><div class="foot"><span>輔助，不單獨診斷</span><span>[5,20,21]</span></div></div>
+      <div class="card c-purple"><h4>電生理（NCS／EMG）</h4><ul><li>IMN：多條神經的 CMAP／SNAP 振幅下降或消失，EMG 急性去神經；可追蹤恢復</li><li>CTS：正中神經腕部傳導延遲</li><li>鑑別尿毒性：看是否為雙側、下肢為主的對稱型態</li><li>小纖維可用 cutaneous silent period 補充，但<b>兩手都會異常</b>，不專屬瘻管 [26]</li></ul><div class="foot"><span>確認神經損傷型態</span><span>[4,14,26]</span></div></div>
+    </div>
+
+    <h3>風險：位置、手術方式與病人因素</h3>
+    <div class="grid">
+      <div class="card c-amber"><h4>通路位置</h4><p>肱動脈是前臂與手的主要供血來源，上臂通路（brachiocephalic、brachiobasilic、肱動脈 graft）風險較高；前臂（radiocephalic）有尺動脈與掌弓可代償，風險較低。這是共識與解剖邏輯，但各研究的具體發生率差異很大 [1,5,18]；早期的 409 次通路回顧也指出 graft 的手部缺血比前臂自體瘻管常見 [9]（數字未核實）。</p><div class="foot"><span>共識＋觀察性</span><span>[1,5,18]</span></div></div>
+      <div class="card c-amber"><h4>病人因素</h4><p>前瞻研究中，糖尿病、女性、冠心病與較高的靜脈容受性與需要介入的缺血有關；另一個單中心研究中糖尿病最強、女性不顯著，顯示結果不一致。IMN 多見於已有糖尿病周邊神經病變與動脈硬化者，但非糖尿病者也有 [18,19,32]。</p><div class="foot"><span>觀察性</span><span>[18,19,32]</span></div></div>
+      <div class="card c-amber"><h4>洗腎中的低血壓與充分性</h4><p>透析中血壓下降會讓原本可代償的低灌流變得有症狀（透析中疼痛是典型病史，但不是必要條件）。透析充分性則與背景的尿毒性神經病變有關：Kt/V 較高者正中神經感覺傳導較好 [4,22]。</p><div class="foot"><span>機轉假說＋小型研究</span><span>[4,22]</span></div></div>
+    </div>
+
+    <h3>處理</h3>
+    <div class="callout green"><h5>共識：照流程、分級</h5><p>2016 年 Charing Cross 共識與 KDOQI 2019 的通路指引都主張：先分級、先分辨是缺血還是神經壓迫；證據幾乎都是觀察性研究，沒有大型隨機試驗 [20,21]。</p></div>
+    <div class="ladder">
+      <div class="step"><b>IMN：緊急結紮或大幅減流</b><span class="badge g-c">C</span><br>立即結紮通路，通常症狀可迅速減輕，但神經功能不一定完全恢復；延遲診斷預後較差 [14,31]。個案報告顯示延遲結紮後仍可能部分恢復 [3]；非糖尿病者與術後數小時內發病的個案也有報告 [2,6]。</div>
+      <div class="step"><b>HAIDI 輕度：觀察與保守處理</b><span class="badge g-c">C</span><br>保暖、避免壓迫、避免透析中低血壓；側副循環與血管重塑可能使症狀改善 [5,20]。</div>
+      <div class="step"><b>HAIDI 中重度：保留通路的手術</b><span class="badge g-b">B</span><br>限流（banding、MILLER 等）用於高流量通路；DRIL、PAI 用於正常流量。27 個研究的回顧顯示四種術式都能緩解症狀，DRIL 通暢度較佳；2026 統合分析中 DRIL 與 PAI 的緩解率相近（91% 對 93%）；RUDI 與 DRIL 相當 [12,13,23]。</div>
+      <div class="step"><b>無法保留通路時：結紮</b><span class="badge g-b">B</span><br>結紮能快速緩解，但需要導管或新通路；前瞻資料中，結紮後再次建立 graft 的 13 位病人只有 1 位再度缺血 [17]。</div>
+      <div class="step"><b>通路相關神經壓迫、CTS、尺神經：減壓</b><span class="badge g-b">B</span><br>腕隧道、肘隧道減壓手術有效；通路壓迫神經者可做神經釋放並視需要修整通路；止血帶看來安全 [7,16]。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 沒有瘻管 ================= -->
+<section class="block" id="without">
+  <div class="wrap">
+    <div class="label"><span class="n">04</span>這隻手沒有通路</div>
+    <h2>對側手臂、腹膜透析、導管或尚未建立通路</h2>
+    <p class="intro">沒有同側通路時，鑑別的重點轉向慢性、對稱與壓迫性的原因；但仍要記得「沒有同側通路」不等於沒有血管問題。</p>
+
+    <div class="grid">
+      <div class="card c-blue">
+        <h4>尿毒性多發性神經病變</h4>
+        <p>遠端對稱的感覺運動軸突性多發性神經病變，<b>下肢重於上肢</b>，所以只有手麻而腳正常時要先想別的原因。透析人群的盛行範圍很大（不同研究約 50–100%）；NCS 的 sural SNAP 常是最敏感的指標 [27]。</p>
+        <div class="foot"><span>處理：透析充分性、腎臟移植</span><span>[4,27]</span></div>
+      </div>
+      <div class="card c-blue">
+        <h4>腕隧道症候群（CTS）</h4>
+        <p>洗腎病人最常見的單神經病變，盛行 8–31%；部分資料稱透析 10 年後可達 50%。傳統上與 β2-微球蛋白類澱粉有關，但研究結果不一致 [8,28]。</p>
+        <div class="foot"><span>NCS 確認；夾板、減壓手術</span><span>[8,16,28]</span></div>
+      </div>
+      <div class="card c-blue">
+        <h4>尺神經（肘）與其他壓迫</h4>
+        <p>肘管症候群、Guyon 管、橈神經；透析多年者較常見。肘部的尺神經對外部壓迫特別脆弱，透析與手術時要避免壓迫 [11,16]。</p>
+        <div class="foot"><span>NCS 定位</span><span>[11,16]</span></div>
+      </div>
+      <div class="card c-purple">
+        <h4>神經根病變與頸椎病變</h4>
+        <p>透析相關的頸椎退化性病變與神經根壓迫可造成手臂麻痛；以頸部活動誘發、神經根分佈、EMG 找近端與椎旁肌去神經來區分（專家意見）。</p>
+        <div class="foot"><span>證據 C</span><span>—</span></div>
+      </div>
+      <div class="card c-amber">
+        <h4>代謝與營養</h4>
+        <p>高血鉀影響神經興奮性；鈣、鎂異常引起手足感覺異常或手足搐搦；維生素 B12 等缺乏；糖尿病神經病變；藥物神經毒性。糖尿病腎病變者神經病變比其他腎病更常見 [27]。</p>
+        <div class="foot"><span>抽血與病史</span><span>[27]</span></div>
+      </div>
+      <div class="card c-red">
+        <h4>非通路性缺血與靜脈問題</h4>
+        <p>周邊動脈疾病、血管炎、鈣化防禦、胸廓出口症候群、栓塞；中心靜脈導管造成的鎖骨下靜脈狹窄可引起手臂腫脹。導管置放相關的臂神經叢壓迫（如鎖骨下假性動脈瘤）也有報告 [16]。</p>
+        <div class="foot"><span>血管評估、影像</span><span>[16]</span></div>
+      </div>
+    </div>
+
+    <h3>處理</h3>
+    <div class="ladder">
+      <div class="step"><b>確認診斷：NCS／EMG</b><span class="badge g-b">B</span><br>分辨多發性神經病變、單神經壓迫與神經根病變；蒐集透析參數、血鉀、鈣、維生素 B12、血糖 [24,27]。</div>
+      <div class="step"><b>優化透析與原發病</b><span class="badge g-b">B</span><br>充分的透析可使尿毒性神經病變穩定或緩慢改善；強化（如夜間）血液透析的個案報告有改善 [27]；腎臟移植是最有效的治療 [27]。</div>
+      <div class="step"><b>壓迫性神經病變：夾板、減壓</b><span class="badge g-b">B</span><br>CTS 夜間夾板；持續或進展者減壓手術 [16]。</div>
+      <div class="step"><b>神經痛的對症治療（專家意見）</b><span class="badge g-c">C</span><br>gabapentin、pregabalin 等經腎臟排除，在洗腎病人要大幅減量並監測鎮靜與意識變化；避免藥物累積造成毒性。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 情境判讀 ================= -->
+<section class="block" id="tool">
+  <div class="wrap">
+    <div class="label"><span class="n">05</span>互動</div>
+    <h2>情境判讀（教學用）</h2>
+    <p class="intro">選擇四個特徵，看最符合的類型與下一步。這個工具只用最基本的臨床特徵做初步分類，協助記憶與討論，不能取代臨床評估；同一位病人可以同時有多種問題。</p>
+    <div class="tool">
+      <div class="qs">
+        <div><label for="qa">症狀手有通路嗎？</label><select id="qa"><option value="ipsi">同側有動靜脈通路</option><option value="none">沒有（對側、PD、導管或尚未建立）</option></select></div>
+        <div><label for="qb">發病時間</label><select id="qb"><option value="hours">通路術後數小時內</option><option value="days">術後數天到數月，透析中加重</option><option value="chronic">數月到數年，慢慢加重</option></select></div>
+        <div><label for="qc">症狀範圍</label><select id="qc"><option value="multi">多根神經：劇痛、無力、感覺喪失</option><option value="single">單一神經分佈</option><option value="digits">多指冰冷、蒼白、潰瘍或休息痛</option><option value="night">夜間麻、正中神經分佈</option><option value="diffuse">雙側對稱、腳比手明顯</option></select></div>
+        <div><label for="qd">手溫與脈搏</label><select id="qd"><option value="warm">手溫暖、脈搏可摸到</option><option value="cold">手冰冷、脈搏弱或摸不到</option></select></div>
+      </div>
+      <div class="out" id="out" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06 處理總覽 ================= -->
+<section class="block" id="manage">
+  <div class="wrap">
+    <div class="label"><span class="n">06</span>處理總覽</div>
+    <h2>手術選項比較</h2>
+    <div class="tw"><table>
+      <thead><tr><th>術式</th><th>原理</th><th>適用</th><th>要點與限制</th></tr></thead>
+      <tbody>
+        <tr><td>結紮（ligation）</td><td>關閉通路</td><td>IMN；無法保留通路的嚴重缺血</td><td>快速緩解，但失去通路、需導管或新通路 [14,17]</td></tr>
+        <tr><td>限流（banding、MILLER）</td><td>縮小通路流量</td><td>高流量通路合併缺血或心衰</td><td>低流量通路不適合；有早期血栓風險（具體比例未核實）[12,21]</td></tr>
+        <tr><td>DRIL</td><td>肱動脈旁路至遠端，近端動脈結紮</td><td>正常流量的上臂通路合併嚴重缺血</td><td>通路通暢度佳（較早的系統性回顧）；需要旁路血管，手術較複雜 [12,23]</td></tr>
+        <tr><td>PAI</td><td>近端化動脈流入（用較近端動脈）</td><td>正常流量的缺血</td><td>與 DRIL 症狀緩解相近（2026 統合分析）[23]</td></tr>
+        <tr><td>RUDI</td><td>改用遠端動脈為流入，減少流量</td><td>高流量的缺血</td><td>與 DRIL 通暢與症狀緩解相當 [13]</td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:.85rem;color:var(--faint);margin-top:8px;">各術式的精確緩解率與併發症率因研究而異，本表不列未核實的百分比；證據皆為觀察性研究。</p>
+  </div>
+</section>
+
+<!-- ================= 07 台灣脈絡 ================= -->
+<section class="block" id="taiwan">
+  <div class="wrap">
+    <div class="label"><span class="n">07</span>台灣脈絡</div>
+    <h2>我沒有查到的資料</h2>
+    <div class="callout amber"><h5>請自行確認</h5><p>這個主題我沒有查到台灣專屬的流行病學資料、本土指引，或健保對通路介入（如 DRIL、banding、血管攝影、神經電生理檢查）的給付規定。教學與病人衛教前，請依院內血管外科與腎臟科的作業流程，並查健保署最新公告。頁面內所有數字都來自歐美與其他地區的研究。</p></div>
+  </div>
+</section>
+
+<!-- ================= 08 測驗 ================= -->
+<section class="block" id="quiz">
+  <div class="wrap">
+    <div class="label"><span class="n">08</span>自我檢核</div>
+    <h2>八題觀念測驗</h2>
+    <div id="quizBox"></div>
+    <p class="score" id="score"></p>
+  </div>
+</section>
+
+<!-- ================= 參考文獻 ================= -->
+<section class="block" id="refs" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="label"><span class="n">09</span>參考文獻</div>
+    <h2>References</h2>
+    <p style="font-size:.85rem;color:var(--dim);">「已核對」＝這次回到原文摘要或全文比對過；「引用既有」＝文獻存在，但這次沒有重新比對其中的數字。</p>
+    <ol class="refs">
+      <li>Miles AM. Upper limb ischemia after vascular access surgery: differential diagnosis and management. <em>Semin Dial</em>. 2000;13(5):312-315. DOI: 10.1046/j.1525-139x.2000.00082.x <span class="st u">引用既有</span></li>
+      <li>Sangani V, Pokal M, Noel E, et al. A case of ischemic monomelic neuropathy after arteriovenous fistula placement. <em>J Community Hosp Intern Med Perspect</em>. 2023;13(3). DOI: 10.55729/2000-9666.1200 <span class="st v">已核對（摘要）</span></li>
+      <li>Kim C, Yoon SY, Lee HS. Recovery from ischemic monomelic neuropathy after delayed ligation of dialysis access. <em>J Vasc Access</em>. 2020;22(2):314-318. DOI: 10.1177/1129729820913376 <span class="st u">引用既有</span></li>
+      <li>Denislic M, Tiric-Campara M, Resic H, et al. A neurophysiological study of large- and small-diameter nerve fibers in the hands of hemodialysis patients. <em>Int Urol Nephrol</em>. 2015;47(11):1879-1887. DOI: 10.1007/s11255-015-1117-7 <span class="st v">已核對（摘要）</span></li>
+      <li>Sen I, Tripathi RK. Dialysis access–associated steal syndromes. <em>Semin Vasc Surg</em>. 2016;29(4):212-226. DOI: 10.1053/j.semvascsurg.2017.04.002 <span class="st u">引用既有</span></li>
+      <li>Awais M, Nicholas J, Al-Saleh A, Dyer J. Ischaemic monomelic neuropathy (IMN) following vascular access surgery for haemodialysis: an under-recognized complication in non-diabetics. <em>Clin Kidney J</em>. 2012;5(2):140-142. DOI: 10.1093/ckj/sfs017 <span class="st u">引用既有</span></li>
+      <li>Dukkipati R, Richler A, Shah A, de Virgilio C. Median nerve and ulnar nerve entrapment with cubital tunnel syndrome in a hemodialysis patient following creation of an arteriovenous fistula. <em>Case Rep Nephrol Dial</em>. 2021;11(3):275-280. DOI: 10.1159/000518001 <span class="st u">引用既有</span></li>
+      <li>Kwon HK, Pyun SB, Cho WY, Boo CS. Carpal tunnel syndrome and peripheral polyneuropathy in patients with end stage kidney disease. <em>J Korean Med Sci</em>. 2011;26(9):1227. DOI: 10.3346/jkms.2011.26.9.1227 <span class="st v">已核對（摘要）</span></li>
+      <li>Morsy AH, Kulbaski M, Chen C, Isiklar H, Lumsden AB. Incidence and characteristics of patients with hand ischemia after a hemodialysis access procedure. <em>J Surg Res</em>. 1998;74(1):8-10. DOI: 10.1006/jsre.1997.5206 <span class="st u">引用既有</span></li>
+      <li>Rocha A, Silva F, Queirós J, Malheiro J, Cabrita A. Predictors of steal syndrome in hemodialysis patients. <em>Hemodial Int</em>. 2012;16(4):539-544. DOI: 10.1111/j.1542-4758.2012.00684.x <span class="st u">引用既有（數字未核實）</span></li>
+      <li>Klein C, Halevy A, Gandelman-Marton R, et al. Nerve conduction abnormalities in the arms of patients with arteriovenous fistula. <em>Ren Fail</em>. 1996;18(1):85-89. DOI: 10.3109/08860229609052777 <span class="st u">引用既有</span></li>
+      <li>Al Shakarchi J, Stolba J, Houston JG, Inston N. Surgical techniques for haemodialysis access-induced distal ischaemia. <em>J Vasc Access</em>. 2016;17(1):40-46. DOI: 10.5301/jva.5000467 <span class="st v">已核對（摘要）</span></li>
+      <li>Misskey J, Yang C, MacDonald S, Baxter K, Hsiang Y. A comparison of revision using distal inflow and distal revascularization-interval ligation for the management of severe access-related hand ischemia. <em>J Vasc Surg</em>. 2016;63(6):1574-1581. DOI: 10.1016/j.jvs.2015.10.100 <span class="st v">已核對（經 KDOQI 引述）</span></li>
+      <li>Ischemic monomelic neuropathy after arteriovenous fistula surgery: clinical features, electrodiagnostic findings, and treatment. <em>Cureus</em>. 2019（PMC6758992）. <span class="st v">已核對</span></li>
+      <li>Ischemic monomelic neuropathy: diagnosis, pathophysiology, and management. <em>Kidney Int Rep</em>. 2017（經 [14] 的參考文獻引用）. <span class="st u">引用既有</span></li>
+      <li>Gibbons CP. Neurological complications of vascular access. <em>J Vasc Access</em>. 2015;16(Suppl 9):73-77. DOI: 10.5301/jva.5000342 <span class="st v">已核對（摘要）</span></li>
+      <li>社論：評述 Allon 等人關於通路術後嚴重遠端缺血的前瞻資料庫研究（1,498 人、10 年）. <em>Clin J Am Soc Nephrol</em>. 2023. <span class="st v">已核對</span></li>
+      <li>Hemodialysis Fistula Maturation Study 研究組：通路相關手部缺血的前瞻分析. <em>J Vasc Surg</em>. 2016（PMC5036979）. <span class="st v">已核對（摘要）</span></li>
+      <li>透析通路竊血的危險因子（加拿大單中心）. <em>Can J Surg</em>. 2003;46(6):408（canjsurg.ca/content/46/6/408）. <span class="st v">已核對（摘要）</span></li>
+      <li>Arteriovenous access ischemic steal (AVAIS) in hemodialysis: a consensus from the Charing Cross Vascular Access Masterclass 2016. <em>J Vasc Access</em>. 2017. <span class="st v">已核對（標題與引用）</span></li>
+      <li>Lok CE, Huber TS, Lee T, et al. KDOQI clinical practice guideline for vascular access: 2019 update. <em>Am J Kidney Dis</em>. 2020;75(4 Suppl 2):S1-S164. <span class="st v">已核對（steal 章節）</span></li>
+      <li>Scheltinga MR, Bruijninckx CM. Haemodialysis access-induced distal ischaemia (HAIDI) is caused by loco-regional hypotension but not by steal. <em>Eur J Vasc Endovasc Surg</em>. 2012. <span class="st v">已核對（標題）</span></li>
+      <li>Is distal revascularization with interval ligation still the gold standard? A comparative meta-analysis and meta-regression of surgical treatments of dialysis access–associated steal syndrome. 2026（PMC13641455）. <span class="st v">已核對（摘要）</span></li>
+      <li>O'Regan J, et al. Neuropathy in the hemodialysis population: a review of neurophysiology referrals in a tertiary center. <em>Ren Fail</em>. 2012. <span class="st v">已核對（摘要）</span></li>
+      <li>Han JS, Park MY, Choi SJ, et al. Ischemic monomelic neuropathy: a rare complication after vascular access formation. <em>Korean J Intern Med</em>. 2013;28(2):251-253. <span class="st v">已核對</span></li>
+      <li>Al-Adl AS, Ali HAEM. Identification of small diameter nerve fiber damage in hemodialysis patients' hands using the cutaneous silent period. <em>Egypt J Neurol Psychiatry Neurosurg</em>. 2023. <span class="st v">已核對（摘要與表格）</span></li>
+      <li>Uremic neuropathy: an overview of the current literature. <em>Rev Assoc Med Bras</em>. 2019（PMID 30892456）；Ghazan-Shahi S, Koh TJ, Chan CT. Impact of nocturnal hemodialysis on peripheral uremic neuropathy. <em>BMC Nephrol</em>. 2015;16:134. <span class="st v">已核對（摘要）</span></li>
+      <li>Carpal tunnel syndrome in patients with arteriovenous fistula for haemodialysis: a narrative review of the current literature. <em>J Vasc Access</em>. 2021（PMC8392763）. <span class="st v">已核對（摘要）</span></li>
+      <li>Miles AM. Vascular steal syndrome and ischaemic monomelic neuropathy: two variants of upper limb ischaemia after haemodialysis vascular access surgery. <em>Nephrol Dial Transplant</em>. 1999;14(2):297-300. <span class="st u">引用既有</span></li>
+      <li>Wilbourn AJ, Furlan AJ, Hulley W, Ruschhaupt W. Ischemic monomelic neuropathy. <em>Neurology</em>. 1983;33:447-451. <span class="st u">引用既有</span></li>
+      <li>Late presentation of ischaemic monomelic neuropathy after vascular access surgery. <em>Hosp Med</em>. 2017;78(5):292. <span class="st v">已核對（摘要）</span></li>
+      <li>Prompt identification and intervention for ischemic monomelic neuropathy in preventing major patient disability. <em>J Med Cases</em>. 2024. <span class="st v">已核對（摘要）</span></li>
+      <li>Maastricht University 博士論文（上肢透析通路與手部缺血；cris.maastrichtuniversity.nl/files/141155127/i7937.pdf）. <span class="st v">已核對（摘要）</span></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>N-Teaching 神經科教學研究部 · 教學用途，不做為個別病人之診療依據</span><span><a href="index.html">返回首頁</a></span></div>
+</footer>
+
+<script>
+/* ============ 資料區：要改內容只需改這裡 ============ */
+
+/* 情境判讀：根據四個選項決定類型 */
+const RESULTS = {
+  imn: { title:'符合缺血性單肢神經病變（IMN）', grade:'C', tag:'p-red',
+    feat:['通路術後數分鐘到數小時內發病','多根神經（正中、尺、橈）分佈的劇痛、無力、感覺喪失','手溫暖、脈搏可摸到，缺血的皮膚徵象不明顯'],
+    next:['這是時間急症：立刻通知血管外科，考慮緊急結紮或大幅減流 [14,31]','NCS／EMG 可確認軸突受損，但不應延誤處理','不要把它當成術後正常的疼痛或腫脹'],
+    cave:['診斷延遲會降低可逆性；結紮後不一定完全恢復','多見於以肱動脈為流入、已有糖尿病神經病變者，但非糖尿病者也有'] },
+  haidi: { title:'符合遠端缺血（HAIDI／DASS）', grade:'B', tag:'p-amber',
+    feat:['手冰冷、微血管回填慢、脈搏弱；多指麻木或絞痛','透析中或活動時加重；嚴重者休息痛、潰瘍或壞疽','壓住通路後症狀與橈動脈脈搏改善'],
+    next:['指尖壓與 DBI（有無壓迫通路各一次）：<60 mmHg 或 DBI <0.4 高度相關 [5,20,21]','duplex 看通路流量與動脈狀況；必要時血管攝影','依分級：觀察、限流、DRIL／PAI／RUDI，或結紮 [12,13,23]'],
+    cave:['摸得到脈搏不能排除','嚴重者要評估全身血管病變與預後 [33]'] },
+  focal: { title:'符合單一神經的局部病變（壓迫、血腫、肘管）', grade:'B', tag:'p-blue',
+    feat:['症狀侷限在單一神經分佈','可能是血腫、假性動脈瘤、通路擴張、瘢痕或肘管壓迫'],
+    next:['找局部腫塊與搏動；duplex 或超音波','NCS／EMG 定位並評估嚴重度 [8,16]','壓迫性病變：神經釋放，視需要修整通路 [7,16]'],
+    cave:['單一神經受累通常不是 IMN（IMN 是多根神經）','急性起病且合併疼痛腫脹時要儘快處理'] },
+  cts: { title:'符合腕隧道症候群（CTS）的型態', grade:'B', tag:'p-blue',
+    feat:['夜間麻、正中神經分佈（拇指到無名指橈側）','洗腎病人盛行 8–31%；與瘻管側別的關聯並不一致 [8]'],
+    next:['NCS 確認；夜間夾板','持續或進展者考慮減壓手術 [16]','同時檢查是否有尿毒性多發性神經病變與頸椎問題'],
+    cave:['不要把所有手麻都歸因於通路 [8]','靜脈高壓可能是同側 CTS 的因素 [28]'] },
+  uremic: { title:'符合尿毒性（或糖尿病性）多發性神經病變', grade:'B', tag:'p-purple',
+    feat:['雙側、對稱、遠端為主；下肢重於上肢','慢慢加重，數月到數年；常合併感覺異常、疼痛'],
+    next:['NCS：sural SNAP 常最敏感；確認軸突性多發性神經病變 [27]','檢視透析充分性、血鉀、鈣、維生素 B12、血糖 [4,27]','腎臟移植最有效；對症治療時留意腎功能調整劑量'],
+    cave:['如果只有手麻、腳正常，要想別的原因（CTS、頸椎）','Kt/V 與傳導速度相關，但不能單憑它排除其他原因 [4]'] },
+  other_ischemia: { title:'非通路性的缺血或血管問題', grade:'C', tag:'p-red',
+    feat:['手冰冷、蒼白或潰瘍，但這隻手沒有通路'],
+    next:['評估周邊動脈疾病、血管炎、鈣化防禦、胸廓出口症候群、栓塞','血管影像與血管科會診'],
+    cave:['洗腎病人的動脈鈣化很常見'] },
+  unclear: { title:'表現不典型，需要完整評估', grade:'C', tag:'p-amber',
+    feat:['此組合不符合單一典型型態'],
+    next:['重新整理時間軸、神經分佈與血管檢查','NCS／EMG 與 duplex 通常是下一步','必要時由神經內科、腎臟科與血管外科共同評估'],
+    cave:['不同問題可以並存（例如尿毒性神經病變合併 CTS）'] }
+};
+function decide(a,b,c,d){
+  if(a==='ipsi' && b==='hours' && c==='multi') return 'imn';
+  if(a==='ipsi' && (c==='digits' || d==='cold')) return 'haidi';
+  if(a==='none' && c==='digits') return 'other_ischemia';
+  if(c==='single') return 'focal';
+  if(c==='night') return 'cts';
+  if(c==='diffuse') return 'uremic';
+  return 'unclear';
+}
+
+/* 測驗 */
+const QUIZ = [
+ {q:'一位剛做完左上臂 brachiocephalic 瘻管的病人，在恢復室出現前臂劇痛，正中、尺、橈神經分佈無力，但手是溫的、橈動脈脈搏摸得到。最可能是？',
+  o:['腕隧道症候群','缺血性單肢神經病變（IMN）','尿毒性多發性神經病變','麻醉藥殘留，觀察即可'], a:1,
+  e:'典型的 IMN：術後數分鐘到數小時發病、多根神經、手溫且脈搏可及。屬時間急症，應盡快通知血管外科，考慮結紮。'},
+ {q:'下列哪一種說法對「單一神經」受累最適當？',
+  o:['通常是 IMN','原則上不是 IMN（IMN 是多根神經），要找血腫、假性動脈瘤、通路壓迫或肘管等局部原因','一定是尿毒性神經病變','不需要處理'], a:1,
+  e:'IMN 的定義是多根單神經病變；單一神經分佈應優先想到局部壓迫或血腫。'},
+ {q:'關於診斷 HAIDI／DASS，下列何者較正確？',
+  o:['只靠指尖壓即可確診','診斷以病史與理學檢查為主，壓迫通路後症狀改善；指尖壓 <60 mmHg 或 DBI <0.4 高度相關','DBI >0.3 可確診 IMN','手有脈搏就可排除'], a:1,
+  e:'脈搏可摸到不能排除；指尖壓與 DBI 是輔助。「DBI >0.3 診斷 IMN」找不到出處。'},
+ {q:'前瞻資料庫（1,498 人、10 年）中，需要介入的嚴重遠端缺血約佔多少？',
+  o:['約 1.9%','約 19%','約 10–25%','約 50%'], a:0,
+  e:'Allon 等的資料：28/1,498（1.9%）；文獻回報的通路相關遠端缺血整體約 1.6–8%。'},
+ {q:'2026 年統合分析比較 DRIL 與 PAI，結果為何？',
+  o:['DRIL 明顯優於 PAI','症狀緩解相近（91% 對 93%），沒有顯著差異；DRIL 的「黃金標準」地位受到質疑','PAI 完全無效','DRIL 只能用於前臂'], a:1,
+  e:'較早的系統性回顧顯示 DRIL 的通路通暢度較佳；但 2026 年的統合分析在症狀緩解與併發症上沒有顯著差異。證據皆為觀察性。'},
+ {q:'關於洗腎病人腕隧道症候群與動靜脈瘻管的關係，下列何者較適當？',
+  o:['瘻管側必然更常有 CTS','研究不一致：112 位 ESKD 的電生理研究發現瘻管側與對側無差異，但也有靜脈高壓與微缺血的假說','CTS 與透析年數必然成正比','CTS 與通路完全無關'], a:1,
+  e:'Kwon 2011 未發現瘻管側差異（P=0.816）；另有回顧提出靜脈高壓與微缺血機轉。不能全歸因於通路，也不能排除。'},
+ {q:'只有手麻、腳完全正常的洗腎病人，下列何者最不像典型尿毒性多發性神經病變？',
+  o:['對稱的遠端感覺異常','下肢重於上肢的軸突性多發性神經病變','只有手部的症狀，需想到 CTS、尺神經或頸椎病變','sural SNAP 異常'], a:2,
+  e:'尿毒性神經病變是遠端對稱、下肢重於上肢；單純手部症狀要先想壓迫性神經病變與神經根病變。'},
+ {q:'關於小纖維評估（cutaneous silent period, CSP），下列何者正確？',
+  o:['只在瘻管側異常','在瘻管側與非瘻管側的手都延長，所以不專屬瘻管','與透析無關','可取代 NCS'], a:1,
+  e:'Al-Adl 2023：AV 手 89.6 ms、非 AV 手 88.3 ms，對照組 54.1 ms。CSP 是 NCS 的補充，不是取代。'}
+];
+
+/* ============ 程式 ============ */
+(function(){
+  var qa = document.getElementById('qa'), qb = document.getElementById('qb'), qc = document.getElementById('qc'), qd = document.getElementById('qd'), out = document.getElementById('out');
+  function li(a){ return a.map(function(x){ return '<li>' + x + '</li>'; }).join(''); }
+  function render(){
+    var r = RESULTS[decide(qa.value, qb.value, qc.value, qd.value)];
+    out.innerHTML =
+      '<p class="title">' + r.title + ' <span class="pill ' + r.tag + '">證據 ' + r.grade + '</span></p>' +
+      '<div class="box"><h6>符合的特徵</h6><ul>' + li(r.feat) + '</ul></div>' +
+      '<div class="box"><h6>下一步</h6><ul>' + li(r.next) + '</ul></div>' +
+      '<div class="box"><h6>注意</h6><ul>' + li(r.cave) + '</ul></div>';
+  }
+  [qa,qb,qc,qd].forEach(function(s){ s.addEventListener('change', render); });
+  render();
+
+  var box = document.getElementById('quizBox'), sc = document.getElementById('score'), right = 0, done = 0;
+  QUIZ.forEach(function(q, qi){
+    var c = document.createElement('div'); c.className = 'qcard';
+    c.innerHTML = '<h5><span>Q' + (qi+1) + '</span>' + q.q + '</h5><div class="o"></div><div class="exp"><b>解析：</b>' + q.e + '</div>';
+    var o = c.querySelector('.o');
+    q.o.forEach(function(t, oi){
+      var b = document.createElement('button'); b.className = 'qopt'; b.type = 'button'; b.textContent = t;
+      b.addEventListener('click', function(){
+        if(c.classList.contains('done')) return;
+        c.classList.add('done');
+        var all = o.querySelectorAll('.qopt'); all[q.a].classList.add('ok');
+        if(oi !== q.a){ b.classList.add('no'); } else { right++; }
+        done++; sc.textContent = '目前：答對 ' + right + ' / ' + done + '（共 ' + QUIZ.length + ' 題）';
+      });
+      o.appendChild(b);
+    });
+    box.appendChild(c);
+  });
+})();
+</script>
+</body>
+</html>
