@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>頭頸部非頭痛之特殊感覺異常（上）：舌、頸、咽、喉</title>
+<style>
+:root{
+  --bg:#0f1318;--bg-card:#19202a;--bg-card-hover:#202938;--border:#2c3545;
+  --text:#e9edf4;--text-dim:#9aa6b8;--text-faint:#647086;
+  --teal:#4fc3c3;--teal-dim:#245f60;
+  --rose:#ee7d70;--rose-dim:#7a3d37;
+  --gold:#e2b34b;--gold-dim:#85692b;
+  --blue:#6aa9f0;--blue-dim:#2d4f7e;
+  --green:#5cc79b;--green-dim:#265c48;
+  --purple:#a98ee6;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:70px;}
+body{background:var(--bg);color:var(--text);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;line-height:1.75;font-size:16px;}
+.en{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--text-dim);font-size:.86em;}
+a{color:var(--gold);text-decoration:none;} a:hover{text-decoration:underline;}
+
+.topnav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;
+  background:rgba(15,19,24,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px;}
+.brand{display:flex;align-items:center;}
+.logo-mark{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,var(--teal),var(--gold));display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#0f1318;}
+.brand:hover{text-decoration:none;}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap;align-items:center;}
+.nav-links a{color:var(--text-dim);font-size:.86rem;padding:7px 11px;border-radius:6px;transition:all .15s;}
+.nav-links a:hover{color:var(--text);background:var(--bg-card);text-decoration:none;}
+.nav-links a.home{color:var(--gold);}
+
+.hero{padding:60px 28px 38px;max-width:980px;margin:0 auto;border-bottom:1px solid var(--border);}
+.eyebrow{display:inline-flex;gap:8px;color:var(--teal);font-size:.82rem;letter-spacing:.05em;border:1px solid var(--teal-dim);padding:4px 12px;border-radius:20px;margin-bottom:18px;}
+.hero h1{font-size:2rem;font-weight:800;line-height:1.4;background:linear-gradient(90deg,var(--text) 45%,var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero .subtitle{margin-top:14px;color:var(--text-dim);max-width:780px;}
+.hero-meta{display:flex;gap:26px;margin-top:24px;flex-wrap:wrap;}
+.hero-meta div{font-size:.8rem;color:var(--text-faint);} .hero-meta b{color:var(--text);display:block;font-size:1.05rem;}
+
+section{max-width:980px;margin:0 auto;padding:50px 28px;border-bottom:1px solid var(--border);}
+.section-label{color:var(--gold);font-size:.78rem;letter-spacing:.08em;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.section-label::before{content:"";width:22px;height:2px;background:var(--gold);}
+h2{font-size:1.45rem;font-weight:700;margin-bottom:8px;} h2 .en{display:block;font-size:.72rem;margin-top:3px;font-weight:400;}
+h3{font-size:1.08rem;font-weight:700;margin:28px 0 10px;} h3 .en{font-size:.72rem;font-weight:400;}
+p{color:var(--text-dim);margin-bottom:14px;} p b,li b{color:var(--text);font-weight:600;}
+ul,ol{margin:10px 0 16px 22px;color:var(--text-dim);} li{margin-bottom:7px;}
+.lede{margin-bottom:22px;}
+
+.chip{display:inline-flex;align-items:center;gap:3px;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:5px;vertical-align:middle;margin:0 2px;white-space:nowrap;}
+.g-rct{background:rgba(92,199,155,.13);color:var(--green);border:1px solid var(--green-dim);}
+.g-sr{background:rgba(106,169,240,.13);color:var(--blue);border:1px solid var(--blue-dim);}
+.g-guide{background:rgba(238,125,112,.12);color:var(--rose);border:1px solid var(--rose-dim);}
+.g-case{background:rgba(226,179,75,.13);color:var(--gold);border:1px solid var(--gold-dim);}
+.g-exp{background:rgba(154,166,184,.12);color:var(--text-dim);border:1px solid var(--border);}
+.v-ok{background:rgba(92,199,155,.13);color:var(--green);border:1px solid var(--green-dim);}
+.v-fix{background:rgba(238,125,112,.12);color:var(--rose);border:1px solid var(--rose-dim);}
+.v-warn{background:rgba(226,179,75,.13);color:var(--gold);border:1px solid var(--gold-dim);}
+.v-na{background:rgba(154,166,184,.12);color:var(--text-dim);border:1px solid var(--border);}
+.legend{display:flex;gap:14px 20px;flex-wrap:wrap;margin:16px 0;padding:13px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:.78rem;color:var(--text-dim);}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:18px;}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .18s;}
+.card:hover{border-color:var(--gold-dim);background:var(--bg-card-hover);transform:translateY(-2px);}
+.card .icon{font-size:1.4rem;display:block;margin-bottom:8px;}
+.card .cat{font-size:.7rem;color:var(--teal);letter-spacing:.05em;font-weight:700;margin-bottom:4px;}
+.card h4{font-size:.98rem;margin-bottom:6px;} .card p{font-size:.85rem;margin-bottom:0;}
+.card .foot{margin-top:11px;font-size:.74rem;color:var(--text-faint);border-top:1px solid var(--border);padding-top:9px;}
+
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--border);border-radius:8px;}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:700px;}
+th{background:rgba(226,179,75,.08);color:var(--gold);text-align:left;padding:10px 13px;font-size:.76rem;border-bottom:1px solid var(--border);}
+td{padding:10px 13px;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top;} tr:last-child td{border-bottom:none;} td b{color:var(--text);}
+
+.callout{background:rgba(79,195,195,.06);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);border-radius:6px;padding:15px 18px;margin:18px 0;color:var(--text-dim);font-size:.9rem;}
+.callout b{color:var(--teal);}
+.callout.warn{background:rgba(238,125,112,.06);border-color:var(--rose-dim);border-left-color:var(--rose);} .callout.warn b{color:var(--rose);}
+.callout.plan{background:rgba(226,179,75,.06);border-color:var(--gold-dim);border-left-color:var(--gold);} .callout.plan b{color:var(--gold);}
+
+.flow{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin:18px 0;}
+.flow-step{flex:1 1 150px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:13px 14px;min-width:140px;}
+.flow-step .n{font-size:.7rem;color:var(--gold);font-weight:700;letter-spacing:.05em;}
+.flow-step h5{font-size:.9rem;margin:3px 0;} .flow-step p{font-size:.78rem;margin:0;}
+.flow-arrow{display:flex;align-items:center;color:var(--text-faint);padding:0 6px;}
+
+.svgbox{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:14px;margin:18px 0;overflow-x:auto;}
+.svgbox svg{display:block;margin:0 auto;max-width:100%;height:auto;}
+.svgbox .cap{font-size:.78rem;color:var(--text-faint);text-align:center;margin-top:8px;}
+
+.q{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin:14px 0;}
+.q h4{font-size:.96rem;margin-bottom:10px;line-height:1.6;}
+.q .opt{display:block;width:100%;text-align:left;background:var(--bg);color:var(--text-dim);border:1px solid var(--border);border-radius:7px;padding:9px 13px;margin-bottom:7px;cursor:pointer;font-size:.88rem;font-family:inherit;transition:all .15s;}
+.q .opt:hover{border-color:var(--gold-dim);color:var(--text);}
+.q .opt.right{border-color:var(--green);color:var(--green);background:rgba(92,199,155,.08);}
+.q .opt.wrong{border-color:var(--rose);color:var(--rose);background:rgba(238,125,112,.08);}
+.q .why{display:none;margin-top:10px;font-size:.84rem;color:var(--text-dim);border-top:1px dashed var(--border);padding-top:10px;}
+.q.done .why{display:block;}
+.score{margin-top:12px;font-size:.9rem;color:var(--gold);font-weight:700;}
+
+.ref-list{list-style:none;margin:0;padding:0;}
+.ref-list li{padding:11px 0;border-bottom:1px solid var(--border);font-size:.82rem;color:var(--text-dim);display:flex;gap:11px;} .ref-list li:last-child{border-bottom:none;}
+.ref-num{color:var(--gold);font-weight:700;flex-shrink:0;min-width:34px;}
+.ref-list .doi{color:var(--text-faint);font-size:.76rem;}
+.ref-sub{font-size:.78rem;color:var(--teal);margin:22px 0 4px;font-weight:700;letter-spacing:.04em;}
+
+footer{max-width:980px;margin:0 auto;padding:34px 28px 60px;color:var(--text-faint);font-size:.8rem;}
+@media(max-width:700px){.hero h1{font-size:1.5rem;}section{padding:38px 18px;}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="brand"><span class="logo-mark">N</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="home">← 首頁</a>
+    <a href="#overview">概覽與分流</a>
+    <a href="#tongue">舌</a>
+    <a href="#pharynx">咽</a>
+    <a href="#larynx">喉</a>
+    <a href="#neck">頸</a>
+    <a href="#ddx">鑑別與紅旗</a>
+    <a href="#treatment">實證治療</a>
+    <a href="#check">可信度查核</a>
+    <a href="#quiz">自我測驗</a>
+    <a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">● 疼痛與感覺神經 · 上集 <span class="en">Part 1 of 2</span></div>
+  <h1>頭頸部非頭痛之特殊感覺異常（上）：舌、頸、咽、喉</h1>
+  <p class="subtitle">舌頭「痛」、喉嚨「有東西」、轉頭時頸痛加舌麻……這些主訴常難以歸類。本頁整理舌、頸、咽、喉的神經解剖與常見疾病，鑑別診斷與實證治療，並將貼上的草稿與近五年文獻逐項對照，標示可信與需修正之處。</p>
+  <div class="hero-meta">
+    <div><b>CN IX · X · XII · C2</b>主要相關神經</div>
+    <div><b>5 種</b>常見症候群</div>
+    <div><b>近五年</b>系統性回顧為主</div>
+    <div><b>上集</b><a href="head-neck-sensory-part2.html">下集：臉與耳</a></div>
+  </div>
+</div>
+
+<section id="summary">
+  <div class="section-label">進度與重點摘要 <span class="en">Progress &amp; Takeaways</span></div>
+  <h2>先說明拆分與核心訊息</h2>
+  <div class="callout plan"><b>製作進度：</b>主題涵蓋臉、頸、耳、喉、舌、咽，資料量過大，已拆成兩集。<b>上集（本頁）：舌、頸、咽、喉</b>，含貼上草稿的查核。<b>下集：臉與耳</b>（三叉神經痛、持續性特發性顏面痛、口腔灼熱症候群、頦部麻木、耳鳴、耳痛與中間神經痛），請見<a href="head-neck-sensory-part2.html">下集頁面</a>。</div>
+  <div class="card-grid">
+    <div class="card"><span class="icon">🧭</span><div class="cat">概念</div><h4>沒有「舌下神經痛」這個標準診斷</h4><p>舌下神經是運動神經，病變核心是舌無力與萎縮。病人說的「舌痛、舌麻」多半是其他實體：頸舌症候群、舌咽神經痛、舌神經損傷、口腔灼熱等。</p></div>
+    <div class="card"><span class="icon">⚠️</span><div class="cat">不要被退化帶偏</div><h4>舌下神經麻痹先排除腫瘤與血管</h4><p>腫瘤約占舌下神經麻痹近半，其次是顱底轉移、鼻咽癌、頸動脈剝離等；顱頸交界退化性病變屬較少見、較易漏診的原因。</p><div class="foot"><span class="chip g-case">病例系列</span></div></div>
+    <div class="card"><span class="icon">🔄</span><div class="cat">頸舌症候群</div><h4>轉頭誘發的短暫頸枕痛＋同側舌異常感</h4><p>39 例系統性回顧：多為兒童或青少年發病，舌部症狀以感覺異常為主；治療以保守為主，證據為個案層級。</p><div class="foot"><span class="chip g-sr">系統性回顧</span></div></div>
+    <div class="card"><span class="icon">⚡</span><div class="cat">舌咽神經痛</div><h4>CBZ 為一線；約四分之一需手術</h4><p>藥物難治者可考慮微血管減壓術（可合併神經根切斷）或放射手術，但證據多為回溯與個案報告。</p><div class="foot"><span class="chip g-sr">系統性回顧</span></div></div>
+    <div class="card"><span class="icon">🗣️</span><div class="cat">喉與咽</div><h4>喉感覺神經病變與咽喉異物感</h4><p>喉感覺神經病變以 neuromodulator 加語言治療為主；咽喉異物感（globus）以衛教、CBT、語言治療為主，PPI 僅在有逆流症狀時考慮。</p><div class="foot"><span class="chip g-guide">準則／綜述</span></div></div>
+  </div>
+</section>
+
+<section id="overview">
+  <div class="section-label">01 · 概覽與分流 <span class="en">Overview &amp; Triage</span></div>
+  <h2>先問「哪條神經、什麼模式」<span class="en">Which nerve, which pattern</span></h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:18%">神經／節段</th><th>感覺或運動範圍</th><th style="width:34%">受損時常見主訴</th></tr></thead>
+      <tbody>
+        <tr><td><b>舌下神經 CN XII</b></td><td>純運動：舌內在肌與外在肌（腭舌肌由迷走神經支配）</td><td>舌無力、偏斜、半舌萎縮、構音與口腔期吞嚥困難；<b>無感覺喪失</b></td></tr>
+        <tr><td><b>舌神經（V3 分支）</b></td><td>舌前 2/3 一般感覺；鼓索纖維攜帶味覺</td><td>麻木、灼痛、異常性疼痛、味覺異常</td></tr>
+        <tr><td><b>舌咽神經 CN IX</b></td><td>舌後 1/3、扁桃體、咽、中耳；頸動脈竇傳入</td><td>咽喉或耳深部的陣發性刀割痛；可伴心搏過緩、暈厥</td></tr>
+        <tr><td><b>迷走神經 CN X 分支（上喉神經）</b></td><td>喉（聲帶以上）感覺</td><td>喉部搔癢、異物感、慢性咳嗽與清喉嚨</td></tr>
+        <tr><td><b>C2 與枕神經</b></td><td>上頸、枕部；與舌本體感覺傳入有吻合（Bogduk 假說）</td><td>枕部或上頸痛；轉頭誘發的頸痛合併舌異常感</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>三個分流問題<span class="en">Triage questions</span></h3>
+  <ol>
+    <li><b>陣發短暫（秒到分鐘）還是持續？</b>陣發→神經痛或頸舌症候群；持續→結構性病變、神經損傷或功能性。</li>
+    <li><b>有沒有觸發因子？</b>吞嚥、說話、咳嗽→舌咽或喉神經；轉頭→頸舌症候群；牙科處置後→舌神經。</li>
+    <li><b>有沒有客觀神經缺損？</b>舌偏斜、萎縮、肌束顫動→先找結構性原因；神經學檢查正常→考慮神經痛、感覺神經病變或功能性。</li>
+  </ol>
+</section>
+
+<section id="tongue">
+  <div class="section-label">02 · 舌 <span class="en">Tongue</span></div>
+  <h2>舌下神經、頸舌症候群與舌神經損傷<span class="en">Hypoglossal · Neck-tongue · Lingual nerve</span></h2>
+
+  <h3>A. 舌下神經病變<span class="en">Hypoglossal neuropathy</span></h3>
+  <p><b>臨床徵象</b>：Yu 等 8 位單側舌下神經麻痹病人的系統性檢查發現，所有人靜止時舌偏向對側、伸舌時偏向患側；7/8 無法用舌尖頂患側頰黏膜並上抬覆蓋上唇；構音障礙多半輕微（7/8），吞嚥困難 8/8 有主觀感覺，多數在數個月內改善。結論是：單側麻痹的症狀多半輕微且短暫，不要只看病人是否「抱怨」。</p>
+
+  <div class="svgbox">
+    <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="舌下神經走行與常見病變部位示意圖">
+      <defs><marker id="a1" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#9aa6b8"/></marker></defs>
+      <g font-family="sans-serif">
+        <rect x="10" y="30" width="190" height="70" rx="10" fill="#19202a" stroke="#4fc3c3"/>
+        <text x="105" y="56" fill="#e9edf4" font-size="14" text-anchor="middle">① 延髓內（核與根）</text>
+        <text x="105" y="76" fill="#9aa6b8" font-size="11" text-anchor="middle">中風、脫髓鞘、腫瘤</text>
+        <rect x="225" y="30" width="190" height="70" rx="10" fill="#19202a" stroke="#4fc3c3"/>
+        <text x="320" y="56" fill="#e9edf4" font-size="14" text-anchor="middle">② 前延髓池</text>
+        <text x="320" y="76" fill="#9aa6b8" font-size="11" text-anchor="middle">神經鞘瘤、腦膜瘤、血管</text>
+        <rect x="440" y="30" width="190" height="70" rx="10" fill="#19202a" stroke="#e2b34b"/>
+        <text x="535" y="56" fill="#e9edf4" font-size="14" text-anchor="middle">③ 舌下神經管</text>
+        <text x="535" y="76" fill="#9aa6b8" font-size="11" text-anchor="middle">顱底轉移、鼻咽癌、髁骨折</text>
+        <rect x="655" y="30" width="190" height="70" rx="10" fill="#19202a" stroke="#4fc3c3"/>
+        <text x="750" y="56" fill="#e9edf4" font-size="14" text-anchor="middle">④ 顱外（頸動脈間隙）</text>
+        <text x="750" y="76" fill="#9aa6b8" font-size="11" text-anchor="middle">頸動脈剝離、頸部腫瘤、手術</text>
+        <line x1="200" y1="65" x2="222" y2="65" stroke="#9aa6b8" stroke-width="2" marker-end="url(#a1)"/>
+        <line x1="415" y1="65" x2="437" y2="65" stroke="#9aa6b8" stroke-width="2" marker-end="url(#a1)"/>
+        <line x1="630" y1="65" x2="652" y2="65" stroke="#9aa6b8" stroke-width="2" marker-end="url(#a1)"/>
+        <rect x="440" y="140" width="190" height="130" rx="10" fill="rgba(226,179,75,.08)" stroke="#e2b34b" stroke-dasharray="5 4"/>
+        <text x="535" y="166" fill="#e2b34b" font-size="13" text-anchor="middle" font-weight="700">顱頸交界（CCJ）退化性病變</text>
+        <text x="535" y="190" fill="#9aa6b8" font-size="11" text-anchor="middle">關節旁囊腫</text>
+        <text x="535" y="208" fill="#9aa6b8" font-size="11" text-anchor="middle">齒狀突後纖維假瘤</text>
+        <text x="535" y="226" fill="#9aa6b8" font-size="11" text-anchor="middle">C1–枕骨骨贅</text>
+        <text x="535" y="250" fill="#9aa6b8" font-size="11" text-anchor="middle">病例系列：較少見、易漏診</text>
+        <line x1="535" y1="100" x2="535" y2="138" stroke="#e2b34b" stroke-dasharray="4 4"/>
+        <text x="20" y="150" fill="#9aa6b8" font-size="12">神經由延髓前外側溝發出，經前延髓池與舌下神經管出顱；全程不經頸椎椎管。</text>
+        <text x="20" y="172" fill="#9aa6b8" font-size="12">因此「椎管狹窄」本身不會壓迫舌下神經。</text>
+      </g>
+    </svg>
+    <div class="cap">示意圖：沿神經走行分段列出常見病變；黃色區塊為顱頸交界（舌下神經管外口正對寰枕關節與 C1 側塊）。</div>
+  </div>
+
+  <div class="callout warn"><b>病因順序：</b>舌下神經麻痹中<b>腫瘤約占近半</b>，包括顱底轉移、鼻咽癌侵犯，其次是輻射後神經病變、神經鞘瘤、腦膜瘤、動脈瘤、枕骨髁骨折等。<b>頸動脈剝離</b>也是重要原因：2026 年系統性回顧彙整 32 位孤立性舌下神經麻痹合併頸內動脈剝離者，中位年齡 47 歲、87.5% 為男性。<b>顱頸交界退化性病變是較少見的原因</b>，近年系統性回顧（29 位關節旁滑膜囊腫病人，中位年齡 67 歲）仍以病例報告為主。</div>
+
+  <h3>顱頸交界退化與舌下神經麻痹<span class="en">CCJ degenerative disease</span></h3>
+  <ul>
+    <li><b>Weindling 2016（18 例病例系列，單一機構回溯性）</b>：平均 74 歲（52–89 歲）、12 女 6 男；舌無力或偏斜 13/18、構音障礙 12/18、吞嚥困難 6/18；<b>13/18 伴新發或加重的頭痛或枕下痛</b>；病因包括寰枕或寰樞關節旁囊腫、齒狀突後纖維假瘤、C1–枕骨骨贅；4/18 有頸椎生物力學異常（2 例先天融合、2 例曾融合手術）。</li>
+    <li>這類病變常被漏診，甚至曾被誤認為舌下神經鞘瘤；需以<b>薄層 CT 骨窗與 MRI，並沿舌下神經管重建</b>評估。</li>
+    <li>疼痛是「合併症狀」：舌下神經本身無痛，伴隨的頭痛或枕下痛來自關節、硬腦膜與上頸神經。</li>
+    <li><b>證據限制</b>：病例系列沒有對照，高齡者本就普遍有頸椎退化，不能僅憑「看到退化」就判定因果。</li>
+  </ul>
+
+  <h3>B. 頸舌症候群<span class="en">Neck-tongue syndrome, NTS</span></h3>
+  <ul>
+    <li><b>典型表現</b>：突然轉頭誘發單側上頸或枕部的銳痛或刺痛，持續數秒至數分鐘，伴同側舌麻木、刺痛或姿勢異常；神經學檢查通常正常。ICHD-3 有診斷準則（至少 2 次發作、符合疼痛與舌症狀特徵、持續數秒至數分鐘、無法以其他診斷解釋）。</li>
+    <li><b>39 例系統性回顧（Gelfand 2018）</b>：56% 女性；平均發病年齡 16 歲（標準差 12）；53% 以頸痛為主、18% 為枕痛、29% 兩者兼具；36 例伴舌感覺異常、3 例為運動或姿勢異常、5 例兩者皆有；4 例有家族史。作者推論青春期韌帶鬆弛可能使寰樞外側關節在突然轉頭時短暫半脫位。</li>
+    <li><b>機轉（Bogduk 1981 的解剖假說）</b>：轉頭時 C2 腹側支或其背根節受牽拉或夾壓；舌本體感覺傳入經舌神經與舌下神經的吻合，上行至 C2，因此舌的異常感是傳入中斷所致，並非舌下神經受損。</li>
+    <li><b>治療</b>：以保守為主，現有資料為病例報告與小型病例系列（頸圈、物理治療、藥物、手法治療）；多數發作短暫，不需特殊處理。<b>寰樞不穩者避免頸椎手法與極端旋轉</b>（專家意見）。</li>
+  </ul>
+
+  <h3>C. 舌神經損傷<span class="en">Lingual nerve injury</span></h3>
+  <ul>
+    <li><b>病因</b>：最常見於下顎第三大臼齒拔除；2023 年統合分析顯示使用舌側黏膜翻瓣牽拉者，暫時性舌神經損傷風險明顯較高（RR 4.80，3.28–7.02），永久性損傷盛行率約 0.07–0.28%。</li>
+    <li><b>表現</b>：舌前 2/3 麻木、感覺異常、灼痛、異常性疼痛，咬舌，味覺異常。</li>
+    <li><b>顯微手術修復</b>：2026 年系統性回顧與統合分析顯示修復後功能性感覺恢復率約 92%（837/910），中位修復時間 7.7 個月；2024 年系統性回顧（17 項研究、786 人）顯示多數修復方式結果相近，感覺改善多在 1 年內；2021 年前瞻性病例系列（114 人）94% 主觀改善且神經痛顯著減少，<b>與延遲手術時間無明顯相關</b>。手術時機的影響尚有爭議。</li>
+  </ul>
+</section>
+
+<section id="pharynx">
+  <div class="section-label">03 · 咽 <span class="en">Pharynx</span></div>
+  <h2>舌咽神經痛與咽喉異物感<span class="en">Glossopharyngeal neuralgia · Globus</span></h2>
+
+  <h3>A. 舌咽神經痛<span class="en">Glossopharyngeal neuralgia</span></h3>
+  <ul>
+    <li><b>表現</b>：單側、突發的重複性銳利刀割樣痛，位於舌後 1/3、咽後壁、扁桃體、耳深部、下頜角下方；持續數秒至數分鐘，可由吞嚥、咀嚼、說話、咳嗽誘發。<b>老年多見</b>，極為罕見。</li>
+    <li><b>迷走舌咽神經痛（VGPN）</b>：合併心搏過緩、低血壓、暈厥、甚至心跳停止，需警覺與心臟評估。</li>
+    <li><b>病因</b>：多為血管壓迫（以後下小腦動脈 PICA 最常見），也可為繼發性（腫瘤、脫髓鞘、顱底病變）；需 MRI 與 MRA 評估神經血管關係。</li>
+  </ul>
+
+  <h3>B. 咽喉異物感 Globus<span class="en">Globus pharyngeus</span></h3>
+  <ul>
+    <li><b>Rome IV 診斷</b>：慢性或反覆咽喉異物感，無吞嚥困難或吞嚥痛，排除結構性病變與逆流等；需上消化道內視鏡評估，但在典型症狀且鼻咽喉鏡正常者，診斷產出很低。</li>
+    <li><b>警示症狀</b>：吞嚥困難、吞嚥痛、咽喉痛、體重下降、聲音沙啞、症狀偏向一側；高風險因子為年齡 &gt;40、吸菸與酗酒。出現時需擴大評估以排除惡性腫瘤。</li>
+    <li><b>處理</b>：衛教與安撫為基礎；有逆流症狀時可試用 PPI（約 8 週）；無逆流症狀時，統合分析顯示 PPI 不優於安慰劑；語言治療與認知行為治療（CBT）可能有幫助；抗焦慮藥與抗憂鬱藥證據很少。2023 年敘述性回顧仍認為處理缺乏共識。</li>
+  </ul>
+</section>
+
+<section id="larynx">
+  <div class="section-label">04 · 喉 <span class="en">Larynx</span></div>
+  <h2>喉感覺神經病變與神經性咳嗽<span class="en">Laryngeal sensory neuropathy · Neurogenic cough</span></h2>
+  <p class="lede">喉的特殊感覺異常常以「喉嚨癢、有東西、要清喉嚨、慢性咳嗽」表現，機轉被認為是上喉神經分布區的感覺神經高敏感。病人可有 <b>allotussia</b>（非咳嗽性刺激如說話即誘發咳嗽）、<b>hypertussia</b>（對已知刺激過度敏感）與<b>喉部感覺異常（如「tickle」）</b>。</p>
+
+  <ul>
+    <li><b>診斷多為排除性</b>：需先排除上呼吸道、肺部、逆流、藥物（如 ACE 抑制劑）等原因；喉鏡或喉部肌電圖若發現運動輕癱，可提示感覺神經病變。</li>
+    <li><b>難治性慢性咳嗽</b>：約 42% 的慢性咳嗽屬難治。</li>
+    <li><b>非藥物</b>：語言病理的咳嗽抑制訓練（有較大型隨機試驗）。</li>
+    <li><b>藥物</b>：gabapentin（Ryan 2012 Lancet 隨機試驗）、pregabalin 加語言治療（Vertigan 2016，n = 40 隨機試驗）、amitriptyline（小型隨機試驗）；整體證據多為小型研究，歐洲呼吸學會準則建議在治療可治療特質後，仍無效時使用中樞作用 neuromodulator（opioid、pregabalin、gabapentin、amitriptyline）及非藥物咳嗽控制療法；CHEST 2016 對 gabapentin 試驗與語言病理均為弱建議（2C）。</li>
+    <li><b>程序性治療</b>：2022 年系統性回顧與統合分析（2,408 位神經性咳嗽病人，研究品質低至中等）彙整藥物、語言治療與上喉神經阻斷、肉毒桿菌毒素等；程序性治療可考慮用於藥物無效或不耐受者。</li>
+  </ul>
+</section>
+
+<section id="neck">
+  <div class="section-label">05 · 頸 <span class="en">Neck</span></div>
+  <h2>枕神經痛與上頸神經來源的感覺異常<span class="en">Occipital neuralgia &amp; upper cervical</span></h2>
+  <ul>
+    <li><b>枕神經痛（ICHD-3 13.4）</b>：大、小或第三枕神經分布區的陣發性痛，枕神經出口或 C2 分布區有壓痛點，局部麻醉阻斷可暫時緩解；需與偏頭痛、頸源性頭痛及寰樞或上頸病變鑑別。</li>
+    <li><b>實證（近五年）</b>：2024 年實證綜述（檢索 2015–2022）指出，枕神經阻斷兼具診斷與治療價值，脈衝射頻（PRF）可提供較長期控制，難治者可考慮枕神經刺激；2024 年 PRF 系統性回顧認為證據品質低，對枕神經痛與慢性偏頭痛有止痛趨勢。</li>
+    <li><b>與舌的關聯</b>：C2 腹側支與舌傳入的吻合是頸舌症候群的解剖基礎；頸源性頭痛屬頭痛範疇，本頁不展開。</li>
+  </ul>
+</section>
+
+<section id="ddx">
+  <div class="section-label">06 · 鑑別診斷與紅旗 <span class="en">Differential &amp; Red Flags</span></div>
+  <h2>模式辨識與優先排除<span class="en">Pattern recognition first</span></h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:20%">主訴模式</th><th>首要考慮</th><th style="width:30%">關鍵檢查／下一步</th></tr></thead>
+      <tbody>
+        <tr><td><b>轉頭誘發的頸枕痛＋同側舌異常</b></td><td>頸舌症候群</td><td>病史為主；排除外傷與其他頭痛；不常規做極限旋轉影像</td></tr>
+        <tr><td><b>吞嚥或說話誘發的咽／耳深部陣發痛</b></td><td>舌咽神經痛</td><td>MRI＋MRA；心電圖與暈厥評估；排除腫瘤</td></tr>
+        <tr><td><b>舌無力、偏斜、半舌萎縮</b></td><td>舌下神經病變：腫瘤、顱底、頸動脈剝離、CCJ 病變</td><td>舌與頸部檢查；MRI（顱底至頸部）、MRA／CTA、薄層 CT 骨窗；必要時舌肌電圖</td></tr>
+        <tr><td><b>牙科處置後舌麻、灼痛、味覺改變</b></td><td>舌神經損傷</td><td>神經感覺測試；轉介口腔顎面外科</td></tr>
+        <tr><td><b>喉嚨癢、清喉嚨、慢性乾咳</b></td><td>喉感覺神經病變</td><td>排除其他原因；喉鏡；考慮神經調節藥物＋語言治療</td></tr>
+        <tr><td><b>咽喉異物感、無吞嚥困難</b></td><td>Globus</td><td>鼻咽喉鏡；警示症狀時內視鏡與影像</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn"><b>紅旗（需儘速影像與專科評估）：</b>進行性舌無力或萎縮；單側聲音沙啞、吞嚥困難、體重下降；頸部腫塊；多條下組顱神經同時受累；頸部疼痛合併 Horner 症候群（考慮頸動脈剝離）；神經痛合併暈厥或心搏過緩；外傷後或頸部手術後新發症狀；癌症病史。</div>
+</section>
+
+<section id="treatment">
+  <div class="section-label">07 · 實證治療總覽 <span class="en">Evidence-based Treatment</span></div>
+  <h2>各症候群的處理與證據強度<span class="en">What works, how strong is the evidence</span></h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:16%">症候群</th><th style="width:30%">首選／一線</th><th>二線與程序性</th><th style="width:20%">證據層級</th></tr></thead>
+      <tbody>
+        <tr><td><b>舌下神經麻痹</b></td><td>治療病因（腫瘤、剝離、囊腫）；語言與吞嚥復健</td><td>CCJ 囊腫：保守觀察、手術切除或枕頸融合（個案層級，癒後不一）</td><td><span class="chip g-case">病例系列</span></td></tr>
+        <tr><td><b>頸舌症候群</b></td><td>衛教、活動調整、物理治療</td><td>頸圈、藥物（gabapentin、amitriptyline 等個案報告）、枕神經阻斷</td><td><span class="chip g-case">個案報告</span></td></tr>
+        <tr><td><b>舌神經損傷</b></td><td>評估與追蹤；神經痛藥物</td><td>顯微修復（FSR 約 92%）；時機爭議</td><td><span class="chip g-sr">系統性回顧</span></td></tr>
+        <tr><td><b>舌咽神經痛</b></td><td>carbamazepine；替代為 gabapentin、eslicarbazepine</td><td>約 25% 藥物難治：微血管減壓術（可合併神經根切斷）、放射手術、脈衝射頻（小型回溯研究）</td><td><span class="chip g-sr">系統性回顧</span> 回溯／個案</td></tr>
+        <tr><td><b>喉感覺神經病變</b></td><td>咳嗽抑制訓練（語言病理）；gabapentin、pregabalin、amitriptyline</td><td>上喉神經阻斷、肉毒桿菌毒素</td><td><span class="chip g-rct">小型 RCT</span> <span class="chip g-sr">統合分析</span> <span class="chip g-guide">準則</span></td></tr>
+        <tr><td><b>Globus</b></td><td>衛教、CBT、語言治療</td><td>有逆流症狀才試 PPI；神經調節藥物證據薄弱</td><td><span class="chip g-sr">綜述</span> 證據偏弱</td></tr>
+        <tr><td><b>枕神經痛</b></td><td>枕神經阻斷（診斷＋治療）</td><td>脈衝射頻；難治者枕神經刺激；神經痛藥物</td><td><span class="chip g-sr">系統性回顧</span> 低品質</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:.84rem;">本頁未列藥物劑量，請依最新仿單與個案評估；carbamazepine 使用前請依指引檢查 HLA-B*1502（亞洲族群）與血液、肝腎功能。</p>
+</section>
+
+<section id="check">
+  <div class="section-label">08 · 內容可信度查核 <span class="en">Credibility Check</span></div>
+  <h2>貼上草稿中哪些可信、哪些要修正<span class="en">What holds up, what needs correction</span></h2>
+  <p class="lede">草稿的主軸（舌下神經為運動神經、NTS 為最接近「舌＋頸疼痛」的實體、CCJ 退化性病變可壓迫舌下神經）有文獻支持。主要問題是：<b>病因順序失衡、部分數字無法佐證、少數引用與論述不符，以及 14 篇引用中僅 2 篇落在近五年</b>。</p>
+
+  <div class="legend">
+    <span><span class="chip v-ok">✔ 已查核</span> 與文獻一致</span>
+    <span><span class="chip v-fix">▲ 需修正</span> 與文獻不符或缺漏</span>
+    <span><span class="chip v-warn">▲ 過度推論</span> 方向對但說得太滿</span>
+    <span><span class="chip v-na">○ 未能查核</span> 本次未取得原文</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">草稿的說法</th><th style="width:14%">結果</th><th>說明</th></tr></thead>
+      <tbody>
+        <tr><td>舌下神經為純運動神經；病變無感覺喪失；「舌下神經痛」不是標準診斷</td><td><span class="chip v-ok">✔ 合理</span></td><td>與病例資料一致；本次未見任何診斷準則列有「舌下神經痛」，屬專家意見。</td></tr>
+        <tr><td>舌本體感覺經舌神經、舌下神經、舌袢、C2 上行</td><td><span class="chip v-warn">▲ 假說</span></td><td>出自 Bogduk 1981 的解剖假說，並非已證實機轉；教學時請標為「假說」。</td></tr>
+        <tr><td>Yu 2016：靜止偏健側、伸舌偏患側；7/8 無法完成口內動作；吞嚥困難 8/8</td><td><span class="chip v-ok">✔ 已查核</span></td><td>8 位病人，與摘要一致。草稿的「κ = 1.0」「2/8 自覺明顯失能」「7/8 輕微構音錯誤」未能核對；樣本僅 8 位。</td></tr>
+        <tr><td>MRI：脂肪替代為「T1 低訊號、T2 高訊號」</td><td><span class="chip v-fix">▲ 需修正</span></td><td>脂肪浸潤應為 T1 高訊號；T2 高訊號（水腫）見於急性或亞急性去神經支配。慢性者以萎縮與脂肪浸潤為主。</td></tr>
+        <tr><td>Weindling 2016：18 例、平均 74 歲、13/18 頭痛或枕下痛、4/18 生物力學異常</td><td><span class="chip v-ok">✔ 已查核</span></td><td>與原文一致；草稿的「JAC 12 例中 10 例頭痛」「僅 4 例給出正確鑑別」本次未核；關於「腰椎滑膜囊腫女性與七十歲好發」一句無法與原文對應，建議刪除。</td></tr>
+        <tr><td>CCJ 退化與舌下神經「有明確解剖關聯」</td><td><span class="chip v-warn">▲ 過度推論</span></td><td>證據為單一機構病例系列；且<b>腫瘤約占舌下神經麻痹近半</b>、頸動脈剝離也重要，草稿未把這些放在前面。需先排除再歸因於退化。</td></tr>
+        <tr><td>NTS 39 例：56% 女性、平均 16 歲、53%／18%／29%、92% 有舌感覺症狀</td><td><span class="chip v-ok">✔ 已查核</span></td><td>36/39 舌感覺異常即 92%。草稿的「年齡範圍 3.5–57」「74% 18 歲前」「右 51% 左 41%」「轉頭方向」本次未核。</td></tr>
+        <tr><td>NTS 處理：amitriptyline、gabapentin 或枕大神經阻斷在個案有效；手法治療效益未證實且屬禁忌</td><td><span class="chip v-warn">▲ 需平衡</span></td><td>證據僅個案層級，並非「有效」；有病例報告顯示 gabapentin 無效，也有手法治療改善的報告。建議寫成：以保守為主、證據低；寰樞不穩者避免頸椎手法（專家意見）。</td></tr>
+        <tr><td>舌咽神經痛「約 30 秒」、可伴心動過緩暈厥</td><td><span class="chip v-ok">✔ 部分查核</span></td><td>暈厥與迷走舌咽型已確認；持續時間更精確的描述為「數秒至數分鐘」，「30 秒」本次未查到。需補治療：carbamazepine 一線；約 25% 難治者需手術；微血管減壓術與放射手術的長期療效仍待研究。</td></tr>
+        <tr><td>舌神經損傷內容引用 Graff-Radford 2003</td><td><span class="chip v-warn">▲ 需更新</span></td><td>已補入 2021–2026 的統合分析與系統性回顧（FSR 92%、舌側牽拉 RR 4.80）。</td></tr>
+        <tr><td>「ICHD 所列頸椎、寰樞關節退化相關疼痛主要是枕神經痛…機轉含寰樞關節炎」，引用 Hupp 2013</td><td><span class="chip v-fix">▲ 需修正</span></td><td>引用來源是牙科綜述，並非 ICHD；ICHD-3 的枕神經痛診斷準則包含疼痛分布、壓痛點與阻斷緩解。草稿所述機轉未見準則依據。</td></tr>
+        <tr><td>椎管狹窄本身不壓迫舌下神經；兩者為間接關聯</td><td><span class="chip v-ok">✔ 合理</span></td><td>解剖推論成立（神經不經椎管）；「同區域退化、鄰近節段應力、C2 疼痛通路」屬假說性說明。</td></tr>
+        <tr><td>RA：頸椎受累可達 25%；Blankenship 2002 個案</td><td><span class="chip v-na">○ 未能查核</span></td><td>屬 3 例個案報告；盛行率數字請回查。</td></tr>
+        <tr><td>內容範圍</td><td><span class="chip v-fix">▲ 需補充</span></td><td>缺少喉與咽（喉感覺神經病變、globus）、頸動脈剝離與腫瘤的鑑別、枕神經痛的近期證據、以及完整治療證據。已補入。</td></tr>
+        <tr><td>引用年代</td><td><span class="chip v-warn">▲ 需更新</span></td><td>14 篇中僅 [9]（2022）、[14]（2025）屬近五年；[8]、[13] 為 2020；其餘多為 1981–2016 年。已補入 2021–2026 文獻。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="section-label">09 · 自我測驗 <span class="en">Self-check</span></div>
+  <h2>五題快速檢視</h2>
+  <div id="quiz-box"></div>
+  <div class="score" id="score"></div>
+</section>
+
+<section id="refs">
+  <div class="section-label">參考文獻 <span class="en">References</span></div>
+  <h2>Reference List</h2>
+
+  <div class="ref-sub">A. 本次補充查核的文獻（近五年為主）</div>
+  <ul class="ref-list">
+    <li><span class="ref-num">[A1]</span><span>Gelfand AA, Johnson H, Lenaerts ME, et al. Neck-tongue syndrome: a systematic review. <i>Cephalalgia.</i> 2018;38(2):374-382. <span class="doi">DOI: 10.1177/0333102416681570</span></span></li>
+    <li><span class="ref-num">[A2]</span><span>Chu ECP, Lin AFC. Neck-tongue syndrome. <i>BMJ Case Rep.</i> 2018;11(1):e227483. <span class="doi">DOI: 10.1136/bcr-2018-227483</span></span></li>
+    <li><span class="ref-num">[A3]</span><span>Han A, Montgomery C, Zamora A, et al. Glossopharyngeal neuralgia: epidemiology, risk factors, pathophysiology, differential diagnosis, and treatment options. <i>Health Psychol Res.</i> 2022;10(2). <span class="doi">DOI: 10.52965/001c.36042</span></span></li>
+    <li><span class="ref-num">[A4]</span><span>舌咽神經痛的微血管減壓術（含或不含神經根切斷）與放射手術之系統性回顧（36 篇文章）. 2023. <span class="doi">作者與期刊請於引用前核對</span></span></li>
+    <li><span class="ref-num">[A5]</span><span>Wamkpah NS, Peterson AM, Lee JJ, et al. Curbing the cough: multi-modal treatments for neurogenic cough: a systematic review and meta-analysis. <i>Laryngoscope.</i> 2022;132:107-123.</span></li>
+    <li><span class="ref-num">[A6]</span><span>Ryan NM, Birring SS, Gibson PG. Gabapentin for refractory chronic cough: a randomised, double-blind, placebo-controlled trial. <i>Lancet.</i> 2012;380(9853):1583-1589. · Vertigan AE, et al. Pregabalin and speech pathology combination therapy for refractory chronic cough. <i>Chest.</i> 2016;149(3):639-648.</span></li>
+    <li><span class="ref-num">[A7]</span><span>European Respiratory Society clinical practice guidelines on chronic cough. <i>Eur Respir J.</i> 2022. · Gibson P, et al. Treatment of unexplained chronic cough: CHEST guideline and expert panel report. <i>Chest.</i> 2016;149(1):27-44. <span class="doi">ERS 卷期請核對</span></span></li>
+    <li><span class="ref-num">[A8]</span><span>Cervicogenic headache and occipital neuralgia（實證介入疼痛醫學系列）. <i>Pain Pract.</i> 2024;25(1):e13405. <span class="doi">DOI: 10.1111/papr.13405</span></span></li>
+    <li><span class="ref-num">[A9]</span><span>De Oliveira K, Dhondt N, Englesakis M, et al. Pulsed radiofrequency neuromodulation of the greater occipital nerve for the treatment of headache disorders in adults: a systematic review. <i>Can J Pain.</i> 2024;8(1). <span class="doi">DOI: 10.1080/24740527.2024.2355571</span></span></li>
+    <li><span class="ref-num">[A10]</span><span>Siau R, Kinshuck A, Houghton L. The assessment and management of globus pharyngeus. <i>Br J Hosp Med.</i> 2021. <span class="doi">DOI: 10.12968/hmed.2021.0038</span> · Baghdadi K, et al. Globus pharyngeus: etiologies, diagnosis and management. <i>Rev Med Liege.</i> 2023;78(5-6):289-295.</span></li>
+    <li><span class="ref-num">[A11]</span><span>Atkins S, Kyriakidou E. Clinical outcomes of lingual nerve repair. <i>Br J Oral Maxillofac Surg.</i> 2021;59(1):39-45. · Lee J, et al. Incidence of lingual nerve damage following surgical extraction of mandibular third molars with lingual flap retraction. <i>PLoS One.</i> 2023;18(2):e0282185. · Jacobs T, Mohammed S, Ziccardi V. Evaluating lingual nerve repair outcomes: a systematic review. <i>J Oral Maxillofac Surg.</i> 2024.</span></li>
+    <li><span class="ref-num">[A12]</span><span>永久性舌神經損傷的結果、介入與時機：系統性回顧與統合分析. 2026. <span class="doi">作者與期刊請於引用前核對</span></span></li>
+    <li><span class="ref-num">[A13]</span><span>Zandpazandi S, et al. Hypoglossal nerve palsy due to periarticular cyst extending into hypoglossal canal: a systematic review. <i>Neurosurg Rev.</i> 2025. <span class="doi">DOI: 10.1007/s10143-025-03717-5</span></span></li>
+    <li><span class="ref-num">[A14]</span><span>Cavaliere C, et al. Isolated hypoglossal nerve palsy associated with internal carotid artery dissection: a systematic review. 2026.</span></li>
+  </ul>
+
+  <div class="ref-sub">B. 草稿引用的 14 篇（編號沿用）</div>
+  <ul class="ref-list">
+    <li><span class="ref-num">[1]</span><span>Bogduk N. An anatomical basis for the neck-tongue syndrome. <i>J Neurol Neurosurg Psychiatry.</i> 1981;44(3):202-208（&gt;5 年）. <span class="doi">DOI: 10.1136/jnnp.44.3.202</span></span></li>
+    <li><span class="ref-num">[2]</span><span>Gelfand 等，見 [A1]。</span></li>
+    <li><span class="ref-num">[3]</span><span>Orrell RW, Marsden CD. The neck-tongue syndrome. <i>J Neurol Neurosurg Psychiatry.</i> 1994;57(3):348-352（&gt;5 年）. <span class="doi">DOI: 10.1136/jnnp.57.3.348</span></span></li>
+    <li><span class="ref-num">[4]</span><span>Singh P, Kaur M, Trikha A. An uncommonly common: glossopharyngeal neuralgia. <i>Ann Indian Acad Neurol.</i> 2013;16(1):1（&gt;5 年）. <span class="doi">DOI: 10.4103/0972-2327.107662</span></span></li>
+    <li><span class="ref-num">[5]</span><span>Graff-Radford SB, Evans RW. Lingual nerve injury. <i>Headache.</i> 2003;43(9):975-983（&gt;5 年）. <span class="doi">DOI: 10.1046/j.1526-4610.2003.03189.x</span></span></li>
+    <li><span class="ref-num">[6]</span><span>Hupp WS, Firriolo FJ. Cranial neuralgias. <i>Dent Clin North Am.</i> 2013;57(3):481-495（牙科綜述；非 ICHD 來源）. <span class="doi">DOI: 10.1016/j.cden.2013.04.009</span></span></li>
+    <li><span class="ref-num">[7]</span><span>Yu YJ, Warman Chardon J, Bourque PR. Systematic analysis of clinical deficits in unilateral hypoglossal nerve palsy. <i>Muscle Nerve.</i> 2016;54(6):1055-1058. <span class="doi">DOI: 10.1002/mus.25258</span></span></li>
+    <li><span class="ref-num">[8]</span><span>Guarnizo A, Glikstein R, Torres C. Imaging features of isolated hypoglossal nerve palsy. <i>J Neuroradiol.</i> 2020;47(2):136-150. <span class="doi">DOI: 10.1016/j.neurad.2019.04.006</span></span></li>
+    <li><span class="ref-num">[9]</span><span>Sista SR, Liebo GB, Young NP. Isolated hypoglossal neuropathy due to cervical spondylosis mimicking lingual angioedema. <i>Mayo Clin Proc.</i> 2022;97(4):801-802. <span class="doi">DOI: 10.1016/j.mayocp.2022.02.008</span></span></li>
+    <li><span class="ref-num">[10]</span><span>Weindling SM, Goff RD, Wood CP, DeLone DR, Hoxworth JM. Is hypoglossal nerve palsy caused by craniocervical junction degenerative disease an underrecognized entity? <i>AJNR.</i> 2016;37(11):2138-2143. <span class="doi">DOI: 10.3174/ajnr.A4885</span></span></li>
+    <li><span class="ref-num">[11]</span><span>Blankenship LD, Basford JR, Strommen JA, Andersen RJ. Hypoglossal nerve palsy from cervical spine involvement in rheumatoid arthritis: 3 case reports. <i>Arch Phys Med Rehabil.</i> 2002;83(2):269-272（個案）. <span class="doi">DOI: 10.1053/apmr.2002.29665</span></span></li>
+    <li><span class="ref-num">[12]</span><span>Patron V, et al. Isolated hypoglossal palsy due to cervical osteophyte. <i>Eur Ann Otorhinolaryngol Head Neck Dis.</i> 2012;129(1):44-46（個案）. <span class="doi">DOI: 10.1016/j.anorl.2011.01.006</span></span></li>
+    <li><span class="ref-num">[13]</span><span>Uppar AM, Pruthi N. Hypoglossal nerve palsy in case of spontaneous atlantooccipital dislocation. <i>World Neurosurg.</i> 2020;136:315-317（個案）. <span class="doi">DOI: 10.1016/j.wneu.2020.01.121</span></span></li>
+    <li><span class="ref-num">[14]</span><span>Tavakkol E, Khalaj K, Aristizabal S, McCarty J, Riascos R. Anatomy and nontraumatic pathologies of the craniocervical junction. <i>Magn Reson Imaging Clin N Am.</i> 2025;33(2):217-232. <span class="doi">DOI: 10.1016/j.mric.2025.01.002</span></span></li>
+  </ul>
+  <p style="margin-top:16px;font-size:.8rem;color:var(--text-faint);">「已查核」僅表示與檢索到的摘要或權威二手摘要一致；標為「未能查核」的數字請勿直接用於教學或發表。本頁未提供藥物劑量，臨床使用請依最新仿單與個案評估。</p>
+</section>
+
+<footer>
+  N-Teaching 神經科教學研究部 · 本頁面為住院醫師／專科護理師教學用整理資料，非臨床診斷依據 · <a href="index.html">返回首頁</a>
+</footer>
+
+<script>
+/* 自我測驗：要新增題目，複製一個 {...} 區塊再修改文字即可 */
+var QUIZ = [
+  { q: "單側舌下神經麻痹時，舌頭的典型位置為？",
+    opts: ["靜止時偏向患側、伸舌偏向健側", "靜止時偏向健側、伸舌偏向患側，且無感覺喪失", "伸舌時偏向健側並有麻木", "兩側對稱但有疼痛"],
+    a: 1, why: "Yu 2016（8 位病人）：全部病人靜止時舌偏向對側、伸舌時偏向患側；舌下神經為運動神經，不引起感覺喪失。" },
+  { q: "年輕人突然轉頭時出現單側上頸痛，數秒內伴同側舌麻，神經學檢查正常。最可能的診斷是？",
+    opts: ["舌咽神經痛", "頸舌症候群（NTS）", "舌下神經鞘瘤", "三叉神經痛"],
+    a: 1, why: "NTS 的特徵是突然轉頭誘發的短暫頸枕痛加同側舌異常感；39 例系統性回顧顯示多為兒童或青少年發病。" },
+  { q: "孤立性舌下神經麻痹的病因評估，下列何者最恰當？",
+    opts: ["高齡者直接歸因於頸椎退化", "先排除腫瘤（含顱底轉移、鼻咽癌）與頸動脈剝離，再考慮顱頸交界退化性病變", "只需做頸椎 X 光", "觀察即可，不需影像"],
+    a: 1, why: "腫瘤約占舌下神經麻痹近半；頸動脈剝離也重要。顱頸交界退化為病例系列中的少見原因，需要薄層 CT 與 MRI 才不會漏診。" },
+  { q: "關於舌咽神經痛的敘述，何者正確？",
+    opts: ["一線藥物為 carbamazepine；少數病人合併心搏過緩或暈厥", "不會合併心臟症狀", "藥物治療對所有病人都足夠", "只能用開刀治療"],
+    a: 0, why: "一線為 carbamazepine（alternatives 含 gabapentin、eslicarbazepine）；迷走舌咽型可有心搏過緩、暈厥；約 25% 藥物難治需手術。" },
+  { q: "咽喉異物感（globus）、沒有逆流症狀、沒有警示症狀，最合適的處理是？",
+    opts: ["直接長期使用 PPI", "衛教安撫為主，必要時語言治療或 CBT；PPI 在無逆流症狀時不優於安慰劑", "立刻手術", "不需任何評估"],
+    a: 1, why: "統合分析顯示無逆流症狀時 PPI 不優於安慰劑；出現吞嚥困難、吞嚥痛、體重下降、聲音沙啞等警示症狀才需擴大評估。" }
+];
+var answered = 0, correct = 0;
+(function build(){
+  var box = document.getElementById("quiz-box");
+  QUIZ.forEach(function(item, qi){
+    var d = document.createElement("div"); d.className = "q";
+    var h = document.createElement("h4"); h.textContent = (qi+1) + ". " + item.q; d.appendChild(h);
+    item.opts.forEach(function(o, oi){
+      var b = document.createElement("button"); b.className = "opt"; b.type = "button"; b.textContent = o;
+      b.onclick = function(){
+        if (d.classList.contains("done")) return;
+        d.classList.add("done"); answered++;
+        var btns = d.querySelectorAll(".opt");
+        btns[item.a].classList.add("right");
+        if (oi === item.a) { correct++; } else { b.classList.add("wrong"); }
+        document.getElementById("score").textContent = "目前答對 " + correct + " / " + answered + "（共 " + QUIZ.length + " 題）";
+      };
+      d.appendChild(b);
+    });
+    var w = document.createElement("div"); w.className = "why"; w.textContent = "解析：" + item.why; d.appendChild(w);
+    box.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>

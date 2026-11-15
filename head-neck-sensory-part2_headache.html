@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>頭頸部非頭痛之特殊感覺異常（下）：臉、耳</title>
+<style>
+:root{
+  --bg:#0f1318;--bg-card:#19202a;--bg-card-hover:#202938;--border:#2c3545;
+  --text:#e9edf4;--text-dim:#9aa6b8;--text-faint:#647086;
+  --teal:#4fc3c3;--teal-dim:#245f60;
+  --rose:#ee7d70;--rose-dim:#7a3d37;
+  --gold:#e2b34b;--gold-dim:#85692b;
+  --blue:#6aa9f0;--blue-dim:#2d4f7e;
+  --green:#5cc79b;--green-dim:#265c48;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:70px;}
+body{background:var(--bg);color:var(--text);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;line-height:1.75;font-size:16px;}
+.en{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--text-dim);font-size:.86em;}
+a{color:var(--gold);text-decoration:none;} a:hover{text-decoration:underline;}
+
+.topnav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;
+  background:rgba(15,19,24,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px;}
+.brand{display:flex;align-items:center;}
+.logo-mark{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,var(--teal),var(--gold));display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#0f1318;}
+.brand:hover{text-decoration:none;}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap;align-items:center;}
+.nav-links a{color:var(--text-dim);font-size:.86rem;padding:7px 11px;border-radius:6px;transition:all .15s;}
+.nav-links a:hover{color:var(--text);background:var(--bg-card);text-decoration:none;}
+.nav-links a.home{color:var(--gold);}
+
+.hero{padding:60px 28px 38px;max-width:980px;margin:0 auto;border-bottom:1px solid var(--border);}
+.eyebrow{display:inline-flex;gap:8px;color:var(--teal);font-size:.82rem;letter-spacing:.05em;border:1px solid var(--teal-dim);padding:4px 12px;border-radius:20px;margin-bottom:18px;}
+.hero h1{font-size:2rem;font-weight:800;line-height:1.4;background:linear-gradient(90deg,var(--text) 45%,var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero .subtitle{margin-top:14px;color:var(--text-dim);max-width:780px;}
+.hero-meta{display:flex;gap:26px;margin-top:24px;flex-wrap:wrap;}
+.hero-meta div{font-size:.8rem;color:var(--text-faint);} .hero-meta b{color:var(--text);display:block;font-size:1.05rem;}
+
+section{max-width:980px;margin:0 auto;padding:50px 28px;border-bottom:1px solid var(--border);}
+.section-label{color:var(--gold);font-size:.78rem;letter-spacing:.08em;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.section-label::before{content:"";width:22px;height:2px;background:var(--gold);}
+h2{font-size:1.45rem;font-weight:700;margin-bottom:8px;} h2 .en{display:block;font-size:.72rem;margin-top:3px;font-weight:400;}
+h3{font-size:1.08rem;font-weight:700;margin:28px 0 10px;} h3 .en{font-size:.72rem;font-weight:400;}
+p{color:var(--text-dim);margin-bottom:14px;} p b,li b{color:var(--text);font-weight:600;}
+ul,ol{margin:10px 0 16px 22px;color:var(--text-dim);} li{margin-bottom:7px;}
+.lede{margin-bottom:22px;}
+
+.chip{display:inline-flex;align-items:center;gap:3px;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:5px;vertical-align:middle;margin:0 2px;white-space:nowrap;}
+.g-rct{background:rgba(92,199,155,.13);color:var(--green);border:1px solid var(--green-dim);}
+.g-sr{background:rgba(106,169,240,.13);color:var(--blue);border:1px solid var(--blue-dim);}
+.g-guide{background:rgba(238,125,112,.12);color:var(--rose);border:1px solid var(--rose-dim);}
+.g-case{background:rgba(226,179,75,.13);color:var(--gold);border:1px solid var(--gold-dim);}
+.g-exp{background:rgba(154,166,184,.12);color:var(--text-dim);border:1px solid var(--border);}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:18px;}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .18s;}
+.card:hover{border-color:var(--gold-dim);background:var(--bg-card-hover);transform:translateY(-2px);}
+.card .icon{font-size:1.4rem;display:block;margin-bottom:8px;}
+.card .cat{font-size:.7rem;color:var(--teal);letter-spacing:.05em;font-weight:700;margin-bottom:4px;}
+.card h4{font-size:.98rem;margin-bottom:6px;} .card p{font-size:.85rem;margin-bottom:0;}
+.card .foot{margin-top:11px;font-size:.74rem;color:var(--text-faint);border-top:1px solid var(--border);padding-top:9px;}
+
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--border);border-radius:8px;}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:700px;}
+th{background:rgba(226,179,75,.08);color:var(--gold);text-align:left;padding:10px 13px;font-size:.76rem;border-bottom:1px solid var(--border);}
+td{padding:10px 13px;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top;} tr:last-child td{border-bottom:none;} td b{color:var(--text);}
+
+.callout{background:rgba(79,195,195,.06);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);border-radius:6px;padding:15px 18px;margin:18px 0;color:var(--text-dim);font-size:.9rem;}
+.callout b{color:var(--teal);}
+.callout.warn{background:rgba(238,125,112,.06);border-color:var(--rose-dim);border-left-color:var(--rose);} .callout.warn b{color:var(--rose);}
+.callout.plan{background:rgba(226,179,75,.06);border-color:var(--gold-dim);border-left-color:var(--gold);} .callout.plan b{color:var(--gold);}
+
+.svgbox{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:14px;margin:18px 0;overflow-x:auto;}
+.svgbox svg{display:block;margin:0 auto;max-width:100%;height:auto;}
+.svgbox .cap{font-size:.78rem;color:var(--text-faint);text-align:center;margin-top:8px;}
+
+.q{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin:14px 0;}
+.q h4{font-size:.96rem;margin-bottom:10px;line-height:1.6;}
+.q .opt{display:block;width:100%;text-align:left;background:var(--bg);color:var(--text-dim);border:1px solid var(--border);border-radius:7px;padding:9px 13px;margin-bottom:7px;cursor:pointer;font-size:.88rem;font-family:inherit;transition:all .15s;}
+.q .opt:hover{border-color:var(--gold-dim);color:var(--text);}
+.q .opt.right{border-color:var(--green);color:var(--green);background:rgba(92,199,155,.08);}
+.q .opt.wrong{border-color:var(--rose);color:var(--rose);background:rgba(238,125,112,.08);}
+.q .why{display:none;margin-top:10px;font-size:.84rem;color:var(--text-dim);border-top:1px dashed var(--border);padding-top:10px;}
+.q.done .why{display:block;}
+.score{margin-top:12px;font-size:.9rem;color:var(--gold);font-weight:700;}
+
+.ref-list{list-style:none;margin:0;padding:0;}
+.ref-list li{padding:11px 0;border-bottom:1px solid var(--border);font-size:.82rem;color:var(--text-dim);display:flex;gap:11px;} .ref-list li:last-child{border-bottom:none;}
+.ref-num{color:var(--gold);font-weight:700;flex-shrink:0;min-width:34px;}
+.ref-list .doi{color:var(--text-faint);font-size:.76rem;}
+
+footer{max-width:980px;margin:0 auto;padding:34px 28px 60px;color:var(--text-faint);font-size:.8rem;}
+@media(max-width:700px){.hero h1{font-size:1.5rem;}section{padding:38px 18px;}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="brand"><span class="logo-mark">N</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="home">← 首頁</a>
+    <a href="head-neck-sensory-part1.html">上集：舌頸咽喉</a>
+    <a href="#overview">分類與分流</a>
+    <a href="#face">臉</a>
+    <a href="#ear">耳</a>
+    <a href="#ddx">鑑別與紅旗</a>
+    <a href="#treatment">實證治療</a>
+    <a href="#limits">證據與限制</a>
+    <a href="#quiz">自我測驗</a>
+    <a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">● 疼痛與感覺神經 · 下集 <span class="en">Part 2 of 2</span></div>
+  <h1>頭頸部非頭痛之特殊感覺異常（下）：臉、耳</h1>
+  <p class="subtitle">臉的陣發痛、持續燒灼、麻木，耳朵的深部痛與耳鳴，都不屬於典型頭痛，卻常在神經科、口腔顎面、耳鼻喉與疼痛科之間輾轉求診。本頁整理分類、鑑別診斷與近五年實證治療，並以 2019 年 EAN 三叉神經痛指引與 2026 年 AAO-HNSF 耳鳴指引更新作為主要依據。</p>
+  <div class="hero-meta">
+    <div><b>ICOP 2020</b>顏面痛分類架構</div>
+    <div><b>EAN 2019</b>三叉神經痛指引</div>
+    <div><b>2026</b>耳鳴指引更新</div>
+    <div><b>下集</b>上集：舌、頸、咽、喉</div>
+  </div>
+</div>
+
+<section id="summary">
+  <div class="section-label">重點摘要 <span class="en">Key Takeaways</span></div>
+  <h2>先看五個核心訊息</h2>
+  <div class="callout plan"><b>說明：</b>本集是系列下集，<a href="head-neck-sensory-part1.html">上集（舌、頸、咽、喉）</a>已於前頁完成，並含貼上草稿的逐項查核。本集沒有貼上草稿，內容為文獻查核後整理，並在「證據與限制」標示需自行核對之處。</div>
+  <div class="card-grid">
+    <div class="card"><span class="icon">⚡</span><div class="cat">臉：陣發</div><h4>三叉神經痛：全員做 MRI，CBZ／OXC 一線</h4><p>EAN 2019：MRI 不能靠臨床特徵排除繼發性；急性發作可靜脈 fosphenytoin 或 lidocaine；藥物失敗或不耐受應提供手術，典型型以微血管減壓術為首選手術。</p><div class="foot"><span class="chip g-guide">指引</span></div></div>
+    <div class="card"><span class="icon">🔥</span><div class="cat">臉：持續</div><h4>口腔灼熱：CBT、clonazepam、辣椒素、雷射較有利</h4><p>2022 年系統性回顧（22 項 ≥2 個月 RCT）；α-硫辛酸對照安慰劑無顯著止痛，證據品質低；自然緩解率僅約 3–4%（5–6 年）。</p><div class="foot"><span class="chip g-sr">系統性回顧</span></div></div>
+    <div class="card"><span class="icon">🚩</span><div class="cat">臉：麻木</div><h4>無牙科原因的頦部麻木＝紅旗</h4><p>頦部麻木症候群在已發表病例中有 29–53% 與惡性腫瘤相關，須評估腫瘤與轉移。</p><div class="foot"><span class="chip g-sr">回顧</span></div></div>
+    <div class="card"><span class="icon">🔔</span><div class="cat">耳：耳鳴</div><h4>2026 更新：CBT、聽力評估與助聽器，不常規用藥</h4><p>持續（≥6 個月）且困擾的耳鳴：全面聽力評估、助聽器評估、CBT；不常規使用抗憂鬱、抗癲癇、抗焦慮或鼓室內藥物；僅在特定警訊時做影像。</p><div class="foot"><span class="chip g-guide">指引</span></div></div>
+    <div class="card"><span class="icon">👂</span><div class="cat">耳：耳痛</div><h4>先排除非神經痛原因，再想神經痛</h4><p>牙科、顳顎關節、耳鼻喉與顱底腫瘤要先排除；中間神經痛極罕見，治療證據為個案層級。</p><div class="foot"><span class="chip g-case">個案／回顧</span></div></div>
+  </div>
+</section>
+
+<section id="overview">
+  <div class="section-label">01 · 分類與分流 <span class="en">Classification &amp; Triage</span></div>
+  <h2>用 ICOP 與 ICHD-3 的語言說話<span class="en">A shared vocabulary</span></h2>
+  <p class="lede">國際顏面痛分類 <b>ICOP（2020，國際頭痛學會）</b>將口面痛分為六大類：①牙槽與相關結構疼痛、②肌筋膜口面痛、③顳顎關節痛、④<b>顱神經病變或疾病引起的疼痛</b>、⑤類似原發性頭痛的疼痛、⑥<b>特發性口面痛</b>。ICHD-3 則將疼痛性顱神經病變與其他顏面痛收在第 13 章。這個語言有助於跨科溝通與研究。</p>
+
+  <div class="svgbox">
+    <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="臉與耳的特殊感覺異常分流圖">
+      <defs><marker id="a2" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#9aa6b8"/></marker></defs>
+      <g font-family="sans-serif">
+        <rect x="320" y="10" width="220" height="44" rx="10" fill="#19202a" stroke="#e2b34b"/>
+        <text x="430" y="38" fill="#e9edf4" font-size="14" text-anchor="middle">臉部或耳部異常感覺／疼痛</text>
+        <line x1="380" y1="54" x2="150" y2="96" stroke="#9aa6b8" stroke-width="2" marker-end="url(#a2)"/>
+        <line x1="430" y1="54" x2="430" y2="96" stroke="#9aa6b8" stroke-width="2" marker-end="url(#a2)"/>
+        <line x1="480" y1="54" x2="710" y2="96" stroke="#9aa6b8" stroke-width="2" marker-end="url(#a2)"/>
+        <rect x="30" y="100" width="240" height="56" rx="10" fill="#19202a" stroke="#4fc3c3"/>
+        <text x="150" y="124" fill="#e9edf4" font-size="14" text-anchor="middle">陣發、觸發、秒到分鐘</text>
+        <text x="150" y="144" fill="#9aa6b8" font-size="11" text-anchor="middle">三叉神經痛、舌咽、中間神經痛</text>
+        <rect x="310" y="100" width="240" height="56" rx="10" fill="#19202a" stroke="#4fc3c3"/>
+        <text x="430" y="124" fill="#e9edf4" font-size="14" text-anchor="middle">持續（每日、數月）</text>
+        <text x="430" y="144" fill="#9aa6b8" font-size="11" text-anchor="middle">口腔灼熱、持續性特發性顏面痛</text>
+        <rect x="590" y="100" width="240" height="56" rx="10" fill="#19202a" stroke="#ee7d70"/>
+        <text x="710" y="124" fill="#e9edf4" font-size="14" text-anchor="middle">麻木、感覺缺失</text>
+        <text x="710" y="144" fill="#9aa6b8" font-size="11" text-anchor="middle">三叉神經病變、頦部麻木（紅旗）</text>
+        <rect x="30" y="190" width="240" height="84" rx="10" fill="rgba(79,195,195,.06)" stroke="#245f60" stroke-dasharray="5 4"/>
+        <text x="150" y="214" fill="#e9edf4" font-size="12" text-anchor="middle">下一步：MRI（含三叉神經高解析序列）</text>
+        <text x="150" y="234" fill="#9aa6b8" font-size="11" text-anchor="middle">排除腫瘤、脫髓鞘；CBZ／OXC 一線</text>
+        <text x="150" y="254" fill="#9aa6b8" font-size="11" text-anchor="middle">耳痛先排除牙科、顳顎、耳鼻喉</text>
+        <rect x="310" y="190" width="240" height="84" rx="10" fill="rgba(79,195,195,.06)" stroke="#245f60" stroke-dasharray="5 4"/>
+        <text x="430" y="214" fill="#e9edf4" font-size="12" text-anchor="middle">下一步：排除次發性原因</text>
+        <text x="430" y="234" fill="#9aa6b8" font-size="11" text-anchor="middle">營養缺乏、念珠菌、口乾、藥物、糖尿病</text>
+        <text x="430" y="254" fill="#9aa6b8" font-size="11" text-anchor="middle">CBT、神經調節藥物、局部治療</text>
+        <rect x="590" y="190" width="240" height="84" rx="10" fill="rgba(238,125,112,.06)" stroke="#7a3d37" stroke-dasharray="5 4"/>
+        <text x="710" y="214" fill="#e9edf4" font-size="12" text-anchor="middle">下一步：找原因，先排除惡性腫瘤</text>
+        <text x="710" y="234" fill="#9aa6b8" font-size="11" text-anchor="middle">頜骨影像、MRI、全身評估</text>
+        <text x="710" y="254" fill="#9aa6b8" font-size="11" text-anchor="middle">牙科處置史、感染、代謝、脫髓鞘</text>
+        <line x1="150" y1="156" x2="150" y2="188" stroke="#9aa6b8" stroke-width="2" marker-end="url(#a2)"/>
+        <line x1="430" y1="156" x2="430" y2="188" stroke="#9aa6b8" stroke-width="2" marker-end="url(#a2)"/>
+        <line x1="710" y1="156" x2="710" y2="188" stroke="#9aa6b8" stroke-width="2" marker-end="url(#a2)"/>
+      </g>
+    </svg>
+    <div class="cap">示意圖：先分陣發、持續與麻木三種模式，再決定下一步；耳鳴與耳痛請見「耳」一節。</div>
+  </div>
+</section>
+
+<section id="face">
+  <div class="section-label">02 · 臉 <span class="en">Face</span></div>
+  <h2>三叉神經痛、持續性顏面痛、口腔灼熱與麻木<span class="en">TN · PIFP · BMS · Trigeminal neuropathy</span></h2>
+
+  <h3>A. 三叉神經痛<span class="en">Trigeminal neuralgia, TN</span></h3>
+  <ul>
+    <li><b>分類（ICHD-3）</b>：典型（有神經血管接觸伴形態變化）、繼發性（由其他病變引起）、特發性。</li>
+    <li><b>檢查（EAN 2019）</b>：所有 TN 病人都應做 MRI（三種高解析序列），因為沒有臨床特徵能排除繼發性 TN；<b>神經血管接觸的顯示不能用來確診</b>，但有助決定是否轉介微血管減壓術（MVD）。MRI 做不到時可用三叉神經反射。</li>
+    <li><b>急性發作</b>：靜脈輸注 fosphenytoin 或 lidocaine。</li>
+    <li><b>長期藥物</b>：carbamazepine 或 oxcarbazepine 為首選；lamotrigine、gabapentin、肉毒桿菌毒素 A、pregabalin、baclofen、phenytoin 可單用或合併。2023 年系統性回顧（彙整藥物回顧與 RCT 統合分析）同樣指出 carbamazepine 以外的藥物研究不足，lamotrigine 與 baclofen 可為二線。</li>
+    <li><b>手術</b>：藥物控制不佳或不耐受時應提供手術；<b>典型 TN 以微血管減壓術為首選手術</b>；特發性 TN 沒有建議在神經破壞性手術與 MVD 之間做選擇，MRI 無神經血管接觸時偏向神經破壞性治療。</li>
+    <li><b>其他</b>：建議同時提供心理與護理支持；2024 年肉毒桿菌毒素 A 的系統性回顧與統合分析（Clin J Pain）提供新的整理。</li>
+  </ul>
+
+  <h3>B. 三叉神經病變與頦部麻木症候群<span class="en">Trigeminal neuropathy &amp; numb chin syndrome</span></h3>
+  <ul>
+    <li><b>頦部麻木症候群（mental neuropathy）</b>：下唇與頦部（頦神經或下齒槽神經分布）麻木、感覺異常，極少數為疼痛。常見病因為牙源性（外傷、感染、牙科處置），但<b>無牙科原因時是重要紅旗</b>。</li>
+    <li>近期回顧指出，已發表病例中有 <b>29–53%</b> 與惡性腫瘤相關，約 28% 的病人先找口腔專業人員；常見原發癌包括乳癌與淋巴瘤。惡性者預後差，早期系統性回顧報告平均存活約 7 個月、死亡率約 78.5%（較早期資料）。</li>
+    <li><b>處理</b>：詢問牙科處置與感染史；頜骨影像（全口 X 光、CT）與 MRI；有癌症病史者視為疾病進展或復發的徵兆，需全身評估。</li>
+  </ul>
+
+  <h3>C. 持續性特發性顏面痛 PIFP<span class="en">Persistent idiopathic facial pain</span></h3>
+  <ul>
+    <li><b>表現</b>：持續或波動的鈍痛、灼熱、壓迫感，每日出現、超過 3 個月，分布常不符合單一神經走向；診斷為排除性，影像與檢查無相關異常。</li>
+    <li><b>歸類</b>：ICOP 歸為第 6 類「特發性口面痛」。近年多篇綜述強調機轉不明、常有心理共病，治療常失敗，建議以表型與機轉為基礎的個人化處理。</li>
+    <li><b>治療證據</b>：<b>偏弱</b>；常用三環抗憂鬱藥、SNRI、gabapentinoid 與神經調節，但多為專家意見與小型研究，需注意副作用與期望管理。</li>
+  </ul>
+
+  <h3>D. 口腔灼熱症候群 BMS<span class="en">Burning mouth syndrome</span></h3>
+  <ul>
+    <li><b>定義（ICOP／ICHD-3）</b>：口內灼熱或感覺異常，每日出現、每日 &gt;2 小時、持續 &gt;3 個月，無可辨識的病灶；<b>自然緩解率低</b>（5–6 年約 3–4%）。目前沒有全球性治療指引。</li>
+    <li><b>先排除次發性原因</b>：營養缺乏（維生素 B12、鐵、葉酸）、口腔念珠菌、口乾、糖尿病、藥物相關與局部刺激（標準鑑別）。</li>
+    <li><b>2022 年系統性回顧（22 項、追蹤 ≥2 個月的 RCT）</b>：認知行為治療、局部辣椒素、clonazepam（局部或系統）與低能量雷射在短期與長期評估皆顯示有利結果；α-硫辛酸（ALA）的合併止痛效果偏低，但長期評估有所改善。</li>
+    <li><b>α-硫辛酸 2022 統合分析</b>：9 項 RCT（594 人，品質低、多為高偏誤風險）；對照安慰劑的 VAS 降低<b>未達顯著</b>，但症狀改善的勝算約 1.9 倍；clonazepam 與 pregabalin 的止痛優於 ALA。</li>
+    <li><b>其他</b>：2022–2023 年的雷射治療系統性回顧與統合分析，以及 2024 年雷射對 clonazepam 的單盲隨機試驗，支持雷射為可選方案，但仍需大型試驗。</li>
+  </ul>
+</section>
+
+<section id="ear">
+  <div class="section-label">03 · 耳 <span class="en">Ear</span></div>
+  <h2>耳鳴、耳痛與中間神經痛<span class="en">Tinnitus · Otalgia · Nervus intermedius neuralgia</span></h2>
+
+  <h3>A. 耳鳴<span class="en">Tinnitus</span></h3>
+  <p><b>AAO-HNSF 臨床實務指引更新（Adams 等，2026 年 10 月，取代 2014 年版）</b>共 16 項關鍵行動陳述，適用 ≥18 歲、持續（≥6 個月）且困擾的耳鳴：</p>
+  <ul>
+    <li><b>評估</b>：針對性的病史與理學檢查；區分困擾與非困擾耳鳴；詢問情緒困擾與自傷風險；<b>全面聽力評估</b>。</li>
+    <li><b>影像</b>：強烈建議不要常規做神經放射影像，除非有特定警訊：單側耳鳴、搏動性耳鳴、局部神經學異常、不對稱或突發性聽力損失。</li>
+    <li><b>介入</b>：聽力困難者轉介助聽器評估；符合聽力條件者考慮人工電子耳評估；<b>建議認知行為治療（CBT）</b>；聲音豐富化（sound enrichment）；並新增「體感性耳鳴」（隨頭、頸、下頜動作改變）、雙模神經調節與追蹤評估等陳述。</li>
+    <li><b>藥物</b>：以治療耳鳴為主要目的時，<b>不應常規建議抗憂鬱藥、抗癲癇藥、抗焦慮藥或鼓室內藥物</b>。</li>
+    <li><b>證據基礎</b>：該指引依據 28 項指引、223 項系統性回顧與 362 項隨機對照試驗。2014 年版曾以 CBT 為 A 級證據的建議、助聽器評估為 C 級、聲音治療為可選（B 級）。</li>
+  </ul>
+  <div class="callout"><b>神經科觀點：</b>耳鳴的處理核心是「評估警訊、保護情緒、聽力復健與行為治療」；藥物不是常規選項。單側耳鳴、搏動性耳鳴、突發聽損與局部神經症狀要轉往影像與專科評估。</div>
+
+  <h3>B. 耳痛與中間神經痛<span class="en">Otalgia &amp; intermediate nerve neuralgia</span></h3>
+  <ul>
+    <li><b>先排除非神經痛原因</b>：外耳或中耳病變、牙科與顳顎關節來源、顱底與鼻咽、咽喉病變的轉移痛、顱底腫瘤、血管病變與少見的 Eagle 症候群；需要神經學、牙科與耳鼻喉全面檢查。</li>
+    <li><b>中間神經痛（nervus intermedius neuralgia，又稱膝狀神經節神經痛）</b>：極罕見；陣發性、刀割樣的耳道深部痛，可放射至耳廓、乳突、軟齶、顳部與下頜角；數秒至數分鐘；可由外耳道後壁刺激誘發；偶伴流淚、流涎或味覺改變。常與三叉神經痛及舌咽神經痛混淆。</li>
+    <li><b>治療</b>：2025 年綜述指出，由三叉神經痛類推，carbamazepine 或 oxcarbazepine 可作為一線；藥物難治者可轉介神經外科評估微血管減壓術或神經切斷。證據為個案報告與小型病例系列。</li>
+  </ul>
+</section>
+
+<section id="ddx">
+  <div class="section-label">04 · 鑑別診斷與紅旗 <span class="en">Differential &amp; Red Flags</span></div>
+  <h2>模式辨識與優先排除<span class="en">Pattern recognition first</span></h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">主訴模式</th><th>首要考慮</th><th style="width:32%">關鍵檢查／下一步</th></tr></thead>
+      <tbody>
+        <tr><td><b>臉部單側陣發電擊痛，有扳機點</b></td><td>三叉神經痛</td><td>MRI（高解析序列）；CBZ／OXC；難治者轉介手術評估</td></tr>
+        <tr><td><b>耳道深部陣發痛，外耳道後壁可誘發</b></td><td>中間神經痛</td><td>先排除耳鼻喉、牙科與顳顎；MRI；神經科與神經外科評估</td></tr>
+        <tr><td><b>口內持續燒灼、每日數小時</b></td><td>口腔灼熱症候群（先排除次發性）</td><td>血液與口腔檢查；CBT、clonazepam、辣椒素、雷射</td></tr>
+        <tr><td><b>持續鈍痛、非單一神經分布、影像正常</b></td><td>持續性特發性顏面痛</td><td>排除性診斷；處理共病與心理因素；神經調節藥物</td></tr>
+        <tr><td><b>下唇或頦部新發麻木</b></td><td>頦部麻木症候群</td><td>牙科史與頜骨影像；MRI；無牙科原因時全身評估惡性腫瘤</td></tr>
+        <tr><td><b>耳鳴</b></td><td>感音神經性聽損相關；體感性；其他</td><td>全面聽力評估；警訊時影像；CBT、助聽器</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn"><b>紅旗（需儘速影像與專科評估）：</b>無牙科原因的下唇／頦部麻木；進行性感覺缺失或多條顱神經受累；單側耳鳴、搏動性耳鳴、突發或不對稱聽力損失；局部神經學缺損；癌症病史；耳痛合併耳漏、頸部腫塊或體重減輕；年輕病人或有神經學徵象的 TN 樣疼痛（考慮繼發性，如多發性硬化或腫瘤）。</div>
+</section>
+
+<section id="treatment">
+  <div class="section-label">05 · 實證治療總覽 <span class="en">Evidence-based Treatment</span></div>
+  <h2>各症候群的處理與證據強度<span class="en">What works, how strong is the evidence</span></h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:16%">症候群</th><th style="width:30%">首選／一線</th><th>二線與程序性</th><th style="width:20%">證據層級</th></tr></thead>
+      <tbody>
+        <tr><td><b>三叉神經痛</b></td><td>carbamazepine 或 oxcarbazepine；急性發作靜脈 fosphenytoin 或 lidocaine</td><td>lamotrigine、gabapentin、baclofen、pregabalin、肉毒桿菌毒素 A；典型型 MVD；神經破壞性手術</td><td><span class="chip g-guide">EAN 指引</span> <span class="chip g-sr">統合分析</span></td></tr>
+        <tr><td><b>頦部麻木症候群</b></td><td>找出原因；排除腫瘤</td><td>依病因（腫瘤、感染、牙科）治療</td><td><span class="chip g-sr">回顧</span> 觀察性</td></tr>
+        <tr><td><b>持續性特發性顏面痛</b></td><td>衛教、處理共病；三環類、SNRI 或 gabapentinoid</td><td>神經調節（個案層級）</td><td><span class="chip g-exp">專家意見</span> 證據偏弱</td></tr>
+        <tr><td><b>口腔灼熱症候群</b></td><td>CBT；局部或系統 clonazepam；局部辣椒素</td><td>低能量雷射；gabapentin／pregabalin；ALA（證據薄弱）</td><td><span class="chip g-sr">系統性回顧</span> <span class="chip g-rct">RCT</span></td></tr>
+        <tr><td><b>耳鳴</b></td><td>全面聽力評估；助聽器評估；CBT；衛教</td><td>聲音豐富化；人工電子耳評估（符合條件者）；<b>不常規用藥</b></td><td><span class="chip g-guide">AAO-HNSF 2026</span></td></tr>
+        <tr><td><b>中間神經痛</b></td><td>carbamazepine／oxcarbazepine（類推）</td><td>MVD 或神經切斷（難治者）</td><td><span class="chip g-case">個案報告</span> 綜述</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:.84rem;">本頁未列藥物劑量；carbamazepine 使用前請依指引檢查 HLA-B*1502（亞洲族群）與血液、肝腎功能，詳細請參考仿單與本院流程。</p>
+</section>
+
+<section id="limits">
+  <div class="section-label">06 · 證據強度與需核對之處 <span class="en">Limits &amp; To-verify</span></div>
+  <h2>教學時的誠實提醒<span class="en">What is solid, what is soft</span></h2>
+  <div class="card-grid">
+    <div class="card"><span class="icon">✅</span><div class="cat">較穩固</div><h4>三叉神經痛與耳鳴</h4><p>兩者都有最新、系統化方法形成的指引（EAN 2019；AAO-HNSF 2026 更新）。</p></div>
+    <div class="card"><span class="icon">🌗</span><div class="cat">中等</div><h4>口腔灼熱症候群</h4><p>有系統性回顧，但多數試驗樣本小、偏誤風險高，ALA 證據尤其薄弱。</p></div>
+    <div class="card"><span class="icon">🌫️</span><div class="cat">偏弱</div><h4>PIFP 與中間神經痛</h4><p>PIFP 為排除性診斷，治療證據以專家意見為主；中間神經痛極罕見，多為個案。</p></div>
+  </div>
+  <ul>
+    <li><b>2026 年耳鳴指引</b>：我取得的是學會新聞稿、摘要與資訊圖；16 項關鍵行動陳述的建議強度與證據等級，請對照 Otolaryngol Head Neck Surg 全文。</li>
+    <li><b>頦部麻木症候群</b>：29–53% 與惡性腫瘤相關的數字來自一篇回顧的摘要，原始研究多為病例報告與小型系列；「78.5%、約 7 個月」為 2008 年系統性回顧，較舊。</li>
+    <li><b>PIFP 診斷細節</b>（如每日持續時間）請依 ICHD-3／ICOP 原文確認。</li>
+    <li><b>臉與耳的其他症狀</b>（如耳悶、聽覺過敏、舌咽與迷走分支的耳痛）本集未涵蓋；舌咽神經痛已在上集說明。</li>
+  </ul>
+</section>
+
+<section id="quiz">
+  <div class="section-label">07 · 自我測驗 <span class="en">Self-check</span></div>
+  <h2>五題快速檢視</h2>
+  <div id="quiz-box"></div>
+  <div class="score" id="score"></div>
+</section>
+
+<section id="refs">
+  <div class="section-label">參考文獻 <span class="en">References</span></div>
+  <h2>Reference List</h2>
+  <ul class="ref-list">
+    <li><span class="ref-num">[1]</span><span>Bendtsen L, Zakrzewska JM, Abbott J, et al. European Academy of Neurology guideline on trigeminal neuralgia. <i>Eur J Neurol.</i> 2019;26(6):831-849. <span class="doi">DOI: 10.1111/ene.13950</span></span></li>
+    <li><span class="ref-num">[2]</span><span>Rana MH, Khan AAG, Khalid I, et al. Therapeutic approach for trigeminal neuralgia: a systematic review. <i>Biomedicines.</i> 2023;11(10):2606. <span class="doi">DOI: 10.3390/biomedicines11102606</span></span></li>
+    <li><span class="ref-num">[3]</span><span>Efficacy and safety of botulinum toxin type A in the treatment of trigeminal neuralgia: an update on systematic review with meta-analyses. <i>Clin J Pain.</i> 2024;40(6):383-392. <span class="doi">DOI: 10.1097/AJP.0000000000001207</span></span></li>
+    <li><span class="ref-num">[4]</span><span>Tan HL, Smith JG, Hoffmann J, Renton T. A systematic review of treatment for patients with burning mouth syndrome. <i>Cephalalgia.</i> 2022;42(2):128-161. <span class="doi">DOI: 10.1177/03331024211036152</span></span></li>
+    <li><span class="ref-num">[5]</span><span>Efficacy of alpha-lipoic acid in patients with burning mouth syndrome compared to that of placebo or other interventions: a systematic review with meta-analyses. <i>J Dent Anesth Pain Med.</i> 2022;22(5). <span class="doi">作者資訊請於引用前核對</span></span></li>
+    <li><span class="ref-num">[6]</span><span>Canfora F, Ottaviani G, Calabria E, et al. Advancements in understanding and classifying chronic orofacial pain: key insights from biopsychosocial models and international classifications (ICHD-3, ICD-11, ICOP). <i>Biomedicines.</i> 2023;11(12):3266. <span class="doi">DOI: 10.3390/biomedicines11123266</span></span></li>
+    <li><span class="ref-num">[7]</span><span>Orofacial pain: mechanism-based management review. <i>J Headache Pain.</i> 2025. <span class="doi">DOI: 10.1186/s10194-025-02173-2</span></span></li>
+    <li><span class="ref-num">[8]</span><span>Perez CV, de Leeuw R, Escala F, Fuentealba RA, Klasser GD. Numb chin syndrome: what all oral health care professionals should know. <span class="doi">期刊與年份請於引用前核對</span> · Galán Gil S, Peñarrocha Diago M, Peñarrocha Diago M. Malignant mental nerve neuropathy: systematic review. <i>Med Oral Patol Oral Cir Bucal.</i> 2008;13(10):E616-621.</span></li>
+    <li><span class="ref-num">[9]</span><span>Adams ME, et al. Clinical practice guideline: tinnitus update. <i>Otolaryngol Head Neck Surg.</i> 2026（2026 年 10 月 12 日發布）. · Tunkel DE, Bauer CA, Sun GH, et al. Clinical practice guideline: tinnitus. <i>Otolaryngol Head Neck Surg.</i> 2014;151(2 Suppl):S1-S40. <span class="doi">DOI: 10.1177/0194599814545325</span></span></li>
+    <li><span class="ref-num">[10]</span><span>Nervus intermedius neuralgia. <i>Curr Pain Headache Rep.</i> 2025;29(1):32. <span class="doi">DOI: 10.1007/s11916-024-01335-2</span> · Wang K, Li W, Bo Y, et al. Microvascular decompression for intermediate nerve neuralgia: a case report and literature review. <i>Front Surg.</i> 2024;11:1350075. <span class="doi">DOI: 10.3389/fsurg.2024.1350075</span></span></li>
+  </ul>
+  <p style="margin-top:16px;font-size:.8rem;color:var(--text-faint);">「已查核」僅表示與檢索到的摘要或權威二手摘要一致；標為需核對的資訊請勿直接用於教學或發表。本頁未提供藥物劑量，臨床使用請依最新仿單與個案評估。</p>
+</section>
+
+<footer>
+  N-Teaching 神經科教學研究部 · 本頁面為住院醫師／專科護理師教學用整理資料，非臨床診斷依據 · <a href="index.html">返回首頁</a>
+</footer>
+
+<script>
+/* 自我測驗：要新增題目，複製一個 {...} 區塊再修改文字即可 */
+var QUIZ = [
+  { q: "依 EAN 2019 三叉神經痛指引，下列何者正確？",
+    opts: ["臨床特徵足以排除繼發性 TN，不需影像", "所有 TN 病人都應做 MRI；carbamazepine 或 oxcarbazepine 為長期一線；典型 TN 的首選手術為 MVD", "神經血管接觸出現即可確診", "lamotrigine 為一線藥物"],
+    a: 1, why: "指引指出沒有臨床特徵可排除繼發性 TN，應做 MRI；神經血管接觸不能用來確診；CBZ／OXC 為一線；典型型 MVD 為首選手術。" },
+  { q: "58 歲女性，下唇與頦部左側新發麻木 3 週，無牙科處置，下一步最合適的是？",
+    opts: ["當作焦慮，觀察", "視為紅旗，安排頜骨與腦部影像並評估惡性腫瘤", "只給維生素 B12", "只做聽力檢查"],
+    a: 1, why: "無牙科原因的頦部麻木與惡性腫瘤相關（已發表病例中 29–53%），需評估腫瘤與轉移。" },
+  { q: "關於口腔灼熱症候群的治療證據，何者最正確？",
+    opts: ["α-硫辛酸優於 clonazepam", "CBT、局部辣椒素、clonazepam 與低能量雷射在系統性回顧中顯示有利結果；ALA 對照安慰劑止痛未達顯著", "所有治療都無效", "只有手術有效"],
+    a: 1, why: "2022 年系統性回顧：CBT、局部辣椒素與 clonazepam、雷射在短期與長期皆有利；ALA 統合分析（9 項 RCT）止痛未達顯著且品質低，clonazepam 與 pregabalin 優於 ALA。" },
+  { q: "2026 年 AAO-HNSF 耳鳴指引更新，對持續且困擾的耳鳴，下列何者最符合？",
+    opts: ["常規使用抗憂鬱藥與抗癲癇藥", "全面聽力評估、助聽器評估、CBT；不常規用藥；僅在警訊時做影像", "所有病人都做腦部 MRI", "不需追蹤"],
+    a: 1, why: "指引建議全面聽力評估、助聽器評估與 CBT；不應常規以抗憂鬱、抗癲癇、抗焦慮或鼓室內藥物治療耳鳴；影像僅限單側、搏動性、局部神經學異常或不對稱／突發聽損。" },
+  { q: "耳道深部陣發性刀割樣痛，持續數秒至數分鐘，外耳道後壁可誘發。最需要先做的事是？",
+    opts: ["直接診斷中間神經痛並手術", "先排除耳鼻喉、牙科、顳顎關節與顱底腫瘤等非神經痛原因，再考慮中間神經痛", "只做聽力圖", "給抗生素"],
+    a: 1, why: "中間神經痛極罕見，須先排除非神經痛原因；藥物以 CBZ／OXC 類推，難治者才考慮 MVD 或神經切斷，證據為個案層級。" }
+];
+var answered = 0, correct = 0;
+(function build(){
+  var box = document.getElementById("quiz-box");
+  QUIZ.forEach(function(item, qi){
+    var d = document.createElement("div"); d.className = "q";
+    var h = document.createElement("h4"); h.textContent = (qi+1) + ". " + item.q; d.appendChild(h);
+    item.opts.forEach(function(o, oi){
+      var b = document.createElement("button"); b.className = "opt"; b.type = "button"; b.textContent = o;
+      b.onclick = function(){
+        if (d.classList.contains("done")) return;
+        d.classList.add("done"); answered++;
+        var btns = d.querySelectorAll(".opt");
+        btns[item.a].classList.add("right");
+        if (oi === item.a) { correct++; } else { b.classList.add("wrong"); }
+        document.getElementById("score").textContent = "目前答對 " + correct + " / " + answered + "（共 " + QUIZ.length + " 題）";
+      };
+      d.appendChild(b);
+    });
+    var w = document.createElement("div"); w.className = "why"; w.textContent = "解析：" + item.why; d.appendChild(w);
+    box.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>
