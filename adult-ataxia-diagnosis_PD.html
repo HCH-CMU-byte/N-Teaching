@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成人發病步態異常與運動失調的早期診斷整合路徑（上）</title>
+<style>
+:root{
+  --bg:#0f1318;--bg-card:#19202a;--bg-card-hover:#202938;--border:#2c3545;
+  --text:#e9edf4;--text-dim:#9aa6b8;--text-faint:#647086;
+  --teal:#4fc3c3;--teal-dim:#245f60;
+  --rose:#ee7d70;--rose-dim:#7a3d37;
+  --gold:#e2b34b;--gold-dim:#85692b;
+  --blue:#6aa9f0;--blue-dim:#2d4f7e;
+  --green:#5cc79b;--green-dim:#265c48;
+  --purple:#a98ee6;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:70px;}
+body{background:var(--bg);color:var(--text);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;line-height:1.75;font-size:16px;}
+.en{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--text-dim);font-size:.86em;}
+a{color:var(--gold);text-decoration:none;} a:hover{text-decoration:underline;}
+
+.topnav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;
+  background:rgba(15,19,24,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px;}
+.brand{display:flex;align-items:center;}
+.logo-mark{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,var(--teal),var(--gold));display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#0f1318;}
+.brand:hover{text-decoration:none;}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap;align-items:center;}
+.nav-links a{color:var(--text-dim);font-size:.86rem;padding:7px 11px;border-radius:6px;transition:all .15s;}
+.nav-links a:hover{color:var(--text);background:var(--bg-card);text-decoration:none;}
+.nav-links a.home{color:var(--gold);}
+
+.hero{padding:60px 28px 38px;max-width:980px;margin:0 auto;border-bottom:1px solid var(--border);}
+.eyebrow{display:inline-flex;gap:8px;color:var(--teal);font-size:.82rem;letter-spacing:.05em;border:1px solid var(--teal-dim);padding:4px 12px;border-radius:20px;margin-bottom:18px;}
+.hero h1{font-size:2rem;font-weight:800;line-height:1.4;background:linear-gradient(90deg,var(--text) 45%,var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero .subtitle{margin-top:14px;color:var(--text-dim);max-width:780px;}
+.hero-meta{display:flex;gap:26px;margin-top:24px;flex-wrap:wrap;}
+.hero-meta div{font-size:.8rem;color:var(--text-faint);} .hero-meta b{color:var(--text);display:block;font-size:1.05rem;}
+
+section{max-width:980px;margin:0 auto;padding:50px 28px;border-bottom:1px solid var(--border);}
+.section-label{color:var(--gold);font-size:.78rem;letter-spacing:.08em;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.section-label::before{content:"";width:22px;height:2px;background:var(--gold);}
+h2{font-size:1.45rem;font-weight:700;margin-bottom:8px;} h2 .en{display:block;font-size:.72rem;margin-top:3px;font-weight:400;}
+h3{font-size:1.08rem;font-weight:700;margin:28px 0 10px;} h3 .en{font-size:.72rem;font-weight:400;}
+p{color:var(--text-dim);margin-bottom:14px;} p b,li b{color:var(--text);font-weight:600;}
+ul,ol{margin:10px 0 16px 22px;color:var(--text-dim);} li{margin-bottom:7px;}
+.lede{margin-bottom:22px;}
+
+.chip{display:inline-flex;align-items:center;gap:3px;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:5px;vertical-align:middle;margin:0 2px;white-space:nowrap;}
+.g-rct{background:rgba(92,199,155,.13);color:var(--green);border:1px solid var(--green-dim);}
+.g-sr{background:rgba(106,169,240,.13);color:var(--blue);border:1px solid var(--blue-dim);}
+.g-guide{background:rgba(238,125,112,.12);color:var(--rose);border:1px solid var(--rose-dim);}
+.g-case{background:rgba(226,179,75,.13);color:var(--gold);border:1px solid var(--gold-dim);}
+.g-exp{background:rgba(154,166,184,.12);color:var(--text-dim);border:1px solid var(--border);}
+.v-ok{background:rgba(92,199,155,.13);color:var(--green);border:1px solid var(--green-dim);}
+.v-fix{background:rgba(238,125,112,.12);color:var(--rose);border:1px solid var(--rose-dim);}
+.v-warn{background:rgba(226,179,75,.13);color:var(--gold);border:1px solid var(--gold-dim);}
+.v-na{background:rgba(154,166,184,.12);color:var(--text-dim);border:1px solid var(--border);}
+.legend{display:flex;gap:14px 20px;flex-wrap:wrap;margin:16px 0;padding:13px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:.78rem;color:var(--text-dim);}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:18px;}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .18s;}
+.card:hover{border-color:var(--gold-dim);background:var(--bg-card-hover);transform:translateY(-2px);}
+.card .icon{font-size:1.4rem;display:block;margin-bottom:8px;}
+.card .cat{font-size:.7rem;color:var(--teal);letter-spacing:.05em;font-weight:700;margin-bottom:4px;}
+.card h4{font-size:.98rem;margin-bottom:6px;} .card p{font-size:.85rem;margin-bottom:0;}
+.card .foot{margin-top:11px;font-size:.74rem;color:var(--text-faint);border-top:1px solid var(--border);padding-top:9px;}
+
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--border);border-radius:8px;}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:700px;}
+th{background:rgba(226,179,75,.08);color:var(--gold);text-align:left;padding:10px 13px;font-size:.76rem;border-bottom:1px solid var(--border);}
+td{padding:10px 13px;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top;} tr:last-child td{border-bottom:none;} td b{color:var(--text);}
+
+.callout{background:rgba(79,195,195,.06);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);border-radius:6px;padding:15px 18px;margin:18px 0;color:var(--text-dim);font-size:.9rem;}
+.callout b{color:var(--teal);}
+.callout.warn{background:rgba(238,125,112,.06);border-color:var(--rose-dim);border-left-color:var(--rose);} .callout.warn b{color:var(--rose);}
+.callout.plan{background:rgba(226,179,75,.06);border-color:var(--gold-dim);border-left-color:var(--gold);} .callout.plan b{color:var(--gold);}
+
+.flow{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin:18px 0;}
+.flow-step{flex:1 1 150px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:13px 14px;min-width:140px;}
+.flow-step .n{font-size:.7rem;color:var(--gold);font-weight:700;letter-spacing:.05em;}
+.flow-step h5{font-size:.9rem;margin:3px 0;} .flow-step p{font-size:.78rem;margin:0;}
+.flow-arrow{display:flex;align-items:center;color:var(--text-faint);padding:0 6px;}
+
+.svgbox{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:14px;margin:18px 0;overflow-x:auto;}
+.svgbox svg{display:block;margin:0 auto;max-width:100%;height:auto;}
+.svgbox .cap{font-size:.78rem;color:var(--text-faint);text-align:center;margin-top:8px;}
+
+.q{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin:14px 0;}
+.q h4{font-size:.96rem;margin-bottom:10px;line-height:1.6;}
+.q .opt{display:block;width:100%;text-align:left;background:var(--bg);color:var(--text-dim);border:1px solid var(--border);border-radius:7px;padding:9px 13px;margin-bottom:7px;cursor:pointer;font-size:.88rem;font-family:inherit;transition:all .15s;}
+.q .opt:hover{border-color:var(--gold-dim);color:var(--text);}
+.q .opt.right{border-color:var(--green);color:var(--green);background:rgba(92,199,155,.08);}
+.q .opt.wrong{border-color:var(--rose);color:var(--rose);background:rgba(238,125,112,.08);}
+.q .why{display:none;margin-top:10px;font-size:.84rem;color:var(--text-dim);border-top:1px dashed var(--border);padding-top:10px;}
+.q.done .why{display:block;}
+.score{margin-top:12px;font-size:.9rem;color:var(--gold);font-weight:700;}
+
+.ref-list{list-style:none;margin:0;padding:0;}
+.ref-list li{padding:11px 0;border-bottom:1px solid var(--border);font-size:.82rem;color:var(--text-dim);display:flex;gap:11px;} .ref-list li:last-child{border-bottom:none;}
+.ref-num{color:var(--gold);font-weight:700;flex-shrink:0;min-width:34px;}
+.ref-list .doi{color:var(--text-faint);font-size:.76rem;}
+.ref-sub{font-size:.78rem;color:var(--teal);margin:22px 0 4px;font-weight:700;letter-spacing:.04em;}
+
+footer{max-width:980px;margin:0 auto;padding:34px 28px 60px;color:var(--text-faint);font-size:.8rem;}
+@media(max-width:700px){.hero h1{font-size:1.5rem;}section{padding:38px 18px;}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="brand"><span class="logo-mark">N</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="home">← 首頁</a>
+    <a href="adult-ataxia-oral-exam.html">下集：口試速記</a>
+    <a href="#skeleton">分類與定位</a>
+    <a href="#history">病史與檢查</a>
+    <a href="#workup">實驗室與影像</a>
+    <a href="#genetics">基因檢測</a>
+    <a href="#secondary">次發病因與處置</a>
+    <a href="#msa">MSA-C vs SAOA</a>
+    <a href="#check">可信度查核</a>
+    <a href="#quiz">自我測驗</a>
+    <a href="#refs">參考文獻</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">● 動作障礙與神經遺傳 · 上集 <span class="en">Part 1 of 2</span></div>
+  <h1>成人發病步態異常與運動失調的早期診斷整合路徑</h1>
+  <p class="subtitle">成人緩慢進展的步態異常，不只是小腦。本頁依「分類與定位 → 病史與檢查 → 實驗室與影像 → 基因檢測 → 次發病因與處置」整理，並將貼上的草稿與近五年文獻、診斷標準與準則逐項對照，標示可信與需修正之處。下集為專科醫師口試速記。</p>
+  <div class="hero-meta">
+    <div><b>3 大類</b>後天、遺傳、散發退化</div>
+    <div><b>RFC1 · FGF14</b>重複擴增優先</div>
+    <div><b>2021–2024</b>PNS 與 MSA 新準則</div>
+    <div><b>上集</b><a href="adult-ataxia-oral-exam.html">下集：口試速記</a></div>
+  </div>
+</div>
+
+<section id="summary">
+  <div class="section-label">進度與重點摘要 <span class="en">Progress &amp; Takeaways</span></div>
+  <h2>先說明拆分與核心訊息</h2>
+  <div class="callout plan"><b>製作進度：</b>資料量大，已拆成兩集。<b>上集（本頁）</b>：診斷整合路徑與草稿查核。<b>下集</b>：<a href="adult-ataxia-oral-exam.html">神經科專科醫師口試速記</a>（回答框架、必背數字、模擬題）。</div>
+  <div class="card-grid">
+    <div class="card"><span class="icon">🧭</span><div class="cat">架構</div><h4>先分流可治療的次發病因</h4><p>病程速度、酒精與藥物、腫瘤、營養、免疫、感染與結構性病因，要在談遺傳之前先處理。</p></div>
+    <div class="card"><span class="icon">🧬</span><div class="cat">基因</div><h4>重複擴增優先，外顯子定序偵測不到</h4><p>RFC1（隊列中 22% 散發晚發共濟失調）與 FGF14／SCA27B（不同隊列占未確診者 9–61%）都是非編碼重複擴增，需專用檢測。</p><div class="foot"><span class="chip g-case">病例系列</span></div></div>
+    <div class="card"><span class="icon">⚖️</span><div class="cat">鑑別</div><h4>MSA-C 與 SAOA 的 SARA 進展差 3 倍</h4><p>SPORTAX（249 人）：每年 SARA 增加 3.3 vs 1.1；2022 MDS 準則新增 clinically established 類別。</p><div class="foot"><span class="chip g-cohort">世代研究</span> <span class="chip g-guide">準則</span></div></div>
+    <div class="card"><span class="icon">💊</span><div class="cat">治療</div><h4>少數病因已有疾病特異治療</h4><p>FRDA：omaveloxolone（FDA 2023、歐盟 2024，≥16 歲）；SCA27B：4-aminopyridine 有觀察性療效；維生素與免疫性病因可逆。</p><div class="foot"><span class="chip g-rct">RCT</span> 觀察性</div></div>
+    <div class="card"><span class="icon">⚠️</span><div class="cat">查核</div><h4>草稿有 3 處數字或劑量需修正</h4><p>omaveloxolone 核准時間、thiamine 劑量、SCA27B 比例；詳見「可信度查核」。</p></div>
+  </div>
+</section>
+
+<section id="skeleton">
+  <div class="section-label">01 · 分類與定位 <span class="en">Classification &amp; Localisation</span></div>
+  <h2>先分三大病因，再分三種步態失調<span class="en">Etiology first, then phenomenology</span></h2>
+  <ul>
+    <li><b>後天性</b>：毒性（酒精、藥物、重金屬）、免疫（副腫瘤、麩質、抗 GAD）、營養缺乏、感染、結構病灶。</li>
+    <li><b>遺傳性</b>：顯性 SCA、隱性（FRDA、RFC1／CANVAS 等）、X 連鎖（FXTAS）、粒線體。</li>
+    <li><b>散發退化性</b>：MSA-C、病因未明的散發性成人起病共濟失調（SAOA）。</li>
+  </ul>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:18%">類型</th><th>特徵</th><th style="width:30%">閉眼或暗處</th></tr></thead>
+      <tbody>
+        <tr><td><b>小腦性</b><br><span class="en">Cerebellar</span></td><td>寬底、不規則步幅、掃視性追蹤、凝視誘發眼振、辨距不良、構音障礙</td><td>閉眼不明顯惡化</td></tr>
+        <tr><td><b>感覺性</b><br><span class="en">Sensory</span></td><td>本體感覺喪失、反射減弱、Romberg 陽性</td><td>閉眼、暗處明顯惡化</td></tr>
+        <tr><td><b>前庭性</b><br><span class="en">Vestibular</span></td><td>洗臉、洗頭、暗處不穩；vHIT 糾正性掃視、動態視力下降</td><td>閉眼、暗處明顯惡化</td></tr>
+        <tr><td><b>高階步態障礙等</b></td><td>步態失用（額葉、小血管病、iNPH）、帕金森症候群、肌張力不全、僵硬人症候群、功能性步態</td><td>需與共濟失調分流</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout"><b>最難的情境：</b>40 歲以後發病、沒有明確家族史的病人，幾乎所有病因都要列入。這類病人在 SPORTAX 登錄研究中，依 MSA-C 診斷標準被歸為 MSA-C，或在病程超過 10 年仍不符時歸為 SAOA。</div>
+</section>
+
+<section id="history">
+  <div class="section-label">02 · 病史與神經學檢查 <span class="en">History &amp; Examination</span></div>
+  <h2>以病程速度與伴隨症狀作為紅旗<span class="en">Tempo and associated features</span></h2>
+
+  <div class="svgbox">
+    <svg viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="成人進展性共濟失調的診斷分流示意圖">
+      <defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#9aa6b8"/></marker></defs>
+      <g font-family="sans-serif">
+        <rect x="310" y="8" width="240" height="42" rx="10" fill="#19202a" stroke="#e2b34b"/>
+        <text x="430" y="34" fill="#e9edf4" font-size="14" text-anchor="middle">成人進展性步態異常／共濟失調</text>
+        <line x1="380" y1="50" x2="170" y2="86" stroke="#9aa6b8" stroke-width="2" marker-end="url(#ah)"/>
+        <line x1="480" y1="50" x2="690" y2="86" stroke="#9aa6b8" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="40" y="90" width="260" height="62" rx="10" fill="#19202a" stroke="#ee7d70"/>
+        <text x="170" y="114" fill="#e9edf4" font-size="13" text-anchor="middle">數週至 3 個月快速進展</text>
+        <text x="170" y="134" fill="#9aa6b8" font-size="11" text-anchor="middle">副腫瘤、免疫、感染、毒性、CJD</text>
+        <rect x="560" y="90" width="260" height="62" rx="10" fill="#19202a" stroke="#4fc3c3"/>
+        <text x="690" y="114" fill="#e9edf4" font-size="13" text-anchor="middle">數月至數年緩慢進展</text>
+        <text x="690" y="134" fill="#9aa6b8" font-size="11" text-anchor="middle">先排除可逆病因，再分遺傳與退化</text>
+        <line x1="690" y1="152" x2="690" y2="178" stroke="#9aa6b8" stroke-width="2" marker-end="url(#ah)"/>
+        <line x1="170" y1="152" x2="170" y2="178" stroke="#9aa6b8" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="40" y="182" width="260" height="70" rx="10" fill="rgba(238,125,112,.06)" stroke="#7a3d37" stroke-dasharray="5 4"/>
+        <text x="170" y="206" fill="#e9edf4" font-size="12" text-anchor="middle">腦脊髓液、抗體、全身腫瘤篩檢</text>
+        <text x="170" y="226" fill="#9aa6b8" font-size="11" text-anchor="middle">早期 MRI 常正常，不能排除</text>
+        <rect x="470" y="182" width="190" height="70" rx="10" fill="#19202a" stroke="#245f60"/>
+        <text x="565" y="206" fill="#e9edf4" font-size="12" text-anchor="middle">自律神經、RBD、</text>
+        <text x="565" y="224" fill="#9aa6b8" font-size="11" text-anchor="middle">L-dopa 反應差、早期跌倒</text>
+        <text x="565" y="242" fill="#4fc3c3" font-size="12" text-anchor="middle">→ MSA-C</text>
+        <rect x="680" y="182" width="170" height="70" rx="10" fill="#19202a" stroke="#245f60"/>
+        <text x="765" y="206" fill="#e9edf4" font-size="12" text-anchor="middle">感覺神經病變、前庭、</text>
+        <text x="765" y="224" fill="#9aa6b8" font-size="11" text-anchor="middle">慢性咳嗽（常先於步態數十年）</text>
+        <text x="765" y="242" fill="#4fc3c3" font-size="12" text-anchor="middle">→ RFC1／CANVAS</text>
+        <rect x="470" y="268" width="190" height="62" rx="10" fill="#19202a" stroke="#245f60"/>
+        <text x="565" y="292" fill="#e9edf4" font-size="12" text-anchor="middle">發作性症狀、下跳眼振</text>
+        <text x="565" y="312" fill="#4fc3c3" font-size="12" text-anchor="middle">→ FGF14／SCA27B</text>
+        <rect x="680" y="268" width="170" height="62" rx="10" fill="#19202a" stroke="#245f60"/>
+        <text x="765" y="292" fill="#e9edf4" font-size="12" text-anchor="middle">顫抖＋小腦＋神經病變</text>
+        <text x="765" y="312" fill="#4fc3c3" font-size="12" text-anchor="middle">→ FXTAS（FMR1）</text>
+        <text x="40" y="290" fill="#9aa6b8" font-size="11">所有緩慢進展病人：腦與脊髓 MRI、</text>
+        <text x="40" y="308" fill="#9aa6b8" font-size="11">基礎實驗室、酒精與藥物史、家族史</text>
+        <line x1="690" y1="152" x2="565" y2="180" stroke="#9aa6b8" stroke-width="1.5" marker-end="url(#ah)"/>
+        <line x1="690" y1="152" x2="765" y2="180" stroke="#9aa6b8" stroke-width="1.5" marker-end="url(#ah)"/>
+      </g>
+    </svg>
+    <div class="cap">示意圖：依病程速度與關鍵伴隨症狀分流；基因檢測的順序見「基因檢測」。</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:20%">線索</th><th>提示</th></tr></thead>
+      <tbody>
+        <tr><td><b>病程速度</b></td><td>數週至 3 個月快速進展：副腫瘤性小腦退化（2021 PNS 準則稱為「rapidly progressive cerebellar syndrome」，列為高風險表型）、橋本相關腦病（SREAT）、HIV、散發性 CJD。慢性數年：遺傳、MSA-C、SAOA。</td></tr>
+        <tr><td><b>藥物、毒物、酒精</b></td><td>酒精、鋰鹽、phenytoin、amiodarone、toluene、5-FU、cytosine arabinoside、重金屬；免疫檢查點抑制劑相關的小腦症候群是近年新病因。停止暴露是首要治療。</td></tr>
+        <tr><td><b>腫瘤、體重下降</b></td><td>副腫瘤性（小細胞肺癌、乳癌、卵巢癌、何杰金淋巴瘤）；發燒、腹瀉、關節炎、體重下降要想 Whipple 氏病。</td></tr>
+        <tr><td><b>自律神經與睡眠</b></td><td>姿勢性低血壓、排尿障礙、勃起障礙、便祕、RBD、夜間喘鳴 → MSA-C；可比運動症狀早數年出現，初診時尚無自律神經衰竭不能排除。</td></tr>
+        <tr><td><b>慢性乾咳＋感覺異常＋不穩</b></td><td>RFC1 相關疾病（CANVAS）；咳嗽常早於步態困難數十年。</td></tr>
+        <tr><td><b>聽力喪失＋錐體徵＋進行性小腦症</b></td><td>表面含鐵血黃素沉積症。</td></tr>
+        <tr><td><b>家族史（三代家系圖）</b></td><td>近親婚配、智能障礙或自閉（脆性 X）、女性 40 歲前停經（FXPOI）、家族性自體免疫疾病。免疫性共濟失調很少家族聚集。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>檢查重點<span class="en">Examination</span></h3>
+  <ul>
+    <li><b>眼動與前庭</b>：掃視性追蹤、凝視誘發眼振、掃視辨距不良；臨床頭脈衝試驗可因隱蔽性掃視而偽陰性，vHIT 較敏感；CANVAS、SCA3、SCA6、FRDA 都可合併雙側前庭低下。</li>
+    <li><b>周邊神經／神經節病變</b>：CANVAS 為非長度依賴性感覺神經節病變，感覺動作電位普遍缺失而運動傳導多正常。</li>
+    <li><b>錐體束與脊髓</b>：反射過強、Babinski、痙攣提示 SPG7、FRDA、MSA 等。</li>
+    <li><b>帕金森症候群紅旗</b>：早期跌倒、L-dopa 反應差、頸部前屈、Pisa 症候群、自律神經衰竭。</li>
+    <li><b>步態動態測試</b>：走廊、倒退走、跑步、閉眼走、雙重任務。器質性步態在雙重任務下更差；功能性步態的關鍵是「不一致」與「不相稱」，且診斷靠正向徵象而非排除。</li>
+  </ul>
+</section>
+
+<section id="workup">
+  <div class="section-label">03 · 實驗室與影像 <span class="en">Labs &amp; Imaging</span></div>
+  <h2>從可逆、可治病因篩起<span class="en">Reversible causes first</span></h2>
+
+  <h3>實驗室<span class="en">Laboratory</span></h3>
+  <ul>
+    <li><b>基礎</b>：全血球計數與 MCV、肝腎功能、血糖、電解質、甲狀腺、酒精標記。</li>
+    <li><b>維生素與代謝</b>：B1、B12、葉酸、維生素 E、銅與血清銅藍蛋白；乳糜瀉與吸收不良。</li>
+    <li><b>免疫與副腫瘤</b>（2021 PNS 準則）：抗體依癌症關聯度分為<b>高風險（&gt;70%）</b>、<b>中風險（30–70%）</b>與較低風險；除 opsoclonus-myoclonus 外，確定的 PNS 需有高或中風險抗體。另測 anti-GAD、anti-TPO、gluten 相關抗體（anti-TG6、anti-gliadin）。</li>
+    <li><b>腦脊髓液</b>：細胞增多與寡株帶提示免疫性；14-3-3 與 DWI 皮質／基底核訊號支持 CJD；Whipple 氏病需十二指腸切片 PCR。</li>
+    <li><b>電生理與前庭</b>：神經傳導／肌電圖（軸索 vs 脫髓鞘、長度依賴 vs 非長度依賴）、vHIT、VEMP。</li>
+  </ul>
+
+  <h3>影像模式辨識<span class="en">Imaging patterns</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:34%">影像</th><th style="width:22%">提示</th><th>備註</th></tr></thead>
+      <tbody>
+        <tr><td>小腦前上蚓部萎縮</td><td>酒精性小腦退化</td><td>以步態與下肢為主</td></tr>
+        <tr><td>腦橋「十字麵包」徵＋腦橋、中小腦腳、小腦萎縮</td><td>MSA-C</td><td>十字麵包徵亦見於 SCA，須結合自律神經與病程</td></tr>
+        <tr><td>後側殼核萎縮與高訊號邊緣</td><td>MSA-P</td><td></td></tr>
+        <tr><td>中小腦腳高訊號（MCP sign）、胼胝體壓部高訊號</td><td>FXTAS</td><td>需 FMR1 檢測確認</td></tr>
+        <tr><td>小腦（尤其前部蚓部）萎縮、皮質相對保留</td><td>RFC1／CANVAS</td><td>與感覺神經節病變、雙側前庭低下並存</td></tr>
+        <tr><td>腦與脊髓表面 T2 線狀低訊號</td><td>表面含鐵血黃素沉積症</td><td>需找出血源</td></tr>
+        <tr><td>頸髓後索 T2 高訊號</td><td>B12 缺乏</td><td>感覺性共濟失調為主</td></tr>
+        <tr><td>頸髓萎縮</td><td>FRDA（含晚發型）</td><td></td></tr>
+        <tr><td>皮質帶狀、基底核、視丘枕 DWI 高訊號</td><td>sCJD 共濟失調型</td><td>14-3-3 升高</td></tr>
+        <tr><td>腦室擴大不成比例、DESH</td><td>正常壓力水腦（iNPH）</td><td>高階步態，引流可改善</td></tr>
+        <tr><td>腦室周與深部白質高訊號、腔隙、微出血</td><td>血管性／額葉性步態</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn"><b>提醒：</b>副腫瘤性小腦退化的早期 MRI 往往正常，小腦萎縮有潛伏期，「影像正常」不能排除；所有病人建議腦部與脊髓 MRI，並先排除 Chiari、腫瘤、膿瘍與脫髓鞘。</div>
+</section>
+
+<section id="genetics">
+  <div class="section-label">04 · 基因檢測 <span class="en">Genetic Testing</span></div>
+  <h2>重複擴增優先，再擴大到外顯子或基因體<span class="en">Repeat expansions first</span></h2>
+
+  <div class="flow">
+    <div class="flow-step"><div class="n">STEP 1</div><h5>家系圖與表型</h5><p>三代家系、遺傳模式、發病年齡、伴隨特徵。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">STEP 2</div><h5>排除可逆病因</h5><p>腦脊髓 MRI、基礎與免疫檢查。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">STEP 3</div><h5>重複擴增檢測</h5><p>SCA1/2/3/6/7、FRDA、RFC1、FGF14、FMR1（依表型）。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">STEP 4</div><h5>陰性再做 ES／GS</h5><p>含粒線體基因體與拷貝數變異。</p></div>
+  </div>
+
+  <h3>近五年關鍵證據<span class="en">Evidence</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">主題</th><th>數據</th><th style="width:20%">層級</th></tr></thead>
+      <tbody>
+        <tr><td><b>NGS 診斷率</b><br><span class="en">Tenorio 2023</span></td><td>33 項研究；中位數 43%（IQR 9.5–100%）；標靶套組 46%、外顯子 41.9%；發作性共濟失調 68.4%；近親婚配 52.4%；推定隱性 62.5%；有做重複擴增篩檢者的診斷率較高（p = 0.047）；最常見基因 CACNA1A、SACS</td><td><span class="chip g-sr">系統性回顧</span></td></tr>
+        <tr><td><b>SPORTAX 套組</b><br><span class="en">Giordano 2017</span></td><td>排除常見重複擴增後，201 基因套組在 194 位受檢者中有 11 位（6%）得到確定或可能的基因診斷</td><td><span class="chip g-cohort">世代研究</span></td></tr>
+        <tr><td><b>RFC1</b><br><span class="en">Cortese 2019、2020</span></td><td>150 位散發性晚發共濟失調中 33 位（22%）帶雙套 AAGGG 擴增；伴感覺神經病變或雙側前庭無反射時比例更高（晚發小腦性共濟失調合併感覺神經病變 63%）；歐洲人帶因率 0.7%；100 位確認病人中約三分之二符合完整 CANVAS；咳嗽常早於步態困難數十年</td><td><span class="chip g-case">病例系列</span></td></tr>
+        <tr><td><b>FGF14（SCA27B）</b><br><span class="en">Pellerin 2023 等</span></td><td>占不同隊列未確診者的 9–61%；平均發病約 57–60 歲；緩慢進展的全小腦症候群，常見眼動異常（下跳眼振）與發作性症狀；美國 102 位病人中 21/28（75%）報告 4-aminopyridine 有效（回溯、非盲）</td><td><span class="chip g-case">病例系列</span> 觀察性</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul>
+    <li><b>檢測限制</b>：RFC1 與 FGF14 皆為非編碼重複擴增，外顯子定序無法可靠偵測，需 repeat-primed PCR、標靶長讀定序或專用演算法。</li>
+    <li><b>FRDA 治療</b>：omaveloxolone 經 MOXIe Part 2 隨機試驗（150 mg 每日，48 週 mFARS）支持，FDA 於 2023 年 2 月核准（≥16 歲），歐盟執委會 2024 年 2 月核准；FRDA 臨床處置指引 2022 年出版，2024 年 11 月更新並新增 omaveloxolone 建議。</li>
+    <li><b>基因診斷的意義</b>：影響治療（omaveloxolone、4-AP 試驗性使用）、器官監測（如 FRDA 心肌病變）與家族諮詢。</li>
+  </ul>
+</section>
+
+<section id="secondary">
+  <div class="section-label">05 · 次發病因與處置 <span class="en">Secondary Causes &amp; Management</span></div>
+  <h2>可治療的原因要先找<span class="en">Treatable first</span></h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">類別</th><th>關鍵線索</th><th style="width:36%">處置重點</th></tr></thead>
+      <tbody>
+        <tr><td><b>酒精性小腦退化</b></td><td>長期酗酒；步態與下肢為主；蚓部萎縮；MCV、肝酵素、酒精標記升高</td><td>戒酒與營養補充；<b>若疑 Wernicke 腦病，應給高劑量靜脈 thiamine</b>（EFNS：200 mg 每日 3 次；英國 RCP：500 mg 每日 3 次，之後逐步減量；各指引不同且高劑量證據品質低）；須在輸注葡萄糖前或同時給予，並補鎂</td></tr>
+        <tr><td><b>其他毒性</b></td><td>鋰鹽、phenytoin、amiodarone、toluene、5-FU、重金屬</td><td>立即停止暴露；急性鋰中毒可考慮血液透析</td></tr>
+        <tr><td><b>維生素 B12、E 缺乏</b></td><td>吸收不良、胃手術、酗酒、乳糜瀉</td><td>B12 補充；維生素 E 缺乏需長期補充（劑量與途徑請依專科建議）</td></tr>
+        <tr><td><b>免疫媒介</b></td><td>亞急性起病、自體免疫病史、CSF 細胞增多或寡株帶</td><td>移除誘發因子（腫瘤、麩質）；免疫治療在病程早期較可能有效；全身腫瘤篩檢（含 FDG-PET/CT）</td></tr>
+        <tr><td><b>感染</b></td><td>神經梅毒、Whipple 氏病、HIV、CJD</td><td>針對病原治療；CJD 無法治癒</td></tr>
+        <tr><td><b>結構性</b></td><td>表面含鐵血黃素沉積症、Chiari、腫瘤、脫髓鞘</td><td>移除出血源或針對病灶</td></tr>
+        <tr><td><b>退化性</b></td><td>MSA-C、SAOA</td><td>症狀治療與多專科照護；無疾病修飾療法</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="msa">
+  <div class="section-label">06 · MSA-C 與 SAOA <span class="en">Early Differentiation</span></div>
+  <h2>早期診斷的關鍵鑑別<span class="en">MSA-C vs SAOA</span></h2>
+  <ul>
+    <li><b>SPORTAX 登錄研究（249 人，Giordano 2017）</b>：83 人在基線符合很可能 MSA-C，追蹤中另有 12 人；48 人不符合 MSA-C 且病程超過 10 年，被定義為 SAOA／non-MSA。每年 SARA 增加：MSA-C 3.3、SAOA 1.1。</li>
+    <li><b>2022 MDS MSA 標準（Wenning）</b>：維持神經病理確定 MSA；新增 <b>clinically established MSA</b>（追求最高特異度，需腦部 MRI 支持標記）、<b>clinically probable MSA</b>（兼顧敏感度）與研究用的<b>possible prodromal MSA</b>；作者明言需前瞻性臨床與臨床病理驗證。</li>
+    <li><b>實用提醒</b>：嚴重自律神經衰竭可晚於共濟失調數年出現，初診沒有自律神經衰竭不能排除 MSA-C；追蹤時重複評估自律神經與帕金森症狀。</li>
+    <li><b>研究階段的生物標記</b>：血中 NfL、腦脊髓液 α-突觸核蛋白種子擴增檢測與影像（FDG-PET、心臟 MIBG、DAT-SPECT）尚在發展，非常規診斷。</li>
+  </ul>
+
+  <h3>其他易誤認的步態異常<span class="en">Mimics</span></h3>
+  <div class="card-grid">
+    <div class="card"><span class="icon">🧬</span><div class="cat">X 連鎖</div><h4>FXTAS</h4><p>FMR1 前突變帶因者；意向性顫抖、小腦性共濟失調、周邊神經病變；MRI 可見 MCP sign 與胼胝體壓部高訊號。</p></div>
+    <div class="card"><span class="icon">🚶</span><div class="cat">高階步態</div><h4>iNPH 與步態失用</h4><p>小碎步、磁性步態、轉身困難；iNPH 對腦脊髓液引流有反應，是可治療的步態異常。</p></div>
+    <div class="card"><span class="icon">🎭</span><div class="cat">功能性</div><h4>功能性步態障礙</h4><p>靠正向徵象診斷：不一致、不相稱、雙重任務改善；但肌張力不全、凍結步態與額葉病灶也可能「看起來很怪」。</p></div>
+    <div class="card"><span class="icon">🤖</span><div class="cat">免疫</div><h4>僵硬人症候群</h4><p>軸性僵硬、誘發性痙攣；常被誤診為功能性步態而延誤免疫治療。</p></div>
+  </div>
+</section>
+
+<section id="check">
+  <div class="section-label">07 · 內容可信度查核 <span class="en">Credibility Check</span></div>
+  <h2>貼上草稿中哪些可信、哪些要修正<span class="en">What holds up, what needs correction</span></h2>
+  <p class="lede">草稿的架構與流程（先分流可治療病因、重複擴增優先、MSA-C 與 SAOA 鑑別）有文獻支持。需修正的集中在<b>少數數字與劑量、引用來源錯置，以及基因檢測順序未納入 SCA27B 的最新證據</b>。11 篇引用中有 4 篇超出近五年。</p>
+
+  <div class="legend">
+    <span><span class="chip v-ok">✔ 已查核</span> 與文獻一致</span>
+    <span><span class="chip v-fix">▲ 需修正</span> 與文獻不符或缺漏</span>
+    <span><span class="chip v-warn">▲ 過度推論</span> 方向對但說得太滿</span>
+    <span><span class="chip v-na">○ 未能查核</span> 本次未取得原文</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">草稿的說法</th><th style="width:14%">結果</th><th>說明</th></tr></thead>
+      <tbody>
+        <tr><td>SPORTAX：249 人；SARA 年增 MSA-C 3.3、SAOA 1.1；201 基因套組 6%（11/194）</td><td><span class="chip v-ok">✔ 已查核</span></td><td>與摘要一致。草稿的「possible MSA 50% 轉為 probable vs 4%」「中位 4 年」「兩階段策略可提升至 15–24%」本次未取得，標為未查核。</td></tr>
+        <tr><td>「發病 10 年仍無嚴重自律神經衰竭即支持 SAOA」</td><td><span class="chip v-warn">▲ 過度推論</span></td><td>SAOA／non-MSA 在該研究是<b>以「不符合 MSA-C 且病程 &gt;10 年」操作性定義</b>，並非前瞻驗證的切點；教學時應說明這是定義，而非診斷閾值。</td></tr>
+        <tr><td>2022 MDS 準則新增 clinically established MSA，需 MRI 標記；保留 prodromal 研究類別</td><td><span class="chip v-ok">✔ 已查核</span></td><td>與摘要一致；補充：準則需前瞻性驗證。</td></tr>
+        <tr><td>副腫瘤性小腦退化「定義即 12 週內進展為嚴重共濟失調」</td><td><span class="chip v-warn">▲ 需補充</span></td><td>2021 PNS 準則使用「rapidly progressive cerebellar syndrome」為高風險表型；「12 週」本次未在摘要中見到。抗體風險分層（高 &gt;70%、中 30–70%）已確認。</td></tr>
+        <tr><td>RFC1：150 位散發性晚發共濟失調中占 22%；合併感覺神經節病變升至 63%；「完整 CANVAS 達 92%」；平均發病 54 歲、咳嗽 37%</td><td><span class="chip v-warn">▲ 部分查核</span></td><td>22%（33/150）與 63%（32/51，晚發小腦性共濟失調合併感覺神經病變）已確認；2020 年 100 人系列為「約三分之二完整 CANVAS」，與「92%」不符；54 歲、83% 小腦萎縮、53% 前庭障礙、咳嗽 37% 本次未查到。補充帶因率 0.7%。</td></tr>
+        <tr><td>FGF14 擴增「可能占以往未確診晚發型共濟失調的 20%」；列於基因檢測次要位置</td><td><span class="chip v-fix">▲ 需修正</span></td><td>文獻報告範圍為<b>9–61%</b>，因隊列而異；一項西班牙隊列認為應作為晚發小腦性共濟失調的第一線基因檢測；表型為晚發全小腦症候群，常有下跳眼振與發作性症狀；4-AP 反應來自回溯、非盲資料。</td></tr>
+        <tr><td>Tenorio：中位診斷率 43%；TP 46%、ES 41.9%；成人晚發 54.5%；近親 52.4%；推定隱性 62.5%</td><td><span class="chip v-ok">✔ 已查核</span></td><td>晚發為 54.4%（草稿 54.5%）；「33 篇、3,144 位患者」中的 3,144 本次未見；草稿列「SYNE1、SETX、SPG7」為最常見基因，摘要只確認 CACNA1A 與 SACS。</td></tr>
+        <tr><td>omaveloxolone「EMA 2018、FDA 2023 核准」</td><td><span class="chip v-fix">▲ 需修正</span></td><td>FDA 2023 年 2 月核准（≥16 歲）；歐盟執委會 2024 年 2 月 9 日核准（CHMP 意見 2023 年 12 月）。依據為 MOXIe Part 2 隨機試驗。</td></tr>
+        <tr><td>酒精性小腦退化：thiamine「先 50 mg IV／IM，再口服」</td><td><span class="chip v-fix">▲ 需修正</span></td><td>低劑量 thiamine 不足以處理疑似 Wernicke 腦病；EFNS 為 200 mg 靜脈每日 3 次、英國 RCP 為 500 mg 靜脈每日 3 次（再逐步減量），且需先於或同時於葡萄糖給予並補鎂；但高劑量的證據品質低，各指引劑量不一。</td></tr>
+        <tr><td>維生素 E 缺乏：「100–200 mg／日肌肉注射」</td><td><span class="chip v-na">○ 未能查核</span></td><td>與一般教科書的高劑量口服補充不符，本次未取得原文；請依專科資料核對，頁面不列劑量。</td></tr>
+        <tr><td>英國 1500 位進展性共濟失調的病因分布（免疫 33%、遺傳 13%、酒精 12%、MSA-C 11%、特發性 24%），引用 [4]</td><td><span class="chip v-fix">▲ 引用需修正</span></td><td>該分布來自 Hadjivassiliou 等的前瞻研究（J Neurol Neurosurg Psychiatry 2017），並非 [4]（2024 年免疫性共濟失調綜述）；比例本次未核對。</td></tr>
+        <tr><td>Whipple 氏病「約半數有神經症狀者出現小腦共濟失調」；MSA 的 RBD 88%、喘鳴 1/3–2/3；FXTAS 比例與 MCP sign 58–82%</td><td><span class="chip v-na">○ 未能查核</span></td><td>教學時請改用定性描述。</td></tr>
+        <tr><td>內容完整度</td><td><span class="chip v-fix">▲ 需補充</span></td><td>已補入 2021 PNS 診斷準則、2022 MDS MSA 準則、SCA27B、FRDA 2024 臨床指引更新與基因檢測的實證數據；原草稿沒有「處置」的證據分級。</td></tr>
+        <tr><td>引用年代</td><td><span class="chip v-warn">▲ 需更新</span></td><td>[3] 2017、[6] 2019、[8] 2020、[9] 2020 超出近五年（仍為各主題的主要原始研究，保留並標示年代）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="section-label">08 · 自我測驗 <span class="en">Self-check</span></div>
+  <h2>五題快速檢視</h2>
+  <div id="quiz-box"></div>
+  <div class="score" id="score"></div>
+</section>
+
+<section id="refs">
+  <div class="section-label">參考文獻 <span class="en">References</span></div>
+  <h2>Reference List</h2>
+
+  <div class="ref-sub">A. 本次補充查核的文獻與準則</div>
+  <ul class="ref-list">
+    <li><span class="ref-num">[A1]</span><span>Wenning GK, Stankovic I, Vignatelli L, et al. The Movement Disorder Society criteria for the diagnosis of multiple system atrophy. <i>Mov Disord.</i> 2022;37(6):1131-1148. <span class="doi">DOI: 10.1002/mds.29005</span></span></li>
+    <li><span class="ref-num">[A2]</span><span>Graus F, Vogrig A, Muñiz-Castrillo S, et al. Updated diagnostic criteria for paraneoplastic neurologic syndromes. <i>Neurol Neuroimmunol Neuroinflamm.</i> 2021;8(4):e1014. <span class="doi">DOI: 10.1212/NXI.0000000000001014</span></span></li>
+    <li><span class="ref-num">[A3]</span><span>Wilke C, Pellerin D, Mengel D, et al. GAA-FGF14 ataxia (SCA27B): phenotypic profile, natural history progression and 4-aminopyridine treatment response. <i>Brain.</i> 2023;146(10):4144-4157. <span class="doi">DOI: 10.1093/brain/awad157</span></span></li>
+    <li><span class="ref-num">[A4]</span><span>Pellerin D, Danzi MC, Renaud M, et al. Spinocerebellar ataxia 27B: a novel, frequent and potentially treatable ataxia. <i>Clin Transl Med.</i> 2024. · SCA27B 美國大型隊列（102 位病人）. <i>Ann Neurol.</i> 2024;96:1092-1103.</span></li>
+    <li><span class="ref-num">[A5]</span><span>Cortese A, Tozza S, Yau WY, et al. Cerebellar ataxia, neuropathy, vestibular areflexia syndrome due to RFC1 repeat expansion. <i>Brain.</i> 2020;143(2):480-490. <span class="doi">DOI: 10.1093/brain/awz418</span></span></li>
+    <li><span class="ref-num">[A6]</span><span>Lynch DR, Chin MP, Delatycki MB, et al. Safety and efficacy of omaveloxolone in Friedreich ataxia (MOXIe study). <i>Ann Neurol.</i> 2021;89(2):212-225. · Clinical Management Guidelines for Friedreich Ataxia（2022 出版；2024 年 11 月更新）. frdaguidelines.org</span></li>
+    <li><span class="ref-num">[A7]</span><span>Hadjivassiliou M, Martindale J, Shanmugarajah P, et al. Causes of progressive cerebellar ataxia: prospective evaluation of 1500 patients. <i>J Neurol Neurosurg Psychiatry.</i> 2017;88:301-309. <span class="doi">DOI: 10.1136/jnnp-2016-314863</span></span></li>
+    <li><span class="ref-num">[A8]</span><span>Wernicke 腦病 thiamine 劑量：EFNS 指引、英國 Royal College of Physicians 指引與 ESPEN 2022 微量營養素指引的比較；南非衛生部 2022 年系統性證據摘要（高劑量證據品質低）. <span class="doi">請於引用前核對原指引</span></span></li>
+  </ul>
+
+  <div class="ref-sub">B. 草稿引用的 11 篇（編號沿用）</div>
+  <ul class="ref-list">
+    <li><span class="ref-num">[1]</span><span>Mermelstein S, Barbosa P, Kaski D. Neurological gait assessment. <i>Pract Neurol.</i> 2023;24(1):11-21. <span class="doi">DOI: 10.1136/pn-2023-003917</span></span></li>
+    <li><span class="ref-num">[2]</span><span>Sarasso E, Filippi M, Agosta F. Clinical and MRI features of gait and balance disorders in neurodegenerative diseases. <i>J Neurol.</i> 2022;270(3):1798-1807. <span class="doi">DOI: 10.1007/s00415-022-11544-7</span></span></li>
+    <li><span class="ref-num">[3]</span><span>Giordano I, Harmuth F, Jacobi H, et al. Clinical and genetic characteristics of sporadic adult-onset degenerative ataxia. <i>Neurology.</i> 2017;89(10):1043-1049（&gt;5 年）. <span class="doi">DOI: 10.1212/WNL.0000000000004311</span></span></li>
+    <li><span class="ref-num">[4]</span><span>Mitoma H, Manto M. Recent advances in diagnosis of immune-mediated cerebellar ataxias. <i>J Neurol.</i> 2024;271(10):7046-7053. <span class="doi">DOI: 10.1007/s00415-024-12596-7</span></span></li>
+    <li><span class="ref-num">[5]</span><span>Xie T. Multiple system atrophy. <i>Continuum.</i> 2025;31(4):1000-1022. <span class="doi">DOI: 10.1212/cont.0000000000001598</span></span></li>
+    <li><span class="ref-num">[6]</span><span>Cortese A, Simone R, Sullivan R, et al. Biallelic expansion of an intronic repeat in RFC1 is a common cause of late-onset ataxia. <i>Nat Genet.</i> 2019;51(4):649-658（&gt;5 年）. <span class="doi">DOI: 10.1038/s41588-019-0372-4</span></span></li>
+    <li><span class="ref-num">[7]</span><span>Roberts LJ, McVeigh M, Seiderer L, et al. Overview of the clinical approach to individuals with cerebellar ataxia and neuropathy. <i>Neurol Genet.</i> 2022;8(5). <span class="doi">DOI: 10.1212/nxg.0000000000200021</span></span></li>
+    <li><span class="ref-num">[8]</span><span>Nonnekes J, Růžička E, Serranová T, et al. Functional gait disorders. <i>Neurology.</i> 2020;94(24):1093-1099（&gt;5 年）. <span class="doi">DOI: 10.1212/wnl.0000000000009649</span></span></li>
+    <li><span class="ref-num">[9]</span><span>Cabal-Herrera AM, Tassanakijpanich N, Salcedo-Arellano MJ, Hagerman RJ. Fragile X-associated tremor/ataxia syndrome (FXTAS): pathophysiology and clinical implications. <i>Int J Mol Sci.</i> 2020;21(12):4391（&gt;5 年）. <span class="doi">DOI: 10.3390/ijms21124391</span></span></li>
+    <li><span class="ref-num">[10]</span><span>Dratch L, Azage M, Baldwin A, et al. Genetic testing in adults with neurologic disorders: indications, approach, and clinical impacts. <i>J Neurol.</i> 2023;271(2):733-747. <span class="doi">DOI: 10.1007/s00415-023-12058-6</span></span></li>
+    <li><span class="ref-num">[11]</span><span>Tenorio RB, Camargo CHF, Donis KC, Almeida CCB, Teive HAG. Diagnostic yield of NGS tests for hereditary ataxia: a systematic review. <i>Cerebellum.</i> 2024;23(4):1552-1565. <span class="doi">DOI: 10.1007/s12311-023-01629-y</span></span></li>
+  </ul>
+  <p style="margin-top:16px;font-size:.8rem;color:var(--text-faint);">「已查核」僅表示與檢索到的摘要或權威二手摘要一致；標為「未能查核」的數字請勿直接用於教學或發表。本頁除引用指引的藥物與劑量外，不提供處方劑量，臨床使用請依最新仿單與個案評估。</p>
+</section>
+
+<footer>
+  N-Teaching 神經科教學研究部 · 本頁面為住院醫師／專科護理師教學用整理資料，非臨床診斷依據 · <a href="index.html">返回首頁</a> · <a href="adult-ataxia-oral-exam.html">下集：專科醫師口試速記</a>
+</footer>
+
+<script>
+/* 自我測驗：要新增題目，複製一個 {...} 區塊再修改文字即可 */
+var QUIZ = [
+  { q: "52 歲男性，十多年慢性乾咳，近年步態不穩、手腳麻木，神經傳導顯示感覺動作電位缺失。最需要檢測的基因與方法是？",
+    opts: ["全外顯子定序即可", "RFC1 AAGGG 重複擴增（repeat-primed PCR 或專用檢測），外顯子定序偵測不到", "只需做 SCA6", "不需基因檢測"],
+    a: 1, why: "咳嗽常早於步態困難數十年；RFC1 為非編碼重複擴增，需專用檢測。150 位散發性晚發共濟失調中 22% 帶雙套擴增，合併感覺神經病變比例更高。" },
+  { q: "關於 SPORTAX 的 SAOA／non-MSA，下列何者正確？",
+    opts: ["以前瞻驗證的 10 年自律神經衰竭切點診斷", "操作性定義為不符合 MSA-C 且病程 >10 年；每年 SARA 增加約 1.1，MSA-C 約 3.3", "SAOA 的進展比 MSA-C 更快", "SAOA 一定有基因診斷"],
+    a: 1, why: "SAOA／non-MSA 是研究中的操作性定義；SARA 年增 1.1 vs 3.3；套組基因診斷率僅 6%（11/194）。" },
+  { q: "疑似 Wernicke 腦病，下列處理何者較符合指引？",
+    opts: ["thiamine 50 mg 口服每日一次", "高劑量靜脈 thiamine（EFNS 200 mg 每日 3 次；英國 RCP 500 mg 每日 3 次），先於或同時於葡萄糖給予並補鎂", "只給葡萄糖", "等 MRI 確診再治療"],
+    a: 1, why: "低劑量 thiamine 不足；治療不應等影像確診，MRI 正常不能排除。各指引劑量不一，高劑量證據品質低。" },
+  { q: "關於 FGF14（SCA27B），何者正確？",
+    opts: ["外顯子定序可可靠偵測", "占不同隊列未確診晚發共濟失調的 9–61%，常有下跳眼振與發作性症狀；4-AP 的療效證據為觀察性", "只見於兒童", "一定伴感覺神經病變"],
+    a: 1, why: "SCA27B 為 GAA 重複擴增，需專用檢測；表型為晚發全小腦症候群；美國隊列 21/28（75%）報告 4-AP 有效，但為回溯、非盲。" },
+  { q: "依 2021 年 PNS 診斷準則，抗體風險如何分層？",
+    opts: ["全部等同", "高風險（>70% 與癌症相關）、中風險（30–70%）與較低風險；除 opsoclonus-myoclonus 外，確定 PNS 需高或中風險抗體", "只有 anti-Yo 有意義", "不需要抗體"],
+    a: 1, why: "2021 準則以「高風險／中風險抗體」取代「onconeural antibody」，並將表型分為高風險與中風險，證據分為確定、很可能與可能。" }
+];
+var answered = 0, correct = 0;
+(function build(){
+  var box = document.getElementById("quiz-box");
+  QUIZ.forEach(function(item, qi){
+    var d = document.createElement("div"); d.className = "q";
+    var h = document.createElement("h4"); h.textContent = (qi+1) + ". " + item.q; d.appendChild(h);
+    item.opts.forEach(function(o, oi){
+      var b = document.createElement("button"); b.className = "opt"; b.type = "button"; b.textContent = o;
+      b.onclick = function(){
+        if (d.classList.contains("done")) return;
+        d.classList.add("done"); answered++;
+        var btns = d.querySelectorAll(".opt");
+        btns[item.a].classList.add("right");
+        if (oi === item.a) { correct++; } else { b.classList.add("wrong"); }
+        document.getElementById("score").textContent = "目前答對 " + correct + " / " + answered + "（共 " + QUIZ.length + " 題）";
+      };
+      d.appendChild(b);
+    });
+    var w = document.createElement("div"); w.className = "why"; w.textContent = "解析：" + item.why; d.appendChild(w);
+    box.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>

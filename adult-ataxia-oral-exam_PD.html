@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成人發病步態異常與運動失調：專科醫師口試速記（下）</title>
+<style>
+:root{
+  --bg:#0f1318;--bg-card:#19202a;--bg-card-hover:#202938;--border:#2c3545;
+  --text:#e9edf4;--text-dim:#9aa6b8;--text-faint:#647086;
+  --teal:#4fc3c3;--teal-dim:#245f60;
+  --rose:#ee7d70;--rose-dim:#7a3d37;
+  --gold:#e2b34b;--gold-dim:#85692b;
+  --blue:#6aa9f0;--blue-dim:#2d4f7e;
+  --green:#5cc79b;--green-dim:#265c48;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:70px;}
+body{background:var(--bg);color:var(--text);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;line-height:1.75;font-size:16px;}
+.en{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--text-dim);font-size:.86em;}
+a{color:var(--gold);text-decoration:none;} a:hover{text-decoration:underline;}
+
+.topnav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;
+  background:rgba(15,19,24,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px;}
+.brand{display:flex;align-items:center;}
+.logo-mark{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,var(--teal),var(--gold));display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#0f1318;}
+.brand:hover{text-decoration:none;}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap;align-items:center;}
+.nav-links a{color:var(--text-dim);font-size:.86rem;padding:7px 11px;border-radius:6px;transition:all .15s;}
+.nav-links a:hover{color:var(--text);background:var(--bg-card);text-decoration:none;}
+.nav-links a.home{color:var(--gold);}
+
+.hero{padding:60px 28px 38px;max-width:980px;margin:0 auto;border-bottom:1px solid var(--border);}
+.eyebrow{display:inline-flex;gap:8px;color:var(--teal);font-size:.82rem;letter-spacing:.05em;border:1px solid var(--teal-dim);padding:4px 12px;border-radius:20px;margin-bottom:18px;}
+.hero h1{font-size:2rem;font-weight:800;line-height:1.4;background:linear-gradient(90deg,var(--text) 45%,var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero .subtitle{margin-top:14px;color:var(--text-dim);max-width:780px;}
+.hero-meta{display:flex;gap:26px;margin-top:24px;flex-wrap:wrap;}
+.hero-meta div{font-size:.8rem;color:var(--text-faint);} .hero-meta b{color:var(--text);display:block;font-size:1.05rem;}
+
+section{max-width:980px;margin:0 auto;padding:50px 28px;border-bottom:1px solid var(--border);}
+.section-label{color:var(--gold);font-size:.78rem;letter-spacing:.08em;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.section-label::before{content:"";width:22px;height:2px;background:var(--gold);}
+h2{font-size:1.45rem;font-weight:700;margin-bottom:8px;} h2 .en{display:block;font-size:.72rem;margin-top:3px;font-weight:400;}
+h3{font-size:1.08rem;font-weight:700;margin:28px 0 10px;} h3 .en{font-size:.72rem;font-weight:400;}
+p{color:var(--text-dim);margin-bottom:14px;} p b,li b{color:var(--text);font-weight:600;}
+ul,ol{margin:10px 0 16px 22px;color:var(--text-dim);} li{margin-bottom:7px;}
+.lede{margin-bottom:22px;}
+
+.chip{display:inline-flex;align-items:center;gap:3px;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:5px;vertical-align:middle;margin:0 2px;white-space:nowrap;}
+.g-ok{background:rgba(92,199,155,.13);color:var(--green);border:1px solid var(--green-dim);}
+.g-text{background:rgba(154,166,184,.12);color:var(--text-dim);border:1px solid var(--border);}
+.g-guide{background:rgba(238,125,112,.12);color:var(--rose);border:1px solid var(--rose-dim);}
+.g-cohort{background:rgba(226,179,75,.13);color:var(--gold);border:1px solid var(--gold-dim);}
+.g-sr{background:rgba(106,169,240,.13);color:var(--blue);border:1px solid var(--blue-dim);}
+.legend{display:flex;gap:14px 20px;flex-wrap:wrap;margin:16px 0;padding:13px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:.78rem;color:var(--text-dim);}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:18px;}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .18s;}
+.card:hover{border-color:var(--gold-dim);background:var(--bg-card-hover);transform:translateY(-2px);}
+.card .icon{font-size:1.4rem;display:block;margin-bottom:8px;}
+.card .cat{font-size:.7rem;color:var(--teal);letter-spacing:.05em;font-weight:700;margin-bottom:4px;}
+.card h4{font-size:.98rem;margin-bottom:6px;} .card p{font-size:.85rem;margin-bottom:0;}
+
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--border);border-radius:8px;}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:640px;}
+th{background:rgba(226,179,75,.08);color:var(--gold);text-align:left;padding:10px 13px;font-size:.76rem;border-bottom:1px solid var(--border);}
+td{padding:10px 13px;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top;} tr:last-child td{border-bottom:none;} td b{color:var(--text);}
+
+.callout{background:rgba(79,195,195,.06);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);border-radius:6px;padding:15px 18px;margin:18px 0;color:var(--text-dim);font-size:.9rem;}
+.callout b{color:var(--teal);}
+.callout.warn{background:rgba(238,125,112,.06);border-color:var(--rose-dim);border-left-color:var(--rose);} .callout.warn b{color:var(--rose);}
+
+.flow{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin:18px 0;}
+.flow-step{flex:1 1 150px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:13px 14px;min-width:140px;}
+.flow-step .n{font-size:.7rem;color:var(--gold);font-weight:700;letter-spacing:.05em;}
+.flow-step h5{font-size:.9rem;margin:3px 0;} .flow-step p{font-size:.78rem;margin:0;}
+.flow-arrow{display:flex;align-items:center;color:var(--text-faint);padding:0 6px;}
+
+details{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;margin:12px 0;overflow:hidden;}
+details[open]{border-color:var(--gold-dim);}
+summary{cursor:pointer;padding:14px 18px;font-weight:600;font-size:.96rem;color:var(--text);list-style:none;display:flex;gap:10px;align-items:flex-start;}
+summary::-webkit-details-marker{display:none;}
+summary::before{content:"▸";color:var(--gold);flex-shrink:0;transition:transform .15s;}
+details[open] summary::before{transform:rotate(90deg);}
+.ans{padding:2px 20px 16px 38px;font-size:.9rem;}
+.ans .tag{font-size:.72rem;color:var(--teal);font-weight:700;letter-spacing:.05em;margin:10px 0 2px;display:block;}
+.ans ul{margin:4px 0 8px 18px;}
+
+.q{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;margin:14px 0;}
+.q h4{font-size:.96rem;margin-bottom:10px;line-height:1.6;}
+.q .opt{display:block;width:100%;text-align:left;background:var(--bg);color:var(--text-dim);border:1px solid var(--border);border-radius:7px;padding:9px 13px;margin-bottom:7px;cursor:pointer;font-size:.88rem;font-family:inherit;transition:all .15s;}
+.q .opt:hover{border-color:var(--gold-dim);color:var(--text);}
+.q .opt.right{border-color:var(--green);color:var(--green);background:rgba(92,199,155,.08);}
+.q .opt.wrong{border-color:var(--rose);color:var(--rose);background:rgba(238,125,112,.08);}
+.q .why{display:none;margin-top:10px;font-size:.84rem;color:var(--text-dim);border-top:1px dashed var(--border);padding-top:10px;}
+.q.done .why{display:block;}
+.score{margin-top:12px;font-size:.9rem;color:var(--gold);font-weight:700;}
+
+footer{max-width:980px;margin:0 auto;padding:34px 28px 60px;color:var(--text-faint);font-size:.8rem;}
+@media(max-width:700px){.hero h1{font-size:1.5rem;}section{padding:38px 18px;}.ans{padding-left:20px;}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="brand"><span class="logo-mark">N</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="home">← 首頁</a>
+    <a href="adult-ataxia-diagnosis.html">上集：診斷整合路徑</a>
+    <a href="#frame">答題骨架</a>
+    <a href="#numbers">必背數字</a>
+    <a href="#mock">模擬題</a>
+    <a href="#tables">速記表</a>
+    <a href="#traps">陷阱與加分</a>
+    <a href="#quiz">自我測驗</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">● 專科醫師口試 · 下集 <span class="en">Part 2 of 2</span></div>
+  <h1>成人發病步態異常與運動失調：專科醫師口試速記</h1>
+  <p class="subtitle">把上集的診斷整合路徑壓縮成「可以在口試中說出口」的版本：答題骨架、必背數字、模擬題與標準答法、影像與抗體速記表，以及最常見的陷阱。所有數字來自上集已查核的文獻；教科書概念會特別標示，請先回上集核對來源。</p>
+  <div class="hero-meta">
+    <div><b>30 秒</b>開場骨架</div>
+    <div><b>12 題</b>模擬口試</div>
+    <div><b>只列已查核</b>必背數字</div>
+    <div><b>上集</b><a href="adult-ataxia-diagnosis.html">診斷整合路徑</a></div>
+  </div>
+</div>
+
+<section id="usage">
+  <div class="section-label">使用方式 <span class="en">How to use</span></div>
+  <h2>先看標示，再背內容</h2>
+  <div class="legend">
+    <span><span class="chip g-ok">已查核</span> 與上集查核過的文獻或準則一致</span>
+    <span><span class="chip g-text">教科書概念</span> 通行教科書知識，本次未逐項查證，請對照教科書或指引</span>
+  </div>
+  <div class="callout"><b>口試心法：</b>先給架構，再給重點，最後說「我會怎麼確認與處置」。不確定的數字，用「大約」或「依研究而異」帶過，比說錯精確數字安全。</div>
+</section>
+
+<section id="frame">
+  <div class="section-label">01 · 答題骨架 <span class="en">Answer Framework</span></div>
+  <h2>30 秒開場：一句話分流<span class="en">A repeatable opening</span></h2>
+  <div class="flow">
+    <div class="flow-step"><div class="n">①</div><h5>定位</h5><p>小腦性、感覺性、前庭性，或其他步態障礙（高階、帕金森、功能性）。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">②</div><h5>速度</h5><p>數週至 3 個月 → 免疫、副腫瘤、感染、毒性；數年 → 遺傳、退化。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">③</div><h5>可逆病因</h5><p>酒精、藥物、維生素、甲狀腺、免疫、感染、結構、iNPH。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">④</div><h5>紅旗表型</h5><p>自律神經與 RBD → MSA-C；咳嗽＋神經病變 → RFC1；發作性＋下跳眼振 → FGF14。</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="n">⑤</div><h5>檢查與基因</h5><p>腦脊髓 MRI、實驗室；重複擴增優先，再 ES／GS。</p></div>
+  </div>
+  <div class="callout"><b>可直接背的開場句：</b>「我會先判斷是小腦、感覺或前庭性失調，還是其他步態障礙；再依病程速度分流可治療的次發病因；緩慢進展者再看自律神經、神經病變、前庭與眼動等表型線索，並以腦脊髓 MRI、基礎實驗室與重複擴增優先的基因策略確認。」</div>
+</section>
+
+<section id="numbers">
+  <div class="section-label">02 · 必背數字 <span class="en">Numbers to Know</span></div>
+  <h2>只放已查核的數字<span class="en">Verified figures only</span></h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">主題</th><th>數字</th><th style="width:18%">來源</th></tr></thead>
+      <tbody>
+        <tr><td><b>SPORTAX（散發成人共濟失調）</b></td><td>249 人；MSA-C 年增 SARA 3.3、SAOA 1.1；套組基因診斷 6%（11/194）</td><td><span class="chip g-ok">Giordano 2017</span></td></tr>
+        <tr><td><b>SAOA 的定義</b></td><td>不符合 MSA-C，且病程 &gt;10 年（研究的操作性定義）</td><td><span class="chip g-ok">Giordano 2017</span></td></tr>
+        <tr><td><b>NGS 診斷率</b></td><td>中位 43%；套組 46%；外顯子 41.9%；發作性共濟失調 68.4%；近親婚配 52.4%；推定隱性 62.5%</td><td><span class="chip g-ok">Tenorio 2023</span></td></tr>
+        <tr><td><b>RFC1</b></td><td>散發性晚發共濟失調 22%（33/150）；晚發小腦性共濟失調合併感覺神經病變 63%；歐洲人帶因率 0.7%；100 例中約三分之二為完整 CANVAS</td><td><span class="chip g-ok">Cortese 2019、2020</span></td></tr>
+        <tr><td><b>FGF14（SCA27B）</b></td><td>占不同隊列未確診者的 9–61%；平均發病約 57–60 歲；美國 102 例中 21/28（75%）報告 4-AP 有效（回溯、非盲）</td><td><span class="chip g-ok">Wilke 2023、Ann Neurol 2024</span></td></tr>
+        <tr><td><b>PNS 抗體風險</b></td><td>高風險 &gt;70%；中風險 30–70%；較低風險為其餘；除 opsoclonus-myoclonus 外，確定 PNS 需高或中風險抗體</td><td><span class="chip g-ok">Graus 2021</span></td></tr>
+        <tr><td><b>MSA 2022 MDS 準則</b></td><td>clinically established（需 MRI 標記）、clinically probable、possible prodromal（研究用）；需前瞻性驗證</td><td><span class="chip g-ok">Wenning 2022</span></td></tr>
+        <tr><td><b>Omaveloxolone</b></td><td>FDA 2023 年 2 月（≥16 歲）；歐盟執委會 2024 年 2 月 9 日；MOXIe Part 2（150 mg 每日，48 週 mFARS）</td><td><span class="chip g-ok">FRDA 指引、EMA</span></td></tr>
+        <tr><td><b>Wernicke thiamine</b></td><td>EFNS 200 mg IV 每日 3 次；英國 RCP 500 mg IV 每日 3 次後逐步減量；先於或同時於葡萄糖；補鎂；高劑量證據品質低</td><td><span class="chip g-ok">指引比較</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="mock">
+  <div class="section-label">03 · 模擬口試題 <span class="en">Mock Oral Questions</span></div>
+  <h2>點開看標準答法<span class="en">Click to reveal</span></h2>
+  <p class="lede">每題先自己用 30 秒口述，再點開對照。「加分點」是口試官常追問的方向，「地雷」是常見失分說法。</p>
+
+  <details>
+    <summary>Q1　50 歲男性，3 年來緩慢進行性步態不穩，沒有明確家族史。你怎麼處理？</summary>
+    <div class="ans">
+      <span class="tag">答題要點</span>
+      <ul>
+        <li>先確認是否為小腦性（閉眼不明顯惡化）、感覺性或前庭性，並排除高階步態、帕金森與功能性步態。</li>
+        <li>病程為數年，先找可逆病因：酒精、藥物（鋰、phenytoin、amiodarone 等）、B1/B12/E、甲狀腺、免疫、感染、結構。</li>
+        <li>查自律神經與 RBD、感覺神經病變與前庭、慢性咳嗽、家族史（三代）。</li>
+        <li>所有人做腦與脊髓 MRI；基礎實驗室；再依表型做免疫、神經傳導、vHIT。</li>
+        <li>可逆因素排除後，提供基因檢測，重複擴增優先。</li>
+      </ul>
+      <span class="tag">加分點</span>
+      <ul><li>SPORTAX：排除常見重複擴增後，套組診斷率僅 6%，所以順序要正確。</li><li>不能因為沒有家族史就不做基因檢測。</li></ul>
+      <span class="tag">地雷</span>
+      <ul><li>一開始就直接做大型基因套組，沒有先排除可逆病因。</li></ul>
+      <span class="chip g-ok">已查核</span>
+    </div>
+  </details>
+
+  <details>
+    <summary>Q2　怎麼區分小腦性、感覺性與前庭性失調？</summary>
+    <div class="ans">
+      <span class="tag">答題要點</span>
+      <ul>
+        <li><b>小腦性</b>：掃視性追蹤、凝視誘發眼振、辨距不良、構音障礙；閉眼不明顯惡化。</li>
+        <li><b>感覺性</b>：本體感覺喪失、反射減弱；閉眼與暗處明顯惡化。</li>
+        <li><b>前庭性</b>：洗臉洗頭與暗處不穩；vHIT 糾正性掃視、動態視力下降。</li>
+      </ul>
+      <span class="tag">加分點</span>
+      <ul><li>CANVAS 三者可並存；共濟失調與本體感覺缺損不成比例時要主動評估前庭。</li></ul>
+      <span class="chip g-text">教科書概念</span>
+    </div>
+  </details>
+
+  <details>
+    <summary>Q3　亞急性（數週至數月）小腦症候群，怎麼想？怎麼查？</summary>
+    <div class="ans">
+      <span class="tag">答題要點</span>
+      <ul>
+        <li>鑑別：副腫瘤性、橋本相關腦病（SREAT）、免疫檢查點抑制劑相關、HIV、CJD 共濟失調型、毒性、營養。</li>
+        <li>檢查：腦脊髓液（細胞數、寡株帶、14-3-3）、抗體（含高風險與中風險抗體）、全身腫瘤篩檢（含 FDG-PET/CT）、腦 MRI（含 DWI）。</li>
+        <li>2021 PNS 準則：「rapidly progressive cerebellar syndrome」為高風險表型；抗體風險 &gt;70% 為高、30–70% 為中。</li>
+      </ul>
+      <span class="tag">加分點</span>
+      <ul><li>早期 MRI 常正常，不能排除；神經症狀常先於腫瘤診斷，初次篩檢陰性要追蹤。</li></ul>
+      <span class="tag">地雷</span>
+      <ul><li>只因 MRI 正常就排除副腫瘤性小腦退化。</li></ul>
+      <span class="chip g-ok">已查核（PNS 風險分層）</span> <span class="chip g-text">教科書概念（其餘）</span>
+    </div>
+  </details>
+
+  <details>
+    <summary>Q4　慢性乾咳十多年，近來步態不穩與手腳麻木，你想到什麼？</summary>
+    <div class="ans">
+      <span class="tag">答題要點</span>
+      <ul>
+        <li>RFC1 相關疾病（CANVAS 譜系）：小腦性共濟失調、感覺神經元病變（神經節病變）、雙側前庭病變，慢性咳嗽常早於步態困難數十年。</li>
+        <li>檢查：神經傳導（感覺動作電位缺失、運動傳導多正常）、vHIT、腦 MRI（小腦萎縮）。</li>
+        <li>檢測：RFC1 AAGGG 重複擴增（repeat-primed PCR 或專用方法），<b>外顯子定序偵測不到</b>。</li>
+      </ul>
+      <span class="tag">數字</span>
+      <ul><li>150 例散發性晚發共濟失調中 22%；合併感覺神經病變 63%；歐洲人帶因率 0.7%。</li></ul>
+      <span class="chip g-ok">已查核</span>
+    </div>
+  </details>
+
+  <details>
+    <summary>Q5　MSA-C 與 SAOA 怎麼分？2022 MDS 準則重點？</summary>
+    <div class="ans">
+      <span class="tag">答題要點</span>
+      <ul>
+        <li>MSA-C：自律神經衰竭（姿勢性低血壓、排尿障礙）、RBD、喘鳴、L-dopa 反應差、早期跌倒、腦橋與中小腦腳萎縮。</li>
+        <li>SAOA 是排除診斷：不符合 MSA-C 且病程 &gt;10 年；SARA 年增約 1.1，MSA-C 約 3.3。</li>
+        <li>2022 MDS 準則：clinically established（需 MRI 標記）、clinically probable、possible prodromal（研究用）；需前瞻性驗證。</li>
+      </ul>
+      <span class="tag">加分點</span>
+      <ul><li>自律神經衰竭可晚於共濟失調數年出現；初診沒有不能排除 MSA-C，需追蹤。</li></ul>
+      <span class="tag">地雷</span>
+      <ul><li>把「10 年無自律神經衰竭」說成已驗證的診斷切點。</li></ul>
+      <span class="chip g-ok">已查核</span>
+    </div>
+  </details>
+
+  <details>
+    <summary>Q6　基因檢測的順序？為什麼外顯子定序不夠？</summary>
+    <div class="ans">
+      <span class="tag">答題要點</span>
+      <ul>
+        <li>家系圖與表型 → 排除可逆病因 → <b>重複擴增優先</b>（SCA1/2/3/6/7、FRDA、RFC1、FGF14、FMR1 依表型）→ 陰性再做 ES／GS（含粒線體與拷貝數變異）。</li>
+        <li>外顯子定序無法可靠偵測非編碼重複擴增（如 RFC1、FGF14）。</li>
+      </ul>
+      <span class="tag">數字</span>
+      <ul><li>NGS 診斷率中位 43%；有做重複擴增篩檢的研究診斷率較高（p = 0.047）；SPORTAX 套組僅 6%。</li></ul>
+      <span class="tag">加分點</span>
+      <ul><li>基因診斷影響治療（omaveloxolone）、器官監測（FRDA 心肌病變）與家族諮詢。</li></ul>
+      <span class="chip g-ok">已查核</span>
+    </div>
+  </details>
+
+  <details>
+    <summary>Q7　Friedreich 共濟失調的診斷與治療？</summary>
+    <div class="ans">
+      <span class="tag">答題要點</span>
+      <ul>
+        <li>常染色體隱性；成人晚發型存在，常有錐體徵、本體感覺喪失、頸髓萎縮與心肌病變（教科書概念）。</li>
+        <li>檢測 FXN GAA 重複擴增。</li>
+        <li>Omaveloxolone（Nrf2 活化劑）：MOXIe Part 2 隨機試驗；FDA 2023 年 2 月核准、歐盟 2024 年 2 月核准，適用 ≥16 歲；臨床處置指引 2024 年 11 月更新並新增建議。</li>
+      </ul>
+      <span class="tag">地雷</span>
+      <ul><li>說成「EMA 2018 核准」是錯的。</li></ul>
+      <span class="chip g-ok">已查核（藥物與指引）</span> <span class="chip g-text">教科書概念（表現）</span>
+    </div>
+  </details>
+
+  <details>
+    <summary>Q8　晚發、發作性症狀、下跳眼振，你想到什麼基因？</summary>
+    <div class="ans">
+      <span class="tag">答題要點</span>
+      <ul>
+        <li>FGF14 GAA 重複擴增（SCA27B）：晚發、緩慢進展的全小腦症候群，常有下跳眼振與發作性症狀。</li>
+        <li>占不同隊列未確診晚發共濟失調的 9–61%；平均發病約 57–60 歲；專用重複擴增檢測。</li>
+        <li>4-aminopyridine：美國 102 例中 21/28（75%）報告有效，但為回溯、非盲資料，不是 RCT 證據。</li>
+      </ul>
+      <span class="tag">地雷</span>
+      <ul><li>把「20%」當作固定比例；實際因隊列差異很大。</li></ul>
+      <span class="chip g-ok">已查核</span>
+    </div>
+  </details>
+
+  <details>
+    <summary>Q9　酒精性小腦退化的處置？疑似 Wernicke 時 thiamine 怎麼給？</summary>
+    <div class="ans">
+      <span class="tag">答題要點</span>
+      <ul>
+        <li>戒酒、營養支持；蚓部萎縮、以步態為主。</li>
+        <li>疑似 Wernicke：高劑量<b>靜脈</b> thiamine，先於或同時於葡萄糖，並補鎂；治療不等影像確診。</li>
+        <li>劑量：EFNS 200 mg 每日 3 次；英國 RCP 500 mg 每日 3 次後逐步減量。</li>
+      </ul>
+      <span class="tag">地雷</span>
+      <ul><li>只給 50–100 mg 的低劑量，或只給口服。</li><li>指引劑量並不一致，高劑量的證據品質低，要誠實說。</li></ul>
+      <span class="chip g-ok">已查核</span>
+    </div>
+  </details>
+
+  <details>
+    <summary>Q10　什麼時候要想 FXTAS？</summary>
+    <div class="ans">
+      <span class="tag">答題要點</span>
+      <ul>
+        <li>50 歲以上、意向性顫抖加小腦性步態、周邊神經病變、認知或自律神經症狀；脆性 X 家族史（智能障礙、自閉、卵巢早衰）。</li>
+        <li>MRI：中小腦腳高訊號（MCP sign）、胼胝體壓部高訊號。</li>
+        <li>確診需 FMR1 前突變（55–200 CGG）檢測，並提供家族諮詢。</li>
+      </ul>
+      <span class="chip g-text">教科書概念</span>
+    </div>
+  </details>
+
+  <details>
+    <summary>Q11　功能性步態障礙怎麼診斷？有什麼陷阱？</summary>
+    <div class="ans">
+      <span class="tag">答題要點</span>
+      <ul>
+        <li>靠正向徵象，而非排除：不一致（inconsistency）、不相稱（incongruity）；雙重任務、倒退走、跑步時反而改善；誇大的軀幹搖晃卻不跌倒。</li>
+        <li>器質性（小腦、感覺、前庭）步態在雙重任務下更差。</li>
+      </ul>
+      <span class="tag">地雷</span>
+      <ul><li>肌張力不全、凍結步態、異動症與額葉病灶也可能看起來很怪，不要直接診斷功能性。</li></ul>
+      <span class="chip g-text">教科書概念</span>
+    </div>
+  </details>
+
+  <details>
+    <summary>Q12　高階步態障礙與 iNPH 如何辨識？</summary>
+    <div class="ans">
+      <span class="tag">答題要點</span>
+      <ul>
+        <li>起步困難、小碎步、磁性步態、轉身困難；對視覺與聽覺提示反應差；常見於腦小血管病、額葉病變、iNPH。</li>
+        <li>iNPH：腦室擴大不成比例、DESH；腦脊髓液引流或分流有機會改善，屬可治療的步態障礙。</li>
+      </ul>
+      <span class="chip g-text">教科書概念</span>
+    </div>
+  </details>
+</section>
+
+<section id="tables">
+  <div class="section-label">04 · 速記表 <span class="en">Cheat Tables</span></div>
+  <h2>影像與表型一頁帶走<span class="en">Imaging &amp; phenotype</span></h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:36%">看到…</th><th style="width:22%">想到…</th><th>追加一句</th></tr></thead>
+      <tbody>
+        <tr><td>前上蚓部萎縮</td><td>酒精性小腦退化</td><td>步態與下肢為主</td></tr>
+        <tr><td>腦橋十字麵包徵、中小腦腳萎縮</td><td>MSA-C</td><td>也可見於 SCA；結合自律神經</td></tr>
+        <tr><td>MCP sign、壓部高訊號</td><td>FXTAS</td><td>FMR1</td></tr>
+        <tr><td>小腦萎縮＋感覺神經病變＋雙側前庭低下</td><td>RFC1／CANVAS</td><td>慢性咳嗽</td></tr>
+        <tr><td>腦與脊髓表面 T2 線狀低訊號</td><td>表面含鐵血黃素沉積症</td><td>找出血源</td></tr>
+        <tr><td>頸髓後索 T2 高訊號</td><td>B12 缺乏</td><td>感覺性共濟失調</td></tr>
+        <tr><td>皮質帶狀、基底核 DWI 高訊號</td><td>CJD 共濟失調型</td><td>14-3-3</td></tr>
+        <tr><td>腦室擴大不成比例、DESH</td><td>iNPH</td><td>可治療</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="traps">
+  <div class="section-label">05 · 陷阱與加分 <span class="en">Traps &amp; Bonus</span></div>
+  <h2>口試最常失分的說法<span class="en">Common pitfalls</span></h2>
+  <div class="card-grid">
+    <div class="card"><span class="icon">🚫</span><div class="cat">不要這樣說</div><h4>「沒有家族史就不用基因檢測」</h4><p>無家族史不能排除遺傳病因；40 歲後發病的散發病人，RFC1 與 FGF14 都很常見。</p></div>
+    <div class="card"><span class="icon">🚫</span><div class="cat">不要這樣說</div><h4>「外顯子定序陰性就排除遺傳」</h4><p>重複擴增外顯子定序偵測不到，需專用檢測。</p></div>
+    <div class="card"><span class="icon">🚫</span><div class="cat">不要這樣說</div><h4>「MRI 正常就不是副腫瘤性」</h4><p>早期 MRI 常正常，小腦萎縮有潛伏期。</p></div>
+    <div class="card"><span class="icon">🚫</span><div class="cat">不要這樣說</div><h4>「thiamine 50 mg 就夠」</h4><p>疑似 Wernicke 需高劑量靜脈 thiamine。</p></div>
+    <div class="card"><span class="icon">✅</span><div class="cat">加分</div><h4>主動說明證據強度</h4><p>例如「4-AP 的證據來自回溯、非盲研究」「SAOA 的 10 年是研究的操作性定義」。</p></div>
+    <div class="card"><span class="icon">✅</span><div class="cat">加分</div><h4>提到基因諮詢與追蹤</h4><p>檢測前後諮詢、家族成員、MSA-C 轉換風險的重複評估。</p></div>
+  </div>
+  <div class="callout warn"><b>提醒：</b>本頁內容為口試準備用的整理資料；標為「教科書概念」的項目請對照教科書或最新指引，所有處方與劑量請依仿單與本院流程。</div>
+</section>
+
+<section id="quiz">
+  <div class="section-label">06 · 自我測驗 <span class="en">Self-check</span></div>
+  <h2>五題數字與觀念</h2>
+  <div id="quiz-box"></div>
+  <div class="score" id="score"></div>
+</section>
+
+<footer>
+  N-Teaching 神經科教學研究部 · 本頁面為專科醫師口試準備用整理資料，非臨床診斷依據 · <a href="index.html">返回首頁</a> · <a href="adult-ataxia-diagnosis.html">上集：診斷整合路徑與參考文獻</a>
+</footer>
+
+<script>
+/* 自我測驗：要新增題目，複製一個 {...} 區塊再修改文字即可 */
+var QUIZ = [
+  { q: "SPORTAX 中，MSA-C 與 SAOA 每年 SARA 增加分別約為？",
+    opts: ["1.1 與 3.3", "3.3 與 1.1", "5 與 5", "0.5 與 0.5"],
+    a: 1, why: "MSA-C 每年增加約 3.3，SAOA 約 1.1（Giordano 2017）。" },
+  { q: "RFC1 重複擴增在 150 位散發性晚發共濟失調中的比例約為？",
+    opts: ["2%", "22%", "52%", "92%"],
+    a: 1, why: "Cortese 2019：33/150（22%）；合併感覺神經病變時更高（63%）。" },
+  { q: "FGF14（SCA27B）占未確診晚發共濟失調的比例，何者最正確？",
+    opts: ["固定 20%", "依隊列 9–61%", "<1%", "只見於兒童"],
+    a: 1, why: "不同隊列報告 9–61%，需專用重複擴增檢測。" },
+  { q: "omaveloxolone 的核准時間與年齡，何者正確？",
+    opts: ["EMA 2018", "FDA 2023 年 2 月；歐盟 2024 年 2 月；≥16 歲", "FDA 2018；歐盟 2020", "僅限兒童"],
+    a: 1, why: "FDA 2023 年 2 月；歐盟執委會 2024 年 2 月 9 日；適用 ≥16 歲。" },
+  { q: "2021 年 PNS 準則的抗體風險分層為？",
+    opts: ["高風險 >70%、中風險 30–70%", "高風險 >30%、中風險 10–30%", "只有高風險", "不分層"],
+    a: 0, why: "Graus 2021：高風險（>70% 與癌症相關）、中風險（30–70%）；除 opsoclonus-myoclonus 外，確定 PNS 需高或中風險抗體。" }
+];
+var answered = 0, correct = 0;
+(function build(){
+  var box = document.getElementById("quiz-box");
+  QUIZ.forEach(function(item, qi){
+    var d = document.createElement("div"); d.className = "q";
+    var h = document.createElement("h4"); h.textContent = (qi+1) + ". " + item.q; d.appendChild(h);
+    item.opts.forEach(function(o, oi){
+      var b = document.createElement("button"); b.className = "opt"; b.type = "button"; b.textContent = o;
+      b.onclick = function(){
+        if (d.classList.contains("done")) return;
+        d.classList.add("done"); answered++;
+        var btns = d.querySelectorAll(".opt");
+        btns[item.a].classList.add("right");
+        if (oi === item.a) { correct++; } else { b.classList.add("wrong"); }
+        document.getElementById("score").textContent = "目前答對 " + correct + " / " + answered + "（共 " + QUIZ.length + " 題）";
+      };
+      d.appendChild(b);
+    });
+    var w = document.createElement("div"); w.className = "why"; w.textContent = "解析：" + item.why; d.appendChild(w);
+    box.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>
